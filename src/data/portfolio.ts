@@ -29,6 +29,7 @@ export interface Post {
   readingTime: string;
   description: string;
   slug: string;
+  content?: string[];
 }
 
 export interface PlaygroundItem {
@@ -141,6 +142,12 @@ export const portfolioData: PortfolioData = {
       readingTime: "4 MIN",
       description: "Why the best software is the one that disappears into the background and lets human intention breathe without endless push notifications.",
       slug: "quiet-interfaces",
+      content: [
+        "Modern digital interfaces are louder than ever. Banners, modals, tooltip tours, and bright red badges compete aggressively for every fraction of our attention.",
+        "Quiet software takes the opposite stance: it honors silence. It treats user attention as a finite, precious resource that should never be squandered on engagement metrics.",
+        "When designing calm interfaces, clarity comes from constraint. We reduce sensory friction by embracing generous whitespace, predictable spatial hierarchies, and typography that guides rather than shouts.",
+        "The goal isn't minimalism for the sake of aesthetics—it's about creating tools that feel lightweight, transparent, and entirely subservient to human intention."
+      ],
     },
     {
       title: "Crafting Micro-Haptic Audio on the Modern Web",
@@ -148,6 +155,12 @@ export const portfolioData: PortfolioData = {
       readingTime: "6 MIN",
       description: "Techniques for synthesizing dynamic subtle audio cues using the Web Audio API without adding payload bloat.",
       slug: "micro-haptic-audio",
+      content: [
+        "Sound on the web has historically suffered a bad reputation, largely due to auto-playing background tracks and screeching notification chimes.",
+        "However, when used sparingly with physical tactile intuition, micro-audio feedback can ground digital interactions into tactile reality.",
+        "Using the browser's native Web Audio API, we can generate pure sine wave pulses and micro-ramps on the fly without downloading external audio files or adding network latency.",
+        "By fine-tuning gain ramps to under 80 milliseconds and frequencies between 440Hz and 880Hz, feedback feels crisp and haptic—like tapping high-grade physical switches."
+      ],
     },
     {
       title: "The Architecture of Ambient AI Agents",
@@ -155,6 +168,12 @@ export const portfolioData: PortfolioData = {
       readingTime: "5 MIN",
       description: "Exploring proactive contextual interactions that anticipate user needs calmly without constant popups or noisy banners.",
       slug: "ambient-ai-agents",
+      content: [
+        "Most current AI interfaces follow the conversational chatbot paradigm: an empty text box demanding prompt engineering.",
+        "Ambient agents invert this pattern. Instead of waiting for explicit instructions, they observe state, anticipate friction points, and prepare contextual workflows silently.",
+        "The key architectural challenge is deciding when to surface information. An effective agent executes in the background, surfacing only when confidence is high and user value is undeniable.",
+        "When designed with calm ergonomics, AI ceases to be a novelty conversational partner and transforms into seamless, ambient intelligence."
+      ],
     },
   ],
   experiences: [

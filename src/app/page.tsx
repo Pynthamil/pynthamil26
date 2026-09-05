@@ -849,54 +849,29 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
               </div>
 
               <div className="divide-y divide-neutral-200/70">
-                {portfolioData.writings.map((post, idx) => {
-                  const isOpen = expandedBlogSlug === post.slug;
-                  return (
-                    <div key={idx} className="py-4.5 sm:py-5">
-                      <div
-                        onClick={() => {
-                          playTone(880);
-                          setExpandedBlogSlug(isOpen ? null : post.slug);
-                        }}
-                        className="flex items-center justify-between cursor-pointer group select-none"
-                      >
-                        <div>
-                          <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#6666FF] transition-colors">
-                            {post.title.toLowerCase()}
-                          </h2>
-                          <p className="font-mono text-xs text-[#11408F] mt-0.5">
-                            {post.date.toLowerCase()} &bull; {post.readingTime.toLowerCase()} read
-                          </p>
-                        </div>
-                        <div>
-                          <span className={`font-mono text-[15px] sm:text-base font-medium text-[#11408F] group-hover:text-[#6666FF] transition-all duration-200 select-none leading-none inline-block ${isOpen ? "rotate-90 text-[#6666FF]" : ""}`}>
-                            ↗
-                          </span>
-                        </div>
+                {portfolioData.writings.map((post, idx) => (
+                  <div key={idx} className="py-4.5 sm:py-5">
+                    <a
+                      href={`/blog/${post.slug}`}
+                      onClick={() => playTone(880)}
+                      className="flex items-center justify-between group select-none cursor-pointer"
+                    >
+                      <div>
+                        <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#6666FF] transition-colors">
+                          {post.title.toLowerCase()}
+                        </h2>
+                        <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                          {post.date.toLowerCase()} &bull; {post.readingTime.toLowerCase()} read
+                        </p>
                       </div>
-
-                      {isOpen && (
-                        <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
-                          <p className="text-[#232564] leading-relaxed">
-                            {post.description}
-                          </p>
-                          <div className="pt-1">
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                playTone(880);
-                                setSelectedPost(post);
-                              }}
-                              className="font-mono text-xs text-[#6666FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
-                            >
-                              <span>read full post &rarr;</span>
-                            </button>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+                      <div>
+                        <span className="font-mono text-[15px] sm:text-base font-medium text-[#11408F] group-hover:text-[#6666FF] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150 select-none leading-none inline-block">
+                          ↗
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                ))}
               </div>
             </section>
 
