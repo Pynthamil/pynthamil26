@@ -1,4 +1,4 @@
-import { PortfolioView } from "../page";
+import { PortfolioView } from "@/components/PortfolioView";
 
 export const metadata = {
   title: "Blog — Pynthamil Pavendan",
