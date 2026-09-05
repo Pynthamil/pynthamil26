@@ -14,7 +14,7 @@
 .dark {
   --bg-color: #0B0C0F;
   --text-main: #F5F5FF;
-  --text-muted: #9999FF;
+  --text-muted: #AEF0FF;
   --text-secondary: #F5F5FF;
   --accent-pink: #FF94FF;
   --accent-purple: #9999FF;
@@ -24,7 +24,7 @@
   :root {
     --bg-color: #0B0C0F;
     --text-main: #F5F5FF;
-    --text-muted: #9999FF;
+    --text-muted: #AEF0FF;
     --text-secondary: #F5F5FF;
     --accent-pink: #FF94FF;
     --accent-purple: #9999FF;

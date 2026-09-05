@@ -98,7 +98,7 @@ export default function BlogPostPage() {
           </Link>
 
           <div className="flex items-center space-x-3.5">
-            <span className="font-mono text-xs text-[#11408F] dark:text-[#9999FF]">
+            <span className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF]">
               {post.readingTime.toLowerCase()} read
             </span>
             <button
@@ -155,7 +155,7 @@ export default function BlogPostPage() {
             <h1 className="text-[21px] sm:text-[23px] font-medium text-[#232564] dark:text-[#F5F5FF] leading-snug">
               {post.title.toLowerCase()}
             </h1>
-            <div className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] mt-2 flex items-center space-x-2">
+            <div className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-2 flex items-center space-x-2">
               <span>{post.date.toLowerCase()}</span>
               <span>&bull;</span>
               <span>pynthamil pavendan</span>
@@ -170,37 +170,37 @@ export default function BlogPostPage() {
               {/* Intro */}
               <div className="space-y-3.5">
                 <p>At some point, just committing code isn’t enough.</p>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF]">You start wondering:</p>
-                <p className="italic text-[#232564] dark:text-[#F5F5FF] pl-2 border-l-2 border-[#11408F]/40 dark:border-[#9999FF]/40">
+                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF]">You start wondering:</p>
+                <p className="italic text-[#232564] dark:text-[#F5F5FF] pl-2 border-l-2 border-[#11408F]/40 dark:border-[#AEF0FF]/40">
                   can I interact with GitHub programmatically?
                 </p>
                 <p>
                   That’s where the <span className="font-medium text-[#FF42FF] dark:text-[#FF94FF]">GitHub REST API</span> comes in.
                 </p>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF] pt-1">It lets you:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF] pt-1">It lets you:</p>
                 <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>create repositories automatically</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>fetch repository data</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>automate workflows</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>build tools that interact with GitHub</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>understand what’s happening behind the UI</span>
                   </li>
                 </ul>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] pt-1">
+                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] pt-1">
                   Let’s walk through the basics.
                 </p>
               </div>
@@ -213,24 +213,24 @@ export default function BlogPostPage() {
                 <p>
                   The GitHub REST API allows developers to communicate with GitHub using HTTP requests.
                 </p>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">
                   Instead of clicking buttons on GitHub’s website, you can send requests like:
                 </p>
                 <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#9999FF]">GET</span>
+                    <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">GET</span>
                     <span>&rarr; retrieve data</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#9999FF]">POST</span>
+                    <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">POST</span>
                     <span>&rarr; create data</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#9999FF]">PATCH</span>
+                    <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">PATCH</span>
                     <span>&rarr; update data</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#9999FF]">DELETE</span>
+                    <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">DELETE</span>
                     <span>&rarr; remove data</span>
                   </li>
                 </ul>
@@ -247,7 +247,7 @@ export default function BlogPostPage() {
                 <p>
                   GitHub provides many API endpoints depending on what you want to do.
                 </p>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">
                   Example endpoint for repositories:
                 </p>
                 <div className="bg-white dark:bg-[#13151E] px-3.5 py-2 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-xs sm:text-[12.5px] text-[#232564] dark:text-[#F5F5FF] break-all">
@@ -256,23 +256,23 @@ export default function BlogPostPage() {
                 <p>
                   This endpoint allows you to retrieve repositories connected to your account.
                 </p>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF] pt-1">Each endpoint defines:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF] pt-1">Each endpoint defines:</p>
                 <ul className="space-y-1 pl-1 text-[13.5px] sm:text-[14px]">
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>request method</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>parameters</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>response structure</span>
                   </li>
                 </ul>
                 <div className="pt-2">
-                  <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF] mb-1">Documentation:</p>
+                  <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF] mb-1">Documentation:</p>
                   <a
                     href="https://docs.github.com/en/rest/repos/repos"
                     target="_blank"
@@ -291,44 +291,44 @@ export default function BlogPostPage() {
                 </h2>
                 <p>GitHub requires authentication for most API requests.</p>
                 <p>We generate a Personal Access Token.</p>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">Steps:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">Steps:</p>
                 <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">1.</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">1.</span>
                     <span>Go to GitHub Settings</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">2.</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">2.</span>
                     <span>Scroll to Developer Settings</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">3.</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">3.</span>
                     <span>Select Personal Access Tokens</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">4.</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">4.</span>
                     <span>Generate new token</span>
                   </li>
                 </ul>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF] pt-1">Choose:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF] pt-1">Choose:</p>
                 <ul className="space-y-1 pl-1 text-[13.5px] sm:text-[14px]">
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>token name</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>expiration duration</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>required permissions</span>
                   </li>
                 </ul>
                 <div className="bg-white dark:bg-[#13151E] p-3 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-xs text-[#232564] dark:text-[#F5F5FF] space-y-1 mt-2">
                   <div className="text-[#FF42FF] dark:text-[#FF94FF] font-semibold">Copy the token immediately.</div>
                   <div>GitHub will not show it again.</div>
-                  <div className="text-[#11408F] dark:text-[#9999FF]">Treat it like a password.</div>
+                  <div className="text-[#11408F] dark:text-[#AEF0FF]">Treat it like a password.</div>
                 </div>
               </div>
 
@@ -338,11 +338,11 @@ export default function BlogPostPage() {
                   Step 3 &mdash; Send request using Postman
                 </h2>
                 <p>Postman helps test API requests easily.</p>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">Example GET request:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">Example GET request:</p>
                 <div className="bg-white dark:bg-[#13151E] px-3.5 py-2 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-xs sm:text-[12.5px] text-[#232564] dark:text-[#F5F5FF] break-all">
                   https://api.github.com/user/repos
                 </div>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">Add Authorization header:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">Add Authorization header:</p>
                 <div className="bg-white dark:bg-[#13151E] px-3.5 py-2 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-xs sm:text-[12.5px] text-[#232564] dark:text-[#F5F5FF] break-all">
                   Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN
                 </div>
@@ -354,14 +354,14 @@ export default function BlogPostPage() {
                 <h2 className="text-[16px] font-medium text-[#232564] dark:text-[#F5F5FF]">
                   Example &mdash; create repository via API
                 </h2>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">POST request:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">POST request:</p>
                 <div className="bg-white dark:bg-[#13151E] p-3.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-xs text-[#232564] dark:text-[#F5F5FF] space-y-1 overflow-x-auto leading-relaxed">
                   <div>curl -X POST https://api.github.com/user/repos \</div>
                   <div className="pl-4">-H &quot;Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN&quot; \</div>
                   <div className="pl-4">-H &quot;Accept: application/vnd.github+json&quot; \</div>
                   <div className="pl-4">-d &apos;{`{"name":"my-new-repo","private":false}`}&apos;</div>
                 </div>
-                <ul className="space-y-1 pl-1 text-xs font-mono text-[#11408F] dark:text-[#9999FF]">
+                <ul className="space-y-1 pl-1 text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">
                   <li>&bull; Replace YOUR_PERSONAL_ACCESS_TOKEN with your token.</li>
                   <li>&bull; Replace my-new-repo with repository name.</li>
                 </ul>
@@ -395,27 +395,27 @@ export default function BlogPostPage() {
                 <p>Understanding the API allows you to:</p>
                 <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>automate workflows</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>build developer tools</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>create dashboards</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>manage repositories programmatically</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>integrate GitHub with apps</span>
                   </li>
                 </ul>
-                <div className="pt-2 font-mono text-xs text-[#11408F] dark:text-[#9999FF]">
+                <div className="pt-2 font-mono text-xs text-[#11408F] dark:text-[#AEF0FF]">
                   <p>Git becomes more than version control.</p>
                   <p className="text-[#FF42FF] dark:text-[#FF94FF] font-semibold mt-0.5">It becomes programmable infrastructure.</p>
                 </div>
@@ -427,8 +427,8 @@ export default function BlogPostPage() {
                   Mental model
                 </h2>
                 <div className="bg-white dark:bg-[#13151E] p-3.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-xs sm:text-[12.5px] text-[#232564] dark:text-[#F5F5FF] space-y-1.5 leading-relaxed">
-                  <div><span className="font-semibold text-[#11408F] dark:text-[#9999FF]">Git CLI</span> &rarr; manage code locally</div>
-                  <div><span className="font-semibold text-[#11408F] dark:text-[#9999FF]">GitHub UI</span> &rarr; manage repos visually</div>
+                  <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">Git CLI</span> &rarr; manage code locally</div>
+                  <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">GitHub UI</span> &rarr; manage repos visually</div>
                   <div><span className="font-semibold text-[#FF42FF] dark:text-[#FF94FF]">GitHub API</span> &rarr; manage everything programmatically</div>
                 </div>
               </div>
@@ -438,22 +438,22 @@ export default function BlogPostPage() {
                 <h2 className="text-[16px] font-medium text-[#232564] dark:text-[#F5F5FF]">
                   If you&apos;re just starting
                 </h2>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">Focus on understanding:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">Focus on understanding:</p>
                 <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>request</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>response</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>authentication</span>
                   </li>
                 </ul>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] pt-1">
+                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] pt-1">
                   Everything else becomes easier with practice.
                 </p>
               </div>
@@ -469,10 +469,10 @@ export default function BlogPostPage() {
               <div className="space-y-3.5">
                 <p>At first, Git might seem very scary and daunting.</p>
                 <p>
-                  You see words like <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/70 dark:border-[#9999FF]/30 text-[#11408F] dark:text-[#9999FF]">commit</span>,{" "}
-                  <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/70 dark:border-[#9999FF]/30 text-[#11408F] dark:text-[#9999FF]">branch</span>,{" "}
-                  <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/70 dark:border-[#9999FF]/30 text-[#11408F] dark:text-[#9999FF]">merge</span>,{" "}
-                  <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/70 dark:border-[#9999FF]/30 text-[#11408F] dark:text-[#9999FF]">rebase</span>… and suddenly you&apos;re scared to even touch the keyboard.
+                  You see words like <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/70 dark:border-[#9999FF]/30 text-[#11408F] dark:text-[#AEF0FF]">commit</span>,{" "}
+                  <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/70 dark:border-[#9999FF]/30 text-[#11408F] dark:text-[#AEF0FF]">branch</span>,{" "}
+                  <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/70 dark:border-[#9999FF]/30 text-[#11408F] dark:text-[#AEF0FF]">merge</span>,{" "}
+                  <span className="font-mono text-xs bg-white dark:bg-[#13151E] px-1.5 py-0.5 border border-neutral-200/70 dark:border-[#9999FF]/30 text-[#11408F] dark:text-[#AEF0FF]">rebase</span>… and suddenly you&apos;re scared to even touch the keyboard.
                 </p>
                 <p>
                   But once it clicks, everything falls into place like the pieces of a puzzle you&apos;ve been spending your time trying to solve.
@@ -483,7 +483,7 @@ export default function BlogPostPage() {
                 <p>
                   And honestly? There&apos;s something oddly satisfying about committing your work and watching your progress stack up.
                 </p>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] font-medium pt-1">
+                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] font-medium pt-1">
                   Tiny commits. Big growth.
                 </p>
               </div>
@@ -494,33 +494,33 @@ export default function BlogPostPage() {
                   What even is a commit?
                 </h2>
                 <p>A commit is basically a saved checkpoint of your project.</p>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">Think of it like:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">Think of it like:</p>
                 <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>a save button for your code</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>a time machine for your project</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>proof that you did something productive today</span>
                   </li>
                 </ul>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF] pt-1">Each commit captures:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF] pt-1">Each commit captures:</p>
                 <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>what changed</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>when it changed</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>why it changed (if your commit message is good)</span>
                   </li>
                 </ul>
@@ -540,7 +540,7 @@ export default function BlogPostPage() {
                   <div>git commit -m &quot;message&quot;</div>
                   <div>git push origin main</div>
                 </div>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF]">Simple, but powerful.</p>
+                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF]">Simple, but powerful.</p>
               </div>
 
               {/* Step 1 */}
@@ -554,7 +554,7 @@ export default function BlogPostPage() {
                 <p>
                   This converts a normal project folder into a Git repository so changes can be tracked.
                 </p>
-                <div className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] py-1">
+                <div className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] py-1">
                   Project Repository &rarr; Git Repository
                 </div>
                 <div className="bg-white dark:bg-[#13151E] px-3.5 py-2 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-xs sm:text-[12.5px] text-[#232564] dark:text-[#F5F5FF]">
@@ -573,7 +573,7 @@ export default function BlogPostPage() {
                 <p>
                   Think of staging like selecting which updates you want included in the next checkpoint.
                 </p>
-                <div className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] py-1">
+                <div className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] py-1">
                   Changed/New Files &rarr; staged files for tracking new changes &rarr; changes now tracked
                 </div>
                 <div className="bg-white dark:bg-[#13151E] p-3.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-xs sm:text-[12.5px] text-[#232564] dark:text-[#F5F5FF] space-y-1">
@@ -594,24 +594,24 @@ export default function BlogPostPage() {
                 <p>
                   Good commit messages help both present-you and future-you understand what happened.
                 </p>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">Examples:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">Examples:</p>
                 <div className="bg-white dark:bg-[#13151E] p-3 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-xs space-y-1 text-[#232564] dark:text-[#F5F5FF]">
                   <div>feat: add profile picture upload</div>
                   <div>fix: correct typo in navbar</div>
                   <div>chore: update dependencies</div>
                 </div>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF] pt-1">Quick guide:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF] pt-1">Quick guide:</p>
                 <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none font-semibold">feat</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none font-semibold">feat</span>
                     <span>&rarr; adding a new feature or functionality</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none font-semibold">fix</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none font-semibold">fix</span>
                     <span>&rarr; correcting something that was broken</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none font-semibold">chore</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none font-semibold">chore</span>
                     <span>&rarr; changes that don&apos;t affect the app behaviour directly (configs, dependencies, build tasks)</span>
                   </li>
                 </ul>
@@ -645,21 +645,21 @@ export default function BlogPostPage() {
                   Creating a repository on GitHub
                 </h2>
                 <p>If you don&apos;t already have a repo:</p>
-                <div className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] py-0.5">
+                <div className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] py-0.5">
                   GitHub &rarr; click the + icon &rarr; New repository
                 </div>
-                <p className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">Choose:</p>
+                <p className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">Choose:</p>
                 <ul className="space-y-1 pl-1 text-[13.5px] sm:text-[14px]">
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>repository name</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>visibility (public or private)</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
                     <span>optional description</span>
                   </li>
                 </ul>
@@ -710,7 +710,7 @@ export default function BlogPostPage() {
                   <div>git commit -m &quot;I&apos;m so done&quot;</div>
                   <div>git push origin main</div>
                 </div>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF]">
+                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF]">
                   Repeat until the project magically works.
                 </p>
               </div>
@@ -722,7 +722,7 @@ export default function BlogPostPage() {
                 </h2>
 
                 <div className="space-y-2">
-                  <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] dark:text-[#9999FF] font-semibold">
+                  <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] dark:text-[#AEF0FF] font-semibold">
                     Articles / Blogs
                   </h3>
                   <ul className="space-y-2 text-[13.5px] sm:text-[14px]">
@@ -760,7 +760,7 @@ export default function BlogPostPage() {
                 </div>
 
                 <div className="space-y-2 pt-2">
-                  <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] dark:text-[#9999FF] font-semibold">
+                  <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] dark:text-[#AEF0FF] font-semibold">
                     YouTube Tutorials
                   </h3>
                   <ul className="space-y-2 text-[13.5px] sm:text-[14px]">

@@ -1,4 +1,4 @@
-import Home from "../page";
+import { PortfolioView } from "../page";
 
 export const metadata = {
   title: "About — Pynthamil Pavendan",
@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  return <Home initialViewMode="about" />;
+  return <PortfolioView initialViewMode="about" />;
 }

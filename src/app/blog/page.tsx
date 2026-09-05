@@ -1,4 +1,4 @@
-import Home from "../page";
+import { PortfolioView } from "../page";
 
 export const metadata = {
   title: "Blog — Pynthamil Pavendan",
@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  return <Home initialViewMode="blog" />;
+  return <PortfolioView initialViewMode="blog" />;
 }
