@@ -869,8 +869,8 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                           </p>
                         </div>
                         <div>
-                          <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#6666FF] transition-colors select-none leading-none">
-                            {isOpen ? "−" : "+"}
+                          <span className={`font-mono text-[15px] sm:text-base font-medium text-[#11408F] group-hover:text-[#6666FF] transition-all duration-200 select-none leading-none inline-block ${isOpen ? "rotate-90 text-[#6666FF]" : ""}`}>
+                            ↗
                           </span>
                         </div>
                       </div>
