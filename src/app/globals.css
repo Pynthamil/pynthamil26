@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #F5F5FF;
+  --text-main: #141414;
+  --text-muted: #737373;
+  --text-secondary: #525252;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Figma Canvas & Bounding Box Styles */
+.figma-bounding-box {
+  position: relative;
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1px solid #FF42FF;
+  border-radius: 1px;
+  user-select: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.figma-bounding-box:hover {
+  box-shadow: 0 0 0 1px rgba(255, 66, 255, 0.2), 0 4px 14px rgba(255, 66, 255, 0.16);
+}
+
+.handle {
+  position: absolute;
+  width: 5.5px;
+  height: 5.5px;
+  background: #ffffff;
+  border: 1px solid #FF42FF;
+  z-index: 10;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.15s ease;
+}
+
+.figma-bounding-box:hover .handle {
+  transform: scale(1.25);
+  background-color: #fff0ff;
+}
+
+.handle:hover {
+  transform: scale(1.5) !important;
+  background-color: #FF42FF !important;
+  cursor: nwse-resize;
+}
+
+.handle-tl { top: -3px; left: -3px; cursor: nwse-resize; }
+.handle-tm { top: -3px; left: calc(50% - 2.75px); cursor: ns-resize; }
+.handle-tr { top: -3px; right: -3px; cursor: nesw-resize; }
+.handle-ml { top: calc(50% - 2.75px); left: -3px; cursor: ew-resize; }
+.handle-mr { top: calc(50% - 2.75px); right: -3px; cursor: ew-resize; }
+.handle-bl { bottom: -3px; left: -3px; cursor: nesw-resize; }
+.handle-bm { bottom: -3px; left: calc(50% - 2.75px); cursor: ns-resize; }
+.handle-br { bottom: -3px; right: -3px; cursor: nwse-resize; }
+
+.dimension-badge {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FF42FF;
+  color: #ffffff;
+  font-family: "Geist Mono", "SF Mono", monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  padding: 1.5px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 1px 3px rgba(255, 66, 255, 0.25);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
+}
+
+.figma-bounding-box:hover .dimension-badge {
+  transform: translateX(-50%) translateY(2px) scale(1.05);
+}
+
+.outlined-logo-text {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: transparent;
+  -webkit-text-stroke: 1.2px #FF42FF;
+  line-height: 1.1;
+  text-transform: lowercase;
+  display: block;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.figma-bounding-box:hover .outlined-logo-text {
+  -webkit-text-stroke: 1.35px #FF42FF;
+  text-shadow: 0 0 12px rgba(255, 66, 255, 0.35);
+}
+
+@media (max-width: 640px) {
+  .outlined-logo-text {
+    font-size: 23px;
+  }
+}
+
+/* Custom glowing dot component */
+.glow-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 7.5px;
+  height: 7.5px;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.glow-badge::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  background: inherit;
+  filter: blur(3px);
+  opacity: 0.65;
+  z-index: 0;
+}
+
+/* 3D Interactive Black Sphere in Header */
+.interactive-sphere {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #3a3a3a 0%, #1a1a1a 45%, #050505 100%);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.interactive-sphere:hover {
+  transform: scale(1.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.interactive-sphere:active {
+  transform: scale(0.95);
+}
