@@ -712,6 +712,15 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                       >
                         GitHub
                       </a>
+                      ,{" "}
+                      <a
+                        href="https://leetcode.com/u/HashKnight/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] font-medium"
+                      >
+                        LeetCode
+                      </a>
                       , and{" "}
                       <a
                         href="https://linkedin.com/in/pynthamil-pavendan"

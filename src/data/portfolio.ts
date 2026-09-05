@@ -86,6 +86,7 @@ export const portfolioData: PortfolioData = {
   socialLinks: [
     { label: "email", href: "mailto:pavendanpynthamil@gmail.com", isPrimary: true },
     { label: "github", href: "https://github.com/Pynthamil", isPrimary: false },
+    { label: "leetcode", href: "https://leetcode.com/u/HashKnight/", isPrimary: false },
     { label: "linkedin", href: "https://linkedin.com/in/pynthamil-pavendan", isPrimary: false },
     { label: "twitter", href: "https://x.com/pyndu15", isPrimary: false },
     { label: "resume", href: "https://drive.google.com/file/d/1_aeDI5PGaZttchMGSzkMBiEScwSsTEtj/view?usp=sharing", isPrimary: false },
@@ -138,7 +139,7 @@ export const portfolioData: PortfolioData = {
   writings: [
     {
       title: "Git Commit Go",
-      date: "SEP 5, 2026",
+      date: "SEP 12, 2026",
       readingTime: "4 MIN",
       description: "At some point, just committing code isn’t enough. Learn how to interact with GitHub programmatically via the REST API.",
       slug: "git-commit-go",
