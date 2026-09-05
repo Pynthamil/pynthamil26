@@ -278,10 +278,10 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
 
             {/* Experience List Section */}
             <section className="w-full mb-12 sm:mb-14">
-              <h2 className="font-mono text-[10.5px] uppercase tracking-[0.08em] text-[#11408F] mb-3.5 font-semibold">
+              <h2 className="font-mono text-xs uppercase tracking-[0.08em] text-[#11408F] mb-3.5 font-semibold">
                 Experience
               </h2>
-              <ul className="flex flex-col space-y-3 font-mono text-[11.5px] sm:text-[12px] tracking-[0.04em]">
+              <ul className="flex flex-col space-y-3.5 sm:space-y-4 font-mono text-[13px] sm:text-[14px] tracking-[0.02em]">
                 {portfolioData.experiences.map((item) => (
                   <li
                     key={item.id}
@@ -298,16 +298,16 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                         style={{ backgroundColor: item.color || "#232564" }}
                       />
                       <div className="flex flex-col">
-                        <span className="font-normal text-[#232564] tracking-[0.04em]">
+                        <span className="font-medium text-[#232564] tracking-[0.02em]">
                           {item.role}
                         </span>
-                        <span className="text-[11px] text-[#11408F] tracking-[0.04em] mt-0.5">
+                        <span className="text-xs text-[#11408F] tracking-[0.02em] mt-0.5">
                           {item.company}
                         </span>
                       </div>
                     </a>
 
-                    <div className="text-right text-[#11408F] uppercase font-normal tracking-[0.04em] whitespace-nowrap pt-0.5">
+                    <div className="text-right text-xs sm:text-[12.5px] text-[#11408F] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
                       {item.period}
                     </div>
                   </li>
@@ -318,10 +318,10 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             {/* Projects Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-full mb-12 sm:mb-14">
-                <h2 className="font-mono text-[10.5px] uppercase tracking-[0.08em] text-[#11408F] mb-3.5 font-semibold">
+                <h2 className="font-mono text-xs uppercase tracking-[0.08em] text-[#11408F] mb-3.5 font-semibold">
                   Projects
                 </h2>
-                <ul className="flex flex-col space-y-3 font-mono text-[11.5px] sm:text-[12px] tracking-[0.04em]">
+                <ul className="flex flex-col space-y-3.5 sm:space-y-4 font-mono text-[13px] sm:text-[14px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => (
                     <li
                       key={idx}
@@ -330,12 +330,12 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                     >
                       <div className="flex items-center space-x-3 flex-1 pr-4">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#232564] opacity-40 group-hover:opacity-100 transition-opacity" />
-                        <span className="font-normal text-[#232564] tracking-[0.04em]">
+                        <span className="font-normal text-[#232564] tracking-[0.02em]">
                           {project.title}
                         </span>
                       </div>
 
-                      <div className="text-right text-[#11408F]/80 uppercase font-normal tracking-[0.04em] whitespace-nowrap">
+                      <div className="text-right text-xs sm:text-[12.5px] text-[#11408F]/80 uppercase font-normal tracking-[0.02em] whitespace-nowrap">
                         <span>{project.tags?.[0] || "SYSTEM"}</span>
                         <span className="text-[#11408F]/40">, </span>
                         <span>{project.year}</span>
@@ -358,7 +358,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             VIEW 2: ABOUT VIEW
            ======================================================== */}
         {viewMode === "about" && (
-          <div className="flex flex-col space-y-12 animate-in fade-in duration-200">
+          <div className="flex flex-col space-y-6 sm:space-y-7 animate-in fade-in duration-200">
             {/* Meet The Human Dropdown Accordion */}
             <div className="border-b border-neutral-200/70 pb-5">
               <div
@@ -593,6 +593,60 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
               )}
             </div>
 
+            {/* About My Blog Dropdown Accordion */}
+            <div className="border-b border-neutral-200/70 pb-5">
+              <div
+                onClick={() => {
+                  playTone(880);
+                  setIsAboutBlogOpen(!isAboutBlogOpen);
+                }}
+                className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
+              >
+                <div>
+                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
+                    about my blog
+                  </h2>
+                  <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                    my brain leaving sticky notes for itself
+                  </p>
+                </div>
+                <div>
+                  <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
+                    {isAboutBlogOpen ? "−" : "+"}
+                  </span>
+                </div>
+              </div>
+
+              {isAboutBlogOpen && (
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span>
+                      I write about things I&apos;m learning, things I&apos;m building, and things I randomly become obsessed with at 2:17 am
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span>
+                      sometimes it&apos;s about tech, sometimes design, sometimes a thought that refuses to leave me alone until I write it down
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span>
+                      it&apos;s less &quot;expert advice&quot; and more &quot;let me see if this idea makes sense outside my head&quot;
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span>
+                      mostly curiosity. occasionally clarity. always slightly unhinged but in a productive way
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* Come Say Hi Dropdown Accordion */}
             <div className="border-b border-neutral-200/70 pb-5">
               <div
@@ -785,63 +839,9 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             VIEW 3: BLOG VIEW
            ======================================================== */}
         {viewMode === "blog" && (
-          <div className="flex flex-col space-y-12 animate-in fade-in duration-200">
-            {/* 1. About Blog Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 pb-5">
-              <div
-                onClick={() => {
-                  playTone(880);
-                  setIsAboutBlogOpen(!isAboutBlogOpen);
-                }}
-                className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
-              >
-                <div>
-                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#6666FF] transition-colors">
-                    about my blog
-                  </h2>
-                  <p className="font-mono text-xs text-[#11408F] mt-0.5">
-                    my brain leaving sticky notes for itself
-                  </p>
-                </div>
-                <div>
-                  <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#6666FF] transition-colors select-none leading-none">
-                    {isAboutBlogOpen ? "−" : "+"}
-                  </span>
-                </div>
-              </div>
-
-              {isAboutBlogOpen && (
-                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
-                  <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
-                    <span>
-                      I write about things I&apos;m learning, things I&apos;m building, and things I randomly become obsessed with at 2:17 am
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
-                    <span>
-                      sometimes it&apos;s about tech, sometimes design, sometimes a thought that refuses to leave me alone until I write it down
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
-                    <span>
-                      it&apos;s less &quot;expert advice&quot; and more &quot;let me see if this idea makes sense outside my head&quot;
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
-                    <span>
-                      mostly curiosity. occasionally clarity. always slightly unhinged but in a productive way
-                    </span>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* 2. Blog Posts Clean Accordion Architecture */}
-            <section className="pt-2">
+          <div className="flex flex-col space-y-7 animate-in fade-in duration-200">
+            {/* Blog Posts Clean Accordion Architecture */}
+            <section>
               <div className="pb-3 border-b border-neutral-200/70 mb-1">
                 <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] font-semibold">
                   featured
