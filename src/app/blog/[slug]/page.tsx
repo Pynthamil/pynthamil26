@@ -94,10 +94,10 @@ export default function BlogPostPage() {
             <div className="space-y-3.5">
               <p>At first, Git might seem very scary and daunting.</p>
               <p>
-                You see words like <span className="font-mono text-xs bg-neutral-100 px-1.5 py-0.5 border border-neutral-200/70">commit</span>,{" "}
-                <span className="font-mono text-xs bg-neutral-100 px-1.5 py-0.5 border border-neutral-200/70">branch</span>,{" "}
-                <span className="font-mono text-xs bg-neutral-100 px-1.5 py-0.5 border border-neutral-200/70">merge</span>,{" "}
-                <span className="font-mono text-xs bg-neutral-100 px-1.5 py-0.5 border border-neutral-200/70">rebase</span>… and suddenly you&apos;re scared to even touch the keyboard.
+                You see words like <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">commit</span>,{" "}
+                <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">branch</span>,{" "}
+                <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">merge</span>,{" "}
+                <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">rebase</span>… and suddenly you&apos;re scared to even touch the keyboard.
               </p>
               <p>
                 But once it clicks, everything falls into place like the pieces of a puzzle you&apos;ve been spending your time trying to solve.
@@ -159,7 +159,7 @@ export default function BlogPostPage() {
               <h2 className="text-[16px] font-medium text-[#232564]">
                 Basic Commands (tiny cheat sheet)
               </h2>
-              <div className="bg-neutral-100/80 p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1.5 leading-relaxed">
+              <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1.5 leading-relaxed">
                 <div>git init</div>
                 <div>git add .</div>
                 <div>git commit -m &quot;message&quot;</div>
@@ -182,7 +182,7 @@ export default function BlogPostPage() {
               <div className="font-mono text-xs text-[#11408F] py-1">
                 Project Repository &rarr; Git Repository
               </div>
-              <div className="bg-neutral-100/80 px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
+              <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
                 git init
               </div>
             </div>
@@ -201,7 +201,7 @@ export default function BlogPostPage() {
               <div className="font-mono text-xs text-[#11408F] py-1">
                 Changed/New Files &rarr; staged files for tracking new changes &rarr; changes now tracked
               </div>
-              <div className="bg-neutral-100/80 p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1">
+              <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1">
                 <div>git add .</div>
                 <div className="text-[#232564]/50 text-[11px] pt-1">// or specific files</div>
                 <div>git add index.js</div>
@@ -220,7 +220,7 @@ export default function BlogPostPage() {
                 Good commit messages help both present-you and future-you understand what happened.
               </p>
               <p className="text-xs font-mono text-[#11408F]">Examples:</p>
-              <div className="bg-neutral-100/80 p-3 border border-neutral-200/80 font-mono text-xs space-y-1 text-[#232564]">
+              <div className="bg-white p-3 border border-neutral-200/80 font-mono text-xs space-y-1 text-[#232564]">
                 <div>feat: add profile picture upload</div>
                 <div>fix: correct typo in navbar</div>
                 <div>chore: update dependencies</div>
@@ -240,7 +240,7 @@ export default function BlogPostPage() {
                   <span>&rarr; changes that don&apos;t affect the app behaviour directly (configs, dependencies, build tasks)</span>
                 </li>
               </ul>
-              <div className="bg-neutral-100/80 px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] mt-2">
+              <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] mt-2">
                 git commit -m &quot;feat: add search bar&quot;
               </div>
             </div>
@@ -256,7 +256,7 @@ export default function BlogPostPage() {
               <p>
                 This uploads the local changes to the remote repository (GitHub).
               </p>
-              <div className="bg-neutral-100/80 px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
+              <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
                 git push origin main
               </div>
               <p className="italic text-[#232564]/90">
@@ -319,7 +319,7 @@ export default function BlogPostPage() {
               <p className="text-[#232564]">
                 And then I wish myself good luck… because I will definitely be needing it and probably 10 years of life span 🤡
               </p>
-              <div className="bg-neutral-100/80 px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
+              <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
                 git pull origin main
               </div>
             </div>
@@ -329,7 +329,7 @@ export default function BlogPostPage() {
               <h2 className="text-[16px] font-medium text-[#232564]">
                 Quick summary workflow
               </h2>
-              <div className="bg-neutral-100/80 p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1.5 leading-relaxed">
+              <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1.5 leading-relaxed">
                 <div>git init</div>
                 <div>git add .</div>
                 <div>git commit -m &quot;I&apos;m so done&quot;</div>
