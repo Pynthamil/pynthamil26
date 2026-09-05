@@ -829,8 +829,8 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             {/* Stack Row */}
             <section className="pt-4 border-t border-neutral-200/70 font-mono text-xs">
               <div className="flex items-center justify-between">
-                <div className="text-[#11408F] font-semibold w-24">stack</div>
-                <div className="flex-1 text-[#232564]">
+                <div className="text-[#11408F] font-semibold">stack</div>
+                <div className="text-right text-[#232564]">
                   Next.js &bull; Supabase &bull; Python &bull; Figma &bull; Antigravity
                 </div>
               </div>
