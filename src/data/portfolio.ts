@@ -120,20 +120,12 @@ export const portfolioData: PortfolioData = {
       status: "Production",
     },
     {
-      title: "SEMANTIC MOBILE TIMELINE",
-      description: "A chronological timeline interface exploring micro-haptics and fluid deadline management on mobile devices.",
+      title: "SEMANTIC EMAIL COPILOT",
+      description: "An intelligent context-aware email copilot synthesizing incoming threads, prioritizing actionable items, and drafting contextual responses.",
       year: "2026",
       link: "#",
-      tags: ["Figma", "Haptics", "Gestures"],
+      tags: ["AI", "Next.js", "LLM"],
       status: "Active",
-    },
-    {
-      title: "PLUE DESIGN SYSTEM",
-      description: "Comprehensive token system, component primitives, and tactile vector typography for digital consumer applications.",
-      year: "2026",
-      link: "https://getplue.com/",
-      tags: ["Design System", "Figma", "Radix UI"],
-      status: "Live",
     },
   ],
   writings: [
