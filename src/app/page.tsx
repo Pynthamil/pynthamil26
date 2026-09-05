@@ -138,7 +138,7 @@ export function PortfolioView({
       {/* Main Container: exactly 490px across Home, About, and Blog */}
       <main className="w-full relative z-10 flex flex-col max-w-[490px]">
         {/* Top Header Row */}
-        <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-2.5" : "mb-8"}`}>
+        <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-6 sm:mb-6" : "mb-8"}`}>
           {/* Clawd GIF on Home Page */}
           {viewMode === "home" && (
             <div className="-mb-1.5 sm:-mb-2 -ml-3 sm:-ml-4">
@@ -150,7 +150,7 @@ export function PortfolioView({
             </div>
           )}
 
-          <div className="flex items-center justify-between w-full">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full gap-2 sm:gap-0">
             {/* Left Title: Figma box on Home, Back button on About/Blog */}
             <div className="flex items-center">
               {viewMode === "home" ? (
@@ -168,8 +168,8 @@ export function PortfolioView({
               )}
             </div>
 
-            {/* Right: Navigation Links & Dark Mode Toggle */}
-            <nav className="flex items-center space-x-4 sm:space-x-5 text-[14.5px] font-medium">
+            {/* Right/Under: Navigation Links & Dark Mode Toggle */}
+            <nav className="flex items-center space-x-4 sm:space-x-5 text-[14.5px] font-medium pt-1 sm:pt-0">
               <button
                 onClick={() => handleNavClick("about")}
                 className={`transition-colors cursor-pointer select-none ${
@@ -420,7 +420,7 @@ export function PortfolioView({
             )}
 
             {/* Home Footer */}
-            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex items-center justify-between font-mono text-[13px] sm:text-[13.5px] text-[#232564]/80 dark:text-[#F5F5FF]/80">
+            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-xs sm:text-[13px] text-[#64748B] dark:text-[#8E95B8]">
               <div>curiosity doesn&apos;t kill the cat.</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
@@ -910,7 +910,7 @@ export function PortfolioView({
             </section>
 
             {/* About Footer */}
-            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex items-center justify-between font-mono text-[13px] sm:text-[13.5px] text-[#64748B] dark:text-[#8E95B8]">
+            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-xs sm:text-[13px] text-[#64748B] dark:text-[#8E95B8]">
               <div>curiosity doesn&apos;t kill the cat.</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
@@ -958,7 +958,7 @@ export function PortfolioView({
             </section>
 
             {/* Blog Footer */}
-            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex items-center justify-between font-mono text-[13px] sm:text-[13.5px] text-[#232564]/80 dark:text-[#F5F5FF]/80">
+            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-xs sm:text-[13px] text-[#64748B] dark:text-[#8E95B8]">
               <div>curiosity doesn&apos;t kill the cat.</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>

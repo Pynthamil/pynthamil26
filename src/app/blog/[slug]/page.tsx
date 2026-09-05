@@ -813,7 +813,7 @@ export default function BlogPostPage() {
         </div>
 
         {/* Standard Footer */}
-        <footer className="pt-8 flex items-center justify-between font-mono text-[13px] sm:text-[13.5px] text-[#232564]/80 dark:text-[#F5F5FF]/80">
+        <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-xs sm:text-[13px] text-[#64748B] dark:text-[#8E95B8]">
           <div>curiosity doesn&apos;t kill the cat.</div>
           <div>made w love &bull; &copy; 2026</div>
         </footer>
