@@ -45,25 +45,25 @@ export const Modal: React.FC<ModalProps> = ({
       />
 
       {/* Dialog Box */}
-      <div className="relative w-full max-w-lg bg-white rounded-2xl p-6 sm:p-7 shadow-2xl border border-neutral-150 z-10 animate-in fade-in zoom-in-95 duration-200">
-        <div className="flex items-center justify-between pb-4 mb-4 border-b border-neutral-100">
+      <div className="relative w-full max-w-lg bg-white dark:bg-[#13151E] rounded-2xl p-6 sm:p-7 shadow-2xl border border-neutral-150 dark:border-[#9999FF]/30 z-10 animate-in fade-in zoom-in-95 duration-200">
+        <div className="flex items-center justify-between pb-4 mb-4 border-b border-neutral-100 dark:border-[#9999FF]/20">
           <div className="flex items-center gap-2">
             {badge && (
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-neutral-100 text-neutral-700">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-neutral-100 dark:bg-[#9999FF]/20 text-neutral-700 dark:text-[#F5F5FF]">
                 {badge}
               </span>
             )}
-            <h3 className="font-semibold text-neutral-900 text-base">{title}</h3>
+            <h3 className="font-semibold text-neutral-900 dark:text-[#F5F5FF] text-base">{title}</h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg text-neutral-400 hover:text-neutral-700 hover:bg-neutral-100 transition-colors"
+            className="p-1 rounded-lg text-neutral-400 hover:text-neutral-700 dark:text-[#9999FF] dark:hover:text-[#F5F5FF] hover:bg-neutral-100 dark:hover:bg-[#9999FF]/15 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="text-sm text-neutral-700 space-y-4">{children}</div>
+        <div className="text-sm text-neutral-700 dark:text-[#F5F5FF] space-y-4">{children}</div>
       </div>
     </div>
   );

@@ -5,8 +5,30 @@
 :root {
   --bg-color: #F5F5FF;
   --text-main: #232564;
-  --text-muted: #232564;
+  --text-muted: #11408F;
   --text-secondary: #232564;
+  --accent-pink: #FF42FF;
+  --accent-purple: #6666FF;
+}
+
+.dark {
+  --bg-color: #0B0C0F;
+  --text-main: #F5F5FF;
+  --text-muted: #9999FF;
+  --text-secondary: #F5F5FF;
+  --accent-pink: #FF94FF;
+  --accent-purple: #9999FF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0B0C0F;
+    --text-main: #F5F5FF;
+    --text-muted: #9999FF;
+    --text-secondary: #F5F5FF;
+    --accent-pink: #FF94FF;
+    --accent-purple: #9999FF;
+  }
 }
 
 body, * {
@@ -33,14 +55,14 @@ body {
   position: relative;
   display: inline-block;
   padding: 3px 8px;
-  border: 1px solid #FF42FF;
+  border: 1px solid var(--accent-pink);
   border-radius: 1px;
   user-select: none;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
 
 .figma-bounding-box:hover {
-  box-shadow: 0 0 0 1px rgba(255, 66, 255, 0.2), 0 4px 14px rgba(255, 66, 255, 0.16);
+  box-shadow: 0 0 0 1px rgba(255, 148, 255, 0.2), 0 4px 14px rgba(255, 148, 255, 0.16);
 }
 
 .handle {
@@ -48,7 +70,7 @@ body {
   width: 5.5px;
   height: 5.5px;
   background: #ffffff;
-  border: 1px solid #FF42FF;
+  border: 1px solid var(--accent-pink);
   z-index: 10;
   transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.15s ease;
 }
@@ -60,7 +82,7 @@ body {
 
 .handle:hover {
   transform: scale(1.5) !important;
-  background-color: #FF42FF !important;
+  background-color: var(--accent-pink) !important;
   cursor: nwse-resize;
 }
 
@@ -78,7 +100,7 @@ body {
   bottom: -22px;
   left: 50%;
   transform: translateX(-50%);
-  background: #FF42FF;
+  background: var(--accent-pink);
   color: #ffffff;
   font-family: "Geist Mono", "SF Mono", monospace;
   font-size: 10.5px;
@@ -101,7 +123,7 @@ body {
   font-weight: 700;
   letter-spacing: -0.01em;
   color: transparent;
-  -webkit-text-stroke: 1.2px #FF42FF;
+  -webkit-text-stroke: 1.2px var(--accent-pink);
   line-height: 1.1;
   text-transform: lowercase;
   display: block;

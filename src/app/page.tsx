@@ -24,6 +24,33 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
   const [soundOn, setSoundOn] = useState<boolean>(true);
   const [currentTime, setCurrentTime] = useState<string>("");
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  // Sync theme with localStorage or system preference
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    playTone(1046);
+    if (isDarkMode) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      setIsDarkMode(false);
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      setIsDarkMode(true);
+    }
+  };
 
   // Sync with browser URL navigation and history (Back / Forward)
   useEffect(() => {
@@ -127,13 +154,13 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             {/* Left Title: Figma box on Home, Back button on About/Blog */}
             <div className="flex items-center">
               {viewMode === "home" ? (
-                <h1 className="text-[21px] sm:text-[23px] font-medium tracking-tight text-[#FF42FF] select-none">
+                <h1 className="text-[21px] sm:text-[23px] font-medium tracking-tight text-[#FF42FF] dark:text-[#FF94FF] select-none">
                   {portfolioData.name.toLowerCase()}
                 </h1>
               ) : (
                 <button
                   onClick={() => handleNavClick("home")}
-                  className="font-mono text-[15px] sm:text-[16px] tracking-tight text-[#232564] hover:text-[#11408F] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
+                  className="font-mono text-[15px] sm:text-[16px] tracking-tight text-[#232564] dark:text-[#F5F5FF] hover:text-[#11408F] dark:hover:text-[#9999FF] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
                 >
                   <span>&larr;</span>
                   <span>{portfolioData.name.toLowerCase()}</span>
@@ -141,14 +168,14 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
               )}
             </div>
 
-            {/* Right: Navigation Links */}
-            <nav className="flex items-center space-x-5 text-[14.5px] font-medium">
+            {/* Right: Navigation Links & Dark Mode Toggle */}
+            <nav className="flex items-center space-x-4 sm:space-x-5 text-[14.5px] font-medium">
               <button
                 onClick={() => handleNavClick("about")}
                 className={`transition-colors cursor-pointer select-none ${
                   viewMode === "about"
-                    ? "text-[#FF42FF] font-semibold underline underline-offset-4 decoration-wavy decoration-[#FF42FF]"
-                    : "text-[#232564] hover:text-[#FF42FF]"
+                    ? "text-[#FF42FF] dark:text-[#FF94FF] font-semibold underline underline-offset-4 decoration-wavy decoration-[#FF42FF] dark:decoration-[#FF94FF]"
+                    : "text-[#232564] dark:text-[#F5F5FF] hover:text-[#FF42FF] dark:hover:text-[#FF94FF]"
                 }`}
               >
                 About
@@ -157,11 +184,60 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                 onClick={() => handleNavClick("blog")}
                 className={`transition-colors cursor-pointer select-none ${
                   viewMode === "blog"
-                    ? "text-[#6666FF] font-semibold underline underline-offset-4 decoration-wavy decoration-[#6666FF]"
-                    : "text-[#232564] hover:text-[#6666FF]"
+                    ? "text-[#6666FF] dark:text-[#9999FF] font-semibold underline underline-offset-4 decoration-wavy decoration-[#6666FF] dark:decoration-[#9999FF]"
+                    : "text-[#232564] dark:text-[#F5F5FF] hover:text-[#6666FF] dark:hover:text-[#9999FF]"
                 }`}
               >
                 Blog
+              </button>
+
+              {/* Dark Mode Toggle Button */}
+              <button
+                onClick={toggleTheme}
+                aria-label="Toggle dark mode"
+                className="p-1 text-[#232564] dark:text-[#F5F5FF] hover:text-[#FF42FF] dark:hover:text-[#FF94FF] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
+              >
+                {isDarkMode ? (
+                  // Sun icon for dark mode
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="transition-transform duration-200 hover:rotate-45"
+                  >
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2" />
+                    <path d="M12 20v2" />
+                    <path d="m4.93 4.93 1.41 1.41" />
+                    <path d="m17.66 17.66 1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="m6.34 17.66-1.41 1.41" />
+                    <path d="m19.07 4.93-1.41 1.41" />
+                  </svg>
+                ) : (
+                  // Moon icon for light mode
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="transition-transform duration-200 hover:-rotate-12"
+                  >
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                  </svg>
+                )}
               </button>
             </nav>
           </div>
@@ -169,16 +245,16 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
 
         {/* ========================================================
             VIEW 1: HOME VIEW
-           ======================================================== */}
+            ======================================================== */}
         {viewMode === "home" && (
           <div className="flex flex-col animate-in fade-in duration-200">
             {/* Bio Copy & Status Section */}
             <section className="flex flex-col space-y-3.5 mb-12 sm:mb-14">
-              <p className="text-[16px] text-[#232564] font-normal leading-relaxed">
+              <p className="text-[16px] text-[#232564] dark:text-[#F5F5FF] font-normal leading-relaxed">
                 I am a curious being who loves bringing the crazy ideas existing in my mind into reality through the sheer power of code.
               </p>
 
-              <div className="flex items-center space-x-2 text-[14.5px] text-[#232564] pt-1 pb-2">
+              <div className="flex items-center space-x-2 text-[14.5px] text-[#232564] dark:text-[#F5F5FF] pt-1 pb-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
                 <span>
                   Currently: making{" "}
@@ -186,7 +262,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                     href="https://getplue.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#232564] underline underline-offset-4 decoration-wavy decoration-[#232564]/40 hover:decoration-[#232564] font-medium transition-colors"
+                    className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-wavy decoration-[#232564]/40 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium transition-colors"
                   >
                     plue
                   </a>{" "}
@@ -194,13 +270,13 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                 </span>
               </div>
 
-              <p className="text-[14.5px] text-[#232564] leading-relaxed">
+              <p className="text-[14.5px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed">
                 Find me on{" "}
                 <a
                   href="https://x.com/pyndu15"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] transition-colors"
+                  className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] transition-colors"
                 >
                   X
                 </a>
@@ -209,7 +285,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                   href="https://github.com/Pynthamil"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] transition-colors"
+                  className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] transition-colors"
                 >
                   GitHub
                 </a>
@@ -218,7 +294,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                   href="https://linkedin.com/in/pynthamil-pavendan"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] transition-colors"
+                  className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] transition-colors"
                 >
                   LinkedIn
                 </a>
@@ -228,7 +304,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => playTone(880)}
-                  className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] transition-colors"
+                  className="text-[#6666FF] dark:text-[#9999FF] underline underline-offset-4 decoration-wavy decoration-[#6666FF] dark:decoration-[#9999FF] font-medium transition-colors"
                 >
                   download my CV &darr;
                 </a>
@@ -243,15 +319,15 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                     playTone(1046);
                     setTimeout(() => setCopiedEmail(false), 2000);
                   }}
-                  className="inline-flex items-center space-x-2.5 px-3 py-1.5 border border-dashed border-[#11408F] rounded-none bg-transparent cursor-pointer group select-none"
+                  className="inline-flex items-center space-x-2.5 px-3 py-1.5 border border-dashed border-[#11408F] dark:border-[#9999FF] rounded-none bg-transparent cursor-pointer group select-none"
                   title="Click to copy email"
                 >
-                  <span className="font-mono text-[12.5px] sm:text-[13.5px] text-[#11408F] group-hover:text-[#232564] tracking-wide transition-colors">
+                  <span className="font-mono text-[12.5px] sm:text-[13.5px] text-[#11408F] dark:text-[#9999FF] group-hover:text-[#232564] dark:group-hover:text-[#F5F5FF] tracking-wide transition-colors">
                     {portfolioData.email}
                   </span>
-                  <div className="text-[#11408F] group-hover:text-[#232564] flex items-center focus:outline-none transition-colors">
+                  <div className="text-[#11408F] dark:text-[#9999FF] group-hover:text-[#232564] dark:group-hover:text-[#F5F5FF] flex items-center focus:outline-none transition-colors">
                     {copiedEmail ? (
-                      <span className="text-emerald-600 font-mono text-xs font-medium animate-in fade-in">
+                      <span className="text-emerald-400 font-mono text-xs font-medium animate-in fade-in">
                         copied!
                       </span>
                     ) : (
@@ -278,14 +354,14 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
 
             {/* Experience List Section */}
             <section className="w-full mb-12 sm:mb-14">
-              <h2 className="font-mono text-xs uppercase tracking-[0.08em] text-[#11408F] mb-3.5 font-semibold">
+              <h2 className="font-mono text-xs uppercase tracking-[0.08em] text-[#11408F] dark:text-[#9999FF] mb-3.5 font-semibold">
                 Experience
               </h2>
               <ul className="flex flex-col space-y-3.5 sm:space-y-4 font-mono text-[13px] sm:text-[14px] tracking-[0.02em]">
                 {portfolioData.experiences.map((item) => (
                   <li
                     key={item.id}
-                    className="group flex items-start justify-between py-1 text-[#232564] transition-opacity hover:opacity-80"
+                    className="group flex items-start justify-between py-1 text-[#232564] dark:text-[#F5F5FF] transition-opacity hover:opacity-80"
                   >
                     <a
                       href={item.url || "#"}
@@ -293,21 +369,18 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                       rel={item.url && item.url !== "#" ? "noopener noreferrer" : undefined}
                       className="flex items-start space-x-2.5 flex-1 pr-4 focus:outline-none"
                     >
-                      <span
-                        className="w-1.5 h-1.5 rounded-full shrink-0 mt-1.5"
-                        style={{ backgroundColor: item.color || "#232564" }}
-                      />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#232564] dark:bg-[#F5F5FF] opacity-40 group-hover:opacity-100 transition-opacity shrink-0 mt-1.5" />
                       <div className="flex flex-col">
-                        <span className="font-medium text-[#232564] tracking-[0.02em]">
+                        <span className="font-medium text-[#232564] dark:text-[#F5F5FF] tracking-[0.02em]">
                           {item.role}
                         </span>
-                        <span className="text-xs text-[#11408F] tracking-[0.02em] mt-0.5">
+                        <span className="text-xs text-[#11408F] dark:text-[#9999FF] tracking-[0.02em] mt-0.5">
                           {item.company}
                         </span>
                       </div>
                     </a>
 
-                    <div className="text-right text-xs sm:text-[12.5px] text-[#11408F] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
+                    <div className="text-right text-xs sm:text-[12.5px] text-[#11408F] dark:text-[#9999FF] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
                       {item.period}
                     </div>
                   </li>
@@ -318,26 +391,26 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             {/* Projects Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-full mb-12 sm:mb-14">
-                <h2 className="font-mono text-xs uppercase tracking-[0.08em] text-[#11408F] mb-3.5 font-semibold">
+                <h2 className="font-mono text-xs uppercase tracking-[0.08em] text-[#11408F] dark:text-[#9999FF] mb-3.5 font-semibold">
                   Projects
                 </h2>
                 <ul className="flex flex-col space-y-3.5 sm:space-y-4 font-mono text-[13px] sm:text-[14px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => (
                     <li
                       key={idx}
-                      className="group flex items-center justify-between py-0.5 text-[#232564] cursor-pointer transition-opacity hover:opacity-75"
+                      className="group flex items-center justify-between py-0.5 text-[#232564] dark:text-[#F5F5FF] cursor-pointer transition-opacity hover:opacity-75"
                       onClick={() => setSelectedProject(project)}
                     >
                       <div className="flex items-center space-x-3 flex-1 pr-4">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#232564] opacity-40 group-hover:opacity-100 transition-opacity" />
-                        <span className="font-normal text-[#232564] tracking-[0.02em]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#232564] dark:bg-[#F5F5FF] opacity-40 group-hover:opacity-100 transition-opacity" />
+                        <span className="font-normal text-[#232564] dark:text-[#F5F5FF] tracking-[0.02em]">
                           {project.title}
                         </span>
                       </div>
 
-                      <div className="text-right text-xs sm:text-[12.5px] text-[#11408F]/80 uppercase font-normal tracking-[0.02em] whitespace-nowrap">
+                      <div className="text-right text-xs sm:text-[12.5px] text-[#11408F]/80 dark:text-[#9999FF]/80 uppercase font-normal tracking-[0.02em] whitespace-nowrap">
                         <span>{project.tags?.[0] || "SYSTEM"}</span>
-                        <span className="text-[#11408F]/40">, </span>
+                        <span className="text-[#11408F]/40 dark:text-[#9999FF]/40">, </span>
                         <span>{project.year}</span>
                       </div>
                     </li>
@@ -347,7 +420,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             )}
 
             {/* Home Footer */}
-            <footer className="pt-10 border-t border-neutral-200/70 flex items-center justify-between font-mono text-[11px] text-[#232564]/60">
+            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex items-center justify-between font-mono text-[13px] sm:text-[13.5px] text-[#232564]/80 dark:text-[#F5F5FF]/80">
               <div>curiosity doesn&apos;t kill the cat.</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
@@ -360,7 +433,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
         {viewMode === "about" && (
           <div className="flex flex-col space-y-6 sm:space-y-7 animate-in fade-in duration-200">
             {/* Meet The Human Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -369,50 +442,50 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
+                  <h2 className="text-[15px] font-medium text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors">
                     meet the human
                   </h2>
-                  <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                  <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] mt-0.5">
                     because a portfolio needs a personality
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
+                  <span className="font-mono text-base font-semibold text-[#11408F] dark:text-[#9999FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
                     {isMeetHumanOpen ? "−" : "+"}
                   </span>
                 </div>
               </div>
 
               {isMeetHumanOpen && (
-                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
-                    <span>My name is <span className="text-[#FF42FF] font-medium">Pynthamil Pavendan</span>!</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
+                    <span>My name is <span className="text-[#FF42FF] dark:text-[#FF94FF] font-medium">Pynthamil Pavendan</span>!</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       I&apos;m a student developer who enjoys turning ideas into things people can actually use
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>I like building interfaces that feel simple, fast, and intentional</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       I spend most of my time working with modern web technologies, experimenting with interaction design, and refining the small details that make products feel polished
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       I&apos;m especially interested in how design and engineering come together to create experiences that feel effortless
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       Currently focused on building projects that are useful, visually clean, and quietly memorable
                     </span>
@@ -422,7 +495,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             </div>
 
             {/* Fun Facts About Me Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -431,58 +504,58 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
+                  <h2 className="text-[15px] font-medium text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors">
                     fun facts about me
                   </h2>
-                  <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                  <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] mt-0.5">
                     the lore drops
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
+                  <span className="font-mono text-base font-semibold text-[#11408F] dark:text-[#9999FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
                     {isFunFactsOpen ? "−" : "+"}
                   </span>
                 </div>
               </div>
 
               {isFunFactsOpen && (
-                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       music taste: a bit of everything &rarr; if it sounds good, I&apos;m listening
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       I love singing and dancing like nobody&apos;s watching (because usually nobody is)
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       introvert... who also loves to yap when the topic is interesting
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>personality type: INTJ</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>I enjoy challenging myself just for the plot</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>I love chess</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>most of my illustrations are inspired by Headspace</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       currently in my final year of college &mdash; slightly terrifying &amp; slightly exciting
                     </span>
@@ -492,7 +565,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             </div>
 
             {/* What I Am Currently Learning Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -501,42 +574,42 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
+                  <h2 className="text-[15px] font-medium text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors">
                     what i am currently learning
                   </h2>
-                  <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                  <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] mt-0.5">
                     learning, unlearning, relearning
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
+                  <span className="font-mono text-base font-semibold text-[#11408F] dark:text-[#9999FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
                     {isLearningOpen ? "−" : "+"}
                   </span>
                 </div>
               </div>
 
               {isLearningOpen && (
-                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       currently learning how to make things feel simple without making them boring
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       exploring better ways to structure code, design cleaner interfaces, and build products that feel intentional from the first click
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       trying to understand why some digital experiences feel effortless while others feel confusing, even when they do the same thing
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       also learning to be okay with not knowing everything yet and building anyway
                     </span>
@@ -546,7 +619,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             </div>
 
             {/* When I Touch Grass Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -555,36 +628,36 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
+                  <h2 className="text-[15px] font-medium text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors">
                     when i touch grass
                   </h2>
-                  <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                  <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] mt-0.5">
                     rare but documented
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
+                  <span className="font-mono text-base font-semibold text-[#11408F] dark:text-[#9999FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
                     {isTouchGrassOpen ? "−" : "+"}
                   </span>
                 </div>
               </div>
 
               {isTouchGrassOpen && (
-                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       I love reading books, watching movies, writing, and drawing
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       I&apos;m very curious so I love to constantly explore new things
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       I don&apos;t believe the saying &quot;curiosity kills the cat&quot; &mdash; haha
                     </span>
@@ -594,7 +667,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             </div>
 
             {/* About My Blog Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -603,42 +676,42 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
+                  <h2 className="text-[15px] font-medium text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors">
                     about my blog
                   </h2>
-                  <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                  <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] mt-0.5">
                     my brain leaving sticky notes for itself
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
+                  <span className="font-mono text-base font-semibold text-[#11408F] dark:text-[#9999FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
                     {isAboutBlogOpen ? "−" : "+"}
                   </span>
                 </div>
               </div>
 
               {isAboutBlogOpen && (
-                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       I write about things I&apos;m learning, things I&apos;m building, and things I randomly become obsessed with at 2:17 am
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       sometimes it&apos;s about tech, sometimes design, sometimes a thought that refuses to leave me alone until I write it down
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       it&apos;s less &quot;expert advice&quot; and more &quot;let me see if this idea makes sense outside my head&quot;
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       mostly curiosity. occasionally clarity. always slightly unhinged but in a productive way
                     </span>
@@ -648,7 +721,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             </div>
 
             {/* Come Say Hi Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -657,49 +730,49 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
+                  <h2 className="text-[15px] font-medium text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors">
                     come say hi
                   </h2>
-                  <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                  <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] mt-0.5">
                     the internet&apos;s version of knocking on my door
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
+                  <span className="font-mono text-base font-semibold text-[#11408F] dark:text-[#9999FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
                     {isComeSayHiOpen ? "−" : "+"}
                   </span>
                 </div>
               </div>
 
               {isComeSayHiOpen && (
-                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       Always down to chat about code, design systems, crazy ideas, or good music
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       Drop a line at{" "}
                       <a
                         href={`mailto:${portfolioData.email}`}
-                        className="text-[#6666FF] underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
+                        className="text-[#6666FF] dark:text-[#9999FF] underline underline-offset-4 decoration-wavy decoration-[#6666FF] dark:decoration-[#9999FF] font-medium"
                       >
                         {portfolioData.email}
                       </a>
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span className="font-mono text-[#11408F] dark:text-[#9999FF] select-none pt-0.5">+</span>
                     <span>
                       Find me on{" "}
                       <a
                         href="https://x.com/pyndu15"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] font-medium"
+                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
                       >
                         X
                       </a>
@@ -708,7 +781,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                         href="https://github.com/Pynthamil"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] font-medium"
+                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
                       >
                         GitHub
                       </a>
@@ -717,7 +790,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                         href="https://leetcode.com/u/HashKnight/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] font-medium"
+                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
                       >
                         LeetCode
                       </a>
@@ -726,7 +799,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                         href="https://linkedin.com/in/pynthamil-pavendan"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] font-medium"
+                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
                       >
                         LinkedIn
                       </a>
@@ -738,8 +811,8 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
 
             {/* Expandable Experience Section */}
             <section className="pt-6 sm:pt-8">
-              <div className="flex items-center justify-between pb-4.5 border-b border-neutral-200/70 mb-1">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] font-semibold">
+              <div className="flex items-center justify-between pb-4.5 border-b border-neutral-200/70 dark:border-[#9999FF]/20 mb-1">
+                <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] dark:text-[#9999FF] font-semibold">
                   experience
                 </h3>
                 <a
@@ -747,13 +820,13 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => playTone(880)}
-                  className="px-3.5 py-1.5 bg-[#FF42FF] hover:bg-[#e030e0] text-xs font-mono font-medium text-white flex items-center space-x-1 transition-all shadow-xs cursor-pointer"
+                  className="px-3.5 py-1.5 bg-[#FF42FF] dark:bg-[#FF94FF] hover:bg-[#e030e0] dark:hover:bg-[#ff7aff] text-xs font-mono font-medium text-white dark:text-[#0B0C0F] flex items-center space-x-1 transition-all shadow-xs cursor-pointer"
                 >
                   <span>Download as PDF ↓</span>
                 </a>
               </div>
 
-              <div className="divide-y divide-neutral-200/70">
+              <div className="divide-y divide-neutral-200/70 dark:divide-[#9999FF]/20">
                 {/* Plue Accordion */}
                 <div className="py-5">
                   <div
@@ -764,24 +837,24 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                     className="flex items-start justify-between cursor-pointer group select-none"
                   >
                     <div className="flex-1 pr-4">
-                      <div className="font-medium text-[#232564] text-sm group-hover:text-[#FF42FF] transition-colors">
+                      <div className="font-medium text-[#232564] dark:text-[#F5F5FF] text-sm group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors">
                         Engineering Intern
                       </div>
-                      <div className="font-mono text-xs text-[#11408F] mt-0.5">
+                      <div className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] mt-0.5">
                         Plue
                       </div>
                       {expandedExperience === "plue" && (
-                        <p className="text-sm text-[#232564] mt-3 leading-relaxed max-w-[520px]">
+                        <p className="text-sm text-[#232564] dark:text-[#F5F5FF] mt-3 leading-relaxed max-w-[520px]">
                           Engineering intern at Plue owning design systems, micro-interactions, and
                           reactive interface architectures.
                         </p>
                       )}
                     </div>
                     <div className="flex items-center space-x-3 pt-0.5">
-                      <span className="font-mono text-xs text-[#11408F] whitespace-nowrap">
+                      <span className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] whitespace-nowrap">
                         Sep – Nov 2026
                       </span>
-                      <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
+                      <span className="font-mono text-base font-semibold text-[#11408F] dark:text-[#9999FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
                         {expandedExperience === "plue" ? "−" : "+"}
                       </span>
                     </div>
@@ -800,24 +873,24 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                     className="flex items-start justify-between cursor-pointer group select-none"
                   >
                     <div className="flex-1 pr-4">
-                      <div className="font-medium text-[#232564] text-sm group-hover:text-[#FF42FF] transition-colors">
+                      <div className="font-medium text-[#232564] dark:text-[#F5F5FF] text-sm group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors">
                         Frontend Developer Intern
                       </div>
-                      <div className="font-mono text-xs text-[#11408F] mt-0.5">
+                      <div className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] mt-0.5">
                         Scientiflow
                       </div>
                       {expandedExperience === "scientiflow" && (
-                        <p className="text-sm text-[#232564] mt-3 leading-relaxed max-w-[520px]">
+                        <p className="text-sm text-[#232564] dark:text-[#F5F5FF] mt-3 leading-relaxed max-w-[520px]">
                           Frontend developer intern responsible for crafting responsive user interfaces,
                           component architecture, and seamless interactive experiences.
                         </p>
                       )}
                     </div>
                     <div className="flex items-center space-x-3 pt-0.5">
-                      <span className="font-mono text-xs text-[#11408F] whitespace-nowrap">
+                      <span className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] whitespace-nowrap">
                         May – Jul 2025
                       </span>
-                      <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
+                      <span className="font-mono text-base font-semibold text-[#11408F] dark:text-[#9999FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
                         {expandedExperience === "scientiflow" ? "−" : "+"}
                       </span>
                     </div>
@@ -827,17 +900,17 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             </section>
 
             {/* Stack Row */}
-            <section className="pt-4 border-t border-neutral-200/70 font-mono text-xs">
+            <section className="pt-4 border-t border-neutral-200/70 dark:border-[#9999FF]/20 font-mono text-xs">
               <div className="flex items-center justify-between">
-                <div className="text-[#11408F] font-semibold">stack</div>
-                <div className="text-right text-[#232564]">
+                <div className="text-[#11408F] dark:text-[#9999FF] font-semibold">stack</div>
+                <div className="text-right text-[#232564] dark:text-[#F5F5FF]">
                   Next.js &bull; Supabase &bull; Python &bull; Figma &bull; Antigravity
                 </div>
               </div>
             </section>
 
             {/* About Footer */}
-            <footer className="pt-10 border-t border-neutral-200/70 flex items-center justify-between font-mono text-[11px] text-[#232564]/60">
+            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex items-center justify-between font-mono text-[13px] sm:text-[13.5px] text-[#232564]/80 dark:text-[#F5F5FF]/80">
               <div>curiosity doesn&apos;t kill the cat.</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
@@ -851,13 +924,13 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
           <div className="flex flex-col space-y-7 animate-in fade-in duration-200">
             {/* Blog Posts Clean Accordion Architecture */}
             <section>
-              <div className="pb-3 border-b border-neutral-200/70 mb-1">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] font-semibold">
+              <div className="pb-3 border-b border-neutral-200/70 dark:border-[#9999FF]/20 mb-1">
+                <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] dark:text-[#9999FF] font-semibold">
                   featured
                 </h3>
               </div>
 
-              <div className="divide-y divide-neutral-200/70">
+              <div className="divide-y divide-neutral-200/70 dark:divide-[#9999FF]/20">
                 {portfolioData.writings.map((post, idx) => (
                   <div key={idx} className="py-4.5 sm:py-5">
                     <a
@@ -866,15 +939,15 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                       className="flex items-center justify-between group select-none cursor-pointer"
                     >
                       <div>
-                        <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#6666FF] transition-colors">
+                        <h2 className="text-[15px] font-medium text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors">
                           {post.title.toLowerCase()}
                         </h2>
-                        <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                        <p className="font-mono text-xs text-[#11408F] dark:text-[#9999FF] mt-0.5">
                           {post.date.toLowerCase()} &bull; {post.readingTime.toLowerCase()} read
                         </p>
                       </div>
                       <div>
-                        <span className="font-mono text-[15px] sm:text-base font-medium text-[#11408F] group-hover:text-[#6666FF] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150 select-none leading-none inline-block">
+                        <span className="font-mono text-[15px] sm:text-base font-medium text-[#11408F] dark:text-[#9999FF] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150 select-none leading-none inline-block">
                           ↗
                         </span>
                       </div>
@@ -885,7 +958,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
             </section>
 
             {/* Blog Footer */}
-            <footer className="pt-10 border-t border-neutral-200/70 flex items-center justify-between font-mono text-[11px] text-[#232564]/60">
+            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex items-center justify-between font-mono text-[13px] sm:text-[13.5px] text-[#232564]/80 dark:text-[#F5F5FF]/80">
               <div>curiosity doesn&apos;t kill the cat.</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
@@ -901,11 +974,11 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
           title={selectedProject.title}
           badge="PROJECT"
         >
-          <div className="space-y-3 text-[#232564]">
-            <div className="text-xs font-mono text-[#11408F]">
+          <div className="space-y-3 text-[#232564] dark:text-[#F5F5FF]">
+            <div className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">
               {selectedProject.year} &bull; {selectedProject.status || "Completed"}
             </div>
-            <p className="text-sm leading-relaxed text-[#232564]">
+            <p className="text-sm leading-relaxed text-[#232564] dark:text-[#F5F5FF]">
               {selectedProject.description}
             </p>
             {selectedProject.tags && (
@@ -913,7 +986,7 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
                 {selectedProject.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="font-mono text-[10.5px] px-2 py-0.5 bg-[#232564]/5 rounded text-[#232564]"
+                    className="font-mono text-[10.5px] px-2 py-0.5 bg-[#232564]/5 dark:bg-[#9999FF]/20 rounded text-[#232564] dark:text-[#F5F5FF]"
                   >
                     {tag}
                   </span>
@@ -931,11 +1004,11 @@ export default function Home({ initialViewMode = "home" }: HomeProps) {
           title={selectedPost.title}
           badge="BLOG"
         >
-          <div className="space-y-3 text-[#232564]">
-            <div className="text-xs font-mono text-[#11408F]">
+          <div className="space-y-3 text-[#232564] dark:text-[#F5F5FF]">
+            <div className="text-xs font-mono text-[#11408F] dark:text-[#9999FF]">
               {selectedPost.date} &bull; {selectedPost.readingTime}
             </div>
-            <p className="text-sm leading-relaxed text-[#232564] pt-1">
+            <p className="text-sm leading-relaxed text-[#232564] dark:text-[#F5F5FF] pt-1">
               {selectedPost.description}
             </p>
           </div>
