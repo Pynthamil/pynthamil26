@@ -7,13 +7,13 @@ import { Modal } from "@/components/Modal";
 export default function Home() {
   const [viewMode, setViewMode] = useState<"home" | "about" | "blog">("home");
   const [blogFilter, setBlogFilter] = useState<string>("all");
-  const [expandedExperience, setExpandedExperience] = useState<string | null>("plue");
+  const [expandedExperience, setExpandedExperience] = useState<string | null>(null);
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isMeetHumanOpen, setIsMeetHumanOpen] = useState<boolean>(true);
-  const [isFunFactsOpen, setIsFunFactsOpen] = useState<boolean>(true);
-  const [isLearningOpen, setIsLearningOpen] = useState<boolean>(true);
-  const [isTouchGrassOpen, setIsTouchGrassOpen] = useState<boolean>(true);
+  const [isMeetHumanOpen, setIsMeetHumanOpen] = useState<boolean>(false);
+  const [isFunFactsOpen, setIsFunFactsOpen] = useState<boolean>(false);
+  const [isLearningOpen, setIsLearningOpen] = useState<boolean>(false);
+  const [isTouchGrassOpen, setIsTouchGrassOpen] = useState<boolean>(false);
   const [soundOn, setSoundOn] = useState<boolean>(true);
   const [currentTime, setCurrentTime] = useState<string>("");
 
