@@ -138,7 +138,7 @@ export const portfolioData: PortfolioData = {
   writings: [
     {
       title: "The Art of Committing",
-      date: "SEP 2026",
+      date: "SEP 5, 2026",
       readingTime: "3 MIN",
       description: "Version control isn’t just about saving code — it’s about telling the story of how your ideas evolve. Tiny commits. Big growth.",
       slug: "art-of-committing",
