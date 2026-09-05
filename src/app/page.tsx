@@ -4,8 +4,12 @@ import React, { useState, useEffect } from "react";
 import { portfolioData, Project, Post } from "@/data/portfolio";
 import { Modal } from "@/components/Modal";
 
-export default function Home() {
-  const [viewMode, setViewMode] = useState<"home" | "about" | "blog">("home");
+interface HomeProps {
+  initialViewMode?: "home" | "about" | "blog";
+}
+
+export default function Home({ initialViewMode = "home" }: HomeProps) {
+  const [viewMode, setViewMode] = useState<"home" | "about" | "blog">(initialViewMode);
   const [blogFilter, setBlogFilter] = useState<string>("all");
   const [expandedExperience, setExpandedExperience] = useState<string | null>(null);
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
@@ -14,9 +18,30 @@ export default function Home() {
   const [isFunFactsOpen, setIsFunFactsOpen] = useState<boolean>(false);
   const [isLearningOpen, setIsLearningOpen] = useState<boolean>(false);
   const [isTouchGrassOpen, setIsTouchGrassOpen] = useState<boolean>(false);
+  const [isComeSayHiOpen, setIsComeSayHiOpen] = useState<boolean>(false);
+  const [isAboutBlogOpen, setIsAboutBlogOpen] = useState<boolean>(false);
+  const [expandedBlogSlug, setExpandedBlogSlug] = useState<string | null>(null);
+  const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
   const [soundOn, setSoundOn] = useState<boolean>(true);
   const [currentTime, setCurrentTime] = useState<string>("");
 
+  // Sync with browser URL navigation and history (Back / Forward)
+  useEffect(() => {
+    const syncWithPath = () => {
+      const path = window.location.pathname;
+      if (path === "/about") {
+        setViewMode("about");
+      } else if (path === "/blog") {
+        setViewMode("blog");
+      } else {
+        setViewMode("home");
+      }
+    };
+
+    syncWithPath();
+    window.addEventListener("popstate", syncWithPath);
+    return () => window.removeEventListener("popstate", syncWithPath);
+  }, []);
 
   // Live ticking clock with IST
   useEffect(() => {
@@ -64,6 +89,10 @@ export default function Home() {
   const handleNavClick = (mode: "home" | "about" | "blog") => {
     playClickSound();
     setViewMode(mode);
+    const targetUrl = mode === "home" ? "/" : `/${mode}`;
+    if (typeof window !== "undefined" && window.location.pathname !== targetUrl) {
+      window.history.pushState({ mode }, "", targetUrl);
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -82,10 +111,10 @@ export default function Home() {
       {/* Main Container: exactly 490px across Home, About, and Blog */}
       <main className="w-full relative z-10 flex flex-col max-w-[490px]">
         {/* Top Header Row */}
-        <header className="flex flex-col w-full mb-10">
+        <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-2.5" : "mb-8"}`}>
           {/* Clawd GIF on Home Page */}
           {viewMode === "home" && (
-            <div className="mb-3">
+            <div className="-mb-1.5 sm:-mb-2 -ml-3 sm:-ml-4">
               <img
                 src="/clawd.gif"
                 alt="Clawd"
@@ -98,13 +127,13 @@ export default function Home() {
             {/* Left Title: Figma box on Home, Back button on About/Blog */}
             <div className="flex items-center">
               {viewMode === "home" ? (
-                <h1 className="text-[17px] sm:text-[18px] font-medium tracking-tight text-[#FF42FF] select-none">
+                <h1 className="text-[21px] sm:text-[23px] font-medium tracking-tight text-[#FF42FF] select-none">
                   {portfolioData.name.toLowerCase()}
                 </h1>
               ) : (
                 <button
                   onClick={() => handleNavClick("home")}
-                  className="font-mono text-sm tracking-tight text-[#FF42FF] hover:opacity-80 transition-opacity flex items-center space-x-1.5 focus:outline-none font-medium"
+                  className="font-mono text-[15px] sm:text-[16px] tracking-tight text-[#232564] hover:text-[#11408F] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
                 >
                   <span>&larr;</span>
                   <span>{portfolioData.name.toLowerCase()}</span>
@@ -118,8 +147,8 @@ export default function Home() {
                 onClick={() => handleNavClick("about")}
                 className={`transition-colors cursor-pointer select-none ${
                   viewMode === "about"
-                    ? "text-[#FF42FF] font-semibold underline underline-offset-4 decoration-[#FF42FF]"
-                    : "text-neutral-800 hover:text-[#FF42FF]"
+                    ? "text-[#FF42FF] font-semibold underline underline-offset-4 decoration-wavy decoration-[#FF42FF]"
+                    : "text-[#232564] hover:text-[#FF42FF]"
                 }`}
               >
                 About
@@ -128,8 +157,8 @@ export default function Home() {
                 onClick={() => handleNavClick("blog")}
                 className={`transition-colors cursor-pointer select-none ${
                   viewMode === "blog"
-                    ? "text-[#6666FF] font-semibold underline underline-offset-4 decoration-[#6666FF]"
-                    : "text-neutral-800 hover:text-[#6666FF]"
+                    ? "text-[#6666FF] font-semibold underline underline-offset-4 decoration-wavy decoration-[#6666FF]"
+                    : "text-[#232564] hover:text-[#6666FF]"
                 }`}
               >
                 Blog
@@ -145,50 +174,106 @@ export default function Home() {
           <div className="flex flex-col animate-in fade-in duration-200">
             {/* Bio Copy & Status Section */}
             <section className="flex flex-col space-y-3.5 mb-12 sm:mb-14">
-              <p className="text-[16px] text-neutral-900 font-normal">
-                Product and experience designer.
+              <p className="text-[16px] text-[#232564] font-normal leading-relaxed">
+                I am a curious being who loves bringing the crazy ideas existing in my mind into reality through the sheer power of code.
               </p>
 
-              <div className="flex items-center space-x-2 text-[15px] text-neutral-900">
-                <span>Engineering at</span>
-                <span className="font-mono font-bold tracking-wider text-[#1e3a8a] text-[14px]">
-                  PLUE
+              <div className="flex items-center space-x-2 text-[14.5px] text-[#232564] pt-1 pb-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
+                <span>
+                  Currently: making{" "}
+                  <a
+                    href="https://getplue.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#232564] underline underline-offset-4 decoration-wavy decoration-[#232564]/40 hover:decoration-[#232564] font-medium transition-colors"
+                  >
+                    plue
+                  </a>{" "}
+                  THE student haven
                 </span>
               </div>
 
-              <div className="font-mono text-xs text-[#11408F]">v3.0 / 2026</div>
-
-              <div className="flex items-center space-x-2 text-[14.5px] text-neutral-800 pt-1">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
-                <span>Currently: making calm software feel alive.</span>
-              </div>
-
-              <p className="text-[14.5px] text-neutral-700 pt-1">
+              <p className="text-[14.5px] text-[#232564] leading-relaxed">
                 Find me on{" "}
                 <a
-                  href="https://x.com"
+                  href="https://x.com/pyndu15"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
+                  className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] transition-colors"
                 >
                   X
                 </a>
                 ,{" "}
                 <a
-                  href={`mailto:${portfolioData.email}`}
-                  className="text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
+                  href="https://github.com/Pynthamil"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] transition-colors"
                 >
-                  email me
+                  GitHub
+                </a>
+                ,{" "}
+                <a
+                  href="https://linkedin.com/in/pynthamil-pavendan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] transition-colors"
+                >
+                  LinkedIn
                 </a>
                 , or{" "}
                 <a
-                  href="#resume"
-                  onClick={() => handleNavClick("about")}
-                  className="text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
+                  href={portfolioData.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => playTone(880)}
+                  className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] transition-colors"
                 >
                   download my CV &darr;
                 </a>
               </p>
+
+              {/* Dashed Email Box */}
+              <div className="pt-2 flex">
+                <div
+                  onClick={() => {
+                    navigator.clipboard.writeText(portfolioData.email);
+                    setCopiedEmail(true);
+                    playTone(1046);
+                    setTimeout(() => setCopiedEmail(false), 2000);
+                  }}
+                  className="inline-flex items-center space-x-2.5 px-3 py-1.5 border border-dashed border-[#11408F] rounded-none bg-transparent cursor-pointer group select-none"
+                  title="Click to copy email"
+                >
+                  <span className="font-mono text-[12.5px] sm:text-[13.5px] text-[#11408F] group-hover:text-[#232564] tracking-wide transition-colors">
+                    {portfolioData.email}
+                  </span>
+                  <div className="text-[#11408F] group-hover:text-[#232564] flex items-center focus:outline-none transition-colors">
+                    {copiedEmail ? (
+                      <span className="text-emerald-600 font-mono text-xs font-medium animate-in fade-in">
+                        copied!
+                      </span>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="opacity-75 group-hover:opacity-100 transition-opacity"
+                      >
+                        <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+              </div>
             </section>
 
             {/* Experience List Section */}
@@ -200,37 +285,30 @@ export default function Home() {
                 {portfolioData.experiences.map((item) => (
                   <li
                     key={item.id}
-                    className="group flex items-center justify-between py-0.5 text-[#111111] transition-opacity hover:opacity-75"
+                    className="group flex items-start justify-between py-1 text-[#232564] transition-opacity hover:opacity-80"
                   >
                     <a
                       href={item.url || "#"}
                       target={item.url && item.url !== "#" ? "_blank" : undefined}
                       rel={item.url && item.url !== "#" ? "noopener noreferrer" : undefined}
-                      className="flex items-center space-x-3 flex-1 pr-4 focus:outline-none"
+                      className="flex items-start space-x-2.5 flex-1 pr-4 focus:outline-none"
                     >
-                      {item.glowColor && item.glowColor !== "transparent" ? (
-                        <span
-                          className="glow-badge"
-                          style={{
-                            backgroundColor: item.color,
-                            boxShadow: `0 0 6px ${item.glowColor}`,
-                          }}
-                        />
-                      ) : (
-                        <span
-                          className="w-1.5 h-1.5 rounded-full shrink-0"
-                          style={{ backgroundColor: item.color || "#111111" }}
-                        />
-                      )}
-                      <span className="font-normal text-[#1a1a1a] tracking-[0.04em]">
-                        {item.company}
-                      </span>
+                      <span
+                        className="w-1.5 h-1.5 rounded-full shrink-0 mt-1.5"
+                        style={{ backgroundColor: item.color || "#232564" }}
+                      />
+                      <div className="flex flex-col">
+                        <span className="font-normal text-[#232564] tracking-[0.04em]">
+                          {item.role}
+                        </span>
+                        <span className="text-[11px] text-[#11408F] tracking-[0.04em] mt-0.5">
+                          {item.company}
+                        </span>
+                      </div>
                     </a>
 
-                    <div className="text-right text-[#11408F]/80 uppercase font-normal tracking-[0.04em] whitespace-nowrap">
-                      <span>{item.role}</span>
-                      <span className="text-[#11408F]/50">, </span>
-                      <span>{item.period}</span>
+                    <div className="text-right text-[#11408F] uppercase font-normal tracking-[0.04em] whitespace-nowrap pt-0.5">
+                      {item.period}
                     </div>
                   </li>
                 ))}
@@ -247,19 +325,19 @@ export default function Home() {
                   {portfolioData.projects.map((project: Project, idx: number) => (
                     <li
                       key={idx}
-                      className="group flex items-center justify-between py-0.5 text-[#111111] cursor-pointer transition-opacity hover:opacity-75"
+                      className="group flex items-center justify-between py-0.5 text-[#232564] cursor-pointer transition-opacity hover:opacity-75"
                       onClick={() => setSelectedProject(project)}
                     >
                       <div className="flex items-center space-x-3 flex-1 pr-4">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#111111] opacity-40 group-hover:opacity-100 transition-opacity" />
-                        <span className="font-normal text-[#1a1a1a] tracking-[0.04em]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#232564] opacity-40 group-hover:opacity-100 transition-opacity" />
+                        <span className="font-normal text-[#232564] tracking-[0.04em]">
                           {project.title}
                         </span>
                       </div>
 
-                      <div className="text-right text-[#737373] uppercase font-normal tracking-[0.04em] whitespace-nowrap">
+                      <div className="text-right text-[#11408F]/80 uppercase font-normal tracking-[0.04em] whitespace-nowrap">
                         <span>{project.tags?.[0] || "SYSTEM"}</span>
-                        <span className="text-[#a3a3a3]">, </span>
+                        <span className="text-[#11408F]/40">, </span>
                         <span>{project.year}</span>
                       </div>
                     </li>
@@ -267,6 +345,12 @@ export default function Home() {
                 </ul>
               </section>
             )}
+
+            {/* Home Footer */}
+            <footer className="pt-10 border-t border-neutral-200/70 flex items-center justify-between font-mono text-[11px] text-[#232564]/60">
+              <div>curiosity doesn&apos;t kill the cat.</div>
+              <div>made w love &bull; &copy; 2026</div>
+            </footer>
           </div>
         )}
 
@@ -285,7 +369,7 @@ export default function Home() {
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[15px] font-medium text-neutral-900 group-hover:text-[#FF42FF] transition-colors">
+                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
                     meet the human
                   </h2>
                   <p className="font-mono text-xs text-[#11408F] mt-0.5">
@@ -300,7 +384,7 @@ export default function Home() {
               </div>
 
               {isMeetHumanOpen && (
-                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-neutral-800 leading-relaxed font-sans animate-in fade-in duration-150">
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
                     <span>My name is <span className="text-[#FF42FF] font-medium">Pynthamil Pavendan</span>!</span>
@@ -347,7 +431,7 @@ export default function Home() {
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[15px] font-medium text-neutral-900 group-hover:text-[#FF42FF] transition-colors">
+                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
                     fun facts about me
                   </h2>
                   <p className="font-mono text-xs text-[#11408F] mt-0.5">
@@ -362,7 +446,7 @@ export default function Home() {
               </div>
 
               {isFunFactsOpen && (
-                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-neutral-800 leading-relaxed font-sans animate-in fade-in duration-150">
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
                     <span>
@@ -417,7 +501,7 @@ export default function Home() {
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[15px] font-medium text-neutral-900 group-hover:text-[#FF42FF] transition-colors">
+                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
                     what i am currently learning
                   </h2>
                   <p className="font-mono text-xs text-[#11408F] mt-0.5">
@@ -432,7 +516,7 @@ export default function Home() {
               </div>
 
               {isLearningOpen && (
-                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-neutral-800 leading-relaxed font-sans animate-in fade-in duration-150">
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
                     <span>
@@ -471,7 +555,7 @@ export default function Home() {
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[15px] font-medium text-neutral-900 group-hover:text-[#FF42FF] transition-colors">
+                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
                     when i touch grass
                   </h2>
                   <p className="font-mono text-xs text-[#11408F] mt-0.5">
@@ -486,7 +570,7 @@ export default function Home() {
               </div>
 
               {isTouchGrassOpen && (
-                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-neutral-800 leading-relaxed font-sans animate-in fade-in duration-150">
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
                     <span>
@@ -509,19 +593,98 @@ export default function Home() {
               )}
             </div>
 
+            {/* Come Say Hi Dropdown Accordion */}
+            <div className="border-b border-neutral-200/70 pb-5">
+              <div
+                onClick={() => {
+                  playTone(880);
+                  setIsComeSayHiOpen(!isComeSayHiOpen);
+                }}
+                className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
+              >
+                <div>
+                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#FF42FF] transition-colors">
+                    come say hi
+                  </h2>
+                  <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                    the internet&apos;s version of knocking on my door
+                  </p>
+                </div>
+                <div>
+                  <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
+                    {isComeSayHiOpen ? "−" : "+"}
+                  </span>
+                </div>
+              </div>
+
+              {isComeSayHiOpen && (
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span>
+                      Always down to chat about code, design systems, crazy ideas, or good music
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span>
+                      Drop a line at{" "}
+                      <a
+                        href={`mailto:${portfolioData.email}`}
+                        className="text-[#6666FF] underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
+                      >
+                        {portfolioData.email}
+                      </a>
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span>
+                      Find me on{" "}
+                      <a
+                        href="https://x.com/pyndu15"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] font-medium"
+                      >
+                        X
+                      </a>
+                      ,{" "}
+                      <a
+                        href="https://github.com/Pynthamil"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] font-medium"
+                      >
+                        GitHub
+                      </a>
+                      , and{" "}
+                      <a
+                        href="https://linkedin.com/in/pynthamil-pavendan"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#232564] underline underline-offset-4 decoration-[#232564]/30 hover:decoration-[#232564] font-medium"
+                      >
+                        LinkedIn
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* Expandable Experience Section */}
-            <section className="pt-2">
-              <div className="flex items-center justify-between pb-4 border-b border-neutral-200/70">
+            <section className="pt-6 sm:pt-8">
+              <div className="flex items-center justify-between pb-4.5 border-b border-neutral-200/70 mb-1">
                 <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] font-semibold">
                   experience
                 </h3>
                 <a
-                  href="#download"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    playTone(880);
-                  }}
-                  className="px-3.5 py-1.5 bg-[#FF42FF] hover:bg-[#e030e0] text-xs font-mono font-medium text-white flex items-center space-x-1 transition-all shadow-xs"
+                  href={portfolioData.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => playTone(880)}
+                  className="px-3.5 py-1.5 bg-[#FF42FF] hover:bg-[#e030e0] text-xs font-mono font-medium text-white flex items-center space-x-1 transition-all shadow-xs cursor-pointer"
                 >
                   <span>Download as PDF ↓</span>
                 </a>
@@ -529,7 +692,7 @@ export default function Home() {
 
               <div className="divide-y divide-neutral-200/70">
                 {/* Plue Accordion */}
-                <div className="py-4">
+                <div className="py-5">
                   <div
                     onClick={() => {
                       playTone(880);
@@ -537,18 +700,24 @@ export default function Home() {
                     }}
                     className="flex items-start justify-between cursor-pointer group select-none"
                   >
-                    <div className="font-mono text-xs text-[#11408F] w-28 pt-0.5">Sep – Nov 2026</div>
-                    <div className="flex-1">
-                      <div className="font-medium text-neutral-900 text-sm group-hover:text-[#FF42FF] transition-colors">Plue</div>
-                      <div className="font-mono text-xs text-[#11408F]">Engineering Intern</div>
+                    <div className="flex-1 pr-4">
+                      <div className="font-medium text-[#232564] text-sm group-hover:text-[#FF42FF] transition-colors">
+                        Engineering Intern
+                      </div>
+                      <div className="font-mono text-xs text-[#11408F] mt-0.5">
+                        Plue
+                      </div>
                       {expandedExperience === "plue" && (
-                        <p className="text-sm text-neutral-700 mt-2.5 leading-relaxed max-w-[520px]">
+                        <p className="text-sm text-[#232564] mt-3 leading-relaxed max-w-[520px]">
                           Engineering intern at Plue owning design systems, micro-interactions, and
                           reactive interface architectures.
                         </p>
                       )}
                     </div>
-                    <div>
+                    <div className="flex items-center space-x-3 pt-0.5">
+                      <span className="font-mono text-xs text-[#11408F] whitespace-nowrap">
+                        Sep – Nov 2026
+                      </span>
                       <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
                         {expandedExperience === "plue" ? "−" : "+"}
                       </span>
@@ -557,7 +726,7 @@ export default function Home() {
                 </div>
 
                 {/* Scientiflow Accordion */}
-                <div className="py-4">
+                <div className="py-5">
                   <div
                     onClick={() => {
                       playTone(880);
@@ -567,20 +736,24 @@ export default function Home() {
                     }}
                     className="flex items-start justify-between cursor-pointer group select-none"
                   >
-                    <div className="font-mono text-xs text-[#11408F] w-28 pt-0.5">
-                      May – Jul 2025
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-medium text-neutral-900 text-sm group-hover:text-[#FF42FF] transition-colors">Scientiflow</div>
-                      <div className="font-mono text-xs text-[#11408F]">Frontend Developer · Internship</div>
+                    <div className="flex-1 pr-4">
+                      <div className="font-medium text-[#232564] text-sm group-hover:text-[#FF42FF] transition-colors">
+                        Frontend Developer Intern
+                      </div>
+                      <div className="font-mono text-xs text-[#11408F] mt-0.5">
+                        Scientiflow
+                      </div>
                       {expandedExperience === "scientiflow" && (
-                        <p className="text-sm text-neutral-700 mt-2.5 leading-relaxed max-w-[520px]">
+                        <p className="text-sm text-[#232564] mt-3 leading-relaxed max-w-[520px]">
                           Frontend developer intern responsible for crafting responsive user interfaces,
                           component architecture, and seamless interactive experiences.
                         </p>
                       )}
                     </div>
-                    <div>
+                    <div className="flex items-center space-x-3 pt-0.5">
+                      <span className="font-mono text-xs text-[#11408F] whitespace-nowrap">
+                        May – Jul 2025
+                      </span>
                       <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#FF42FF] transition-colors select-none leading-none">
                         {expandedExperience === "scientiflow" ? "−" : "+"}
                       </span>
@@ -590,28 +763,20 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Stack & Expertise Rows */}
-            <section className="pt-4 border-t border-neutral-200/70 space-y-4 font-mono text-xs">
+            {/* Stack Row */}
+            <section className="pt-4 border-t border-neutral-200/70 font-mono text-xs">
               <div className="flex items-center justify-between">
                 <div className="text-[#11408F] font-semibold w-24">stack</div>
-                <div className="flex-1 text-neutral-900">
-                  Figma &bull; React &bull; Next.js &bull; TypeScript &bull; Web Audio &bull; Rive
+                <div className="flex-1 text-[#232564]">
+                  Next.js &bull; Supabase &bull; Python &bull; Figma &bull; Antigravity
                 </div>
-                <div className="text-[#11408F] text-[11px]">+24 more &gt;</div>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="text-[#11408F] font-semibold w-24">expertise</div>
-                <div className="flex-1 text-neutral-900">
-                  Vision &amp; strategy &bull; Interaction design &bull; Design systems &bull; Motion
-                </div>
-                <div className="text-[#11408F] text-[11px]">+6 more &gt;</div>
               </div>
             </section>
 
             {/* About Footer */}
-            <footer className="pt-10 border-t border-neutral-200/70 flex items-center justify-between font-mono text-[11px] text-neutral-400">
-              <div>there&apos;s light under this page.</div>
-              <div>made by hand &bull; &copy; 2026</div>
+            <footer className="pt-10 border-t border-neutral-200/70 flex items-center justify-between font-mono text-[11px] text-[#232564]/60">
+              <div>curiosity doesn&apos;t kill the cat.</div>
+              <div>made w love &bull; &copy; 2026</div>
             </footer>
           </div>
         )}
@@ -620,41 +785,126 @@ export default function Home() {
             VIEW 3: BLOG VIEW
            ======================================================== */}
         {viewMode === "blog" && (
-          <div className="flex flex-col space-y-8 animate-in fade-in duration-200">
-            {/* Header Title */}
-            <div>
-              <h2 className="text-2xl sm:text-[32px] font-medium leading-tight text-neutral-900 mb-2">
-                Blog
-              </h2>
-              <p className="text-[15px] text-neutral-600">
-                Writings on software design, calm interfaces, and systems.
-              </p>
+          <div className="flex flex-col space-y-12 animate-in fade-in duration-200">
+            {/* 1. About Blog Dropdown Accordion */}
+            <div className="border-b border-neutral-200/70 pb-5">
+              <div
+                onClick={() => {
+                  playTone(880);
+                  setIsAboutBlogOpen(!isAboutBlogOpen);
+                }}
+                className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
+              >
+                <div>
+                  <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#6666FF] transition-colors">
+                    about my blog
+                  </h2>
+                  <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                    my brain leaving sticky notes for itself
+                  </p>
+                </div>
+                <div>
+                  <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#6666FF] transition-colors select-none leading-none">
+                    {isAboutBlogOpen ? "−" : "+"}
+                  </span>
+                </div>
+              </div>
+
+              {isAboutBlogOpen && (
+                <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span>
+                      I write about things I&apos;m learning, things I&apos;m building, and things I randomly become obsessed with at 2:17 am
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span>
+                      sometimes it&apos;s about tech, sometimes design, sometimes a thought that refuses to leave me alone until I write it down
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span>
+                      it&apos;s less &quot;expert advice&quot; and more &quot;let me see if this idea makes sense outside my head&quot;
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] select-none pt-0.5">+</span>
+                    <span>
+                      mostly curiosity. occasionally clarity. always slightly unhinged but in a productive way
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Blog Post List */}
-            <div className="divide-y divide-neutral-200/70 border-t border-b border-neutral-200/70">
-              {portfolioData.writings.map((post, idx) => (
-                <article
-                  key={idx}
-                  onClick={() => {
-                    playTone(880);
-                    setSelectedPost(post);
-                  }}
-                  className="py-5 group cursor-pointer transition-colors"
-                >
-                  <div className="flex items-center justify-between font-mono text-[11px] text-neutral-500 mb-1.5">
-                    <span>{post.date}</span>
-                    <span>{post.readingTime} READ</span>
-                  </div>
-                  <h3 className="text-[16px] font-medium text-neutral-900 group-hover:text-blue-600 transition-colors leading-snug">
-                    {post.title}
-                  </h3>
-                  <p className="text-[13.5px] text-neutral-600 leading-relaxed mt-1.5">
-                    {post.description}
-                  </p>
-                </article>
-              ))}
-            </div>
+            {/* 2. Blog Posts Clean Accordion Architecture */}
+            <section className="pt-2">
+              <div className="pb-3 border-b border-neutral-200/70 mb-1">
+                <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] font-semibold">
+                  featured
+                </h3>
+              </div>
+
+              <div className="divide-y divide-neutral-200/70">
+                {portfolioData.writings.map((post, idx) => {
+                  const isOpen = expandedBlogSlug === post.slug;
+                  return (
+                    <div key={idx} className="py-4.5 sm:py-5">
+                      <div
+                        onClick={() => {
+                          playTone(880);
+                          setExpandedBlogSlug(isOpen ? null : post.slug);
+                        }}
+                        className="flex items-center justify-between cursor-pointer group select-none"
+                      >
+                        <div>
+                          <h2 className="text-[15px] font-medium text-[#232564] group-hover:text-[#6666FF] transition-colors">
+                            {post.title.toLowerCase()}
+                          </h2>
+                          <p className="font-mono text-xs text-[#11408F] mt-0.5">
+                            {post.date.toLowerCase()} &bull; {post.readingTime.toLowerCase()} read
+                          </p>
+                        </div>
+                        <div>
+                          <span className="font-mono text-base font-semibold text-[#11408F] group-hover:text-[#6666FF] transition-colors select-none leading-none">
+                            {isOpen ? "−" : "+"}
+                          </span>
+                        </div>
+                      </div>
+
+                      {isOpen && (
+                        <div className="mt-4 space-y-3.5 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans animate-in fade-in duration-150">
+                          <p className="text-[#232564] leading-relaxed">
+                            {post.description}
+                          </p>
+                          <div className="pt-1">
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                playTone(880);
+                                setSelectedPost(post);
+                              }}
+                              className="font-mono text-xs text-[#6666FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
+                            >
+                              <span>read full post &rarr;</span>
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+
+            {/* Blog Footer */}
+            <footer className="pt-10 border-t border-neutral-200/70 flex items-center justify-between font-mono text-[11px] text-[#232564]/60">
+              <div>curiosity doesn&apos;t kill the cat.</div>
+              <div>made w love &bull; &copy; 2026</div>
+            </footer>
           </div>
         )}
       </main>
@@ -667,11 +917,11 @@ export default function Home() {
           title={selectedProject.title}
           badge="PROJECT"
         >
-          <div className="space-y-3 text-neutral-700">
-            <div className="text-xs font-mono text-neutral-500">
+          <div className="space-y-3 text-[#232564]">
+            <div className="text-xs font-mono text-[#11408F]">
               {selectedProject.year} &bull; {selectedProject.status || "Completed"}
             </div>
-            <p className="text-sm leading-relaxed text-neutral-800">
+            <p className="text-sm leading-relaxed text-[#232564]">
               {selectedProject.description}
             </p>
             {selectedProject.tags && (
@@ -679,7 +929,7 @@ export default function Home() {
                 {selectedProject.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="font-mono text-[10.5px] px-2 py-0.5 bg-neutral-100 rounded text-neutral-700"
+                    className="font-mono text-[10.5px] px-2 py-0.5 bg-[#232564]/5 rounded text-[#232564]"
                   >
                     {tag}
                   </span>
@@ -697,11 +947,11 @@ export default function Home() {
           title={selectedPost.title}
           badge="BLOG"
         >
-          <div className="space-y-3 text-neutral-700">
-            <div className="text-xs font-mono text-neutral-500">
+          <div className="space-y-3 text-[#232564]">
+            <div className="text-xs font-mono text-[#11408F]">
               {selectedPost.date} &bull; {selectedPost.readingTime}
             </div>
-            <p className="text-sm leading-relaxed text-neutral-800 pt-1">
+            <p className="text-sm leading-relaxed text-[#232564] pt-1">
               {selectedPost.description}
             </p>
           </div>

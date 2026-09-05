@@ -51,6 +51,7 @@ export interface PortfolioData {
   bioHtml: string;
   experiences: ExperienceItem[];
   email: string;
+  resumeUrl: string;
   about: {
     bio: string;
     skills: string[];
@@ -70,21 +71,23 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   name: "Pynthamil Pavendan",
-  tagline: "Engineering Intern at Plue. Building calm software and tactile design systems.",
+  tagline: "I am a curious being who loves bringing the crazy ideas existing in my mind into reality through the sheer power of code.",
   location: "India",
-  status: "Currently engineering at Plue",
+  status: "Currently: making plue THE student haven",
   statusPhrases: [
+    "Currently: making plue THE student haven",
     "Currently engineering at Plue",
-    "Currently joining testflight waitlists",
     "Currently crafting calm software & design systems",
     "Currently exploring tactile micro-interactions",
   ],
-  email: "pynthamil@example.com",
+  email: "pavendanpynthamil@gmail.com",
+  resumeUrl: "https://drive.google.com/file/d/1_aeDI5PGaZttchMGSzkMBiEScwSsTEtj/view?usp=sharing",
   socialLinks: [
-    { label: "email", href: "mailto:pynthamil@example.com", isPrimary: true },
-    { label: "github", href: "https://github.com", isPrimary: false },
-    { label: "linkedin", href: "https://linkedin.com", isPrimary: false },
-    { label: "twitter", href: "https://x.com", isPrimary: false },
+    { label: "email", href: "mailto:pavendanpynthamil@gmail.com", isPrimary: true },
+    { label: "github", href: "https://github.com/Pynthamil", isPrimary: false },
+    { label: "linkedin", href: "https://linkedin.com/in/pynthamil-pavendan", isPrimary: false },
+    { label: "twitter", href: "https://x.com/pyndu15", isPrimary: false },
+    { label: "resume", href: "https://drive.google.com/file/d/1_aeDI5PGaZttchMGSzkMBiEScwSsTEtj/view?usp=sharing", isPrimary: false },
   ],
   navItems: [
     { id: "all", label: "ALL" },
@@ -93,16 +96,15 @@ export const portfolioData: PortfolioData = {
     { id: "writing", label: "WRITING" },
     { id: "about", label: "ABOUT" },
   ],
-  bioHtml: `I'm an Engineering Intern at <a href="https://plue.ai" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">Plue</a>. I design and engineer thoughtful digital artifacts with high aesthetic precision, tactile interactions, and calm typography. You can see more of my work on <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">GitHub</a>, <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">LinkedIn</a>, or reach out <a href="mailto:pynthamil@example.com" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">via email</a>.`,
+  bioHtml: `I'm an Engineering Intern at <a href="https://getplue.com/" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">Plue</a>. I design and engineer thoughtful digital artifacts with high aesthetic precision, tactile interactions, and calm typography. You can see more of my work on <a href="https://github.com/Pynthamil" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">GitHub</a>, <a href="https://linkedin.com/in/pynthamil-pavendan" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">LinkedIn</a>, or reach out <a href="mailto:pavendanpynthamil@gmail.com" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">via email</a>.`,
   about: {
     bio: "I'm a Design Engineer & Engineering Intern at Plue, focusing on building calm software, micro-interactions, and design systems. I believe the best software is unobtrusive, tactile, and crafted with obsessively high standards for speed and aesthetic restraint.",
     skills: [
-      "TypeScript & React Ecosystem",
-      "Next.js App Router & Server Components",
-      "Design Systems & Figma Component Architectures",
-      "Tactile Micro-interactions & Physics",
-      "Canvas & Web Audio Synthesizers",
-      "TailwindCSS & Framer Motion",
+      "Next.js & React Ecosystem",
+      "Supabase & Backend Architecture",
+      "Python & AI Scripting",
+      "Figma & Design Systems",
+      "Antigravity & Agentic Workflows",
     ],
   },
   showcase: [],
@@ -110,7 +112,7 @@ export const portfolioData: PortfolioData = {
     {
       title: "ORCA RESEARCH PLATFORM",
       description: "Interactive AI research interface analyzing longitudinal datasets and cognitive behaviors with real-time vector charting.",
-      year: "2025",
+      year: "2026",
       link: "https://orca.ai",
       tags: ["Next.js", "Web Audio", "Data Viz"],
       status: "Production",
@@ -118,24 +120,16 @@ export const portfolioData: PortfolioData = {
     {
       title: "SEMANTIC MOBILE TIMELINE",
       description: "A chronological timeline interface exploring micro-haptics and fluid deadline management on mobile devices.",
-      year: "2025",
+      year: "2026",
       link: "#",
-      tags: ["React Native", "Haptics", "Gestures"],
+      tags: ["Figma", "Haptics", "Gestures"],
       status: "Active",
-    },
-    {
-      title: "PIXEL BOOM AMBIENT CHAT",
-      description: "Real-time communication widget crafted with playful physics, tactile micro-interactions, and vibrant color systems.",
-      year: "2024",
-      link: "#",
-      tags: ["Canvas", "WebSocket", "Audio Engine"],
-      status: "Completed",
     },
     {
       title: "PLUE DESIGN SYSTEM",
       description: "Comprehensive token system, component primitives, and tactile vector typography for digital consumer applications.",
-      year: "2024",
-      link: "https://plue.ai",
+      year: "2026",
+      link: "https://getplue.com/",
       tags: ["Design System", "Figma", "Radix UI"],
       status: "Live",
     },
@@ -170,8 +164,8 @@ export const portfolioData: PortfolioData = {
       role: "ENGINEERING INTERN",
       period: "SEP 2026 – NOV 2026",
       color: "#4e5df8",
-      glowColor: "rgba(78, 93, 248, 0.65)",
-      url: "https://plue.ai",
+      glowColor: "transparent",
+      url: "https://getplue.com/",
     },
     {
       id: "scientiflow",

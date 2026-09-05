@@ -42,7 +42,7 @@ export const SidebarIntro: React.FC<SidebarIntroProps> = ({
           </button>
 
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/pynthamil-pavendan"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 bg-black hover:bg-neutral-800 text-white font-mono text-[11px] sm:text-xs font-semibold tracking-wider rounded-full transition-all duration-150 active:scale-95 inline-flex items-center gap-1 cursor-pointer"
@@ -52,7 +52,7 @@ export const SidebarIntro: React.FC<SidebarIntroProps> = ({
           </a>
 
           <a
-            href="https://github.com"
+            href="https://github.com/Pynthamil"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 bg-black hover:bg-neutral-800 text-white font-mono text-[11px] sm:text-xs font-semibold tracking-wider rounded-full transition-all duration-150 active:scale-95 inline-flex items-center gap-1 cursor-pointer"
