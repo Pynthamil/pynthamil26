@@ -17,8 +17,6 @@ export default function Home() {
   const [soundOn, setSoundOn] = useState<boolean>(true);
   const [currentTime, setCurrentTime] = useState<string>("");
 
-  const [dimensions, setDimensions] = useState({ w: 307, h: 38 });
-  const [isWobbling, setIsWobbling] = useState(false);
 
   // Live ticking clock with IST
   useEffect(() => {
@@ -63,23 +61,6 @@ export default function Home() {
 
   const playClickSound = () => playTone(880);
 
-  const handleHandleClick = (e: React.MouseEvent, dw: number, dh: number) => {
-    e.stopPropagation();
-    playTone(1046);
-    setIsWobbling(true);
-    setDimensions({ w: 307 + dw, h: 38 + dh });
-    setTimeout(() => {
-      setDimensions({ w: 307, h: 38 });
-      setIsWobbling(false);
-    }, 450);
-  };
-
-  const handleBoxClick = () => {
-    playTone(784);
-    setIsWobbling(true);
-    setTimeout(() => setIsWobbling(false), 300);
-  };
-
   const handleNavClick = (mode: "home" | "about" | "blog") => {
     playClickSound();
     setViewMode(mode);
@@ -117,56 +98,9 @@ export default function Home() {
             {/* Left Title: Figma box on Home, Back button on About/Blog */}
             <div className="flex items-center">
               {viewMode === "home" ? (
-                <div
-                  onClick={handleBoxClick}
-                  className={`figma-bounding-box group cursor-pointer transition-all duration-300 ${
-                    isWobbling ? "scale-[1.03] shadow-[0_0_16px_rgba(13,153,255,0.35)]" : ""
-                  }`}
-                >
-                  {/* 8 interactive resize handles */}
-                  <span
-                    onClick={(e) => handleHandleClick(e, -14, -4)}
-                    className="handle handle-tl active:scale-150"
-                  />
-                  <span
-                    onClick={(e) => handleHandleClick(e, 0, -6)}
-                    className="handle handle-tm active:scale-150"
-                  />
-                  <span
-                    onClick={(e) => handleHandleClick(e, 18, -4)}
-                    className="handle handle-tr active:scale-150"
-                  />
-                  <span
-                    onClick={(e) => handleHandleClick(e, -14, 0)}
-                    className="handle handle-ml active:scale-150"
-                  />
-                  <span
-                    onClick={(e) => handleHandleClick(e, 16, 0)}
-                    className="handle handle-mr active:scale-150"
-                  />
-                  <span
-                    onClick={(e) => handleHandleClick(e, -14, 6)}
-                    className="handle handle-bl active:scale-150"
-                  />
-                  <span
-                    onClick={(e) => handleHandleClick(e, 0, 8)}
-                    className="handle handle-bm active:scale-150"
-                  />
-                  <span
-                    onClick={(e) => handleHandleClick(e, 22, 6)}
-                    className="handle handle-br active:scale-150"
-                  />
-
-                  {/* Vector Outlined Title */}
-                  <h1 className="outlined-logo-text select-none">
-                    {portfolioData.name.toLowerCase()}
-                  </h1>
-
-                  {/* Dimension Badge */}
-                  <div className="dimension-badge font-mono">
-                    {dimensions.w} &times; {dimensions.h}
-                  </div>
-                </div>
+                <h1 className="text-[17px] sm:text-[18px] font-medium tracking-tight text-[#FF42FF] select-none">
+                  {portfolioData.name.toLowerCase()}
+                </h1>
               ) : (
                 <button
                   onClick={() => handleNavClick("home")}
