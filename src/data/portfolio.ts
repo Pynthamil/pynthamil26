@@ -137,6 +137,13 @@ export const portfolioData: PortfolioData = {
   ],
   writings: [
     {
+      title: "Git Commit Go",
+      date: "SEP 5, 2026",
+      readingTime: "4 MIN",
+      description: "At some point, just committing code isn’t enough. Learn how to interact with GitHub programmatically via the REST API.",
+      slug: "git-commit-go",
+    },
+    {
       title: "The Art of Committing",
       date: "SEP 5, 2026",
       readingTime: "3 MIN",

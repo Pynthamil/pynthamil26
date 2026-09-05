@@ -88,341 +88,643 @@ export default function BlogPostPage() {
             </div>
           </div>
 
-          {/* Article Body */}
-          <div className="space-y-6 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans pt-1">
-            {/* Intro */}
-            <div className="space-y-3.5">
-              <p>At first, Git might seem very scary and daunting.</p>
-              <p>
-                You see words like <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">commit</span>,{" "}
-                <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">branch</span>,{" "}
-                <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">merge</span>,{" "}
-                <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">rebase</span>… and suddenly you&apos;re scared to even touch the keyboard.
-              </p>
-              <p>
-                But once it clicks, everything falls into place like the pieces of a puzzle you&apos;ve been spending your time trying to solve.
-              </p>
-              <p>
-                Version control isn&apos;t just about saving code &mdash; it&apos;s about telling the story of how your ideas evolve.
-              </p>
-              <p>
-                And honestly? There&apos;s something oddly satisfying about committing your work and watching your progress stack up.
-              </p>
-              <p className="font-mono text-xs text-[#11408F] font-medium pt-1">
-                Tiny commits. Big growth.
-              </p>
-            </div>
-
-            {/* Section 1 */}
-            <div className="pt-4 border-t border-neutral-200/70 space-y-3">
-              <h2 className="text-[16px] font-medium text-[#232564]">
-                What even is a commit?
-              </h2>
-              <p>A commit is basically a saved checkpoint of your project.</p>
-              <p className="text-xs font-mono text-[#11408F]">Think of it like:</p>
-              <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none">+</span>
-                  <span>a save button for your code</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none">+</span>
-                  <span>a time machine for your project</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none">+</span>
-                  <span>proof that you did something productive today</span>
-                </li>
-              </ul>
-              <p className="text-xs font-mono text-[#11408F] pt-1">Each commit captures:</p>
-              <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none">+</span>
-                  <span>what changed</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none">+</span>
-                  <span>when it changed</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none">+</span>
-                  <span>why it changed (if your commit message is good)</span>
-                </li>
-              </ul>
-              <p className="italic text-[#232564]/90 pt-1">
-                Instead of one giant messy save, Git encourages small meaningful updates. Because progress looks better in chapters than in chaos.
-              </p>
-            </div>
-
-            {/* Section 2 */}
-            <div className="pt-4 border-t border-neutral-200/70 space-y-3">
-              <h2 className="text-[16px] font-medium text-[#232564]">
-                Basic Commands (tiny cheat sheet)
-              </h2>
-              <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1.5 leading-relaxed">
-                <div>git init</div>
-                <div>git add .</div>
-                <div>git commit -m &quot;message&quot;</div>
-                <div>git push origin main</div>
-              </div>
-              <p className="font-mono text-xs text-[#11408F]">Simple, but powerful.</p>
-            </div>
-
-            {/* Step 1 */}
-            <div className="pt-4 border-t border-neutral-200/70 space-y-3">
-              <h2 className="text-[16px] font-medium text-[#232564]">
-                Step 1 &mdash; Initialize the repository
-              </h2>
-              <p>
-                First, I start by initializing the project repository that I’m working on, on my local device.
-              </p>
-              <p>
-                This converts a normal project folder into a Git repository so changes can be tracked.
-              </p>
-              <div className="font-mono text-xs text-[#11408F] py-1">
-                Project Repository &rarr; Git Repository
-              </div>
-              <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
-                git init
-              </div>
-            </div>
-
-            {/* Step 2 */}
-            <div className="pt-4 border-t border-neutral-200/70 space-y-3">
-              <h2 className="text-[16px] font-medium text-[#232564]">
-                Step 2 &mdash; Stage the files
-              </h2>
-              <p>
-                Next, I stage the files whose changes I want Git to track.
-              </p>
-              <p>
-                Think of staging like selecting which updates you want included in the next checkpoint.
-              </p>
-              <div className="font-mono text-xs text-[#11408F] py-1">
-                Changed/New Files &rarr; staged files for tracking new changes &rarr; changes now tracked
-              </div>
-              <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1">
-                <div>git add .</div>
-                <div className="text-[#232564]/50 text-[11px] pt-1">// or specific files</div>
-                <div>git add index.js</div>
-              </div>
-            </div>
-
-            {/* Step 3 */}
-            <div className="pt-4 border-t border-neutral-200/70 space-y-3">
-              <h2 className="text-[16px] font-medium text-[#232564]">
-                Step 3 &mdash; Write meaningful commit messages
-              </h2>
-              <p>
-                Now I write a clean, clear, and concise commit message to make a note of what changes I made.
-              </p>
-              <p>
-                Good commit messages help both present-you and future-you understand what happened.
-              </p>
-              <p className="text-xs font-mono text-[#11408F]">Examples:</p>
-              <div className="bg-white p-3 border border-neutral-200/80 font-mono text-xs space-y-1 text-[#232564]">
-                <div>feat: add profile picture upload</div>
-                <div>fix: correct typo in navbar</div>
-                <div>chore: update dependencies</div>
-              </div>
-              <p className="text-xs font-mono text-[#11408F] pt-1">Quick guide:</p>
-              <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none font-semibold">feat</span>
-                  <span>&rarr; adding a new feature or functionality</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none font-semibold">fix</span>
-                  <span>&rarr; correcting something that was broken</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none font-semibold">chore</span>
-                  <span>&rarr; changes that don&apos;t affect the app behaviour directly (configs, dependencies, build tasks)</span>
-                </li>
-              </ul>
-              <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] mt-2">
-                git commit -m &quot;feat: add search bar&quot;
-              </div>
-            </div>
-
-            {/* Step 4 */}
-            <div className="pt-4 border-t border-neutral-200/70 space-y-3">
-              <h2 className="text-[16px] font-medium text-[#232564]">
-                Step 4 &mdash; Push changes to GitHub
-              </h2>
-              <p>
-                After writing a good commit message, I push the changes to the main branch.
-              </p>
-              <p>
-                This uploads the local changes to the remote repository (GitHub).
-              </p>
-              <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
-                git push origin main
-              </div>
-              <p className="italic text-[#232564]/90">
-                Now the changes are backed up and visible online.
-              </p>
-            </div>
-
-            {/* GitHub Repo Creation */}
-            <div className="pt-4 border-t border-neutral-200/70 space-y-3">
-              <h2 className="text-[16px] font-medium text-[#232564]">
-                Creating a repository on GitHub
-              </h2>
-              <p>If you don&apos;t already have a repo:</p>
-              <div className="font-mono text-xs text-[#11408F] py-0.5">
-                GitHub &rarr; click the + icon &rarr; New repository
-              </div>
-              <p className="text-xs font-mono text-[#11408F]">Choose:</p>
-              <ul className="space-y-1 pl-1 text-[13.5px] sm:text-[14px]">
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none">+</span>
-                  <span>repository name</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none">+</span>
-                  <span>visibility (public or private)</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <span className="font-mono text-[#11408F] select-none">+</span>
-                  <span>optional description</span>
-                </li>
-              </ul>
-              <p>Then connect your local project to this repo.</p>
-            </div>
-
-            {/* Pull Requests */}
-            <div className="pt-4 border-t border-neutral-200/70 space-y-3">
-              <h2 className="text-[16px] font-medium text-[#232564]">
-                Working in collaborative environments (pull requests)
-              </h2>
-              <p>
-                If you&apos;re contributing to a repository where you don&apos;t have direct permission to modify the main branch, you create a pull request.
-              </p>
-              <p>
-                A pull request allows maintainers to review your changes before merging them into the main branch.
-              </p>
-              <p>This helps keep projects stable and organized.</p>
-            </div>
-
-            {/* Always sync */}
-            <div className="pt-4 border-t border-neutral-200/70 space-y-3">
-              <h2 className="text-[16px] font-medium text-[#232564]">
-                Always sync before starting work
-              </h2>
-              <p>
-                Before I start working in my local repository, I always make sure to sync and pull changes first.
-              </p>
-              <p>
-                Sometimes (almost all the time) when I forget this step, I run into merge conflicts.
-              </p>
-              <p className="text-[#232564]">
-                And then I wish myself good luck… because I will definitely be needing it and probably 10 years of life span 🤡
-              </p>
-              <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
-                git pull origin main
-              </div>
-            </div>
-
-            {/* Quick summary workflow */}
-            <div className="pt-4 border-t border-neutral-200/70 space-y-3">
-              <h2 className="text-[16px] font-medium text-[#232564]">
-                Quick summary workflow
-              </h2>
-              <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1.5 leading-relaxed">
-                <div>git init</div>
-                <div>git add .</div>
-                <div>git commit -m &quot;I&apos;m so done&quot;</div>
-                <div>git push origin main</div>
-              </div>
-              <p className="font-mono text-xs text-[#11408F]">
-                Repeat until the project magically works.
-              </p>
-            </div>
-
-            {/* Helpful learning resources */}
-            <div className="pt-4 border-t border-neutral-200/70 space-y-4">
-              <h2 className="text-[16px] font-medium text-[#232564]">
-                Helpful learning resources
-              </h2>
-
-              <div className="space-y-2">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] font-semibold">
-                  Articles / Blogs
-                </h3>
-                <ul className="space-y-2 text-[13.5px] sm:text-[14px]">
-                  <li>
-                    <a
-                      href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
-                    >
-                      Complete Tutorial of Git and GitHub for Basic to Advanced &mdash; Sachinsoni
-                    </a>
+          {/* =========================================================
+              ARTICLE 1: GIT COMMIT GO
+             ========================================================= */}
+          {slug === "git-commit-go" && (
+            <div className="space-y-6 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans pt-1">
+              {/* Intro */}
+              <div className="space-y-3.5">
+                <p>At some point, just committing code isn’t enough.</p>
+                <p className="font-mono text-xs text-[#11408F]">You start wondering:</p>
+                <p className="italic text-[#232564] pl-2 border-l-2 border-[#11408F]/40">
+                  can I interact with GitHub programmatically?
+                </p>
+                <p>
+                  That’s where the <span className="font-medium text-[#FF42FF]">GitHub REST API</span> comes in.
+                </p>
+                <p className="text-xs font-mono text-[#11408F] pt-1">It lets you:</p>
+                <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>create repositories automatically</span>
                   </li>
-                  <li>
-                    <a
-                      href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
-                    >
-                      I don’t Git it &mdash; Rick Martinez
-                    </a>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>fetch repository data</span>
                   </li>
-                  <li>
-                    <a
-                      href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
-                    >
-                      Git Full Tutorial &mdash; How to Use Git in a Real Project &mdash; Saikiran Kalidindi
-                    </a>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>automate workflows</span>
                   </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>build tools that interact with GitHub</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>understand what’s happening behind the UI</span>
+                  </li>
+                </ul>
+                <p className="font-mono text-xs text-[#11408F] pt-1">
+                  Let’s walk through the basics.
+                </p>
+              </div>
+
+              {/* What is GitHub REST API */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  What is the GitHub REST API?
+                </h2>
+                <p>
+                  The GitHub REST API allows developers to communicate with GitHub using HTTP requests.
+                </p>
+                <p className="text-xs font-mono text-[#11408F]">
+                  Instead of clicking buttons on GitHub’s website, you can send requests like:
+                </p>
+                <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/80 font-semibold text-[#11408F]">GET</span>
+                    <span>&rarr; retrieve data</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/80 font-semibold text-[#11408F]">POST</span>
+                    <span>&rarr; create data</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/80 font-semibold text-[#11408F]">PATCH</span>
+                    <span>&rarr; update data</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/80 font-semibold text-[#11408F]">DELETE</span>
+                    <span>&rarr; remove data</span>
+                  </li>
+                </ul>
+                <p className="italic text-[#232564]/90 pt-1">
+                  Think of it as a bridge between your application and GitHub.
+                </p>
+              </div>
+
+              {/* Step 1 */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Step 1 &mdash; Choose an endpoint
+                </h2>
+                <p>
+                  GitHub provides many API endpoints depending on what you want to do.
+                </p>
+                <p className="text-xs font-mono text-[#11408F]">
+                  Example endpoint for repositories:
+                </p>
+                <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] break-all">
+                  https://api.github.com/user/repos
+                </div>
+                <p>
+                  This endpoint allows you to retrieve repositories connected to your account.
+                </p>
+                <p className="text-xs font-mono text-[#11408F] pt-1">Each endpoint defines:</p>
+                <ul className="space-y-1 pl-1 text-[13.5px] sm:text-[14px]">
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>request method</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>parameters</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>response structure</span>
+                  </li>
+                </ul>
+                <div className="pt-2">
+                  <p className="text-xs font-mono text-[#11408F] mb-1">Documentation:</p>
+                  <a
+                    href="https://docs.github.com/en/rest/repos/repos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-mono text-xs break-all font-medium"
+                  >
+                    https://docs.github.com/en/rest/repos/repos
+                  </a>
+                </div>
+              </div>
+
+              {/* Step 2 */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Step 2 &mdash; Generate a Personal Access Token (PAT)
+                </h2>
+                <p>GitHub requires authentication for most API requests.</p>
+                <p>We generate a Personal Access Token.</p>
+                <p className="text-xs font-mono text-[#11408F]">Steps:</p>
+                <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">1.</span>
+                    <span>Go to GitHub Settings</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">2.</span>
+                    <span>Scroll to Developer Settings</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">3.</span>
+                    <span>Select Personal Access Tokens</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">4.</span>
+                    <span>Generate new token</span>
+                  </li>
+                </ul>
+                <p className="text-xs font-mono text-[#11408F] pt-1">Choose:</p>
+                <ul className="space-y-1 pl-1 text-[13.5px] sm:text-[14px]">
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>token name</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>expiration duration</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>required permissions</span>
+                  </li>
+                </ul>
+                <div className="bg-white p-3 border border-neutral-200/80 font-mono text-xs text-[#232564] space-y-1 mt-2">
+                  <div className="text-[#FF42FF] font-semibold">Copy the token immediately.</div>
+                  <div>GitHub will not show it again.</div>
+                  <div className="text-[#11408F]">Treat it like a password.</div>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Step 3 &mdash; Send request using Postman
+                </h2>
+                <p>Postman helps test API requests easily.</p>
+                <p className="text-xs font-mono text-[#11408F]">Example GET request:</p>
+                <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] break-all">
+                  https://api.github.com/user/repos
+                </div>
+                <p className="text-xs font-mono text-[#11408F]">Add Authorization header:</p>
+                <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] break-all">
+                  Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN
+                </div>
+                <p>Send request. GitHub returns data in JSON format.</p>
+              </div>
+
+              {/* Example create repo */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Example &mdash; create repository via API
+                </h2>
+                <p className="text-xs font-mono text-[#11408F]">POST request:</p>
+                <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs text-[#232564] space-y-1 overflow-x-auto leading-relaxed">
+                  <div>curl -X POST https://api.github.com/user/repos \</div>
+                  <div className="pl-4">-H &quot;Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN&quot; \</div>
+                  <div className="pl-4">-H &quot;Accept: application/vnd.github+json&quot; \</div>
+                  <div className="pl-4">-d &apos;{`{"name":"my-new-repo","private":false}`}&apos;</div>
+                </div>
+                <ul className="space-y-1 pl-1 text-xs font-mono text-[#11408F]">
+                  <li>&bull; Replace YOUR_PERSONAL_ACCESS_TOKEN with your token.</li>
+                  <li>&bull; Replace my-new-repo with repository name.</li>
                 </ul>
               </div>
 
-              <div className="space-y-2 pt-2">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] font-semibold">
-                  YouTube Tutorials
-                </h3>
-                <ul className="space-y-2 text-[13.5px] sm:text-[14px]">
-                  <li>
-                    <a
-                      href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
-                    >
-                      Git and GitHub Crash Course &mdash; freeCodeCamp
-                    </a>
+              {/* Example response */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Example response
+                </h2>
+                <p>GitHub responds with structured JSON data:</p>
+                <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs text-[#232564] space-y-1 overflow-x-auto leading-relaxed">
+                  <div>{`{`}</div>
+                  <div className="pl-4">{`"name": "my-new-repo",`}</div>
+                  <div className="pl-4">{`"private": false,`}</div>
+                  <div className="pl-4">{`"owner": {`}</div>
+                  <div className="pl-8">{`"login": "username"`}</div>
+                  <div className="pl-4">{`}`}</div>
+                  <div>{`}`}</div>
+                </div>
+                <p className="italic text-[#232564]/90">
+                  The API confirms repository creation and returns metadata.
+                </p>
+              </div>
+
+              {/* Why learn GitHub API */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Why learn GitHub API?
+                </h2>
+                <p>Understanding the API allows you to:</p>
+                <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>automate workflows</span>
                   </li>
-                  <li>
-                    <a
-                      href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
-                    >
-                      Git and GitHub for beginners &mdash; Amigoscode
-                    </a>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>build developer tools</span>
                   </li>
-                  <li>
-                    <a
-                      href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
-                    >
-                      Git and GitHub course &mdash; Javascript Mastery
-                    </a>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>create dashboards</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>manage repositories programmatically</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>integrate GitHub with apps</span>
                   </li>
                 </ul>
+                <div className="pt-2 font-mono text-xs text-[#11408F]">
+                  <p>Git becomes more than version control.</p>
+                  <p className="text-[#FF42FF] font-semibold mt-0.5">It becomes programmable infrastructure.</p>
+                </div>
+              </div>
+
+              {/* Mental model */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Mental model
+                </h2>
+                <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1.5 leading-relaxed">
+                  <div><span className="font-semibold text-[#11408F]">Git CLI</span> &rarr; manage code locally</div>
+                  <div><span className="font-semibold text-[#11408F]">GitHub UI</span> &rarr; manage repos visually</div>
+                  <div><span className="font-semibold text-[#FF42FF]">GitHub API</span> &rarr; manage everything programmatically</div>
+                </div>
+              </div>
+
+              {/* If you're just starting */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  If you&apos;re just starting
+                </h2>
+                <p className="text-xs font-mono text-[#11408F]">Focus on understanding:</p>
+                <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>request</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>response</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>authentication</span>
+                  </li>
+                </ul>
+                <p className="font-mono text-xs text-[#11408F] pt-1">
+                  Everything else becomes easier with practice.
+                </p>
               </div>
             </div>
-          </div>
+          )}
+
+          {/* =========================================================
+              ARTICLE 2: THE ART OF COMMITTING
+             ========================================================= */}
+          {slug === "art-of-committing" && (
+            <div className="space-y-6 text-[14px] sm:text-[14.5px] text-[#232564] leading-relaxed font-sans pt-1">
+              {/* Intro */}
+              <div className="space-y-3.5">
+                <p>At first, Git might seem very scary and daunting.</p>
+                <p>
+                  You see words like <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">commit</span>,{" "}
+                  <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">branch</span>,{" "}
+                  <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">merge</span>,{" "}
+                  <span className="font-mono text-xs bg-white px-1.5 py-0.5 border border-neutral-200/70">rebase</span>… and suddenly you&apos;re scared to even touch the keyboard.
+                </p>
+                <p>
+                  But once it clicks, everything falls into place like the pieces of a puzzle you&apos;ve been spending your time trying to solve.
+                </p>
+                <p>
+                  Version control isn&apos;t just about saving code &mdash; it&apos;s about telling the story of how your ideas evolve.
+                </p>
+                <p>
+                  And honestly? There&apos;s something oddly satisfying about committing your work and watching your progress stack up.
+                </p>
+                <p className="font-mono text-xs text-[#11408F] font-medium pt-1">
+                  Tiny commits. Big growth.
+                </p>
+              </div>
+
+              {/* Section 1 */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  What even is a commit?
+                </h2>
+                <p>A commit is basically a saved checkpoint of your project.</p>
+                <p className="text-xs font-mono text-[#11408F]">Think of it like:</p>
+                <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>a save button for your code</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>a time machine for your project</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>proof that you did something productive today</span>
+                  </li>
+                </ul>
+                <p className="text-xs font-mono text-[#11408F] pt-1">Each commit captures:</p>
+                <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>what changed</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>when it changed</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>why it changed (if your commit message is good)</span>
+                  </li>
+                </ul>
+                <p className="italic text-[#232564]/90 pt-1">
+                  Instead of one giant messy save, Git encourages small meaningful updates. Because progress looks better in chapters than in chaos.
+                </p>
+              </div>
+
+              {/* Section 2 */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Basic Commands (tiny cheat sheet)
+                </h2>
+                <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1.5 leading-relaxed">
+                  <div>git init</div>
+                  <div>git add .</div>
+                  <div>git commit -m &quot;message&quot;</div>
+                  <div>git push origin main</div>
+                </div>
+                <p className="font-mono text-xs text-[#11408F]">Simple, but powerful.</p>
+              </div>
+
+              {/* Step 1 */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Step 1 &mdash; Initialize the repository
+                </h2>
+                <p>
+                  First, I start by initializing the project repository that I’m working on, on my local device.
+                </p>
+                <p>
+                  This converts a normal project folder into a Git repository so changes can be tracked.
+                </p>
+                <div className="font-mono text-xs text-[#11408F] py-1">
+                  Project Repository &rarr; Git Repository
+                </div>
+                <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
+                  git init
+                </div>
+              </div>
+
+              {/* Step 2 */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Step 2 &mdash; Stage the files
+                </h2>
+                <p>
+                  Next, I stage the files whose changes I want Git to track.
+                </p>
+                <p>
+                  Think of staging like selecting which updates you want included in the next checkpoint.
+                </p>
+                <div className="font-mono text-xs text-[#11408F] py-1">
+                  Changed/New Files &rarr; staged files for tracking new changes &rarr; changes now tracked
+                </div>
+                <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1">
+                  <div>git add .</div>
+                  <div className="text-[#232564]/50 text-[11px] pt-1">// or specific files</div>
+                  <div>git add index.js</div>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Step 3 &mdash; Write meaningful commit messages
+                </h2>
+                <p>
+                  Now I write a clean, clear, and concise commit message to make a note of what changes I made.
+                </p>
+                <p>
+                  Good commit messages help both present-you and future-you understand what happened.
+                </p>
+                <p className="text-xs font-mono text-[#11408F]">Examples:</p>
+                <div className="bg-white p-3 border border-neutral-200/80 font-mono text-xs space-y-1 text-[#232564]">
+                  <div>feat: add profile picture upload</div>
+                  <div>fix: correct typo in navbar</div>
+                  <div>chore: update dependencies</div>
+                </div>
+                <p className="text-xs font-mono text-[#11408F] pt-1">Quick guide:</p>
+                <ul className="space-y-1.5 pl-1 text-[13.5px] sm:text-[14px]">
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none font-semibold">feat</span>
+                    <span>&rarr; adding a new feature or functionality</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none font-semibold">fix</span>
+                    <span>&rarr; correcting something that was broken</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none font-semibold">chore</span>
+                    <span>&rarr; changes that don&apos;t affect the app behaviour directly (configs, dependencies, build tasks)</span>
+                  </li>
+                </ul>
+                <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] mt-2">
+                  git commit -m &quot;feat: add search bar&quot;
+                </div>
+              </div>
+
+              {/* Step 4 */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Step 4 &mdash; Push changes to GitHub
+                </h2>
+                <p>
+                  After writing a good commit message, I push the changes to the main branch.
+                </p>
+                <p>
+                  This uploads the local changes to the remote repository (GitHub).
+                </p>
+                <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
+                  git push origin main
+                </div>
+                <p className="italic text-[#232564]/90">
+                  Now the changes are backed up and visible online.
+                </p>
+              </div>
+
+              {/* GitHub Repo Creation */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Creating a repository on GitHub
+                </h2>
+                <p>If you don&apos;t already have a repo:</p>
+                <div className="font-mono text-xs text-[#11408F] py-0.5">
+                  GitHub &rarr; click the + icon &rarr; New repository
+                </div>
+                <p className="text-xs font-mono text-[#11408F]">Choose:</p>
+                <ul className="space-y-1 pl-1 text-[13.5px] sm:text-[14px]">
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>repository name</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>visibility (public or private)</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="font-mono text-[#11408F] select-none">+</span>
+                    <span>optional description</span>
+                  </li>
+                </ul>
+                <p>Then connect your local project to this repo.</p>
+              </div>
+
+              {/* Pull Requests */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Working in collaborative environments (pull requests)
+                </h2>
+                <p>
+                  If you&apos;re contributing to a repository where you don&apos;t have direct permission to modify the main branch, you create a pull request.
+                </p>
+                <p>
+                  A pull request allows maintainers to review your changes before merging them into the main branch.
+                </p>
+                <p>This helps keep projects stable and organized.</p>
+              </div>
+
+              {/* Always sync */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Always sync before starting work
+                </h2>
+                <p>
+                  Before I start working in my local repository, I always make sure to sync and pull changes first.
+                </p>
+                <p>
+                  Sometimes (almost all the time) when I forget this step, I run into merge conflicts.
+                </p>
+                <p className="text-[#232564]">
+                  And then I wish myself good luck… because I will definitely be needing it and probably 10 years of life span 🤡
+                </p>
+                <div className="bg-white px-3.5 py-2 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564]">
+                  git pull origin main
+                </div>
+              </div>
+
+              {/* Quick summary workflow */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-3">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Quick summary workflow
+                </h2>
+                <div className="bg-white p-3.5 border border-neutral-200/80 font-mono text-xs sm:text-[12.5px] text-[#232564] space-y-1.5 leading-relaxed">
+                  <div>git init</div>
+                  <div>git add .</div>
+                  <div>git commit -m &quot;I&apos;m so done&quot;</div>
+                  <div>git push origin main</div>
+                </div>
+                <p className="font-mono text-xs text-[#11408F]">
+                  Repeat until the project magically works.
+                </p>
+              </div>
+
+              {/* Helpful learning resources */}
+              <div className="pt-4 border-t border-neutral-200/70 space-y-4">
+                <h2 className="text-[16px] font-medium text-[#232564]">
+                  Helpful learning resources
+                </h2>
+
+                <div className="space-y-2">
+                  <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] font-semibold">
+                    Articles / Blogs
+                  </h3>
+                  <ul className="space-y-2 text-[13.5px] sm:text-[14px]">
+                    <li>
+                      <a
+                        href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
+                      >
+                        Complete Tutorial of Git and GitHub for Basic to Advanced &mdash; Sachinsoni
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
+                      >
+                        I don’t Git it &mdash; Rick Martinez
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
+                      >
+                        Git Full Tutorial &mdash; How to Use Git in a Real Project &mdash; Saikiran Kalidindi
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="space-y-2 pt-2">
+                  <h3 className="font-mono text-xs uppercase tracking-wider text-[#11408F] font-semibold">
+                    YouTube Tutorials
+                  </h3>
+                  <ul className="space-y-2 text-[13.5px] sm:text-[14px]">
+                    <li>
+                      <a
+                        href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
+                      >
+                        Git and GitHub Crash Course &mdash; freeCodeCamp
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
+                      >
+                        Git and GitHub for beginners &mdash; Amigoscode
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#6666FF] hover:underline underline-offset-4 decoration-wavy decoration-[#6666FF] font-medium"
+                      >
+                        Git and GitHub course &mdash; Javascript Mastery
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
         </article>
 
         {/* Return link */}
