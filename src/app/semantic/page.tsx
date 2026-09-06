@@ -60,12 +60,12 @@ export default function SemanticProjectPage() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-24 selection:bg-neutral-200">
+    <div className="min-h-screen w-full px-4 sm:px-8 md:px-12 pt-10 sm:pt-16 pb-24 selection:bg-neutral-200">
       {/* Soft atmospheric ambient glow */}
       <div className="ambient-glow" />
 
       {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[530px] animate-in fade-in duration-200">
+      <main className="w-full max-w-[530px] mx-auto relative z-10 flex flex-col animate-in fade-in duration-200">
         {/* Top Navigation */}
         <header className="flex items-center justify-between w-full mb-8">
           <Link
