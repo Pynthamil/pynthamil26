@@ -267,11 +267,13 @@ export default function SemanticProjectPage() {
               </p>
 
               {/* Demo Video 2: Everyday Scenarios & Detection */}
-              <div className="pt-2">
-                <div className="overflow-hidden">
-                  <ChromaVideo src="/semantic/demo2.mov" />
+              <div className="pt-2 sm:pt-4 my-3 sm:my-0">
+                <div className="overflow-visible -mx-3 sm:mx-0 flex justify-center">
+                  <div className="w-full transform scale-[1.28] sm:scale-100 origin-center transition-transform">
+                    <ChromaVideo src="/semantic/demo2.mov" />
+                  </div>
                 </div>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-2 text-center">
+                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-5 sm:mt-2 text-center">
                   // automated deadline detection &amp; priority scheduling
                 </p>
               </div>
@@ -290,11 +292,13 @@ export default function SemanticProjectPage() {
               </p>
 
               {/* Demo Video 1: End-to-End Workflow */}
-              <div className="pt-2">
-                <div className="overflow-hidden">
-                  <ChromaVideo src="/semantic/demo1.mov" />
+              <div className="pt-2 sm:pt-4 my-3 sm:my-0">
+                <div className="overflow-visible -mx-3 sm:mx-0 flex justify-center">
+                  <div className="w-full transform scale-[1.28] sm:scale-100 origin-center transition-transform">
+                    <ChromaVideo src="/semantic/demo1.mov" />
+                  </div>
                 </div>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-2 text-center">
+                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-5 sm:mt-2 text-center">
                   // full copilot interface &amp; extraction workflow
                 </p>
               </div>
@@ -310,11 +314,13 @@ export default function SemanticProjectPage() {
               </p>
 
               {/* Demo Video 3: Context & Response Synthesis */}
-              <div className="pt-2">
-                <div className="overflow-hidden">
-                  <ChromaVideo src="/semantic/demo3.mov" />
+              <div className="pt-2 sm:pt-4 my-3 sm:my-0">
+                <div className="overflow-visible -mx-3 sm:mx-0 flex justify-center">
+                  <div className="w-full transform scale-[1.28] sm:scale-100 origin-center transition-transform">
+                    <ChromaVideo src="/semantic/demo3.mov" />
+                  </div>
                 </div>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-2 text-center">
+                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-5 sm:mt-2 text-center">
                   // contextual response drafting &amp; thread synthesis
                 </p>
               </div>
