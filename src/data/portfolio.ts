@@ -113,6 +113,15 @@ export const portfolioData: PortfolioData = {
   showcase: [],
   projects: [
     {
+      title: "FORK THIS SHEET",
+      description: "A collaborative spreadsheet utility and templating engine designed for rapid data modeling, cloning, and workflow automation.",
+      year: "2026",
+      link: "#",
+      tags: ["Dev Tool", "Productivity", "Web"],
+      status: "currently developing",
+      hoverText: "currently developing",
+    },
+    {
       title: "ORCA RESEARCH PLATFORM",
       description: "Interactive AI research interface analyzing longitudinal datasets and cognitive behaviors with real-time vector charting.",
       year: "2026",
