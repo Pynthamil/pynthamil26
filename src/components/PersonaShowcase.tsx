@@ -69,8 +69,8 @@ export function PersonaShowcase({ playTone }: PersonaShowcaseProps) {
                 onClick={() => handleSelect(idx)}
                 className={`font-mono text-xs sm:text-[13px] px-2.5 py-1 transition-all cursor-pointer border ${
                   isActive
-                    ? "bg-white dark:bg-[#13151E] font-bold text-[#11408F] dark:text-[#AEF0FF] border-neutral-300 dark:border-[#9999FF]/50 shadow-sm"
-                    : "bg-transparent text-[#232564]/60 dark:text-[#F5F5FF]/60 border-transparent hover:text-[#232564] dark:hover:text-[#F5F5FF] hover:border-neutral-200 dark:hover:border-[#9999FF]/20"
+                    ? "bg-[#232564]/[0.06] dark:bg-[#F5F5FF]/[0.06] font-bold text-[#11408F] dark:text-[#AEF0FF] border-[#232564]/25 dark:border-[#9999FF]/40"
+                    : "bg-transparent text-[#232564]/60 dark:text-[#F5F5FF]/60 border-transparent hover:text-[#232564] dark:hover:text-[#F5F5FF] hover:border-[#232564]/10 dark:hover:border-[#9999FF]/20"
                 }`}
                 aria-label={`View persona ${idx + 1}`}
               >
@@ -87,7 +87,7 @@ export function PersonaShowcase({ playTone }: PersonaShowcaseProps) {
               if (playTone) playTone(1200);
               setIsZoomOpen(true);
             }}
-            className="p-1.5 text-[#232564]/70 dark:text-[#F5F5FF]/70 hover:text-[#232564] dark:hover:text-[#F5F5FF] transition-colors rounded hover:bg-neutral-100 dark:hover:bg-[#9999FF]/10 cursor-pointer"
+            className="p-1.5 text-[#232564]/70 dark:text-[#F5F5FF]/70 hover:text-[#232564] dark:hover:text-[#F5F5FF] transition-colors hover:bg-[#232564]/[0.05] dark:hover:bg-[#9999FF]/10 cursor-pointer"
             title="Expand persona full screen"
             aria-label="Expand image"
           >
@@ -95,7 +95,7 @@ export function PersonaShowcase({ playTone }: PersonaShowcaseProps) {
           </button>
           <button
             onClick={handlePrev}
-            className="p-1.5 text-[#232564]/70 dark:text-[#F5F5FF]/70 hover:text-[#232564] dark:hover:text-[#F5F5FF] transition-colors rounded hover:bg-neutral-100 dark:hover:bg-[#9999FF]/10 cursor-pointer"
+            className="p-1.5 text-[#232564]/70 dark:text-[#F5F5FF]/70 hover:text-[#232564] dark:hover:text-[#F5F5FF] transition-colors hover:bg-[#232564]/[0.05] dark:hover:bg-[#9999FF]/10 cursor-pointer"
             aria-label="Previous persona"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -105,7 +105,7 @@ export function PersonaShowcase({ playTone }: PersonaShowcaseProps) {
           </span>
           <button
             onClick={handleNext}
-            className="p-1.5 text-[#232564]/70 dark:text-[#F5F5FF]/70 hover:text-[#232564] dark:hover:text-[#F5F5FF] transition-colors rounded hover:bg-neutral-100 dark:hover:bg-[#9999FF]/10 cursor-pointer"
+            className="p-1.5 text-[#232564]/70 dark:text-[#F5F5FF]/70 hover:text-[#232564] dark:hover:text-[#F5F5FF] transition-colors hover:bg-[#232564]/[0.05] dark:hover:bg-[#9999FF]/10 cursor-pointer"
             aria-label="Next persona"
           >
             <ChevronRight className="w-4 h-4" />
@@ -117,7 +117,7 @@ export function PersonaShowcase({ playTone }: PersonaShowcaseProps) {
       <div
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        className="relative w-full rounded-lg border border-neutral-200/80 dark:border-[#9999FF]/30 bg-white dark:bg-[#13151E] overflow-hidden shadow-sm transition-all select-none"
+        className="relative w-full border border-[#232564]/10 dark:border-[#9999FF]/20 bg-[#232564]/[0.02] dark:bg-[#F5F5FF]/[0.02] overflow-hidden transition-all select-none"
       >
         <div className="w-full relative overflow-hidden">
           <img
@@ -129,7 +129,7 @@ export function PersonaShowcase({ playTone }: PersonaShowcaseProps) {
         </div>
 
         {/* Mobile Swipe Hint Bar */}
-        <div className="flex sm:hidden items-center justify-between px-3 py-1.5 bg-neutral-50 dark:bg-[#1a1c28] border-t border-neutral-150 dark:border-[#9999FF]/20 font-mono text-[11px] text-[#64748B] dark:text-[#8E95B8]">
+        <div className="flex sm:hidden items-center justify-between px-3 py-1.5 bg-[#232564]/[0.04] dark:bg-[#F5F5FF]/[0.04] border-t border-[#232564]/10 dark:border-[#9999FF]/20 font-mono text-[11px] text-[#64748B] dark:text-[#8E95B8]">
           <span>&larr; swipe to switch &rarr;</span>
           <button
             onClick={() => setIsZoomOpen(true)}
@@ -151,20 +151,20 @@ export function PersonaShowcase({ playTone }: PersonaShowcaseProps) {
             className="fixed inset-0 bg-neutral-900/70 backdrop-blur-sm transition-opacity"
             onClick={() => setIsZoomOpen(false)}
           />
-          <div className="relative z-10 max-w-2xl w-full max-h-[90vh] bg-white dark:bg-[#13151E] rounded-xl border border-neutral-200 dark:border-[#9999FF]/40 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-200/80 dark:border-[#9999FF]/30">
+          <div className="relative z-10 max-w-2xl w-full max-h-[90vh] bg-[#F5F5FF] dark:bg-[#0B0C0F] border border-[#232564]/20 dark:border-[#9999FF]/30 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-[#232564]/10 dark:border-[#9999FF]/20">
               <span className="font-mono text-xs font-semibold text-[#11408F] dark:text-[#AEF0FF]">
                 {currentPersona.title} &bull; Full View
               </span>
               <button
                 onClick={() => setIsZoomOpen(false)}
-                className="p-1 rounded text-neutral-500 hover:text-neutral-800 dark:text-[#9999FF] dark:hover:text-[#F5F5FF] cursor-pointer"
+                className="p-1 text-neutral-500 hover:text-neutral-800 dark:text-[#9999FF] dark:hover:text-[#F5F5FF] cursor-pointer"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="overflow-y-auto p-2 sm:p-4 max-h-[calc(90vh-60px)] flex justify-center bg-neutral-50/50 dark:bg-[#0c0e17]">
+            <div className="overflow-y-auto p-2 sm:p-4 max-h-[calc(90vh-60px)] flex justify-center bg-[#232564]/[0.02] dark:bg-[#F5F5FF]/[0.02]">
               <img
                 src={currentPersona.src}
                 alt={currentPersona.title}

@@ -157,7 +157,7 @@ export default function SemanticProjectPage() {
               </p>
 
               {/* Minimalist Metadata Box */}
-              <div className="bg-white dark:bg-[#13151E] p-4 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-[13.5px] sm:text-[14px] text-[#232564] dark:text-[#F5F5FF] space-y-1.5 leading-relaxed">
+              <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-4 border border-[#232564]/10 dark:border-[#9999FF]/20 font-mono text-[13.5px] sm:text-[14px] text-[#232564] dark:text-[#F5F5FF] space-y-1.5 leading-relaxed">
                 <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">DURATION</span> &rarr; Aug 2026</div>
                 <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">ROLE</span> &rarr; UX/UI Designer</div>
                 <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">TEAM</span> &rarr; Solo Project</div>
@@ -222,111 +222,149 @@ export default function SemanticProjectPage() {
               </p>
               <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">01</span>
+                  <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">01</span>
                   <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Inbox Overload</strong> &mdash; high-volume noise obscures critical signals</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">02</span>
+                  <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">02</span>
                   <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Lost Context</strong> &mdash; decisions scattered across long threads</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">03</span>
+                  <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">03</span>
                   <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Action Items Get Lost</strong> &mdash; tasks forgotten once marked read</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">04</span>
+                  <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">04</span>
                   <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Information is Fragmented</strong> &mdash; manual tracking across tools</span>
                 </li>
               </ul>
             </div>
 
-            {/* Everyday situations */}
+            {/* The Solution */}
+            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-6">
+              <div className="space-y-3.5">
+                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
+                  The Solution
+                </h2>
+                <p>
+                  An AI-powered inbox that understands emails, extracts what matters, and turns them into actionable tasks, deadlines, and context &mdash; so nothing important gets lost.
+                </p>
+                <p>
+                  Rather than forcing users to change their email provider, the <span className="font-medium text-[#FF42FF] dark:text-[#FF94FF]">Semantic Email Copilot</span> acts as a non-intrusive intelligence layer that integrates seamlessly with existing workflows. It analyzes incoming threads in real-time, extracts key action points, tags upcoming commitments, and generates contextual response drafts.
+                </p>
+
+                {/* Demo Video 1: End-to-End Workflow */}
+                <div className="py-6 sm:py-5 my-2">
+                  <div className="w-full flex justify-center">
+                    <div className="w-full max-w-[490px]">
+                      <ChromaVideo src="/semantic/demo1.mov" />
+                    </div>
+                  </div>
+                  <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-3 text-center">
+                    // full copilot interface &amp; extraction workflow
+                  </p>
+                </div>
+              </div>
+
+              {/* Sub-solution 2: Everyday Situations & Action Categories */}
+              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
+                <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
+                  Everyday situations, big and small
+                </h3>
+                <p className="font-mono text-[13.5px] sm:text-[14px] text-[#11408F] dark:text-[#AEF0FF]">
+                  Structured action categories:
+                </p>
+                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">01</span>
+                    <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Meeting Coordination</strong> &mdash; schedule, participants &amp; agenda</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">02</span>
+                    <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Action Items &amp; Tasks</strong> &mdash; assigned deliverables &amp; to-dos</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">03</span>
+                    <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Urgent Deadlines</strong> &mdash; time-sensitive notices &amp; submissions</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">04</span>
+                    <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Receipts &amp; Documentation</strong> &mdash; invoices &amp; reference files</span>
+                  </li>
+                </ul>
+                <p className="italic text-[#232564]/90 dark:text-[#F5F5FF]/90 pt-1">
+                  From meeting coordination and task assignments to urgent deadline notices, the pipeline automatically detects message urgency and maps unstructured context into structured actions.
+                </p>
+
+                {/* Demo Video 2: Everyday Scenarios & Detection */}
+                <div className="py-6 sm:py-5 my-2">
+                  <div className="w-full flex justify-center">
+                    <div className="w-full max-w-[490px]">
+                      <ChromaVideo src="/semantic/demo2.mov" />
+                    </div>
+                  </div>
+                  <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-3 text-center">
+                    // automated deadline detection &amp; priority scheduling
+                  </p>
+                </div>
+              </div>
+
+              {/* Sub-solution 3: Context Mapping & Actions */}
+              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-3.5">
+                <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
+                  Context Mapping &amp; Response Synthesis
+                </h3>
+                <p>
+                  By connecting isolated threads into a unified knowledge graph, users can review incoming tasks, reply with relevant context, and archive resolved items without ever leaving the flow.
+                </p>
+
+                {/* Demo Video 3: Context & Response Synthesis */}
+                <div className="py-6 sm:py-5 my-2">
+                  <div className="w-full flex justify-center">
+                    <div className="w-full max-w-[490px]">
+                      <ChromaVideo src="/semantic/demo3.mov" />
+                    </div>
+                  </div>
+                  <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-3 text-center">
+                    // contextual response drafting &amp; thread synthesis
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Outcomes & What I Learned */}
             <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
               <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
-                Everyday situations, big and small
-              </h2>
-              <p className="font-mono text-[13.5px] sm:text-[14px] text-[#11408F] dark:text-[#AEF0FF]">
-                Structured action categories:
-              </p>
-              <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">01</span>
-                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Meeting Coordination</strong> &mdash; schedule, participants &amp; agenda</span>
-                </li>
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">02</span>
-                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Action Items &amp; Tasks</strong> &mdash; assigned deliverables &amp; to-dos</span>
-                </li>
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">03</span>
-                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Urgent Deadlines</strong> &mdash; time-sensitive notices &amp; submissions</span>
-                </li>
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">04</span>
-                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Receipts &amp; Documentation</strong> &mdash; invoices &amp; reference files</span>
-                </li>
-              </ul>
-              <p className="italic text-[#232564]/90 dark:text-[#F5F5FF]/90 pt-1">
-                From meeting coordination and task assignments to urgent deadline notices, the pipeline automatically detects message urgency and maps unstructured context into structured actions.
-              </p>
-
-              {/* Demo Video 2: Everyday Scenarios & Detection */}
-              <div className="py-6 sm:py-5 my-2">
-                <div className="w-full flex justify-center">
-                  <div className="w-full max-w-[490px]">
-                    <ChromaVideo src="/semantic/demo2.mov" />
-                  </div>
-                </div>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-3 text-center">
-                  // automated deadline detection &amp; priority scheduling
-                </p>
-              </div>
-            </div>
-
-            {/* The Solution */}
-            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-3.5">
-              <h2 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
-                The Solution
+                Outcomes &amp; What I Learned
               </h2>
               <p>
-                An AI-powered inbox that understands emails, extracts what matters, and turns them into actionable tasks, deadlines, and context &mdash; so nothing important gets lost.
+                Designing the Semantic Email Life-Management System provided deep insights into crafting human-centered AI interfaces that solve cognitive overload rather than adding new complexity.
               </p>
-              <p>
-                Rather than forcing users to change their email provider, the <span className="font-medium text-[#FF42FF] dark:text-[#FF94FF]">Semantic Email Copilot</span> acts as a non-intrusive intelligence layer that integrates seamlessly with existing workflows. It analyzes incoming threads in real-time, extracts key action points, tags upcoming commitments, and generates contextual response drafts.
-              </p>
-
-              {/* Demo Video 1: End-to-End Workflow */}
-              <div className="py-6 sm:py-5 my-2">
-                <div className="w-full flex justify-center">
-                  <div className="w-full max-w-[490px]">
-                    <ChromaVideo src="/semantic/demo1.mov" />
-                  </div>
+              <div className="space-y-3 pt-2">
+                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-4 sm:p-5 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
+                  <span className="font-mono text-lg sm:text-xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
+                    01
+                  </span>
+                  <p className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#232564]/95 dark:text-[#F5F5FF]/95">
+                    The most effective AI assistance operates quietly in the background, extracting key action items without forcing users to learn complex prompt interfaces.
+                  </p>
                 </div>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-3 text-center">
-                  // full copilot interface &amp; extraction workflow
-                </p>
-              </div>
-            </div>
-
-            {/* Context Mapping & Actions */}
-            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-3.5">
-              <h2 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
-                Context Mapping &amp; Response Synthesis
-              </h2>
-              <p>
-                By connecting isolated threads into a unified knowledge graph, users can review incoming tasks, reply with relevant context, and archive resolved items without ever leaving the flow.
-              </p>
-
-              {/* Demo Video 3: Context & Response Synthesis */}
-              <div className="py-6 sm:py-5 my-2">
-                <div className="w-full flex justify-center">
-                  <div className="w-full max-w-[490px]">
-                    <ChromaVideo src="/semantic/demo3.mov" />
-                  </div>
+                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-4 sm:p-5 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
+                  <span className="font-mono text-lg sm:text-xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
+                    02
+                  </span>
+                  <p className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#232564]/95 dark:text-[#F5F5FF]/95">
+                    Translating verbose threads into structured task cards, deadline highlights, and relationship heatmaps drastically reduces cognitive fatigue.
+                  </p>
                 </div>
-                <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-3 text-center">
-                  // contextual response drafting &amp; thread synthesis
-                </p>
+                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-4 sm:p-5 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
+                  <span className="font-mono text-lg sm:text-xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
+                    03
+                  </span>
+                  <p className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#232564]/95 dark:text-[#F5F5FF]/95">
+                    AI suggestions and one-click drafts empower users when they provide smart starting points while keeping ultimate review and approval in human control.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
