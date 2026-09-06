@@ -87,18 +87,19 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
       {/* Main Container */}
       <main className="w-full relative z-10 flex flex-col max-w-[530px] animate-in fade-in duration-200">
         {/* Top Navigation */}
+        {/* Top Navigation */}
         <header className="flex items-center justify-between w-full mb-8">
           <Link
             href="/blog"
             onClick={() => playTone(880)}
-            className="font-mono text-[15px] sm:text-[15.5px] tracking-tight text-[#232564] dark:text-[#F5F5FF] hover:text-[#6666FF] dark:hover:text-[#9999FF] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
+            className="font-mono text-[16px] sm:text-[17px] tracking-tight text-[#232564] dark:text-[#F5F5FF] hover:text-[#6666FF] dark:hover:text-[#9999FF] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
           >
             <span>&larr;</span>
             <span>blog</span>
           </Link>
 
           <div className="flex items-center space-x-3.5">
-            <span className="font-mono text-xs sm:text-[13px] text-[#11408F] dark:text-[#AEF0FF]">
+            <span className="font-mono text-[13.5px] sm:text-[14px] text-[#11408F] dark:text-[#AEF0FF]">
               {post.readingTime.toLowerCase()} read
             </span>
             <button
@@ -109,8 +110,8 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               {isDarkMode ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  width="17"
+                  height="17"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -132,8 +133,8 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="15"
-                  height="15"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -152,10 +153,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
         {/* Article Header */}
         <article className="space-y-6">
           <div className="border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-5">
-            <h1 className="text-[23px] sm:text-[25px] font-semibold text-[#232564] dark:text-[#F5F5FF] leading-snug">
+            <h1 className="text-[26px] sm:text-[30px] font-semibold text-[#232564] dark:text-[#F5F5FF] leading-tight">
               {post.title.toLowerCase()}
             </h1>
-            <div className="font-mono text-xs sm:text-[13px] text-[#11408F] dark:text-[#AEF0FF] mt-2.5 flex items-center space-x-2">
+            <div className="font-mono text-[13.5px] sm:text-[14.5px] text-[#11408F] dark:text-[#AEF0FF] mt-2.5 flex items-center space-x-2">
               <span>{post.date.toLowerCase()}</span>
               <span>&bull;</span>
               <span>pynthamil pavendan</span>
@@ -166,18 +167,18 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               ARTICLE 1: GIT COMMIT GO
              ========================================================= */}
           {slug === "git-commit-go" && (
-            <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#232564] dark:text-[#F5F5FF] leading-[1.8] font-sans pt-1">
+            <div className="space-y-8 text-[17px] sm:text-[17.5px] text-[#232564] dark:text-[#F5F5FF] leading-[1.8] font-sans pt-1">
               {/* Intro */}
               <div className="space-y-4">
                 <p>At some point, just committing code isn’t enough.</p>
-                <p className="font-mono text-[13.5px] sm:text-[14px] text-[#11408F] dark:text-[#AEF0FF]">You start wondering:</p>
+                <p className="font-mono text-[14.5px] sm:text-[15px] text-[#11408F] dark:text-[#AEF0FF]">You start wondering:</p>
                 <p className="italic text-[#232564] dark:text-[#F5F5FF] pl-3 border-l-2 border-[#11408F]/40 dark:border-[#AEF0FF]/40">
                   can I interact with GitHub programmatically?
                 </p>
                 <p>
                   That’s where the <span className="font-medium text-[#FF42FF] dark:text-[#FF94FF]">GitHub REST API</span> comes in.
                 </p>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#11408F] dark:text-[#AEF0FF] pt-1">It lets you:</p>
+                <p className="text-[14.5px] sm:text-[15px] font-mono text-[#11408F] dark:text-[#AEF0FF] pt-1">It lets you:</p>
                 <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
