@@ -150,7 +150,7 @@ export function PortfolioView({
             </div>
           )}
 
-          <div className="flex items-center justify-between w-full">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full gap-2.5 sm:gap-0">
             {/* Left Title: Figma box on Home, Back button on About/Blog */}
             <div className="flex items-center">
               {viewMode === "home" ? (
@@ -168,8 +168,8 @@ export function PortfolioView({
               )}
             </div>
 
-            {/* Right: Navigation Links & Dark Mode Toggle */}
-            <nav className="flex items-center space-x-3.5 sm:space-x-5 text-[14px] sm:text-[14.5px] font-medium">
+            {/* Right / Under on Mobile: Navigation Links & Dark Mode Toggle */}
+            <nav className="flex items-center space-x-4 sm:space-x-5 text-[14px] sm:text-[14.5px] font-medium">
               <button
                 onClick={() => handleNavClick("about")}
                 className={`transition-colors cursor-pointer select-none ${
