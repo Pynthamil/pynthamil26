@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChromaVideo } from "@/components/ChromaVideo";
+import { PersonaShowcase } from "@/components/PersonaShowcase";
 
 export default function SemanticProjectPage() {
   const [soundOn, setSoundOn] = useState<boolean>(true);
@@ -206,6 +207,9 @@ export default function SemanticProjectPage() {
               <p>
                 I synthesized these findings into targeted user personas to design a lightweight copilot interface that turns passive incoming text into structured action items, clear priorities, and frictionless task management.
               </p>
+
+              {/* User Persona Showcase */}
+              <PersonaShowcase playTone={playTone} />
             </div>
 
             {/* Common Frustrations and Challenges */}
