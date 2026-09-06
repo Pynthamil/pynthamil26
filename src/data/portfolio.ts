@@ -126,7 +126,7 @@ export const portfolioData: PortfolioData = {
       description: "An intelligent context-aware email copilot synthesizing incoming threads, prioritizing actionable items, and drafting contextual responses.",
       year: "2026",
       link: "/semantic",
-      tags: ["Figma", "UI/UX"],
+      tags: ["Figma", "Product Design"],
       status: "Active",
     },
   ],

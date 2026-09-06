@@ -156,9 +156,9 @@ export default function SemanticProjectPage() {
               </p>
 
               {/* Minimalist Metadata Box */}
-              <div className="bg-white dark:bg-[#13151E] p-4.5 sm:p-5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF] space-y-2 leading-relaxed">
+              <div className="bg-white dark:bg-[#13151E] p-5 sm:p-6 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF] space-y-2.5 leading-relaxed">
                 <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">DURATION</span> &rarr; Aug 2026</div>
-                <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">ROLE</span> &rarr; UX/UI Designer</div>
+                <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">ROLE</span> &rarr; Product Designer</div>
                 <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">TEAM</span> &rarr; Solo Project</div>
                 <div><span className="font-semibold text-[#FF42FF] dark:text-[#FF94FF]">TOOLS</span> &rarr; Figma</div>
               </div>
