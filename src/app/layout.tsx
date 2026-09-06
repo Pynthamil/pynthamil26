@@ -1,11 +1,5 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-};
 
 export const metadata: Metadata = {
   title: "Pynthamil Pavendan",

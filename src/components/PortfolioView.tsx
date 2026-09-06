@@ -131,28 +131,28 @@ export function PortfolioView({
   };
 
   return (
-    <div className="min-h-screen w-full px-5 sm:px-8 md:px-12 pt-10 sm:pt-16 pb-24 selection:bg-neutral-200">
+    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-24 selection:bg-neutral-200">
       {/* Soft atmospheric ambient glow */}
       <div className="ambient-glow" />
 
-      {/* Main Container: exactly 490px centered across Home, About, and Blog */}
-      <main className="w-full max-w-[490px] mx-auto relative z-10 flex flex-col">
+      {/* Main Container: exactly 490px across Home, About, and Blog */}
+      <main className="w-full relative z-10 flex flex-col max-w-[490px]">
         {/* Top Header Row */}
         <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-6 sm:mb-6" : "mb-8 sm:mb-10"}`}>
           {/* Clawd GIF on Home Page */}
           {viewMode === "home" && (
-            <div className="-mb-1.5 sm:-mb-2 ml-0 sm:-ml-2">
+            <div className="-mb-1.5 sm:-mb-2 -ml-3 sm:-ml-4">
               <img
                 src="/clawd.gif"
                 alt="Clawd"
-                className="w-24 h-24 sm:w-32 sm:h-32 object-contain select-none"
+                className="w-28 h-28 sm:w-32 sm:h-32 object-contain select-none"
               />
             </div>
           )}
 
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full gap-2.5 sm:gap-0">
             {/* Left Title: Figma box on Home, Back button on About/Blog */}
-            <div className="flex items-center min-w-0">
+            <div className="flex items-center">
               {viewMode === "home" ? (
                 <h1 className="text-[21px] sm:text-[23px] font-medium tracking-tight text-[#FF42FF] dark:text-[#FF94FF] select-none">
                   {portfolioData.name.toLowerCase()}
@@ -160,7 +160,7 @@ export function PortfolioView({
               ) : (
                 <button
                   onClick={() => handleNavClick("home")}
-                  className="font-mono text-[14px] sm:text-[16px] tracking-tight text-[#232564] dark:text-[#F5F5FF] hover:text-[#11408F] dark:hover:text-[#AEF0FF] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer min-w-0"
+                  className="font-mono text-[14px] sm:text-[16px] tracking-tight text-[#232564] dark:text-[#F5F5FF] hover:text-[#11408F] dark:hover:text-[#AEF0FF] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
                 >
                   <span>&larr;</span>
                   <span>{portfolioData.name.toLowerCase()}</span>
@@ -169,7 +169,7 @@ export function PortfolioView({
             </div>
 
             {/* Right / Under on Mobile: Navigation Links & Dark Mode Toggle */}
-            <nav className="flex items-center space-x-4 sm:space-x-5 text-[14px] sm:text-[14.5px] font-medium shrink-0">
+            <nav className="flex items-center space-x-4 sm:space-x-5 text-[14px] sm:text-[14.5px] font-medium">
               <button
                 onClick={() => handleNavClick("about")}
                 className={`transition-colors cursor-pointer select-none ${
@@ -247,15 +247,15 @@ export function PortfolioView({
             VIEW 1: HOME VIEW
             ======================================================== */}
         {viewMode === "home" && (
-          <div className="flex flex-col animate-in fade-in duration-200 w-full">
+          <div className="flex flex-col animate-in fade-in duration-200">
             {/* Bio Copy & Status Section */}
             <section className="flex flex-col space-y-4 mb-12 sm:mb-14">
-              <p className="text-[17px] sm:text-[18px] text-[#232564] dark:text-[#F5F5FF] font-normal leading-relaxed break-words">
+              <p className="text-[17px] sm:text-[18px] text-[#232564] dark:text-[#F5F5FF] font-normal leading-relaxed">
                 I am a curious being who loves bringing the crazy ideas existing in my mind into reality through the sheer power of code.
               </p>
 
-              <div className="flex items-center space-x-2 text-[15px] sm:text-[15.5px] text-[#232564] dark:text-[#F5F5FF] pt-1 pb-1 flex-wrap gap-y-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse shrink-0" />
+              <div className="flex items-center space-x-2 text-[15px] sm:text-[15.5px] text-[#232564] dark:text-[#F5F5FF] pt-1 pb-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
                 <span>
                   Currently: making{" "}
                   <a
@@ -270,7 +270,7 @@ export function PortfolioView({
                 </span>
               </div>
 
-              <p className="text-[15px] sm:text-[15.5px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed break-words">
+              <p className="text-[15px] sm:text-[15.5px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed">
                 Find me on{" "}
                 <a
                   href="https://x.com/pyndu15"
@@ -311,7 +311,7 @@ export function PortfolioView({
               </p>
 
               {/* Dashed Email Box */}
-              <div className="pt-2 flex max-w-full">
+              <div className="pt-2 flex">
                 <div
                   onClick={() => {
                     navigator.clipboard.writeText(portfolioData.email);
@@ -319,13 +319,13 @@ export function PortfolioView({
                     playTone(1046);
                     setTimeout(() => setCopiedEmail(false), 2000);
                   }}
-                  className="inline-flex items-center space-x-2 px-3 py-1.5 sm:px-3.5 sm:py-2 border border-dashed border-[#11408F] dark:border-[#AEF0FF] rounded-none bg-transparent cursor-pointer group select-none max-w-full min-w-0"
+                  className="inline-flex items-center space-x-2.5 px-3.5 py-2 border border-dashed border-[#11408F] dark:border-[#AEF0FF] rounded-none bg-transparent cursor-pointer group select-none"
                   title="Click to copy email"
                 >
-                  <span className="font-mono text-[12.5px] sm:text-[14.5px] text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#232564] dark:group-hover:text-[#F5F5FF] tracking-wide transition-colors truncate min-w-0">
+                  <span className="font-mono text-[13.5px] sm:text-[14.5px] text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#232564] dark:group-hover:text-[#F5F5FF] tracking-wide transition-colors">
                     {portfolioData.email}
                   </span>
-                  <div className="text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#232564] dark:group-hover:text-[#F5F5FF] flex items-center focus:outline-none transition-colors shrink-0">
+                  <div className="text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#232564] dark:group-hover:text-[#F5F5FF] flex items-center focus:outline-none transition-colors">
                     {copiedEmail ? (
                       <span className="text-emerald-400 font-mono text-xs font-medium animate-in fade-in">
                         copied!
@@ -333,8 +333,8 @@ export function PortfolioView({
                     ) : (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="14"
+                        width="15"
+                        height="15"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -357,31 +357,31 @@ export function PortfolioView({
               <h2 className="font-mono text-[13px] sm:text-[13.5px] uppercase tracking-[0.08em] text-[#11408F] dark:text-[#AEF0FF] mb-3.5 font-semibold">
                 Experience
               </h2>
-              <ul className="flex flex-col space-y-4 sm:space-y-4.5 font-mono text-[13.5px] sm:text-[14.5px] tracking-[0.02em] w-full">
+              <ul className="flex flex-col space-y-4 sm:space-y-4.5 font-mono text-[14px] sm:text-[15px] tracking-[0.02em]">
                 {portfolioData.experiences.map((item) => (
                   <li
                     key={item.id}
-                    className="group flex flex-col sm:flex-row sm:items-start sm:justify-between py-1 transition-opacity hover:opacity-85 w-full gap-1 sm:gap-2"
+                    className="group flex items-start justify-between py-1 transition-opacity hover:opacity-85"
                   >
                     <a
                       href={item.url || "#"}
                       target={item.url && item.url !== "#" ? "_blank" : undefined}
                       rel={item.url && item.url !== "#" ? "noopener noreferrer" : undefined}
-                      className="flex items-start space-x-2.5 flex-1 pr-0 sm:pr-2 focus:outline-none min-w-0"
+                      className="flex items-start space-x-2.5 flex-1 pr-4 focus:outline-none"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#6666FF] dark:bg-[#9999FF] opacity-50 group-hover:opacity-100 transition-opacity shrink-0 mt-1.5" />
-                      <div className="flex flex-col min-w-0">
-                        <span className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] tracking-[0.02em] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors break-words">
+                      <div className="flex flex-col">
+                        <span className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] tracking-[0.02em] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors">
                           {item.role}
                         </span>
-                        <span className="text-[12px] sm:text-[13px] text-[#FF42FF] dark:text-[#FF94FF] font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
-                          <span className="font-mono text-[#64748B] dark:text-[#8E95B8] select-none shrink-0">└</span>
-                          <span className="break-words">{item.company}</span>
+                        <span className="text-[12.5px] sm:text-[13px] text-[#FF42FF] dark:text-[#FF94FF] font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
+                          <span className="font-mono text-[#64748B] dark:text-[#8E95B8] select-none">└</span>
+                          <span>{item.company}</span>
                         </span>
                       </div>
                     </a>
 
-                    <div className="text-left sm:text-right text-[11px] sm:text-[12.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap pl-4 sm:pl-0 pt-0 sm:pt-0.5 shrink-0">
+                    <div className="text-right text-[12.5px] sm:text-[13px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
                       {item.period}
                     </div>
                   </li>
@@ -395,13 +395,13 @@ export function PortfolioView({
                 <h2 className="font-mono text-[13px] sm:text-[13.5px] uppercase tracking-[0.08em] text-[#11408F] dark:text-[#AEF0FF] mb-3.5 font-semibold">
                   Projects
                 </h2>
-                <ul className="flex flex-col space-y-4 sm:space-y-4.5 font-mono text-[13.5px] sm:text-[14.5px] tracking-[0.02em] w-full">
+                <ul className="flex flex-col space-y-4 sm:space-y-4.5 font-mono text-[14px] sm:text-[15px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     return (
                       <li
                         key={idx}
-                        className="group flex flex-col sm:flex-row sm:items-center sm:justify-between py-1 cursor-pointer transition-opacity hover:opacity-85 w-full gap-1 sm:gap-2"
+                        className="group flex items-center justify-between py-1 cursor-pointer transition-opacity hover:opacity-85"
                         onClick={() => {
                           if (isInternal && project.link) {
                             playTone(880);
@@ -411,14 +411,14 @@ export function PortfolioView({
                           }
                         }}
                       >
-                        <div className="flex items-center space-x-3 flex-1 pr-0 sm:pr-2 min-w-0">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#6666FF] dark:bg-[#9999FF] opacity-50 group-hover:opacity-100 transition-opacity shrink-0" />
-                          <span className="font-medium text-[#0F172A] dark:text-[#F5F5FF] tracking-[0.02em] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors break-words">
+                        <div className="flex items-center space-x-3 flex-1 pr-4">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#6666FF] dark:bg-[#9999FF] opacity-50 group-hover:opacity-100 transition-opacity" />
+                          <span className="font-medium text-[#0F172A] dark:text-[#F5F5FF] tracking-[0.02em] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors">
                             {project.title}
                           </span>
                         </div>
 
-                        <div className="text-left sm:text-right text-[11px] sm:text-[12.5px] font-normal tracking-[0.02em] whitespace-nowrap pl-4.5 sm:pl-0 shrink-0">
+                        <div className="text-right text-[12.5px] sm:text-[13px] font-normal tracking-[0.02em] whitespace-nowrap">
                           {project.hoverText ? (
                             <>
                               <span className="group-hover:hidden uppercase transition-opacity">
@@ -860,9 +860,9 @@ export function PortfolioView({
                       playTone(880);
                       setExpandedExperience(expandedExperience === "plue" ? null : "plue");
                     }}
-                    className="flex flex-col sm:flex-row sm:items-start sm:justify-between cursor-pointer group select-none gap-1 sm:gap-0"
+                    className="flex items-start justify-between cursor-pointer group select-none"
                   >
-                    <div className="flex-1 pr-0 sm:pr-4">
+                    <div className="flex-1 pr-4">
                       <div className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] text-[15px] sm:text-[15.5px] group-hover:text-[#6666FF] dark:group-hover:text-[#FF94FF] transition-colors">
                         Engineering Intern
                       </div>
@@ -877,8 +877,8 @@ export function PortfolioView({
                         </p>
                       )}
                     </div>
-                    <div className="flex items-center space-x-3 pt-0.5 sm:pt-0.5 justify-between sm:justify-end">
-                      <span className="font-mono text-[12px] sm:text-[13px] text-[#64748B] dark:text-[#8E95B8] whitespace-nowrap">
+                    <div className="flex items-center space-x-3 pt-0.5">
+                      <span className="font-mono text-[12.5px] sm:text-[13px] text-[#64748B] dark:text-[#8E95B8] whitespace-nowrap">
                         Sep – Nov 2026
                       </span>
                       <span className="font-mono text-lg font-semibold text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#6666FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
@@ -897,9 +897,9 @@ export function PortfolioView({
                         expandedExperience === "scientiflow" ? null : "scientiflow"
                       );
                     }}
-                    className="flex flex-col sm:flex-row sm:items-start sm:justify-between cursor-pointer group select-none gap-1 sm:gap-0"
+                    className="flex items-start justify-between cursor-pointer group select-none"
                   >
-                    <div className="flex-1 pr-0 sm:pr-4">
+                    <div className="flex-1 pr-4">
                       <div className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] text-[15px] sm:text-[15.5px] group-hover:text-[#6666FF] dark:group-hover:text-[#FF94FF] transition-colors">
                         Frontend Developer Intern
                       </div>
@@ -914,8 +914,8 @@ export function PortfolioView({
                         </p>
                       )}
                     </div>
-                    <div className="flex items-center space-x-3 pt-0.5 sm:pt-0.5 justify-between sm:justify-end">
-                      <span className="font-mono text-[12px] sm:text-[13px] text-[#64748B] dark:text-[#8E95B8] whitespace-nowrap">
+                    <div className="flex items-center space-x-3 pt-0.5">
+                      <span className="font-mono text-[12.5px] sm:text-[13px] text-[#64748B] dark:text-[#8E95B8] whitespace-nowrap">
                         May – Jul 2025
                       </span>
                       <span className="font-mono text-lg font-semibold text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#6666FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
@@ -929,9 +929,9 @@ export function PortfolioView({
 
             {/* Stack Row */}
             <section className="pt-4 border-t border-neutral-200/70 dark:border-[#9999FF]/20 font-mono text-[13px] sm:text-[13.5px]">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-0">
+              <div className="flex items-center justify-between">
                 <div className="text-[#11408F] dark:text-[#AEF0FF] font-semibold">stack</div>
-                <div className="text-left sm:text-right text-[#0F172A] dark:text-[#F5F5FF] break-words">
+                <div className="text-right text-[#0F172A] dark:text-[#F5F5FF]">
                   Next.js &bull; Supabase &bull; Python &bull; Figma &bull; Antigravity
                 </div>
               </div>

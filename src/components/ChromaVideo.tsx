@@ -6,9 +6,10 @@ interface ChromaVideoProps {
   src: string;
   className?: string;
   cropRatio?: number;
+  zoom?: number;
 }
 
-export function ChromaVideo({ src, className = "", cropRatio = 1.0 }: ChromaVideoProps) {
+export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: ChromaVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -53,12 +54,14 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0 }: ChromaVide
 
       if (video.readyState >= 2 && video.videoWidth > 0 && video.videoHeight > 0) {
         const dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio || 1, 2) : 1;
+        const isMobile = typeof window !== "undefined" ? window.innerWidth < 640 : false;
+        const effectiveZoom = zoom ?? (isMobile ? 1.25 : 1.0);
         
-        // Square 1:1 presentation: sample equal height & width from center
-        const sHeight = video.videoHeight;
-        const sWidth = Math.min(video.videoWidth, Math.round(video.videoHeight * cropRatio));
+        // Square 1:1 presentation with optional zoom: sample from center
+        const sHeight = Math.round(video.videoHeight / effectiveZoom);
+        const sWidth = Math.min(video.videoWidth, Math.round(sHeight * cropRatio));
         const sx = Math.max(0, Math.round((video.videoWidth - sWidth) / 2));
-        const sy = 0;
+        const sy = Math.max(0, Math.round((video.videoHeight - sHeight) / 2));
 
         const displayWidth = Math.round((canvas.clientWidth || 530) * dpr);
         const displayHeight = Math.round(displayWidth * (sHeight / sWidth));
