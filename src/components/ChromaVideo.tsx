@@ -54,8 +54,7 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
 
       if (video.readyState >= 2 && video.videoWidth > 0 && video.videoHeight > 0) {
         const dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio || 1, 2) : 1;
-        const isMobile = typeof window !== "undefined" ? window.innerWidth < 640 : false;
-        const effectiveZoom = zoom ?? (isMobile ? 1.25 : 1.0);
+        const effectiveZoom = zoom ?? 1.0;
         
         // Square 1:1 presentation with optional zoom: sample from center
         const sHeight = Math.round(video.videoHeight / effectiveZoom);
