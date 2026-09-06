@@ -334,34 +334,34 @@ export default function SemanticProjectPage() {
 
             {/* Outcomes & What I Learned */}
             <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
-              <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
+              <h2 className="text-[20px] sm:text-[21px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
                 Outcomes &amp; What I Learned
               </h2>
-              <p>
+              <p className="text-[16.5px] sm:text-[16.5px] leading-[1.75]">
                 Designing the Semantic Email Life-Management System provided deep insights into crafting human-centered AI interfaces that solve cognitive overload rather than adding new complexity.
               </p>
-              <div className="space-y-3 pt-2">
-                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-4 sm:p-5 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
-                  <span className="font-mono text-lg sm:text-xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
+              <div className="space-y-3.5 pt-2">
+                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-5 sm:p-6 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 sm:gap-5 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
+                  <span className="font-mono text-2xl sm:text-2xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
                     01
                   </span>
-                  <p className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#232564]/95 dark:text-[#F5F5FF]/95">
+                  <p className="text-[18px] sm:text-[17.5px] leading-[1.65] text-[#232564] dark:text-[#F5F5FF]">
                     The most effective AI assistance operates quietly in the background, extracting key action items without forcing users to learn complex prompt interfaces.
                   </p>
                 </div>
-                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-4 sm:p-5 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
-                  <span className="font-mono text-lg sm:text-xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
+                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-5 sm:p-6 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 sm:gap-5 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
+                  <span className="font-mono text-2xl sm:text-2xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
                     02
                   </span>
-                  <p className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#232564]/95 dark:text-[#F5F5FF]/95">
+                  <p className="text-[18px] sm:text-[17.5px] leading-[1.65] text-[#232564] dark:text-[#F5F5FF]">
                     Translating verbose threads into structured task cards, deadline highlights, and relationship heatmaps drastically reduces cognitive fatigue.
                   </p>
                 </div>
-                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-4 sm:p-5 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
-                  <span className="font-mono text-lg sm:text-xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
+                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-5 sm:p-6 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 sm:gap-5 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
+                  <span className="font-mono text-2xl sm:text-2xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
                     03
                   </span>
-                  <p className="text-[14.5px] sm:text-[15px] leading-relaxed text-[#232564]/95 dark:text-[#F5F5FF]/95">
+                  <p className="text-[18px] sm:text-[17.5px] leading-[1.65] text-[#232564] dark:text-[#F5F5FF]">
                     AI suggestions and one-click drafts empower users when they provide smart starting points while keeping ultimate review and approval in human control.
                   </p>
                 </div>
