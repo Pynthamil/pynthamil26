@@ -145,10 +145,10 @@ export default function SemanticProjectPage() {
           </div>
 
           {/* Case Study Content */}
-          <div className="space-y-7 text-[15px] sm:text-[15.5px] text-[#232564] dark:text-[#F5F5FF] leading-[1.75] font-sans pt-1">
+          <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#232564] dark:text-[#F5F5FF] leading-[1.8] font-sans pt-1">
             {/* Overview / Problem Hook */}
             <div className="space-y-4">
-              <p className="text-[17px] sm:text-[18.5px] font-medium text-[#232564] dark:text-[#F5F5FF] leading-snug">
+              <p className="text-[18px] sm:text-[19.5px] font-medium text-[#232564] dark:text-[#F5F5FF] leading-snug">
                 Our inboxes store information, but fail to turn it into meaningful action.
               </p>
               <p>
@@ -156,7 +156,7 @@ export default function SemanticProjectPage() {
               </p>
 
               {/* Minimalist Metadata Box */}
-              <div className="bg-white dark:bg-[#13151E] p-3.5 sm:p-4 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-[13px] sm:text-[13.5px] text-[#232564] dark:text-[#F5F5FF] space-y-1.5 leading-relaxed">
+              <div className="bg-white dark:bg-[#13151E] p-4 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-[13.5px] sm:text-[14px] text-[#232564] dark:text-[#F5F5FF] space-y-1.5 leading-relaxed">
                 <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">DURATION</span> &rarr; Aug 2026</div>
                 <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">ROLE</span> &rarr; UX/UI Designer</div>
                 <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">TEAM</span> &rarr; Solo Project</div>
@@ -165,39 +165,39 @@ export default function SemanticProjectPage() {
             </div>
 
             {/* The Challenge */}
-            <div className="pt-5 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-3.5">
-              <h2 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
+            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
+              <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
                 The Challenge
               </h2>
               <p>
                 Email is full of tasks, deadlines, and responsibilities, but inboxes bury them in clutter &mdash; making it easy to forget what matters.
               </p>
-              <p className="font-mono text-[13px] sm:text-[13.5px] text-[#11408F] dark:text-[#AEF0FF]">
+              <p className="font-mono text-[13.5px] sm:text-[14px] text-[#11408F] dark:text-[#AEF0FF]">
                 Core problem areas:
               </p>
-              <ul className="space-y-2 pl-1 text-[14.5px] sm:text-[15px]">
+              <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
+                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
                   <span>high cognitive load from unorganized threads</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
+                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
                   <span>action items getting buried under promotional noise</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
+                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
                   <span>context switching between email and external task managers</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none">+</span>
+                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
                   <span>missed commitments due to lack of time-sensitivity detection</span>
                 </li>
               </ul>
             </div>
 
             {/* Research */}
-            <div className="pt-5 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-3.5">
-              <h2 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
+            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
+              <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
                 Research &amp; Discovery
               </h2>
               <p>
@@ -209,44 +209,56 @@ export default function SemanticProjectPage() {
             </div>
 
             {/* Common Frustrations and Challenges */}
-            <div className="pt-5 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-3.5">
-              <h2 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
+            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
+              <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
                 Common Frustrations and Challenges
               </h2>
-              <p className="font-mono text-[13px] sm:text-[13.5px] text-[#11408F] dark:text-[#AEF0FF]">
+              <p className="font-mono text-[13.5px] sm:text-[14px] text-[#11408F] dark:text-[#AEF0FF]">
                 Recurring user pain points:
               </p>
-              <div className="bg-white dark:bg-[#13151E] p-3.5 sm:p-4 border border-neutral-200/80 dark:border-[#9999FF]/30 font-mono text-[13px] sm:text-[13.5px] text-[#232564] dark:text-[#F5F5FF] space-y-2 leading-relaxed">
-                <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">1. Inbox overload</span> &rarr; high-volume noise obscures critical signals</div>
-                <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">2. Lost context</span> &rarr; decisions scattered across long threads</div>
-                <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">3. Action items get lost</span> &rarr; tasks forgotten once marked read</div>
-                <div><span className="font-semibold text-[#FF42FF] dark:text-[#FF94FF]">4. Information is fragmented</span> &rarr; manual tracking across tools</div>
-              </div>
+              <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <li className="flex items-start space-x-2.5">
+                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">01</span>
+                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Inbox Overload</strong> &mdash; high-volume noise obscures critical signals</span>
+                </li>
+                <li className="flex items-start space-x-2.5">
+                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">02</span>
+                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Lost Context</strong> &mdash; decisions scattered across long threads</span>
+                </li>
+                <li className="flex items-start space-x-2.5">
+                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">03</span>
+                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Action Items Get Lost</strong> &mdash; tasks forgotten once marked read</span>
+                </li>
+                <li className="flex items-start space-x-2.5">
+                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">04</span>
+                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Information is Fragmented</strong> &mdash; manual tracking across tools</span>
+                </li>
+              </ul>
             </div>
 
             {/* Everyday situations */}
-            <div className="pt-5 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-3.5">
-              <h2 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
+            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
+              <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
                 Everyday situations, big and small
               </h2>
-              <p className="font-mono text-[13px] sm:text-[13.5px] text-[#11408F] dark:text-[#AEF0FF]">
+              <p className="font-mono text-[13.5px] sm:text-[14px] text-[#11408F] dark:text-[#AEF0FF]">
                 Structured action categories:
               </p>
-              <ul className="space-y-2 pl-1 text-[14.5px] sm:text-[15px]">
+              <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[12.5px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">01</span>
+                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">01</span>
                   <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Meeting Coordination</strong> &mdash; schedule, participants &amp; agenda</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[12.5px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">02</span>
+                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">02</span>
                   <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Action Items &amp; Tasks</strong> &mdash; assigned deliverables &amp; to-dos</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[12.5px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">03</span>
+                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">03</span>
                   <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Urgent Deadlines</strong> &mdash; time-sensitive notices &amp; submissions</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[12.5px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">04</span>
+                  <span className="font-mono text-xs sm:text-[13px] bg-white dark:bg-[#13151E] px-2 py-0.5 border border-neutral-200/80 dark:border-[#9999FF]/30 font-semibold text-[#11408F] dark:text-[#AEF0FF]">04</span>
                   <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Receipts &amp; Documentation</strong> &mdash; invoices &amp; reference files</span>
                 </li>
               </ul>

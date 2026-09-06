@@ -21,6 +21,7 @@ export interface Project {
   link?: string;
   tags?: string[];
   status?: string;
+  hoverText?: string;
 }
 
 export interface Post {
@@ -115,9 +116,10 @@ export const portfolioData: PortfolioData = {
       title: "ORCA RESEARCH PLATFORM",
       description: "Interactive AI research interface analyzing longitudinal datasets and cognitive behaviors with real-time vector charting.",
       year: "2026",
-      link: "https://orca.ai",
-      tags: ["Next.js", "Web Audio", "Data Viz"],
-      status: "Production",
+      link: "#",
+      tags: ["AI/ML", "LLM", "Data Viz"],
+      status: "currently developing",
+      hoverText: "currently developing",
     },
     {
       title: "SEMANTIC EMAIL COPILOT",
