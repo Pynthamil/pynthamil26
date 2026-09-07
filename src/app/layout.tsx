@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   title: "Pynthamil Pavendan",
   description:
     "Design engineer and product builder crafting thoughtful software experiences.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
