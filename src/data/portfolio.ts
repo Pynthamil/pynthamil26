@@ -114,7 +114,7 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       title: "FORK THIS SHEET",
-      description: "A collaborative spreadsheet utility and templating engine designed for rapid data modeling, cloning, and workflow automation.",
+      description: "Git for Google Sheets that lets users version, commit, and push spreadsheet changes like code. Makes it easier to safely experiment with important spreadsheets without losing or manually tracking changes.",
       year: "2026",
       link: "#",
       tags: ["Dev Tool", "Productivity", "Web"],
@@ -122,8 +122,8 @@ export const portfolioData: PortfolioData = {
       hoverText: "currently developing",
     },
     {
-      title: "ORCA RESEARCH PLATFORM",
-      description: "Interactive AI research interface analyzing longitudinal datasets and cognitive behaviors with real-time vector charting.",
+      title: "ORCA.AI",
+      description: "AI research assistant for marine science that turns scientific papers into clear, cited answers and insights. Helps researchers quickly discover, understand, and connect information from scattered marine research.",
       year: "2026",
       link: "#",
       tags: ["AI/ML", "LLM", "Data Viz"],

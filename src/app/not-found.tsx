@@ -37,7 +37,7 @@ export default function NotFound() {
       </main>
 
       <footer className="w-full max-w-[490px] pt-8 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-center justify-between gap-2 font-mono text-xs text-[#64748B] dark:text-[#8E95B8]">
-        <div>curiosity doesn&apos;t kill the cat.</div>
+        <div>coding is an art and im an artist</div>
         <div>made w love &bull; &copy; 2026</div>
       </footer>
     </div>

@@ -383,7 +383,7 @@ export default function SemanticProjectPage() {
 
         {/* Standard Footer */}
         <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-xs sm:text-[13px] text-[#64748B] dark:text-[#8E95B8]">
-          <div>curiosity doesn&apos;t kill the cat.</div>
+          <div>coding is an art and im an artist</div>
           <div>made w love &bull; &copy; 2026</div>
         </footer>
       </main>

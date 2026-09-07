@@ -169,7 +169,7 @@ export function PortfolioView({
             </div>
 
             {/* Right / Under on Mobile: Navigation Links & Dark Mode Toggle */}
-            <nav className="flex items-center space-x-4 sm:space-x-5 text-[15.5px] sm:text-[16.5px] font-medium">
+            <nav className="flex items-center space-x-4 sm:space-x-5 text-[15.5px] sm:text-[16.5px] font-medium sm:pt-1">
               <button
                 onClick={() => handleNavClick("about")}
                 className={`transition-colors cursor-pointer select-none ${
@@ -252,10 +252,6 @@ export function PortfolioView({
             <section className="flex flex-col space-y-4 mb-12 sm:mb-14">
               <p className="text-[19px] sm:text-[20.5px] text-[#232564] dark:text-[#F5F5FF] font-normal leading-relaxed">
                 I am a curious being who loves bringing the crazy ideas existing in my mind into reality through the sheer power of code.
-              </p>
-
-              <p className="text-[17px] sm:text-[18.5px] text-[#232564] dark:text-[#F5F5FF] font-normal leading-relaxed">
-                coding is an art and im an artist
               </p>
 
               <div className="flex items-center space-x-2.5 text-[16px] sm:text-[17px] text-[#232564] dark:text-[#F5F5FF] pt-1 pb-1">
@@ -399,13 +395,13 @@ export function PortfolioView({
                 <h2 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#11408F] dark:text-[#AEF0FF] mb-3.5 font-semibold">
                   Projects
                 </h2>
-                <ul className="flex flex-col space-y-4.5 sm:space-y-5 font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
+                <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     return (
                       <li
                         key={idx}
-                        className="group flex items-center justify-between py-1 cursor-pointer transition-opacity hover:opacity-85"
+                        className="group flex flex-col py-1.5 cursor-pointer transition-opacity hover:opacity-90"
                         onClick={() => {
                           if (isInternal && project.link) {
                             playTone(880);
@@ -415,33 +411,40 @@ export function PortfolioView({
                           }
                         }}
                       >
-                        <div className="flex items-center space-x-3 flex-1 pr-4">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#6666FF] dark:bg-[#9999FF] opacity-50 group-hover:opacity-100 transition-opacity" />
-                          <span className="font-medium text-[#0F172A] dark:text-[#F5F5FF] tracking-[0.02em] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors">
-                            {project.title}
-                          </span>
-                        </div>
+                        <div className="flex items-center justify-between w-full">
+                          <div className="flex items-center flex-1 pr-4">
+                            <span className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] tracking-[0.02em] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors">
+                              [{project.title}]
+                            </span>
+                          </div>
 
-                        <div className="text-right text-[13.5px] sm:text-[14.5px] font-normal tracking-[0.02em] whitespace-nowrap">
-                          {project.hoverText ? (
-                            <>
-                              <span className="group-hover:hidden uppercase transition-opacity">
+                          <div className="text-right text-[13.5px] sm:text-[14.5px] font-normal tracking-[0.02em] whitespace-nowrap">
+                            {project.hoverText ? (
+                              <>
+                                <span className="group-hover:hidden uppercase transition-opacity">
+                                  <span className="text-[#FF42FF] dark:text-[#FF94FF] font-medium">{project.tags?.[0] || "SYSTEM"}</span>
+                                  <span className="text-neutral-400 dark:text-[#9999FF]/40">, </span>
+                                  <span className="text-[#64748B] dark:text-[#8E95B8]">{project.year}</span>
+                                </span>
+                                <span className="hidden group-hover:inline-block text-[#FF42FF] dark:text-[#FF94FF] font-medium lowercase tracking-normal transition-all animate-in fade-in duration-150">
+                                  {project.hoverText}
+                                </span>
+                              </>
+                            ) : (
+                              <span className="uppercase">
                                 <span className="text-[#FF42FF] dark:text-[#FF94FF] font-medium">{project.tags?.[0] || "SYSTEM"}</span>
                                 <span className="text-neutral-400 dark:text-[#9999FF]/40">, </span>
                                 <span className="text-[#64748B] dark:text-[#8E95B8]">{project.year}</span>
                               </span>
-                              <span className="hidden group-hover:inline-block text-[#FF42FF] dark:text-[#FF94FF] font-medium lowercase tracking-normal transition-all animate-in fade-in duration-150">
-                                {project.hoverText}
-                              </span>
-                            </>
-                          ) : (
-                            <span className="uppercase">
-                              <span className="text-[#FF42FF] dark:text-[#FF94FF] font-medium">{project.tags?.[0] || "SYSTEM"}</span>
-                              <span className="text-neutral-400 dark:text-[#9999FF]/40">, </span>
-                              <span className="text-[#64748B] dark:text-[#8E95B8]">{project.year}</span>
-                            </span>
-                          )}
+                            )}
+                          </div>
                         </div>
+
+                        {project.description && (
+                          <p className="text-[16px] sm:text-[17px] font-sans text-justify text-[#475569] dark:text-[#CBD5E1] mt-1.5 leading-relaxed">
+                            {project.description}
+                          </p>
+                        )}
                       </li>
                     );
                   })}
@@ -451,7 +454,7 @@ export function PortfolioView({
 
             {/* Home Footer */}
             <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
-              <div>curiosity doesn&apos;t kill the cat.</div>
+              <div>coding is an art and im an artist</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
           </div>
@@ -943,7 +946,7 @@ export function PortfolioView({
 
             {/* About Footer */}
             <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
-              <div>curiosity doesn&apos;t kill the cat.</div>
+              <div>coding is an art and im an artist</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
           </div>
@@ -991,7 +994,7 @@ export function PortfolioView({
 
             {/* Blog Footer */}
             <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
-              <div>curiosity doesn&apos;t kill the cat.</div>
+              <div>coding is an art and im an artist</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
           </div>
