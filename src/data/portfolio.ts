@@ -114,7 +114,7 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       title: "FORK THIS SHEET",
-      description: "Git for Google Sheets that lets users version, commit, and push spreadsheet changes like code. Makes it easier to safely experiment with important spreadsheets without losing or manually tracking changes.",
+      description: "Git for Google Sheets that lets you save and manage spreadsheet versions like code. Makes it easy to experiment, track changes, and never lose your work.",
       year: "2026",
       link: "#",
       tags: ["Dev Tool", "Productivity", "Web"],
@@ -123,7 +123,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "ORCA.AI",
-      description: "AI research assistant for marine science that turns scientific papers into clear, cited answers and insights. Helps researchers quickly discover, understand, and connect information from scattered marine research.",
+      description: "AI research assistant for marine science that helps you find and understand scientific papers. Turns complex research into clear, cited answers in seconds.",
       year: "2026",
       link: "#",
       tags: ["AI/ML", "LLM", "Data Viz"],
@@ -132,7 +132,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "SEMANTIC EMAIL COPILOT",
-      description: "An intelligent context-aware email copilot synthesizing incoming threads, prioritizing actionable items, and drafting contextual responses.",
+      description: "Context-aware email copilot synthesizing threads, prioritizing actionable items, and drafting smart replies.",
       year: "2026",
       link: "/semantic",
       tags: ["Figma", "UI/UX"],
