@@ -45,15 +45,15 @@ export const Modal: React.FC<ModalProps> = ({
       />
 
       {/* Dialog Box */}
-      <div className="relative w-full max-w-lg bg-white dark:bg-[#13151E] rounded-2xl p-6 sm:p-7 shadow-2xl border border-neutral-150 dark:border-[#9999FF]/30 z-10 animate-in fade-in zoom-in-95 duration-200">
-        <div className="flex items-center justify-between pb-4 mb-4 border-b border-neutral-100 dark:border-[#9999FF]/20">
+      <div className="relative w-full max-w-lg bg-[#F5F5FF] dark:bg-[#13151E] rounded-2xl p-6 sm:p-7 shadow-2xl border border-[#6666FF]/20 dark:border-[#9999FF]/30 z-10 animate-in fade-in zoom-in-95 duration-200">
+        <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#6666FF]/15 dark:border-[#9999FF]/20">
           <div className="flex items-center gap-2">
             {badge && (
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-neutral-100 dark:bg-[#9999FF]/20 text-neutral-700 dark:text-[#F5F5FF]">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-[#EAEAF7] dark:bg-[#9999FF]/20 text-[#11408F] dark:text-[#F5F5FF]">
                 {badge}
               </span>
             )}
-            <h3 className="font-semibold text-neutral-900 dark:text-[#F5F5FF] text-base">{title}</h3>
+            <h3 className="font-semibold text-[#232564] dark:text-[#F5F5FF] text-base">{title}</h3>
           </div>
           <button
             onClick={onClose}
