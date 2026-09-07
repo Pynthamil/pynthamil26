@@ -254,6 +254,10 @@ export function PortfolioView({
                 I am a curious being who loves bringing the crazy ideas existing in my mind into reality through the sheer power of code.
               </p>
 
+              <p className="text-[17px] sm:text-[18.5px] text-[#232564] dark:text-[#F5F5FF] font-normal leading-relaxed">
+                coding is an art and im an artist
+              </p>
+
               <div className="flex items-center space-x-2.5 text-[16px] sm:text-[17px] text-[#232564] dark:text-[#F5F5FF] pt-1 pb-1">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse shrink-0" />
                 <span>
