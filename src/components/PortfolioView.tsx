@@ -441,7 +441,7 @@ export function PortfolioView({
                         </div>
 
                         {project.description && (
-                          <p className="text-[15.5px] sm:text-[16px] font-sans text-justify text-[#475569] dark:text-[#CBD5E1] mt-1 leading-normal">
+                          <p className="text-[17px] sm:text-[18px] font-sans text-justify text-[#475569] dark:text-[#CBD5E1] mt-1.5 leading-relaxed">
                             {project.description}
                           </p>
                         )}
