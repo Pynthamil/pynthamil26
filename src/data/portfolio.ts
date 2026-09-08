@@ -113,6 +113,14 @@ export const portfolioData: PortfolioData = {
   showcase: [],
   projects: [
     {
+      title: "SEMANTIC EMAIL COPILOT",
+      description: "Context-aware email copilot synthesizing threads, prioritizing actionable items, and drafting smart replies.",
+      year: "2026",
+      link: "/semantic",
+      tags: ["Figma", "UI/UX"],
+      status: "Active",
+    },
+    {
       title: "FORK THIS SHEET",
       description: "Git for Google Sheets that lets you save and manage spreadsheet versions like code. Makes it easy to experiment, track changes, and never lose your work.",
       year: "2026",
@@ -129,14 +137,6 @@ export const portfolioData: PortfolioData = {
       tags: ["AI/ML", "LLM", "Data Viz"],
       status: "currently developing",
       hoverText: "currently developing",
-    },
-    {
-      title: "SEMANTIC EMAIL COPILOT",
-      description: "Context-aware email copilot synthesizing threads, prioritizing actionable items, and drafting smart replies.",
-      year: "2026",
-      link: "/semantic",
-      tags: ["Figma", "UI/UX"],
-      status: "Active",
     },
   ],
   writings: [
