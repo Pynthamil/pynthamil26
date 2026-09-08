@@ -886,7 +886,7 @@ export function PortfolioView({
                     </div>
                     <div className="flex items-center space-x-3 pt-0.5">
                       <span className="font-mono text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] whitespace-nowrap">
-                        Sep – Nov 2026
+                        Oct – Dec 2026
                       </span>
                       <span className="font-mono text-xl font-semibold text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#6666FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
                         {expandedExperience === "plue" ? "−" : "+"}

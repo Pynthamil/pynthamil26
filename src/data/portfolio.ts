@@ -160,7 +160,7 @@ export const portfolioData: PortfolioData = {
       id: "plue",
       company: "PLUE",
       role: "ENGINEERING INTERN",
-      period: "SEP 2026 – NOV 2026",
+      period: "OCT 2026 – DEC 2026",
       color: "#4e5df8",
       glowColor: "transparent",
       url: "https://getplue.com/",
