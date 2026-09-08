@@ -527,6 +527,95 @@ export function PortfolioView({
               )}
             </div>
 
+            {/* Come Say Hi Dropdown Accordion */}
+            <div className="border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-5">
+              <div
+                onClick={() => {
+                  playTone(880);
+                  setIsComeSayHiOpen(!isComeSayHiOpen);
+                }}
+                className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
+              >
+                <div>
+                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors">
+                    come say hi
+                  </h2>
+                  <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#11408F] dark:text-[#AEF0FF] mt-0.5">
+                    the internet&apos;s version of knocking on my door
+                  </p>
+                </div>
+                <div>
+                  <span className="font-mono text-xl font-semibold text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
+                    {isComeSayHiOpen ? "−" : "+"}
+                  </span>
+                </div>
+              </div>
+
+              {isComeSayHiOpen && (
+                <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-sans animate-in fade-in duration-150">
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
+                    <span>
+                      Always down to chat about code, design systems, crazy ideas, or good music
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
+                    <span>
+                      Drop a line at{" "}
+                      <a
+                        href={`mailto:${portfolioData.email}`}
+                        className="text-[#6666FF] dark:text-[#9999FF] underline underline-offset-4 decoration-wavy decoration-[#6666FF] dark:decoration-[#9999FF] font-medium"
+                      >
+                        {portfolioData.email}
+                      </a>
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
+                    <span>
+                      Find me on{" "}
+                      <a
+                        href="https://x.com/pyndu15"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
+                      >
+                        X
+                      </a>
+                      ,{" "}
+                      <a
+                        href="https://github.com/Pynthamil"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
+                      >
+                        GitHub
+                      </a>
+                      ,{" "}
+                      <a
+                        href="https://leetcode.com/u/HashKnight/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
+                      >
+                        LeetCode
+                      </a>
+                      , and{" "}
+                      <a
+                        href="https://linkedin.com/in/pynthamil-pavendan"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
+                      >
+                        LinkedIn
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* Fun Facts About Me Dropdown Accordion */}
             <div className="border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-5">
               <div
@@ -747,95 +836,6 @@ export function PortfolioView({
                     <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
                     <span>
                       mostly curiosity. occasionally clarity. always slightly unhinged but in a productive way
-                    </span>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Come Say Hi Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-5">
-              <div
-                onClick={() => {
-                  playTone(880);
-                  setIsComeSayHiOpen(!isComeSayHiOpen);
-                }}
-                className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
-              >
-                <div>
-                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors">
-                    come say hi
-                  </h2>
-                  <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#11408F] dark:text-[#AEF0FF] mt-0.5">
-                    the internet&apos;s version of knocking on my door
-                  </p>
-                </div>
-                <div>
-                  <span className="font-mono text-xl font-semibold text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
-                    {isComeSayHiOpen ? "−" : "+"}
-                  </span>
-                </div>
-              </div>
-
-              {isComeSayHiOpen && (
-                <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-sans animate-in fade-in duration-150">
-                  <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
-                    <span>
-                      Always down to chat about code, design systems, crazy ideas, or good music
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
-                    <span>
-                      Drop a line at{" "}
-                      <a
-                        href={`mailto:${portfolioData.email}`}
-                        className="text-[#6666FF] dark:text-[#9999FF] underline underline-offset-4 decoration-wavy decoration-[#6666FF] dark:decoration-[#9999FF] font-medium"
-                      >
-                        {portfolioData.email}
-                      </a>
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
-                    <span>
-                      Find me on{" "}
-                      <a
-                        href="https://x.com/pyndu15"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
-                      >
-                        X
-                      </a>
-                      ,{" "}
-                      <a
-                        href="https://github.com/Pynthamil"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
-                      >
-                        GitHub
-                      </a>
-                      ,{" "}
-                      <a
-                        href="https://leetcode.com/u/HashKnight/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
-                      >
-                        LeetCode
-                      </a>
-                      , and{" "}
-                      <a
-                        href="https://linkedin.com/in/pynthamil-pavendan"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#232564] dark:text-[#F5F5FF] underline underline-offset-4 decoration-[#232564]/30 dark:decoration-[#F5F5FF]/40 hover:decoration-[#232564] dark:hover:decoration-[#F5F5FF] font-medium"
-                      >
-                        LinkedIn
-                      </a>
                     </span>
                   </div>
                 </div>
