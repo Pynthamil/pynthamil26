@@ -17,6 +17,7 @@ export interface SocialLink {
 export interface Project {
   title: string;
   description: string;
+  longDescription?: string;
   year: string;
   link?: string;
   tags?: string[];
@@ -135,6 +136,16 @@ export const portfolioData: PortfolioData = {
       year: "2026",
       link: "#",
       tags: ["AI/ML", "LLM", "Data Viz"],
+      status: "currently developing",
+      hoverText: "currently developing",
+    },
+    {
+      title: "SHELF",
+      description: "People are excellent at saving things and terrible at deciding what to consume next.",
+      longDescription: "A personal discovery and consumption app for people who constantly save things they want to read, watch, or listen to. Between Instagram saves, browser bookmarks, YouTube watch-later, Goodreads, Spotify, and screenshots, interesting content is everywhere, but actually getting around to it is another story. Shelf explores what happens when a product doesn't just help people save more, but helps them make sense of what they've already saved and actually consume it.",
+      year: "2026",
+      link: "/shelf",
+      tags: ["Productivity", "Web", "Curation"],
       status: "currently developing",
       hoverText: "currently developing",
     },

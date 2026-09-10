@@ -1013,9 +1013,14 @@ export function PortfolioView({
             <div className="text-xs font-mono text-[#11408F] dark:text-[#AEF0FF]">
               {selectedProject.year} &bull; {selectedProject.status || "Completed"}
             </div>
-            <p className="text-sm leading-relaxed text-[#232564] dark:text-[#F5F5FF]">
+            <p className="text-sm font-medium leading-relaxed text-[#232564] dark:text-[#F5F5FF]">
               {selectedProject.description}
             </p>
+            {selectedProject.longDescription && (
+              <p className="text-[13.5px] leading-relaxed text-[#475569] dark:text-[#CBD5E1] pt-1">
+                {selectedProject.longDescription}
+              </p>
+            )}
             {selectedProject.tags && (
               <div className="flex flex-wrap gap-1.5 pt-1">
                 {selectedProject.tags.map((tag, i) => (

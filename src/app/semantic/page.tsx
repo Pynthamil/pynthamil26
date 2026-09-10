@@ -2,6 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import {
+  Inbox,
+  Search,
+  CheckSquare,
+  Split,
+  HelpCircle,
+  Sparkles,
+  Layers,
+} from "lucide-react";
 import { ChromaVideo } from "@/components/ChromaVideo";
 import { PersonaShowcase } from "@/components/PersonaShowcase";
 
@@ -60,13 +69,36 @@ export default function SemanticProjectPage() {
     } catch (e) {}
   };
 
+  const painPoints = [
+    {
+      icon: <Inbox className="w-5 h-5 text-[#6666FF] dark:text-[#9999FF]" strokeWidth={1.5} />,
+      title: "INBOX OVERLOAD",
+      desc: "High-volume noise obscures critical signals",
+    },
+    {
+      icon: <Search className="w-5 h-5 text-[#6666FF] dark:text-[#9999FF]" strokeWidth={1.5} />,
+      title: "LOST CONTEXT",
+      desc: "Decisions scattered across long threads",
+    },
+    {
+      icon: <CheckSquare className="w-5 h-5 text-[#6666FF] dark:text-[#9999FF]" strokeWidth={1.5} />,
+      title: "BURIED ACTIONS",
+      desc: "Tasks forgotten once marked read",
+    },
+    {
+      icon: <Split className="w-5 h-5 text-[#6666FF] dark:text-[#9999FF]" strokeWidth={1.5} />,
+      title: "FRAGMENTED TOOLS",
+      desc: "Manual tracking across external apps",
+    },
+  ];
+
   return (
-    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-24 selection:bg-neutral-200">
+    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-24 selection:bg-indigo-100 dark:selection:bg-indigo-950">
       {/* Soft atmospheric ambient glow */}
       <div className="ambient-glow" />
 
       {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[530px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[540px] animate-in fade-in duration-200">
         {/* Top Navigation */}
         <header className="flex items-center justify-between w-full mb-8">
           <Link
@@ -79,7 +111,7 @@ export default function SemanticProjectPage() {
           </Link>
 
           <div className="flex items-center space-x-3.5">
-            <span className="font-mono text-xs sm:text-[13px] text-[#11408F] dark:text-[#AEF0FF]">
+            <span className="font-mono text-xs sm:text-[13px] text-[#6666FF] dark:text-[#9999FF] font-medium">
               case study
             </span>
             <button
@@ -123,7 +155,7 @@ export default function SemanticProjectPage() {
                   strokeLinejoin="round"
                   className="transition-transform duration-200 hover:-rotate-12"
                 >
-                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                  <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z" />
                 </svg>
               )}
             </button>
@@ -132,237 +164,253 @@ export default function SemanticProjectPage() {
 
         {/* Article / Case Study Header */}
         <article className="space-y-6">
-          <div className="border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-5">
-            <h1 className="text-[23px] sm:text-[25px] font-semibold text-[#232564] dark:text-[#F5F5FF] leading-snug">
-              semantic email copilot
+          <div className="pb-2 space-y-3">
+            <h1 className="text-3xl sm:text-[34px] font-bold text-[#232564] dark:text-[#F5F5FF] tracking-tight">
+              Semantic Email Copilot
             </h1>
-            <div className="font-mono text-xs sm:text-[13px] text-[#11408F] dark:text-[#AEF0FF] mt-2.5 flex items-center space-x-2">
-              <span>aug 2026</span>
-              <span>&bull;</span>
-              <span>figma</span>
-              <span>&bull;</span>
-              <span>solo project</span>
+            <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+              Turning inbox chaos into structured tasks, deadlines, and context.
+            </p>
+
+            {/* 4-Column Metadata Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4">
+              <div>
+                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#9999FF] block mb-1">
+                  ROLE
+                </span>
+                <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
+                  UX/UI Designer
+                </span>
+              </div>
+              <div>
+                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#9999FF] block mb-1">
+                  TIMELINE
+                </span>
+                <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
+                  Aug 2026
+                </span>
+              </div>
+              <div>
+                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#9999FF] block mb-1">
+                  SKILLS
+                </span>
+                <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
+                  AI UX, Systems
+                </span>
+              </div>
+              <div>
+                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#9999FF] block mb-1">
+                  TOOLS
+                </span>
+                <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
+                  Figma
+                </span>
+              </div>
             </div>
           </div>
 
           {/* Case Study Content */}
           <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#232564] dark:text-[#F5F5FF] leading-[1.8] font-sans pt-1">
-            {/* Overview / Problem Hook */}
+            {/* Overview / Context */}
             <div className="space-y-4">
-              <p className="text-[18px] sm:text-[19.5px] font-medium text-[#232564] dark:text-[#F5F5FF] leading-snug">
-                Our inboxes store information, but fail to turn it into meaningful action.
+              {/* Empty Box with Exact Accent Color */}
+              <div className="w-full h-48 sm:h-64 my-2.5 rounded-sm bg-[#6666FF] border border-[#6666FF] shadow-[0_2px_8px_rgba(102,102,255,0.12)]" />
+
+              <div className="space-y-1.5 pt-2">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#9999FF] block">
+                  CONTEXT
+                </span>
+                <p className="text-[18px] sm:text-[19.5px] font-medium text-[#232564] dark:text-[#F5F5FF] leading-snug">
+                  Our inboxes store information, but fail to turn it into meaningful action.
+                </p>
+              </div>
+              <p>
+                Semantic Email Copilot is a lightweight intelligence layer that transforms chaotic inbox threads into structured tasks, deadlines, and context.
               </p>
               <p>
-                A smart system that turns your chaotic inbox into a lightweight second brain by extracting tasks, deadlines, and context.
+                Rather than forcing users to switch email clients, it operates as a non-intrusive copilot analyzing incoming communication in real time to extract key action items, flag urgent commitments, and synthesize contextual responses.
               </p>
+            </div>
 
-              {/* Minimalist Metadata Box */}
-              <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-4 border border-[#232564]/10 dark:border-[#9999FF]/20 font-mono text-[13.5px] sm:text-[14px] text-[#232564] dark:text-[#F5F5FF] space-y-1.5 leading-relaxed">
-                <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">DURATION</span> &rarr; Aug 2026</div>
-                <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">ROLE</span> &rarr; UX/UI Designer</div>
-                <div><span className="font-semibold text-[#11408F] dark:text-[#AEF0FF]">TEAM</span> &rarr; Solo Project</div>
-                <div><span className="font-semibold text-[#FF42FF] dark:text-[#FF94FF]">TOOLS</span> &rarr; Figma</div>
+            {/* The Problem Section */}
+            <div className="pt-8 space-y-5">
+              <div className="space-y-1.5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#9999FF] block">
+                  THE PROBLEM
+                </span>
+                <p className="text-[17px] sm:text-[18px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-normal">
+                  Email is full of tasks, deadlines, and commitments, but inboxes bury them in clutter, making it easy to lose track of what matters.
+                </p>
+                <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
+                  As messages accumulate, users spend excessive energy trying to remember why an email was received, what deliverables are due, who needs a reply, and when to follow up.
+                </p>
+              </div>
+
+              {/* Pain Points Boxed Row */}
+              <div className="pt-2 space-y-3">
+                <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.08em] text-[#64748B] dark:text-[#8E95B8] font-semibold block">
+                  PAIN POINTS
+                </span>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+                  {painPoints.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#9999FF]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#6666FF] dark:hover:border-[#9999FF] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                    >
+                      <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#6666FF]/10 flex items-center justify-center">
+                        {item.icon}
+                      </div>
+                      <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold tracking-tight text-[#232564] dark:text-[#F5F5FF] leading-snug">
+                        {item.title}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* How Might We Callout Box */}
+              <div className="p-4 sm:p-4.5 rounded-sm border border-[#6666FF] dark:border-[#9999FF] bg-[#6666FF]/[0.05] dark:bg-[#9999FF]/[0.08] flex items-start gap-3">
+                <HelpCircle className="w-4 h-4 text-[#6666FF] dark:text-[#9999FF] shrink-0 mt-0.5" strokeWidth={2} />
+                <p className="text-[13.5px] sm:text-[14px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-sans">
+                  How might we transform email from an overwhelming backlog into an intelligent copilot that turns incoming communication into actionable clarity?
+                </p>
               </div>
             </div>
 
-            {/* The Challenge */}
-            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
-              <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
-                The Challenge
-              </h2>
-              <p>
-                Email is full of tasks, deadlines, and responsibilities, but inboxes bury them in clutter &mdash; making it easy to forget what matters.
-              </p>
-              <p className="font-mono text-[13.5px] sm:text-[14px] text-[#11408F] dark:text-[#AEF0FF]">
-                Core problem areas:
-              </p>
-              <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
-                  <span>high cognitive load from unorganized threads</span>
-                </li>
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
-                  <span>action items getting buried under promotional noise</span>
-                </li>
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
-                  <span>context switching between email and external task managers</span>
-                </li>
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] select-none pt-0.5">+</span>
-                  <span>missed commitments due to lack of time-sensitivity detection</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Research */}
-            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
-              <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
-                Research &amp; Discovery
-              </h2>
-              <p>
-                My discovery process involved analyzing real student and faculty workflows across dozens of active inboxes. I identified that over 75% of cognitive overload comes from low-signal emails masking high-priority action items, urgent deadlines, and essential follow-ups.
-              </p>
-              <p>
-                I synthesized these findings into targeted user personas to design a lightweight copilot interface that turns passive incoming text into structured action items, clear priorities, and frictionless task management.
-              </p>
+            {/* Research & Discovery Section */}
+            <div className="pt-8 space-y-4">
+              <div className="space-y-1.5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#9999FF] block">
+                  RESEARCH &amp; DISCOVERY
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#232564] dark:text-[#F5F5FF] tracking-tight">
+                  Understanding high-volume inbox workflows
+                </h2>
+                <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
+                  My discovery process involved analyzing real student and faculty workflows across dozens of active inboxes. Over 75% of cognitive overload stemmed from low-signal emails masking high-priority action items, urgent deadlines, and essential follow-ups.
+                </p>
+              </div>
 
               {/* User Persona Showcase */}
-              <PersonaShowcase playTone={playTone} />
+              <div className="pt-2">
+                <PersonaShowcase playTone={playTone} />
+              </div>
             </div>
 
-            {/* Common Frustrations and Challenges */}
-            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
-              <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
-                Common Frustrations and Challenges
-              </h2>
-              <p className="font-mono text-[13.5px] sm:text-[14px] text-[#11408F] dark:text-[#AEF0FF]">
-                Recurring user pain points:
-              </p>
-              <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">01</span>
-                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Inbox Overload</strong> &mdash; high-volume noise obscures critical signals</span>
-                </li>
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">02</span>
-                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Lost Context</strong> &mdash; decisions scattered across long threads</span>
-                </li>
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">03</span>
-                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Action Items Get Lost</strong> &mdash; tasks forgotten once marked read</span>
-                </li>
-                <li className="flex items-start space-x-2.5">
-                  <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">04</span>
-                  <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Information is Fragmented</strong> &mdash; manual tracking across tools</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* The Solution */}
-            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-6">
+            {/* The Solution Section */}
+            <div className="pt-8 space-y-6">
               <div className="space-y-3.5">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
-                  The Solution
-                </h2>
-                <p>
-                  An AI-powered inbox that understands emails, extracts what matters, and turns them into actionable tasks, deadlines, and context &mdash; so nothing important gets lost.
-                </p>
-                <p>
-                  Rather than forcing users to change their email provider, the <span className="font-medium text-[#FF42FF] dark:text-[#FF94FF]">Semantic Email Copilot</span> acts as a non-intrusive intelligence layer that integrates seamlessly with existing workflows. It analyzes incoming threads in real-time, extracts key action points, tags upcoming commitments, and generates contextual response drafts.
-                </p>
+                <div className="space-y-1.5">
+                  <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#9999FF] block">
+                    THE SOLUTION
+                  </span>
+                  <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#232564] dark:text-[#F5F5FF] tracking-tight">
+                    A non-intrusive intelligence layer
+                  </h2>
+                  <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
+                    An AI-powered inbox layer that understands incoming emails, extracts what matters, and turns them into actionable tasks, deadlines, and context so nothing important gets lost.
+                  </p>
+                </div>
 
-                {/* Demo Video 1: End-to-End Workflow */}
-                <div className="py-6 sm:py-5 my-2">
+                {/* Demo Video 1 */}
+                <div className="py-4 my-2">
                   <div className="w-full flex justify-center">
                     <div className="w-full max-w-[490px]">
                       <ChromaVideo src="/semantic/demo1.mov" />
                     </div>
                   </div>
-                  <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-3 text-center">
+                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#9999FF] mt-3 text-center">
                     // full copilot interface &amp; extraction workflow
                   </p>
                 </div>
               </div>
 
-              {/* Sub-solution 2: Everyday Situations & Action Categories */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
-                <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
-                  Everyday situations, big and small
-                </h3>
-                <p className="font-mono text-[13.5px] sm:text-[14px] text-[#11408F] dark:text-[#AEF0FF]">
-                  Structured action categories:
-                </p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
-                  <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">01</span>
-                    <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Meeting Coordination</strong> &mdash; schedule, participants &amp; agenda</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">02</span>
-                    <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Action Items &amp; Tasks</strong> &mdash; assigned deliverables &amp; to-dos</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">03</span>
-                    <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Urgent Deadlines</strong> &mdash; time-sensitive notices &amp; submissions</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#232564]/[0.05] dark:bg-[#F5F5FF]/[0.05] px-2 py-0.5 border border-[#232564]/10 dark:border-[#9999FF]/20 font-semibold text-[#11408F] dark:text-[#AEF0FF]">04</span>
-                    <span><strong className="font-medium text-[#232564] dark:text-[#F5F5FF]">Receipts &amp; Documentation</strong> &mdash; invoices &amp; reference files</span>
-                  </li>
-                </ul>
-                <p className="italic text-[#232564]/90 dark:text-[#F5F5FF]/90 pt-1">
-                  From meeting coordination and task assignments to urgent deadline notices, the pipeline automatically detects message urgency and maps unstructured context into structured actions.
-                </p>
+              {/* Sub-solution 2: Everyday Situations */}
+              <div className="pt-4 space-y-4">
+                <div className="space-y-1">
+                  <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
+                    Everyday situations, big and small
+                  </h3>
+                  <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                    From meeting coordination and task assignments to urgent deadline notices, the pipeline automatically detects message urgency and maps unstructured context into structured actions.
+                  </p>
+                </div>
 
-                {/* Demo Video 2: Everyday Scenarios & Detection */}
-                <div className="py-6 sm:py-5 my-2">
+                {/* Demo Video 2 */}
+                <div className="py-4 my-2">
                   <div className="w-full flex justify-center">
                     <div className="w-full max-w-[490px]">
                       <ChromaVideo src="/semantic/demo2.mov" />
                     </div>
                   </div>
-                  <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-3 text-center">
+                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#9999FF] mt-3 text-center">
                     // automated deadline detection &amp; priority scheduling
                   </p>
                 </div>
               </div>
 
-              {/* Sub-solution 3: Context Mapping & Actions */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-3.5">
-                <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
-                  Context Mapping &amp; Response Synthesis
-                </h3>
-                <p>
-                  By connecting isolated threads into a unified knowledge graph, users can review incoming tasks, reply with relevant context, and archive resolved items without ever leaving the flow.
-                </p>
+              {/* Sub-solution 3: Context Mapping */}
+              <div className="pt-4 space-y-4">
+                <div className="space-y-1">
+                  <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
+                    Context mapping &amp; response synthesis
+                  </h3>
+                  <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                    By connecting isolated threads into a unified knowledge graph, users can review incoming tasks, reply with relevant context, and archive resolved items without ever leaving the flow.
+                  </p>
+                </div>
 
-                {/* Demo Video 3: Context & Response Synthesis */}
-                <div className="py-6 sm:py-5 my-2">
+                {/* Demo Video 3 */}
+                <div className="py-4 my-2">
                   <div className="w-full flex justify-center">
                     <div className="w-full max-w-[490px]">
                       <ChromaVideo src="/semantic/demo3.mov" />
                     </div>
                   </div>
-                  <p className="font-mono text-xs text-[#11408F] dark:text-[#AEF0FF] mt-3 text-center">
+                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#9999FF] mt-3 text-center">
                     // contextual response drafting &amp; thread synthesis
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Outcomes & What I Learned */}
-            <div className="pt-6 border-t border-neutral-200/70 dark:border-[#9999FF]/20 space-y-4">
-              <h2 className="text-[20px] sm:text-[21px] font-semibold text-[#232564] dark:text-[#F5F5FF]">
-                Outcomes &amp; What I Learned
-              </h2>
-              <p className="text-[16.5px] sm:text-[16.5px] leading-[1.75]">
-                Designing the Semantic Email Life-Management System provided deep insights into crafting human-centered AI interfaces that solve cognitive overload rather than adding new complexity.
-              </p>
-              <div className="space-y-3.5 pt-2">
-                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-5 sm:p-6 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 sm:gap-5 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
-                  <span className="font-mono text-2xl sm:text-2xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
-                    01
+            {/* Takeaways Section */}
+            <div className="pt-8 space-y-5">
+              <div className="space-y-1">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#9999FF] block">
+                  TAKEAWAYS
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#232564] dark:text-[#F5F5FF] tracking-tight">
+                  What I learned after Semantic Copilot
+                </h2>
+              </div>
+
+              {/* 2-Column Takeaways Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-1">
+                {/* Card 1 */}
+                <div className="p-5 sm:p-5.5 rounded-sm border border-[#6666FF] dark:border-[#9999FF] bg-[#6666FF]/[0.04] dark:bg-[#9999FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#9999FF]/[0.12]">
+                  <div className="p-1.5 rounded-sm bg-[#6666FF]/15 dark:bg-[#9999FF]/20 flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-[#6666FF] dark:text-[#9999FF]" strokeWidth={1.5} />
+                  </div>
+                  <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#6666FF] dark:text-[#9999FF] block uppercase">
+                    QUIET AI ASSISTANCE
                   </span>
-                  <p className="text-[18px] sm:text-[17.5px] leading-[1.65] text-[#232564] dark:text-[#F5F5FF]">
-                    The most effective AI assistance operates quietly in the background, extracting key action items without forcing users to learn complex prompt interfaces.
+                  <p className="text-[13.5px] sm:text-[14px] text-[#232564] dark:text-[#CBD5E1] leading-relaxed font-sans">
+                    The most effective AI operates quietly in the background, extracting key actions without forcing users to learn complex prompts.
                   </p>
                 </div>
-                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-5 sm:p-6 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 sm:gap-5 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
-                  <span className="font-mono text-2xl sm:text-2xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
-                    02
+
+                {/* Card 2 */}
+                <div className="p-5 sm:p-5.5 rounded-sm border border-[#6666FF] dark:border-[#9999FF] bg-[#6666FF]/[0.04] dark:bg-[#9999FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#9999FF]/[0.12]">
+                  <div className="p-1.5 rounded-sm bg-[#6666FF]/15 dark:bg-[#9999FF]/20 flex items-center justify-center">
+                    <Layers className="w-5 h-5 text-[#6666FF] dark:text-[#9999FF]" strokeWidth={1.5} />
+                  </div>
+                  <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#6666FF] dark:text-[#9999FF] block uppercase">
+                    STRUCTURE OVER NOISE
                   </span>
-                  <p className="text-[18px] sm:text-[17.5px] leading-[1.65] text-[#232564] dark:text-[#F5F5FF]">
-                    Translating verbose threads into structured task cards, deadline highlights, and relationship heatmaps drastically reduces cognitive fatigue.
-                  </p>
-                </div>
-                <div className="bg-[#232564]/[0.03] dark:bg-[#F5F5FF]/[0.03] p-5 sm:p-6 border border-[#232564]/10 dark:border-[#9999FF]/20 flex items-start gap-4 sm:gap-5 transition-colors hover:border-[#232564]/20 dark:hover:border-[#9999FF]/40">
-                  <span className="font-mono text-2xl sm:text-2xl font-bold text-[#FF42FF] dark:text-[#FF94FF] select-none shrink-0 pt-0.5">
-                    03
-                  </span>
-                  <p className="text-[18px] sm:text-[17.5px] leading-[1.65] text-[#232564] dark:text-[#F5F5FF]">
-                    AI suggestions and one-click drafts empower users when they provide smart starting points while keeping ultimate review and approval in human control.
+                  <p className="text-[13.5px] sm:text-[14px] text-[#232564] dark:text-[#CBD5E1] leading-relaxed font-sans">
+                    Translating verbose threads into structured task cards and deadline highlights drastically reduces cognitive fatigue.
                   </p>
                 </div>
               </div>
@@ -371,7 +419,7 @@ export default function SemanticProjectPage() {
         </article>
 
         {/* Return link */}
-        <div className="pt-10 pb-6 border-b border-neutral-200/70 dark:border-[#9999FF]/20">
+        <div className="pt-10 pb-6">
           <Link
             href="/"
             onClick={() => playTone(880)}
