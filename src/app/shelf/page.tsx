@@ -8,6 +8,7 @@ import {
   Clock,
   Compass,
 } from "lucide-react";
+import { ProjectSidebar } from "@/components/ProjectSidebar";
 
 export default function ShelfProjectPage() {
   const [soundOn, setSoundOn] = useState<boolean>(true);
@@ -87,8 +88,19 @@ export default function ShelfProjectPage() {
     },
   ];
 
+  const sidebarSections = [
+    { id: "context", label: "Context" },
+    { id: "problem", label: "The Problem" },
+    { id: "pain-points", label: "Pain Points" },
+    { id: "process", label: "Process" },
+    { id: "takeaways", label: "Takeaways" },
+  ];
+
   return (
     <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-24 selection:bg-orange-100 dark:selection:bg-orange-950">
+      {/* Table of Contents Floating Sidebar */}
+      <ProjectSidebar sections={sidebarSections} playTone={playTone} />
+
       {/* Soft atmospheric ambient glow with warm orange tint */}
       <div className="ambient-glow" />
 
@@ -207,7 +219,7 @@ export default function ShelfProjectPage() {
           {/* Case Study Content */}
           <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#232564] dark:text-[#F5F5FF] leading-[1.8] font-sans pt-1">
             {/* Overview */}
-            <div className="space-y-4">
+            <div id="context" className="space-y-4 scroll-mt-20">
               {/* Empty Box with Exact #FFA134 Color */}
               <div className="w-full h-48 sm:h-64 my-2.5 rounded-sm bg-[#FFA134] border border-[#FFA134] shadow-[0_2px_8px_rgba(255,161,52,0.12)]" />
 
@@ -228,7 +240,7 @@ export default function ShelfProjectPage() {
             </div>
 
             {/* The Problem Section (Matching Reference) */}
-            <div className="pt-8 space-y-5">
+            <div id="problem" className="pt-8 space-y-5 scroll-mt-20">
               <div className="space-y-1.5">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   THE PROBLEM
@@ -242,7 +254,7 @@ export default function ShelfProjectPage() {
               </div>
 
               {/* Pain Points Boxed Row */}
-              <div className="pt-2 space-y-3">
+              <div id="pain-points" className="pt-2 space-y-3 scroll-mt-20">
                 <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.08em] text-[#64748B] dark:text-[#8E95B8] font-semibold block">
                   PAIN POINTS
                 </span>
@@ -274,7 +286,7 @@ export default function ShelfProjectPage() {
             </div>
 
             {/* Process Section */}
-            <div className="pt-8 space-y-4">
+            <div id="process" className="pt-8 space-y-4 scroll-mt-20">
               <div className="space-y-1.5">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   PROCESS
@@ -292,7 +304,7 @@ export default function ShelfProjectPage() {
             </div>
 
             {/* Takeaways Section (Matching Reference) */}
-            <div className="pt-8 space-y-5">
+            <div id="takeaways" className="pt-8 space-y-5 scroll-mt-20">
               <div className="space-y-1">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   TAKEAWAYS
