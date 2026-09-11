@@ -23,6 +23,7 @@ export interface Project {
   tags?: string[];
   status?: string;
   hoverText?: string;
+  banner?: string;
 }
 
 export interface Post {
@@ -134,7 +135,8 @@ export const portfolioData: PortfolioData = {
       title: "ORCA.AI",
       description: "AI research assistant for marine science that helps you find and understand scientific papers. Turns complex research into clear, cited answers in seconds.",
       year: "2026",
-      link: "#",
+      link: "/orca",
+      banner: "/orcabanner.svg",
       tags: ["AI/ML", "LLM", "Data Viz"],
       status: "currently developing",
       hoverText: "currently developing",
