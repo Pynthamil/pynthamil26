@@ -115,14 +115,6 @@ export const portfolioData: PortfolioData = {
   showcase: [],
   projects: [
     {
-      title: "SEMANTIC EMAIL COPILOT",
-      description: "Context-aware email copilot synthesizing threads, prioritizing actionable items, and drafting smart replies.",
-      year: "2026",
-      link: "/semantic",
-      tags: ["Figma", "UI/UX"],
-      status: "Active",
-    },
-    {
       title: "ORCA.AI",
       description: "AI research assistant for marine science that helps you find and understand scientific papers. Turns complex research into clear, cited answers in seconds.",
       year: "2026",
@@ -131,6 +123,14 @@ export const portfolioData: PortfolioData = {
       tags: ["AI/ML", "LLM", "Data Viz"],
       status: "currently developing",
       hoverText: "currently developing",
+    },
+    {
+      title: "SEMANTIC EMAIL COPILOT",
+      description: "Context-aware email copilot synthesizing threads, prioritizing actionable items, and drafting smart replies.",
+      year: "2026",
+      link: "/semantic",
+      tags: ["Figma", "UI/UX"],
+      status: "Active",
     },
   ],
   writings: [
