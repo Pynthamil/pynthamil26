@@ -366,7 +366,7 @@ export function PortfolioView({
                     return (
                       <li
                         key={idx}
-                        className="group flex flex-col py-1.5 cursor-pointer transition-opacity hover:opacity-90"
+                        className="group flex flex-col py-1.5 cursor-dot transition-opacity hover:opacity-90"
                         onClick={() => {
                           if (isInternal && project.link) {
                             playTone(880);

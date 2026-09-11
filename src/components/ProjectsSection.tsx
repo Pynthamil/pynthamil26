@@ -25,7 +25,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           <div
             key={project.title}
             onClick={() => onSelectProject(project)}
-            className="group flex items-baseline justify-between py-3.5 px-2 -mx-2 rounded-lg cursor-pointer hover:bg-neutral-50 transition-colors"
+            className="group flex items-baseline justify-between py-3.5 px-2 -mx-2 rounded-lg cursor-dot hover:bg-neutral-50 transition-colors"
           >
             <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 flex-1">
               <span className="font-semibold text-sm text-neutral-900 min-w-[140px] group-hover:text-[#4e52ec] transition-colors">

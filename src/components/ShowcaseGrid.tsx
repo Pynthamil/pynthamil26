@@ -18,7 +18,7 @@ export const ShowcaseGrid: React.FC<ShowcaseGridProps> = ({
           <div
             key={item.id}
             onClick={() => onSelectProject && onSelectProject(item)}
-            className="group cursor-pointer flex flex-col"
+            className="group cursor-dot flex flex-col"
           >
             {/* Card Container */}
             <div
