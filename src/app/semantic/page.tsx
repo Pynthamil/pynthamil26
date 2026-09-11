@@ -194,8 +194,14 @@ export default function SemanticProjectPage() {
           <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#232564] dark:text-[#F5F5FF] leading-[1.8] font-sans pt-1">
             {/* Overview / Context */}
             <div id="context" className="space-y-4 scroll-mt-20">
-              {/* Empty Box with Exact Accent Color */}
-              <div className="w-full h-48 sm:h-64 my-2.5 rounded-sm bg-[#6666FF] border border-[#6666FF] shadow-[0_2px_8px_rgba(102,102,255,0.12)]" />
+              {/* Semantic Banner Image */}
+              <div className="w-full my-2.5 rounded-sm overflow-hidden border border-neutral-200/80 dark:border-neutral-800 shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
+                <img
+                  src="/semantic/banner_semantic.svg"
+                  alt="Semantic Email Copilot Banner"
+                  className="w-full h-auto object-cover block"
+                />
+              </div>
 
               <div className="space-y-1.5 pt-2">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#9999FF] block">
