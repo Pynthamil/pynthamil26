@@ -18,6 +18,7 @@ import { ProjectSidebar } from "@/components/ProjectSidebar";
 export default function OrcaProjectPage() {
   const [soundOn, setSoundOn] = useState<boolean>(true);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [copiedLink, setCopiedLink] = useState<boolean>(false);
 
   // Sync theme with localStorage or system preference
   useEffect(() => {
@@ -124,9 +125,43 @@ export default function OrcaProjectPage() {
           </Link>
 
           <div className="flex items-center space-x-3.5">
-            <span className="font-mono text-xs sm:text-[13px] text-[#0284C7] dark:text-[#38BDF8] font-medium">
-              case study
-            </span>
+            <div
+              onClick={() => {
+                navigator.clipboard.writeText("https://orca-ai-iota.vercel.app/");
+                setCopiedLink(true);
+                playTone(1046);
+                setTimeout(() => setCopiedLink(false), 2000);
+              }}
+              className="inline-flex items-center space-x-2 px-2.5 py-1 rounded-sm border border-[#0284C7] dark:border-[#38BDF8] bg-[#0284C7]/[0.05] dark:bg-[#38BDF8]/[0.08] hover:bg-[#0284C7]/[0.1] dark:hover:bg-[#38BDF8]/[0.15] cursor-pointer group select-none transition-colors"
+              title="Click to copy link"
+            >
+              <span className="font-mono text-xs sm:text-[13px] text-[#0284C7] dark:text-[#38BDF8] font-medium tracking-tight">
+                orca.ai
+              </span>
+              <div className="text-[#0284C7] dark:text-[#38BDF8] flex items-center focus:outline-none transition-colors">
+                {copiedLink ? (
+                  <span className="text-emerald-500 dark:text-emerald-400 font-mono text-[10.5px] font-medium animate-in fade-in">
+                    copied!
+                  </span>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12.5"
+                    height="12.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="opacity-75 group-hover:opacity-100 transition-opacity"
+                  >
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                  </svg>
+                )}
+              </div>
+            </div>
             <button
               onClick={toggleTheme}
               aria-label="Toggle dark mode"
@@ -158,7 +193,7 @@ export default function OrcaProjectPage() {
                   ROLE
                 </span>
                 <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
-                  Product Designer
+                  Product Designer & Developer
                 </span>
               </div>
               <div>
@@ -166,7 +201,7 @@ export default function OrcaProjectPage() {
                   TIMELINE
                 </span>
                 <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
-                  2026
+                  Aug 2026 – Present
                 </span>
               </div>
               <div>
@@ -192,8 +227,14 @@ export default function OrcaProjectPage() {
           <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#232564] dark:text-[#F5F5FF] leading-[1.8] font-sans pt-1">
             {/* Overview / Context */}
             <div id="context" className="space-y-4 scroll-mt-20">
-              {/* Empty Box with Exact #0284C7 Color */}
-              <div className="w-full h-48 sm:h-64 my-2.5 rounded-sm bg-[#0284C7] border border-[#0284C7] shadow-[0_2px_8px_rgba(2,132,199,0.12)]" />
+              {/* Box with ORCA Logo */}
+              <div className="w-full h-48 sm:h-64 my-2.5 rounded-sm bg-[#0284C7] border border-[#0284C7] shadow-[0_2px_8px_rgba(2,132,199,0.12)] flex items-center justify-center">
+                <img
+                  src="/orca_logo.svg"
+                  alt="ORCA.AI Logo"
+                  className="w-40 h-40 sm:w-52 sm:h-52 object-contain select-none"
+                />
+              </div>
 
               <div className="space-y-1.5 pt-2">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#38BDF8] block">
