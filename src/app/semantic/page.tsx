@@ -160,7 +160,7 @@ export default function SemanticProjectPage() {
                   ROLE
                 </span>
                 <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
-                  UX/UI Designer
+                  Product Designer
                 </span>
               </div>
               <div>

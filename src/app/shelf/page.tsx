@@ -154,7 +154,7 @@ export default function ShelfProjectPage() {
                   ROLE
                 </span>
                 <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
-                  UI/UX Designer
+                  Product Designer
                 </span>
               </div>
               <div>
