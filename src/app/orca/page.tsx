@@ -260,10 +260,13 @@ export default function OrcaProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#38BDF8] block">
                   CONTEXT
                 </span>
-                <p className="text-[18px] sm:text-[19.5px] font-normal text-[#232564] dark:text-[#F5F5FF] leading-snug">
-                  Marine science generates vast amounts of research across papers, datasets, and observations, making it increasingly difficult for researchers to efficiently navigate and connect relevant evidence.
+                <p className="text-[18px] sm:text-[19.5px] font-medium text-[#232564] dark:text-[#F5F5FF] leading-snug">
+                  Marine science generates vast amounts of research across papers, datasets, and observations.
                 </p>
               </div>
+              <p>
+                This explosion of data makes it increasingly difficult for researchers to efficiently navigate and connect relevant evidence when investigating complex ecological questions.
+              </p>
 
               {/* Context Actions */}
               <div className="flex flex-wrap items-center gap-3 pt-4">
@@ -287,7 +290,10 @@ export default function OrcaProjectPage() {
                   THE PROBLEM
                 </span>
                 <p className="text-[17px] sm:text-[18px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-normal">
-                  Researchers spend hours searching across fragmented scientific sources and manually validating findings, making it difficult to quickly identify relevant evidence and trace conclusions back to reliable citations.
+                  Researchers spend hours searching across fragmented scientific sources and manually validating findings.
+                </p>
+                <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
+                  Without a centralized way to synthesize these documents, it becomes extremely difficult to quickly identify relevant evidence and trace conclusions back to reliable citations.
                 </p>
               </div>
 
@@ -482,14 +488,21 @@ export default function OrcaProjectPage() {
           </div>
         </article>
 
-        {/* Return link */}
-        <div className="pt-10 pb-6">
+        {/* Navigation Links */}
+        <div className="pt-10 pb-6 flex items-center justify-between w-full">
           <Link
             href="/"
             onClick={() => playTone(880)}
             className="font-mono text-[13.5px] sm:text-[14px] text-[#0284C7] dark:text-[#38BDF8] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
           >
             <span>&larr; back to home</span>
+          </Link>
+          <Link
+            href="/semantic"
+            onClick={() => playTone(880)}
+            className="font-mono text-[13.5px] sm:text-[14px] text-[#0284C7] dark:text-[#38BDF8] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
+          >
+            <span>next: Semantic Copilot &rarr;</span>
           </Link>
         </div>
 

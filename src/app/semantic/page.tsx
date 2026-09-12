@@ -420,14 +420,21 @@ export default function SemanticProjectPage() {
           </div>
         </article>
 
-        {/* Return link */}
-        <div className="pt-10 pb-6">
+        {/* Navigation Links */}
+        <div className="pt-10 pb-6 flex items-center justify-between w-full">
           <Link
             href="/"
             onClick={() => playTone(880)}
             className="font-mono text-[13.5px] sm:text-[14px] text-[#6666FF] dark:text-[#9999FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
           >
             <span>&larr; back to home</span>
+          </Link>
+          <Link
+            href="/orca"
+            onClick={() => playTone(880)}
+            className="font-mono text-[13.5px] sm:text-[14px] text-[#6666FF] dark:text-[#9999FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
+          >
+            <span>next: ORCA.AI &rarr;</span>
           </Link>
         </div>
 
