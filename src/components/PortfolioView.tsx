@@ -162,6 +162,14 @@ export function PortfolioView({
 
             {/* Right / Under on Mobile: Navigation Links & Dark Mode Toggle */}
             <nav className="flex items-center space-x-4 sm:space-x-5 text-[15.5px] sm:text-[16.5px] font-medium sm:pt-1">
+              {viewMode !== "home" && (
+                <button
+                  onClick={() => handleNavClick("home")}
+                  className="font-mono text-[14px] sm:text-[15px] text-[#6666FF] dark:text-[#9999FF] hover:underline underline-offset-4 transition-colors cursor-pointer select-none"
+                >
+                  &larr; home
+                </button>
+              )}
               <button
                 onClick={() => handleNavClick("about")}
                 className={`transition-colors cursor-pointer select-none ${
@@ -374,7 +382,7 @@ export function PortfolioView({
 
             {/* Experience List Section */}
             <section className="w-full mb-12 sm:mb-14">
-              <div className="flex items-center justify-between mb-4 border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-2">
+              <div className="flex items-center justify-between mb-4 pb-2">
                 <h2 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#11408F] dark:text-[#AEF0FF] font-semibold">
                   Experience
                 </h2>
@@ -388,7 +396,7 @@ export function PortfolioView({
                   <span>&darr;</span>
                 </a>
               </div>
-              <ul className="flex flex-col font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em] divide-y divide-neutral-200/70 dark:divide-[#9999FF]/20">
+              <ul className="flex flex-col font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
                 {portfolioData.experiences.map((item) => (
                   <li
                     key={item.id}
@@ -424,9 +432,9 @@ export function PortfolioView({
                     </div>
                     
                     {expandedExperience === item.id && item.bullets && item.bullets.length > 0 && (
-                      <ul className="mt-4 flex flex-col space-y-2 text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed animate-in fade-in duration-150">
+                      <ul className="mt-4 flex flex-col space-y-2 text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed animate-in fade-in duration-150 list-disc pl-5">
                         {item.bullets.map((bullet, idx) => (
-                          <li key={idx} className="flex items-start">
+                          <li key={idx}>
                             <span>{bullet}</span>
                           </li>
                         ))}
@@ -438,7 +446,7 @@ export function PortfolioView({
             </section>
 
             {/* Home Footer */}
-            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
+            <footer className="pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
               <div>coding is an art and im an artist</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
@@ -827,100 +835,10 @@ export function PortfolioView({
               )}
             </div>
 
-            {/* Expandable Experience Section */}
-            <section className="pt-6 sm:pt-8">
-              <div className="flex items-center justify-between pb-4.5 border-b border-neutral-200/70 dark:border-[#9999FF]/20 mb-1">
-                <h3 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-wider text-[#11408F] dark:text-[#AEF0FF] font-semibold">
-                  experience
-                </h3>
-                <a
-                  href={portfolioData.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => playTone(880)}
-                  className="px-3.5 py-1.5 bg-[#FF42FF] dark:bg-[#FF94FF] hover:bg-[#e030e0] dark:hover:bg-[#ff7aff] text-[13px] sm:text-[13.5px] font-mono font-medium text-white dark:text-[#0B0C0F] flex items-center space-x-1 transition-all shadow-xs cursor-pointer"
-                >
-                  <span>Download as PDF ↓</span>
-                </a>
-              </div>
 
-              <div className="divide-y divide-neutral-200/70 dark:divide-[#9999FF]/20">
-                {/* Plue Accordion */}
-                <div className="py-5">
-                  <div
-                    onClick={() => {
-                      playTone(880);
-                      setExpandedExperience(expandedExperience === "plue" ? null : "plue");
-                    }}
-                    className="flex items-start justify-between cursor-pointer group select-none"
-                  >
-                    <div className="flex-1 pr-4">
-                      <div className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] text-[16.5px] sm:text-[17.5px] group-hover:text-[#6666FF] dark:group-hover:text-[#FF94FF] transition-colors">
-                        Engineering Intern
-                      </div>
-                      <div className="font-mono text-[13.5px] sm:text-[14.5px] text-[#FF42FF] dark:text-[#FF94FF] font-medium mt-0.5 flex items-center space-x-1.5">
-                        <span className="text-[#64748B] dark:text-[#8E95B8] select-none">└</span>
-                        <span>Plue</span>
-                      </div>
-                      {expandedExperience === "plue" && (
-                        <p className="text-[15.5px] sm:text-[16.5px] text-[#334155] dark:text-[#CBD5E1] mt-3 leading-relaxed max-w-[520px]">
-                          Engineering intern at Plue owning design systems, micro-interactions, and
-                          reactive interface architectures.
-                        </p>
-                      )}
-                    </div>
-                    <div className="flex items-center space-x-3 pt-0.5">
-                      <span className="font-mono text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] whitespace-nowrap">
-                        Oct – Dec 2026
-                      </span>
-                      <span className="font-mono text-xl font-semibold text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#6666FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
-                        {expandedExperience === "plue" ? "−" : "+"}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Scientiflow Accordion */}
-                <div className="py-5">
-                  <div
-                    onClick={() => {
-                      playTone(880);
-                      setExpandedExperience(
-                        expandedExperience === "scientiflow" ? null : "scientiflow"
-                      );
-                    }}
-                    className="flex items-start justify-between cursor-pointer group select-none"
-                  >
-                    <div className="flex-1 pr-4">
-                      <div className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] text-[16.5px] sm:text-[17.5px] group-hover:text-[#6666FF] dark:group-hover:text-[#FF94FF] transition-colors">
-                        Frontend Developer Intern
-                      </div>
-                      <div className="font-mono text-[13.5px] sm:text-[14.5px] text-[#FF42FF] dark:text-[#FF94FF] font-medium mt-0.5 flex items-center space-x-1.5">
-                        <span className="text-[#64748B] dark:text-[#8E95B8] select-none">└</span>
-                        <span>Scientiflow</span>
-                      </div>
-                      {expandedExperience === "scientiflow" && (
-                        <p className="text-[15.5px] sm:text-[16.5px] text-[#334155] dark:text-[#CBD5E1] mt-3 leading-relaxed max-w-[520px]">
-                          Frontend developer intern responsible for crafting responsive user interfaces,
-                          component architecture, and seamless interactive experiences.
-                        </p>
-                      )}
-                    </div>
-                    <div className="flex items-center space-x-3 pt-0.5">
-                      <span className="font-mono text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] whitespace-nowrap">
-                        May – Jul 2025
-                      </span>
-                      <span className="font-mono text-xl font-semibold text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#6666FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
-                        {expandedExperience === "scientiflow" ? "−" : "+"}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
 
             {/* Stack Row */}
-            <section className="pt-4 border-t border-neutral-200/70 dark:border-[#9999FF]/20 font-mono text-[14px] sm:text-[14.5px]">
+            <section className="pt-4 font-mono text-[14px] sm:text-[14.5px]">
               <div className="flex items-center justify-between">
                 <div className="text-[#11408F] dark:text-[#AEF0FF] font-semibold">stack</div>
                 <div className="text-right text-[#0F172A] dark:text-[#F5F5FF]">
@@ -930,15 +848,7 @@ export function PortfolioView({
             </section>
 
             {/* About Footer */}
-            <div className="pt-10">
-              <button
-                onClick={() => handleNavClick("home")}
-                className="font-mono text-[13.5px] sm:text-[14px] text-[#FF42FF] dark:text-[#FF94FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer focus:outline-none"
-              >
-                <span>&larr; back to home</span>
-              </button>
-            </div>
-            <footer className="pt-8 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
+            <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
               <div>coding is an art and im an artist</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
@@ -951,11 +861,11 @@ export function PortfolioView({
         {viewMode === "blog" && (
           <div className="flex flex-col space-y-9 animate-in fade-in duration-200">
             {/* Blog Posts Clean Architecture */}
-            <section className="pt-2 sm:pt-4">
+            <section>
 
               <div className="divide-y divide-neutral-200/70 dark:divide-[#9999FF]/20">
                 {portfolioData.writings.map((post, idx) => (
-                  <div key={idx} className="pb-6 sm:pb-6.5 pt-6 sm:pt-6.5 first:pt-2">
+                  <div key={idx} className="pb-6 sm:pb-6.5 pt-6 sm:pt-6.5 first:pt-0">
                     <a
                       href={`/blog/${post.slug}`}
                       onClick={() => playTone(880)}
@@ -981,15 +891,7 @@ export function PortfolioView({
             </section>
 
             {/* Blog Footer */}
-            <div className="pt-10">
-              <button
-                onClick={() => handleNavClick("home")}
-                className="font-mono text-[13.5px] sm:text-[14px] text-[#6666FF] dark:text-[#9999FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer focus:outline-none"
-              >
-                <span>&larr; back to home</span>
-              </button>
-            </div>
-            <footer className="pt-8 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
+            <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
               <div>coding is an art and im an artist</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>

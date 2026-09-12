@@ -157,6 +157,7 @@ export const portfolioData: PortfolioData = {
       color: "#4e5df8",
       glowColor: "transparent",
       url: "https://getplue.com/",
+      bullets: ["coming soon"],
     },
     {
       id: "scientiflow",
@@ -166,6 +167,10 @@ export const portfolioData: PortfolioData = {
       color: "#111111",
       glowColor: "transparent",
       url: "#",
+      bullets: [
+        "Designed and developed an interactive drag-and-drop interface for data visualization",
+        "Implemented interactive CSV/JSON upload and preview interfaces for 10,000+ row datasets"
+      ]
     },
   ],
   playground: [],
