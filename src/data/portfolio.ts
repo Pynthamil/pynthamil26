@@ -75,7 +75,7 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   name: "Pynthamil Pavendan",
-  tagline: "I am a curious being who loves bringing the crazy ideas existing in my mind into reality through the sheer power of code.",
+  tagline: "I am a software engineer focused on building fast, scalable products with intuitive design. I love taking ambitious ideas from zero to one.",
   location: "India",
   status: "Currently: making plue THE student haven",
   statusPhrases: [

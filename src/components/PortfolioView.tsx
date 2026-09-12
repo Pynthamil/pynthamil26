@@ -136,37 +136,28 @@ export function PortfolioView({
       {/* Soft atmospheric ambient glow */}
       <div className="ambient-glow" />
 
-      {/* Main Container: exactly 540px across Home, About, and Blog */}
-      <main className="w-full relative z-10 flex flex-col max-w-[540px]">
+      {/* Main Container */}
+      <main className="w-full relative z-10 flex flex-col max-w-[480px]">
         {/* Top Header Row */}
         <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-6 sm:mb-6" : "mb-8 sm:mb-10"}`}>
-          {/* Clawd GIF on Home Page */}
-          {viewMode === "home" && (
-            <div className="-mb-1.5 sm:-mb-2 -ml-3 sm:-ml-4">
-              <img
-                src="/clawd.gif"
-                alt="Clawd"
-                className="w-28 h-28 sm:w-32 sm:h-32 object-contain select-none"
-              />
-            </div>
-          )}
+          {/* Clawd GIF (Constant across views) */}
+          <div className="-mb-1.5 sm:-mb-2 -ml-3 sm:-ml-4">
+            <img
+              src="/clawd.gif"
+              alt="Clawd"
+              className="w-28 h-28 sm:w-32 sm:h-32 object-contain select-none"
+            />
+          </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full gap-2.5 sm:gap-0">
-            {/* Left Title: Figma box on Home, Back button on About/Blog */}
-            <div className="flex items-center">
-              {viewMode === "home" ? (
-                <h1 className="text-[25px] sm:text-[28px] font-medium tracking-tight text-[#FF42FF] dark:text-[#FF94FF] select-none">
-                  {portfolioData.name.toLowerCase()}
-                </h1>
-              ) : (
-                <button
-                  onClick={() => handleNavClick("home")}
-                  className="font-mono text-[16px] sm:text-[18px] tracking-tight text-[#232564] dark:text-[#F5F5FF] hover:text-[#11408F] dark:hover:text-[#AEF0FF] transition-colors flex items-center space-x-2 focus:outline-none font-medium cursor-pointer"
-                >
-                  <span>&larr;</span>
-                  <span>{portfolioData.name.toLowerCase()}</span>
-                </button>
-              )}
+          <div className="flex flex-col items-start w-full gap-y-2.5 sm:gap-y-3">
+            {/* Left Title: Always the pink name, acts as Home link if not on Home */}
+            <div className="flex items-center shrink-0">
+              <button
+                onClick={() => viewMode !== "home" && handleNavClick("home")}
+                className={`text-[25px] sm:text-[28px] font-medium tracking-tight text-[#FF42FF] dark:text-[#FF94FF] select-none text-left focus:outline-none ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
+              >
+                {portfolioData.name.toLowerCase()}
+              </button>
             </div>
 
             {/* Right / Under on Mobile: Navigation Links & Dark Mode Toggle */}
@@ -215,8 +206,8 @@ export function PortfolioView({
           <div className="flex flex-col animate-in fade-in duration-200">
             {/* Bio Copy & Status Section */}
             <section className="flex flex-col space-y-4 mb-12 sm:mb-14">
-              <p className="text-[19px] sm:text-[20.5px] text-[#232564] dark:text-[#F5F5FF] font-normal leading-relaxed">
-                I am a curious being who loves bringing the crazy ideas existing in my mind into reality through the sheer power of code.
+              <p className="text-[19px] sm:text-[20.5px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-relaxed">
+                I am a software engineer focused on building fast, scalable products with intuitive design. I love taking ambitious ideas from zero to one.
               </p>
 
               <div className="flex items-center space-x-2.5 text-[16px] sm:text-[17px] text-[#232564] dark:text-[#F5F5FF] pt-1 pb-1">
