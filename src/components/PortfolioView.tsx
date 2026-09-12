@@ -912,7 +912,15 @@ export function PortfolioView({
             </section>
 
             {/* About Footer */}
-            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
+            <div className="pt-10">
+              <button
+                onClick={() => handleNavClick("home")}
+                className="font-mono text-[13.5px] sm:text-[14px] text-[#FF42FF] dark:text-[#FF94FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer focus:outline-none"
+              >
+                <span>&larr; back to home</span>
+              </button>
+            </div>
+            <footer className="pt-8 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
               <div>coding is an art and im an artist</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
@@ -929,22 +937,22 @@ export function PortfolioView({
 
               <div className="divide-y divide-neutral-200/70 dark:divide-[#9999FF]/20">
                 {portfolioData.writings.map((post, idx) => (
-                  <div key={idx} className="py-6 sm:py-6.5">
+                  <div key={idx} className="pb-6 sm:pb-6.5 pt-6 sm:pt-6.5 first:pt-2">
                     <a
                       href={`/blog/${post.slug}`}
                       onClick={() => playTone(880)}
                       className="flex items-center justify-between group select-none cursor-pointer"
                     >
                       <div className="space-y-1.5">
-                        <h2 className="text-[20px] sm:text-[21.5px] font-medium text-[#0F172A] dark:text-[#F5F5FF] group-hover:text-[#6666FF] dark:group-hover:text-[#FF94FF] transition-colors leading-snug">
+                        <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors leading-snug">
                           {post.title.toLowerCase()}
                         </h2>
-                        <p className="font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
-                          {post.date.toLowerCase()} &bull; <span className="text-[#6666FF] dark:text-[#9999FF]">{post.readingTime.toLowerCase()} read</span>
+                        <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#11408F] dark:text-[#AEF0FF] mt-0.5">
+                          {post.date.toLowerCase()} &bull; {post.readingTime.toLowerCase()} read
                         </p>
                       </div>
                       <div>
-                        <span className="font-mono text-[21px] sm:text-[23px] font-medium text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#6666FF] dark:group-hover:text-[#FF94FF] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150 select-none leading-none inline-block">
+                        <span className="font-mono text-[21px] sm:text-[23px] font-medium text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150 select-none leading-none inline-block">
                           ↗
                         </span>
                       </div>
@@ -955,7 +963,15 @@ export function PortfolioView({
             </section>
 
             {/* Blog Footer */}
-            <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
+            <div className="pt-10">
+              <button
+                onClick={() => handleNavClick("home")}
+                className="font-mono text-[13.5px] sm:text-[14px] text-[#6666FF] dark:text-[#9999FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer focus:outline-none"
+              >
+                <span>&larr; back to home</span>
+              </button>
+            </div>
+            <footer className="pt-8 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
               <div>coding is an art and im an artist</div>
               <div>made w love &bull; &copy; 2026</div>
             </footer>
