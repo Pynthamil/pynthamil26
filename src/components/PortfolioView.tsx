@@ -926,11 +926,6 @@ export function PortfolioView({
           <div className="flex flex-col space-y-9 animate-in fade-in duration-200">
             {/* Blog Posts Clean Architecture */}
             <section className="pt-2 sm:pt-4">
-              <div className="pb-4 border-b border-neutral-200/70 dark:border-[#9999FF]/20 mb-2 sm:mb-3">
-                <h3 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-wider text-[#11408F] dark:text-[#AEF0FF] font-semibold">
-                  featured
-                </h3>
-              </div>
 
               <div className="divide-y divide-neutral-200/70 dark:divide-[#9999FF]/20">
                 {portfolioData.writings.map((post, idx) => (
