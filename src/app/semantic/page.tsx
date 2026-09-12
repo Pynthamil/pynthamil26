@@ -12,6 +12,7 @@ import {
   Layers,
   Moon,
   Sun,
+  ArrowDown,
 } from "lucide-react";
 import { ChromaVideo } from "@/components/ChromaVideo";
 import { PersonaShowcase } from "@/components/PersonaShowcase";
@@ -217,6 +218,20 @@ export default function SemanticProjectPage() {
               <p>
                 Rather than forcing users to switch email clients, it operates as a non-intrusive copilot analyzing incoming communication in real time to extract key action items, flag urgent commitments, and synthesize contextual responses.
               </p>
+
+              {/* Context Actions */}
+              <div className="flex flex-wrap items-center gap-3 pt-4">
+                <button
+                  onClick={() => {
+                    playTone(880);
+                    document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-4 py-2 rounded-sm bg-[#13151E] dark:bg-white text-white dark:text-[#13151E] hover:bg-[#232564] dark:hover:bg-neutral-200 transition-colors font-medium text-[13px] sm:text-sm shadow-sm flex items-center space-x-2"
+                >
+                  <span>Jump to Solution</span>
+                  <ArrowDown className="w-4 h-4" />
+                </button>
+              </div>
             </div>
 
             {/* The Problem Section */}
