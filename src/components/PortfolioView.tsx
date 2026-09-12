@@ -374,22 +374,34 @@ export function PortfolioView({
 
             {/* Experience List Section */}
             <section className="w-full mb-12 sm:mb-14">
-              <h2 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#11408F] dark:text-[#AEF0FF] mb-3.5 font-semibold">
-                Experience
-              </h2>
-              <ul className="flex flex-col space-y-4.5 sm:space-y-5 font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
+              <div className="flex items-center justify-between mb-4 border-b border-neutral-200/70 dark:border-[#9999FF]/20 pb-2">
+                <h2 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#11408F] dark:text-[#AEF0FF] font-semibold">
+                  Experience
+                </h2>
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#FF42FF] hover:bg-[#E026E0] text-white font-mono text-[12px] sm:text-[13px] px-3 py-1.5 rounded-sm transition-colors flex items-center space-x-1"
+                >
+                  <span>Download as PDF</span>
+                  <span>&darr;</span>
+                </a>
+              </div>
+              <ul className="flex flex-col font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em] divide-y divide-neutral-200/70 dark:divide-[#9999FF]/20">
                 {portfolioData.experiences.map((item) => (
                   <li
                     key={item.id}
-                    className="group flex flex-col py-1 transition-opacity hover:opacity-90"
+                    className="group flex flex-col py-4 sm:py-5 transition-opacity"
                   >
-                    <div className="flex items-start justify-between w-full">
-                      <a
-                        href={item.url || "#"}
-                        target={item.url && item.url !== "#" ? "_blank" : undefined}
-                        rel={item.url && item.url !== "#" ? "noopener noreferrer" : undefined}
-                        className="flex items-start flex-1 pr-4 focus:outline-none"
-                      >
+                    <div 
+                      className="flex items-start justify-between w-full cursor-pointer select-none"
+                      onClick={() => {
+                        playTone(880);
+                        setExpandedExperience(expandedExperience === item.id ? null : item.id);
+                      }}
+                    >
+                      <div className="flex items-start flex-1 pr-4 focus:outline-none">
                         <div className="flex flex-col">
                           <span className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] tracking-[0.02em] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors">
                             {item.role}
@@ -399,14 +411,20 @@ export function PortfolioView({
                             <span>{item.company}</span>
                           </span>
                         </div>
-                      </a>
+                      </div>
 
-                      <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
-                        {item.period}
+                      <div className="flex items-center space-x-3 pt-0.5">
+                        <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap">
+                          {item.period}
+                        </div>
+                        <span className="font-mono text-xl font-semibold text-[#11408F] dark:text-[#AEF0FF] group-hover:text-[#FF42FF] dark:group-hover:text-[#FF94FF] transition-colors select-none leading-none">
+                          {expandedExperience === item.id ? "−" : "+"}
+                        </span>
                       </div>
                     </div>
-                    {item.bullets && item.bullets.length > 0 && (
-                      <ul className="mt-2.5 flex flex-col space-y-2 text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
+                    
+                    {expandedExperience === item.id && item.bullets && item.bullets.length > 0 && (
+                      <ul className="mt-4 flex flex-col space-y-2 text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed animate-in fade-in duration-150">
                         {item.bullets.map((bullet, idx) => (
                           <li key={idx} className="flex items-start">
                             <span>{bullet}</span>
