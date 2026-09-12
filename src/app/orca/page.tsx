@@ -104,6 +104,8 @@ export default function OrcaProjectPage() {
     { id: "problem", label: "The Problem" },
     { id: "pain-points", label: "Pain Points" },
     { id: "solution", label: "The Solution" },
+    { id: "mvp", label: "MVP Features" },
+    { id: "future", label: "Future Scope" },
     { id: "takeaways", label: "Takeaways" },
   ];
 
@@ -270,21 +272,11 @@ export default function OrcaProjectPage() {
                     playTone(880);
                     document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="px-4 py-2 rounded-sm bg-[#0284C7] text-white hover:bg-[#0369A1] transition-colors font-medium text-[13px] sm:text-sm shadow-sm flex items-center space-x-2"
+                  className="px-4 py-2 rounded-sm bg-[#13151E] dark:bg-white text-white dark:text-[#13151E] hover:bg-[#232564] dark:hover:bg-neutral-200 transition-colors font-medium text-[13px] sm:text-sm shadow-sm flex items-center space-x-2"
                 >
                   <span>Jump to Solution</span>
                   <ArrowDown className="w-4 h-4" />
                 </button>
-                <a
-                  href="https://orca-ai-iota.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => playTone(880)}
-                  className="px-4 py-2 rounded-sm border border-[#0284C7] text-[#0284C7] dark:border-[#38BDF8] dark:text-[#38BDF8] hover:bg-[#0284C7]/10 dark:hover:bg-[#38BDF8]/10 transition-colors font-medium text-[13px] sm:text-sm flex items-center space-x-2"
-                >
-                  <span>Visit Website</span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
               </div>
             </div>
 
@@ -343,6 +335,61 @@ export default function OrcaProjectPage() {
                   </p>
                 </div>
 
+                {/* Solution Actions */}
+                <div className="flex flex-wrap items-center gap-3 pt-1 pb-2">
+                  <div
+                    onClick={() => {
+                      navigator.clipboard.writeText("https://orca-ai-iota.vercel.app/");
+                      setCopiedLink(true);
+                      playTone(1046);
+                      setTimeout(() => setCopiedLink(false), 2000);
+                    }}
+                    className="inline-flex items-center space-x-2 px-2.5 py-1 rounded-sm border border-[#0284C7] dark:border-[#38BDF8] bg-[#0284C7]/[0.05] dark:bg-[#38BDF8]/[0.08] hover:bg-[#0284C7]/[0.1] dark:hover:bg-[#38BDF8]/[0.15] cursor-pointer group select-none transition-colors"
+                    title="Click to copy link"
+                  >
+                    <span className="font-mono text-xs sm:text-[13px] text-[#0284C7] dark:text-[#38BDF8] font-medium tracking-tight">
+                      orca.ai
+                    </span>
+                    <div className="text-[#0284C7] dark:text-[#38BDF8] flex items-center focus:outline-none transition-colors">
+                      {copiedLink ? (
+                        <span className="text-emerald-500 dark:text-emerald-400 font-mono text-[10.5px] font-medium animate-in fade-in">
+                          copied!
+                        </span>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="12.5"
+                          height="12.5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="opacity-75 group-hover:opacity-100 transition-opacity"
+                        >
+                          <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                          <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                        </svg>
+                      )}
+                    </div>
+                  </div>
+
+                  <a
+                    href="https://github.com/Pynthamil/orca-ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => playTone(880)}
+                    className="inline-flex items-center space-x-2 px-2.5 py-1.5 sm:py-1 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-[#13151E]/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group cursor-pointer"
+                    title="View Source on GitHub"
+                  >
+                    <Github className="w-3.5 h-3.5 text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#0284C7] dark:group-hover:text-[#38BDF8] transition-colors" strokeWidth={2} />
+                    <span className="font-mono text-xs sm:text-[13px] text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#0284C7] dark:group-hover:text-[#38BDF8] font-medium tracking-tight transition-colors">
+                      repo
+                    </span>
+                  </a>
+                </div>
+
                 {/* Solution Visual Showcase */}
                 <div className="w-full my-3 flex items-center justify-center">
                   <div className="w-full overflow-hidden border border-neutral-200/50 dark:border-neutral-800/50 rounded-sm">
@@ -353,6 +400,42 @@ export default function OrcaProjectPage() {
                     />
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* MVP Features Section */}
+            <div id="mvp" className="pt-8 space-y-4 scroll-mt-20">
+              <div className="space-y-1.5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#38BDF8] block">
+                  MVP FEATURES
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#232564] dark:text-[#F5F5FF] tracking-tight">
+                  Core capabilities
+                </h2>
+                <ul className="list-disc pl-5 space-y-2 text-[16px] sm:text-[16.5px] text-[#475569] dark:text-[#CBD5E1] pt-1 marker:text-[#0284C7] dark:marker:text-[#38BDF8]">
+                  <li className="pl-1">Natural language querying over complex marine science literature.</li>
+                  <li className="pl-1">Automatic extraction and surfacing of strictly verified citations.</li>
+                  <li className="pl-1">Conversational memory context for deep-dive ecological inquiries.</li>
+                  <li className="pl-1">Leveraging Google Gemini's reasoning engine to synthesize multi-source data.</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Future Scope Section */}
+            <div id="future" className="pt-8 space-y-4 scroll-mt-20">
+              <div className="space-y-1.5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#38BDF8] block">
+                  FUTURE SCOPE
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#232564] dark:text-[#F5F5FF] tracking-tight">
+                  What's next for ORCA
+                </h2>
+                <ul className="list-disc pl-5 space-y-2 text-[16px] sm:text-[16.5px] text-[#475569] dark:text-[#CBD5E1] pt-1 marker:text-[#0284C7] dark:marker:text-[#38BDF8]">
+                  <li className="pl-1">Interactive spatial mapping to visualize species migration paths dynamically.</li>
+                  <li className="pl-1">Direct ingestion of raw acoustic and telemetry datasets for on-the-fly analysis.</li>
+                  <li className="pl-1">Collaborative workspaces for university research teams to share curated findings.</li>
+                  <li className="pl-1">Integration with live climate API endpoints to track environmental shifts.</li>
+                </ul>
               </div>
             </div>
 
