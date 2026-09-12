@@ -6,6 +6,7 @@ export interface ExperienceItem {
   color: string;
   glowColor: string;
   url?: string;
+  bullets?: string[];
 }
 
 export interface SocialLink {
@@ -116,13 +117,11 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       title: "ORCA.AI",
-      description: "AI research assistant for marine science that helps you find and understand scientific papers. Turns complex research into clear, cited answers in seconds.",
+      description: "AI research assistant that turns complex marine science papers into clear, cited answers.",
       year: "2026",
       link: "/orca",
       banner: "/orcabanner.svg",
       tags: ["AI/ML", "LLM", "Data Viz"],
-      status: "currently developing",
-      hoverText: "currently developing",
     },
     {
       title: "SEMANTIC EMAIL COPILOT",
@@ -162,7 +161,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "scientiflow",
       company: "SCIENTIFLOW",
-      role: "DESIGN & FRONTEND INTERN",
+      role: "FRONTEND DEVELOPER INTERN",
       period: "MAY 2025 – JUL 2025",
       color: "#111111",
       glowColor: "transparent",

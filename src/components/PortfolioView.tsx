@@ -132,7 +132,7 @@ export function PortfolioView({
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-24 selection:bg-neutral-200">
+    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-6 sm:pt-8 pb-24 selection:bg-neutral-200">
       {/* Soft atmospheric ambient glow */}
       <div className="ambient-glow" />
 
@@ -381,29 +381,39 @@ export function PortfolioView({
                 {portfolioData.experiences.map((item) => (
                   <li
                     key={item.id}
-                    className="group flex items-start justify-between py-1 transition-opacity hover:opacity-85"
+                    className="group flex flex-col py-1 transition-opacity hover:opacity-90"
                   >
-                    <a
-                      href={item.url || "#"}
-                      target={item.url && item.url !== "#" ? "_blank" : undefined}
-                      rel={item.url && item.url !== "#" ? "noopener noreferrer" : undefined}
-                      className="flex items-start space-x-2.5 flex-1 pr-4 focus:outline-none"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#6666FF] dark:bg-[#9999FF] opacity-50 group-hover:opacity-100 transition-opacity shrink-0 mt-2" />
-                      <div className="flex flex-col">
-                        <span className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] tracking-[0.02em] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors">
-                          {item.role}
-                        </span>
-                        <span className="text-[13.5px] sm:text-[14.5px] text-[#FF42FF] dark:text-[#FF94FF] font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
-                          <span className="font-mono text-[#64748B] dark:text-[#8E95B8] select-none">└</span>
-                          <span>{item.company}</span>
-                        </span>
-                      </div>
-                    </a>
+                    <div className="flex items-start justify-between w-full">
+                      <a
+                        href={item.url || "#"}
+                        target={item.url && item.url !== "#" ? "_blank" : undefined}
+                        rel={item.url && item.url !== "#" ? "noopener noreferrer" : undefined}
+                        className="flex items-start flex-1 pr-4 focus:outline-none"
+                      >
+                        <div className="flex flex-col">
+                          <span className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] tracking-[0.02em] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors">
+                            {item.role}
+                          </span>
+                          <span className="text-[13.5px] sm:text-[14.5px] text-[#FF42FF] dark:text-[#FF94FF] font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
+                            <span className="font-mono text-[#64748B] dark:text-[#8E95B8] select-none">└</span>
+                            <span>{item.company}</span>
+                          </span>
+                        </div>
+                      </a>
 
-                    <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
-                      {item.period}
+                      <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
+                        {item.period}
+                      </div>
                     </div>
+                    {item.bullets && item.bullets.length > 0 && (
+                      <ul className="mt-2.5 flex flex-col space-y-2 text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
+                        {item.bullets.map((bullet, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))}
               </ul>
