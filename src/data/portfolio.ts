@@ -162,7 +162,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "scientiflow",
       company: "SCIENTIFLOW",
-      role: "FRONTEND DEVELOPER INTERN",
+      role: "DESIGN & FRONTEND INTERN",
       period: "MAY 2025 – JUL 2025",
       color: "#111111",
       glowColor: "transparent",

@@ -137,15 +137,15 @@ export function PortfolioView({
       <div className="ambient-glow" />
 
       {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[480px]">
+      <main className="w-full relative z-10 flex flex-col max-w-[540px]">
         {/* Top Header Row */}
         <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-6 sm:mb-6" : "mb-8 sm:mb-10"}`}>
           {/* Clawd GIF (Constant across views) */}
-          <div className="-mb-1.5 sm:-mb-2 -ml-3 sm:-ml-4">
+          <div className="-mb-1.5 sm:-mb-2 -ml-2 sm:-ml-3">
             <img
               src="/clawd.gif"
               alt="Clawd"
-              className="w-28 h-28 sm:w-32 sm:h-32 object-contain select-none"
+              className="w-20 h-20 sm:w-24 sm:h-24 object-contain select-none"
             />
           </div>
 
@@ -206,7 +206,7 @@ export function PortfolioView({
           <div className="flex flex-col animate-in fade-in duration-200">
             {/* Bio Copy & Status Section */}
             <section className="flex flex-col space-y-4 mb-12 sm:mb-14">
-              <p className="text-[19px] sm:text-[20.5px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-relaxed">
+              <p className="text-[17px] sm:text-[18px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-relaxed">
                 I am a software engineer focused on building fast, scalable products with intuitive design. I love taking ambitious ideas from zero to one.
               </p>
 
@@ -308,43 +308,6 @@ export function PortfolioView({
               </div>
             </section>
 
-            {/* Experience List Section */}
-            <section className="w-full mb-12 sm:mb-14">
-              <h2 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#11408F] dark:text-[#AEF0FF] mb-3.5 font-semibold">
-                Experience
-              </h2>
-              <ul className="flex flex-col space-y-4.5 sm:space-y-5 font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
-                {portfolioData.experiences.map((item) => (
-                  <li
-                    key={item.id}
-                    className="group flex items-start justify-between py-1 transition-opacity hover:opacity-85"
-                  >
-                    <a
-                      href={item.url || "#"}
-                      target={item.url && item.url !== "#" ? "_blank" : undefined}
-                      rel={item.url && item.url !== "#" ? "noopener noreferrer" : undefined}
-                      className="flex items-start space-x-2.5 flex-1 pr-4 focus:outline-none"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#6666FF] dark:bg-[#9999FF] opacity-50 group-hover:opacity-100 transition-opacity shrink-0 mt-2" />
-                      <div className="flex flex-col">
-                        <span className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] tracking-[0.02em] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors">
-                          {item.role}
-                        </span>
-                        <span className="text-[13.5px] sm:text-[14.5px] text-[#FF42FF] dark:text-[#FF94FF] font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
-                          <span className="font-mono text-[#64748B] dark:text-[#8E95B8] select-none">└</span>
-                          <span>{item.company}</span>
-                        </span>
-                      </div>
-                    </a>
-
-                    <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
-                      {item.period}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
             {/* Projects Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-full mb-12 sm:mb-14">
@@ -407,6 +370,44 @@ export function PortfolioView({
                 </ul>
               </section>
             )}
+
+
+            {/* Experience List Section */}
+            <section className="w-full mb-12 sm:mb-14">
+              <h2 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#11408F] dark:text-[#AEF0FF] mb-3.5 font-semibold">
+                Experience
+              </h2>
+              <ul className="flex flex-col space-y-4.5 sm:space-y-5 font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
+                {portfolioData.experiences.map((item) => (
+                  <li
+                    key={item.id}
+                    className="group flex items-start justify-between py-1 transition-opacity hover:opacity-85"
+                  >
+                    <a
+                      href={item.url || "#"}
+                      target={item.url && item.url !== "#" ? "_blank" : undefined}
+                      rel={item.url && item.url !== "#" ? "noopener noreferrer" : undefined}
+                      className="flex items-start space-x-2.5 flex-1 pr-4 focus:outline-none"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#6666FF] dark:bg-[#9999FF] opacity-50 group-hover:opacity-100 transition-opacity shrink-0 mt-2" />
+                      <div className="flex flex-col">
+                        <span className="font-semibold text-[#0F172A] dark:text-[#F5F5FF] tracking-[0.02em] group-hover:text-[#6666FF] dark:group-hover:text-[#9999FF] transition-colors">
+                          {item.role}
+                        </span>
+                        <span className="text-[13.5px] sm:text-[14.5px] text-[#FF42FF] dark:text-[#FF94FF] font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
+                          <span className="font-mono text-[#64748B] dark:text-[#8E95B8] select-none">└</span>
+                          <span>{item.company}</span>
+                        </span>
+                      </div>
+                    </a>
+
+                    <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
+                      {item.period}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
             {/* Home Footer */}
             <footer className="pt-10 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
