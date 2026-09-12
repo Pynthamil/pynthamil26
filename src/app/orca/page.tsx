@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   Search,
@@ -12,6 +12,11 @@ import {
   HelpCircle,
   Moon,
   Sun,
+  ChevronLeft,
+  ChevronRight,
+  Github,
+  ArrowDown,
+  ExternalLink,
 } from "lucide-react";
 import { ProjectSidebar } from "@/components/ProjectSidebar";
 
@@ -98,7 +103,6 @@ export default function OrcaProjectPage() {
     { id: "context", label: "Context" },
     { id: "problem", label: "The Problem" },
     { id: "pain-points", label: "Pain Points" },
-    { id: "research", label: "Research & Discovery" },
     { id: "solution", label: "The Solution" },
     { id: "takeaways", label: "Takeaways" },
   ];
@@ -125,6 +129,20 @@ export default function OrcaProjectPage() {
           </Link>
 
           <div className="flex items-center space-x-3.5">
+            <a
+              href="https://github.com/Pynthamil/orca-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => playTone(880)}
+              className="inline-flex items-center space-x-2 px-2.5 py-1.5 sm:py-1 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-[#13151E]/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group cursor-pointer"
+              title="View Source on GitHub"
+            >
+              <Github className="w-3.5 h-3.5 text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#0284C7] dark:group-hover:text-[#38BDF8] transition-colors" strokeWidth={2} />
+              <span className="font-mono text-xs sm:text-[13px] text-[#232564] dark:text-[#F5F5FF] group-hover:text-[#0284C7] dark:group-hover:text-[#38BDF8] font-medium tracking-tight transition-colors">
+                repo
+              </span>
+            </a>
+
             <div
               onClick={() => {
                 navigator.clipboard.writeText("https://orca-ai-iota.vercel.app/");
@@ -240,16 +258,34 @@ export default function OrcaProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#38BDF8] block">
                   CONTEXT
                 </span>
-                <p className="text-[18px] sm:text-[19.5px] font-medium text-[#232564] dark:text-[#F5F5FF] leading-snug">
-                  Marine biologists spend hundreds of hours parsing dense scientific papers instead of doing field research.
+                <p className="text-[18px] sm:text-[19.5px] font-normal text-[#232564] dark:text-[#F5F5FF] leading-snug">
+                  Marine science generates vast amounts of research across papers, datasets, and observations, making it increasingly difficult for researchers to efficiently navigate and connect relevant evidence.
                 </p>
               </div>
-              <p>
-                ORCA.AI is an intelligent research copilot specifically tailored for marine scientists, ecologists, and oceanographers. It synthesizes decades of peer-reviewed oceanographic studies, acoustics data, and migration telemetry into rapid, verified citations.
-              </p>
-              <p>
-                Instead of searching through fragmented journal paywalls, researchers can query complex ecological hypotheses in plain language and receive cited answers with linked datasets in seconds.
-              </p>
+
+              {/* Context Actions */}
+              <div className="flex flex-wrap items-center gap-3 pt-4">
+                <button
+                  onClick={() => {
+                    playTone(880);
+                    document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-4 py-2 rounded-sm bg-[#0284C7] text-white hover:bg-[#0369A1] transition-colors font-medium text-[13px] sm:text-sm shadow-sm flex items-center space-x-2"
+                >
+                  <span>Jump to Solution</span>
+                  <ArrowDown className="w-4 h-4" />
+                </button>
+                <a
+                  href="https://orca-ai-iota.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => playTone(880)}
+                  className="px-4 py-2 rounded-sm border border-[#0284C7] text-[#0284C7] dark:border-[#38BDF8] dark:text-[#38BDF8] hover:bg-[#0284C7]/10 dark:hover:bg-[#38BDF8]/10 transition-colors font-medium text-[13px] sm:text-sm flex items-center space-x-2"
+                >
+                  <span>Visit Website</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
             </div>
 
             {/* The Problem Section */}
@@ -259,10 +295,7 @@ export default function OrcaProjectPage() {
                   THE PROBLEM
                 </span>
                 <p className="text-[17px] sm:text-[18px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-normal">
-                  Scientific literature in marine biology is massive, highly specialized, and scattered across disparate databases.
-                </p>
-                <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
-                  Researchers lose momentum attempting to correlate telemetry records with historical habitat shifts, acoustic surveys, and climate metrics buried in appendices and PDFs.
+                  Researchers spend hours searching across fragmented scientific sources and manually validating findings, making it difficult to quickly identify relevant evidence and trace conclusions back to reliable citations.
                 </p>
               </div>
 
@@ -298,30 +331,6 @@ export default function OrcaProjectPage() {
               </div>
             </div>
 
-            {/* Research & Discovery Section */}
-            <div id="research" className="pt-8 space-y-4 scroll-mt-20">
-              <div className="space-y-1.5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#38BDF8] block">
-                  RESEARCH &amp; DISCOVERY
-                </span>
-                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#232564] dark:text-[#F5F5FF] tracking-tight">
-                  Analyzing oceanic research workflows
-                </h2>
-                <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
-                  Interviewing academic researchers revealed that over 60% of time spent on literature reviews was dedicated to verifying whether a study&apos;s methodology applied to specific oceanographic coordinates and seasonal variations.
-                </p>
-              </div>
-
-              {/* Discovery Visual Placeholder */}
-              <div className="w-full h-48 sm:h-56 my-2.5 rounded-sm border border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/70 dark:bg-[#13151E]/50 flex items-center justify-center p-6">
-                <img
-                  src="/orca.svg"
-                  alt="Orca Research Document"
-                  className="max-h-full w-auto object-contain"
-                />
-              </div>
-            </div>
-
             {/* The Solution Section */}
             <div id="solution" className="pt-8 space-y-6 scroll-mt-20">
               <div className="space-y-3.5">
@@ -329,12 +338,20 @@ export default function OrcaProjectPage() {
                   <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#38BDF8] block">
                     THE SOLUTION
                   </span>
-                  <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#232564] dark:text-[#F5F5FF] tracking-tight">
-                    Literature synthesis grounded in real science
-                  </h2>
-                  <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
-                    An AI research pipeline trained on marine biology corpora with strict hallucination guards, direct PDF citation deep-linking, and interactive spatial data mapping.
+                  <p className="text-[17px] sm:text-[18px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-normal">
+                    Built ORCA to simplify marine-science research by turning complex natural-language questions into concise, source-backed answers. Engineered the application around Google Gemini to interpret queries, synthesize scientific information, and surface relevant sources with citations, resulting in a functional AI research assistant for marine-science exploration.
                   </p>
+                </div>
+
+                {/* Solution Visual Showcase */}
+                <div className="w-full my-3 flex items-center justify-center">
+                  <div className="w-full overflow-hidden border border-neutral-200/50 dark:border-neutral-800/50 rounded-sm">
+                    <img
+                      src="/orca1.svg"
+                      alt="ORCA.AI Solution Interface"
+                      className="w-full h-auto object-contain block select-none"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
