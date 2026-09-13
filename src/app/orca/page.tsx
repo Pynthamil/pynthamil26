@@ -161,9 +161,9 @@ export default function OrcaProjectPage() {
 
   const sidebarSections = [
     { id: "overview", label: "Overview" },
-    { id: "architecture", label: "Architecture" },
-    { id: "features", label: "Features" },
-    { id: "notes", label: "Notes" },
+    { id: "problem", label: "Problem" },
+    { id: "solution", label: "Solution" },
+    { id: "takeaways", label: "Takeaways" },
   ];
 
   return (
@@ -322,7 +322,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* THE PROBLEM */}
-            <div  className="space-y-5 scroll-mt-20 pt-8">
+            <div id="problem" className="space-y-5 scroll-mt-20 pt-8">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                 THE PROBLEM
               </span>
@@ -382,7 +382,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* BUILDING THE SYSTEM */}
-            <div id="architecture" className="space-y-4 scroll-mt-20 pt-8">
+            <div  className="space-y-4 scroll-mt-20 pt-8">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                 BUILDING THE SYSTEM
               </span>
@@ -408,7 +408,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* THE RESEARCH EXPERIENCE */}
-            <div id="features" className="space-y-6 scroll-mt-20 pt-8">
+            <div id="solution" className="space-y-6 scroll-mt-20 pt-8">
               <div className="space-y-4">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                   THE RESEARCH EXPERIENCE
@@ -522,7 +522,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* WHAT'S NEXT */}
-            <div id="notes" className="space-y-4 scroll-mt-20 pt-8">
+            <div  className="space-y-4 scroll-mt-20 pt-8">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                 WHAT'S NEXT
               </span>
@@ -537,7 +537,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* TAKEAWAYS */}
-            <div  className="pt-8 space-y-5 scroll-mt-20">
+            <div id="takeaways" className="pt-8 space-y-5 scroll-mt-20">
               <div className="space-y-1">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                   TAKEAWAYS
