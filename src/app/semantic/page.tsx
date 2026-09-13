@@ -22,57 +22,7 @@ export default function SemanticProjectPage() {
   const [soundOn, setSoundOn] = useState<boolean>(true);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
-  const heroRef = useRef<HTMLDivElement>(null);
-  const heroInnerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!heroRef.current || !heroInnerRef.current) return;
-      
-      const scrollY = window.scrollY;
-      
-      const startScroll = 0;
-      const endScroll = 150;
-      
-      let progress = 0;
-      if (scrollY >= endScroll) {
-        progress = 1;
-      } else if (scrollY > startScroll) {
-        progress = (scrollY - startScroll) / (endScroll - startScroll);
-      }
-      
-      const isMobile = window.innerWidth < 640;
-      if (isMobile) {
-         const currentWidth = window.innerWidth - 32;
-         heroRef.current.style.width = `${currentWidth}px`;
-         heroInnerRef.current.style.borderRadius = '8px';
-         heroInnerRef.current.style.padding = `${24 - (8 * progress)}px`;
-         return;
-      }
-
-      const initialWidth = 800;
-      const targetWidth = Math.min(window.innerWidth - 64, 1200);
-      const currentWidth = initialWidth + (targetWidth - initialWidth) * progress;
-      
-      heroRef.current.style.width = `${currentWidth}px`;
-      
-      const currentPadding = 48 - (24 * progress);
-      heroInnerRef.current.style.padding = `${currentPadding}px`;
-      
-      const currentRadius = 8;
-      heroInnerRef.current.style.borderRadius = `${currentRadius}px`;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
-    
-    handleScroll();
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
+  
 
 
   // Sync theme with localStorage or system preference
@@ -150,10 +100,10 @@ export default function SemanticProjectPage() {
   ];
 
   const sidebarSections = [
-    { id: "context", label: "Context" },
-    { id: "problem", label: "The Problem" },
-    { id: "research", label: "Research & Discovery" },
-    { id: "solution", label: "The Solution" },
+    { id: "overview", label: "Overview" },
+    { id: "problem", label: "Problem" },
+    { id: "research", label: "Research" },
+    { id: "solution", label: "Solution" },
     { id: "takeaways", label: "Takeaways" },
   ];
 
@@ -242,13 +192,14 @@ export default function SemanticProjectPage() {
               </div>
             </div>
             
-            <div ref={heroRef} className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
-              <div ref={heroInnerRef} className="w-full bg-[#6666FF] dark:bg-[#4444DD] p-4 sm:p-8 md:p-12 rounded-sm overflow-hidden flex items-center justify-center shadow-inner transition-[padding,border-radius] duration-75">
+            <div  className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
+              <div  className="w-full p-8 sm:p-12 md:p-16 rounded-sm overflow-hidden flex items-center justify-center shadow-[inset_0_0_100px_rgba(0,0,0,0.2)]"
+                style={{ backgroundImage: 'url(/saas_bg2.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="w-full overflow-hidden flex items-center justify-center">
                   <img
-                    src="/semantic/banner_semantic.svg"
+                    src="/semantic1.svg"
                     alt="Semantic Email Copilot Banner"
-                    className="w-full h-auto max-h-[80vh] object-contain block select-none bg-transparent"
+                    className="w-auto h-[50vh] sm:h-[60vh] max-h-[600px] object-contain block select-none bg-transparent drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)] my-4 mx-auto"
                   />
                 </div>
               </div>
@@ -258,10 +209,10 @@ export default function SemanticProjectPage() {
           {/* Case Study Content */}
           <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             {/* Overview / Context */}
-            <div id="context" className="space-y-4 scroll-mt-20">
+            <div id="overview" className="space-y-4 scroll-mt-20">
               <div className="space-y-1.5 pt-2">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
-                  CONTEXT
+                  OVERVIEW
                 </span>
                 <p className="text-[18px] sm:text-[19.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Our inboxes store information, but fail to turn it into meaningful action.
