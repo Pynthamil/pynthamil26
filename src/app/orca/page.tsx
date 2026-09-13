@@ -26,6 +26,71 @@ export default function OrcaProjectPage() {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [copiedLink, setCopiedLink] = useState<boolean>(false);
 
+  const heroRef = useRef<HTMLDivElement>(null);
+  const heroInnerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current || !heroInnerRef.current) return;
+      
+      const scrollY = window.scrollY;
+      
+      // Start expanding immediately on scroll, finish after 350px
+      const startScroll = 0;
+      const endScroll = 150;
+      
+      let progress = 0;
+      if (scrollY >= endScroll) {
+        progress = 1;
+      } else if (scrollY > startScroll) {
+        progress = (scrollY - startScroll) / (endScroll - startScroll);
+      }
+      
+      // Interpolate width from 800px to 100vw
+      // Actually, since it's responsive, let's use scale or dynamic width calculations.
+      // Initially it's max 800px. We want it to grow to window.innerWidth.
+      // But it's easier to use a percentage of viewport width.
+      // initial: min(800px, 100vw). Final: 100vw.
+      
+      const isMobile = window.innerWidth < 640;
+      if (isMobile) {
+         const currentWidth = window.innerWidth - 32; // 16px margin on mobile
+         heroRef.current.style.width = `${currentWidth}px`;
+         heroInnerRef.current.style.borderRadius = '8px';
+         heroInnerRef.current.style.padding = `${24 - (8 * progress)}px`;
+         return;
+      }
+
+      // Desktop: interpolate width from 800 to 100vw
+      // To do this, we can set width directly in px
+      const initialWidth = 800;
+      const targetWidth = Math.min(window.innerWidth - 64, 1200); // 32px margin on sides, max 1200px
+      const currentWidth = initialWidth + (targetWidth - initialWidth) * progress;
+      
+      heroRef.current.style.width = `${currentWidth}px`;
+      
+      // Interpolate padding from 3rem (48px) to 0
+      const currentPadding = 48 - (24 * progress); // shrink padding from 48px to 24px, never 0
+      heroInnerRef.current.style.padding = `${currentPadding}px`;
+      
+      // Interpolate border radius from 0.375rem (6px) to 0
+      const currentRadius = 8; // keep border radius rounded at 8px
+      heroInnerRef.current.style.borderRadius = `${currentRadius}px`;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+    
+    // Initial call
+    handleScroll();
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -95,17 +160,10 @@ export default function OrcaProjectPage() {
   ];
 
   const sidebarSections = [
-    { id: "context", label: "Context" },
-    { id: "problem", label: "The Problem" },
-    { id: "opportunity", label: "The Opportunity" },
-    { id: "approach", label: "The Approach" },
-    { id: "system", label: "Building the System" },
-    { id: "experience", label: "Research Experience" },
-    { id: "interesting", label: "The Interesting Part" },
-    { id: "iterating", label: "Iterating on ORCA" },
-    { id: "solution", label: "Final Solution" },
-    { id: "next", label: "What's Next" },
-    { id: "takeaways", label: "Takeaways" },
+    { id: "overview", label: "Overview" },
+    { id: "architecture", label: "Architecture" },
+    { id: "features", label: "Features" },
+    { id: "notes", label: "Notes" },
   ];
 
   return (
@@ -235,8 +293,8 @@ export default function OrcaProjectPage() {
               </div>
             </div>
             
-            <div className="w-full my-8 flex items-center justify-center">
-              <div className="w-full bg-[#095F76] dark:bg-[#074758] p-4 sm:p-8 md:p-10 rounded-sm overflow-hidden flex items-center justify-center shadow-inner">
+            <div ref={heroRef} className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
+              <div ref={heroInnerRef} className="w-full bg-[#095F76] dark:bg-[#074758] p-4 sm:p-8 md:p-12 rounded-sm overflow-hidden flex items-center justify-center shadow-inner transition-[padding,border-radius] duration-75">
                 <div className="w-full overflow-hidden rounded-md shadow-[0_10px_30px_rgba(0,0,0,0.4)] border border-white/10">
                   <img
                     src="/orca1.svg"
@@ -251,7 +309,7 @@ export default function OrcaProjectPage() {
           <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             
             {/* CONTEXT */}
-            <div id="context" className="space-y-4 scroll-mt-20 pt-6">
+            <div id="overview" className="space-y-4 scroll-mt-20 pt-6">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                 CONTEXT
               </span>
@@ -264,7 +322,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* THE PROBLEM */}
-            <div id="problem" className="space-y-5 scroll-mt-20 pt-8">
+            <div  className="space-y-5 scroll-mt-20 pt-8">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                 THE PROBLEM
               </span>
@@ -293,7 +351,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* THE OPPORTUNITY */}
-            <div id="opportunity" className="scroll-mt-20 pt-8">
+            <div  className="scroll-mt-20 pt-8">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block mb-4">
                 THE OPPORTUNITY
               </span>
@@ -306,7 +364,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* THE APPROACH */}
-            <div id="approach" className="space-y-4 scroll-mt-20 pt-8">
+            <div  className="space-y-4 scroll-mt-20 pt-8">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                 THE APPROACH
               </span>
@@ -324,7 +382,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* BUILDING THE SYSTEM */}
-            <div id="system" className="space-y-4 scroll-mt-20 pt-8">
+            <div id="architecture" className="space-y-4 scroll-mt-20 pt-8">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                 BUILDING THE SYSTEM
               </span>
@@ -350,7 +408,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* THE RESEARCH EXPERIENCE */}
-            <div id="experience" className="space-y-6 scroll-mt-20 pt-8">
+            <div id="features" className="space-y-6 scroll-mt-20 pt-8">
               <div className="space-y-4">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                   THE RESEARCH EXPERIENCE
@@ -377,7 +435,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* THE INTERESTING PART */}
-            <div id="interesting" className="space-y-4 scroll-mt-20 pt-8">
+            <div  className="space-y-4 scroll-mt-20 pt-8">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                 THE INTERESTING PART
               </span>
@@ -393,7 +451,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* ITERATING ON ORCA */}
-            <div id="iterating" className="space-y-5 scroll-mt-20 pt-8">
+            <div  className="space-y-5 scroll-mt-20 pt-8">
               <div className="space-y-4">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                   ITERATING ON ORCA
@@ -431,7 +489,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* FINAL SOLUTION */}
-            <div id="solution" className="space-y-6 scroll-mt-20 pt-8">
+            <div  className="space-y-6 scroll-mt-20 pt-8">
               <div className="space-y-4">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                   FINAL SOLUTION
@@ -464,7 +522,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* WHAT'S NEXT */}
-            <div id="next" className="space-y-4 scroll-mt-20 pt-8">
+            <div id="notes" className="space-y-4 scroll-mt-20 pt-8">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                 WHAT'S NEXT
               </span>
@@ -479,7 +537,7 @@ export default function OrcaProjectPage() {
             </div>
 
             {/* TAKEAWAYS */}
-            <div id="takeaways" className="pt-8 space-y-5 scroll-mt-20">
+            <div  className="pt-8 space-y-5 scroll-mt-20">
               <div className="space-y-1">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#74B1C3] block">
                   TAKEAWAYS

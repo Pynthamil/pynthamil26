@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   Inbox,
@@ -21,6 +21,59 @@ import { ProjectSidebar } from "@/components/ProjectSidebar";
 export default function SemanticProjectPage() {
   const [soundOn, setSoundOn] = useState<boolean>(true);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  const heroRef = useRef<HTMLDivElement>(null);
+  const heroInnerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current || !heroInnerRef.current) return;
+      
+      const scrollY = window.scrollY;
+      
+      const startScroll = 0;
+      const endScroll = 150;
+      
+      let progress = 0;
+      if (scrollY >= endScroll) {
+        progress = 1;
+      } else if (scrollY > startScroll) {
+        progress = (scrollY - startScroll) / (endScroll - startScroll);
+      }
+      
+      const isMobile = window.innerWidth < 640;
+      if (isMobile) {
+         const currentWidth = window.innerWidth - 32;
+         heroRef.current.style.width = `${currentWidth}px`;
+         heroInnerRef.current.style.borderRadius = '8px';
+         heroInnerRef.current.style.padding = `${24 - (8 * progress)}px`;
+         return;
+      }
+
+      const initialWidth = 800;
+      const targetWidth = Math.min(window.innerWidth - 64, 1200);
+      const currentWidth = initialWidth + (targetWidth - initialWidth) * progress;
+      
+      heroRef.current.style.width = `${currentWidth}px`;
+      
+      const currentPadding = 48 - (24 * progress);
+      heroInnerRef.current.style.padding = `${currentPadding}px`;
+      
+      const currentRadius = 8;
+      heroInnerRef.current.style.borderRadius = `${currentRadius}px`;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+    
+    handleScroll();
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
 
   // Sync theme with localStorage or system preference
   useEffect(() => {
@@ -75,22 +128,22 @@ export default function SemanticProjectPage() {
 
   const painPoints = [
     {
-      icon: <Inbox className="w-5 h-5 text-[#802962] dark:text-[#EBB8D5]" strokeWidth={1.5} />,
+      icon: <Inbox className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />,
       title: "INBOX OVERLOAD",
       desc: "High-volume noise obscures critical signals",
     },
     {
-      icon: <Search className="w-5 h-5 text-[#802962] dark:text-[#EBB8D5]" strokeWidth={1.5} />,
+      icon: <Search className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />,
       title: "LOST CONTEXT",
       desc: "Decisions scattered across long threads",
     },
     {
-      icon: <CheckSquare className="w-5 h-5 text-[#802962] dark:text-[#EBB8D5]" strokeWidth={1.5} />,
+      icon: <CheckSquare className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />,
       title: "BURIED ACTIONS",
       desc: "Tasks forgotten once marked read",
     },
     {
-      icon: <Split className="w-5 h-5 text-[#802962] dark:text-[#EBB8D5]" strokeWidth={1.5} />,
+      icon: <Split className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />,
       title: "FRAGMENTED TOOLS",
       desc: "Manual tracking across external apps",
     },
@@ -99,7 +152,6 @@ export default function SemanticProjectPage() {
   const sidebarSections = [
     { id: "context", label: "Context" },
     { id: "problem", label: "The Problem" },
-    { id: "pain-points", label: "Pain Points" },
     { id: "research", label: "Research & Discovery" },
     { id: "solution", label: "The Solution" },
     { id: "takeaways", label: "Takeaways" },
@@ -120,20 +172,20 @@ export default function SemanticProjectPage() {
           <Link
             href="/"
             onClick={() => playTone(880)}
-            className="font-mono text-[15px] sm:text-[15.5px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#802962] dark:hover:text-[#EBB8D5] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
+            className="font-mono text-[15px] sm:text-[15.5px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
           >
             <span>&larr;</span>
             <span>home</span>
           </Link>
 
           <div className="flex items-center space-x-3.5">
-            <span className="font-mono text-xs sm:text-[13px] text-[#802962] dark:text-[#EBB8D5] font-medium">
+            <span className="font-mono text-xs sm:text-[13px] text-[#6666FF] dark:text-[#8888FF] font-medium">
               case study
             </span>
             <button
               onClick={toggleTheme}
               aria-label="Toggle dark mode"
-              className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#802962] dark:hover:text-[#EBB8D5] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
+              className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
             >
               {isDarkMode ? (
                 <Sun className="w-4 h-4 transition-transform duration-200 hover:rotate-45" strokeWidth={2} />
@@ -157,7 +209,7 @@ export default function SemanticProjectPage() {
             {/* 4-Column Metadata Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4">
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#802962] dark:text-[#EBB8D5] block mb-1">
+                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
                   ROLE
                 </span>
                 <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
@@ -165,7 +217,7 @@ export default function SemanticProjectPage() {
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#802962] dark:text-[#EBB8D5] block mb-1">
+                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
                   TIMELINE
                 </span>
                 <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
@@ -173,7 +225,7 @@ export default function SemanticProjectPage() {
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#802962] dark:text-[#EBB8D5] block mb-1">
+                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
                   SKILLS
                 </span>
                 <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
@@ -181,12 +233,24 @@ export default function SemanticProjectPage() {
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#802962] dark:text-[#EBB8D5] block mb-1">
+                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
                   TOOLS
                 </span>
                 <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Figma
                 </span>
+              </div>
+            </div>
+            
+            <div ref={heroRef} className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
+              <div ref={heroInnerRef} className="w-full bg-[#6666FF] dark:bg-[#4444DD] p-4 sm:p-8 md:p-12 rounded-sm overflow-hidden flex items-center justify-center shadow-inner transition-[padding,border-radius] duration-75">
+                <div className="w-full overflow-hidden flex items-center justify-center">
+                  <img
+                    src="/semantic/banner_semantic.svg"
+                    alt="Semantic Email Copilot Banner"
+                    className="w-full h-auto max-h-[80vh] object-contain block select-none bg-transparent"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -195,17 +259,8 @@ export default function SemanticProjectPage() {
           <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             {/* Overview / Context */}
             <div id="context" className="space-y-4 scroll-mt-20">
-              {/* Semantic Banner Image */}
-              <div className="w-full my-2.5 rounded-sm overflow-hidden border border-neutral-200/80 dark:border-neutral-800 shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
-                <img
-                  src="/semantic/banner_semantic.svg"
-                  alt="Semantic Email Copilot Banner"
-                  className="w-full h-auto object-cover block"
-                />
-              </div>
-
               <div className="space-y-1.5 pt-2">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#802962] dark:text-[#EBB8D5] block">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   CONTEXT
                 </span>
                 <p className="text-[18px] sm:text-[19.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -237,7 +292,7 @@ export default function SemanticProjectPage() {
             {/* The Problem Section */}
             <div id="problem" className="pt-8 space-y-5 scroll-mt-20">
               <div className="space-y-1.5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#802962] dark:text-[#EBB8D5] block">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   THE PROBLEM
                 </span>
                 <p className="text-[17px] sm:text-[18px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-normal">
@@ -249,7 +304,7 @@ export default function SemanticProjectPage() {
               </div>
 
               {/* Pain Points Boxed Row */}
-              <div id="pain-points" className="pt-2 space-y-3 scroll-mt-20">
+              <div className="pt-2 space-y-3 scroll-mt-20">
                 <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.08em] text-[#64748B] dark:text-[#8E95B8] font-semibold block">
                   PAIN POINTS
                 </span>
@@ -258,9 +313,9 @@ export default function SemanticProjectPage() {
                   {painPoints.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#EBB8D5]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#802962] dark:hover:border-[#EBB8D5] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                      className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#8888FF]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#6666FF] dark:hover:border-[#8888FF] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
                     >
-                      <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#802962]/10 flex items-center justify-center">
+                      <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#6666FF]/10 flex items-center justify-center">
                         {item.icon}
                       </div>
                       <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -272,8 +327,8 @@ export default function SemanticProjectPage() {
               </div>
 
               {/* How Might We Callout Box */}
-              <div className="p-4 sm:p-4.5 rounded-sm border border-[#802962] dark:border-[#EBB8D5] bg-[#802962]/[0.05] dark:bg-[#EBB8D5]/[0.08] flex items-start gap-3">
-                <HelpCircle className="w-4 h-4 text-[#802962] dark:text-[#EBB8D5] shrink-0 mt-0.5" strokeWidth={2} />
+              <div className="p-4 sm:p-4.5 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.05] dark:bg-[#8888FF]/[0.08] flex items-start gap-3">
+                <HelpCircle className="w-4 h-4 text-[#6666FF] dark:text-[#8888FF] shrink-0 mt-0.5" strokeWidth={2} />
                 <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans">
                   How might we transform email from an overwhelming backlog into an intelligent copilot that turns incoming communication into actionable clarity?
                 </p>
@@ -283,7 +338,7 @@ export default function SemanticProjectPage() {
             {/* Research & Discovery Section */}
             <div id="research" className="pt-8 space-y-4 scroll-mt-20">
               <div className="space-y-1.5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#802962] dark:text-[#EBB8D5] block">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   RESEARCH &amp; DISCOVERY
                 </span>
                 <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
@@ -304,7 +359,7 @@ export default function SemanticProjectPage() {
             <div id="solution" className="pt-8 space-y-6 scroll-mt-20">
               <div className="space-y-3.5">
                 <div className="space-y-1.5">
-                  <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#802962] dark:text-[#EBB8D5] block">
+                  <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                     THE SOLUTION
                   </span>
                   <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
@@ -322,7 +377,7 @@ export default function SemanticProjectPage() {
                       <ChromaVideo src="/semantic/demo1.mov" />
                     </div>
                   </div>
-                  <p className="font-mono text-xs text-[#802962] dark:text-[#EBB8D5] mt-3 text-center">
+                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-3 text-center">
                     // full copilot interface &amp; extraction workflow
                   </p>
                 </div>
@@ -346,7 +401,7 @@ export default function SemanticProjectPage() {
                       <ChromaVideo src="/semantic/demo2.mov" />
                     </div>
                   </div>
-                  <p className="font-mono text-xs text-[#802962] dark:text-[#EBB8D5] mt-3 text-center">
+                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-3 text-center">
                     // automated deadline detection &amp; priority scheduling
                   </p>
                 </div>
@@ -370,7 +425,7 @@ export default function SemanticProjectPage() {
                       <ChromaVideo src="/semantic/demo3.mov" />
                     </div>
                   </div>
-                  <p className="font-mono text-xs text-[#802962] dark:text-[#EBB8D5] mt-3 text-center">
+                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-3 text-center">
                     // contextual response drafting &amp; thread synthesis
                   </p>
                 </div>
@@ -380,7 +435,7 @@ export default function SemanticProjectPage() {
             {/* Takeaways Section */}
             <div id="takeaways" className="pt-8 space-y-5 scroll-mt-20">
               <div className="space-y-1">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#802962] dark:text-[#EBB8D5] block">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   TAKEAWAYS
                 </span>
                 <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
@@ -391,11 +446,11 @@ export default function SemanticProjectPage() {
               {/* 2-Column Takeaways Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-1">
                 {/* Card 1 */}
-                <div className="p-5 sm:p-5.5 rounded-sm border border-[#802962] dark:border-[#EBB8D5] bg-[#802962]/[0.04] dark:bg-[#EBB8D5]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#802962]/[0.08] dark:hover:bg-[#EBB8D5]/[0.12]">
-                  <div className="p-1.5 rounded-sm bg-[#802962]/15 dark:bg-[#EBB8D5]/20 flex items-center justify-center">
-                    <Sparkles className="w-5 h-5 text-[#802962] dark:text-[#EBB8D5]" strokeWidth={1.5} />
+                <div className="p-5 sm:p-5.5 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.04] dark:bg-[#8888FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#8888FF]/[0.12]">
+                  <div className="p-1.5 rounded-sm bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
                   </div>
-                  <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#802962] dark:text-[#EBB8D5] block uppercase">
+                  <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#6666FF] dark:text-[#8888FF] block uppercase">
                     QUIET AI ASSISTANCE
                   </span>
                   <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
@@ -404,11 +459,11 @@ export default function SemanticProjectPage() {
                 </div>
 
                 {/* Card 2 */}
-                <div className="p-5 sm:p-5.5 rounded-sm border border-[#802962] dark:border-[#EBB8D5] bg-[#802962]/[0.04] dark:bg-[#EBB8D5]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#802962]/[0.08] dark:hover:bg-[#EBB8D5]/[0.12]">
-                  <div className="p-1.5 rounded-sm bg-[#802962]/15 dark:bg-[#EBB8D5]/20 flex items-center justify-center">
-                    <Layers className="w-5 h-5 text-[#802962] dark:text-[#EBB8D5]" strokeWidth={1.5} />
+                <div className="p-5 sm:p-5.5 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.04] dark:bg-[#8888FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#8888FF]/[0.12]">
+                  <div className="p-1.5 rounded-sm bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
+                    <Layers className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
                   </div>
-                  <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#802962] dark:text-[#EBB8D5] block uppercase">
+                  <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#6666FF] dark:text-[#8888FF] block uppercase">
                     STRUCTURE OVER NOISE
                   </span>
                   <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
@@ -425,14 +480,14 @@ export default function SemanticProjectPage() {
           <Link
             href="/"
             onClick={() => playTone(880)}
-            className="font-mono text-[13.5px] sm:text-[14px] text-[#802962] dark:text-[#EBB8D5] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
+            className="font-mono text-[13.5px] sm:text-[14px] text-[#6666FF] dark:text-[#8888FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
           >
             <span>&larr; back to home</span>
           </Link>
           <Link
             href="/orca"
             onClick={() => playTone(880)}
-            className="font-mono text-[13.5px] sm:text-[14px] text-[#802962] dark:text-[#EBB8D5] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
+            className="font-mono text-[13.5px] sm:text-[14px] text-[#6666FF] dark:text-[#8888FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
           >
             <span>next: ORCA.AI &rarr;</span>
           </Link>
