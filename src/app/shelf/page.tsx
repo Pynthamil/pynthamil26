@@ -113,7 +113,7 @@ export default function ShelfProjectPage() {
           <Link
             href="/"
             onClick={() => playTone(880)}
-            className="font-mono text-[15px] sm:text-[15.5px] tracking-tight text-[#232564] dark:text-[#F5F5FF] hover:text-[#FF6B00] dark:hover:text-[#FFA048] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
+            className="font-mono text-[15px] sm:text-[15.5px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#FF6B00] dark:hover:text-[#FFA048] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
           >
             <span>&larr;</span>
             <span>home</span>
@@ -126,7 +126,7 @@ export default function ShelfProjectPage() {
             <button
               onClick={toggleTheme}
               aria-label="Toggle dark mode"
-              className="p-1 text-[#232564] dark:text-[#F5F5FF] hover:text-[#FF6B00] dark:hover:text-[#FFA048] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
+              className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#FF6B00] dark:hover:text-[#FFA048] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
             >
               {isDarkMode ? (
                 <Sun className="w-4 h-4 transition-transform duration-200 hover:rotate-45" strokeWidth={2} />
@@ -140,7 +140,7 @@ export default function ShelfProjectPage() {
         {/* Article / Case Study Header */}
         <article className="space-y-6">
           <div className="pb-2 space-y-3">
-            <h1 className="text-3xl sm:text-[34px] font-bold text-[#232564] dark:text-[#F5F5FF] tracking-tight">
+            <h1 className="text-3xl sm:text-[34px] font-bold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
               Shelf
             </h1>
             <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
@@ -153,7 +153,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#FFA134] block mb-1">
                   ROLE
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
+                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Product Designer
                 </span>
               </div>
@@ -161,7 +161,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#FFA134] block mb-1">
                   TIMELINE
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
+                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   2026 (Ongoing)
                 </span>
               </div>
@@ -169,7 +169,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#FFA134] block mb-1">
                   SKILLS
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
+                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   UI/UX, Product
                 </span>
               </div>
@@ -177,7 +177,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#FFA134] block mb-1">
                   TOOLS
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#232564] dark:text-[#F5F5FF]">
+                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Figma, Next.js
                 </span>
               </div>
@@ -185,7 +185,7 @@ export default function ShelfProjectPage() {
           </div>
 
           {/* Case Study Content */}
-          <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#232564] dark:text-[#F5F5FF] leading-[1.8] font-sans pt-1">
+          <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             {/* Overview */}
             <div id="context" className="space-y-4 scroll-mt-20">
               {/* Empty Box with Exact #FFA134 Color */}
@@ -195,7 +195,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   CONTEXT
                 </span>
-                <p className="text-[18px] sm:text-[19.5px] font-medium text-[#232564] dark:text-[#F5F5FF] leading-snug">
+                <p className="text-[18px] sm:text-[19.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   People are excellent at saving things and terrible at deciding what to consume next.
                 </p>
               </div>
@@ -213,7 +213,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   THE PROBLEM
                 </span>
-                <p className="text-[17px] sm:text-[18px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-normal">
+                <p className="text-[17px] sm:text-[18px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-normal">
                   People save content with the intention of consuming it later, but their growing backlog makes it increasingly difficult to decide what to consume next.
                 </p>
                 <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
@@ -231,12 +231,12 @@ export default function ShelfProjectPage() {
                   {painPoints.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#9999FF]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#FFA134] dark:hover:border-[#FFA134] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                      className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#EBB8D5]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#FFA134] dark:hover:border-[#FFA134] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
                     >
                       <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#FFA134]/10 flex items-center justify-center">
                         {item.icon}
                       </div>
-                      <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold tracking-tight text-[#232564] dark:text-[#F5F5FF] leading-snug">
+                      <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                         {item.title}
                       </span>
                     </div>
@@ -247,7 +247,7 @@ export default function ShelfProjectPage() {
               {/* How Might We Callout Box (Matching Reference) */}
               <div className="p-4 sm:p-4.5 rounded-sm border border-[#FFA134] bg-[#FFA134]/[0.05] dark:bg-[#FFA134]/[0.08] flex items-start gap-3">
                 <HelpCircle className="w-4 h-4 text-[#FFA134] shrink-0 mt-0.5" strokeWidth={2} />
-                <p className="text-[13.5px] sm:text-[14px] text-[#232564] dark:text-[#F5F5FF] leading-relaxed font-sans">
+                <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans">
                   How might we transform saved content from an overwhelming, forgotten backlog into a frictionless system where people actually consume what they save?
                 </p>
               </div>
@@ -259,7 +259,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   PROCESS
                 </span>
-                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#232564] dark:text-[#F5F5FF] tracking-tight">
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   From backlog overwhelm to intentional consumption
                 </h2>
                 <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
@@ -277,7 +277,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   TAKEAWAYS
                 </span>
-                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#232564] dark:text-[#F5F5FF] tracking-tight">
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   What I learned after Shelf
                 </h2>
               </div>
@@ -292,7 +292,7 @@ export default function ShelfProjectPage() {
                   <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#FFA134] block uppercase">
                     CURATION OVER ACCUMULATION
                   </span>
-                  <p className="text-[13.5px] sm:text-[14px] text-[#232564] dark:text-[#CBD5E1] leading-relaxed font-sans">
+                  <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
                     People don&apos;t need another link dump - they need help making sense of what they&apos;ve already saved.
                   </p>
                 </div>
@@ -305,7 +305,7 @@ export default function ShelfProjectPage() {
                   <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#FFA134] block uppercase">
                     DESIGN FOR MOOD &amp; TIME
                   </span>
-                  <p className="text-[13.5px] sm:text-[14px] text-[#232564] dark:text-[#CBD5E1] leading-relaxed font-sans">
+                  <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
                     Matching content to current energy and available time turns an overwhelming backlog into effortless consumption.
                   </p>
                 </div>

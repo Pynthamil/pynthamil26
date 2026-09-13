@@ -11,14 +11,14 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          blue: "#536df8",
-          indigo: "#4e5df8",
+          blue: "#802962",
+          indigo: "#095F76",
           bg: "#F7F6F4",
           darkBg: "#0B0C0F",
-          purple: "#6666FF",
-          purpleDark: "#9999FF",
-          pink: "#FF42FF",
-          pinkDark: "#FF94FF",
+          purple: "#802962",
+          purpleDark: "#EBB8D5",
+          pink: "#095F76",
+          pinkDark: "#74B1C3",
         },
       },
       fontFamily: {

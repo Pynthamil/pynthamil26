@@ -12,12 +12,12 @@ export default function NotFound() {
       <div className="ambient-glow" />
 
       <main className="w-full relative z-10 flex flex-col items-center justify-center max-w-[490px] text-center space-y-6 my-auto">
-        <div className="font-mono text-5xl sm:text-6xl font-bold text-[#FF42FF] dark:text-[#FF94FF] tracking-wider">
+        <div className="font-mono text-5xl sm:text-6xl font-bold text-[#095F76] dark:text-[#74B1C3] tracking-wider">
           404
         </div>
 
         <div className="space-y-2">
-          <h1 className="text-xl sm:text-2xl font-medium text-[#0F172A] dark:text-[#F5F5FF]">
+          <h1 className="text-xl sm:text-2xl font-medium text-[#0F172A] dark:text-[#F2F2F2]">
             page not found
           </h1>
           <p className="font-mono text-sm text-[#64748B] dark:text-[#8E95B8]">
@@ -28,7 +28,7 @@ export default function NotFound() {
         <div className="pt-4">
           <Link
             href="/"
-            className="inline-flex items-center space-x-2 px-4 py-2 border border-dashed border-[#11408F] dark:border-[#AEF0FF] font-mono text-sm text-[#11408F] dark:text-[#AEF0FF] hover:text-[#FF42FF] dark:hover:text-[#FF94FF] hover:border-[#FF42FF] dark:hover:border-[#FF94FF] transition-colors"
+            className="inline-flex items-center space-x-2 px-4 py-2 border border-dashed border-[#4C173A] dark:border-[#F5D6E7] font-mono text-sm text-[#4C173A] dark:text-[#F5D6E7] hover:text-[#095F76] dark:hover:text-[#74B1C3] hover:border-[#095F76] dark:hover:border-[#74B1C3] transition-colors"
           >
             <span>&larr;</span>
             <span>return home</span>
@@ -36,7 +36,7 @@ export default function NotFound() {
         </div>
       </main>
 
-      <footer className="w-full max-w-[490px] pt-8 border-t border-neutral-200/70 dark:border-[#9999FF]/20 flex flex-col sm:flex-row items-center justify-between gap-2 font-mono text-xs text-[#64748B] dark:text-[#8E95B8]">
+      <footer className="w-full max-w-[490px] pt-8 border-t border-neutral-200/70 dark:border-[#EBB8D5]/20 flex flex-col sm:flex-row items-center justify-between gap-2 font-mono text-xs text-[#64748B] dark:text-[#8E95B8]">
         <div>coding is an art and im an artist</div>
         <div>made w love &bull; &copy; 2026</div>
       </footer>
