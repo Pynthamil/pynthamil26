@@ -11,6 +11,71 @@ export function PortfolioView({
   initialViewMode?: "home" | "about" | "blog";
 }) {
   const [viewMode, setViewMode] = useState<"home" | "about" | "blog">(initialViewMode);
+
+  // Typing animation state
+  const phrases = [
+    "making plue THE student haven",
+    "making minimalism feel alive and not so boring",
+    "learning to battle real-time systems"
+  ];
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(phrases[0].length); // start with first phrase fully typed
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [hasStartedTyping, setHasStartedTyping] = useState(false);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    
+    if (!hasStartedTyping) {
+      timeout = setTimeout(() => {
+        setHasStartedTyping(true);
+        setIsDeleting(true);
+      }, 3000);
+      return () => clearTimeout(timeout);
+    }
+
+    const currentPhrase = phrases[phraseIndex];
+
+    if (isDeleting) {
+      if (charIndex > 0) {
+        timeout = setTimeout(() => setCharIndex((c) => c - 1), 35);
+      } else {
+        setIsDeleting(false);
+        setPhraseIndex((p) => (p + 1) % phrases.length);
+      }
+    } else {
+      if (charIndex < currentPhrase.length) {
+        timeout = setTimeout(() => setCharIndex((c) => c + 1), 60);
+      } else {
+        timeout = setTimeout(() => setIsDeleting(true), 2500);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, isDeleting, phraseIndex, hasStartedTyping]);
+
+  const currentTypingText = phrases[phraseIndex].substring(0, charIndex);
+
+  const renderTypingTextWithLinks = (text: string) => {
+    const parts = text.split(/(plue)/g);
+    return parts.map((part, i) => {
+      if (part === "plue") {
+        return (
+          <a
+            key={i}
+            href="https://getplue.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-wavy decoration-[#2C2C2C]/40 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium transition-colors"
+          >
+            {part}
+          </a>
+        );
+      }
+      return part;
+    });
+  };
+
   const [blogFilter, setBlogFilter] = useState<string>("all");
   const [expandedExperience, setExpandedExperience] = useState<string | null>(null);
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
@@ -221,16 +286,8 @@ export function PortfolioView({
               <div className="flex items-center space-x-2.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] pt-1 pb-1">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse shrink-0" />
                 <span>
-                  Currently: making{" "}
-                  <a
-                    href="https://getplue.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-wavy decoration-[#2C2C2C]/40 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium transition-colors"
-                  >
-                    plue
-                  </a>{" "}
-                  THE student haven
+                  Currently: {renderTypingTextWithLinks(currentTypingText)}
+                  <span className="animate-pulse">|</span>
                 </span>
               </div>
 
