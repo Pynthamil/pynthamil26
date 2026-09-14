@@ -489,7 +489,7 @@ export function PortfolioView({
                 <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
-                    <span>My name is <span className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">Pynthamil Pavendan</span>!</span>
+                    <span>My name is <span className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium hover:underline hover:decoration-wavy underline-offset-4 cursor-default">Pynthamil Pavendan</span>!</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
                     <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
@@ -777,7 +777,7 @@ export function PortfolioView({
                   <div className="flex items-start space-x-2.5">
                     <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
                     <span>
-                      I don&apos;t believe the saying &quot;curiosity kills the cat&quot; &mdash; haha
+                      I don&apos;t believe the saying <span className="hover:underline hover:decoration-wavy underline-offset-4 cursor-default">&quot;curiosity kills the cat&quot;</span> &mdash; haha
                     </span>
                   </div>
                 </div>

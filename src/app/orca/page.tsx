@@ -187,10 +187,10 @@ export default function OrcaProjectPage() {
 
         <article className="space-y-6">
           <div className="pb-2 space-y-4">
-            <h1 className="text-3xl sm:text-[34px] font-bold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+            <h1 className="instrument-serif-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               orca.ai
             </h1>
-            <h3 className="text-[19px] sm:text-[21px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+            <h3 className="text-[19px] sm:text-[21px] font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
               Building an AI research assistant that turns complex marine-science questions into clear, source-backed answers.
             </h3>
 

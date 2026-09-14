@@ -140,7 +140,7 @@ export default function ShelfProjectPage() {
         {/* Article / Case Study Header */}
         <article className="space-y-6">
           <div className="pb-2 space-y-3">
-            <h1 className="text-3xl sm:text-[34px] font-bold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+            <h1 className="instrument-serif-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               Shelf
             </h1>
             <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
