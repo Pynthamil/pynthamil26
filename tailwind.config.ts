@@ -33,6 +33,7 @@ const config: Config = {
           "Arial",
           "sans-serif",
         ],
+        serif: ['"Instrument Serif"', "serif"],
         cal: ['"Cal Sans"', "sans-serif"],
         mono: [
           '"SF Mono"',

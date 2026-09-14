@@ -119,7 +119,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
         {/* Article Header */}
         <article className="space-y-6">
           <div className="border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 pb-5">
-            <h1 className="text-[27px] sm:text-[30px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+            <h1 className="instrument-serif-regular text-[34px] sm:text-[38px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               {post.title.toLowerCase()}
             </h1>
             <div className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] mt-2.5 flex items-center space-x-2">

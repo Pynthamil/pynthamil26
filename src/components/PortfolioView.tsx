@@ -154,7 +154,7 @@ export function PortfolioView({
             <div className="flex items-center shrink-0">
               <button
                 onClick={() => viewMode !== "home" && handleNavClick("home")}
-                className={`font-google-sans text-[25px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none text-left focus:outline-none ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
+                className={`instrument-serif-regular text-[28px] sm:text-[32px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none text-left focus:outline-none ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
               >
                 {portfolioData.name.toLowerCase()}
               </button>
@@ -414,7 +414,7 @@ export function PortfolioView({
                     >
                       <div className="flex items-start flex-1 pr-4 focus:outline-none">
                         <div className="flex flex-col">
-                          <span className="font-semibold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em] group-hover:text-neutral-500 dark:group-hover:text-neutral-400 transition-colors">
+                          <span className="font-semibold text-[#FF9460] dark:text-[#A4E1FF] tracking-[0.02em] group-hover:opacity-80 transition-opacity">
                             {item.role}
                           </span>
                           <span className="text-[13.5px] sm:text-[14.5px] text-neutral-600 dark:text-neutral-400 font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">

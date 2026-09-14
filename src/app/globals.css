@@ -207,10 +207,9 @@ body {
 }
 
 @layer utilities {
-  .font-google-sans {
-    font-family: "Google Sans", sans-serif;
-    font-optical-sizing: auto;
+  .instrument-serif-regular {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
     font-style: normal;
-    font-variation-settings: "GRAD" 0;
   }
 }
