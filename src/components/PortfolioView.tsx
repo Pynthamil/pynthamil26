@@ -154,7 +154,7 @@ export function PortfolioView({
             <div className="flex items-center shrink-0">
               <button
                 onClick={() => viewMode !== "home" && handleNavClick("home")}
-                className={`text-[25px] sm:text-[28px] font-medium tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none text-left focus:outline-none ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
+                className={`font-google-sans text-[25px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none text-left focus:outline-none ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
               >
                 {portfolioData.name.toLowerCase()}
               </button>
@@ -268,7 +268,7 @@ export function PortfolioView({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => playTone(880)}
-                  className="text-[#475569] dark:text-[#94A3B8] underline underline-offset-4 decoration-wavy decoration-[#94A3B8] dark:decoration-[#475569] font-medium transition-colors"
+                  className="text-black dark:text-white underline underline-offset-4 decoration-wavy decoration-black dark:decoration-white font-medium transition-colors"
                 >
                   download my CV &darr;
                 </a>
