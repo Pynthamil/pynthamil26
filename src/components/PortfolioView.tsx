@@ -442,8 +442,9 @@ export function PortfolioView({
               <h2 className="but-head-regular text-[22px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-1">
                 Experience
               </h2>
-              <p className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] mb-5">
-                where i've worked
+              <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 mb-5 flex items-center space-x-1.5">
+                <span className="select-none">└</span>
+                <span>where i've worked</span>
               </p>
               <ul className="flex flex-col font-sans text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
                 {portfolioData.experiences.map((item) => (
