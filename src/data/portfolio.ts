@@ -26,6 +26,8 @@ export interface Project {
   status?: string;
   hoverText?: string;
   themeColor?: string;
+  longDescription?: string;
+  id?: string;
 }
 
 export interface Post {

@@ -414,7 +414,7 @@ export function PortfolioView({
                     >
                       <div className="flex items-start flex-1 pr-4 focus:outline-none">
                         <div className="flex flex-col">
-                          <span className="font-semibold text-[#FF9460] dark:text-[#A4E1FF] tracking-[0.02em] group-hover:opacity-80 transition-opacity">
+                          <span className="font-semibold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em] group-hover:text-neutral-500 dark:group-hover:text-neutral-400 transition-colors">
                             {item.role}
                           </span>
                           <span className="text-[13.5px] sm:text-[14.5px] text-neutral-600 dark:text-neutral-400 font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
@@ -489,7 +489,7 @@ export function PortfolioView({
                 <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
-                    <span>My name is <span className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium hover:underline hover:decoration-wavy underline-offset-4 cursor-default">Pynthamil Pavendan</span>!</span>
+                    <span>My name is <span className="text-[#2C2C2C] dark:text-[#F2F2F2] instrument-serif-regular text-[20px] sm:text-[21px] underline decoration-wavy underline-offset-4 cursor-default">Pynthamil Pavendan</span>!</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
                     <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
