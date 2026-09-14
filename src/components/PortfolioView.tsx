@@ -455,6 +455,49 @@ export function PortfolioView({
                 </ul>
               </section>
             )}
+
+            {/* Experience Section */}
+            <section id="home-experience" className="w-full scroll-mt-24">
+              <h2 className="but-head-regular text-[22px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-1">
+                Experience
+              </h2>
+              <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 mb-5 flex items-center space-x-1.5">
+                <span className="select-none">└</span>
+                <span>where i've worked</span>
+              </p>
+              <ul className="flex flex-col font-sans text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
+                {portfolioData.experiences.map((item) => (
+                  <li
+                    key={item.id}
+                    className="group flex flex-col py-4 sm:py-5 border-b border-neutral-100 dark:border-neutral-800 last:border-0"
+                  >
+                    <div className="flex items-start justify-between w-full">
+                      <div className="flex items-start flex-1 pr-4">
+                        <div className="flex flex-col justify-center h-full">
+                          <span className="font-bold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
+                            {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
+                        {item.period}
+                      </div>
+                    </div>
+                    
+                    {item.bullets && item.bullets.length > 0 && (
+                      <ul className="mt-4 flex flex-col space-y-2.5 text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
+                        {item.bullets.map((bullet, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5">
+                            <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
           </div>
         )}
 
