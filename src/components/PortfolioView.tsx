@@ -538,18 +538,40 @@ export function PortfolioView({
             </div>
 
             {/* Come Say Hi Dropdown Accordion */}
-            <div id="come-say-hi" className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5 scroll-mt-24">
+            <div id="stack" className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5 scroll-mt-24">
+              <div className="flex items-center justify-between py-1.5">
+                <div>
+                  <h2 className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
+                    stack
+                  </h2>
+                  <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
+                    <span className="select-none">└</span>
+                    <span>tools of the trade</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-4 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans">
+                <div className="flex items-start space-x-2.5">
+                  <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                  <span>Next.js  Supabase  Python  Figma  Antigravity</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Fun Facts About Me Dropdown Accordion */}
+            <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
               <div
                 
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
-                    come say hi
+                  <h2 id="currently-learning" className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
+                    what i am currently learning
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
                     <span className="select-none">└</span>
-                    <span>the internet&apos;s version of knocking on my door</span>
+                    <span>learning, unlearning, relearning</span>
                   </p>
                 </div>
                 
@@ -559,66 +581,31 @@ export function PortfolioView({
                   <div className="flex items-start space-x-2.5">
                     <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
-                      Always down to chat about code, design systems, crazy ideas, or good music
+                      currently learning how to make things feel simple without making them boring
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
                     <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
-                      Drop a line at{" "}
-                      <a
-                        href={`mailto:${portfolioData.email}`}
-                        className="text-[#00B5B2] underline underline-offset-4 decoration-wavy decoration-[#00B5B2] font-medium"
-                      >
-                        {portfolioData.email}
-                      </a>
+                      exploring better ways to structure code, design cleaner interfaces, and build products that feel intentional from the first click
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
                     <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
-                      Find me on{" "}
-                      <a
-                        href="https://x.com/pyndu15"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
-                      >
-                        X
-                      </a>
-                      ,{" "}
-                      <a
-                        href="https://github.com/Pynthamil"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
-                      >
-                        GitHub
-                      </a>
-                      ,{" "}
-                      <a
-                        href="https://leetcode.com/u/HashKnight/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
-                      >
-                        LeetCode
-                      </a>
-                      , and{" "}
-                      <a
-                        href="https://linkedin.com/in/pynthamil-pavendan"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
-                      >
-                        LinkedIn
-                      </a>
+                      trying to understand why some digital experiences feel effortless while others feel confusing, even when they do the same thing
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                    <span>
+                      also learning to be okay with not knowing everything yet and building anyway
                     </span>
                   </div>
                 </div>
             </div>
 
-            {/* Fun Facts About Me Dropdown Accordion */}
+            {/* What I Am Currently Learning Dropdown Accordion */}
             <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
               <div
                 
@@ -675,52 +662,6 @@ export function PortfolioView({
                     <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       currently in my final year of college &mdash; slightly terrifying &amp; slightly exciting
-                    </span>
-                  </div>
-                </div>
-            </div>
-
-            {/* What I Am Currently Learning Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
-              <div
-                
-                className="flex items-center justify-between py-1.5"
-              >
-                <div>
-                  <h2 id="currently-learning" className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
-                    what i am currently learning
-                  </h2>
-                  <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
-                    <span className="select-none">└</span>
-                    <span>learning, unlearning, relearning</span>
-                  </p>
-                </div>
-                
-              </div>
-
-              <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      currently learning how to make things feel simple without making them boring
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      exploring better ways to structure code, design cleaner interfaces, and build products that feel intentional from the first click
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      trying to understand why some digital experiences feel effortless while others feel confusing, even when they do the same thing
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      also learning to be okay with not knowing everything yet and building anyway
                     </span>
                   </div>
                 </div>
@@ -815,25 +756,84 @@ export function PortfolioView({
 
 
             {/* Stack Row */}
-            <div id="stack" className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5 scroll-mt-24">
-              <div className="flex items-center justify-between py-1.5">
+            <div id="come-say-hi" className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5 scroll-mt-24">
+              <div
+                
+                className="flex items-center justify-between py-1.5"
+              >
                 <div>
                   <h2 className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
-                    stack
+                    come say hi
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
                     <span className="select-none">└</span>
-                    <span>tools of the trade</span>
+                    <span>the internet&apos;s version of knocking on my door</span>
                   </p>
                 </div>
+                
               </div>
 
-              <div className="mt-4 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans">
-                <div className="flex items-start space-x-2.5">
-                  <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                  <span>Next.js  Supabase  Python  Figma  Antigravity</span>
+              <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
+                  <div className="flex items-start space-x-2.5">
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                    <span>
+                      Always down to chat about code, design systems, crazy ideas, or good music
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                    <span>
+                      Drop a line at{" "}
+                      <a
+                        href={`mailto:${portfolioData.email}`}
+                        className="text-[#00B5B2] underline underline-offset-4 decoration-wavy decoration-[#00B5B2] font-medium"
+                      >
+                        {portfolioData.email}
+                      </a>
+                    </span>
+                  </div>
+                  <div className="flex items-start space-x-2.5">
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                    <span>
+                      Find me on{" "}
+                      <a
+                        href="https://x.com/pyndu15"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
+                      >
+                        X
+                      </a>
+                      ,{" "}
+                      <a
+                        href="https://github.com/Pynthamil"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
+                      >
+                        GitHub
+                      </a>
+                      ,{" "}
+                      <a
+                        href="https://leetcode.com/u/HashKnight/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
+                      >
+                        LeetCode
+                      </a>
+                      , and{" "}
+                      <a
+                        href="https://linkedin.com/in/pynthamil-pavendan"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
+                      >
+                        LinkedIn
+                      </a>
+                    </span>
+                  </div>
                 </div>
-              </div>
             </div>
 
 
