@@ -436,11 +436,11 @@ export default function SemanticProjectPage() {
             <span>&larr; back to home</span>
           </Link>
           <Link
-            href="/orca"
+            href="/messaging"
             onClick={() => playTone(880)}
             className="font-mono text-[13.5px] sm:text-[14px] text-[#6666FF] dark:text-[#8888FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
           >
-            <span>next: ORCA.AI &rarr;</span>
+            <span>next: Kivo &rarr;</span>
           </Link>
         </div>
 

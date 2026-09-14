@@ -174,8 +174,8 @@ export function PortfolioView({
                 onClick={() => handleNavClick("about")}
                 className={`transition-colors cursor-pointer select-none ${
                   viewMode === "about"
-                    ? "text-[#095F76] dark:text-[#74B1C3] font-semibold underline underline-offset-4 decoration-wavy decoration-[#095F76] dark:decoration-[#74B1C3]"
-                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#095F76] dark:hover:text-[#74B1C3]"
+                    ? "text-neutral-600 dark:text-neutral-400 font-semibold underline underline-offset-4 decoration-wavy decoration-neutral-600 dark:decoration-neutral-400"
+                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-neutral-600 dark:hover:text-neutral-400"
                 }`}
               >
                 About
@@ -185,7 +185,7 @@ export function PortfolioView({
                 className={`transition-colors cursor-pointer select-none ${
                   viewMode === "blog"
                     ? "text-[#475569] dark:text-[#94A3B8] font-semibold underline underline-offset-4 decoration-wavy decoration-[#94A3B8] dark:decoration-[#475569]"
-                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#802962] dark:hover:text-[#EBB8D5]"
+                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-neutral-500 dark:hover:text-neutral-400"
                 }`}
               >
                 Blog
@@ -195,7 +195,7 @@ export function PortfolioView({
               <button
                 onClick={toggleTheme}
                 aria-label="Toggle dark mode"
-                className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#095F76] dark:hover:text-[#74B1C3] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
+                className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
               >
                 {isDarkMode ? (
                   <Sun className="w-4 h-4 transition-transform duration-200 hover:rotate-45" strokeWidth={2} />
@@ -340,7 +340,10 @@ export function PortfolioView({
                       >
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center flex-1 pr-4">
-                            <span className="font-semibold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em] group-hover:text-[#802962] dark:group-hover:text-[#EBB8D5] transition-colors">
+                            <span 
+                              className={`font-semibold tracking-[0.02em] transition-colors hover:opacity-80 ${!project.themeColor ? 'text-[#0F172A] dark:text-[#F2F2F2]' : ''}`}
+                              style={project.themeColor ? { color: project.themeColor } : {}}
+                            >
                               [{project.title}]
                             </span>
                           </div>
@@ -349,19 +352,19 @@ export function PortfolioView({
                             {project.hoverText ? (
                               <>
                                 <span className="group-hover:hidden uppercase transition-opacity">
-                                  <span className="text-[#095F76] dark:text-[#74B1C3] font-medium">{project.tags?.[0] || "SYSTEM"}</span>
-                                  <span className="text-neutral-400 dark:text-[#EBB8D5]/40">, </span>
-                                  <span className="text-[#64748B] dark:text-[#8E95B8]">{project.year}</span>
+                                  <span className="text-neutral-600 dark:text-neutral-400 font-medium">{project.tags?.[0] || "SYSTEM"}</span>
+                                  <span className="text-neutral-400 dark:text-neutral-500">, </span>
+                                  <span className="text-neutral-500 dark:text-neutral-400">{project.year}</span>
                                 </span>
-                                <span className="hidden group-hover:inline-block text-[#095F76] dark:text-[#74B1C3] font-medium lowercase tracking-normal transition-all animate-in fade-in duration-150">
+                                <span className="hidden group-hover:inline-block text-neutral-600 dark:text-neutral-400 font-medium lowercase tracking-normal transition-all animate-in fade-in duration-150">
                                   {project.hoverText}
                                 </span>
                               </>
                             ) : (
                               <span className="uppercase">
-                                <span className="text-[#095F76] dark:text-[#74B1C3] font-medium">{project.tags?.[0] || "SYSTEM"}</span>
-                                <span className="text-neutral-400 dark:text-[#EBB8D5]/40">, </span>
-                                <span className="text-[#64748B] dark:text-[#8E95B8]">{project.year}</span>
+                                <span className="text-neutral-600 dark:text-neutral-400 font-medium">{project.tags?.[0] || "SYSTEM"}</span>
+                                <span className="text-neutral-400 dark:text-neutral-500">, </span>
+                                <span className="text-neutral-500 dark:text-neutral-400">{project.year}</span>
                               </span>
                             )}
                           </div>
@@ -390,7 +393,7 @@ export function PortfolioView({
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#095F76] hover:bg-[#471435] text-white font-mono text-[12px] sm:text-[13px] px-3 py-1.5 rounded-sm transition-colors flex items-center space-x-1"
+                  className="bg-black dark:bg-white hover:bg-neutral-800 dark:hover:bg-neutral-200 text-white dark:text-black font-mono text-[12px] sm:text-[13px] px-3 py-1.5 rounded-sm transition-colors flex items-center space-x-1"
                 >
                   <span>Download as PDF</span>
                   <span>&darr;</span>
@@ -411,10 +414,10 @@ export function PortfolioView({
                     >
                       <div className="flex items-start flex-1 pr-4 focus:outline-none">
                         <div className="flex flex-col">
-                          <span className="font-semibold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em] group-hover:text-[#802962] dark:group-hover:text-[#EBB8D5] transition-colors">
+                          <span className="font-semibold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em] group-hover:text-neutral-500 dark:group-hover:text-neutral-400 transition-colors">
                             {item.role}
                           </span>
-                          <span className="text-[13.5px] sm:text-[14.5px] text-[#095F76] dark:text-[#74B1C3] font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
+                          <span className="text-[13.5px] sm:text-[14.5px] text-neutral-600 dark:text-neutral-400 font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
                             <span className="font-mono text-[#64748B] dark:text-[#8E95B8] select-none">└</span>
                             <span>{item.company}</span>
                           </span>
@@ -425,7 +428,7 @@ export function PortfolioView({
                         <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap">
                           {item.period}
                         </div>
-                        <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors select-none leading-none">
+                        <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors select-none leading-none">
                           {expandedExperience === item.id ? "−" : "+"}
                         </span>
                       </div>
@@ -459,7 +462,7 @@ export function PortfolioView({
         {viewMode === "about" && (
           <div className="flex flex-col space-y-6 sm:space-y-7 animate-in fade-in duration-200">
             {/* Meet The Human Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 dark:border-[#EBB8D5]/20 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -468,7 +471,7 @@ export function PortfolioView({
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors">
+                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors">
                     meet the human
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5">
@@ -476,7 +479,7 @@ export function PortfolioView({
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors select-none leading-none">
+                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors select-none leading-none">
                     {isMeetHumanOpen ? "−" : "+"}
                   </span>
                 </div>
@@ -521,7 +524,7 @@ export function PortfolioView({
             </div>
 
             {/* Come Say Hi Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 dark:border-[#EBB8D5]/20 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -530,7 +533,7 @@ export function PortfolioView({
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors">
+                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors">
                     come say hi
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5">
@@ -538,7 +541,7 @@ export function PortfolioView({
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors select-none leading-none">
+                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors select-none leading-none">
                     {isComeSayHiOpen ? "−" : "+"}
                   </span>
                 </div>
@@ -610,7 +613,7 @@ export function PortfolioView({
             </div>
 
             {/* Fun Facts About Me Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 dark:border-[#EBB8D5]/20 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -619,7 +622,7 @@ export function PortfolioView({
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors">
+                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors">
                     fun facts about me
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5">
@@ -627,7 +630,7 @@ export function PortfolioView({
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors select-none leading-none">
+                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors select-none leading-none">
                     {isFunFactsOpen ? "−" : "+"}
                   </span>
                 </div>
@@ -680,7 +683,7 @@ export function PortfolioView({
             </div>
 
             {/* What I Am Currently Learning Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 dark:border-[#EBB8D5]/20 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -689,7 +692,7 @@ export function PortfolioView({
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors">
+                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors">
                     what i am currently learning
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5">
@@ -697,7 +700,7 @@ export function PortfolioView({
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors select-none leading-none">
+                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors select-none leading-none">
                     {isLearningOpen ? "−" : "+"}
                   </span>
                 </div>
@@ -734,7 +737,7 @@ export function PortfolioView({
             </div>
 
             {/* When I Touch Grass Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 dark:border-[#EBB8D5]/20 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -743,7 +746,7 @@ export function PortfolioView({
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors">
+                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors">
                     when i touch grass
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5">
@@ -751,7 +754,7 @@ export function PortfolioView({
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors select-none leading-none">
+                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors select-none leading-none">
                     {isTouchGrassOpen ? "−" : "+"}
                   </span>
                 </div>
@@ -782,7 +785,7 @@ export function PortfolioView({
             </div>
 
             {/* About My Blog Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 dark:border-[#EBB8D5]/20 pb-5">
+            <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
               <div
                 onClick={() => {
                   playTone(880);
@@ -791,7 +794,7 @@ export function PortfolioView({
                 className="flex items-center justify-between cursor-pointer group py-1.5 select-none"
               >
                 <div>
-                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors">
+                  <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors">
                     about my blog
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5">
@@ -799,7 +802,7 @@ export function PortfolioView({
                   </p>
                 </div>
                 <div>
-                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors select-none leading-none">
+                  <span className="font-mono text-xl font-semibold text-[#475569] dark:text-[#94A3B8] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors select-none leading-none">
                     {isAboutBlogOpen ? "−" : "+"}
                   </span>
                 </div>
@@ -863,7 +866,7 @@ export function PortfolioView({
             {/* Blog Posts Clean Architecture */}
             <section>
 
-              <div className="divide-y divide-neutral-200/70 dark:divide-[#EBB8D5]/20">
+              <div className="divide-y divide-neutral-200/70 dark:divide-neutral-400/20">
                 {portfolioData.writings.map((post, idx) => (
                   <div key={idx} className="pb-6 sm:pb-6.5 pt-6 sm:pt-6.5 first:pt-0">
                     <a
@@ -872,7 +875,7 @@ export function PortfolioView({
                       className="flex items-center justify-between group select-none cursor-pointer"
                     >
                       <div className="space-y-1.5">
-                        <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] transition-colors leading-snug">
+                        <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 transition-colors leading-snug">
                           {post.title.toLowerCase()}
                         </h2>
                         <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5">
@@ -880,7 +883,7 @@ export function PortfolioView({
                         </p>
                       </div>
                       <div>
-                        <span className="font-mono text-[21px] sm:text-[23px] font-medium text-[#475569] dark:text-[#94A3B8] group-hover:text-[#095F76] dark:group-hover:text-[#74B1C3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150 select-none leading-none inline-block">
+                        <span className="font-mono text-[21px] sm:text-[23px] font-medium text-[#475569] dark:text-[#94A3B8] group-hover:text-neutral-600 dark:group-hover:text-neutral-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150 select-none leading-none inline-block">
                           ↗
                         </span>
                       </div>
@@ -924,7 +927,7 @@ export function PortfolioView({
                 {selectedProject.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="font-mono text-[10.5px] px-2 py-0.5 bg-[#2C2C2C]/5 dark:bg-[#EBB8D5]/20 rounded text-[#2C2C2C] dark:text-[#F2F2F2]"
+                    className="font-mono text-[10.5px] px-2 py-0.5 bg-[#2C2C2C]/5 dark:bg-neutral-400/20 rounded text-[#2C2C2C] dark:text-[#F2F2F2]"
                   >
                     {tag}
                   </span>

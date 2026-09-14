@@ -28,13 +28,13 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
             className="group flex items-baseline justify-between py-3.5 px-2 -mx-2 rounded-lg cursor-dot hover:bg-neutral-50 transition-colors"
           >
             <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 flex-1">
-              <span className="font-semibold text-sm text-neutral-900 min-w-[140px] group-hover:text-[#4e52ec] transition-colors">
+              <span className="font-semibold text-sm text-neutral-900 min-w-[140px] group-hover:text-neutral-500 transition-colors">
                 {project.title}
               </span>
               <span className="text-sm text-neutral-600 group-hover:text-neutral-900 transition-colors flex items-center gap-1">
                 {project.description}
                 {project.status !== "soon" && (
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-[#4e52ec] transition-opacity" />
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-neutral-500 transition-opacity" />
                 )}
               </span>
             </div>

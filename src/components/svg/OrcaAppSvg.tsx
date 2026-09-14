@@ -69,7 +69,7 @@ export const OrcaAppSvg: React.FC<{ className?: string }> = ({ className }) => {
             fontFamily="Inter, sans-serif"
             fontSize="7.5"
             fontWeight="500"
-            fill="#0369a1"
+            fill="#007FFF"
             textAnchor="middle"
           >
             tell me the statistics on captive orcas

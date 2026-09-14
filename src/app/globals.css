@@ -5,29 +5,29 @@
 :root {
   --bg-color: #ffffff;
   --text-main: #2C2C2C;
-  --text-muted: #4C173A;
+  --text-muted: #525252;
   --text-secondary: #2C2C2C;
-  --accent-pink: #095F76;
-  --accent-purple: #802962;
+  --accent-pink: #525252;
+  --accent-purple: #737373;
 }
 
 .dark {
   --bg-color: #0B0C0F;
   --text-main: #F2F2F2;
-  --text-muted: #F5D6E7;
+  --text-muted: #a3a3a3;
   --text-secondary: #F2F2F2;
-  --accent-pink: #74B1C3;
-  --accent-purple: #EBB8D5;
+  --accent-pink: #a3a3a3;
+  --accent-purple: #a3a3a3;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #0B0C0F;
     --text-main: #F2F2F2;
-    --text-muted: #F5D6E7;
+    --text-muted: #a3a3a3;
     --text-secondary: #F2F2F2;
-    --accent-pink: #74B1C3;
-    --accent-purple: #EBB8D5;
+    --accent-pink: #a3a3a3;
+    --accent-purple: #a3a3a3;
   }
 }
 
@@ -151,7 +151,7 @@ body {
 }
 
 .figma-bounding-box:hover .outlined-logo-text {
-  -webkit-text-stroke: 1.35px #095F76;
+  -webkit-text-stroke: 1.35px #525252;
   text-shadow: 0 0 12px rgba(255, 66, 255, 0.35);
 }
 

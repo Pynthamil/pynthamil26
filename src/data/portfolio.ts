@@ -18,13 +18,14 @@ export interface SocialLink {
 export interface Project {
   title: string;
   description: string;
-  longDescription?: string;
   year: string;
   link?: string;
+  github?: string;
   tags?: string[];
+  banner?: string;
   status?: string;
   hoverText?: string;
-  banner?: string;
+  themeColor?: string;
 }
 
 export interface Post {
@@ -116,20 +117,31 @@ export const portfolioData: PortfolioData = {
   showcase: [],
   projects: [
     {
-      title: "ORCA.AI",
+      title: "orca.ai",
       description: "AI research assistant that turns complex marine science papers into clear, cited answers.",
       year: "2026",
       link: "/orca",
       banner: "/orcabanner.svg",
       tags: ["AI/ML", "LLM", "Data Viz"],
+      themeColor: "#007FFF",
     },
     {
-      title: "SEMANTIC EMAIL COPILOT",
+      title: "Semantic Email Copilot",
       description: "Context-aware email copilot synthesizing threads, prioritizing actionable items, and drafting smart replies.",
       year: "2026",
       link: "/semantic",
       tags: ["Figma", "UI/UX"],
       status: "Active",
+      themeColor: "#6666FF",
+    },
+    {
+      title: "Kivo",
+      description: "A privacy-first messaging platform built for speed, security, and control.",
+      year: "2026",
+      link: "/messaging",
+      tags: ["Real-time", "Security", "Distributed Systems"],
+      hoverText: "currently building",
+      themeColor: "#00BF63",
     },
   ],
   writings: [

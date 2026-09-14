@@ -231,7 +231,7 @@ export default function ShelfProjectPage() {
                   {painPoints.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#EBB8D5]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#FFA134] dark:hover:border-[#FFA134] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                      className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#a3a3a3]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#FFA134] dark:hover:border-[#FFA134] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
                     >
                       <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#FFA134]/10 flex items-center justify-center">
                         {item.icon}
