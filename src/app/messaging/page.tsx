@@ -116,7 +116,7 @@ export default function MessagingProjectPage() {
 
           <div className="flex items-center space-x-3.5">
             <a
-              href="https://github.com/Pynthamil"
+              href="https://github.com/Pynthamil/kivo.git"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => playTone(880)}
@@ -188,12 +188,8 @@ export default function MessagingProjectPage() {
             </div>
             
             <div className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
-              <div className="w-full p-8 sm:p-12 md:p-16 rounded-sm overflow-hidden flex items-center justify-center shadow-[inset_0_0_100px_rgba(0,0,0,0.2)]"
-                style={{ backgroundImage: 'url(/saas_bg3.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div className="w-full h-[300px] sm:h-[400px] overflow-hidden rounded-md shadow-[0_10px_30px_rgba(0,0,0,0.4)] border border-white/20 bg-black/40 backdrop-blur-sm flex flex-col items-center justify-center gap-4">
-                    <MessageSquare className="w-16 h-16 text-white opacity-90" strokeWidth={1.5} />
-                    <span className="text-white opacity-90 font-mono text-sm tracking-widest uppercase">Kivo Platform</span>
-                </div>
+              <div className="w-full h-[300px] sm:h-[400px] rounded-sm overflow-hidden flex flex-col items-center justify-center bg-[#E4FFC1] dark:bg-[#00BF63] shadow-[inset_0_0_100px_rgba(0,0,0,0.05)] gap-4">
+                  <span className="text-[#13151E] dark:text-white opacity-90 font-mono text-sm sm:text-base tracking-widest uppercase font-semibold">Kivo Platform</span>
               </div>
             </div>
           </div>
@@ -213,6 +209,13 @@ export default function MessagingProjectPage() {
               </p>
             </div>
             
+            <div className="pt-2 pb-2 flex">
+              <a href="#solution" className="inline-flex items-center gap-2 font-mono text-[13px] sm:text-[14px] px-4 py-2 bg-[#13151E] dark:bg-[#F2F2F2] text-white dark:text-[#13151E] hover:bg-[#2C2C2C] dark:hover:bg-neutral-300 transition-all rounded-sm shadow-sm group">
+                Jump to Solution
+                <span className="group-hover:translate-y-0.5 transition-transform">&darr;</span>
+              </a>
+            </div>
+
             {/* WIP BANNER */}
             <div className="w-full mt-4 mb-8 p-5 sm:p-6 border border-dashed border-[#00BF63]/40 dark:border-[#E4FFC1]/40 bg-[#00BF63]/[0.02] dark:bg-[#E4FFC1]/[0.04] rounded-none flex flex-col gap-2.5">
               <Lock className="w-4 h-4 text-[#00BF63] dark:text-[#E4FFC1]" strokeWidth={2.5} />

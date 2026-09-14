@@ -139,6 +139,7 @@ export const portfolioData: PortfolioData = {
       description: "A privacy-first messaging platform built for speed, security, and control.",
       year: "2026",
       link: "/messaging",
+      github: "https://github.com/Pynthamil/kivo.git",
       tags: ["Real-time", "Security", "Distributed Systems"],
       hoverText: "currently building",
       themeColor: "#00BF63",

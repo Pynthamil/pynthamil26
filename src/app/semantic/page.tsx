@@ -13,6 +13,8 @@ import {
   Moon,
   Sun,
   ArrowDown,
+  Figma,
+  ExternalLink
 } from "lucide-react";
 import { ChromaVideo } from "@/components/ChromaVideo";
 import { PersonaShowcase } from "@/components/PersonaShowcase";
@@ -129,9 +131,20 @@ export default function SemanticProjectPage() {
           </Link>
 
           <div className="flex items-center space-x-3.5">
-            <span className="font-mono text-xs sm:text-[13px] text-[#6666FF] dark:text-[#8888FF] font-medium">
-              case study
-            </span>
+            <a
+              href="https://www.figma.com/design/jFmjS9SneDaQNfBDHSOepV/mote?node-id=1-3&t=u4M4Lf67dlZ5hgzu-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.05] dark:bg-[#8888FF]/[0.08] hover:bg-[#6666FF]/[0.1] dark:hover:bg-[#8888FF]/[0.15] cursor-pointer group select-none transition-colors"
+              title="View Design in Figma"
+            >
+              <span className="font-mono text-xs sm:text-[13px] text-[#6666FF] dark:text-[#8888FF] font-medium tracking-tight">
+                figma
+              </span>
+              <div className="text-[#6666FF] dark:text-[#8888FF] flex items-center opacity-75 group-hover:opacity-100 transition-opacity">
+                <Figma className="w-3.5 h-3.5" strokeWidth={2.5} />
+              </div>
+            </a>
             <button
               onClick={toggleTheme}
               aria-label="Toggle dark mode"
@@ -237,6 +250,15 @@ export default function SemanticProjectPage() {
                   <span>Jump to Solution</span>
                   <ArrowDown className="w-4 h-4" />
                 </button>
+                <a
+                  href="https://www.figma.com/design/jFmjS9SneDaQNfBDHSOepV/mote?node-id=1-3&t=u4M4Lf67dlZ5hgzu-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-sm border border-neutral-300 dark:border-neutral-700 hover:border-[#6666FF] dark:hover:border-[#8888FF] text-[#475569] dark:text-[#CBD5E1] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors font-medium text-[13px] sm:text-sm flex items-center space-x-2"
+                >
+                  <span>View in Figma</span>
+                  <Figma className="w-4 h-4" />
+                </a>
               </div>
             </div>
 

@@ -258,6 +258,12 @@ export default function OrcaProjectPage() {
               </p>
             </div>
 
+            <div className="pt-2 pb-2 flex">
+              <a href="#solution" className="inline-flex items-center gap-2 font-mono text-[13px] sm:text-[14px] px-4 py-2 bg-[#13151E] dark:bg-[#F2F2F2] text-white dark:text-[#13151E] hover:bg-[#2C2C2C] dark:hover:bg-neutral-300 transition-all rounded-sm shadow-sm group">
+                Jump to Solution
+                <span className="group-hover:translate-y-0.5 transition-transform">&darr;</span>
+              </a>
+            </div>
 
             {/* WIP BANNER */}
             <div className="w-full mt-4 mb-8 p-5 sm:p-6 border border-dashed border-[#007FFF]/40 dark:border-[#FFF0F5]/40 bg-[#007FFF]/[0.02] dark:bg-[#FFF0F5]/[0.04] rounded-none flex flex-col gap-2.5">
