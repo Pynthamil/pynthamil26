@@ -241,28 +241,30 @@ export function PortfolioView({
             </div>
 
             {/* Right / Under on Mobile: Navigation Links & Dark Mode Toggle */}
-            <nav className="flex items-center space-x-4 sm:space-x-5 text-[15.5px] sm:text-[16.5px] font-medium sm:pt-1">
-              
-              <button
-                onClick={() => handleNavClick("about")}
-                className={`transition-colors cursor-pointer select-none ${
-                  viewMode === "about"
-                    ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
-                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
-                }`}
-              >
-                About
-              </button>
-              <button
-                onClick={() => handleNavClick("blog")}
-                className={`transition-colors cursor-pointer select-none ${
-                  viewMode === "blog"
-                    ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
-                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
-                }`}
-              >
-                Blog
-              </button>
+            <div className="flex items-center justify-between w-full">
+              <nav className="flex items-center space-x-4 sm:space-x-5 text-[15.5px] sm:text-[16.5px] font-medium sm:pt-1">
+                
+                <button
+                  onClick={() => handleNavClick("about")}
+                  className={`transition-colors cursor-pointer select-none ${
+                    viewMode === "about"
+                      ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
+                      : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
+                  }`}
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => handleNavClick("blog")}
+                  className={`transition-colors cursor-pointer select-none ${
+                    viewMode === "blog"
+                      ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
+                      : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
+                  }`}
+                >
+                  Blog
+                </button>
+              </nav>
 
               {/* Dark Mode Toggle Button */}
               <button
@@ -276,7 +278,7 @@ export function PortfolioView({
                   <Moon className="w-4 h-4 transition-transform duration-200 hover:-rotate-12" strokeWidth={2} />
                 )}
               </button>
-            </nav>
+            </div>
           </div>
         </header>
 
