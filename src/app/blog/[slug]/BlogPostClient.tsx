@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
@@ -12,6 +12,43 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
   const [soundOn, setSoundOn] = useState<boolean>(true);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
+
+  
+  // Table of Contents logic
+  const [headings, setHeadings] = useState<{id: string, text: string}[]>([]);
+  const [activeId, setActiveId] = useState<string>('');
+
+  useEffect(() => {
+    // Find all h2 in the article
+    const article = document.querySelector('article');
+    if (!article) return;
+
+    const elements = Array.from(article.querySelectorAll('h2'));
+    const newHeadings = elements.map((el, index) => {
+      // Give it an ID if it doesn't have one
+      if (!el.id) {
+        el.id = `heading-${index}`;
+      }
+      return {
+        id: el.id,
+        text: el.textContent || ''
+      };
+    });
+    setHeadings(newHeadings);
+
+    // Intersection Observer for highlighting
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveId(entry.target.id);
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' }); // Trigger near the top
+
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [slug]);
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -92,8 +129,31 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
       {/* Soft atmospheric ambient glow */}
       <div className="ambient-glow" />
 
-      {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[560px] animate-in fade-in duration-200">
+      {/* Main Container Wrapper */}
+      <div className="w-full relative z-10 flex flex-row items-start justify-center max-w-[1000px] gap-8 lg:gap-16 mx-auto">
+        
+        {/* Table of Contents Sidebar */}
+        <aside className="hidden lg:block w-[220px] shrink-0 sticky top-24 self-start animate-in fade-in duration-200">
+          <nav className="flex flex-col space-y-3.5 pr-4">
+            {headings.map((h, idx) => (
+              <a 
+                key={h.id} 
+                href={`#${h.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth' });
+                  setActiveId(h.id);
+                }}
+                className={`text-[13px] leading-[1.4] transition-colors block ${activeId === h.id || (idx === 0 && activeId === '') ? 'font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]' : 'text-[#737373] dark:text-[#a3a3a3] hover:text-[#2C2C2C] dark:hover:text-[#F2F2F2]'}`}
+              >
+                {h.text}
+              </a>
+            ))}
+          </nav>
+        </aside>
+
+        {/* Main Content */}
+        <main className="w-full flex-1 max-w-[560px] animate-in fade-in duration-200">
         {/* Top Navigation */}
         <header className="flex items-center justify-between w-full mb-8">
           <Link
@@ -231,7 +291,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               <div className="absolute inset-0 bg-[#1B71D8]" />
               
               {/* CSS noise overlay */}
-              <div className="absolute inset-0 opacity-25 mix-blend-overlay" style={{backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')"}}></div>
+
               {/* Top-Left Corner */}
               <div className="absolute top-0 left-0 flex flex-col pointer-events-none opacity-90 mix-blend-overlay">
                 <div className="flex">
@@ -1056,6 +1116,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
           <div>made w love  &copy; 2026</div>
         </footer>
       </main>
+      </div>
     </div>
   );
 }

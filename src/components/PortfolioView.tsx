@@ -425,7 +425,7 @@ export function PortfolioView({
             )}
 
             {/* Home Footer */}
-            <footer className="pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
+            <footer className="pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-sans text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
               <div>coding is an art and im an artist</div>
               <div>made w love &copy; 2026</div>
             </footer>
@@ -849,7 +849,7 @@ export function PortfolioView({
             />
 
             {/* About Footer */}
-            <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
+            <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-sans text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
               <div>coding is an art and im an artist</div>
               <div>made w love &copy; 2026</div>
             </footer>
@@ -882,7 +882,7 @@ export function PortfolioView({
 
             {/* Blog Posts Clean Architecture */}
             <section>
-              <div className="divide-y divide-neutral-200/70 dark:divide-neutral-400/20">
+              <div>
                 {portfolioData.writings.filter(post => post.title.toLowerCase().includes(blogSearchQuery.toLowerCase())).map((post, idx) => (
                   <div key={idx} className="pb-6 sm:pb-6.5 pt-6 sm:pt-6.5 first:pt-0">
                     <a
@@ -894,7 +894,7 @@ export function PortfolioView({
                         <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
                           {post.title.toLowerCase()}
                         </h2>
-                        <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5">
+                        <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5">
                           {post.date.toLowerCase()}  {post.readingTime.toLowerCase()} read
                         </p>
                       </div>
@@ -906,7 +906,7 @@ export function PortfolioView({
             </section>
 
             {/* Blog Footer */}
-            <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
+            <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-sans text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
               <div>coding is an art and im an artist</div>
               <div>made w love &copy; 2026</div>
             </footer>
