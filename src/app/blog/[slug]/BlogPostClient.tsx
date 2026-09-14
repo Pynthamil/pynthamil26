@@ -93,7 +93,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
       <div className="ambient-glow" />
 
       {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[480px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[560px] animate-in fade-in duration-200">
         {/* Top Navigation */}
         <header className="flex items-center justify-between w-full mb-8">
           <Link

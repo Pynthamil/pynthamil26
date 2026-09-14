@@ -103,7 +103,7 @@ export default function MessagingProjectPage() {
 
       <div className="ambient-glow" />
 
-      <main className="w-full relative z-10 flex flex-col max-w-[480px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[560px] animate-in fade-in duration-200">
         <header className="flex items-center justify-between w-full mb-8">
           <Link
             href="/"

@@ -207,7 +207,7 @@ export function PortfolioView({
       <div className="ambient-glow" />
 
       {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[480px]">
+      <main className="w-full relative z-10 flex flex-col max-w-[560px]">
         {/* Top Header Row */}
         <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-6 sm:mb-6" : "mb-8 sm:mb-10"}`}>
 
@@ -382,8 +382,8 @@ export function PortfolioView({
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-full mb-12 sm:mb-14">
-                <h2 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] mb-3.5 font-semibold">
-                  Work
+                <h2 className="but-head-regular text-[22px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-3.5">
+                  selected works
                 </h2>
                 <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
@@ -439,7 +439,7 @@ export function PortfolioView({
           <div className="flex flex-col space-y-6 sm:space-y-7 animate-in fade-in duration-200">
             {/* Experience Section - first in About */}
             <section id="experience" className="w-full scroll-mt-24">
-              <h2 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] font-semibold mb-4">
+              <h2 className="but-head-regular text-[22px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-4">
                 Experience
               </h2>
               <ul className="flex flex-col font-sans text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
@@ -898,11 +898,7 @@ export function PortfolioView({
                           {post.date.toLowerCase()}  {post.readingTime.toLowerCase()} read
                         </p>
                       </div>
-                      <div>
-                        <span className="font-mono text-[21px] sm:text-[23px] font-medium text-[#475569] dark:text-[#94A3B8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150 select-none leading-none inline-block">
-                          ↗
-                        </span>
-                      </div>
+
                     </a>
                   </div>
                 ))}
