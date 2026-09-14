@@ -457,14 +457,10 @@ export function PortfolioView({
             )}
 
             {/* Experience Section */}
-            <section id="home-experience" className="w-full scroll-mt-24">
-              <h2 className="but-head-regular text-[22px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-1">
+            <section id="home-experience" className="w-full scroll-mt-24 mb-12 sm:mb-14">
+              <h2 className="font-sans text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] mb-3.5 font-semibold">
                 Experience
               </h2>
-              <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 mb-5 flex items-center space-x-1.5">
-                <span className="select-none">└</span>
-                <span>where i've worked</span>
-              </p>
               <ul className="flex flex-col font-sans text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
                 {portfolioData.experiences.map((item) => (
                   <li
@@ -509,9 +505,6 @@ export function PortfolioView({
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-full mb-12 sm:mb-14">
-                <h2 className="font-sans text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] mb-3.5 font-semibold">
-                  selected works
-                </h2>
                 <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
