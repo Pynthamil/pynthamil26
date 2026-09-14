@@ -382,7 +382,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
         </div>
         {/* Table of Contents Sidebar */}
-<aside className="hidden lg:block lg:col-start-1 lg:row-start-2 sticky top-24 self-start animate-in fade-in duration-200 pt-2 justify-self-end pr-8 xl:pr-16 w-full max-w-[240px]">
+<aside className="hidden lg:block lg:col-start-1 lg:row-start-2 sticky top-24 self-start animate-in fade-in duration-200 pt-2 justify-self-end pr-8 xl:pr-12 w-full max-w-[260px]">
           <nav className="flex flex-col space-y-3.5 pr-4">
             {headings.map((h, idx) => (
               <a 
@@ -393,7 +393,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth' });
                   setActiveId(h.id);
                 }}
-                className={`text-[14px] sm:text-[14.5px] leading-[1.6] transition-colors block ${activeId === h.id || (idx === 0 && activeId === '') ? 'font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]' : 'text-[#737373] dark:text-[#a3a3a3] hover:text-[#2C2C2C] dark:hover:text-[#F2F2F2]'}`}
+                className={`text-[13.5px] sm:text-[14px] leading-[1.5] transition-colors block ${activeId === h.id || (idx === 0 && activeId === '') ? 'font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]' : 'text-[#737373] dark:text-[#a3a3a3] hover:text-[#2C2C2C] dark:hover:text-[#F2F2F2]'}`}
               >
                 {h.text}
               </a>
