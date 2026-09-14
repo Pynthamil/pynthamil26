@@ -4,13 +4,20 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Play, Link as LinkIcon, PieChart } from "lucide-react";
 
 export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
   const params = useParams();
   const slug = propSlug || (params?.slug as string);
   const [soundOn, setSoundOn] = useState<boolean>(true);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [isCopied, setIsCopied] = useState<boolean>(false);
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  };
 
   // Sync theme with localStorage or system preference
   useEffect(() => {
@@ -86,7 +93,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
       <div className="ambient-glow" />
 
       {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[540px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[480px] animate-in fade-in duration-200">
         {/* Top Navigation */}
         <header className="flex items-center justify-between w-full mb-8">
           <Link
@@ -99,8 +106,9 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
           </Link>
 
           <div className="flex items-center space-x-3.5">
-            <span className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3]">
-              {post.readingTime.toLowerCase()} read
+            <span className="flex items-center space-x-1.5 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <PieChart className="w-3.5 h-3.5 fill-current" strokeWidth={2} />
+              <span>{post.readingTime.toLowerCase()} read</span>
             </span>
             <button
               onClick={toggleTheme}
@@ -118,15 +126,218 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
         {/* Article Header */}
         <article className="space-y-6">
-          <div className="border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 pb-5">
-            <h1 className="instrument-serif-regular text-[34px] sm:text-[38px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+          <div className="pb-5 text-center">
+            <h1 className="but-head-regular text-[34px] sm:text-[38px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               {post.title.toLowerCase()}
             </h1>
-            <div className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] mt-2.5 flex items-center space-x-2">
+            <div className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] mt-2.5 flex items-center justify-center space-x-2">
               <span>{post.date.toLowerCase()}</span>
-              <span>&bull;</span>
-              <span>pynthamil pavendan</span>
+              <span></span>
+              <span >pynthamil pavendan</span>
             </div>
+          </div>
+
+                    {slug !== 'git-commit-go' && (
+            <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] bg-[#8A51FC] rounded-xl mt-6 mb-4 overflow-hidden">
+              
+              {/* Top-Left Corner */}
+              <div className="absolute top-0 left-0 flex flex-col pointer-events-none opacity-90">
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
+                </div>
+              </div>
+
+              {/* Top-Right Corner */}
+              <div className="absolute top-0 right-0 flex flex-col items-end pointer-events-none opacity-90">
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
+                </div>
+              </div>
+
+              {/* Bottom-Left Corner */}
+              <div className="absolute bottom-0 left-0 flex flex-col pointer-events-none opacity-90">
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
+                </div>
+              </div>
+
+              {/* Bottom-Right Corner */}
+              <div className="absolute bottom-0 right-0 flex flex-col items-end pointer-events-none opacity-90">
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
+                </div>
+              </div>
+
+              {/* Typography centered inside */}
+              <div className="absolute inset-0 flex flex-col items-center justify-between py-10 sm:py-14 pointer-events-none z-10">
+                <div className="text-[12px] sm:text-[14px] font-sans font-medium tracking-wide text-white uppercase">
+                  {post.date}
+                </div>
+                
+                <h1 className="but-head-regular text-[36px] sm:text-[48px] md:text-[56px] leading-tight text-white opacity-100 text-center px-8 max-w-[85%]">
+                  {post.slug.replace(/-/g, ' ')}
+                </h1>
+                
+                <div className="flex items-center space-x-2 text-white">
+                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                  </svg>
+                  <span className="text-[13px] sm:text-[15px] font-sans font-medium tracking-wide">Pynthamil</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+                    {slug === 'git-commit-go' && (
+            <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] rounded-xl mt-6 mb-4 overflow-hidden">
+              {/* Gradient Background */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_center,_#E9DFCA_0%,_#4A9DFF_45%,_#1B71D8_100%)]" />
+              
+              {/* CSS noise overlay */}
+              <div className="absolute inset-0 opacity-25 mix-blend-overlay" style={{backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')"}}></div>
+              {/* Top-Left Corner */}
+              <div className="absolute top-0 left-0 flex flex-col pointer-events-none opacity-90 mix-blend-overlay">
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
+                </div>
+              </div>
+
+              {/* Top-Right Corner */}
+              <div className="absolute top-0 right-0 flex flex-col items-end pointer-events-none opacity-90 mix-blend-overlay">
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
+                </div>
+              </div>
+
+              {/* Bottom-Left Corner */}
+              <div className="absolute bottom-0 left-0 flex flex-col pointer-events-none opacity-90 mix-blend-overlay">
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
+                </div>
+              </div>
+
+              {/* Bottom-Right Corner */}
+              <div className="absolute bottom-0 right-0 flex flex-col items-end pointer-events-none opacity-90 mix-blend-overlay">
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
+                </div>
+                <div className="flex">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
+                </div>
+              </div>
+
+              
+
+
+              {/* Title overlay */}
+              <div className="absolute inset-0 flex flex-col items-center justify-between py-10 sm:py-14 pointer-events-none z-10">
+                <div className="text-[12px] sm:text-[14px] font-sans font-medium tracking-wide text-white uppercase">
+                  {post.date}
+                </div>
+                
+                <h1 className="but-head-regular text-[48px] sm:text-[64px] text-white leading-none tracking-tight text-center px-8 max-w-[90%]">
+                  {post.slug.replace(/-/g, ' ')}
+                </h1>
+                
+                <div className="flex items-center space-x-2 text-white">
+                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                  </svg>
+                  <span className="text-[13px] sm:text-[15px] font-sans font-medium tracking-wide">Pynthamil</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Action Bar */}
+          <div className="flex items-center justify-between py-4 border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 mb-8 text-[14px] sm:text-[15px] font-sans">
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              <button className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F7F7F7] dark:bg-[#141415] flex items-center justify-center hover:opacity-80 transition-opacity">
+                <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2C2C2C] dark:text-[#F2F2F2] ml-0.5" fill="currentColor" />
+              </button>
+              <span className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Listen to article</span>
+              <span className="w-px h-4 bg-neutral-200 dark:bg-neutral-800 hidden sm:block"></span>
+              <span className="text-[#525252] dark:text-[#a3a3a3]">{post.voiceTime || post.readingTime}</span>
+            </div>
+            
+            <button 
+              onClick={handleShare}
+              className="flex items-center space-x-2 font-medium text-[#2C2C2C] dark:text-[#F2F2F2] hover:opacity-70 transition-opacity"
+            >
+              <LinkIcon className="w-4 h-4" />
+              <span>{isCopied ? "Copied!" : "Share"}</span>
+            </button>
           </div>
 
           {/* =========================================================
@@ -172,9 +383,12 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </p>
               </div>
 
-              {/* What is GitHub REST API */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              {/* THE CONCEPT */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  THE CONCEPT
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   What is the GitHub REST API?
                 </h2>
                 <p>
@@ -185,19 +399,19 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </p>
                 <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#EAEAF7] dark:bg-[#13151E] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">GET</span>
+                    <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">GET</span>
                     <span>&rarr; retrieve data</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#EAEAF7] dark:bg-[#13151E] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">POST</span>
+                    <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">POST</span>
                     <span>&rarr; create data</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#EAEAF7] dark:bg-[#13151E] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">PATCH</span>
+                    <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">PATCH</span>
                     <span>&rarr; update data</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#EAEAF7] dark:bg-[#13151E] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">DELETE</span>
+                    <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">DELETE</span>
                     <span>&rarr; remove data</span>
                   </li>
                 </ul>
@@ -206,10 +420,13 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </p>
               </div>
 
-              {/* Step 1 */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Step 1 &mdash; Choose an endpoint
+              {/* THE ENDPOINT */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  STEP 1
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Choose an endpoint
                 </h2>
                 <p>
                   GitHub provides many API endpoints depending on what you want to do.
@@ -217,7 +434,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">
                   Example endpoint for repositories:
                 </p>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all">
                   https://api.github.com/user/repos
                 </div>
                 <p>
@@ -252,9 +469,12 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* Step 2 */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Step 2 &mdash; Generate a Personal Access Token (PAT)
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  STEP 2
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Generate a Personal Access Token (PAT)
                 </h2>
                 <p>GitHub requires authentication for most API requests.</p>
                 <p>We generate a Personal Access Token.</p>
@@ -292,7 +512,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     <span>required permissions</span>
                   </li>
                 </ul>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 mt-2">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 mt-2">
                   <div className="text-[#525252] dark:text-[#a3a3a3] font-semibold">Copy the token immediately.</div>
                   <div>GitHub will not show it again.</div>
                   <div className="text-[#525252] dark:text-[#a3a3a3]">Treat it like a password.</div>
@@ -300,47 +520,56 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* Step 3 */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Step 3 &mdash; Send request using Postman
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  STEP 3
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Send request using Postman
                 </h2>
                 <p>Postman helps test API requests easily.</p>
                 <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">Example GET request:</p>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all">
                   https://api.github.com/user/repos
                 </div>
                 <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">Add Authorization header:</p>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all leading-relaxed">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all leading-relaxed">
                   Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN
                 </div>
                 <p>Send request. GitHub returns data in JSON format.</p>
               </div>
 
               {/* Example create repo */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Example &mdash; create repository via API
                 </h2>
                 <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">POST request:</p>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 overflow-x-auto leading-relaxed">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 overflow-x-auto leading-relaxed">
                   <div>curl -X POST https://api.github.com/user/repos \</div>
                   <div className="pl-4">-H &quot;Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN&quot; \</div>
                   <div className="pl-4">-H &quot;Accept: application/vnd.github+json&quot; \</div>
                   <div className="pl-4">-d &apos;{`{"name":"my-new-repo","private":false}`}&apos;</div>
                 </div>
                 <ul className="space-y-1 pl-1 text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">
-                  <li>&bull; Replace YOUR_PERSONAL_ACCESS_TOKEN with your token.</li>
-                  <li>&bull; Replace my-new-repo with repository name.</li>
+                  <li> Replace YOUR_PERSONAL_ACCESS_TOKEN with your token.</li>
+                  <li> Replace my-new-repo with repository name.</li>
                 </ul>
               </div>
 
               {/* Example response */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Example response
                 </h2>
                 <p>GitHub responds with structured JSON data:</p>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 overflow-x-auto leading-relaxed">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 overflow-x-auto leading-relaxed">
                   <div>{`{`}</div>
                   <div className="pl-4">{`"name": "my-new-repo",`}</div>
                   <div className="pl-4">{`"private": false,`}</div>
@@ -355,8 +584,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* Why learn GitHub API */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Why learn GitHub API?
                 </h2>
                 <p>Understanding the API allows you to:</p>
@@ -389,11 +621,14 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* Mental model */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Mental model
                 </h2>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2 leading-relaxed">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2 leading-relaxed">
                   <div><span className="font-semibold text-[#525252] dark:text-[#a3a3a3]">Git CLI</span> &rarr; manage code locally</div>
                   <div><span className="font-semibold text-[#525252] dark:text-[#a3a3a3]">GitHub UI</span> &rarr; manage repos visually</div>
                   <div><span className="font-semibold text-[#525252] dark:text-[#a3a3a3]">GitHub API</span> &rarr; manage everything programmatically</div>
@@ -401,8 +636,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* If you're just starting */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   If you&apos;re just starting
                 </h2>
                 <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">Focus on understanding:</p>
@@ -436,10 +674,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               <div className="space-y-4">
                 <p>At first, Git might seem very scary and daunting.</p>
                 <p>
-                  You see words like <span className="font-mono text-xs sm:text-[13px] bg-[#EAEAF7] dark:bg-[#13151E] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">commit</span>,{" "}
-                  <span className="font-mono text-xs sm:text-[13px] bg-[#EAEAF7] dark:bg-[#13151E] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">branch</span>,{" "}
-                  <span className="font-mono text-xs sm:text-[13px] bg-[#EAEAF7] dark:bg-[#13151E] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">merge</span>,{" "}
-                  <span className="font-mono text-xs sm:text-[13px] bg-[#EAEAF7] dark:bg-[#13151E] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">rebase</span>… and suddenly you&apos;re scared to even touch the keyboard.
+                  You see words like <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">commit</span>,{" "}
+                  <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">branch</span>,{" "}
+                  <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">merge</span>,{" "}
+                  <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">rebase</span>… and suddenly you&apos;re scared to even touch the keyboard.
                 </p>
                 <p>
                   But once it clicks, everything falls into place like the pieces of a puzzle you&apos;ve been spending your time trying to solve.
@@ -456,8 +694,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* Section 1 */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   What even is a commit?
                 </h2>
                 <p>A commit is basically a saved checkpoint of your project.</p>
@@ -497,11 +738,14 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* Section 2 */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Basic Commands (tiny cheat sheet)
                 </h2>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 leading-relaxed">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 leading-relaxed">
                   <div>git init</div>
                   <div>git add .</div>
                   <div>git commit -m &quot;message&quot;</div>
@@ -511,9 +755,12 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* Step 1 */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Step 1 &mdash; Initialize the repository
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  STEP 1
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Initialize the repository
                 </h2>
                 <p>
                   First, I start by initializing the project repository that I’m working on, on my local device.
@@ -524,15 +771,18 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <div className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] py-1">
                   Project Repository &rarr; Git Repository
                 </div>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   git init
                 </div>
               </div>
 
               {/* Step 2 */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Step 2 &mdash; Stage the files
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  STEP 2
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Stage the files
                 </h2>
                 <p>
                   Next, I stage the files whose changes I want Git to track.
@@ -543,7 +793,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <div className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] py-1">
                   Changed/New Files &rarr; staged files for tracking new changes &rarr; changes now tracked
                 </div>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5">
                   <div>git add .</div>
                   <div className="text-[#2C2C2C]/50 dark:text-[#F2F2F2]/50 text-xs pt-1">// or specific files</div>
                   <div>git add index.js</div>
@@ -551,9 +801,12 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* Step 3 */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Step 3 &mdash; Write meaningful commit messages
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  STEP 3
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Write meaningful commit messages
                 </h2>
                 <p>
                   Now I write a clean, clear, and concise commit message to make a note of what changes I made.
@@ -562,7 +815,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   Good commit messages help both present-you and future-you understand what happened.
                 </p>
                 <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">Examples:</p>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] space-y-1.5 text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] space-y-1.5 text-[#2C2C2C] dark:text-[#F2F2F2]">
                   <div>feat: add profile picture upload</div>
                   <div>fix: correct typo in navbar</div>
                   <div>chore: update dependencies</div>
@@ -582,15 +835,18 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     <span>&rarr; changes that don&apos;t affect the app behaviour directly (configs, dependencies, build tasks)</span>
                   </li>
                 </ul>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] mt-2">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] mt-2">
                   git commit -m &quot;feat: add search bar&quot;
                 </div>
               </div>
 
               {/* Step 4 */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Step 4 &mdash; Push changes to GitHub
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  STEP 4
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Push changes to GitHub
                 </h2>
                 <p>
                   After writing a good commit message, I push the changes to the main branch.
@@ -598,7 +854,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   This uploads the local changes to the remote repository (GitHub).
                 </p>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   git push origin main
                 </div>
                 <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90">
@@ -607,8 +863,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* GitHub Repo Creation */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Creating a repository on GitHub
                 </h2>
                 <p>If you don&apos;t already have a repo:</p>
@@ -634,8 +893,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* Pull Requests */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Working in collaborative environments (pull requests)
                 </h2>
                 <p>
@@ -648,8 +910,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* Always sync */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Always sync before starting work
                 </h2>
                 <p>
@@ -661,17 +926,20 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p className="text-[#2C2C2C] dark:text-[#F2F2F2]">
                   And then I wish myself good luck… because I will definitely be needing it and probably 10 years of life span 🤡
                 </p>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   git pull origin main
                 </div>
               </div>
 
               {/* Quick summary workflow */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-4">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Quick summary workflow
                 </h2>
-                <div className="bg-[#EAEAF7] dark:bg-[#13151E] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2 leading-relaxed">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2 leading-relaxed">
                   <div>git init</div>
                   <div>git add .</div>
                   <div>git commit -m &quot;I&apos;m so done&quot;</div>
@@ -683,8 +951,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
 
               {/* Helpful learning resources */}
-              <div className="pt-6 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <h2 className="text-[19px] sm:text-[20px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  SECTION
+                </span>
+                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Helpful learning resources
                 </h2>
 
@@ -782,7 +1053,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
         {/* Standard Footer */}
         <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-xs sm:text-[13px] text-[#64748B] dark:text-[#8E95B8]">
           <div>coding is an art and im an artist</div>
-          <div>made w love &bull; &copy; 2026</div>
+          <div>made w love  &copy; 2026</div>
         </footer>
       </main>
     </div>

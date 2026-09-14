@@ -151,7 +151,7 @@ export function PersonaShowcase({ playTone }: PersonaShowcaseProps) {
             className="fixed inset-0 bg-neutral-900/70 backdrop-blur-sm transition-opacity"
             onClick={() => setIsZoomOpen(false)}
           />
-          <div className="relative z-10 max-w-2xl w-full max-h-[90vh] bg-[#F2F2F2] dark:bg-[#0B0C0F] border border-[#2C2C2C]/20 dark:border-[#a3a3a3]/30 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+          <div className="relative z-10 max-w-2xl w-full max-h-[90vh] bg-[#F7F7F7] dark:bg-[#141415] border border-[#2C2C2C]/20 dark:border-[#a3a3a3]/30 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150">
             <div className="flex items-center justify-between px-4 py-3 border-b border-[#2C2C2C]/10 dark:border-[#a3a3a3]/20">
               <span className="font-mono text-xs font-semibold text-[#525252] dark:text-[#a3a3a3]">
                 {currentPersona.title} &bull; Full View

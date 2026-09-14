@@ -116,7 +116,7 @@ export function ProjectSidebar({ sections, playTone }: ProjectSidebarProps) {
               : "opacity-0 scale-95 pointer-events-none translate-x-2 absolute right-0"
           }`}
         >
-          <div className="bg-white/95 dark:bg-[#13151E]/95 backdrop-blur-md border border-neutral-200/90 dark:border-neutral-800 rounded-2xl p-2 shadow-[0_12px_36px_rgba(0,0,0,0.12)] dark:shadow-[0_12px_36px_rgba(0,0,0,0.6)] min-w-[190px] max-w-[240px] flex flex-col gap-1">
+          <div className="bg-white/95 dark:bg-[#141415]/95 backdrop-blur-md border border-neutral-200/90 dark:border-neutral-800 rounded-2xl p-2 shadow-[0_12px_36px_rgba(0,0,0,0.12)] dark:shadow-[0_12px_36px_rgba(0,0,0,0.6)] min-w-[190px] max-w-[240px] flex flex-col gap-1">
             {sections.map((section) => {
               const isActive = activeId === section.id;
               return (

@@ -118,7 +118,7 @@ export default function SemanticProjectPage() {
       <div className="ambient-glow" />
 
       {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[540px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[480px] animate-in fade-in duration-200">
         {/* Top Navigation */}
         <header className="flex items-center justify-between w-full mb-8">
           <Link
@@ -162,7 +162,7 @@ export default function SemanticProjectPage() {
         {/* Article / Case Study Header */}
         <article className="space-y-6">
           <div className="pb-2 space-y-3">
-            <h1 className="instrument-serif-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+            <h1 className="but-head-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               Semantic Email Copilot
             </h1>
             <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
@@ -245,7 +245,7 @@ export default function SemanticProjectPage() {
                     playTone(880);
                     document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="px-4 py-2 rounded-sm bg-[#13151E] dark:bg-white text-white dark:text-[#13151E] hover:bg-[#2C2C2C] dark:hover:bg-neutral-200 transition-colors font-medium text-[13px] sm:text-sm shadow-sm flex items-center space-x-2"
+                  className="px-4 py-2 rounded-sm bg-[#141415] dark:bg-white text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-200 transition-colors font-medium text-[13px] sm:text-sm shadow-sm flex items-center space-x-2"
                 >
                   <span>Jump to Solution</span>
                   <ArrowDown className="w-4 h-4" />
@@ -286,7 +286,7 @@ export default function SemanticProjectPage() {
                   {painPoints.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#8888FF]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#6666FF] dark:hover:border-[#8888FF] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                      className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#8888FF]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#6666FF] dark:hover:border-[#8888FF] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
                     >
                       <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#6666FF]/10 flex items-center justify-center">
                         {item.icon}

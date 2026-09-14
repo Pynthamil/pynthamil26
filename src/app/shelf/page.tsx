@@ -107,7 +107,7 @@ export default function ShelfProjectPage() {
       <div className="ambient-glow" />
 
       {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[540px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[480px] animate-in fade-in duration-200">
         {/* Top Navigation */}
         <header className="flex items-center justify-between w-full mb-8">
           <Link
@@ -140,7 +140,7 @@ export default function ShelfProjectPage() {
         {/* Article / Case Study Header */}
         <article className="space-y-6">
           <div className="pb-2 space-y-3">
-            <h1 className="instrument-serif-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+            <h1 className="but-head-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               Shelf
             </h1>
             <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
@@ -231,7 +231,7 @@ export default function ShelfProjectPage() {
                   {painPoints.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#a3a3a3]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#FFA134] dark:hover:border-[#FFA134] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                      className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#a3a3a3]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#FFA134] dark:hover:border-[#FFA134] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
                     >
                       <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#FFA134]/10 flex items-center justify-center">
                         {item.icon}
@@ -268,7 +268,7 @@ export default function ShelfProjectPage() {
               </div>
 
               {/* Gray Empty Box (Placeholder for Process Image) */}
-              <div className="w-full h-56 sm:h-72 my-3 rounded-sm border border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/70 dark:bg-[#13151E]/50 shadow-[0_1px_2px_rgba(0,0,0,0.01)]" />
+              <div className="w-full h-56 sm:h-72 my-3 rounded-sm border border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/70 dark:bg-[#141415]/50 shadow-[0_1px_2px_rgba(0,0,0,0.01)]" />
             </div>
 
             {/* Takeaways Section (Matching Reference) */}

@@ -108,7 +108,7 @@ export default function OrcaProjectPage() {
 
       <div className="ambient-glow" />
 
-      <main className="w-full relative z-10 flex flex-col max-w-[540px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[480px] animate-in fade-in duration-200">
         <header className="flex items-center justify-between w-full mb-8">
           <Link
             href="/"
@@ -125,7 +125,7 @@ export default function OrcaProjectPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => playTone(880)}
-              className="inline-flex items-center space-x-2 px-2.5 py-1.5 sm:py-1 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-[#13151E]/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group cursor-pointer"
+              className="inline-flex items-center space-x-2 px-2.5 py-1.5 sm:py-1 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-[#141415]/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group cursor-pointer"
               title="View Source on GitHub"
             >
               <Github className="w-3.5 h-3.5 text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-[#007FFF] dark:group-hover:text-[#FFF0F5] transition-colors" strokeWidth={2} />
@@ -187,7 +187,7 @@ export default function OrcaProjectPage() {
 
         <article className="space-y-6">
           <div className="pb-2 space-y-4">
-            <h1 className="instrument-serif-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+            <h1 className="but-head-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               orca.ai
             </h1>
             <h3 className="text-[19px] sm:text-[21px] font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -259,7 +259,7 @@ export default function OrcaProjectPage() {
             </div>
 
             <div className="pt-2 pb-2 flex">
-              <a href="#solution" className="inline-flex items-center gap-2 font-mono text-[13px] sm:text-[14px] px-4 py-2 bg-[#13151E] dark:bg-[#F2F2F2] text-white dark:text-[#13151E] hover:bg-[#2C2C2C] dark:hover:bg-neutral-300 transition-all rounded-sm shadow-sm group">
+              <a href="#solution" className="inline-flex items-center gap-2 font-mono text-[13px] sm:text-[14px] px-4 py-2 bg-[#141415] dark:bg-[#F2F2F2] text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-300 transition-all rounded-sm shadow-sm group">
                 Jump to Solution
                 <span className="group-hover:translate-y-0.5 transition-transform">&darr;</span>
               </a>
@@ -289,7 +289,7 @@ export default function OrcaProjectPage() {
                 {painPoints.map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#FFF0F5]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#007FFF] dark:hover:border-[#FFF0F5] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                    className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#FFF0F5]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#007FFF] dark:hover:border-[#FFF0F5] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
                   >
                     <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#007FFF]/10 flex items-center justify-center">
                       {item.icon}
@@ -325,7 +325,7 @@ export default function OrcaProjectPage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                <div className="space-y-3 p-5 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#13151E]">
+                <div className="space-y-3 p-5 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-[#F7F7F7] dark:bg-[#141415]">
                   <h4 className="font-mono text-[13px] font-semibold text-[#ef4444] tracking-wider">BEFORE</h4>
                   <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
                     <li className="pl-1">Search across fragmented sources</li>
@@ -356,7 +356,7 @@ export default function OrcaProjectPage() {
               <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed border-l-2 border-[#007FFF]/30 dark:border-[#FFF0F5]/30 pl-4 py-1 my-4">
                 ORCA transforms natural-language questions into concise, source-backed responses by combining semantic retrieval with Gemini-powered synthesis and citation grounding.
               </p>
-              <div className="py-6 flex justify-center items-center w-full bg-neutral-50 dark:bg-[#13151E] border border-neutral-200 dark:border-neutral-800 rounded-sm">
+              <div className="py-6 flex justify-center items-center w-full bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-sm">
                 <span className="font-mono text-[12px] sm:text-sm font-semibold tracking-wider text-[#007FFF] dark:text-[#FFF0F5] text-center px-4">
                   QUESTION &rarr; RETRIEVE &rarr; SYNTHESIZE &rarr; CITE
                 </span>
@@ -369,7 +369,7 @@ export default function OrcaProjectPage() {
                 Connecting <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">retrieval, LLM reasoning, and citation grounding</span> into a single research workflow.
               </h3>
               
-              <div className="p-6 bg-neutral-50 dark:bg-[#13151E] border border-neutral-200 dark:border-neutral-800 rounded-sm font-mono text-[13px] sm:text-sm text-center space-y-3 mt-4">
+              <div className="p-6 bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-sm font-mono text-[13px] sm:text-sm text-center space-y-3 mt-4">
                 <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Research Question</div>
                 <div className="text-[#007FFF] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Query Processing</div>
@@ -407,7 +407,7 @@ export default function OrcaProjectPage() {
                 </h3>
               </div>
               
-              <div className="bg-neutral-50 dark:bg-[#13151E] border border-neutral-200 dark:border-neutral-800 p-5 rounded-sm space-y-4 mt-2">
+              <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-sm space-y-4 mt-2">
                 <div className="space-y-1">
                   <div className="font-mono text-xs font-semibold text-[#007FFF] dark:text-[#FFF0F5]">QUESTION</div>
                   <div className="text-[15px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">"How do temperature shifts affect phytoplankton blooms in the North Atlantic?"</div>

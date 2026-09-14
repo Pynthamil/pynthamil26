@@ -24,7 +24,7 @@ export const CalendarSvg: React.FC<{ className?: string }> = ({ className }) => 
 
       {/* Days of Week Header */}
       <g
-        fontFamily="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif"
+        fontFamily="&quot;Google Sans&quot;, sans-serif"
         fontSize="10"
         fontWeight="600"
         fill="#6b7280"

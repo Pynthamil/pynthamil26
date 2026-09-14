@@ -45,11 +45,11 @@ export const Modal: React.FC<ModalProps> = ({
       />
 
       {/* Dialog Box */}
-      <div className="relative w-full max-w-lg bg-white dark:bg-[#13151E] rounded-2xl p-6 sm:p-7 shadow-2xl border border-[#737373]/20 dark:border-[#a3a3a3]/30 z-10 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-lg bg-[#F7F7F7] dark:bg-[#141415] rounded-2xl p-6 sm:p-7 shadow-2xl border border-[#737373]/20 dark:border-[#a3a3a3]/30 z-10 animate-in fade-in zoom-in-95 duration-200">
         <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#737373]/15 dark:border-[#a3a3a3]/20">
           <div className="flex items-center gap-2">
             {badge && (
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-[#EAEAF7] dark:bg-[#a3a3a3]/20 text-[#525252] dark:text-[#F2F2F2]">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-[#F7F7F7] dark:bg-[#a3a3a3]/20 text-[#525252] dark:text-[#F2F2F2]">
                 {badge}
               </span>
             )}

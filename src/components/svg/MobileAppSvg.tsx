@@ -82,16 +82,16 @@ export const MobileAppSvg: React.FC<{ className?: string }> = ({ className }) =>
         {/* ----------------- Timeline Item 1 ----------------- */}
         <g transform="translate(0, 108)">
           <circle cx="36" cy="0" r="4.5" fill="#ffffff" stroke="#4e5df8" strokeWidth="2" />
-          <text x="50" y="2" fontFamily="Inter, sans-serif" fontSize="10.5" fontWeight="700" fill="#111827">
+          <text x="50" y="2" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="10.5" fontWeight="700" fill="#111827">
             Today
           </text>
-          <text x="50" y="14" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="14" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             Reply back the status
           </text>
-          <text x="50" y="24" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="24" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             update to Company Name
           </text>
-          <text x="50" y="34" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="34" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             by today 5pm
           </text>
         </g>
@@ -99,16 +99,16 @@ export const MobileAppSvg: React.FC<{ className?: string }> = ({ className }) =>
         {/* ----------------- Timeline Item 2 ----------------- */}
         <g transform="translate(0, 160)">
           <circle cx="36" cy="0" r="4.5" fill="#ffffff" stroke="#4e5df8" strokeWidth="2" />
-          <text x="50" y="2" fontFamily="Inter, sans-serif" fontSize="10.5" fontWeight="700" fill="#111827">
+          <text x="50" y="2" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="10.5" fontWeight="700" fill="#111827">
             Today
           </text>
-          <text x="50" y="14" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="14" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             Reply back the status
           </text>
-          <text x="50" y="24" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="24" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             update to Company Name
           </text>
-          <text x="50" y="34" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="34" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             by today 5pm
           </text>
         </g>
@@ -116,16 +116,16 @@ export const MobileAppSvg: React.FC<{ className?: string }> = ({ className }) =>
         {/* ----------------- Timeline Item 3 ----------------- */}
         <g transform="translate(0, 212)">
           <circle cx="36" cy="0" r="4.5" fill="#ffffff" stroke="#4e5df8" strokeWidth="2" />
-          <text x="50" y="2" fontFamily="Inter, sans-serif" fontSize="10.5" fontWeight="700" fill="#111827">
+          <text x="50" y="2" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="10.5" fontWeight="700" fill="#111827">
             Today
           </text>
-          <text x="50" y="14" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="14" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             Reply back the status
           </text>
-          <text x="50" y="24" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="24" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             update to Company Name
           </text>
-          <text x="50" y="34" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="34" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             by today 5pm
           </text>
         </g>
@@ -133,16 +133,16 @@ export const MobileAppSvg: React.FC<{ className?: string }> = ({ className }) =>
         {/* ----------------- Timeline Item 4 ----------------- */}
         <g transform="translate(0, 264)">
           <circle cx="36" cy="0" r="4.5" fill="#ffffff" stroke="#4e5df8" strokeWidth="2" />
-          <text x="50" y="2" fontFamily="Inter, sans-serif" fontSize="10.5" fontWeight="700" fill="#111827">
+          <text x="50" y="2" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="10.5" fontWeight="700" fill="#111827">
             Today
           </text>
-          <text x="50" y="14" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="14" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             Reply back the status
           </text>
-          <text x="50" y="24" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="24" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             update to Company Name
           </text>
-          <text x="50" y="34" fontFamily="Inter, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
+          <text x="50" y="34" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="500" fill="#4b5563">
             by today 5pm
           </text>
         </g>
@@ -163,7 +163,7 @@ export const MobileAppSvg: React.FC<{ className?: string }> = ({ className }) =>
           <text
             x="14"
             y="17"
-            fontFamily="Inter, sans-serif"
+            fontFamily="&quot;Google Sans&quot;, sans-serif"
             fontSize="8.5"
             fontWeight="500"
             fill="#6b7280"

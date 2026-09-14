@@ -103,7 +103,7 @@ export default function MessagingProjectPage() {
 
       <div className="ambient-glow" />
 
-      <main className="w-full relative z-10 flex flex-col max-w-[540px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[480px] animate-in fade-in duration-200">
         <header className="flex items-center justify-between w-full mb-8">
           <Link
             href="/"
@@ -145,7 +145,7 @@ export default function MessagingProjectPage() {
 
         <article className="space-y-6">
           <div className="pb-2 space-y-4">
-            <h1 className="instrument-serif-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+            <h1 className="but-head-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               Kivo
             </h1>
             <h3 className="text-[19px] sm:text-[21px] font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -225,16 +225,27 @@ export default function MessagingProjectPage() {
             </div>
 
             {/* THE PROBLEM */}
-            <div id="problem" className="space-y-5 scroll-mt-20 pt-8">
-              <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
-                THE PROBLEM
-              </span>
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                Messaging is convenient, but privacy often comes with trade-offs.
-              </h3>
-              <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed border-l-2 border-[#00BF63]/30 dark:border-[#E4FFC1]/30 pl-4 py-1 my-4">
-                Modern messaging apps make communication effortless, but users are often identified through phone numbers, surrounded by unnecessary data collection, and dependent on infrastructure where privacy and convenience aren't always designed together.
-              </p>
+            <div id="problem" className="scroll-mt-20 pt-8 mb-4">
+              <div className="bg-[#1C1C1E] border border-[#2D2D2F] rounded-lg p-6 sm:p-8 shadow-xl">
+                <div className="flex items-center space-x-2.5 mb-6">
+                  <div className="w-5 h-5 rounded-sm bg-white grid grid-cols-2 gap-[1px] p-[2px]">
+                    <div className="bg-[#1C1C1E] rounded-full" />
+                    <div className="bg-[#1C1C1E] rounded-full" />
+                    <div className="bg-[#1C1C1E] rounded-full" />
+                    <div className="bg-[#1C1C1E] rounded-full" />
+                  </div>
+                  <span className="font-sans font-medium text-white text-[17px] tracking-tight">Kivo</span>
+                </div>
+                
+                <p className="text-[17px] sm:text-[19px] text-[#F2F2F2] leading-relaxed font-normal mb-8">
+                  “Messaging is convenient, but privacy often comes with trade-offs. Modern messaging apps make communication effortless, but users are often identified through phone numbers, surrounded by unnecessary data collection, and dependent on infrastructure where privacy and convenience aren't always designed together.”
+                </p>
+                
+                <div className="text-[14px] text-[#878787] font-sans">
+                  Pynthamil Pavendan, Creator, Kivo
+                </div>
+              </div>
+            
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2">
                 {painPoints.map((item, idx) => (

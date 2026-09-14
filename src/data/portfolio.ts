@@ -34,6 +34,7 @@ export interface Post {
   title: string;
   date: string;
   readingTime: string;
+  voiceTime?: string;
   description: string;
   slug: string;
   content?: string[];
@@ -101,7 +102,7 @@ export const portfolioData: PortfolioData = {
   navItems: [
     { id: "all", label: "ALL" },
     { id: "experience", label: "EXPERIENCE" },
-    { id: "projects", label: "PROJECTS" },
+    { id: "projects", label: "WORK" },
     { id: "writing", label: "WRITING" },
     { id: "about", label: "ABOUT" },
   ],
@@ -149,16 +150,20 @@ export const portfolioData: PortfolioData = {
   ],
   writings: [
     {
+      id: "git-commit-go",
       title: "Git Commit Go",
       date: "SEP 12, 2026",
       readingTime: "4 MIN",
+      voiceTime: "4:06",
       description: "At some point, just committing code isn’t enough. Learn how to interact with GitHub programmatically via the REST API.",
       slug: "git-commit-go",
     },
     {
+      id: "art-of-committing",
       title: "The Art of Committing",
       date: "SEP 5, 2026",
       readingTime: "3 MIN",
+      voiceTime: "3:14",
       description: "Version control isn’t just about saving code — it’s about telling the story of how your ideas evolve. Tiny commits. Big growth.",
       slug: "art-of-committing",
     },
