@@ -439,9 +439,12 @@ export function PortfolioView({
           <div className="flex flex-col space-y-6 sm:space-y-7 animate-in fade-in duration-200">
             {/* Experience Section - first in About */}
             <section id="experience" className="w-full scroll-mt-24">
-              <h2 className="but-head-regular text-[22px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-4">
+              <h2 className="but-head-regular text-[22px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-1">
                 Experience
               </h2>
+              <p className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] mb-5">
+                where i've worked
+              </p>
               <ul className="flex flex-col font-sans text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
                 {portfolioData.experiences.map((item) => (
                   <li
