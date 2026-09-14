@@ -296,7 +296,7 @@ export function PortfolioView({
               <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-[1.85]">
                 currently an <span className="bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] px-1.5 py-0.5 rounded-[5px] font-medium">engineering intern</span> at{" "}
                 <span className="inline-flex items-center px-1.5 py-0.5 mx-0.5 rounded-[5px] bg-[#E8F4F8] dark:bg-[#1E3A4A] align-text-bottom" style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "0.9em", fontStyle: "normal", color: "#2C6E8A" }}>plue</span>
-                {", "}democratizing learning by making a world where humans can learn on their own terms. also learning how to make minimal interfaces fascinating and not so boring.
+                {", "}democratizing learning by making a world where humans can learn on their own terms.
               </p>
 
               <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
@@ -384,7 +384,7 @@ export function PortfolioView({
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-full mb-12 sm:mb-14">
-                <h2 className="but-head-regular text-[22px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-3.5">
+                <h2 className="font-sans text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] mb-3.5 font-semibold">
                   selected works
                 </h2>
                 <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
@@ -625,7 +625,7 @@ export function PortfolioView({
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
+                  <h2 id="fun-facts" className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
                     fun facts about me
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
@@ -687,7 +687,7 @@ export function PortfolioView({
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
+                  <h2 id="currently-learning" className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
                     what i am currently learning
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
@@ -733,7 +733,7 @@ export function PortfolioView({
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
+                  <h2 id="touching-grass" className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
                     when i touch grass
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
@@ -839,13 +839,13 @@ export function PortfolioView({
 
             <ProjectSidebar 
               sections={[
+                { id: "experience", label: "Experience" },
                 { id: "meet-the-human", label: "Meet The Human" },
+                { id: "stack", label: "Stack" },
+                { id: "currently-learning", label: "What I Am Currently Learning" },
                 { id: "fun-facts", label: "Fun Facts" },
-                { id: "how-i-learn", label: "How I Learn" },
-                { id: "touching-grass", label: "Touching Grass" },
-                { id: "come-say-hi", label: "Come Say Hi" },
-                { id: "about-my-blog", label: "About My Blog" },
-                { id: "stack", label: "Stack" }
+                { id: "touching-grass", label: "When I Touch Grass" },
+                { id: "about-my-blog", label: "About My Blog" }
               ]} 
               playTone={soundOn ? playClickSound : undefined}
             />
