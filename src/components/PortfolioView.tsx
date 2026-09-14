@@ -220,7 +220,7 @@ export function PortfolioView({
               >
                 <span>{portfolioData.name.toLowerCase()}</span>
                 
-                <span className="flex items-center space-x-1.5 ml-2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <span className="flex items-center space-x-1.5 ml-2 pointer-events-none  transition-opacity duration-200">
                   <img 
                     src="/nova-looking.svg" 
                     alt=""
@@ -404,7 +404,7 @@ export function PortfolioView({
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center flex-1 pr-4">
                             <span 
-                              className="but-head-regular text-[22px] tracking-[0.02em] transition-colors hover:opacity-80 text-[#0F172A] dark:text-[#F2F2F2] italic"
+                              className="but-head-regular text-[22px] tracking-[0.02em] transition-all hover:underline decoration-wavy underline-offset-4 decoration-2 text-[#0F172A] dark:text-[#F2F2F2] italic"
                             >
                               {project.title}
                             </span>
@@ -450,13 +450,9 @@ export function PortfolioView({
                   >
                     <div className="flex items-start justify-between w-full">
                       <div className="flex items-start flex-1 pr-4">
-                        <div className="flex flex-col">
-                          <span className="font-semibold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
-                            {item.role}
-                          </span>
-                          <span className="text-[13.5px] sm:text-[14.5px] text-neutral-600 dark:text-neutral-400 font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
-                            <span className="font-mono text-[#64748B] dark:text-[#8E95B8] select-none">└</span>
-                            <span>{item.company}</span>
+                        <div className="flex flex-col justify-center h-full">
+                          <span className="font-bold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
+                            {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
                           </span>
                         </div>
                       </div>
@@ -501,33 +497,33 @@ export function PortfolioView({
 
               <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>My name is <span className="text-[#2C2C2C] dark:text-[#F2F2F2] but-head-regular text-[20px] sm:text-[21px] underline decoration-wavy decoration-[#00B5B2] underline-offset-4 cursor-default">Pynthamil Pavendan</span>!</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       I&apos;m a student developer who enjoys turning ideas into things people can actually use
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>I like building interfaces that feel simple, fast, and intentional</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       I spend most of my time working with modern web technologies, experimenting with interaction design, and refining the small details that make products feel polished
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       I&apos;m especially interested in how design and engineering come together to create experiences that feel effortless
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       Currently focused on building projects that are useful, visually clean, and quietly memorable
                     </span>
@@ -555,13 +551,13 @@ export function PortfolioView({
 
               <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       Always down to chat about code, design systems, crazy ideas, or good music
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       Drop a line at{" "}
                       <a
@@ -573,7 +569,7 @@ export function PortfolioView({
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       Find me on{" "}
                       <a
@@ -636,41 +632,41 @@ export function PortfolioView({
 
               <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       music taste: a bit of everything &rarr; if it sounds good, I&apos;m listening
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       I love singing and dancing like nobody&apos;s watching (because usually nobody is)
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       introvert... who also loves to yap when the topic is interesting
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>personality type: INTJ</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>I enjoy challenging myself just for the plot</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>I love chess</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>most of my illustrations are inspired by Headspace</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       currently in my final year of college &mdash; slightly terrifying &amp; slightly exciting
                     </span>
@@ -698,25 +694,25 @@ export function PortfolioView({
 
               <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       currently learning how to make things feel simple without making them boring
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       exploring better ways to structure code, design cleaner interfaces, and build products that feel intentional from the first click
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       trying to understand why some digital experiences feel effortless while others feel confusing, even when they do the same thing
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       also learning to be okay with not knowing everything yet and building anyway
                     </span>
@@ -744,19 +740,19 @@ export function PortfolioView({
 
               <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       I love reading books, watching movies, writing, and drawing
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       I&apos;m very curious so I love to constantly explore new things
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       I don&apos;t believe the saying <span className="hover:underline hover:decoration-wavy underline-offset-4 cursor-default">&quot;curiosity kills the cat&quot;</span> &mdash; haha
                     </span>
@@ -784,25 +780,25 @@ export function PortfolioView({
 
               <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       I write about things I&apos;m learning, things I&apos;m building, and things I randomly become obsessed with at 2:17 am
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       sometimes it&apos;s about tech, sometimes design, sometimes a thought that refuses to leave me alone until I write it down
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       it&apos;s less &quot;expert advice&quot; and more &quot;let me see if this idea makes sense outside my head&quot;
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       mostly curiosity. occasionally clarity. always slightly unhinged but in a productive way
                     </span>
@@ -828,7 +824,7 @@ export function PortfolioView({
 
               <div className="mt-4 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans">
                 <div className="flex items-start space-x-2.5">
-                  <span className="font-mono text-[#475569] dark:text-[#94A3B8] select-none pt-0.5">+</span>
+                  <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                   <span>Next.js  Supabase  Python  Figma  Antigravity</span>
                 </div>
               </div>

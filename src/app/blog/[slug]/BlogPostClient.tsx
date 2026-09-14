@@ -129,33 +129,12 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
       {/* Soft atmospheric ambient glow */}
       <div className="ambient-glow" />
 
-      {/* Main Container Wrapper */}
-      <div className="w-full relative z-10 flex flex-row items-start justify-center max-w-[1000px] gap-8 lg:gap-16 mx-auto">
+      {/* Main Container Wrapper - Grid Layout */}
+      <main className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-[220px_minmax(0,560px)] justify-center max-w-[1000px] gap-x-8 lg:gap-x-16 mx-auto">
         
-        {/* Table of Contents Sidebar */}
-        <aside className="hidden lg:block w-[220px] shrink-0 sticky top-24 self-start animate-in fade-in duration-200">
-          <nav className="flex flex-col space-y-3.5 pr-4">
-            {headings.map((h, idx) => (
-              <a 
-                key={h.id} 
-                href={`#${h.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth' });
-                  setActiveId(h.id);
-                }}
-                className={`text-[13px] leading-[1.4] transition-colors block ${activeId === h.id || (idx === 0 && activeId === '') ? 'font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]' : 'text-[#737373] dark:text-[#a3a3a3] hover:text-[#2C2C2C] dark:hover:text-[#F2F2F2]'}`}
-              >
-                {h.text}
-              </a>
-            ))}
-          </nav>
-        </aside>
-
-        {/* Main Content */}
-        <main className="w-full flex-1 max-w-[560px] animate-in fade-in duration-200">
-        {/* Top Navigation */}
-        <header className="flex items-center justify-between w-full mb-8">
+        {/* Header Section (Top Nav, Title, Hero Image, Action Bar) */}
+        <div className="lg:col-start-2 lg:row-start-1 w-full animate-in fade-in duration-200">
+<header className="flex items-center justify-between w-full mb-8">
           <Link
             href="/blog"
             onClick={() => playTone(880)}
@@ -185,7 +164,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
         </header>
 
         {/* Article Header */}
-        <article className="space-y-6">
+        <div className="space-y-6">
           <div className="pb-5 text-center">
             <h1 className="but-head-regular text-[34px] sm:text-[38px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               {post.title.toLowerCase()}
@@ -399,6 +378,32 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               <span>{isCopied ? "Copied!" : "Share"}</span>
             </button>
           </div>
+        </div>
+
+        </div>
+        {/* Table of Contents Sidebar */}
+<aside className="hidden lg:block lg:col-start-1 lg:row-start-2 sticky top-24 self-start animate-in fade-in duration-200 pt-2">
+          <nav className="flex flex-col space-y-3.5 pr-4">
+            {headings.map((h, idx) => (
+              <a 
+                key={h.id} 
+                href={`#${h.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth' });
+                  setActiveId(h.id);
+                }}
+                className={`text-[13px] leading-[1.4] transition-colors block ${activeId === h.id || (idx === 0 && activeId === '') ? 'font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]' : 'text-[#737373] dark:text-[#a3a3a3] hover:text-[#2C2C2C] dark:hover:text-[#F2F2F2]'}`}
+              >
+                {h.text}
+              </a>
+            ))}
+          </nav>
+        </aside>
+
+        {/* Article Text Content */}
+        <article className="lg:col-start-2 lg:row-start-2 w-full animate-in fade-in duration-200">
+
 
           {/* =========================================================
               ARTICLE 1: GIT COMMIT GO
@@ -1097,26 +1102,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               </div>
             </div>
           )}
+        
         </article>
 
-        {/* Return link */}
-        <div className="pt-10 pb-6 border-b border-neutral-200/70 dark:border-[#a3a3a3]/20">
-          <Link
-            href="/blog"
-            onClick={() => playTone(880)}
-            className="font-mono text-[13.5px] sm:text-[14px] text-[#737373] dark:text-[#a3a3a3] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
-          >
-            <span>&larr; back to all writings</span>
-          </Link>
-        </div>
-
-        {/* Standard Footer */}
-        <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-xs sm:text-[13px] text-[#64748B] dark:text-[#8E95B8]">
-          <div>coding is an art and im an artist</div>
-          <div>made w love  &copy; 2026</div>
-        </footer>
       </main>
-      </div>
     </div>
   );
 }
