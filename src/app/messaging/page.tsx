@@ -226,28 +226,7 @@ export default function MessagingProjectPage() {
 
             {/* THE PROBLEM */}
             <div id="problem" className="scroll-mt-20 pt-8 mb-4">
-              <div className="bg-[#1C1C1E] border border-[#2D2D2F] rounded-lg p-6 sm:p-8 shadow-xl">
-                <div className="flex items-center space-x-2.5 mb-6">
-                  <div className="w-5 h-5 rounded-sm bg-white grid grid-cols-2 gap-[1px] p-[2px]">
-                    <div className="bg-[#1C1C1E] rounded-full" />
-                    <div className="bg-[#1C1C1E] rounded-full" />
-                    <div className="bg-[#1C1C1E] rounded-full" />
-                    <div className="bg-[#1C1C1E] rounded-full" />
-                  </div>
-                  <span className="font-sans font-medium text-white text-[17px] tracking-tight">Kivo</span>
-                </div>
-                
-                <p className="text-[17px] sm:text-[19px] text-[#F2F2F2] leading-relaxed font-normal mb-8">
-                  “Messaging is convenient, but privacy often comes with trade-offs. Modern messaging apps make communication effortless, but users are often identified through phone numbers, surrounded by unnecessary data collection, and dependent on infrastructure where privacy and convenience aren't always designed together.”
-                </p>
-                
-                <div className="text-[14px] text-[#878787] font-sans">
-                  Pynthamil Pavendan, Creator, Kivo
-                </div>
-              </div>
-            
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2">
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2">
                 {painPoints.map((item, idx) => (
                   <div
                     key={idx}

@@ -242,14 +242,7 @@ export function PortfolioView({
 
             {/* Right / Under on Mobile: Navigation Links & Dark Mode Toggle */}
             <nav className="flex items-center space-x-4 sm:space-x-5 text-[15.5px] sm:text-[16.5px] font-medium sm:pt-1">
-              {viewMode !== "home" && (
-                <button
-                  onClick={() => handleNavClick("home")}
-                  className="font-mono text-[14px] sm:text-[15px] text-[#475569] dark:text-[#94A3B8] hover:text-[#00B5B2] dark:hover:text-[#00B5B2] hover:underline underline-offset-4 transition-colors cursor-pointer select-none"
-                >
-                  &larr; home
-                </button>
-              )}
+              
               <button
                 onClick={() => handleNavClick("about")}
                 className={`transition-colors cursor-pointer select-none ${
@@ -299,15 +292,9 @@ export function PortfolioView({
               </p>
               
               <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-[1.85]">
-                currently an engineering intern at{" "}
-                <span className="inline-flex items-center justify-center w-[26px] h-[22px] mx-0.5 rounded-[6px] bg-neutral-100 dark:bg-neutral-800 align-text-bottom">
-                  <svg viewBox="0 0 42 42" className="w-[18px] h-[18px] text-black dark:text-white" fill="currentColor">
-                    <path d="M6 14 C6 32 36 32 36 14 C36 12 34 10 32 10 L10 10 C8 10 6 12 6 14 Z" />
-                    <rect x="8" y="8" width="26" height="4" rx="2" />
-                    <circle cx="21" cy="18" r="2.5" className="fill-neutral-100 dark:fill-neutral-800" />
-                  </svg>
-                </span>
-                {", "}democratizing learning by making a world where humans can learn on their own terms. also learning how to make minimal interfaces fascinating and not so <span className="font-semibold">BORING</span>.
+                currently an <span className="bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] px-1.5 py-0.5 rounded-[5px] font-medium">engineering intern</span> at{" "}
+                <span className="inline-flex items-center px-1.5 py-0.5 mx-0.5 rounded-[5px] bg-[#E8F4F8] dark:bg-[#1E3A4A] align-text-bottom" style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "0.9em", fontStyle: "normal", color: "#2C6E8A" }}>plue</span>
+                {", "}democratizing learning by making a world where humans can learn on their own terms. also learning how to make minimal interfaces fascinating and not so boring.
               </p>
 
               <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
@@ -362,7 +349,7 @@ export function PortfolioView({
                   className="inline-flex items-center space-x-2.5 px-3.5 py-2 border border-dashed border-neutral-400 dark:border-neutral-600 rounded-none bg-transparent cursor-pointer group select-none hover:border-neutral-500 dark:hover:border-neutral-500 transition-colors"
                   title="Click to copy email"
                 >
-                  <span className="font-mono text-[14.5px] sm:text-[15.5px] text-neutral-500 dark:text-neutral-400 group-hover:text-[#2C2C2C] dark:group-hover:text-[#F2F2F2] tracking-wide transition-colors">
+                  <span className="font-sans text-[14.5px] sm:text-[15.5px] text-neutral-500 dark:text-neutral-400 group-hover:text-[#2C2C2C] dark:group-hover:text-[#F2F2F2] tracking-wide transition-colors">
                     {portfolioData.email}
                   </span>
                   <div className="text-neutral-500 dark:text-neutral-400 group-hover:text-[#2C2C2C] dark:group-hover:text-[#F2F2F2] flex items-center focus:outline-none transition-colors">
@@ -417,8 +404,7 @@ export function PortfolioView({
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center flex-1 pr-4">
                             <span 
-                              className="but-head-regular text-[22px] tracking-[0.02em] transition-colors hover:opacity-80 text-[#0F172A] dark:text-[#F2F2F2]"
-                              style={{ WebkitTextStroke: "0.75px currentColor" }}
+                              className="but-head-regular text-[22px] tracking-[0.02em] transition-colors hover:opacity-80 text-[#0F172A] dark:text-[#F2F2F2] italic"
                             >
                               {project.title}
                             </span>
@@ -438,57 +424,6 @@ export function PortfolioView({
               </section>
             )}
 
-
-            {/* Experience List Section */}
-            <section className="w-full mb-12 sm:mb-14">
-              <div className="flex items-center justify-between mb-4 pb-2">
-                <h2 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] font-semibold">
-                  Experience
-                </h2>
-              </div>
-              <ul className="flex flex-col font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
-                {portfolioData.experiences.map((item) => (
-                  <li
-                    key={item.id}
-                    className="group flex flex-col py-4 sm:py-5 transition-opacity"
-                  >
-                    <div 
-                      className="flex items-start justify-between w-full select-none"
-                    >
-                      <div className="flex items-start flex-1 pr-4 focus:outline-none">
-                        <div className="flex flex-col">
-                          <span className="font-semibold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em] transition-colors">
-                            {item.role}
-                          </span>
-                          <span className="text-[13.5px] sm:text-[14.5px] text-neutral-600 dark:text-neutral-400 font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
-                            <span className="font-mono text-[#64748B] dark:text-[#8E95B8] select-none">└</span>
-                            <span>{item.company}</span>
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center space-x-3 pt-0.5">
-                        <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap">
-                          {item.period}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {item.bullets && item.bullets.length > 0 && (
-                      <ul className="mt-5 flex flex-col space-y-2.5 text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
-                        {item.bullets.map((bullet, idx) => (
-                          <li key={idx} className="flex items-start gap-2.5">
-                            <span className="text-[#00B5B2] font-mono font-bold mt-0.5 shrink-0">+</span>
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </section>
-
             {/* Home Footer */}
             <footer className="pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
               <div>coding is an art and im an artist</div>
@@ -502,6 +437,50 @@ export function PortfolioView({
            ======================================================== */}
         {viewMode === "about" && (
           <div className="flex flex-col space-y-6 sm:space-y-7 animate-in fade-in duration-200">
+            {/* Experience Section - first in About */}
+            <section id="experience" className="w-full scroll-mt-24">
+              <h2 className="font-mono text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] font-semibold mb-4">
+                Experience
+              </h2>
+              <ul className="flex flex-col font-sans text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
+                {portfolioData.experiences.map((item) => (
+                  <li
+                    key={item.id}
+                    className="group flex flex-col py-4 sm:py-5 border-b border-neutral-100 dark:border-neutral-800 last:border-0"
+                  >
+                    <div className="flex items-start justify-between w-full">
+                      <div className="flex items-start flex-1 pr-4">
+                        <div className="flex flex-col">
+                          <span className="font-semibold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
+                            {item.role}
+                          </span>
+                          <span className="text-[13.5px] sm:text-[14.5px] text-neutral-600 dark:text-neutral-400 font-medium tracking-[0.02em] mt-0.5 flex items-center space-x-1.5">
+                            <span className="font-mono text-[#64748B] dark:text-[#8E95B8] select-none">└</span>
+                            <span>{item.company}</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
+                        {item.period}
+                      </div>
+                    </div>
+                    
+                    {item.bullets && item.bullets.length > 0 && (
+                      <ul className="mt-4 flex flex-col space-y-2.5 text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
+                        {item.bullets.map((bullet, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5">
+                            <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+
             {/* Meet The Human Dropdown Accordion */}
             <div id="meet-the-human" className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5 scroll-mt-24">
               <div

@@ -228,7 +228,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     {slug === 'git-commit-go' && (
             <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] rounded-xl mt-6 mb-4 overflow-hidden">
               {/* Gradient Background */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_center,_#E9DFCA_0%,_#4A9DFF_45%,_#1B71D8_100%)]" />
+              <div className="absolute inset-0 bg-[#1B71D8]" />
               
               {/* CSS noise overlay */}
               <div className="absolute inset-0 opacity-25 mix-blend-overlay" style={{backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')"}}></div>
