@@ -9,9 +9,9 @@ import { Moon, Sun, Copy, Check } from "lucide-react";
 export function PortfolioView({
   initialViewMode = "home",
 }: {
-  initialViewMode?: "home" | "about" | "blog";
+  initialViewMode?: "home" | "projects" | "about" | "blog";
 }) {
-  const [viewMode, setViewMode] = useState<"home" | "about" | "blog">(initialViewMode);
+  const [viewMode, setViewMode] = useState<"home" | "projects" | "about" | "blog">(initialViewMode);
   const [isEmailCopied, setIsEmailCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -192,7 +192,7 @@ export function PortfolioView({
 
   const playClickSound = () => playTone(880);
 
-  const handleNavClick = (mode: "home" | "about" | "blog") => {
+  const handleNavClick = (mode: "home" | "projects" | "about" | "blog") => {
     playClickSound();
     setViewMode(mode);
     const targetUrl = mode === "home" ? "/" : `/${mode}`;
@@ -252,6 +252,16 @@ export function PortfolioView({
             <div className="flex items-center justify-between w-full">
               <nav className="flex items-center space-x-4 sm:space-x-5 text-[15.5px] sm:text-[16.5px] font-medium sm:pt-1">
                 
+                <button
+                  onClick={() => handleNavClick("projects")}
+                  className={`transition-colors cursor-pointer select-none ${
+                    viewMode === "projects"
+                      ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
+                      : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
+                  }`}
+                >
+                  Projects
+                </button>
                 <button
                   onClick={() => handleNavClick("about")}
                   className={`transition-colors cursor-pointer select-none ${
@@ -389,6 +399,15 @@ export function PortfolioView({
               </div>
             </section>
 
+            
+          </div>
+        )}
+
+                {/* ========================================================
+            VIEW: PROJECTS VIEW
+            ======================================================== */}
+        {viewMode === "projects" && (
+          <div className="flex flex-col animate-in fade-in duration-200">
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-full mb-12 sm:mb-14">
@@ -413,11 +432,21 @@ export function PortfolioView({
                       >
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center flex-1 pr-4">
-                            <span 
-                              className="but-head-regular text-[22px] tracking-[0.02em] transition-all hover:underline decoration-wavy underline-offset-4 decoration-2 text-[#0F172A] dark:text-[#F2F2F2] italic"
-                            >
-                              {project.title}
-                            </span>
+                            <div className="flex items-center space-x-3">
+                              <span 
+                                className="but-head-regular text-[22px] tracking-[0.02em] transition-all group-hover:underline decoration-wavy underline-offset-4 decoration-2 text-[#0F172A] dark:text-[#F2F2F2] italic"
+                              >
+                                {project.title}
+                              </span>
+                              {(project.link || project.github) && (
+                                <span className="flex items-center justify-center w-[24px] h-[24px] rounded-full border-[1.5px] border-neutral-300/80 dark:border-neutral-600/80 text-neutral-400 dark:text-neutral-500 group-hover:border-neutral-400 group-hover:text-neutral-500 dark:group-hover:border-neutral-500 transition-colors">
+                                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M7 17L17 7" />
+                                    <path d="M7 7h10v10" />
+                                  </svg>
+                                </span>
+                              )}
+                            </div>
                           </div>
 
                           </div>
@@ -436,7 +465,7 @@ export function PortfolioView({
           </div>
         )}
 
-        {/* ========================================================
+{/* ========================================================
             VIEW 2: ABOUT VIEW
            ======================================================== */}
         {viewMode === "about" && (
@@ -909,9 +938,9 @@ export function PortfolioView({
         <footer className="w-full pt-16 mt-auto flex flex-col items-start gap-5 font-sans text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
           <button 
              onClick={handleCopyEmail}
-             className="flex items-center justify-center space-x-2 px-3 py-1.5 bg-[#EEF2FF] dark:bg-[#312E81]/20 border border-[#818CF8] dark:border-[#4F46E5] text-[#4F46E5] dark:text-[#818CF8] text-[14px] font-medium rounded-[3px] hover:bg-[#E0E7FF] dark:hover:bg-[#312E81]/40 transition-colors focus:outline-none"
+             className="flex items-center justify-center space-x-2 px-3 py-1 bg-[#EEF2FF] dark:bg-[#312E81]/20 border border-[#818CF8] dark:border-[#4F46E5] text-[#4F46E5] dark:text-[#818CF8] text-[14px] font-medium rounded-[3px] hover:bg-[#E0E7FF] dark:hover:bg-[#312E81]/40 transition-colors focus:outline-none"
           >
-             <span>{isEmailCopied ? "copied!" : "email"}</span>
+             <span>{isEmailCopied ? "copied!" : "pavendanpynthamil@gmail.com"}</span>
              {isEmailCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
           </button>
           

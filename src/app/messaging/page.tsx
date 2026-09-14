@@ -208,6 +208,14 @@ export default function MessagingProjectPage() {
                 The platform combines end-to-end encrypted communication with a fast, minimal interface. The project explores how a messaging product can provide the convenience of mainstream chat apps without relying on advertising, invasive tracking, or exposing users’ personal identifiers.
               </p>
             </div>
+
+        {/* WIP BANNER */}
+        <div className="w-full mt-4 mb-8 p-5 sm:p-6 border border-dashed border-[#00BF63]/40 dark:border-[#E4FFC1]/40 bg-[#00BF63]/[0.02] dark:bg-[#E4FFC1]/[0.04] rounded-none flex flex-col gap-2.5">
+          <Lock className="w-4 h-4 text-[#00BF63] dark:text-[#E4FFC1]" strokeWidth={2.5} />
+          <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+            The full case study is still a work in progress. For a more detailed walkthrough beyond this preview, <a href="mailto:pavendanpynthamil@gmail.com" className="text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00BF63] dark:hover:text-[#E4FFC1] underline decoration-wavy underline-offset-[5px] decoration-[#00BF63] dark:decoration-[#E4FFC1] decoration-2 transition-colors">reach out</a> directly!
+          </p>
+        </div>
             
             <div className="pt-2 pb-2 flex">
               <a href="#solution" className="inline-flex items-center gap-2 font-mono text-[13px] sm:text-[14px] px-4 py-2 bg-[#13151E] dark:bg-[#F2F2F2] text-white dark:text-[#13151E] hover:bg-[#2C2C2C] dark:hover:bg-neutral-300 transition-all rounded-sm shadow-sm group">
@@ -228,16 +236,7 @@ export default function MessagingProjectPage() {
                 Modern messaging apps make communication effortless, but users are often identified through phone numbers, surrounded by unnecessary data collection, and dependent on infrastructure where privacy and convenience aren't always designed together.
               </p>
               
-              <div className="pt-4 space-y-3">
-                <h4 className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-[17px]">Pain points</h4>
-                <ul className="list-disc pl-5 space-y-3 text-[16px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#00BF63] dark:marker:text-[#E4FFC1]">
-                  <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Phone-number dependency</strong> — users have to expose a personal identifier to communicate.</li>
-                  <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Privacy vs. convenience</strong> — privacy-focused products can introduce friction or feel less polished.</li>
-                  <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Centralized message handling</strong> — poorly designed systems can expose message content or excessive metadata.</li>
-                  <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Slow or unreliable delivery</strong> — real-time communication becomes complicated when users go offline, reconnect, or use multiple devices.</li>
-                  <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Bloated experiences</strong> — unnecessary features, ads, and tracking compete with the core messaging experience.</li>
-                </ul>
-              </div>
+              
             </div>
 
             {/* WIP BANNER */}
@@ -421,13 +420,7 @@ export default function MessagingProjectPage() {
           </div>
         </article>
         
-        {/* WIP BANNER */}
-        <div className="w-full mt-16 mb-4 p-5 sm:p-6 border border-dashed border-[#00BF63]/40 dark:border-[#E4FFC1]/40 bg-[#00BF63]/[0.02] dark:bg-[#E4FFC1]/[0.04] rounded-none flex flex-col gap-2.5">
-          <Lock className="w-4 h-4 text-[#00BF63] dark:text-[#E4FFC1]" strokeWidth={2.5} />
-          <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-            The full case study is still a work in progress. For a more detailed walkthrough beyond this preview, <a href="mailto:pavendanpynthamil@gmail.com" className="text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00BF63] dark:hover:text-[#E4FFC1] underline decoration-wavy underline-offset-[5px] decoration-[#00BF63] dark:decoration-[#E4FFC1] decoration-2 transition-colors">reach out</a> directly!
-          </p>
-        </div>
+
 
         <div className="pt-16 pb-6 flex items-center justify-between w-full">
           <Link
