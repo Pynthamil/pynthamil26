@@ -909,7 +909,7 @@ export function PortfolioView({
         <footer className="w-full pt-16 mt-auto flex flex-col items-start gap-5 font-sans text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
           <button 
              onClick={handleCopyEmail}
-             className="flex items-center justify-center space-x-2 px-3 py-1.5 bg-[#EEF2FF] dark:bg-[#312E81]/20 border border-[#818CF8] dark:border-[#4F46E5] text-[#4F46E5] dark:text-[#818CF8] text-[14px] font-medium rounded-md hover:bg-[#E0E7FF] dark:hover:bg-[#312E81]/40 transition-colors focus:outline-none"
+             className="flex items-center justify-center space-x-2 px-3 py-1.5 bg-[#EEF2FF] dark:bg-[#312E81]/20 border border-[#818CF8] dark:border-[#4F46E5] text-[#4F46E5] dark:text-[#818CF8] text-[14px] font-medium rounded-[3px] hover:bg-[#E0E7FF] dark:hover:bg-[#312E81]/40 transition-colors focus:outline-none"
           >
              <span>{isEmailCopied ? "copied!" : "email"}</span>
              {isEmailCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
