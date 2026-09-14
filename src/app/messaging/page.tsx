@@ -216,6 +216,30 @@ export default function MessagingProjectPage() {
               </a>
             </div>
 
+            {/* PROBLEM */}
+            <div id="problem" className="space-y-4 scroll-mt-20 pt-10">
+              <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
+                PROBLEM
+              </span>
+              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                Messaging is convenient, but privacy often comes with trade-offs
+              </h3>
+              <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
+                Modern messaging apps make communication effortless, but users are often identified through phone numbers, surrounded by unnecessary data collection, and dependent on infrastructure where privacy and convenience aren't always designed together.
+              </p>
+              
+              <div className="pt-4 space-y-3">
+                <h4 className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-[17px]">Pain points</h4>
+                <ul className="list-disc pl-5 space-y-3 text-[16px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#00BF63] dark:marker:text-[#E4FFC1]">
+                  <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Phone-number dependency</strong> — users have to expose a personal identifier to communicate.</li>
+                  <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Privacy vs. convenience</strong> — privacy-focused products can introduce friction or feel less polished.</li>
+                  <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Centralized message handling</strong> — poorly designed systems can expose message content or excessive metadata.</li>
+                  <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Slow or unreliable delivery</strong> — real-time communication becomes complicated when users go offline, reconnect, or use multiple devices.</li>
+                  <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Bloated experiences</strong> — unnecessary features, ads, and tracking compete with the core messaging experience.</li>
+                </ul>
+              </div>
+            </div>
+
             {/* WIP BANNER */}
             <div className="w-full mt-4 mb-8 p-5 sm:p-6 border border-dashed border-[#00BF63]/40 dark:border-[#E4FFC1]/40 bg-[#00BF63]/[0.02] dark:bg-[#E4FFC1]/[0.04] rounded-none flex flex-col gap-2.5">
               <Lock className="w-4 h-4 text-[#00BF63] dark:text-[#E4FFC1]" strokeWidth={2.5} />
