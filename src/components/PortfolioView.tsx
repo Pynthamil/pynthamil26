@@ -400,6 +400,61 @@ export function PortfolioView({
             </section>
 
             
+          
+            {/* Work Section */}
+            {portfolioData.projects.length > 0 && (
+              <section className="w-full mb-12 sm:mb-14">
+                <h2 className="font-sans text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] mb-3.5 font-semibold">
+                  selected works
+                </h2>
+                <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
+                  {portfolioData.projects.map((project: Project, idx: number) => {
+                    const isInternal = project.link && project.link.startsWith("/");
+                    return (
+                      <li
+                        key={idx}
+                        className="group flex flex-col py-1.5 cursor-dot transition-opacity hover:opacity-90"
+                        onClick={() => {
+                          if (isInternal && project.link) {
+                            playTone(880);
+                            window.location.href = project.link;
+                          } else {
+                            setSelectedProject(project);
+                          }
+                        }}
+                      >
+                        <div className="flex items-center justify-between w-full">
+                          <div className="flex items-center flex-1 pr-4">
+                            <div className="flex items-center space-x-3">
+                              <span 
+                                className="but-head-regular text-[22px] tracking-[0.02em] transition-all group-hover:underline decoration-wavy underline-offset-4 decoration-2 text-[#0F172A] dark:text-[#F2F2F2] italic"
+                              >
+                                {project.title}
+                              </span>
+                              {(project.link || project.github) && (
+                                <span className="flex items-center justify-center w-[24px] h-[24px] rounded-full border-[1.5px] border-neutral-300/80 dark:border-neutral-600/80 text-neutral-400 dark:text-neutral-500 group-hover:border-neutral-400 group-hover:text-neutral-500 dark:group-hover:border-neutral-500 transition-colors">
+                                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M7 17L17 7" />
+                                    <path d="M7 7h10v10" />
+                                  </svg>
+                                </span>
+                              )}
+                            </div>
+                          </div>
+
+                          </div>
+
+                        {project.description && (
+                          <p className="text-[17px] sm:text-[18px] font-sans text-[#475569] dark:text-[#CBD5E1] mt-1.5 leading-relaxed">
+                            {project.description}
+                          </p>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </section>
+            )}
           </div>
         )}
 
