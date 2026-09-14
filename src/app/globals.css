@@ -12,7 +12,7 @@
 }
 
 .dark {
-  --bg-color: #0B0C0F;
+  --bg-color: #0E0E0F;
   --text-main: #F2F2F2;
   --text-muted: #a3a3a3;
   --text-secondary: #F2F2F2;
@@ -22,7 +22,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #0B0C0F;
+    --bg-color: #0E0E0F;
     --text-main: #F2F2F2;
     --text-muted: #a3a3a3;
     --text-secondary: #F2F2F2;

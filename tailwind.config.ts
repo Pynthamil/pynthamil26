@@ -14,7 +14,7 @@ const config: Config = {
           blue: "#802962",
           indigo: "#095F76",
           bg: "#F7F6F4",
-          darkBg: "#0B0C0F",
+          darkBg: "#0E0E0F",
           purple: "#802962",
           purpleDark: "#EBB8D5",
           pink: "#095F76",
