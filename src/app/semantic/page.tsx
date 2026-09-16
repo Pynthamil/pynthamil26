@@ -495,20 +495,8 @@ export default function SemanticProjectPage() {
                   </p>
                 </div>
 
-                {/* Card 2 */}
+                {/* Card 2: Ownership in Ambiguity (Moved from full width to grid) */}
                 <div className="p-5 sm:p-5.5 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.04] dark:bg-[#8888FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#8888FF]/[0.12]">
-                  <div className="p-1.5 rounded-sm bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
-                    <Layers className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
-                  </div>
-                  <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-wider text-[#6666FF] dark:text-[#8888FF] block uppercase">
-                    STRUCTURE OVER NOISE
-                  </span>
-                  <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
-                    Translating verbose threads into structured task cards and deadline highlights drastically reduces cognitive fatigue.
-                  </p>
-                </div>
-                {/* Card 3 (Full Width) */}
-                <div className="p-5 sm:p-5.5 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.04] dark:bg-[#8888FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#8888FF]/[0.12] sm:col-span-2">
                   <div className="p-1.5 rounded-sm bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
                     <Search className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
                   </div>
