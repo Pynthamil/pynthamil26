@@ -243,17 +243,17 @@ export default function OrcaProjectPage() {
             </div>
           </div>
 
-          <div className="space-y-8 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
+          <div className="space-y-8 text-[16px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             
             {/* CONTEXT */}
             <div id="overview" className="space-y-4 scroll-mt-20 pt-6">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                 OVERVIEW
               </span>
-              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Marine science is producing more research than researchers can realistically navigate manually.
               </h3>
-              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
+              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 Marine science generates vast amounts of research across papers, datasets, and observations. As this body of knowledge grows, researchers spend increasingly more time navigating fragmented sources and connecting evidence across them.
               </p>
             </div>
@@ -278,10 +278,10 @@ export default function OrcaProjectPage() {
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                 THE PROBLEM
               </span>
-              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Research is scattered across papers, datasets, and citations, making even simple questions difficult to verify.
               </h3>
-              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
+              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 Researchers spend hours jumping between fragmented scientific sources, tracing citations, and manually checking whether findings actually support a conclusion. The information exists, but the lack of connected, verifiable evidence makes research slow and difficult to trust.
               </p>
 
@@ -319,7 +319,7 @@ export default function OrcaProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                   THE SOLUTION
                 </span>
-                <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   A focused research assistant that lets scientists move from <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">question to evidence-backed answer</span> without leaving the research workflow.
                 </h3>
               </div>
@@ -350,10 +350,10 @@ export default function OrcaProjectPage() {
 
             {/* THE APPROACH */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 I designed ORCA around a simple principle: <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">AI should accelerate scientific research without hiding the evidence behind its answers.</span>
               </h3>
-              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
+              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 ORCA transforms natural-language questions into concise, source-backed responses by combining semantic retrieval with Gemini-powered synthesis and citation grounding.
               </p>
               <div className="py-6 flex justify-center items-center w-full bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-sm">
@@ -365,7 +365,7 @@ export default function OrcaProjectPage() {
 
             {/* BUILDING THE SYSTEM */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Connecting <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">retrieval, LLM reasoning, and citation grounding</span> into a single research workflow.
               </h3>
               
@@ -388,10 +388,10 @@ export default function OrcaProjectPage() {
 
             {/* THE INTERESTING PART */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 The hardest problem wasn't getting Gemini to answer questions - it was <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">making those answers stay grounded in the research behind them.</span>
               </h3>
-              <ul className="list-disc pl-5 space-y-3 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#007FFF] dark:marker:text-[#FFF0F5]">
+              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#007FFF] dark:marker:text-[#FFF0F5]">
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Insufficient evidence:</strong> When the model lacks context, it must gracefully admit gaps rather than hallucinating facts.</li>
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Irrelevant retrieval:</strong> If retrieved sources aren't relevant, the system needs to filter them out before synthesis.</li>
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Claim matching:</strong> Every generated claim must explicitly match its source material.</li>
@@ -402,7 +402,7 @@ export default function OrcaProjectPage() {
             {/* ITERATING ON ORCA */}
             <div className="space-y-5 -mt-4">
               <div className="space-y-4">
-                <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Testing real marine-science questions revealed where retrieval, synthesis, and citation grounding could break down.
                 </h3>
               </div>
@@ -429,17 +429,17 @@ export default function OrcaProjectPage() {
                 </div>
               </div>
               
-              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
+              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
                 <strong className="text-[#2C2C2C] dark:text-[#F2F2F2]">The fix:</strong> Early on, the model would sometimes cite a paper for a claim it didn't actually support. I had to implement a strict secondary verification prompt, forcing Gemini to extract the exact quote from the context chunk before allowing the citation to render.
               </p>
             </div>
 
             {/* WHAT'S NEXT */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Moving ORCA from an MVP research assistant toward a more rigorous scientific research tool.
               </h3>
-              <ul className="list-disc pl-5 space-y-3 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#007FFF] dark:marker:text-[#FFF0F5] pt-2">
+              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#007FFF] dark:marker:text-[#FFF0F5] pt-2">
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Spatial visualization of species migration and ecological patterns</li>
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Direct analysis of acoustic, telemetry, and other scientific datasets</li>
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Collaborative research environments for university teams</li>
@@ -452,7 +452,7 @@ export default function OrcaProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                   TAKEAWAYS
                 </span>
-                <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                   Building ORCA taught me that <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">trustworthy AI is less about the model alone and more about the systems built around it.</span>
                 </h3>
               </div>

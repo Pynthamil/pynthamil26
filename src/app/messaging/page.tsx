@@ -194,17 +194,17 @@ export default function MessagingProjectPage() {
             </div>
           </div>
 
-          <div className="space-y-8 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
+          <div className="space-y-8 text-[16px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             
             {/* OVERVIEW */}
             <div id="overview" className="space-y-4 scroll-mt-20 pt-6">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                 OVERVIEW
               </span>
-              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Built a real-time messaging platform that replaces phone-number-based identity with cryptographic user identities.
               </h3>
-              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
+              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 The platform combines end-to-end encrypted communication with a fast, minimal interface. The project explores how a messaging product can provide the convenience of mainstream chat apps without relying on advertising, invasive tracking, or exposing users’ personal identifiers.
               </p>
             </div>
@@ -223,10 +223,10 @@ export default function MessagingProjectPage() {
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                 PROBLEM
               </span>
-              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Messaging is convenient, but privacy often comes with trade-offs
               </h3>
-              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
+              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
                 Modern messaging apps make communication effortless, but users are often identified through phone numbers, surrounded by unnecessary data collection, and dependent on infrastructure where privacy and convenience aren't always designed together.
               </p>
               
@@ -271,7 +271,7 @@ export default function MessagingProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                   THE SOLUTION
                 </span>
-                <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   A real-time messaging system designed around privacy rather than added as a feature.
                 </h3>
               </div>
@@ -302,7 +302,7 @@ export default function MessagingProjectPage() {
 
             {/* ARCHITECTURE */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Separating <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">real-time delivery from durable message processing.</span>
               </h3>
               
@@ -338,17 +338,17 @@ export default function MessagingProjectPage() {
                        Recipient`}
                 </pre>
               </div>
-              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
+              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 Kafka acts as the event backbone, while Redis handles short-lived state such as presence and PostgreSQL provides durable persistence.
               </p>
             </div>
 
             {/* THE INTERESTING PART */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Making "instant" messaging reliable: <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">a distributed-systems problem.</span>
               </h3>
-              <ul className="list-disc pl-5 space-y-3 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#00BF63] dark:marker:text-[#E4FFC1]">
+              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#00BF63] dark:marker:text-[#E4FFC1]">
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Cryptographic identity:</strong> Users receive a unique messaging identity rather than needing to expose their phone number.</li>
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">End-to-end encryption:</strong> Messages are encrypted on the client before transmission.</li>
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Offline delivery:</strong> Messages aren't lost when a recipient disconnects. They are persisted and delivered when they reconnect.</li>
@@ -359,14 +359,14 @@ export default function MessagingProjectPage() {
             {/* ITERATING */}
             <div className="space-y-5 -mt-4">
               <div className="space-y-4">
-                <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   What went wrong initially: <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">tightly coupled message delivery.</span>
                 </h3>
               </div>
-              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
+              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
                 <strong className="text-[#2C2C2C] dark:text-[#F2F2F2]">The problem:</strong> My first architecture treated the WebSocket server as the central point responsible for receiving, processing, storing, and delivering messages. A WebSocket failure could affect delivery, persistence, and message state simultaneously.
               </p>
-              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
+              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
                 <strong className="text-[#2C2C2C] dark:text-[#F2F2F2]">The fix:</strong> Separated responsibilities: <code>WebSocket &rarr; Kafka &rarr; workers &rarr; persistence / delivery</code>. This made the system more resilient and gave each component a clearer responsibility.
               </p>
             </div>
@@ -377,7 +377,7 @@ export default function MessagingProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                   TAKEAWAYS
                 </span>
-                <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                   How does this remain correct when everything goes wrong?
                 </h3>
               </div>
