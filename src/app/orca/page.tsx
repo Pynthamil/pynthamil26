@@ -134,43 +134,34 @@ export default function OrcaProjectPage() {
               </span>
             </a>
 
-            <div
-              onClick={() => {
-                navigator.clipboard.writeText("https://orca-ai-iota.vercel.app/");
-                setCopiedLink(true);
-                playTone(1046);
-                setTimeout(() => setCopiedLink(false), 2000);
-              }}
-              className="inline-flex items-center space-x-2 px-2.5 py-1 rounded-sm border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.05] dark:bg-[#FFF0F5]/[0.08] hover:bg-[#007FFF]/[0.1] dark:hover:bg-[#FFF0F5]/[0.15] cursor-pointer group select-none transition-colors"
-              title="Click to copy link"
+            <a
+              href="https://orca-ai-iota.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => playTone(1046)}
+              className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-sm border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.05] dark:bg-[#FFF0F5]/[0.08] hover:bg-[#007FFF]/[0.1] dark:hover:bg-[#FFF0F5]/[0.15] cursor-pointer group select-none transition-colors"
+              title="Visit orca.ai"
             >
               <span className="font-mono text-xs sm:text-[13px] text-[#007FFF] dark:text-[#FFF0F5] font-medium tracking-tight">
                 orca.ai
               </span>
               <div className="text-[#007FFF] dark:text-[#FFF0F5] flex items-center focus:outline-none transition-colors">
-                {copiedLink ? (
-                  <span className="text-emerald-500 dark:text-emerald-400 font-mono text-[10.5px] font-medium animate-in fade-in">
-                    copied!
-                  </span>
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12.5"
-                    height="12.5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="opacity-75 group-hover:opacity-100 transition-opacity"
-                  >
-                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-                  </svg>
-                )}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12.5"
+                  height="12.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="opacity-75 group-hover:opacity-100 transition-opacity"
+                >
+                  <path d="M7 17l9.2-9.2M17 17V7H7" />
+                </svg>
               </div>
-            </div>
+            </a>
             <button
               onClick={toggleTheme}
               aria-label="Toggle dark mode"
@@ -347,7 +338,16 @@ export default function OrcaProjectPage() {
                 </div>
               </div>
               
-              <div className="w-[100vw] sm:w-[840px] max-w-[100vw] relative left-1/2 -translate-x-1/2 flex flex-col gap-4 sm:gap-6 pt-10 pb-2 px-4 sm:px-0">
+              <div className="space-y-4 pt-10">
+                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Designing a <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">calm, focused interface</span> for complex scientific data.
+                </h3>
+                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
+                  The visual language emphasizes clarity and minimal distraction, ensuring that dense research material remains accessible and easy to digest.
+                </p>
+              </div>
+
+              <div className="w-[100vw] sm:w-[840px] max-w-[100vw] relative left-1/2 -translate-x-1/2 flex flex-col gap-4 sm:gap-6 pt-6 pb-2 px-4 sm:px-0">
                 <img src="/asset1.svg" alt="Orca Design Interface 1" className="w-full h-auto object-contain drop-shadow-sm rounded-sm" />
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
