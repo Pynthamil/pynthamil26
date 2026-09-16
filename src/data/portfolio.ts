@@ -39,6 +39,7 @@ export interface Post {
   description: string;
   slug: string;
   content?: string[];
+  image?: string;
 }
 
 export interface PlaygroundItem {
@@ -158,6 +159,7 @@ export const portfolioData: PortfolioData = {
       voiceTime: "4:06",
       description: "At some point, just committing code isn’t enough. Learn how to interact with GitHub programmatically via the REST API.",
       slug: "git-commit-go",
+      image: "/git-commit-go.png",
     },
     {
       id: "art-of-committing",
@@ -167,6 +169,7 @@ export const portfolioData: PortfolioData = {
       voiceTime: "3:14",
       description: "Version control isn’t just about saving code — it’s about telling the story of how your ideas evolve. Tiny commits. Big growth.",
       slug: "art-of-committing",
+      image: "/art-of-committing.png",
     },
   ],
   experiences: [

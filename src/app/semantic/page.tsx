@@ -118,7 +118,7 @@ export default function SemanticProjectPage() {
       <div className="ambient-glow" />
 
       {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[560px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[640px] animate-in fade-in duration-200">
         {/* Top Navigation */}
         <header className="flex items-center justify-between w-full mb-8">
           <Link
@@ -162,10 +162,10 @@ export default function SemanticProjectPage() {
         {/* Article / Case Study Header */}
         <article className="space-y-6">
           <div className="pb-2 space-y-3">
-            <h1 className="but-head-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+            <h1 className="instrument-serif text-[48px] sm:text-[56px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               Semantic Email Copilot
             </h1>
-            <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+            <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
               Turning inbox chaos into structured tasks, deadlines, and context.
             </p>
 
@@ -220,14 +220,14 @@ export default function SemanticProjectPage() {
           </div>
 
           {/* Case Study Content */}
-          <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
+          <div className="space-y-8 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             {/* Overview / Context */}
             <div id="overview" className="space-y-4 scroll-mt-20">
               <div className="space-y-1.5 pt-2">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   OVERVIEW
                 </span>
-                <p className="text-[18px] sm:text-[19.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <p className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Our inboxes store information, but fail to turn it into meaningful action.
                 </p>
               </div>
@@ -268,10 +268,10 @@ export default function SemanticProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   THE PROBLEM
                 </span>
-                <p className="text-[17px] sm:text-[18px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-normal">
+                <p className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   Email is full of tasks, deadlines, and commitments, but inboxes bury them in clutter, making it easy to lose track of what matters.
                 </p>
-                <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
+                <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
                   As messages accumulate, users spend excessive energy trying to remember why an email was received, what deliverables are due, who needs a reply, and when to follow up.
                 </p>
               </div>
@@ -302,7 +302,7 @@ export default function SemanticProjectPage() {
               {/* How Might We Callout Box */}
               <div className="p-4 sm:p-4.5 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.05] dark:bg-[#8888FF]/[0.08] flex items-start gap-3">
                 <HelpCircle className="w-4 h-4 text-[#6666FF] dark:text-[#8888FF] shrink-0 mt-0.5" strokeWidth={2} />
-                <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans">
+                <p className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   How might we transform email from an overwhelming backlog into an intelligent copilot that turns incoming communication into actionable clarity?
                 </p>
               </div>
@@ -314,10 +314,10 @@ export default function SemanticProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   RESEARCH &amp; DISCOVERY
                 </span>
-                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   Understanding high-volume inbox workflows
                 </h2>
-                <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
+                <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
                   My discovery process involved analyzing real student and faculty workflows across dozens of active inboxes. Over 75% of cognitive overload stemmed from low-signal emails masking high-priority action items, urgent deadlines, and essential follow-ups.
                 </p>
               </div>
@@ -335,10 +335,10 @@ export default function SemanticProjectPage() {
                   <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                     THE SOLUTION
                   </span>
-                  <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                  <h2 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                     A non-intrusive intelligence layer
                   </h2>
-                  <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
+                  <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
                     An AI-powered inbox layer that understands incoming emails, extracts what matters, and turns them into actionable tasks, deadlines, and context so nothing important gets lost.
                   </p>
                 </div>
@@ -359,10 +359,10 @@ export default function SemanticProjectPage() {
               {/* Sub-solution 2: Everyday Situations */}
               <div className="pt-4 space-y-4">
                 <div className="space-y-1">
-                  <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
                     Everyday situations, big and small
                   </h3>
-                  <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
                     From meeting coordination and task assignments to urgent deadline notices, the pipeline automatically detects message urgency and maps unstructured context into structured actions.
                   </p>
                 </div>
@@ -383,10 +383,10 @@ export default function SemanticProjectPage() {
               {/* Sub-solution 3: Context Mapping */}
               <div className="pt-4 space-y-4">
                 <div className="space-y-1">
-                  <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
                     Context mapping &amp; response synthesis
                   </h3>
-                  <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
                     By connecting isolated threads into a unified knowledge graph, users can review incoming tasks, reply with relevant context, and archive resolved items without ever leaving the flow.
                   </p>
                 </div>
@@ -411,7 +411,7 @@ export default function SemanticProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   TAKEAWAYS
                 </span>
-                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   What I learned after Semantic Copilot
                 </h2>
               </div>
@@ -446,6 +446,28 @@ export default function SemanticProjectPage() {
               </div>
             </div>
           </div>
+        
+        {/* Thanks for reading block */}
+        <div className="flex flex-col items-center justify-center w-full pt-20 pb-4 mt-16 border-t border-neutral-100 dark:border-neutral-800/60">
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-2 text-[#6666FF] dark:text-[#8888FF] hover:opacity-80 transition-opacity mb-8 font-medium font-sans text-[15.5px]"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            <span className="underline underline-offset-4 decoration-2">Scroll Back to Top</span>
+          </button>
+          
+          <h2 className="text-[48px] sm:text-[56px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] mb-12 tracking-tight">
+            Thanks for reading!
+          </h2>
+
+          <div className="flex items-center justify-center">
+            <img src="/back.svg" alt="Thanks" className="w-[180px] sm:w-[200px] h-auto object-contain opacity-90 drop-shadow-sm" />
+          </div>
+          
+          
+        </div>
+
         </article>
 
         {/* Navigation Links */}

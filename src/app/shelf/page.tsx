@@ -107,7 +107,7 @@ export default function ShelfProjectPage() {
       <div className="ambient-glow" />
 
       {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[560px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[640px] animate-in fade-in duration-200">
         {/* Top Navigation */}
         <header className="flex items-center justify-between w-full mb-8">
           <Link
@@ -140,10 +140,10 @@ export default function ShelfProjectPage() {
         {/* Article / Case Study Header */}
         <article className="space-y-6">
           <div className="pb-2 space-y-3">
-            <h1 className="but-head-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+            <h1 className="instrument-serif text-[48px] sm:text-[56px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               Shelf
             </h1>
-            <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+            <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
               Reimagining personal discovery and consumption for saved content.
             </p>
 
@@ -185,7 +185,7 @@ export default function ShelfProjectPage() {
           </div>
 
           {/* Case Study Content */}
-          <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
+          <div className="space-y-8 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             {/* Overview */}
             <div id="context" className="space-y-4 scroll-mt-20">
               {/* Empty Box with Exact #FFA134 Color */}
@@ -195,7 +195,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   CONTEXT
                 </span>
-                <p className="text-[18px] sm:text-[19.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <p className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   People are excellent at saving things and terrible at deciding what to consume next.
                 </p>
               </div>
@@ -213,10 +213,10 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   THE PROBLEM
                 </span>
-                <p className="text-[17px] sm:text-[18px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-normal">
+                <p className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   People save content with the intention of consuming it later, but their growing backlog makes it increasingly difficult to decide what to consume next.
                 </p>
-                <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
+                <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
                   As saved content accumulates, users have to remember why they saved something, how much time it requires, whether they&apos;re still interested, and what they actually feel like consuming right now.
                 </p>
               </div>
@@ -247,7 +247,7 @@ export default function ShelfProjectPage() {
               {/* How Might We Callout Box (Matching Reference) */}
               <div className="p-4 sm:p-4.5 rounded-sm border border-[#FFA134] bg-[#FFA134]/[0.05] dark:bg-[#FFA134]/[0.08] flex items-start gap-3">
                 <HelpCircle className="w-4 h-4 text-[#FFA134] shrink-0 mt-0.5" strokeWidth={2} />
-                <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans">
+                <p className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   How might we transform saved content from an overwhelming, forgotten backlog into a frictionless system where people actually consume what they save?
                 </p>
               </div>
@@ -259,10 +259,10 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   PROCESS
                 </span>
-                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   From backlog overwhelm to intentional consumption
                 </h2>
-                <p className="text-[15px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
+                <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
                   Mapping the friction points between saving content and actually consuming it, then designing lightweight interaction loops around user mood and time budget.
                 </p>
               </div>
@@ -277,7 +277,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   TAKEAWAYS
                 </span>
-                <h2 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   What I learned after Shelf
                 </h2>
               </div>
@@ -312,6 +312,28 @@ export default function ShelfProjectPage() {
               </div>
             </div>
           </div>
+        
+        {/* Thanks for reading block */}
+        <div className="flex flex-col items-center justify-center w-full pt-20 pb-4 mt-16 border-t border-neutral-100 dark:border-neutral-800/60">
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-2 text-[#FFA134] dark:text-[#FFA134] hover:opacity-80 transition-opacity mb-8 font-medium font-sans text-[15.5px]"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            <span className="underline underline-offset-4 decoration-2">Scroll Back to Top</span>
+          </button>
+          
+          <h2 className="text-[48px] sm:text-[56px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] mb-12 tracking-tight">
+            Thanks for reading!
+          </h2>
+
+          <div className="flex items-center justify-center">
+            <img src="/back.svg" alt="Thanks" className="w-[180px] sm:w-[200px] h-auto object-contain opacity-90 drop-shadow-sm" />
+          </div>
+          
+          
+        </div>
+
         </article>
 
         {/* Return link */}

@@ -108,7 +108,7 @@ export default function OrcaProjectPage() {
 
       <div className="ambient-glow" />
 
-      <main className="w-full relative z-10 flex flex-col max-w-[560px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[640px] animate-in fade-in duration-200">
         <header className="flex items-center justify-between w-full mb-8">
           <Link
             href="/"
@@ -187,7 +187,7 @@ export default function OrcaProjectPage() {
 
         <article className="space-y-6">
           <div className="pb-2 space-y-4">
-            <h1 className="but-head-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+            <h1 className="instrument-serif text-[48px] sm:text-[56px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               orca.ai
             </h1>
             <h3 className="text-[19px] sm:text-[21px] font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -243,17 +243,17 @@ export default function OrcaProjectPage() {
             </div>
           </div>
 
-          <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
+          <div className="space-y-8 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             
             {/* CONTEXT */}
             <div id="overview" className="space-y-4 scroll-mt-20 pt-6">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                 OVERVIEW
               </span>
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Marine science is producing more research than researchers can realistically navigate manually.
               </h3>
-              <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed border-l-2 border-[#007FFF]/30 dark:border-[#FFF0F5]/30 pl-4 py-1 my-4">
+              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 Marine science generates vast amounts of research across papers, datasets, and observations. As this body of knowledge grows, researchers spend increasingly more time navigating fragmented sources and connecting evidence across them.
               </p>
             </div>
@@ -278,11 +278,11 @@ export default function OrcaProjectPage() {
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                 THE PROBLEM
               </span>
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                Finding an answer is only half the problem when researchers still have to verify where it came from.
+              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                Research is scattered across papers, datasets, and citations, making even simple questions difficult to verify.
               </h3>
-              <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed border-l-2 border-[#007FFF]/30 dark:border-[#FFF0F5]/30 pl-4 py-1 my-4">
-                Researchers spend hours searching across fragmented scientific sources and manually validating findings. Without a centralized way to synthesize these documents, it becomes difficult to quickly identify relevant evidence and trace conclusions back to reliable citations.
+              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
+                Researchers spend hours jumping between fragmented scientific sources, tracing citations, and manually checking whether findings actually support a conclusion. The information exists, but the lack of connected, verifiable evidence makes research slow and difficult to trust.
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2">
@@ -306,7 +306,7 @@ export default function OrcaProjectPage() {
             <div className="scroll-mt-20 -mt-2">
               <div className="p-5 sm:p-6 rounded-sm border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.05] dark:bg-[#FFF0F5]/[0.08] flex items-start gap-4">
                 <HelpCircle className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5] shrink-0 mt-0.5" strokeWidth={2} />
-                <h3 className="text-[17px] sm:text-[19px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
+                <h3 className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   How might we make decades of marine research queryable in seconds without sacrificing the evidence researchers need to trust an answer?
                 </h3>
               </div>
@@ -319,7 +319,7 @@ export default function OrcaProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                   THE SOLUTION
                 </span>
-                <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   A focused research assistant that lets scientists move from question to evidence-backed answer without leaving the research workflow.
                 </h3>
               </div>
@@ -350,10 +350,10 @@ export default function OrcaProjectPage() {
 
             {/* THE APPROACH */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 I designed ORCA around a simple principle: AI should accelerate scientific research without hiding the evidence behind its answers.
               </h3>
-              <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed border-l-2 border-[#007FFF]/30 dark:border-[#FFF0F5]/30 pl-4 py-1 my-4">
+              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 ORCA transforms natural-language questions into concise, source-backed responses by combining semantic retrieval with Gemini-powered synthesis and citation grounding.
               </p>
               <div className="py-6 flex justify-center items-center w-full bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-sm">
@@ -365,7 +365,7 @@ export default function OrcaProjectPage() {
 
             {/* BUILDING THE SYSTEM */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Connecting <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">retrieval, LLM reasoning, and citation grounding</span> into a single research workflow.
               </h3>
               
@@ -388,7 +388,7 @@ export default function OrcaProjectPage() {
 
             {/* THE INTERESTING PART */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 The hardest problem wasn't getting Gemini to answer questions - it was <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">making those answers stay grounded in the research behind them.</span>
               </h3>
               <ul className="list-disc pl-5 space-y-3 text-[16px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#007FFF] dark:marker:text-[#FFF0F5]">
@@ -402,7 +402,7 @@ export default function OrcaProjectPage() {
             {/* ITERATING ON ORCA */}
             <div className="space-y-5 -mt-4">
               <div className="space-y-4">
-                <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Testing real marine-science questions revealed where retrieval, synthesis, and citation grounding could break down.
                 </h3>
               </div>
@@ -436,7 +436,7 @@ export default function OrcaProjectPage() {
 
             {/* WHAT'S NEXT */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Moving ORCA from an MVP research assistant toward a more rigorous scientific research tool.
               </h3>
               <ul className="list-disc pl-5 space-y-2 text-[16px] sm:text-[16.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#007FFF] dark:marker:text-[#FFF0F5] pt-2">
@@ -452,7 +452,7 @@ export default function OrcaProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                   TAKEAWAYS
                 </span>
-                <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                   Building ORCA taught me that <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">trustworthy AI is less about the model alone and more about the systems built around it.</span>
                 </h3>
               </div>
@@ -481,6 +481,28 @@ export default function OrcaProjectPage() {
               </div>
             </div>
           </div>
+        
+        {/* Thanks for reading block */}
+        <div className="flex flex-col items-center justify-center w-full pt-20 pb-4 mt-16 border-t border-neutral-100 dark:border-neutral-800/60">
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-2 text-[#007FFF] dark:text-[#FFF0F5] hover:opacity-80 transition-opacity mb-8 font-medium font-sans text-[15.5px]"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            <span className="underline underline-offset-4 decoration-2">Scroll Back to Top</span>
+          </button>
+          
+          <h2 className="text-[48px] sm:text-[56px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] mb-12 tracking-tight">
+            Thanks for reading!
+          </h2>
+
+          <div className="flex items-center justify-center">
+            <img src="/back.svg" alt="Thanks" className="w-[180px] sm:w-[200px] h-auto object-contain opacity-90 drop-shadow-sm" />
+          </div>
+          
+          
+        </div>
+
         </article>
 
         {/* WIP BANNER */}

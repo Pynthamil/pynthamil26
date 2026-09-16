@@ -2,7 +2,7 @@
   font-family: "But Head";
   src: url("/but-head/web/But-Head-Regular.woff2") format("woff2");
   font-weight: 400;
-  font-style: normal;
+  
   font-display: swap;
 }
 
@@ -203,10 +203,12 @@ body {
 }
 
 @layer utilities {
-  .but-head-regular {
-    font-family: "But Head", serif;
+  .instrument-serif {
+    font-family: "Instrument Serif", serif;
+
+    
     font-weight: 400;
-    font-style: normal;
+    
   }
 }
 

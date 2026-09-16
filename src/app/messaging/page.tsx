@@ -103,7 +103,7 @@ export default function MessagingProjectPage() {
 
       <div className="ambient-glow" />
 
-      <main className="w-full relative z-10 flex flex-col max-w-[560px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[640px] animate-in fade-in duration-200">
         <header className="flex items-center justify-between w-full mb-8">
           <Link
             href="/"
@@ -145,7 +145,7 @@ export default function MessagingProjectPage() {
 
         <article className="space-y-6">
           <div className="pb-2 space-y-4">
-            <h1 className="but-head-regular text-[38px] sm:text-[44px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+            <h1 className="instrument-serif text-[48px] sm:text-[56px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               Kivo
             </h1>
             <h3 className="text-[19px] sm:text-[21px] font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -194,28 +194,22 @@ export default function MessagingProjectPage() {
             </div>
           </div>
 
-          <div className="space-y-8 text-[16px] sm:text-[16.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
+          <div className="space-y-8 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             
             {/* OVERVIEW */}
             <div id="overview" className="space-y-4 scroll-mt-20 pt-6">
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                 OVERVIEW
               </span>
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Built a real-time messaging platform that replaces phone-number-based identity with cryptographic user identities.
               </h3>
-              <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed border-l-2 border-[#00BF63]/30 dark:border-[#E4FFC1]/30 pl-4 py-1 my-4">
+              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 The platform combines end-to-end encrypted communication with a fast, minimal interface. The project explores how a messaging product can provide the convenience of mainstream chat apps without relying on advertising, invasive tracking, or exposing users’ personal identifiers.
               </p>
             </div>
 
-        {/* WIP BANNER */}
-        <div className="w-full mt-4 mb-8 p-5 sm:p-6 border border-dashed border-[#00BF63]/40 dark:border-[#E4FFC1]/40 bg-[#00BF63]/[0.02] dark:bg-[#E4FFC1]/[0.04] rounded-none flex flex-col gap-2.5">
-          <Lock className="w-4 h-4 text-[#00BF63] dark:text-[#E4FFC1]" strokeWidth={2.5} />
-          <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-            The full case study is still a work in progress. For a more detailed walkthrough beyond this preview, <a href="mailto:pavendanpynthamil@gmail.com" className="text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00BF63] dark:hover:text-[#E4FFC1] underline decoration-wavy underline-offset-[5px] decoration-[#00BF63] dark:decoration-[#E4FFC1] decoration-2 transition-colors">reach out</a> directly!
-          </p>
-        </div>
+
             
             <div className="pt-2 pb-2 flex">
               <a href="#solution" className="inline-flex items-center gap-2 font-mono text-[13px] sm:text-[14px] px-4 py-2 bg-[#13151E] dark:bg-[#F2F2F2] text-white dark:text-[#13151E] hover:bg-[#2C2C2C] dark:hover:bg-neutral-300 transition-all rounded-sm shadow-sm group">
@@ -229,23 +223,17 @@ export default function MessagingProjectPage() {
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                 PROBLEM
               </span>
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Messaging is convenient, but privacy often comes with trade-offs
               </h3>
-              <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
+              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
                 Modern messaging apps make communication effortless, but users are often identified through phone numbers, surrounded by unnecessary data collection, and dependent on infrastructure where privacy and convenience aren't always designed together.
               </p>
               
               
             </div>
 
-            {/* WIP BANNER */}
-            <div className="w-full mt-4 mb-8 p-5 sm:p-6 border border-dashed border-[#00BF63]/40 dark:border-[#E4FFC1]/40 bg-[#00BF63]/[0.02] dark:bg-[#E4FFC1]/[0.04] rounded-none flex flex-col gap-2.5">
-              <Lock className="w-4 h-4 text-[#00BF63] dark:text-[#E4FFC1]" strokeWidth={2.5} />
-              <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-                The full case study is still a work in progress. For a more detailed walkthrough beyond this preview, <a href="mailto:pavendanpynthamil@gmail.com" className="text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00BF63] dark:hover:text-[#E4FFC1] underline decoration-wavy underline-offset-[5px] decoration-[#00BF63] dark:decoration-[#E4FFC1] decoration-2 transition-colors">reach out</a> directly!
-              </p>
-            </div>
+
 
             {/* THE PROBLEM */}
             <div id="problem" className="scroll-mt-20 pt-8 mb-4">
@@ -270,7 +258,7 @@ export default function MessagingProjectPage() {
             <div className="scroll-mt-20 -mt-2">
               <div className="p-5 sm:p-6 rounded-sm border border-[#00BF63] dark:border-[#E4FFC1] bg-[#00BF63]/[0.05] dark:bg-[#E4FFC1]/[0.08] flex items-start gap-4">
                 <HelpCircle className="w-5 h-5 text-[#00BF63] dark:text-[#E4FFC1] shrink-0 mt-0.5" strokeWidth={2} />
-                <h3 className="text-[17px] sm:text-[19px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
+                <h3 className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   How might we design a messaging platform that feels as fast and effortless as mainstream messaging apps while fundamentally changing how identity, privacy, and message delivery are handled?
                 </h3>
               </div>
@@ -283,7 +271,7 @@ export default function MessagingProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                   THE SOLUTION
                 </span>
-                <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   A real-time messaging system designed around privacy rather than added as a feature.
                 </h3>
               </div>
@@ -314,7 +302,7 @@ export default function MessagingProjectPage() {
 
             {/* ARCHITECTURE */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Separating <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">real-time delivery from durable message processing.</span>
               </h3>
               
@@ -350,14 +338,14 @@ export default function MessagingProjectPage() {
                        Recipient`}
                 </pre>
               </div>
-              <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed border-l-2 border-[#00BF63]/30 dark:border-[#E4FFC1]/30 pl-4 py-1 my-4">
+              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 Kafka acts as the event backbone, while Redis handles short-lived state such as presence and PostgreSQL provides durable persistence.
               </p>
             </div>
 
             {/* THE INTERESTING PART */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Making "instant" messaging reliable: <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">a distributed-systems problem.</span>
               </h3>
               <ul className="list-disc pl-5 space-y-3 text-[16px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#00BF63] dark:marker:text-[#E4FFC1]">
@@ -371,7 +359,7 @@ export default function MessagingProjectPage() {
             {/* ITERATING */}
             <div className="space-y-5 -mt-4">
               <div className="space-y-4">
-                <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   What went wrong initially: tightly coupled message delivery.
                 </h3>
               </div>
@@ -389,7 +377,7 @@ export default function MessagingProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                   TAKEAWAYS
                 </span>
-                <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                   How does this remain correct when everything goes wrong?
                 </h3>
               </div>
@@ -418,6 +406,36 @@ export default function MessagingProjectPage() {
               </div>
             </div>
           </div>
+        
+                {/* WIP BANNER */}
+        <div className="w-full mt-12 mb-8 p-5 sm:p-6 border border-dashed border-[#00BF63]/40 dark:border-[#E4FFC1]/40 bg-[#00BF63]/[0.02] dark:bg-[#E4FFC1]/[0.04] rounded-none flex flex-col gap-2.5">
+          <Lock className="w-4 h-4 text-[#00BF63] dark:text-[#E4FFC1]" strokeWidth={2.5} />
+          <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+            The full case study is still a work in progress. For a more detailed walkthrough beyond this preview, <a href="mailto:pavendanpynthamil@gmail.com" className="text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00BF63] dark:hover:text-[#E4FFC1] underline decoration-wavy underline-offset-[5px] decoration-[#00BF63] dark:decoration-[#E4FFC1] decoration-2 transition-colors">reach out</a> directly!
+          </p>
+        </div>
+
+        {/* Thanks for reading block */}
+        <div className="flex flex-col items-center justify-center w-full pt-20 pb-4 mt-16 border-t border-neutral-100 dark:border-neutral-800/60">
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-2 text-[#00BF63] dark:text-[#E4FFC1] hover:opacity-80 transition-opacity mb-8 font-medium font-sans text-[15.5px]"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            <span className="underline underline-offset-4 decoration-2">Scroll Back to Top</span>
+          </button>
+          
+          <h2 className="text-[48px] sm:text-[56px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] mb-12 tracking-tight">
+            Thanks for reading!
+          </h2>
+
+          <div className="flex items-center justify-center">
+            <img src="/back.svg" alt="Thanks" className="w-[180px] sm:w-[200px] h-auto object-contain opacity-90 drop-shadow-sm" />
+          </div>
+          
+          
+        </div>
+
         </article>
         
 

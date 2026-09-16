@@ -26,7 +26,7 @@ const config: Config = {
           '"Google Sans"',
           "sans-serif",
         ],
-        serif: ['"But Head"', "serif"],
+        serif: ['"Instrument Serif"', "serif"],
         mono: [
           '"Google Sans"',
           "sans-serif",

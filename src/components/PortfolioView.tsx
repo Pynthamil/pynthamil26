@@ -215,7 +215,7 @@ export function PortfolioView({
       <div className="ambient-glow" />
 
       {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[560px]">
+      <main className="w-full relative z-10 flex flex-col max-w-[640px]">
         {/* Top Header Row */}
         <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-6 sm:mb-6" : "mb-8 sm:mb-10"}`}>
 
@@ -224,7 +224,7 @@ export function PortfolioView({
             <div className="flex items-center shrink-0 w-fit group">
               <button
                 onClick={() => viewMode !== "home" && handleNavClick("home")}
-                className={`but-head-regular text-[32px] sm:text-[36px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none text-left focus:outline-none flex items-center ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
+                className={`instrument-serif text-[38px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none text-left focus:outline-none flex items-center ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
               >
                 <span>{portfolioData.name.toLowerCase()}</span>
                 
@@ -250,7 +250,7 @@ export function PortfolioView({
 
             {/* Right / Under on Mobile: Navigation Links & Dark Mode Toggle */}
             <div className="flex items-center justify-between w-full">
-              <nav className="flex items-center space-x-4 sm:space-x-5 text-[15.5px] sm:text-[16.5px] font-medium sm:pt-1">
+              <nav className="flex items-center space-x-4 sm:space-x-5 text-[16.5px] sm:text-[18px] font-medium sm:pt-1">
                 
                 <button
                   onClick={() => handleNavClick("projects")}
@@ -307,17 +307,17 @@ export function PortfolioView({
           <div className="flex flex-col animate-in fade-in duration-200">
             {/* Bio Copy & Status Section */}
             <section className="flex flex-col space-y-4 mb-12 sm:mb-14">
-              <p className="text-[17px] sm:text-[18px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-relaxed">
+              <p className="text-[18px] sm:text-[20px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-relaxed">
                 I am a software engineer focused on building fast, scalable products with intuitive design. I love taking ambitious ideas from zero to one.
               </p>
               
-              <p className="text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-[1.85]">
+              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-[1.85]">
                 currently an <span className="bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] px-1.5 py-0.5 rounded-[5px] font-medium">engineering intern</span> at{" "}
                 <span className="inline-flex items-center px-1.5 py-0.5 mx-0.5 rounded-[5px] bg-[#E8F4F8] dark:bg-[#1E3A4A] align-text-bottom" style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "0.9em", fontStyle: "normal", color: "#2C6E8A" }}>plue</span>
                 {", "}democratizing learning by making a world where humans can learn on their own terms.
               </p>
 
-              <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
+              <p className="text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                 Find me on{" "}
                 <a
                   href="https://x.com/pyndu15"
@@ -351,7 +351,7 @@ export function PortfolioView({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => playTone(880)}
-                  className="but-head-regular text-[22px] sm:text-[24px] text-black dark:text-white underline underline-offset-4 decoration-wavy decoration-[#00B5B2] font-normal transition-colors"
+                  className="instrument-serif text-[24px] sm:text-[26px] text-black dark:text-white underline underline-offset-4 decoration-wavy decoration-[#00B5B2] font-normal transition-colors"
                 >
                   download my CV &darr;
                 </a>
@@ -407,7 +407,7 @@ export function PortfolioView({
                 <h2 className="font-sans text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] mb-3.5 font-semibold">
                   selected works
                 </h2>
-                <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
+                <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     return (
@@ -427,7 +427,7 @@ export function PortfolioView({
                           <div className="flex items-center flex-1 pr-4">
                             <div className="flex items-center space-x-3">
                               <span 
-                                className="but-head-regular text-[22px] tracking-[0.02em] transition-all group-hover:underline decoration-wavy underline-offset-4 decoration-2 text-[#0F172A] dark:text-[#F2F2F2] italic"
+                                className="instrument-serif text-[24px] tracking-[0.02em] transition-all group-hover:underline decoration-wavy underline-offset-4 decoration-2 text-[#0F172A] dark:text-[#F2F2F2] italic"
                               >
                                 {project.title}
                               </span>
@@ -445,7 +445,7 @@ export function PortfolioView({
                           </div>
 
                         {project.description && (
-                          <p className="text-[17px] sm:text-[18px] font-sans text-[#475569] dark:text-[#CBD5E1] mt-1.5 leading-relaxed">
+                          <p className="text-[18px] sm:text-[20px] font-sans text-[#475569] dark:text-[#CBD5E1] mt-1.5 leading-relaxed">
                             {project.description}
                           </p>
                         )}
@@ -461,27 +461,27 @@ export function PortfolioView({
               <h2 className="font-sans text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] mb-3.5 font-semibold">
                 Experience
               </h2>
-              <ul className="flex flex-col font-sans text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
+              <ul className="flex flex-col font-sans text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                 {portfolioData.experiences.map((item) => (
                   <li
                     key={item.id}
-                    className="group flex flex-col py-4 sm:py-5 border-b border-neutral-100 dark:border-neutral-800 last:border-0"
+                    className="group flex flex-col py-4 sm:py-5"
                   >
                     <div className="flex items-start justify-between w-full">
                       <div className="flex items-start flex-1 pr-4">
                         <div className="flex flex-col justify-center h-full">
-                          <span className="font-bold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
+                          <span className="instrument-serif italic font-normal text-[24px] sm:text-[26px] text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
                             {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
                           </span>
                         </div>
                       </div>
-                      <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
-                        {item.period}
+                      <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] capitalize font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
+                        {item.period.toLowerCase()}
                       </div>
                     </div>
                     
                     {item.bullets && item.bullets.length > 0 && (
-                      <ul className="mt-4 flex flex-col space-y-2.5 text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
+                      <ul className="mt-4 flex flex-col space-y-2.5 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
                         {item.bullets.map((bullet, idx) => (
                           <li key={idx} className="flex items-start gap-2.5">
                             <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
@@ -505,7 +505,7 @@ export function PortfolioView({
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-full mb-12 sm:mb-14">
-                <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
+                <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     return (
@@ -525,7 +525,7 @@ export function PortfolioView({
                           <div className="flex items-center flex-1 pr-4">
                             <div className="flex items-center space-x-3">
                               <span 
-                                className="but-head-regular text-[22px] tracking-[0.02em] transition-all group-hover:underline decoration-wavy underline-offset-4 decoration-2 text-[#0F172A] dark:text-[#F2F2F2] italic"
+                                className="instrument-serif text-[24px] tracking-[0.02em] transition-all group-hover:underline decoration-wavy underline-offset-4 decoration-2 text-[#0F172A] dark:text-[#F2F2F2] italic"
                               >
                                 {project.title}
                               </span>
@@ -543,7 +543,7 @@ export function PortfolioView({
                           </div>
 
                         {project.description && (
-                          <p className="text-[17px] sm:text-[18px] font-sans text-[#475569] dark:text-[#CBD5E1] mt-1.5 leading-relaxed">
+                          <p className="text-[18px] sm:text-[20px] font-sans text-[#475569] dark:text-[#CBD5E1] mt-1.5 leading-relaxed">
                             {project.description}
                           </p>
                         )}
@@ -563,34 +563,34 @@ export function PortfolioView({
           <div className="flex flex-col space-y-6 sm:space-y-7 animate-in fade-in duration-200">
             {/* Experience Section - first in About */}
             <section id="experience" className="w-full scroll-mt-24">
-              <h2 className="but-head-regular text-[22px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-1">
+              <h2 className="instrument-serif text-[24px] sm:text-[26px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-1">
                 Experience
               </h2>
               <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 mb-5 flex items-center space-x-1.5">
                 <span className="select-none">└</span>
                 <span>where i've worked</span>
               </p>
-              <ul className="flex flex-col font-sans text-[15.5px] sm:text-[16.5px] tracking-[0.02em]">
+              <ul className="flex flex-col font-sans text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                 {portfolioData.experiences.map((item) => (
                   <li
                     key={item.id}
-                    className="group flex flex-col py-4 sm:py-5 border-b border-neutral-100 dark:border-neutral-800 last:border-0"
+                    className="group flex flex-col py-4 sm:py-5"
                   >
                     <div className="flex items-start justify-between w-full">
                       <div className="flex items-start flex-1 pr-4">
                         <div className="flex flex-col justify-center h-full">
-                          <span className="font-bold text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
+                          <span className="instrument-serif italic underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#00B5B2]/30 dark:decoration-[#00B5B2]/30 font-normal text-[24px] sm:text-[26px] text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
                             {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
                           </span>
                         </div>
                       </div>
-                      <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] uppercase font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
-                        {item.period}
+                      <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] capitalize font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
+                        {item.period.toLowerCase()}
                       </div>
                     </div>
                     
                     {item.bullets && item.bullets.length > 0 && (
-                      <ul className="mt-4 flex flex-col space-y-2.5 text-[16px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
+                      <ul className="mt-4 flex flex-col space-y-2.5 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
                         {item.bullets.map((bullet, idx) => (
                           <li key={idx} className="flex items-start gap-2.5">
                             <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
@@ -612,7 +612,7 @@ export function PortfolioView({
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
+                  <h2 className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
                     meet the human
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
@@ -623,10 +623,10 @@ export function PortfolioView({
                 
               </div>
 
-              <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
+              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>My name is <span className="text-[#2C2C2C] dark:text-[#F2F2F2] but-head-regular text-[20px] sm:text-[21px] underline decoration-wavy decoration-[#00B5B2] underline-offset-4 cursor-default">Pynthamil Pavendan</span>!</span>
+                    <span>My name is <span className="text-[#2C2C2C] dark:text-[#F2F2F2] instrument-serif text-[20px] sm:text-[21px] underline decoration-wavy decoration-[#00B5B2] underline-offset-4 cursor-default">Pynthamil Pavendan</span>!</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
                     <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
@@ -663,7 +663,7 @@ export function PortfolioView({
             <div id="stack" className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5 scroll-mt-24">
               <div className="flex items-center justify-between py-1.5">
                 <div>
-                  <h2 className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
+                  <h2 className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
                     stack
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
@@ -673,7 +673,7 @@ export function PortfolioView({
                 </div>
               </div>
 
-              <div className="mt-4 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans">
+              <div className="mt-4 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans">
                 <div className="flex items-start space-x-2.5">
                   <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                   <span>Next.js  Supabase  Python  Figma  Antigravity</span>
@@ -688,7 +688,7 @@ export function PortfolioView({
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 id="currently-learning" className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
+                  <h2 id="currently-learning" className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
                     what i am currently learning
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
@@ -699,7 +699,7 @@ export function PortfolioView({
                 
               </div>
 
-              <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
+              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
@@ -734,7 +734,7 @@ export function PortfolioView({
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 id="fun-facts" className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
+                  <h2 id="fun-facts" className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
                     fun facts about me
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
@@ -745,7 +745,7 @@ export function PortfolioView({
                 
               </div>
 
-              <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
+              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
@@ -796,7 +796,7 @@ export function PortfolioView({
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 id="touching-grass" className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
+                  <h2 id="touching-grass" className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
                     when i touch grass
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
@@ -807,7 +807,7 @@ export function PortfolioView({
                 
               </div>
 
-              <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
+              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
@@ -836,7 +836,7 @@ export function PortfolioView({
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
+                  <h2 className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
                     about my blog
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
@@ -847,7 +847,7 @@ export function PortfolioView({
                 
               </div>
 
-              <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
+              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
@@ -884,7 +884,7 @@ export function PortfolioView({
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 className="but-head-regular text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
+                  <h2 className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
                     come say hi
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
@@ -895,7 +895,7 @@ export function PortfolioView({
                 
               </div>
 
-              <div className="mt-4 space-y-3.5 text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
+              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
                     <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
                     <span>
@@ -1006,17 +1006,31 @@ export function PortfolioView({
                     <a
                       href={`/blog/${post.slug}`}
                       onClick={() => playTone(880)}
-                      className="flex items-center justify-between group select-none cursor-pointer"
+                      className="flex items-center justify-between group select-none cursor-pointer gap-4"
                     >
-                      <div className="space-y-1.5">
+                      {post.image && (
+                        <div className="w-28 h-20 sm:w-48 sm:h-32 rounded-md overflow-hidden flex-shrink-0 relative">
+                          <img src={post.image} alt={post.title} className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+                        </div>
+                      )}
+                      <div className="space-y-1.5 flex-1">
                         <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
                           {post.title.toLowerCase()}
                         </h2>
                         <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5">
                           {post.date.toLowerCase()}  {post.readingTime.toLowerCase()} read
                         </p>
+                        {post.description && (
+                          <div className="mt-1.5 space-y-1.5">
+                            <p className="font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] line-clamp-2 leading-relaxed">
+                              {post.description}
+                            </p>
+                            <p className="font-sans text-[13px] sm:text-[13.5px] font-medium text-[#2C6E8A] dark:text-[#7EC8E3] group-hover:underline">
+                              read more &rarr;
+                            </p>
+                          </div>
+                        )}
                       </div>
-
                     </a>
                   </div>
                 ))}
@@ -1026,10 +1040,10 @@ export function PortfolioView({
         )}
 
         {/* Unified Footer for all views */}
-        <footer className="w-full pt-16 mt-auto flex flex-col items-start gap-5 font-sans text-[14px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
+        <footer className="w-full pt-16 mt-auto flex flex-col items-start gap-5 font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8]">
           <button 
              onClick={handleCopyEmail}
-             className="flex items-center justify-center space-x-2 px-3 py-1 bg-[#EEF2FF] dark:bg-[#312E81]/20 border border-[#818CF8] dark:border-[#4F46E5] text-[#4F46E5] dark:text-[#818CF8] text-[14px] font-medium rounded-[3px] hover:bg-[#E0E7FF] dark:hover:bg-[#312E81]/40 transition-colors focus:outline-none"
+             className="flex items-center justify-center space-x-2 px-3 py-1 bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] text-[14px] font-medium rounded-[5px] hover:bg-[#DDF0F6] dark:hover:bg-[#162B37] transition-colors focus:outline-none"
           >
              <span>{isEmailCopied ? "copied!" : "pavendanpynthamil@gmail.com"}</span>
              {isEmailCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
