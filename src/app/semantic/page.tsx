@@ -504,7 +504,7 @@ export default function SemanticProjectPage() {
                     OWNERSHIP IN AMBIGUITY
                   </span>
                   <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans max-w-3xl">
-                    Building an AI inbox layer from scratch meant there was no playbook. The biggest challenge wasn't just technical, it was defining exactly how an email copilot should behave when the rules aren't written yet. By proactively identifying pain points, designing the extraction architecture, and iterating constantly, I learned that navigating ambiguous product spaces requires you to stop waiting for a roadmap and just start building.
+                    With no playbook for an AI inbox layer, navigating this ambiguous space required identifying pain points, designing the architecture, and iterating constantly. You have to stop waiting for a roadmap and just start building.
                   </p>
                 </div>
               </div>
