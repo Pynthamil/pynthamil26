@@ -418,22 +418,22 @@ export default function OrcaProjectPage() {
                 </h3>
               </div>
               
-              <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-xl space-y-4 mt-2">
+              <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-xl space-y-4 mt-2 text-center">
                 <div className="space-y-1">
                   <div className="font-mono text-xs font-semibold text-[#007FFF] dark:text-[#FFF0F5]">QUESTION</div>
                   <div className="text-[24px] sm:text-[26px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2]">"How do temperature shifts affect phytoplankton blooms in the North Atlantic?"</div>
                 </div>
-                <div className="flex justify-start pl-4 text-[#007FFF] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="flex justify-center text-[#007FFF] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="space-y-1">
                   <div className="font-mono text-xs font-semibold text-[#007FFF] dark:text-[#FFF0F5]">RETRIEVED EVIDENCE</div>
                   <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">3 relevant papers found discussing thermal stratification and nutrient availability.</div>
                 </div>
-                <div className="flex justify-start pl-4 text-[#007FFF] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="flex justify-center text-[#007FFF] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="space-y-1">
                   <div className="font-mono text-xs font-semibold text-[#007FFF] dark:text-[#FFF0F5]">GENERATED ANSWER</div>
                   <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">Synthesized summary of the delay in spring blooms due to increased stratification...</div>
                 </div>
-                <div className="flex justify-start pl-4 text-[#007FFF] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="flex justify-center text-[#007FFF] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="space-y-1">
                   <div className="font-mono text-xs font-semibold text-[#007FFF] dark:text-[#FFF0F5]">CITATION</div>
                   <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">[Smith et al., 2024; Oceanic Thermal Dynamics]</div>
@@ -475,7 +475,7 @@ export default function OrcaProjectPage() {
                   <div className="p-2 rounded-xl bg-[#007FFF]/15 dark:bg-[#FFF0F5]/20 flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />
                   </div>
-                  <h4 className="font-mono text-[13px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] tracking-wider uppercase pt-1">Grounded citations</h4>
+                  <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#007FFF] dark:text-[#FFF0F5] uppercase pt-1">Grounded citations</h4>
                   <p className="text-[14.5px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
                     Trust in AI research tools depends on making evidence directly inspectable and preventing unsupported claims from being presented as fact.
                   </p>
@@ -485,7 +485,7 @@ export default function OrcaProjectPage() {
                   <div className="p-2 rounded-xl bg-[#007FFF]/15 dark:bg-[#FFF0F5]/20 flex items-center justify-center">
                     <Layers className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />
                   </div>
-                  <h4 className="font-mono text-[13px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] tracking-wider uppercase pt-1">Domain empathy</h4>
+                  <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#007FFF] dark:text-[#FFF0F5] uppercase pt-1">Domain empathy</h4>
                   <p className="text-[14.5px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
                     Designing for scientific specialists requires understanding how they search, interpret evidence, and validate findings - not simply adapting a generic chatbot interface.
                   </p>
