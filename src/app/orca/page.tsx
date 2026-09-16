@@ -223,8 +223,8 @@ export default function OrcaProjectPage() {
             <div className="w-[100vw] sm:w-[1024px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
               <div className="w-full p-8 sm:p-12 md:p-16 rounded-sm overflow-hidden flex items-center justify-center"
                 style={{ backgroundImage: 'url(/cover1-bg.svg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div className="w-full max-w-[95%] overflow-hidden bg-white/20 dark:bg-white/10 p-3 sm:p-4 backdrop-blur-sm">
-                  <div className="w-full overflow-hidden bg-white dark:bg-[#141415]">
+                <div className="w-full max-w-[95%] overflow-hidden rounded-[24px] bg-white/20 dark:bg-white/10 p-3 sm:p-4 backdrop-blur-sm">
+                  <div className="w-full overflow-hidden rounded-[16px] bg-white dark:bg-[#141415]">
                     <img
                       src="/orca1.svg"
                       alt="orca.ai Solution Interface"
