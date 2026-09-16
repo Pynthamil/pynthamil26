@@ -318,8 +318,8 @@ export default function OrcaProjectPage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                <div className="space-y-3 p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-[#F7F7F7] dark:bg-[#141415]">
-                  <h4 className="font-mono text-[13px] font-semibold text-[#ef4444] tracking-wider">BEFORE</h4>
+                <div className="space-y-3 p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#13151E]">
+                  <h4 className="font-mono text-[13px] font-semibold text-[#ef4444] tracking-wider uppercase">BEFORE</h4>
                   <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Search across fragmented sources</li>
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Manually compare findings</li>
@@ -328,7 +328,7 @@ export default function OrcaProjectPage() {
                   </ul>
                 </div>
                 <div className="space-y-3 p-5 rounded-xl border border-[#007FFF]/30 dark:border-[#FFF0F5]/30 bg-[#007FFF]/[0.03] dark:bg-[#FFF0F5]/[0.05]">
-                  <h4 className="font-mono text-[13px] font-semibold text-[#10b981] tracking-wider">AFTER</h4>
+                  <h4 className="font-mono text-[13px] font-semibold text-[#10b981] tracking-wider uppercase">AFTER</h4>
                   <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#10b981]">
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Ask one natural-language question</li>
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Retrieve relevant research</li>

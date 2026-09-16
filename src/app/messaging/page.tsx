@@ -120,7 +120,7 @@ export default function MessagingProjectPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => playTone(880)}
-              className="inline-flex items-center space-x-2 px-2.5 py-1.5 sm:py-1 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-[#13151E]/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group cursor-pointer"
+              className="inline-flex items-center space-x-2 px-2.5 py-1.5 sm:py-1 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-[#13151E]/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group cursor-pointer"
               title="View Source on GitHub"
             >
               <Github className="w-3.5 h-3.5 text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-[#00BF63] dark:group-hover:text-[#E4FFC1] transition-colors" strokeWidth={2} />
@@ -188,7 +188,7 @@ export default function MessagingProjectPage() {
             </div>
             
             <div className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
-              <div className="w-full h-[300px] sm:h-[400px] rounded-sm overflow-hidden flex flex-col items-center justify-center bg-[#E4FFC1] dark:bg-[#00BF63] shadow-[inset_0_0_100px_rgba(0,0,0,0.05)] gap-4">
+              <div className="w-full h-[300px] sm:h-[400px] rounded-xl overflow-hidden flex flex-col items-center justify-center bg-[#E4FFC1] dark:bg-[#00BF63] shadow-[inset_0_0_100px_rgba(0,0,0,0.05)] gap-4">
                   <span className="text-[#13151E] dark:text-white opacity-90 font-mono text-sm sm:text-base tracking-widest uppercase font-semibold">Kivo Platform</span>
               </div>
             </div>
@@ -212,7 +212,7 @@ export default function MessagingProjectPage() {
 
             
             <div className="pt-2 pb-2 flex">
-              <a href="#solution" className="inline-flex items-center gap-2 font-mono text-[13px] sm:text-[14px] px-4 py-2 bg-[#13151E] dark:bg-[#F2F2F2] text-white dark:text-[#13151E] hover:bg-[#2C2C2C] dark:hover:bg-neutral-300 transition-all rounded-sm shadow-sm group">
+              <a href="#solution" className="inline-flex items-center gap-2 font-mono text-[13px] sm:text-[14px] px-4 py-2 bg-[#13151E] dark:bg-[#F2F2F2] text-white dark:text-[#13151E] hover:bg-[#2C2C2C] dark:hover:bg-neutral-300 transition-all rounded-xl shadow-sm group">
                 Jump to Solution
                 <span className="group-hover:translate-y-0.5 transition-transform">&darr;</span>
               </a>
@@ -241,9 +241,9 @@ export default function MessagingProjectPage() {
                 {painPoints.map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#E4FFC1]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#00BF63] dark:hover:border-[#E4FFC1] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                    className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#E4FFC1]/20 rounded-xl p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#00BF63] dark:hover:border-[#E4FFC1] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
                   >
-                    <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#00BF63]/10 flex items-center justify-center">
+                    <div className="p-1 rounded-xl bg-neutral-50 dark:bg-[#00BF63]/10 flex items-center justify-center">
                       {item.icon}
                     </div>
                     <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -256,9 +256,9 @@ export default function MessagingProjectPage() {
 
             {/* THE OPPORTUNITY */}
             <div className="scroll-mt-20 -mt-2">
-              <div className="p-5 sm:p-6 rounded-sm border border-[#00BF63] dark:border-[#E4FFC1] bg-[#00BF63]/[0.05] dark:bg-[#E4FFC1]/[0.08] flex items-start gap-4">
-                <HelpCircle className="w-5 h-5 text-[#00BF63] dark:text-[#E4FFC1] shrink-0 mt-0.5" strokeWidth={2} />
-                <h3 className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
+              <div className="p-6 sm:p-8 rounded-xl border border-[#00BF63] dark:border-[#E4FFC1] bg-[#00BF63]/[0.05] dark:bg-[#E4FFC1]/[0.08] flex flex-col items-center justify-center text-center gap-3">
+                <HelpCircle className="w-5 h-5 text-[#00BF63] dark:text-[#E4FFC1] shrink-0" strokeWidth={2} />
+                <h3 className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   How might we design a messaging platform that feels as fast and effortless as mainstream messaging apps while fundamentally changing how identity, privacy, and message delivery are handled?
                 </h3>
               </div>
@@ -277,7 +277,7 @@ export default function MessagingProjectPage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                <div className="space-y-3 p-5 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#13151E]">
+                <div className="space-y-3 p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#13151E]">
                   <h4 className="font-mono text-[13px] font-semibold text-[#ef4444] tracking-wider">BEFORE</h4>
                   <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Phone-number-centric identity</li>
@@ -287,7 +287,7 @@ export default function MessagingProjectPage() {
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Prototype-oriented architecture</li>
                   </ul>
                 </div>
-                <div className="space-y-3 p-5 rounded-sm border border-[#00BF63]/30 dark:border-[#E4FFC1]/30 bg-[#00BF63]/[0.03] dark:bg-[#E4FFC1]/[0.05]">
+                <div className="space-y-3 p-5 rounded-xl border border-[#00BF63]/30 dark:border-[#E4FFC1]/30 bg-[#00BF63]/[0.03] dark:bg-[#E4FFC1]/[0.05]">
                   <h4 className="font-mono text-[13px] font-semibold text-[#00BF63] tracking-wider">AFTER</h4>
                   <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#00BF63]">
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Generated / cryptographic identity</li>
@@ -306,7 +306,7 @@ export default function MessagingProjectPage() {
                 Separating <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">real-time delivery from durable message processing.</span>
               </h3>
               
-              <div className="p-6 bg-neutral-50 dark:bg-[#13151E] border border-neutral-200 dark:border-neutral-800 rounded-sm font-mono text-[13px] sm:text-sm text-center space-y-3 mt-4 overflow-x-auto">
+              <div className="p-6 bg-neutral-50 dark:bg-[#13151E] border border-neutral-200 dark:border-neutral-800 rounded-xl font-mono text-[13px] sm:text-sm text-center space-y-3 mt-4 overflow-x-auto">
                 <pre className="text-left text-[#2C2C2C] dark:text-[#F2F2F2] font-mono text-xs leading-relaxed">
 {`                         CLIENT
                            │
@@ -383,22 +383,22 @@ export default function MessagingProjectPage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <div className="p-5 sm:p-6 rounded-sm border border-[#00BF63] dark:border-[#E4FFC1] bg-[#00BF63]/[0.04] dark:bg-[#E4FFC1]/[0.07] flex flex-col items-center text-center space-y-3 transition-colors hover:bg-[#00BF63]/[0.08] dark:hover:bg-[#E4FFC1]/[0.12]">
-                  <div className="p-2 rounded-sm bg-[#00BF63]/15 dark:bg-[#E4FFC1]/20 flex items-center justify-center">
+                <div className="p-5 sm:p-6 rounded-xl border border-[#00BF63] dark:border-[#E4FFC1] bg-[#00BF63]/[0.04] dark:bg-[#E4FFC1]/[0.07] flex flex-col items-center text-center space-y-3 transition-colors hover:bg-[#00BF63]/[0.08] dark:hover:bg-[#E4FFC1]/[0.12]">
+                  <div className="p-2 rounded-xl bg-[#00BF63]/15 dark:bg-[#E4FFC1]/20 flex items-center justify-center">
                     <Zap className="w-5 h-5 text-[#00BF63] dark:text-[#E4FFC1]" strokeWidth={1.5} />
                   </div>
-                  <h4 className="font-mono text-[13px] font-semibold text-[#00BF63] dark:text-[#E4FFC1] tracking-wider uppercase pt-1">Reliability over latency</h4>
-                  <p className="text-[14.5px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
+                  <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#00BF63] dark:text-[#E4FFC1] uppercase pt-1">Reliability over latency</h4>
+                  <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
                     Real-time systems are reliability problems, not just latency problems. Making something feel instant is only one part; the harder problem is maintaining correctness when networks fail and events are duplicated.
                   </p>
                 </div>
 
-                <div className="p-5 sm:p-6 rounded-sm border border-[#00BF63] dark:border-[#E4FFC1] bg-[#00BF63]/[0.04] dark:bg-[#E4FFC1]/[0.07] flex flex-col items-center text-center space-y-3 transition-colors hover:bg-[#00BF63]/[0.08] dark:hover:bg-[#E4FFC1]/[0.12]">
-                  <div className="p-2 rounded-sm bg-[#00BF63]/15 dark:bg-[#E4FFC1]/20 flex items-center justify-center">
+                <div className="p-5 sm:p-6 rounded-xl border border-[#00BF63] dark:border-[#E4FFC1] bg-[#00BF63]/[0.04] dark:bg-[#E4FFC1]/[0.07] flex flex-col items-center text-center space-y-3 transition-colors hover:bg-[#00BF63]/[0.08] dark:hover:bg-[#E4FFC1]/[0.12]">
+                  <div className="p-2 rounded-xl bg-[#00BF63]/15 dark:bg-[#E4FFC1]/20 flex items-center justify-center">
                     <Shield className="w-5 h-5 text-[#00BF63] dark:text-[#E4FFC1]" strokeWidth={1.5} />
                   </div>
-                  <h4 className="font-mono text-[13px] font-semibold text-[#00BF63] dark:text-[#E4FFC1] tracking-wider uppercase pt-1">Privacy by design</h4>
-                  <p className="text-[14.5px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
+                  <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#00BF63] dark:text-[#E4FFC1] uppercase pt-1">Privacy by design</h4>
+                  <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
                     Privacy has to shape the architecture from the beginning. Designing the system around least-privilege data access and client-side encryption made privacy an architectural constraint rather than a marketing feature.
                   </p>
                 </div>

@@ -347,9 +347,9 @@ export default function SemanticProjectPage() {
                 {/* BEFORE / AFTER BLOCK */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 my-16">
                   {/* BEFORE */}
-                  <div className="border border-neutral-200 dark:border-neutral-800 bg-[#F7F7F7] dark:bg-[#141415] p-5 sm:p-6 rounded-xl">
-                    <h4 className="font-mono text-xs sm:text-[13px] font-semibold text-[#ef4444] mb-4 tracking-wider uppercase">Before</h4>
-                    <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
+                  <div className="space-y-3 p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#13151E]">
+                    <h4 className="font-mono text-xs sm:text-[13px] font-semibold text-[#ef4444] tracking-wider uppercase">BEFORE</h4>
+                    <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
                       <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Reading through every long email thread</li>
                       <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Losing track of scattered deadlines</li>
                       <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Missing buried action items</li>
@@ -358,9 +358,9 @@ export default function SemanticProjectPage() {
                   </div>
 
                   {/* AFTER */}
-                  <div className="border border-[#10b981]/20 dark:border-[#10b981]/20 bg-[#10b981]/[0.02] dark:bg-[#10b981]/[0.02] p-5 sm:p-6 rounded-xl">
-                    <h4 className="font-mono text-xs sm:text-[13px] font-semibold text-[#10b981] mb-4 tracking-wider uppercase">After</h4>
-                    <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#10b981]">
+                  <div className="space-y-3 p-5 rounded-xl border border-[#10b981]/20 dark:border-[#10b981]/20 bg-[#10b981]/[0.02] dark:bg-[#10b981]/[0.02]">
+                    <h4 className="font-mono text-xs sm:text-[13px] font-semibold text-[#10b981] tracking-wider uppercase">AFTER</h4>
+                    <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#10b981]">
                       <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Instant thread summarization</li>
                       <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Extracted and tracked deadlines</li>
                       <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Highlighted key action items</li>
