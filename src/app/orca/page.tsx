@@ -461,12 +461,12 @@ export default function OrcaProjectPage() {
                 The design language of ORCA focuses on clarity, ensuring that dense scientific information is presented in a readable, accessible format.
               </p>
               
-              <div className="flex flex-col gap-4 sm:gap-6 pt-4 pb-6">
-                <img src="/asset1.svg" alt="Orca Design Interface 1" className="w-full h-auto object-contain" />
+              <div className="w-[100vw] sm:w-[840px] max-w-[100vw] relative left-1/2 -translate-x-1/2 flex flex-col gap-4 sm:gap-6 pt-4 pb-6 px-4 sm:px-0">
+                <img src="/asset1.svg" alt="Orca Design Interface 1" className="w-full h-auto object-contain drop-shadow-sm rounded-sm" />
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                  <img src="/asset2.svg" alt="Orca Design Interface 2" className="w-full h-auto object-contain" />
-                  <img src="/asset3.svg" alt="Orca Design Components" className="w-full h-auto object-contain" />
+                  <img src="/asset2.svg" alt="Orca Design Interface 2" className="w-full h-auto object-contain drop-shadow-sm rounded-sm" />
+                  <img src="/asset3.svg" alt="Orca Design Components" className="w-full h-auto object-contain drop-shadow-sm rounded-sm" />
                 </div>
               </div>
             </div>
