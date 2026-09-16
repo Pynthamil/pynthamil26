@@ -212,7 +212,7 @@ export default function SemanticProjectPage() {
                   <img
                     src="/semantic1.svg"
                     alt="Semantic Email Copilot Banner"
-                    className="w-auto h-[50vh] sm:h-[60vh] max-h-[600px] object-contain block select-none bg-transparent my-4 mx-auto"
+                    className="w-auto h-[60vh] sm:h-[75vh] max-h-[850px] object-contain block select-none bg-transparent my-4 mx-auto"
                   />
                 </div>
               </div>
