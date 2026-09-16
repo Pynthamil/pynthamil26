@@ -125,7 +125,7 @@ export default function OrcaProjectPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => playTone(880)}
-              className="inline-flex items-center space-x-2 px-2.5 py-1.5 sm:py-1 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-[#141415]/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group cursor-pointer"
+              className="inline-flex items-center space-x-2 px-2.5 py-1.5 sm:py-1 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-[#141415]/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group cursor-pointer"
               title="View Source on GitHub"
             >
               <Github className="w-3.5 h-3.5 text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-[#007FFF] dark:group-hover:text-[#FFF0F5] transition-colors" strokeWidth={2} />
@@ -139,7 +139,7 @@ export default function OrcaProjectPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => playTone(1046)}
-              className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-sm border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.05] dark:bg-[#FFF0F5]/[0.08] hover:bg-[#007FFF]/[0.1] dark:hover:bg-[#FFF0F5]/[0.15] cursor-pointer group select-none transition-colors"
+              className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-xl border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.05] dark:bg-[#FFF0F5]/[0.08] hover:bg-[#007FFF]/[0.1] dark:hover:bg-[#FFF0F5]/[0.15] cursor-pointer group select-none transition-colors"
               title="Visit orca.ai"
             >
               <span className="font-mono text-xs sm:text-[13px] text-[#007FFF] dark:text-[#FFF0F5] font-medium tracking-tight">
@@ -252,7 +252,7 @@ export default function OrcaProjectPage() {
             </div>
 
             <div className="pt-2 pb-2 flex">
-              <a href="#solution" className="inline-flex items-center gap-2 font-mono text-[13px] sm:text-[14px] px-4 py-2 bg-[#141415] dark:bg-[#F2F2F2] text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-300 transition-all rounded-sm shadow-sm group">
+              <a href="#solution" className="inline-flex items-center gap-2 font-mono text-[13px] sm:text-[14px] px-4 py-2 bg-[#141415] dark:bg-[#F2F2F2] text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-300 transition-all rounded-xl shadow-sm group">
                 Jump to Solution
                 <span className="group-hover:translate-y-0.5 transition-transform">&darr;</span>
               </a>
@@ -282,9 +282,9 @@ export default function OrcaProjectPage() {
                 {painPoints.map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#FFF0F5]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#007FFF] dark:hover:border-[#FFF0F5] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                    className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#FFF0F5]/20 rounded-xl p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#007FFF] dark:hover:border-[#FFF0F5] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
                   >
-                    <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#007FFF]/10 flex items-center justify-center">
+                    <div className="p-1 rounded-xl bg-neutral-50 dark:bg-[#007FFF]/10 flex items-center justify-center">
                       {item.icon}
                     </div>
                     <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -297,9 +297,9 @@ export default function OrcaProjectPage() {
 
             {/* THE OPPORTUNITY */}
             <div className="scroll-mt-20 -mt-2">
-              <div className="p-5 sm:p-6 rounded-sm border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.05] dark:bg-[#FFF0F5]/[0.08] flex items-start gap-4">
-                <HelpCircle className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5] shrink-0 mt-0.5" strokeWidth={2} />
-                <h3 className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
+              <div className="p-6 sm:p-8 rounded-xl border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.05] dark:bg-[#FFF0F5]/[0.08] flex flex-col items-center justify-center text-center gap-3">
+                <HelpCircle className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5] shrink-0" strokeWidth={2} />
+                <h3 className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   How might we make decades of marine research queryable in seconds without sacrificing the evidence researchers need to trust an answer?
                 </h3>
               </div>
@@ -318,7 +318,7 @@ export default function OrcaProjectPage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                <div className="space-y-3 p-5 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-[#F7F7F7] dark:bg-[#141415]">
+                <div className="space-y-3 p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-[#F7F7F7] dark:bg-[#141415]">
                   <h4 className="font-mono text-[13px] font-semibold text-[#ef4444] tracking-wider">BEFORE</h4>
                   <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Search across fragmented sources</li>
@@ -327,7 +327,7 @@ export default function OrcaProjectPage() {
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Repeat searches to build context</li>
                   </ul>
                 </div>
-                <div className="space-y-3 p-5 rounded-sm border border-[#007FFF]/30 dark:border-[#FFF0F5]/30 bg-[#007FFF]/[0.03] dark:bg-[#FFF0F5]/[0.05]">
+                <div className="space-y-3 p-5 rounded-xl border border-[#007FFF]/30 dark:border-[#FFF0F5]/30 bg-[#007FFF]/[0.03] dark:bg-[#FFF0F5]/[0.05]">
                   <h4 className="font-mono text-[13px] font-semibold text-[#10b981] tracking-wider">AFTER</h4>
                   <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#10b981]">
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Ask one natural-language question</li>
@@ -367,7 +367,7 @@ export default function OrcaProjectPage() {
               <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 ORCA transforms natural-language questions into concise, source-backed responses by combining semantic retrieval with Gemini-powered synthesis and citation grounding.
               </p>
-              <div className="py-6 flex justify-center items-center w-full bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-sm">
+              <div className="py-6 flex justify-center items-center w-full bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-xl">
                 <span className="font-mono text-[12px] sm:text-sm font-semibold tracking-wider text-[#007FFF] dark:text-[#FFF0F5] text-center px-4">
                   QUESTION &rarr; RETRIEVE &rarr; SYNTHESIZE &rarr; CITE
                 </span>
@@ -380,7 +380,7 @@ export default function OrcaProjectPage() {
                 Connecting <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">retrieval, LLM reasoning, and citation grounding</span> into a single research workflow.
               </h3>
               
-              <div className="p-6 bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-sm font-mono text-[13px] sm:text-sm text-center space-y-3 mt-4">
+              <div className="p-6 bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-xl font-mono text-[13px] sm:text-sm text-center space-y-3 mt-4">
                 <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Research Question</div>
                 <div className="text-[#007FFF] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Query Processing</div>
@@ -418,7 +418,7 @@ export default function OrcaProjectPage() {
                 </h3>
               </div>
               
-              <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-sm space-y-4 mt-2">
+              <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-xl space-y-4 mt-2">
                 <div className="space-y-1">
                   <div className="font-mono text-xs font-semibold text-[#007FFF] dark:text-[#FFF0F5]">QUESTION</div>
                   <div className="text-[24px] sm:text-[26px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2]">"How do temperature shifts affect phytoplankton blooms in the North Atlantic?"</div>
@@ -471,8 +471,8 @@ export default function OrcaProjectPage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <div className="p-5 sm:p-6 rounded-sm border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.04] dark:bg-[#FFF0F5]/[0.07] flex flex-col items-center text-center space-y-3 transition-colors hover:bg-[#007FFF]/[0.08] dark:hover:bg-[#FFF0F5]/[0.12]">
-                  <div className="p-2 rounded-sm bg-[#007FFF]/15 dark:bg-[#FFF0F5]/20 flex items-center justify-center">
+                <div className="p-5 sm:p-6 rounded-xl border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.04] dark:bg-[#FFF0F5]/[0.07] flex flex-col items-center text-center space-y-3 transition-colors hover:bg-[#007FFF]/[0.08] dark:hover:bg-[#FFF0F5]/[0.12]">
+                  <div className="p-2 rounded-xl bg-[#007FFF]/15 dark:bg-[#FFF0F5]/20 flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />
                   </div>
                   <h4 className="font-mono text-[13px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] tracking-wider uppercase pt-1">Grounded citations</h4>
@@ -481,8 +481,8 @@ export default function OrcaProjectPage() {
                   </p>
                 </div>
 
-                <div className="p-5 sm:p-6 rounded-sm border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.04] dark:bg-[#FFF0F5]/[0.07] flex flex-col items-center text-center space-y-3 transition-colors hover:bg-[#007FFF]/[0.08] dark:hover:bg-[#FFF0F5]/[0.12]">
-                  <div className="p-2 rounded-sm bg-[#007FFF]/15 dark:bg-[#FFF0F5]/20 flex items-center justify-center">
+                <div className="p-5 sm:p-6 rounded-xl border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.04] dark:bg-[#FFF0F5]/[0.07] flex flex-col items-center text-center space-y-3 transition-colors hover:bg-[#007FFF]/[0.08] dark:hover:bg-[#FFF0F5]/[0.12]">
+                  <div className="p-2 rounded-xl bg-[#007FFF]/15 dark:bg-[#FFF0F5]/20 flex items-center justify-center">
                     <Layers className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />
                   </div>
                   <h4 className="font-mono text-[13px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] tracking-wider uppercase pt-1">Domain empathy</h4>

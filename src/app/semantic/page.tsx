@@ -135,7 +135,7 @@ export default function SemanticProjectPage() {
               href="https://www.figma.com/design/jFmjS9SneDaQNfBDHSOepV/mote?node-id=1-3&t=u4M4Lf67dlZ5hgzu-1"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.05] dark:bg-[#8888FF]/[0.08] hover:bg-[#6666FF]/[0.1] dark:hover:bg-[#8888FF]/[0.15] cursor-pointer group select-none transition-colors"
+              className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-xl border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.05] dark:bg-[#8888FF]/[0.08] hover:bg-[#6666FF]/[0.1] dark:hover:bg-[#8888FF]/[0.15] cursor-pointer group select-none transition-colors"
               title="View Design in Figma"
             >
               <span className="font-mono text-xs sm:text-[13px] text-[#6666FF] dark:text-[#8888FF] font-medium tracking-tight">
@@ -245,7 +245,7 @@ export default function SemanticProjectPage() {
                     playTone(880);
                     document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="px-4 py-2 rounded-sm bg-[#141415] dark:bg-white text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-200 transition-colors font-medium text-[13px] sm:text-sm shadow-sm flex items-center space-x-2"
+                  className="px-4 py-2 rounded-xl bg-[#141415] dark:bg-white text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-200 transition-colors font-medium text-[13px] sm:text-sm shadow-sm flex items-center space-x-2"
                 >
                   <span>Jump to Solution</span>
                   <ArrowDown className="w-4 h-4" />
@@ -254,7 +254,7 @@ export default function SemanticProjectPage() {
                   href="https://www.figma.com/design/jFmjS9SneDaQNfBDHSOepV/mote?node-id=1-3&t=u4M4Lf67dlZ5hgzu-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-sm border border-neutral-300 dark:border-neutral-700 hover:border-[#6666FF] dark:hover:border-[#8888FF] text-[#475569] dark:text-[#CBD5E1] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors font-medium text-[13px] sm:text-sm flex items-center space-x-2"
+                  className="px-4 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 hover:border-[#6666FF] dark:hover:border-[#8888FF] text-[#475569] dark:text-[#CBD5E1] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors font-medium text-[13px] sm:text-sm flex items-center space-x-2"
                 >
                   <span>View in Figma</span>
                   <Figma className="w-4 h-4" />
@@ -269,7 +269,7 @@ export default function SemanticProjectPage() {
                   THE PROBLEM
                 </span>
                 <p className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
-                  Email is full of tasks, deadlines, and commitments, but inboxes bury them in clutter, making it <span className="bg-[#6666FF]/15 dark:bg-[#8888FF]/20 px-1 rounded-sm">easy to lose track of what matters.</span>
+                  Email is full of tasks, deadlines, and commitments, but inboxes bury them in clutter, making it <span className="bg-[#6666FF]/15 dark:bg-[#8888FF]/20 px-1 rounded-xl">easy to lose track of what matters.</span>
                 </p>
                 <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
                   As messages accumulate, users spend excessive energy trying to remember why an email was received, what deliverables are due, who needs a reply, and when to follow up.
@@ -286,9 +286,9 @@ export default function SemanticProjectPage() {
                   {painPoints.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#8888FF]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#6666FF] dark:hover:border-[#8888FF] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                      className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#8888FF]/20 rounded-xl p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#6666FF] dark:hover:border-[#8888FF] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
                     >
-                      <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#6666FF]/10 flex items-center justify-center">
+                      <div className="p-1 rounded-xl bg-neutral-50 dark:bg-[#6666FF]/10 flex items-center justify-center">
                         {item.icon}
                       </div>
                       <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -300,7 +300,7 @@ export default function SemanticProjectPage() {
               </div>
 
               {/* How Might We Callout Box */}
-              <div className="p-4 sm:p-4.5 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.05] dark:bg-[#8888FF]/[0.08] flex items-start gap-3">
+              <div className="p-4 sm:p-4.5 rounded-xl border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.05] dark:bg-[#8888FF]/[0.08] flex items-start gap-3">
                 <HelpCircle className="w-4 h-4 text-[#6666FF] dark:text-[#8888FF] shrink-0 mt-0.5" strokeWidth={2} />
                 <p className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   How might we transform email from an overwhelming backlog into an intelligent copilot that turns incoming communication into actionable clarity?
@@ -347,7 +347,7 @@ export default function SemanticProjectPage() {
                 {/* BEFORE / AFTER BLOCK */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 my-16">
                   {/* BEFORE */}
-                  <div className="border border-neutral-200 dark:border-neutral-800 bg-[#F7F7F7] dark:bg-[#141415] p-5 sm:p-6 rounded-sm">
+                  <div className="border border-neutral-200 dark:border-neutral-800 bg-[#F7F7F7] dark:bg-[#141415] p-5 sm:p-6 rounded-xl">
                     <h4 className="font-mono text-xs sm:text-[13px] font-semibold text-[#ef4444] mb-4 tracking-wider uppercase">Before</h4>
                     <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
                       <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Reading through every long email thread</li>
@@ -358,7 +358,7 @@ export default function SemanticProjectPage() {
                   </div>
 
                   {/* AFTER */}
-                  <div className="border border-[#10b981]/20 dark:border-[#10b981]/20 bg-[#10b981]/[0.02] dark:bg-[#10b981]/[0.02] p-5 sm:p-6 rounded-sm">
+                  <div className="border border-[#10b981]/20 dark:border-[#10b981]/20 bg-[#10b981]/[0.02] dark:bg-[#10b981]/[0.02] p-5 sm:p-6 rounded-xl">
                     <h4 className="font-mono text-xs sm:text-[13px] font-semibold text-[#10b981] mb-4 tracking-wider uppercase">After</h4>
                     <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#10b981]">
                       <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Instant thread summarization</li>
@@ -444,7 +444,7 @@ export default function SemanticProjectPage() {
                   </p>
                 </div>
                 
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-sm space-y-4 mt-4 text-center">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-xl space-y-4 mt-4 text-center">
                   <p className="instrument-serif italic text-[24px] sm:text-[26px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                     "Could you get this to me sometime next week?"
                   </p>
@@ -483,8 +483,8 @@ export default function SemanticProjectPage() {
               {/* 2-Column Takeaways Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-1">
                 {/* Card 1 */}
-                <div className="p-5 sm:p-5.5 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.04] dark:bg-[#8888FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#8888FF]/[0.12]">
-                  <div className="p-1.5 rounded-sm bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
+                <div className="p-5 sm:p-5.5 rounded-xl border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.04] dark:bg-[#8888FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#8888FF]/[0.12]">
+                  <div className="p-1.5 rounded-xl bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
                   </div>
                   <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-wider text-[#6666FF] dark:text-[#8888FF] block uppercase">
@@ -496,8 +496,8 @@ export default function SemanticProjectPage() {
                 </div>
 
                 {/* Card 2: Ownership in Ambiguity (Moved from full width to grid) */}
-                <div className="p-5 sm:p-5.5 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.04] dark:bg-[#8888FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#8888FF]/[0.12]">
-                  <div className="p-1.5 rounded-sm bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
+                <div className="p-5 sm:p-5.5 rounded-xl border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.04] dark:bg-[#8888FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#8888FF]/[0.12]">
+                  <div className="p-1.5 rounded-xl bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
                     <Search className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
                   </div>
                   <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-wider text-[#6666FF] dark:text-[#8888FF] block uppercase">
