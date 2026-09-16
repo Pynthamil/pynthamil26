@@ -201,7 +201,7 @@ export default function MessagingProjectPage() {
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                 OVERVIEW
               </span>
-              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Built a real-time messaging platform that replaces phone-number-based identity with cryptographic user identities.
               </h3>
               <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
@@ -223,7 +223,7 @@ export default function MessagingProjectPage() {
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                 PROBLEM
               </span>
-              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Messaging is convenient, but privacy often comes with trade-offs
               </h3>
               <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
@@ -271,7 +271,7 @@ export default function MessagingProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                   THE SOLUTION
                 </span>
-                <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   A real-time messaging system designed around privacy rather than added as a feature.
                 </h3>
               </div>
@@ -302,7 +302,7 @@ export default function MessagingProjectPage() {
 
             {/* ARCHITECTURE */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Separating <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">real-time delivery from durable message processing.</span>
               </h3>
               
@@ -345,7 +345,7 @@ export default function MessagingProjectPage() {
 
             {/* THE INTERESTING PART */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Making "instant" messaging reliable: <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">a distributed-systems problem.</span>
               </h3>
               <ul className="list-disc pl-5 space-y-3 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#00BF63] dark:marker:text-[#E4FFC1]">
@@ -359,7 +359,7 @@ export default function MessagingProjectPage() {
             {/* ITERATING */}
             <div className="space-y-5 -mt-4">
               <div className="space-y-4">
-                <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   What went wrong initially: <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">tightly coupled message delivery.</span>
                 </h3>
               </div>
@@ -377,7 +377,7 @@ export default function MessagingProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00BF63] dark:text-[#E4FFC1] block">
                   TAKEAWAYS
                 </span>
-                <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                   How does this remain correct when everything goes wrong?
                 </h3>
               </div>

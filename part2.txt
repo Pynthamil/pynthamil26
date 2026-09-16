@@ -1,225 +1,4 @@
-"use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import {
-  Inbox,
-  Search,
-  CheckSquare,
-  Split,
-  HelpCircle,
-  Sparkles,
-  Layers,
-  Moon,
-  Sun,
-  ArrowDown,
-  Figma,
-  ExternalLink
-} from "lucide-react";
-import { ChromaVideo } from "@/components/ChromaVideo";
-import { PersonaShowcase } from "@/components/PersonaShowcase";
-import { ProjectSidebar } from "@/components/ProjectSidebar";
-
-export default function SemanticProjectPage() {
-  const [soundOn, setSoundOn] = useState<boolean>(true);
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-
-  
-
-
-  // Sync theme with localStorage or system preference
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      setIsDarkMode(false);
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    playTone(1046);
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDarkMode(true);
-    }
-  };
-
-  // Web Audio synthesizer for tactile clicks
-  const playTone = (freq: number = 880) => {
-    if (!soundOn) return;
-    try {
-      const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
-      if (!AudioContext) return;
-      const ctx = new AudioContext();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(freq, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(freq / 2, ctx.currentTime + 0.08);
-
-      gain.gain.setValueAtTime(0.08, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
-
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-
-      osc.start();
-      osc.stop(ctx.currentTime + 0.08);
-    } catch (e) {}
-  };
-
-  const painPoints = [
-    {
-      icon: <Inbox className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />,
-      title: "INBOX OVERLOAD",
-      desc: "High-volume noise obscures critical signals",
-    },
-    {
-      icon: <Search className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />,
-      title: "LOST CONTEXT",
-      desc: "Decisions scattered across long threads",
-    },
-    {
-      icon: <CheckSquare className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />,
-      title: "BURIED ACTIONS",
-      desc: "Tasks forgotten once marked read",
-    },
-    {
-      icon: <Split className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />,
-      title: "FRAGMENTED TOOLS",
-      desc: "Manual tracking across external apps",
-    },
-  ];
-
-  const sidebarSections = [
-    { id: "overview", label: "Overview" },
-    { id: "problem", label: "Problem" },
-    { id: "research", label: "Research" },
-    { id: "solution", label: "Solution" },
-    { id: "takeaways", label: "Takeaways" },
-  ];
-
-  return (
-    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-24 selection:bg-indigo-100 dark:selection:bg-indigo-950">
-      {/* Table of Contents Floating Sidebar */}
-      <ProjectSidebar sections={sidebarSections} playTone={playTone} />
-
-      {/* Soft atmospheric ambient glow */}
-      <div className="ambient-glow" />
-
-      {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[640px] animate-in fade-in duration-200">
-        {/* Top Navigation */}
-        <header className="flex items-center justify-between w-full mb-8">
-          <Link
-            href="/"
-            onClick={() => playTone(880)}
-            className="font-mono text-[15px] sm:text-[15.5px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
-          >
-            <span>&larr;</span>
-            <span>home</span>
-          </Link>
-
-          <div className="flex items-center space-x-3.5">
-            <a
-              href="https://www.figma.com/design/jFmjS9SneDaQNfBDHSOepV/mote?node-id=1-3&t=u4M4Lf67dlZ5hgzu-1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-sm border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.05] dark:bg-[#8888FF]/[0.08] hover:bg-[#6666FF]/[0.1] dark:hover:bg-[#8888FF]/[0.15] cursor-pointer group select-none transition-colors"
-              title="View Design in Figma"
-            >
-              <span className="font-mono text-xs sm:text-[13px] text-[#6666FF] dark:text-[#8888FF] font-medium tracking-tight">
-                figma
-              </span>
-              <div className="text-[#6666FF] dark:text-[#8888FF] flex items-center opacity-75 group-hover:opacity-100 transition-opacity">
-                <Figma className="w-3.5 h-3.5" strokeWidth={2.5} />
-              </div>
-            </a>
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle dark mode"
-              className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
-            >
-              {isDarkMode ? (
-                <Sun className="w-4 h-4 transition-transform duration-200 hover:rotate-45" strokeWidth={2} />
-              ) : (
-                <Moon className="w-4 h-4 transition-transform duration-200 hover:-rotate-12" strokeWidth={2} />
-              )}
-            </button>
-          </div>
-        </header>
-
-        {/* Article / Case Study Header */}
-        <article className="space-y-6">
-          <div className="pb-2 space-y-3">
-            <h1 className="instrument-serif text-[48px] sm:text-[56px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
-              Semantic Email Copilot
-            </h1>
-            <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-              Turning inbox chaos into structured tasks, deadlines, and context.
-            </p>
-
-            {/* 4-Column Metadata Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4 pb-12">
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
-                  ROLE
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Product Designer
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
-                  TIMELINE
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Aug 2026
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
-                  SKILLS
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  AI UX, Systems
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
-                  TOOLS
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Figma
-                </span>
-              </div>
-            </div>
-            
-            <div  className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
-              <div  className="w-full p-8 sm:p-12 md:p-16 rounded-sm overflow-hidden flex items-center justify-center shadow-[inset_0_0_100px_rgba(0,0,0,0.2)]"
-                style={{ backgroundImage: 'url(/saas_bg2.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div className="w-full overflow-hidden flex items-center justify-center">
-                  <img
-                    src="/semantic1.svg"
-                    alt="Semantic Email Copilot Banner"
-                    className="w-auto h-[50vh] sm:h-[60vh] max-h-[600px] object-contain block select-none bg-transparent drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)] my-4 mx-auto"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Case Study Content */}
           <div className="space-y-8 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             {/* Overview / Context */}
             <div id="overview" className="space-y-4 scroll-mt-20">
@@ -227,7 +6,7 @@ export default function SemanticProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   OVERVIEW
                 </span>
-                <p className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <p className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Our inboxes store information, but fail to turn it into meaningful action.
                 </p>
               </div>
@@ -268,7 +47,7 @@ export default function SemanticProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   THE PROBLEM
                 </span>
-                <p className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
+                <p className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   Email is full of tasks, deadlines, and commitments, but inboxes bury them in clutter, making it <span className="bg-[#6666FF]/15 dark:bg-[#8888FF]/20 px-1 rounded-sm">easy to lose track of what matters.</span>
                 </p>
                 <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
@@ -314,7 +93,7 @@ export default function SemanticProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   RESEARCH &amp; DISCOVERY
                 </span>
-                <h2 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   Understanding high-volume inbox workflows
                 </h2>
                 <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
@@ -335,7 +114,7 @@ export default function SemanticProjectPage() {
                   <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                     THE SOLUTION
                   </span>
-                  <h2 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                  <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                     Designing an intelligence layer that turns unstructured email into clear, actionable context
                   </h2>
                   <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
@@ -386,7 +165,7 @@ export default function SemanticProjectPage() {
               {/* Sub-solution 2: Everyday Situations */}
               <div className="pt-4 space-y-4">
                 <div className="space-y-1">
-                  <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
                     Turning everyday emails into clear actions, from <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">quick requests to time-sensitive commitments</span>
                   </h3>
                   <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
@@ -410,7 +189,7 @@ export default function SemanticProjectPage() {
               {/* Sub-solution 3: Context Mapping */}
               <div className="pt-4 space-y-4">
                 <div className="space-y-1">
-                  <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
                     Not just drafting replies, but <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">helping you understand the conversation behind them.</span>
                   </h3>
                   <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
@@ -433,7 +212,7 @@ export default function SemanticProjectPage() {
 
               <div className="pt-4 space-y-4">
                 <div className="space-y-1">
-                  <h3 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
                     Designing for ambiguity taught me that AI becomes more useful <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">when uncertainty is visible, not hidden.</span>
                   </h3>
                   <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
@@ -475,7 +254,7 @@ export default function SemanticProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   TAKEAWAYS
                 </span>
-                <h2 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                   AI should turn complexity into something you can confidently act on.
                 </h2>
               </div>

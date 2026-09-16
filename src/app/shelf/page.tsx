@@ -195,7 +195,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   CONTEXT
                 </span>
-                <p className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <p className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   People are excellent at saving things and terrible at deciding what to consume next.
                 </p>
               </div>
@@ -213,7 +213,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   THE PROBLEM
                 </span>
-                <p className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
+                <p className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   People save content with the intention of consuming it later, but their growing backlog makes it increasingly difficult to decide what to consume next.
                 </p>
                 <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
@@ -259,7 +259,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   PROCESS
                 </span>
-                <h2 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                <h2 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   From backlog overwhelm to intentional consumption
                 </h2>
                 <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
@@ -277,7 +277,7 @@ export default function ShelfProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   TAKEAWAYS
                 </span>
-                <h2 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                <h2 className="text-[32px] sm:text-[36px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   What I learned after Shelf
                 </h2>
               </div>
