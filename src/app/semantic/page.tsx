@@ -373,7 +373,7 @@ export default function SemanticProjectPage() {
                 {/* Demo Video 1 */}
                 <div className="py-4 my-2">
                   <div className="w-full flex justify-center">
-                    <div className="w-full max-w-[490px]">
+                    <div className="w-full max-w-[600px]">
                       <ChromaVideo src="/semantic/demo1.mov" />
                     </div>
                   </div>
@@ -397,7 +397,7 @@ export default function SemanticProjectPage() {
                 {/* Demo Video 2 */}
                 <div className="py-4 my-2">
                   <div className="w-full flex justify-center">
-                    <div className="w-full max-w-[490px]">
+                    <div className="w-full max-w-[600px]">
                       <ChromaVideo src="/semantic/demo2.mov" />
                     </div>
                   </div>
@@ -421,7 +421,7 @@ export default function SemanticProjectPage() {
                 {/* Demo Video 3 */}
                 <div className="py-4 my-2">
                   <div className="w-full flex justify-center">
-                    <div className="w-full max-w-[490px]">
+                    <div className="w-full max-w-[600px]">
                       <ChromaVideo src="/semantic/demo3.mov" />
                     </div>
                   </div>
