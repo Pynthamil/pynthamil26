@@ -205,14 +205,14 @@ export default function SemanticProjectPage() {
               </div>
             </div>
             
-            <div  className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
-              <div  className="w-full p-8 sm:p-12 md:p-16 rounded-sm overflow-hidden flex items-center justify-center shadow-[inset_0_0_100px_rgba(0,0,0,0.2)]"
-                style={{ backgroundImage: 'url(/saas_bg2.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div  className="w-[100vw] sm:w-[1024px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
+              <div  className="w-full p-8 sm:p-12 md:p-16 rounded-2xl overflow-hidden flex items-center justify-center"
+                style={{ backgroundImage: 'url(/asset2.1.svg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="w-full overflow-hidden flex items-center justify-center">
                   <img
                     src="/semantic1.svg"
                     alt="Semantic Email Copilot Banner"
-                    className="w-auto h-[50vh] sm:h-[60vh] max-h-[600px] object-contain block select-none bg-transparent drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)] my-4 mx-auto"
+                    className="w-auto h-[50vh] sm:h-[60vh] max-h-[600px] object-contain block select-none bg-transparent my-4 mx-auto"
                   />
                 </div>
               </div>
