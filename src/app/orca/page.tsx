@@ -347,7 +347,7 @@ export default function OrcaProjectPage() {
                 </p>
               </div>
 
-              <div className="w-[100vw] sm:w-[840px] max-w-[100vw] relative left-1/2 -translate-x-1/2 flex flex-col gap-4 sm:gap-6 pt-6 pb-2 px-4 sm:px-0">
+              <div className="w-[100vw] sm:w-[1024px] max-w-[100vw] relative left-1/2 -translate-x-1/2 flex flex-col gap-4 sm:gap-6 pt-6 pb-2 px-4 sm:px-0">
                 <img src="/asset1.svg" alt="Orca Design Interface 1" className="w-full h-auto object-contain drop-shadow-sm rounded-sm" />
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
