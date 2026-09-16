@@ -188,8 +188,57 @@ export default function MessagingProjectPage() {
             </div>
             
             <div className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
-              <div className="w-full h-[300px] sm:h-[400px] rounded-xl overflow-hidden flex flex-col items-center justify-center bg-[#E4FFC1] dark:bg-[#00BF63] shadow-[inset_0_0_100px_rgba(0,0,0,0.05)] gap-4">
-                  <span className="text-[#13151E] dark:text-white opacity-90 font-mono text-sm sm:text-base tracking-widest uppercase font-semibold">Kivo Platform</span>
+              <style>{`
+                @keyframes floatLeft {
+                  0%, 100% { transform: translateY(0) rotate(-12deg); }
+                  50% { transform: translateY(-20px) rotate(-5deg); }
+                }
+                @keyframes floatRight {
+                  0%, 100% { transform: translateY(0) rotate(12deg); }
+                  50% { transform: translateY(20px) rotate(19deg); }
+                }
+                @keyframes popIn {
+                  0% { transform: scale(0.85); opacity: 0; }
+                  100% { transform: scale(1); opacity: 1; }
+                }
+                .anim-float-left { animation: floatLeft 8s ease-in-out infinite; }
+                .anim-float-right { animation: floatRight 10s ease-in-out infinite; }
+                .anim-pop-in { animation: popIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+              `}</style>
+              <div className="w-full h-[300px] sm:h-[400px] rounded-xl overflow-hidden flex flex-col items-center justify-center bg-[#13151E] dark:bg-[#0B0C10] shadow-[inset_0_0_100px_rgba(0,0,0,0.5)] relative">
+                
+                {/* Background faint shapes */}
+                <svg viewBox="0 0 24 24" className="absolute -left-10 bottom-0 w-64 h-64 fill-[#E4FFC1] opacity-5 anim-float-left">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21H16.5C17.8978 21 18.5967 21 19.1481 20.7716C19.8831 20.4672 20.4672 19.8831 20.7716 19.1481C21 18.5967 21 17.8978 21 16.5V12C21 7.02944 16.9706 3 12 3ZM8 11C8 10.4477 8.44772 10 9 10H15C15.5523 10 16 10.4477 16 11C16 11.5523 15.5523 12 15 12H9C8.44772 12 8 11.5523 8 11ZM11 15C11 14.4477 11.4477 14 12 14H15C15.5523 14 16 14.4477 16 15C16 15.5523 15.5523 16 15 16H12C11.4477 16 11 15.5523 11 15Z" />
+                </svg>
+                <svg viewBox="0 0 24 24" className="absolute -right-10 top-5 w-80 h-80 fill-[#E4FFC1] opacity-5 anim-float-right">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21H16.5C17.8978 21 18.5967 21 19.1481 20.7716C19.8831 20.4672 20.4672 19.8831 20.7716 19.1481C21 18.5967 21 17.8978 21 16.5V12C21 7.02944 16.9706 3 12 3ZM8 11C8 10.4477 8.44772 10 9 10H15C15.5523 10 16 10.4477 16 11C16 11.5523 15.5523 12 15 12H9C8.44772 12 8 11.5523 8 11ZM11 15C11 14.4477 11.4477 14 12 14H15C15.5523 14 16 14.4477 16 15C16 15.5523 15.5523 16 15 16H12C11.4477 16 11 15.5523 11 15Z" />
+                </svg>
+
+                {/* Logo with selection box */}
+                <div className="relative inline-flex items-center gap-3 sm:gap-5 p-5 sm:p-7 border border-dashed border-[#E4FFC1]/20 anim-pop-in">
+                  {/* Selection Handles */}
+                  <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border border-[#E4FFC1]/20 bg-[#13151E] dark:bg-[#0B0C10]"></div>
+                  <div className="absolute -top-1.5 -right-1.5 w-3 h-3 border border-[#E4FFC1]/20 bg-[#13151E] dark:bg-[#0B0C10]"></div>
+                  <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border border-[#E4FFC1]/20 bg-[#13151E] dark:bg-[#0B0C10]"></div>
+                  <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border border-[#E4FFC1]/20 bg-[#13151E] dark:bg-[#0B0C10]"></div>
+                  
+                  {/* Center top/bottom/left/right handles */}
+                  <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 border border-[#E4FFC1]/20 bg-[#13151E] dark:bg-[#0B0C10]"></div>
+                  <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 border border-[#E4FFC1]/20 bg-[#13151E] dark:bg-[#0B0C10]"></div>
+                  <div className="absolute top-1/2 -translate-y-1/2 -left-1.5 w-3 h-3 border border-[#E4FFC1]/20 bg-[#13151E] dark:bg-[#0B0C10]"></div>
+                  <div className="absolute top-1/2 -translate-y-1/2 -right-1.5 w-3 h-3 border border-[#E4FFC1]/20 bg-[#13151E] dark:bg-[#0B0C10]"></div>
+
+                  {/* Icon */}
+                  <svg viewBox="0 0 24 24" className="w-12 h-12 sm:w-16 sm:h-16 fill-[#E4FFC1] hover:scale-110 transition-transform duration-300 ease-out cursor-pointer">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21H16.5C17.8978 21 18.5967 21 19.1481 20.7716C19.8831 20.4672 20.4672 19.8831 20.7716 19.1481C21 18.5967 21 17.8978 21 16.5V12C21 7.02944 16.9706 3 12 3ZM8 11C8 10.4477 8.44772 10 9 10H15C15.5523 10 16 10.4477 16 11C16 11.5523 15.5523 12 15 12H9C8.44772 12 8 11.5523 8 11ZM11 15C11 14.4477 11.4477 14 12 14H15C15.5523 14 16 14.4477 16 15C16 15.5523 15.5523 16 15 16H12C11.4477 16 11 15.5523 11 15Z" />
+                  </svg>
+                  
+                  {/* Text */}
+                  <span className="text-[52px] sm:text-[72px] font-sans font-black tracking-tighter text-[#E4FFC1] leading-none lowercase -mt-2">
+                    kivo
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -230,27 +279,25 @@ export default function MessagingProjectPage() {
                 Modern messaging apps make communication effortless, but users are often identified through phone numbers, surrounded by unnecessary data collection, and dependent on infrastructure where privacy and convenience aren't always designed together.
               </p>
               
-              
-            </div>
-
-
-
-            {/* THE PROBLEM */}
-            <div id="problem" className="scroll-mt-20 pt-8 mb-4">
-                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2">
-                {painPoints.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#E4FFC1]/20 rounded-xl p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#00BF63] dark:hover:border-[#E4FFC1] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
-                  >
-                    <div className="p-1 rounded-xl bg-neutral-50 dark:bg-[#00BF63]/10 flex items-center justify-center">
-                      {item.icon}
+              <div className="pt-2">
+                <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#475569] dark:text-[#CBD5E1] block mb-3">
+                  Core Pain Points
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+                  {painPoints.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white/70 dark:bg-[#13151E]/90 border border-neutral-200 dark:border-[#E4FFC1]/20 rounded-xl p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#00BF63] dark:hover:border-[#E4FFC1] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                    >
+                      <div className="p-1 rounded-xl bg-neutral-50 dark:bg-[#00BF63]/10 flex items-center justify-center">
+                        {item.icon}
+                      </div>
+                      <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                        {item.title}
+                      </span>
                     </div>
-                    <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                      {item.title}
-                    </span>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -306,37 +353,89 @@ export default function MessagingProjectPage() {
                 Separating <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">real-time delivery from durable message processing.</span>
               </h3>
               
-              <div className="p-6 bg-neutral-50 dark:bg-[#13151E] border border-neutral-200 dark:border-neutral-800 rounded-xl font-mono text-[13px] sm:text-sm text-center space-y-3 mt-4 overflow-x-auto">
-                <pre className="text-left text-[#2C2C2C] dark:text-[#F2F2F2] font-mono text-xs leading-relaxed">
-{`                         CLIENT
-                           │
-                 Generate identity keys
-                           │
-                    Encrypt message
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │  WebSocket API  │
-                  │    Gateway      │
-                  └────────┬────────┘
-                           │
-                           ▼
-                     ┌───────────┐
-                     │   Kafka   │
-                     └─────┬─────┘
-                           │
-                    Message Workers
-                       ↙       ↘
-                  Online       Offline
-                    │             │
-                    ▼             ▼
-               WebSocket      Persistent
-                delivery       storage
-                    │             │
-                    └──────┬──────┘
-                           ▼
-                       Recipient`}
-                </pre>
+              <div className="p-6 sm:p-10 bg-neutral-50 dark:bg-[#13151E] border border-neutral-200 dark:border-neutral-800 rounded-xl mt-4 flex flex-col items-center text-sm sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2] font-medium w-full">
+                
+                <div className="text-[#00BF63] dark:text-[#E4FFC1] font-bold tracking-widest text-xs uppercase mb-3">Client</div>
+                
+                <div className="w-px h-6 bg-neutral-300 dark:bg-neutral-700"></div>
+                <div className="py-2 text-center text-neutral-600 dark:text-neutral-400">Generate identity keys</div>
+                
+                <div className="w-px h-6 bg-neutral-300 dark:bg-neutral-700"></div>
+                <div className="py-2 text-center text-neutral-600 dark:text-neutral-400">Encrypt message</div>
+                
+                {/* Arrow */}
+                <div className="w-px h-6 bg-neutral-300 dark:bg-neutral-700 relative">
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 border-b-2 border-r-2 border-neutral-300 dark:border-neutral-700 rotate-45"></div>
+                </div>
+                
+                <div className="mt-3 px-6 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-[#1A1C23] text-center w-64 shadow-sm">
+                  <div className="font-semibold">WebSocket API</div>
+                  <div className="text-neutral-500 dark:text-neutral-400 text-xs mt-0.5">Gateway</div>
+                </div>
+
+                {/* Arrow */}
+                <div className="w-px h-6 bg-neutral-300 dark:bg-neutral-700 relative mt-1">
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 border-b-2 border-r-2 border-neutral-300 dark:border-neutral-700 rotate-45"></div>
+                </div>
+
+                <div className="mt-3 px-6 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-[#1A1C23] text-center w-64 shadow-sm font-semibold">
+                  Kafka
+                </div>
+
+                {/* Arrow */}
+                <div className="w-px h-6 bg-neutral-300 dark:bg-neutral-700 relative mt-1">
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 border-b-2 border-r-2 border-neutral-300 dark:border-neutral-700 rotate-45"></div>
+                </div>
+
+                <div className="mt-3 py-2 text-center font-semibold">Message Workers</div>
+
+                {/* Split */}
+                <div className="flex w-64 mt-2">
+                  <div className="w-1/2 border-t-2 border-r-2 border-neutral-300 dark:border-neutral-700 h-6 rounded-tr-lg relative">
+                    <div className="absolute -bottom-1 -left-1 w-2 h-2 border-b-2 border-l-2 border-neutral-300 dark:border-neutral-700 -rotate-45"></div>
+                  </div>
+                  <div className="w-1/2 border-t-2 border-l-2 border-neutral-300 dark:border-neutral-700 h-6 rounded-tl-lg relative">
+                    <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-neutral-300 dark:border-neutral-700 rotate-45"></div>
+                  </div>
+                </div>
+
+                <div className="flex w-64 justify-between mt-2 text-center text-sm font-semibold">
+                  <div className="w-1/2 text-[#00BF63] dark:text-[#E4FFC1]">Online</div>
+                  <div className="w-1/2 text-neutral-500">Offline</div>
+                </div>
+
+                {/* Down arrows */}
+                <div className="flex w-64 justify-between mt-2">
+                  <div className="w-1/2 flex justify-center">
+                    <div className="w-px h-6 bg-neutral-300 dark:bg-neutral-700 relative">
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 border-b-2 border-r-2 border-neutral-300 dark:border-neutral-700 rotate-45"></div>
+                    </div>
+                  </div>
+                  <div className="w-1/2 flex justify-center">
+                    <div className="w-px h-6 bg-neutral-300 dark:bg-neutral-700 relative">
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 border-b-2 border-r-2 border-neutral-300 dark:border-neutral-700 rotate-45"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex w-[280px] sm:w-[320px] justify-between mt-3 text-center">
+                  <div className="w-1/2 px-2 text-neutral-600 dark:text-neutral-400 text-[13px] sm:text-sm">WebSocket<br/>delivery</div>
+                  <div className="w-1/2 px-2 text-neutral-600 dark:text-neutral-400 text-[13px] sm:text-sm">Persistent<br/>storage</div>
+                </div>
+
+                {/* Merge */}
+                <div className="flex w-64 mt-4 h-6">
+                  <div className="w-1/2 border-b-2 border-l-2 border-neutral-300 dark:border-neutral-700 rounded-bl-lg"></div>
+                  <div className="w-1/2 border-b-2 border-r-2 border-neutral-300 dark:border-neutral-700 rounded-br-lg"></div>
+                </div>
+                
+                {/* Final arrow */}
+                <div className="w-px h-6 bg-neutral-300 dark:bg-neutral-700 relative">
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 border-b-2 border-r-2 border-neutral-300 dark:border-neutral-700 rotate-45"></div>
+                </div>
+
+                <div className="mt-3 text-[#00BF63] dark:text-[#E4FFC1] font-bold tracking-widest text-xs uppercase">Recipient</div>
+                
               </div>
               <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 Kafka acts as the event backbone, while Redis handles short-lived state such as presence and PostgreSQL provides durable persistence.
