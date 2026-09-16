@@ -99,7 +99,6 @@ export default function OrcaProjectPage() {
     { id: "overview", label: "Overview" },
     { id: "problem", label: "Problem" },
     { id: "solution", label: "Solution" },
-    { id: "design", label: "Design" },
     { id: "takeaways", label: "Takeaways" },
   ];
 
@@ -347,6 +346,15 @@ export default function OrcaProjectPage() {
                   </ul>
                 </div>
               </div>
+              
+              <div className="w-[100vw] sm:w-[840px] max-w-[100vw] relative left-1/2 -translate-x-1/2 flex flex-col gap-4 sm:gap-6 pt-10 pb-2 px-4 sm:px-0">
+                <img src="/asset1.svg" alt="Orca Design Interface 1" className="w-full h-auto object-contain drop-shadow-sm rounded-sm" />
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <img src="/asset2.svg" alt="Orca Design Interface 2" className="w-full h-auto object-contain drop-shadow-sm rounded-sm" />
+                  <img src="/asset3.svg" alt="Orca Design Components" className="w-full h-auto object-contain drop-shadow-sm rounded-sm" />
+                </div>
+              </div>
             </div>
 
 
@@ -449,27 +457,7 @@ export default function OrcaProjectPage() {
               </ul>
             </div>
 
-            {/* DESIGN */}
-            <div id="design" className="pt-8 space-y-4 scroll-mt-20">
-              <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
-                DESIGN
-              </span>
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                Crafting an intuitive interface for complex data.
-              </h3>
-              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
-                The design language of ORCA focuses on clarity, ensuring that dense scientific information is presented in a readable, accessible format.
-              </p>
-              
-              <div className="w-[100vw] sm:w-[840px] max-w-[100vw] relative left-1/2 -translate-x-1/2 flex flex-col gap-4 sm:gap-6 pt-4 pb-6 px-4 sm:px-0">
-                <img src="/asset1.svg" alt="Orca Design Interface 1" className="w-full h-auto object-contain drop-shadow-sm rounded-sm" />
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                  <img src="/asset2.svg" alt="Orca Design Interface 2" className="w-full h-auto object-contain drop-shadow-sm rounded-sm" />
-                  <img src="/asset3.svg" alt="Orca Design Components" className="w-full h-auto object-contain drop-shadow-sm rounded-sm" />
-                </div>
-              </div>
-            </div>
+
 
             {/* TAKEAWAYS */}
             <div id="takeaways" className="pt-8 space-y-5 scroll-mt-20">
