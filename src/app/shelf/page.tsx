@@ -148,36 +148,36 @@ export default function ShelfProjectPage() {
             </p>
 
             {/* 4-Column Metadata Grid (Matching Reference) */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4 pb-12">
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#FFA134] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#FFA134] block mb-1">
                   ROLE
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Product Designer
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#FFA134] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#FFA134] block mb-1">
                   TIMELINE
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   2026 (Ongoing)
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#FFA134] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#FFA134] block mb-1">
                   SKILLS
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   UI/UX, Product
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#FFA134] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#FFA134] block mb-1">
                   TOOLS
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Figma, Next.js
                 </span>
               </div>
@@ -289,7 +289,7 @@ export default function ShelfProjectPage() {
                   <div className="p-1.5 rounded-sm bg-[#FFA134]/15 dark:bg-[#FFA134]/20 flex items-center justify-center">
                     <Compass className="w-5 h-5 text-[#FFA134]" strokeWidth={1.5} />
                   </div>
-                  <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#FFA134] block uppercase">
+                  <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-wider text-[#FFA134] block uppercase">
                     CURATION OVER ACCUMULATION
                   </span>
                   <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
@@ -302,7 +302,7 @@ export default function ShelfProjectPage() {
                   <div className="p-1.5 rounded-sm bg-[#FFA134]/15 dark:bg-[#FFA134]/20 flex items-center justify-center">
                     <Clock className="w-5 h-5 text-[#FFA134]" strokeWidth={1.5} />
                   </div>
-                  <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#FFA134] block uppercase">
+                  <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-wider text-[#FFA134] block uppercase">
                     DESIGN FOR MOOD &amp; TIME
                   </span>
                   <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">

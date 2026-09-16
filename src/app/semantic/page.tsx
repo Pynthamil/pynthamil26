@@ -170,36 +170,36 @@ export default function SemanticProjectPage() {
             </p>
 
             {/* 4-Column Metadata Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4 pb-12">
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
                   ROLE
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Product Designer
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
                   TIMELINE
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Aug 2026
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
                   SKILLS
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   AI UX, Systems
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#6666FF] dark:text-[#8888FF] block mb-1">
                   TOOLS
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Figma
                 </span>
               </div>
@@ -269,7 +269,7 @@ export default function SemanticProjectPage() {
                   THE PROBLEM
                 </span>
                 <p className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
-                  Email is full of tasks, deadlines, and commitments, but inboxes bury them in clutter, making it easy to lose track of what matters.
+                  Email is full of tasks, deadlines, and commitments, but inboxes bury them in clutter, making it <span className="bg-[#6666FF]/15 dark:bg-[#8888FF]/20 px-1 rounded-sm">easy to lose track of what matters.</span>
                 </p>
                 <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
                   As messages accumulate, users spend excessive energy trying to remember why an email was received, what deliverables are due, who needs a reply, and when to follow up.
@@ -336,13 +336,40 @@ export default function SemanticProjectPage() {
                     THE SOLUTION
                   </span>
                   <h2 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
-                    A non-intrusive intelligence layer
+                    Designing an intelligence layer that turns unstructured email into clear, actionable context
                   </h2>
                   <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
                     An AI-powered inbox layer that understands incoming emails, extracts what matters, and turns them into actionable tasks, deadlines, and context so nothing important gets lost.
                   </p>
+                  <br/>
                 </div>
 
+                {/* BEFORE / AFTER BLOCK */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 my-16">
+                  {/* BEFORE */}
+                  <div className="border border-neutral-200 dark:border-neutral-800 bg-[#F7F7F7] dark:bg-[#141415] p-5 sm:p-6 rounded-sm">
+                    <h4 className="font-mono text-xs sm:text-[13px] font-semibold text-[#ef4444] mb-4 tracking-wider uppercase">Before</h4>
+                    <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
+                      <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Reading through every long email thread</li>
+                      <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Losing track of scattered deadlines</li>
+                      <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Missing buried action items</li>
+                      <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Manually drafting contextual responses</li>
+                    </ul>
+                  </div>
+
+                  {/* AFTER */}
+                  <div className="border border-[#10b981]/20 dark:border-[#10b981]/20 bg-[#10b981]/[0.02] dark:bg-[#10b981]/[0.02] p-5 sm:p-6 rounded-sm">
+                    <h4 className="font-mono text-xs sm:text-[13px] font-semibold text-[#10b981] mb-4 tracking-wider uppercase">After</h4>
+                    <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#10b981]">
+                      <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Instant thread summarization</li>
+                      <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Extracted and tracked deadlines</li>
+                      <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Highlighted key action items</li>
+                      <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Context-aware draft generation</li>
+                    </ul>
+                  </div>
+                </div>
+
+                
                 {/* Demo Video 1 */}
                 <div className="py-4 my-2">
                   <div className="w-full flex justify-center">
@@ -360,7 +387,7 @@ export default function SemanticProjectPage() {
               <div className="pt-4 space-y-4">
                 <div className="space-y-1">
                   <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
-                    Everyday situations, big and small
+                    Turning everyday emails into clear actions, from <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">quick requests to time-sensitive commitments</span>
                   </h3>
                   <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
                     From meeting coordination and task assignments to urgent deadline notices, the pipeline automatically detects message urgency and maps unstructured context into structured actions.
@@ -384,7 +411,7 @@ export default function SemanticProjectPage() {
               <div className="pt-4 space-y-4">
                 <div className="space-y-1">
                   <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
-                    Context mapping &amp; response synthesis
+                    Not just drafting replies, but <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">helping you understand the conversation behind them.</span>
                   </h3>
                   <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
                     By connecting isolated threads into a unified knowledge graph, users can review incoming tasks, reply with relevant context, and archive resolved items without ever leaving the flow.
@@ -403,6 +430,43 @@ export default function SemanticProjectPage() {
                   </p>
                 </div>
               </div>
+
+              <div className="pt-4 space-y-4">
+                <div className="space-y-1">
+                  <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    Designing for ambiguity taught me that AI becomes more useful <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">when uncertainty is visible, not hidden.</span>
+                  </h3>
+                  <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                    Not every email contains enough information to confidently infer an action or deadline.
+                  </p>
+                  <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
+                    Semantic Email distinguishes between <strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">explicit information</strong> and <strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">AI-inferred intent</strong>. When context is ambiguous, the system surfaces the interpretation for the user to review rather than silently treating it as fact.
+                  </p>
+                </div>
+                
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-sm space-y-4 mt-4 text-center">
+                  <p className="instrument-serif italic text-[24px] sm:text-[26px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    "Could you get this to me sometime next week?"
+                  </p>
+                  
+                  <div className="flex flex-col items-center gap-4 pt-2">
+                    <div>
+                      <div className="font-mono text-[12px] sm:text-[13px] font-semibold text-[#6666FF] dark:text-[#8888FF] mb-1">ACTION</div>
+                      <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">Send the document</div>
+                    </div>
+                    <div>
+                      <div className="font-mono text-[12px] sm:text-[13px] font-semibold text-[#6666FF] dark:text-[#8888FF] mb-1">DEADLINE</div>
+                      <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">
+                        Next week &middot; <span className="italic text-[#6666FF]/80 dark:text-[#8888FF]/80">Inferred</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
+                  This keeps the copilot helpful without taking control, letting users <strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">confirm, edit, or dismiss</strong> suggestions before they become actionable tasks.
+                </p>
+              </div>
             </div>
 
             {/* Takeaways Section */}
@@ -411,8 +475,8 @@ export default function SemanticProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   TAKEAWAYS
                 </span>
-                <h2 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
-                  What I learned after Semantic Copilot
+                <h2 className="text-[26px] sm:text-[30px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                  AI should turn complexity into something you can confidently act on.
                 </h2>
               </div>
 
@@ -423,7 +487,7 @@ export default function SemanticProjectPage() {
                   <div className="p-1.5 rounded-sm bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
                   </div>
-                  <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#6666FF] dark:text-[#8888FF] block uppercase">
+                  <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-wider text-[#6666FF] dark:text-[#8888FF] block uppercase">
                     QUIET AI ASSISTANCE
                   </span>
                   <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
@@ -436,7 +500,7 @@ export default function SemanticProjectPage() {
                   <div className="p-1.5 rounded-sm bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
                     <Layers className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
                   </div>
-                  <span className="font-mono text-xs sm:text-[12.5px] font-semibold tracking-wider text-[#6666FF] dark:text-[#8888FF] block uppercase">
+                  <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-wider text-[#6666FF] dark:text-[#8888FF] block uppercase">
                     STRUCTURE OVER NOISE
                   </span>
                   <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">

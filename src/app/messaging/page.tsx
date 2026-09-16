@@ -152,36 +152,36 @@ export default function MessagingProjectPage() {
               A privacy-first messaging platform built for speed, security, and control.
             </h3>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4 pb-12">
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#00BF63] dark:text-[#E4FFC1] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#00BF63] dark:text-[#E4FFC1] block mb-1">
                   ROLE
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Product Engineer
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#00BF63] dark:text-[#E4FFC1] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#00BF63] dark:text-[#E4FFC1] block mb-1">
                   TIMELINE
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   2026
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#00BF63] dark:text-[#E4FFC1] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#00BF63] dark:text-[#E4FFC1] block mb-1">
                   SKILLS
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Distributed Systems
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#00BF63] dark:text-[#E4FFC1] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#00BF63] dark:text-[#E4FFC1] block mb-1">
                   TECH
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   React, Node, Kafka, Redis
                 </span>
               </div>
@@ -280,21 +280,21 @@ export default function MessagingProjectPage() {
                 <div className="space-y-3 p-5 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#13151E]">
                   <h4 className="font-mono text-[13px] font-semibold text-[#ef4444] tracking-wider">BEFORE</h4>
                   <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
-                    <li className="pl-1">Phone-number-centric identity</li>
-                    <li className="pl-1">WebSocket handles everything</li>
-                    <li className="pl-1">Synchronous processing</li>
-                    <li className="pl-1">Ephemeral message state</li>
-                    <li className="pl-1">Prototype-oriented architecture</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Phone-number-centric identity</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">WebSocket handles everything</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Synchronous processing</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Ephemeral message state</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Prototype-oriented architecture</li>
                   </ul>
                 </div>
                 <div className="space-y-3 p-5 rounded-sm border border-[#00BF63]/30 dark:border-[#E4FFC1]/30 bg-[#00BF63]/[0.03] dark:bg-[#E4FFC1]/[0.05]">
                   <h4 className="font-mono text-[13px] font-semibold text-[#00BF63] tracking-wider">AFTER</h4>
                   <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#00BF63]">
-                    <li className="pl-1">Generated / cryptographic identity</li>
-                    <li className="pl-1">Event-driven architecture</li>
-                    <li className="pl-1">Kafka-backed asynchronous processing</li>
-                    <li className="pl-1">Durable message persistence</li>
-                    <li className="pl-1">Scalable service boundaries</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Generated / cryptographic identity</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Event-driven architecture</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Kafka-backed asynchronous processing</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Durable message persistence</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default">Scalable service boundaries</li>
                   </ul>
                 </div>
               </div>
@@ -348,11 +348,11 @@ export default function MessagingProjectPage() {
               <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Making "instant" messaging reliable: <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">a distributed-systems problem.</span>
               </h3>
-              <ul className="list-disc pl-5 space-y-3 text-[16px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#00BF63] dark:marker:text-[#E4FFC1]">
-                <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Cryptographic identity:</strong> Users receive a unique messaging identity rather than needing to expose their phone number.</li>
-                <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">End-to-end encryption:</strong> Messages are encrypted on the client before transmission.</li>
-                <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Offline delivery:</strong> Messages aren't lost when a recipient disconnects. They are persisted and delivered when they reconnect.</li>
-                <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Reliable events:</strong> Kafka provides an event-driven pipeline for handling message delivery, retries, and asynchronous processing.</li>
+              <ul className="list-disc pl-5 space-y-3 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#00BF63] dark:marker:text-[#E4FFC1]">
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Cryptographic identity:</strong> Users receive a unique messaging identity rather than needing to expose their phone number.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">End-to-end encryption:</strong> Messages are encrypted on the client before transmission.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Offline delivery:</strong> Messages aren't lost when a recipient disconnects. They are persisted and delivered when they reconnect.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#00BF63]/40 dark:decoration-[#E4FFC1]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Reliable events:</strong> Kafka provides an event-driven pipeline for handling message delivery, retries, and asynchronous processing.</li>
               </ul>
             </div>
 
@@ -360,13 +360,13 @@ export default function MessagingProjectPage() {
             <div className="space-y-5 -mt-4">
               <div className="space-y-4">
                 <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                  What went wrong initially: tightly coupled message delivery.
+                  What went wrong initially: <span className="bg-[#E4FFC1] dark:bg-[#00BF63] dark:text-white px-1 box-decoration-clone">tightly coupled message delivery.</span>
                 </h3>
               </div>
-              <p className="text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
+              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
                 <strong className="text-[#2C2C2C] dark:text-[#F2F2F2]">The problem:</strong> My first architecture treated the WebSocket server as the central point responsible for receiving, processing, storing, and delivering messages. A WebSocket failure could affect delivery, persistence, and message state simultaneously.
               </p>
-              <p className="text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
+              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
                 <strong className="text-[#2C2C2C] dark:text-[#F2F2F2]">The fix:</strong> Separated responsibilities: <code>WebSocket &rarr; Kafka &rarr; workers &rarr; persistence / delivery</code>. This made the system more resilient and gave each component a clearer responsibility.
               </p>
             </div>

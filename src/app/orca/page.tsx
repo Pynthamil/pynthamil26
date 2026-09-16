@@ -194,36 +194,36 @@ export default function OrcaProjectPage() {
               Building an AI research assistant that turns complex marine-science questions into clear, source-backed answers.
             </h3>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4 pb-12">
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] block mb-1">
                   ROLE
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Product Designer & Developer
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] block mb-1">
                   TIMELINE
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Aug 2026 - Present
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] block mb-1">
                   SKILLS
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   AI/ML, Data Viz
                 </span>
               </div>
               <div>
-                <span className="font-mono text-xs sm:text-[12.5px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] block mb-1">
+                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#007FFF] dark:text-[#FFF0F5] block mb-1">
                   TOOLS
                 </span>
-                <span className="text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   Figma, Next.js, Gemini
                 </span>
               </div>
@@ -320,7 +320,7 @@ export default function OrcaProjectPage() {
                   THE SOLUTION
                 </span>
                 <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                  A focused research assistant that lets scientists move from question to evidence-backed answer without leaving the research workflow.
+                  A focused research assistant that lets scientists move from <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">question to evidence-backed answer</span> without leaving the research workflow.
                 </h3>
               </div>
 
@@ -328,19 +328,19 @@ export default function OrcaProjectPage() {
                 <div className="space-y-3 p-5 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-[#F7F7F7] dark:bg-[#141415]">
                   <h4 className="font-mono text-[13px] font-semibold text-[#ef4444] tracking-wider">BEFORE</h4>
                   <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
-                    <li className="pl-1">Search across fragmented sources</li>
-                    <li className="pl-1">Manually compare findings</li>
-                    <li className="pl-1">Validate citations independently</li>
-                    <li className="pl-1">Repeat searches to build context</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Search across fragmented sources</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Manually compare findings</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Validate citations independently</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Repeat searches to build context</li>
                   </ul>
                 </div>
                 <div className="space-y-3 p-5 rounded-sm border border-[#007FFF]/30 dark:border-[#FFF0F5]/30 bg-[#007FFF]/[0.03] dark:bg-[#FFF0F5]/[0.05]">
                   <h4 className="font-mono text-[13px] font-semibold text-[#10b981] tracking-wider">AFTER</h4>
                   <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#10b981]">
-                    <li className="pl-1">Ask one natural-language question</li>
-                    <li className="pl-1">Retrieve relevant research</li>
-                    <li className="pl-1">Receive a synthesized response</li>
-                    <li className="pl-1">Inspect supporting citations</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Ask one natural-language question</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Retrieve relevant research</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Receive a synthesized response</li>
+                    <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Inspect supporting citations</li>
                   </ul>
                 </div>
               </div>
@@ -351,7 +351,7 @@ export default function OrcaProjectPage() {
             {/* THE APPROACH */}
             <div className="space-y-4 -mt-4">
               <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                I designed ORCA around a simple principle: AI should accelerate scientific research without hiding the evidence behind its answers.
+                I designed ORCA around a simple principle: <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">AI should accelerate scientific research without hiding the evidence behind its answers.</span>
               </h3>
               <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 ORCA transforms natural-language questions into concise, source-backed responses by combining semantic retrieval with Gemini-powered synthesis and citation grounding.
@@ -391,11 +391,11 @@ export default function OrcaProjectPage() {
               <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 The hardest problem wasn't getting Gemini to answer questions - it was <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">making those answers stay grounded in the research behind them.</span>
               </h3>
-              <ul className="list-disc pl-5 space-y-3 text-[16px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#007FFF] dark:marker:text-[#FFF0F5]">
-                <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Insufficient evidence:</strong> When the model lacks context, it must gracefully admit gaps rather than hallucinating facts.</li>
-                <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Irrelevant retrieval:</strong> If retrieved sources aren't relevant, the system needs to filter them out before synthesis.</li>
-                <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Claim matching:</strong> Every generated claim must explicitly match its source material.</li>
-                <li className="pl-1"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Inspectable citations:</strong> Citations in the UI need to correspond to actual, retrievable evidence snippets the user can verify.</li>
+              <ul className="list-disc pl-5 space-y-3 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#007FFF] dark:marker:text-[#FFF0F5]">
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Insufficient evidence:</strong> When the model lacks context, it must gracefully admit gaps rather than hallucinating facts.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Irrelevant retrieval:</strong> If retrieved sources aren't relevant, the system needs to filter them out before synthesis.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Claim matching:</strong> Every generated claim must explicitly match its source material.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Inspectable citations:</strong> Citations in the UI need to correspond to actual, retrievable evidence snippets the user can verify.</li>
               </ul>
             </div>
 
@@ -410,26 +410,26 @@ export default function OrcaProjectPage() {
               <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-sm space-y-4 mt-2">
                 <div className="space-y-1">
                   <div className="font-mono text-xs font-semibold text-[#007FFF] dark:text-[#FFF0F5]">QUESTION</div>
-                  <div className="text-[15px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">"How do temperature shifts affect phytoplankton blooms in the North Atlantic?"</div>
+                  <div className="text-[24px] sm:text-[26px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2]">"How do temperature shifts affect phytoplankton blooms in the North Atlantic?"</div>
                 </div>
                 <div className="flex justify-start pl-4 text-[#007FFF] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="space-y-1">
                   <div className="font-mono text-xs font-semibold text-[#007FFF] dark:text-[#FFF0F5]">RETRIEVED EVIDENCE</div>
-                  <div className="text-[14px] text-[#475569] dark:text-[#CBD5E1]">3 relevant papers found discussing thermal stratification and nutrient availability.</div>
+                  <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">3 relevant papers found discussing thermal stratification and nutrient availability.</div>
                 </div>
                 <div className="flex justify-start pl-4 text-[#007FFF] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="space-y-1">
                   <div className="font-mono text-xs font-semibold text-[#007FFF] dark:text-[#FFF0F5]">GENERATED ANSWER</div>
-                  <div className="text-[14px] text-[#475569] dark:text-[#CBD5E1]">Synthesized summary of the delay in spring blooms due to increased stratification...</div>
+                  <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">Synthesized summary of the delay in spring blooms due to increased stratification...</div>
                 </div>
                 <div className="flex justify-start pl-4 text-[#007FFF] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="space-y-1">
                   <div className="font-mono text-xs font-semibold text-[#007FFF] dark:text-[#FFF0F5]">CITATION</div>
-                  <div className="text-[14px] text-[#475569] dark:text-[#CBD5E1]">[Smith et al., 2024; Oceanic Thermal Dynamics]</div>
+                  <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">[Smith et al., 2024; Oceanic Thermal Dynamics]</div>
                 </div>
               </div>
               
-              <p className="text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
+              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
                 <strong className="text-[#2C2C2C] dark:text-[#F2F2F2]">The fix:</strong> Early on, the model would sometimes cite a paper for a claim it didn't actually support. I had to implement a strict secondary verification prompt, forcing Gemini to extract the exact quote from the context chunk before allowing the citation to render.
               </p>
             </div>
@@ -439,10 +439,10 @@ export default function OrcaProjectPage() {
               <h3 className="text-[26px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Moving ORCA from an MVP research assistant toward a more rigorous scientific research tool.
               </h3>
-              <ul className="list-disc pl-5 space-y-2 text-[16px] sm:text-[16.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#007FFF] dark:marker:text-[#FFF0F5] pt-2">
-                <li className="pl-1">Spatial visualization of species migration and ecological patterns</li>
-                <li className="pl-1">Direct analysis of acoustic, telemetry, and other scientific datasets</li>
-                <li className="pl-1">Collaborative research environments for university teams</li>
+              <ul className="list-disc pl-5 space-y-3 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#007FFF] dark:marker:text-[#FFF0F5] pt-2">
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Spatial visualization of species migration and ecological patterns</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Direct analysis of acoustic, telemetry, and other scientific datasets</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Collaborative research environments for university teams</li>
               </ul>
             </div>
 
