@@ -99,6 +99,7 @@ export default function OrcaProjectPage() {
     { id: "overview", label: "Overview" },
     { id: "problem", label: "Problem" },
     { id: "solution", label: "Solution" },
+    { id: "design", label: "Design" },
     { id: "takeaways", label: "Takeaways" },
   ];
 
@@ -230,14 +231,16 @@ export default function OrcaProjectPage() {
             </div>
             
             <div className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
-              <div className="w-full p-8 sm:p-12 md:p-16 rounded-sm overflow-hidden flex items-center justify-center shadow-[inset_0_0_100px_rgba(0,0,0,0.2)]"
-                style={{ backgroundImage: 'url(/saas_bg1.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div className="w-full overflow-hidden rounded-md shadow-[0_10px_30px_rgba(0,0,0,0.4)] border border-white/10">
-                  <img
-                    src="/orca1.svg"
-                    alt="orca.ai Solution Interface"
-                    className="w-full h-auto object-contain block select-none bg-white"
-                  />
+              <div className="w-full p-8 sm:p-12 md:p-16 rounded-sm overflow-hidden flex items-center justify-center"
+                style={{ backgroundImage: 'url(/cover1-bg.svg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                <div className="w-full max-w-[95%] overflow-hidden rounded-[24px] bg-white/20 dark:bg-white/10 p-3 sm:p-4 backdrop-blur-sm">
+                  <div className="w-full overflow-hidden rounded-[16px] bg-white dark:bg-[#141415]">
+                    <img
+                      src="/orca1.svg"
+                      alt="orca.ai Solution Interface"
+                      className="w-full h-auto object-contain block select-none"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -444,6 +447,28 @@ export default function OrcaProjectPage() {
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Direct analysis of acoustic, telemetry, and other scientific datasets</li>
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#007FFF]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Collaborative research environments for university teams</li>
               </ul>
+            </div>
+
+            {/* DESIGN */}
+            <div id="design" className="pt-8 space-y-4 scroll-mt-20">
+              <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
+                DESIGN
+              </span>
+              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                Crafting an intuitive interface for complex data.
+              </h3>
+              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
+                The design language of ORCA focuses on clarity, ensuring that dense scientific information is presented in a readable, accessible format.
+              </p>
+              
+              <div className="flex flex-col gap-4 sm:gap-6 pt-4 pb-6">
+                <img src="/asset1.svg" alt="Orca Design Interface 1" className="w-full h-auto object-contain" />
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <img src="/asset2.svg" alt="Orca Design Interface 2" className="w-full h-auto object-contain" />
+                  <img src="/asset3.svg" alt="Orca Design Components" className="w-full h-auto object-contain" />
+                </div>
+              </div>
             </div>
 
             {/* TAKEAWAYS */}
