@@ -278,8 +278,12 @@ export default function OrcaProjectPage() {
                 Researchers spend hours jumping between fragmented scientific sources, tracing citations, and manually checking whether findings actually support a conclusion. The information exists, but the lack of connected, verifiable evidence makes research slow and difficult to trust.
               </p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2">
-                {painPoints.map((item, idx) => (
+              <div className="pt-2">
+                <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#475569] dark:text-[#CBD5E1] block mb-3">
+                  Core Pain Points
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+                  {painPoints.map((item, idx) => (
                   <div
                     key={idx}
                     className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#FFF0F5]/20 rounded-xl p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#007FFF] dark:hover:border-[#FFF0F5] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
@@ -292,6 +296,7 @@ export default function OrcaProjectPage() {
                     </span>
                   </div>
                 ))}
+                </div>
               </div>
             </div>
 
