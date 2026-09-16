@@ -487,10 +487,8 @@ export default function SemanticProjectPage() {
                   <div className="p-1.5 rounded-xl bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
                   </div>
-                  <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-wider text-[#6666FF] dark:text-[#8888FF] block uppercase">
-                    QUIET AI ASSISTANCE
-                  </span>
-                  <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
+                  <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#6666FF] dark:text-[#8888FF] uppercase pt-1">Quiet AI assistance</h4>
+                  <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
                     The most effective AI operates quietly in the background, extracting key actions without forcing users to learn complex prompts.
                   </p>
                 </div>
@@ -500,10 +498,8 @@ export default function SemanticProjectPage() {
                   <div className="p-1.5 rounded-xl bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
                     <Search className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
                   </div>
-                  <span className="font-mono text-[13px] sm:text-[14px] font-semibold tracking-wider text-[#6666FF] dark:text-[#8888FF] block uppercase">
-                    OWNERSHIP IN AMBIGUITY
-                  </span>
-                  <p className="text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans max-w-3xl">
+                  <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#6666FF] dark:text-[#8888FF] uppercase pt-1">Ownership in ambiguity</h4>
+                  <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans max-w-3xl">
                     With no playbook for an AI inbox layer, navigating this ambiguous space required identifying pain points, designing the architecture, and iterating constantly. You have to stop waiting for a roadmap and just start building.
                   </p>
                 </div>

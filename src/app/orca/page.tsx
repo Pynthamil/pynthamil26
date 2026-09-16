@@ -367,7 +367,7 @@ export default function OrcaProjectPage() {
               <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 ORCA transforms natural-language questions into concise, source-backed responses by combining semantic retrieval with Gemini-powered synthesis and citation grounding.
               </p>
-              <div className="py-6 flex justify-center items-center w-full bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-xl">
+              <div className="py-6 flex justify-center items-center w-full bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-md">
                 <span className="font-mono text-[12px] sm:text-sm font-semibold tracking-wider text-[#007FFF] dark:text-[#FFF0F5] text-center px-4">
                   QUESTION &rarr; RETRIEVE &rarr; SYNTHESIZE &rarr; CITE
                 </span>
@@ -476,7 +476,7 @@ export default function OrcaProjectPage() {
                     <Sparkles className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />
                   </div>
                   <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#007FFF] dark:text-[#FFF0F5] uppercase pt-1">Grounded citations</h4>
-                  <p className="text-[14.5px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
+                  <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
                     Trust in AI research tools depends on making evidence directly inspectable and preventing unsupported claims from being presented as fact.
                   </p>
                 </div>
@@ -486,7 +486,7 @@ export default function OrcaProjectPage() {
                     <Layers className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />
                   </div>
                   <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#007FFF] dark:text-[#FFF0F5] uppercase pt-1">Domain empathy</h4>
-                  <p className="text-[14.5px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
+                  <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
                     Designing for scientific specialists requires understanding how they search, interpret evidence, and validate findings - not simply adapting a generic chatbot interface.
                   </p>
                 </div>
