@@ -431,42 +431,7 @@ export default function SemanticProjectPage() {
                 </div>
               </div>
 
-              <div className="pt-4 space-y-4">
-                <div className="space-y-1">
-                  <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
-                    Designing for ambiguity taught me that AI becomes more useful <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">when uncertainty is visible, not hidden.</span>
-                  </h3>
-                  <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-                    Not every email contains enough information to confidently infer an action or deadline.
-                  </p>
-                  <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
-                    Semantic Email distinguishes between <strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">explicit information</strong> and <strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">AI-inferred intent</strong>. When context is ambiguous, the system surfaces the interpretation for the user to review rather than silently treating it as fact.
-                  </p>
-                </div>
-                
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-xl space-y-4 mt-4 text-center">
-                  <p className="instrument-serif italic text-[24px] sm:text-[26px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                    "Could you get this to me sometime next week?"
-                  </p>
-                  
-                  <div className="flex flex-col items-center gap-4 pt-2">
-                    <div>
-                      <div className="font-mono text-[12px] sm:text-[13px] font-semibold text-[#6666FF] dark:text-[#8888FF] mb-1">ACTION</div>
-                      <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">Send the document</div>
-                    </div>
-                    <div>
-                      <div className="font-mono text-[12px] sm:text-[13px] font-semibold text-[#6666FF] dark:text-[#8888FF] mb-1">DEADLINE</div>
-                      <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">
-                        Next week &middot; <span className="italic text-[#6666FF]/80 dark:text-[#8888FF]/80">Inferred</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
-                  This keeps the copilot helpful without taking control, letting users <strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">confirm, edit, or dismiss</strong> suggestions before they become actionable tasks.
-                </p>
-              </div>
             </div>
 
             {/* Takeaways Section */}
