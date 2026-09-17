@@ -404,6 +404,7 @@ export function PortfolioView({
                     const isSemantic = project.title === "Semantic Email Copilot";
                     const aspectClass = isSemantic ? "aspect-[1.3/1] sm:aspect-[1.25/1]" : "aspect-[2/1] sm:aspect-[16/9]";
                     const imageSizeClass = isSemantic ? "h-[82%] sm:h-[90%]" : "h-[70%] sm:h-[80%]";
+                    const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
                     return (
                       <li
@@ -430,13 +431,13 @@ export function PortfolioView({
                                 loop 
                                 muted 
                                 playsInline 
-                                className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
+                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
                               />
                             ) : (
                               <img 
                                 src={project.banner} 
                                 alt={project.title} 
-                                className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
+                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
                               />
                             )}
                           </div>
@@ -529,6 +530,7 @@ export function PortfolioView({
                     const isSemantic = project.title === "Semantic Email Copilot";
                     const aspectClass = isSemantic ? "aspect-[1.3/1] sm:aspect-[1.25/1]" : "aspect-[2/1] sm:aspect-[16/9]";
                     const imageSizeClass = isSemantic ? "h-[82%] sm:h-[90%]" : "h-[70%] sm:h-[80%]";
+                    const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
                     return (
                       <li
@@ -555,13 +557,13 @@ export function PortfolioView({
                                 loop 
                                 muted 
                                 playsInline 
-                                className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
+                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
                               />
                             ) : (
                               <img 
                                 src={project.banner} 
                                 alt={project.title} 
-                                className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
+                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
                               />
                             )}
                           </div>
