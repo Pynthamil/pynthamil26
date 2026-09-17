@@ -221,29 +221,20 @@ export function PortfolioView({
 
           <div className="flex flex-col items-start w-full gap-y-2.5 sm:gap-y-3">
             {/* Left Title: Always the pink name, acts as Home link if not on Home */}
-            <div className="flex items-center shrink-0 w-fit group">
+            <div className="flex flex-col items-start shrink-0 w-fit group">
               <button
                 onClick={() => viewMode !== "home" && handleNavClick("home")}
-                className={`instrument-serif text-[38px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none text-left focus:outline-none flex items-center ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
+                className={`focus:outline-none flex flex-col items-start ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
               >
-                <span>{portfolioData.name.toLowerCase()}</span>
-                
-                <span className="flex items-center space-x-1.5 ml-2 pointer-events-none  transition-opacity duration-200">
+                <span className="flex items-center -ml-3 sm:-ml-4 -mb-2 sm:-mb-3 pointer-events-none transition-opacity duration-200">
                   <img 
-                    src="/nova-looking.svg" 
-                    alt=""
-                    className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] object-contain"
+                    src="/clawd.gif" 
+                    alt="clawd"
+                    className="h-[96px] sm:h-[112px] object-contain"
                   />
-                  <img 
-                    src="/nova-working.svg" 
-                    alt=""
-                    className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] object-contain"
-                  />
-                  <img 
-                    src="/nova-thinking1.svg" 
-                    alt=""
-                    className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] object-contain"
-                  />
+                </span>
+                <span className="instrument-serif text-[38px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none text-left leading-none">
+                  {portfolioData.name.toLowerCase()}
                 </span>
               </button>
             </div>
