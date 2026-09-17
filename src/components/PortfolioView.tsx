@@ -402,7 +402,7 @@ export function PortfolioView({
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
-                    const aspectClass = isSemantic ? "aspect-[1.6/1] sm:aspect-[1.5/1]" : "aspect-[2/1] sm:aspect-[16/9]";
+                    const aspectClass = isSemantic ? "aspect-[1.3/1] sm:aspect-[1.25/1]" : "aspect-[2/1] sm:aspect-[16/9]";
                     const imageSizeClass = isSemantic ? "h-[82%] sm:h-[90%]" : "h-[70%] sm:h-[80%]";
 
                     return (
@@ -423,11 +423,22 @@ export function PortfolioView({
                             className={`w-full sm:-mx-8 sm:w-[calc(100%+4rem)] md:-mx-16 md:w-[calc(100%+8rem)] lg:-mx-24 lg:w-[calc(100%+12rem)] xl:-mx-32 xl:w-[calc(100%+16rem)] mb-3 overflow-hidden rounded-xl flex items-center justify-center relative ${project.coverBg ? aspectClass : ''}`}
                             style={project.coverBg ? { backgroundImage: `url(${project.coverBg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
                           >
-                            <img 
-                              src={project.banner} 
-                              alt={project.title} 
-                              className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-md sm:rounded-xl` : 'w-full h-auto object-cover'}`}
-                            />
+                            {project.banner.match(/\.(mp4|webm|mov)$/i) ? (
+                              <video 
+                                src={project.banner} 
+                                autoPlay 
+                                loop 
+                                muted 
+                                playsInline 
+                                className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
+                              />
+                            ) : (
+                              <img 
+                                src={project.banner} 
+                                alt={project.title} 
+                                className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
+                              />
+                            )}
                           </div>
                         )}
                         <div className="flex items-center justify-between w-full">
@@ -516,7 +527,7 @@ export function PortfolioView({
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
-                    const aspectClass = isSemantic ? "aspect-[1.6/1] sm:aspect-[1.5/1]" : "aspect-[2/1] sm:aspect-[16/9]";
+                    const aspectClass = isSemantic ? "aspect-[1.3/1] sm:aspect-[1.25/1]" : "aspect-[2/1] sm:aspect-[16/9]";
                     const imageSizeClass = isSemantic ? "h-[82%] sm:h-[90%]" : "h-[70%] sm:h-[80%]";
 
                     return (
@@ -537,11 +548,22 @@ export function PortfolioView({
                             className={`w-full mb-3 overflow-hidden rounded-xl flex items-center justify-center relative ${project.coverBg ? aspectClass : ''}`}
                             style={project.coverBg ? { backgroundImage: `url(${project.coverBg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
                           >
-                            <img 
-                              src={project.banner} 
-                              alt={project.title} 
-                              className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-md sm:rounded-xl` : 'w-full h-auto object-cover'}`}
-                            />
+                            {project.banner.match(/\.(mp4|webm|mov)$/i) ? (
+                              <video 
+                                src={project.banner} 
+                                autoPlay 
+                                loop 
+                                muted 
+                                playsInline 
+                                className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
+                              />
+                            ) : (
+                              <img 
+                                src={project.banner} 
+                                alt={project.title} 
+                                className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
+                              />
+                            )}
                           </div>
                         )}
                         <div className="flex items-center justify-between w-full">
