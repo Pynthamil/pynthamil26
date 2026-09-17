@@ -320,7 +320,7 @@ export function PortfolioView({
               <p className="text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                 Find me on{" "}
                 <a
-                  href="https://x.com/pyndu15"
+                  href="https://x.com/pynwrites"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] transition-colors"
@@ -919,7 +919,7 @@ export function PortfolioView({
                     <span>
                       Find me on{" "}
                       <a
-                        href="https://x.com/pyndu15"
+                        href="https://x.com/pynwrites"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"

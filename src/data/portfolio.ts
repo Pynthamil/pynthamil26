@@ -98,7 +98,7 @@ export const portfolioData: PortfolioData = {
     { label: "github", href: "https://github.com/Pynthamil", isPrimary: false },
     { label: "leetcode", href: "https://leetcode.com/u/HashKnight/", isPrimary: false },
     { label: "linkedin", href: "https://linkedin.com/in/pynthamil-pavendan", isPrimary: false },
-    { label: "twitter", href: "https://x.com/pyndu15", isPrimary: false },
+    { label: "twitter", href: "https://x.com/pynwrites", isPrimary: false },
     { label: "resume", href: "https://drive.google.com/file/d/1_aeDI5PGaZttchMGSzkMBiEScwSsTEtj/view?usp=sharing", isPrimary: false },
   ],
   navItems: [
