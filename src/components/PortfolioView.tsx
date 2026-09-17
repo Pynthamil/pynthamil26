@@ -401,6 +401,10 @@ export function PortfolioView({
                 <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
+                    const isSemantic = project.title === "Semantic Email Copilot";
+                    const aspectClass = isSemantic ? "aspect-[1.6/1] sm:aspect-[1.5/1]" : "aspect-[2/1] sm:aspect-[16/9]";
+                    const imageSizeClass = isSemantic ? "h-[82%] sm:h-[90%]" : "h-[70%] sm:h-[80%]";
+
                     return (
                       <li
                         key={idx}
@@ -416,13 +420,13 @@ export function PortfolioView({
                       >
                         {project.banner && (
                           <div 
-                            className={`w-full mb-3 overflow-hidden rounded-xl flex items-center justify-center relative ${project.coverBg ? 'aspect-[2/1] sm:aspect-[16/9]' : ''}`}
+                            className={`w-full mb-3 overflow-hidden rounded-xl flex items-center justify-center relative ${project.coverBg ? aspectClass : ''}`}
                             style={project.coverBg ? { backgroundImage: `url(${project.coverBg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
                           >
                             <img 
                               src={project.banner} 
                               alt={project.title} 
-                              className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? 'w-auto h-[70%] sm:h-[80%] object-contain drop-shadow-md' : 'w-full h-auto object-cover'}`}
+                              className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-md sm:rounded-xl` : 'w-full h-auto object-cover'}`}
                             />
                           </div>
                         )}
@@ -511,6 +515,10 @@ export function PortfolioView({
                 <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
+                    const isSemantic = project.title === "Semantic Email Copilot";
+                    const aspectClass = isSemantic ? "aspect-[1.6/1] sm:aspect-[1.5/1]" : "aspect-[2/1] sm:aspect-[16/9]";
+                    const imageSizeClass = isSemantic ? "h-[82%] sm:h-[90%]" : "h-[70%] sm:h-[80%]";
+
                     return (
                       <li
                         key={idx}
@@ -526,13 +534,13 @@ export function PortfolioView({
                       >
                         {project.banner && (
                           <div 
-                            className={`w-full mb-3 overflow-hidden rounded-xl flex items-center justify-center relative ${project.coverBg ? 'aspect-[2/1] sm:aspect-[16/9]' : ''}`}
+                            className={`w-full mb-3 overflow-hidden rounded-xl flex items-center justify-center relative ${project.coverBg ? aspectClass : ''}`}
                             style={project.coverBg ? { backgroundImage: `url(${project.coverBg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
                           >
                             <img 
                               src={project.banner} 
                               alt={project.title} 
-                              className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? 'w-auto h-[70%] sm:h-[80%] object-contain drop-shadow-md' : 'w-full h-auto object-cover'}`}
+                              className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-md sm:rounded-xl` : 'w-full h-auto object-cover'}`}
                             />
                           </div>
                         )}
