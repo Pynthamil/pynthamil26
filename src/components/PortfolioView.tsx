@@ -74,7 +74,7 @@ export function PortfolioView({
         return (
           <a
             key={i}
-            href="https://getplue.com/"
+            href="https://joinplue.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-wavy decoration-[#2C2C2C]/40 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium transition-colors"
@@ -304,7 +304,7 @@ export function PortfolioView({
               
               <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-[1.85]">
                 currently an <span className="bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] px-1.5 py-0.5 rounded-[5px] font-medium">engineering intern</span> at{" "}
-                <span className="inline-flex items-center px-1.5 py-0.5 mx-0.5 rounded-[5px] bg-[#E8F4F8] dark:bg-[#1E3A4A] align-text-bottom" style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "0.9em", fontStyle: "normal", color: "#2C6E8A" }}>plue</span>
+                <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-1.5 py-0.5 mx-0.5 rounded-[5px] bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] align-text-bottom hover:underline hover:opacity-80 transition-opacity" style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "0.9em", fontStyle: "normal" }}>plue</a>
                 {", "}democratizing learning by making a world where humans can learn on their own terms.
               </p>
 
