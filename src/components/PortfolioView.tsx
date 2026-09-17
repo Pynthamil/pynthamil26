@@ -402,7 +402,8 @@ export function PortfolioView({
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
-                    const aspectClass = isSemantic ? "aspect-[1.3/1] sm:aspect-[1.25/1]" : "aspect-[2/1] sm:aspect-[16/9]";
+                    const isOrca = project.title === "orca.ai";
+                    const aspectClass = isSemantic ? "aspect-[1.3/1] sm:aspect-[1.25/1]" : isOrca ? "aspect-[1.6/1] sm:aspect-[1.4/1]" : "aspect-[2/1] sm:aspect-[16/9]";
                     const imageSizeClass = isSemantic ? "h-[82%] sm:h-[90%]" : "h-[70%] sm:h-[80%]";
                     const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
@@ -419,29 +420,6 @@ export function PortfolioView({
                           }
                         }}
                       >
-                        {project.banner && (
-                          <div 
-                            className={`w-full sm:-mx-8 sm:w-[calc(100%+4rem)] md:-mx-16 md:w-[calc(100%+8rem)] lg:-mx-24 lg:w-[calc(100%+12rem)] xl:-mx-32 xl:w-[calc(100%+16rem)] mb-3 overflow-hidden rounded-2xl sm:rounded-[32px] flex items-center justify-center relative ${project.coverBg ? aspectClass : ''}`}
-                            style={project.coverBg ? { backgroundImage: `url(${project.coverBg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
-                          >
-                            {project.banner.match(/\.(mp4|webm|mov)$/i) ? (
-                              <video 
-                                src={project.banner} 
-                                autoPlay 
-                                loop 
-                                muted 
-                                playsInline 
-                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
-                              />
-                            ) : (
-                              <img 
-                                src={project.banner} 
-                                alt={project.title} 
-                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
-                              />
-                            )}
-                          </div>
-                        )}
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center flex-1 pr-4">
                             <div className="flex items-center space-x-3">
@@ -528,7 +506,8 @@ export function PortfolioView({
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
-                    const aspectClass = isSemantic ? "aspect-[1.3/1] sm:aspect-[1.25/1]" : "aspect-[2/1] sm:aspect-[16/9]";
+                    const isOrca = project.title === "orca.ai";
+                    const aspectClass = isSemantic ? "aspect-[1.3/1] sm:aspect-[1.25/1]" : isOrca ? "aspect-[1.6/1] sm:aspect-[1.4/1]" : "aspect-[2/1] sm:aspect-[16/9]";
                     const imageSizeClass = isSemantic ? "h-[82%] sm:h-[90%]" : "h-[70%] sm:h-[80%]";
                     const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
@@ -547,10 +526,20 @@ export function PortfolioView({
                       >
                         {project.banner && (
                           <div 
-                            className={`w-full mb-3 overflow-hidden rounded-2xl sm:rounded-[32px] flex items-center justify-center relative ${project.coverBg ? aspectClass : ''}`}
+                            className={`w-full mb-3 overflow-hidden rounded-[16px] sm:rounded-[24px] flex items-center justify-center relative ${project.coverBg ? aspectClass : ''}`}
                             style={project.coverBg ? { backgroundImage: `url(${project.coverBg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
                           >
-                            {project.banner.match(/\.(mp4|webm|mov)$/i) ? (
+                            {project.title === "orca.ai" ? (
+                              <div className={`w-[92%] sm:w-[88%] overflow-hidden rounded-[20px] sm:rounded-[28px] bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-sm transition-transform duration-700 ease-out ${hoverScaleClass}`}>
+                                <div className="w-full overflow-hidden rounded-[14px] sm:rounded-[20px] bg-white dark:bg-[#141415] flex items-center justify-center">
+                                  <img 
+                                    src={project.banner} 
+                                    alt={project.title} 
+                                    className="w-full h-auto object-cover"
+                                  />
+                                </div>
+                              </div>
+                            ) : project.banner.match(/\.(mp4|webm|mov)$/i) ? (
                               <video 
                                 src={project.banner} 
                                 autoPlay 
