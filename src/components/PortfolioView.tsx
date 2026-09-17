@@ -414,6 +414,18 @@ export function PortfolioView({
                           }
                         }}
                       >
+                        {project.banner && (
+                          <div 
+                            className={`w-full mb-3 overflow-hidden rounded-xl flex items-center justify-center relative ${project.coverBg ? 'aspect-[2/1] sm:aspect-[16/9]' : ''}`}
+                            style={project.coverBg ? { backgroundImage: `url(${project.coverBg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
+                          >
+                            <img 
+                              src={project.banner} 
+                              alt={project.title} 
+                              className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? 'w-auto h-[70%] sm:h-[80%] object-contain drop-shadow-md' : 'w-full h-auto object-cover'}`}
+                            />
+                          </div>
+                        )}
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center flex-1 pr-4">
                             <div className="flex items-center space-x-3">
@@ -512,6 +524,18 @@ export function PortfolioView({
                           }
                         }}
                       >
+                        {project.banner && (
+                          <div 
+                            className={`w-full mb-3 overflow-hidden rounded-xl flex items-center justify-center relative ${project.coverBg ? 'aspect-[2/1] sm:aspect-[16/9]' : ''}`}
+                            style={project.coverBg ? { backgroundImage: `url(${project.coverBg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
+                          >
+                            <img 
+                              src={project.banner} 
+                              alt={project.title} 
+                              className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${project.coverBg ? 'w-auto h-[70%] sm:h-[80%] object-contain drop-shadow-md' : 'w-full h-auto object-cover'}`}
+                            />
+                          </div>
+                        )}
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center flex-1 pr-4">
                             <div className="flex items-center space-x-3">
