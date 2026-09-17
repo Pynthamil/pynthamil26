@@ -219,7 +219,7 @@ export function PortfolioView({
         {/* Top Header Row */}
         <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-6 sm:mb-6" : "mb-8 sm:mb-10"}`}>
 
-          <div className="flex flex-col items-start w-full gap-y-2.5 sm:gap-y-3">
+          <div className="flex flex-col items-start w-full gap-y-6 sm:gap-y-8">
             {/* Left Title: Always the pink name, acts as Home link if not on Home */}
             <div className="flex flex-col items-start shrink-0 w-fit group">
               <button
