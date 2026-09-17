@@ -420,7 +420,7 @@ export function PortfolioView({
                       >
                         {project.banner && (
                           <div 
-                            className={`w-full sm:-mx-6 sm:w-[calc(100%+3rem)] md:-mx-10 md:w-[calc(100%+5rem)] lg:-mx-16 lg:w-[calc(100%+8rem)] mb-3 overflow-hidden rounded-xl flex items-center justify-center relative ${project.coverBg ? aspectClass : ''}`}
+                            className={`w-full sm:-mx-8 sm:w-[calc(100%+4rem)] md:-mx-16 md:w-[calc(100%+8rem)] lg:-mx-24 lg:w-[calc(100%+12rem)] xl:-mx-32 xl:w-[calc(100%+16rem)] mb-3 overflow-hidden rounded-xl flex items-center justify-center relative ${project.coverBg ? aspectClass : ''}`}
                             style={project.coverBg ? { backgroundImage: `url(${project.coverBg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
                           >
                             <img 
