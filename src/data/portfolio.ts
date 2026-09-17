@@ -23,6 +23,7 @@ export interface Project {
   github?: string;
   tags?: string[];
   banner?: string;
+  coverBg?: string;
   status?: string;
   hoverText?: string;
   themeColor?: string;
@@ -126,7 +127,7 @@ export const portfolioData: PortfolioData = {
       description: "AI research assistant that turns complex marine science papers into clear, cited answers.",
       year: "2026",
       link: "/orca",
-      banner: "/orcabanner.svg",
+      banner: "/orca_cover.png",
       tags: ["AI/ML", "LLM", "Data Viz"],
       themeColor: "#007FFF",
     },
@@ -136,6 +137,8 @@ export const portfolioData: PortfolioData = {
       year: "2026",
       link: "/semantic",
       tags: ["Figma", "UI/UX"],
+      banner: "/semantic1.svg",
+      coverBg: "/asset2.1.svg",
       status: "Active",
       themeColor: "#6666FF",
     },
@@ -146,6 +149,7 @@ export const portfolioData: PortfolioData = {
       link: "/messaging",
       github: "https://github.com/Pynthamil/kivo.git",
       tags: ["Real-time", "Security", "Distributed Systems"],
+      banner: "/kivo_cover.png",
       hoverText: "currently building",
       themeColor: "#00BF63",
     },
