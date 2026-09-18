@@ -27,7 +27,7 @@ export const PlueLogoSvg: React.FC<{ className?: string }> = ({ className }) => 
       <text
         x="60"
         y="37"
-        fontFamily="&quot;Google Sans&quot;, sans-serif"
+        fontFamily="&quot;SF Pro Display&quot;, sans-serif"
         fontSize="30"
         fontWeight="500"
         letterSpacing="-0.03em"

@@ -26,7 +26,7 @@ export const OrcaAppSvg: React.FC<{ className?: string }> = ({ className }) => {
         <line x1="140" y1="0" x2="140" y2="250" stroke="#eae5d6" strokeWidth="1" />
 
         {/* Sidebar Nav Items */}
-        <g fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="8.5" fill="#374151">
+        <g fontFamily="&quot;SF Pro Display&quot;, sans-serif" fontSize="8.5" fill="#374151">
           {/* New Chat */}
           <text x="14" y="24" fontWeight="700" fill="#111827">📁 + New Chat</text>
 
@@ -51,10 +51,10 @@ export const OrcaAppSvg: React.FC<{ className?: string }> = ({ className }) => {
         <g transform="translate(14, 218)">
           <line x1="-2" y1="-10" x2="114" y2="-10" stroke="#e5dfcf" />
           <circle cx="8" cy="8" r="8" fill="#d97706" />
-          <text x="22" y="7" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fontWeight="600" fill="#111827">
+          <text x="22" y="7" fontFamily="&quot;SF Pro Display&quot;, sans-serif" fontSize="7.5" fontWeight="600" fill="#111827">
             Pynthamil Pavendan
           </text>
-          <text x="22" y="15" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="6.5" fill="#6b7280">
+          <text x="22" y="15" fontFamily="&quot;SF Pro Display&quot;, sans-serif" fontSize="6.5" fill="#6b7280">
             Creator UI
           </text>
         </g>
@@ -66,7 +66,7 @@ export const OrcaAppSvg: React.FC<{ className?: string }> = ({ className }) => {
           <text
             x="163"
             y="12"
-            fontFamily="&quot;Google Sans&quot;, sans-serif"
+            fontFamily="&quot;SF Pro Display&quot;, sans-serif"
             fontSize="7.5"
             fontWeight="500"
             fill="#007FFF"
@@ -76,7 +76,7 @@ export const OrcaAppSvg: React.FC<{ className?: string }> = ({ className }) => {
           </text>
 
           {/* AI Response Header */}
-          <text x="0" y="34" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="8" fontWeight="700" fill="#111827">
+          <text x="0" y="34" fontFamily="&quot;SF Pro Display&quot;, sans-serif" fontSize="8" fontWeight="700" fill="#111827">
             🗂️ Here are the statistics about captive orcas till 2025.
           </text>
 
@@ -117,7 +117,7 @@ export const OrcaAppSvg: React.FC<{ className?: string }> = ({ className }) => {
           </g>
 
           {/* Text Points */}
-          <g fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7" fill="#4b5563" transform="translate(0, 102)">
+          <g fontFamily="&quot;SF Pro Display&quot;, sans-serif" fontSize="7" fill="#4b5563" transform="translate(0, 102)">
             <text x="0" y="0" fontWeight="700" fill="#111827">
               A particularly striking statistic
             </text>
@@ -136,10 +136,10 @@ export const OrcaAppSvg: React.FC<{ className?: string }> = ({ className }) => {
           {/* Bottom Prompt Bar */}
           <g transform="translate(0, 196)">
             <line x1="0" y1="0" x2="256" y2="0" stroke="#f3f4f6" />
-            <text x="0" y="14" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fill="#9ca3af">
+            <text x="0" y="14" fontFamily="&quot;SF Pro Display&quot;, sans-serif" fontSize="7.5" fill="#9ca3af">
               Ask any question...
             </text>
-            <text x="244" y="14" fontFamily="&quot;Google Sans&quot;, sans-serif" fontSize="7.5" fill="#9ca3af">
+            <text x="244" y="14" fontFamily="&quot;SF Pro Display&quot;, sans-serif" fontSize="7.5" fill="#9ca3af">
               ⏎
             </text>
           </g>

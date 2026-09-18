@@ -467,7 +467,7 @@ export function PortfolioView({
                     <div className="flex items-start justify-between w-full">
                       <div className="flex items-start flex-1 pr-4">
                         <div className="flex flex-col justify-center h-full">
-                          <span className="instrument-serif italic font-normal text-[24px] sm:text-[26px] text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
+                          <span className="instrument-serif italic font-normal text-[22px] sm:text-[24px] text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
                             {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
                           </span>
                         </div>
@@ -478,7 +478,7 @@ export function PortfolioView({
                     </div>
                     
                     {item.bullets && item.bullets.length > 0 && (
-                      <ul className="mt-4 flex flex-col space-y-2.5 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
+                      <ul className="mt-4 flex flex-col space-y-2.5 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
                         {item.bullets.map((bullet, idx) => (
                           <li key={idx} className="flex items-start gap-2.5">
                             <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
@@ -615,7 +615,7 @@ export function PortfolioView({
                     <div className="flex items-start justify-between w-full">
                       <div className="flex items-start flex-1 pr-4">
                         <div className="flex flex-col justify-center h-full">
-                          <span className="instrument-serif italic underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#00B5B2]/30 dark:decoration-[#00B5B2]/30 font-normal text-[24px] sm:text-[26px] text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
+                          <span className="instrument-serif italic underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#00B5B2]/30 dark:decoration-[#00B5B2]/30 font-normal text-[22px] sm:text-[24px] text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
                             {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
                           </span>
                         </div>
@@ -626,7 +626,7 @@ export function PortfolioView({
                     </div>
                     
                     {item.bullets && item.bullets.length > 0 && (
-                      <ul className="mt-4 flex flex-col space-y-2.5 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
+                      <ul className="mt-4 flex flex-col space-y-2.5 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
                         {item.bullets.map((bullet, idx) => (
                           <li key={idx} className="flex items-start gap-2.5">
                             <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
