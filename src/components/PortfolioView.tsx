@@ -299,7 +299,7 @@ export function PortfolioView({
             {/* Bio Copy & Status Section */}
             <section className="flex flex-col space-y-4 mb-12 sm:mb-14">
               <p className="text-[18px] sm:text-[20px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-relaxed">
-                I am a software engineer focused on building fast, scalable products with intuitive design. I love taking ambitious ideas from zero to one.
+                I am a product minded engineer focused on building fast, scalable products with intuitive design. I love taking ambitious ideas from zero to one.
               </p>
               
               <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-[1.85]">
