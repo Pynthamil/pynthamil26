@@ -83,7 +83,7 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   name: "Pynthamil Pavendan",
-  tagline: "I am a product minded engineer focused on building fast, scalable products with intuitive design. I love taking ambitious ideas from zero to one.",
+  tagline: "I am a product minded engineer based in India, focused on building fast, scalable products with intuitive design. I love taking ambitious ideas from zero to one.",
   location: "India",
   status: "Currently: making plue THE student haven",
   statusPhrases: [
