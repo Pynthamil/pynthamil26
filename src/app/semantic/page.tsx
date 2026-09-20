@@ -12,10 +12,13 @@ import {
   Layers,
   Moon,
   Sun,
-  ArrowDown,
+  ArrowDown, ChevronDown,
   Figma,
   ExternalLink,
-  Asterisk
+  Asterisk,
+  Network,
+  Link2,
+  LayoutDashboard
 } from "lucide-react";
 import { ChromaVideo } from "@/components/ChromaVideo";
 import { PersonaShowcase } from "@/components/PersonaShowcase";
@@ -23,6 +26,34 @@ import { ProjectSidebar } from "@/components/ProjectSidebar";
 
 export default function SemanticProjectPage() {
   const [soundOn, setSoundOn] = useState<boolean>(true);
+  const [activeProcess, setActiveProcess] = useState<number>(0);
+
+  const processSteps = [
+    {
+      title: "01 — I started with the wrong question",
+      content: (
+        <>
+          I initially approached the problem as: <span className="bg-[#EBEBFF] dark:bg-[#6666FF]/20 px-1 py-0.5 rounded text-[#2C2C2C] dark:text-[#F2F2F2]">How can AI make email faster?</span> But the more I explored the workflow, the more I realized speed wasn't the real issue. Users were spending mental energy figuring out what an email meant, what needed action, and what to remember.
+        </>
+      ),
+    },
+    {
+      title: "02 — Exploring the possibilities",
+      content: (
+        <>
+          I explored different ways Semantic could exist within an email workflow. The challenge was making the intelligence accessible without turning it into another interface users had to manage.
+        </>
+      ),
+    },
+    {
+      title: "03 — Learning through iteration",
+      content: (
+        <>
+          My first explorations tried to expose everything Semantic understood. That made the interface feel intelligent—but also overwhelming. I gradually reduced the amount of information shown by default and prioritized what users could actually act on.
+        </>
+      ),
+    }
+  ];
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
   
@@ -237,37 +268,42 @@ export default function SemanticProjectPage() {
               </p>
 
               {/* Context Actions */}
-              <div className="flex flex-wrap items-center gap-3 pt-4">
+              <div className="flex flex-wrap items-center gap-4 pt-4">
                 <button
                   onClick={() => {
                     playTone(880);
                     document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="px-4 py-2 rounded-full bg-[#141415] dark:bg-white text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-200 transition-colors font-medium text-[13px] sm:text-sm shadow-sm flex items-center space-x-2"
+                  className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-full bg-[#141415] dark:bg-white text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-200 transition-colors font-medium text-[15px] sm:text-[16px] shadow-sm flex items-center space-x-2.5"
                 >
                   <span>Jump to Solution</span>
-                  <ArrowDown className="w-4 h-4" />
+                  <ArrowDown className="w-5 h-5" />
                 </button>
                 <a
                   href="https://www.figma.com/design/jFmjS9SneDaQNfBDHSOepV/mote?node-id=1-3&t=u4M4Lf67dlZ5hgzu-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-[#6666FF] dark:hover:border-[#8888FF] text-[#475569] dark:text-[#CBD5E1] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors font-medium text-[13px] sm:text-sm flex items-center space-x-2"
+                  className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-[#6666FF] dark:hover:border-[#8888FF] text-[#475569] dark:text-[#CBD5E1] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors font-medium text-[15px] sm:text-[16px] flex items-center space-x-2.5"
                 >
                   <span>View in Figma</span>
-                  <Figma className="w-4 h-4" />
+                  <Figma className="w-5 h-5" />
                 </a>
               </div>
             </div>
 
             {/* The Problem Section */}
             <div id="problem" className="pt-8 space-y-5 scroll-mt-20">
-              <div className="space-y-1.5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
-                  THE PROBLEM
-                </span>
-                <p className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
-                  Email is full of tasks, deadlines, and commitments, but inboxes bury them in clutter, making it <span className="bg-[#6666FF]/15 dark:bg-[#8888FF]/20 px-1">easy to lose track of what matters.</span>
+              <div className="space-y-4">
+                <div className="space-y-1.5">
+                  <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
+                    THE PROBLEM
+                  </span>
+                  <p className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                    Email is full of tasks, deadlines, and commitments, but inboxes bury them in clutter, making it <span className="bg-[#6666FF]/15 dark:bg-[#8888FF]/20 px-1">easy to lose track of what matters.</span>
+                  </p>
+                </div>
+                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  When managing high-volume communication, critical action items frequently get lost in long threads or buried under low-signal newsletters. Without a reliable way to extract and track these commitments, users are forced to rely on memory or manual note-taking, leading to dropped balls and constant cognitive overload.
                 </p>
               </div>
 
@@ -293,9 +329,9 @@ export default function SemanticProjectPage() {
               </div>
 
               {/* How Might We Callout Box */}
-              <div className="p-6 sm:p-8 rounded-xl bg-[#E6E6FF] dark:bg-[#8888FF]/[0.1] flex flex-col items-center justify-center text-center gap-3">
-                <HelpCircle className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF] shrink-0" strokeWidth={2} />
-                <p className="text-[20px] sm:text-[22px] font-sans font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <div className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-6 py-10 sm:px-10 sm:py-16 rounded-[16px] sm:rounded-[24px] bg-[#E6E6FF] dark:bg-[#8888FF]/[0.1] flex flex-row items-center text-left gap-4 sm:gap-5 overflow-hidden">
+                <img src="/laptop.svg" alt="Laptop" className="w-28 h-28 sm:w-40 sm:h-40 object-contain shrink-0" />
+                <p className="text-[20px] sm:text-[26px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug z-10">
                   How might we transform email from an overwhelming backlog into an intelligent copilot that turns incoming communication into actionable clarity?
                 </p>
               </div>
@@ -322,7 +358,7 @@ export default function SemanticProjectPage() {
             </div>
 
             {/* Process Section */}
-            <div id="process" className="pt-8 space-y-5 scroll-mt-20">
+            <div id="process" className="pt-8 space-y-6 scroll-mt-20">
               <div className="space-y-1">
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   PROCESS
@@ -330,6 +366,66 @@ export default function SemanticProjectPage() {
                 <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                   From chaos to clarity
                 </h2>
+              </div>
+
+              {/* Interactive Accordion Layout */}
+              <div className="w-[100vw] sm:w-[1200px] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-0 pt-8">
+                <div className="w-full bg-[#F5F5F7] dark:bg-[#13151A] rounded-[24px] sm:rounded-[40px] px-8 py-12 sm:px-16 sm:py-24 flex flex-col md:flex-row gap-10 sm:gap-16 items-center">
+                  {/* Left: Accordion */}
+                  <div className="w-full md:w-[35%] flex flex-col justify-center shrink-0">
+                    <div className="space-y-0 border-b border-neutral-200 dark:border-neutral-800">
+                      {processSteps.map((step, idx) => (
+                        <div key={idx} className={`border-t border-neutral-200 dark:border-neutral-800 ${idx === 0 ? 'border-t-0' : ''}`}>
+                          <button 
+                            onClick={() => {
+                              playTone(440 + (idx * 110));
+                              setActiveProcess(idx);
+                            }}
+                            className="flex justify-between items-center w-full text-left py-5 sm:py-6 group outline-none gap-4"
+                          >
+                            <h3 className="text-[18px] sm:text-[20px] font-sans font-medium text-[#1D1D1F] dark:text-[#F2F2F2] leading-snug">
+                              {step.title}
+                            </h3>
+                            <span className={`transform transition-transform duration-300 shrink-0 ${activeProcess === idx ? 'rotate-180' : ''}`}>
+                              <ChevronDown className="w-6 h-6 text-[#A0A0A0] group-hover:text-[#1D1D1F] dark:group-hover:text-white transition-colors" strokeWidth={1.5} />
+                            </span>
+                          </button>
+                          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${activeProcess === idx ? 'max-h-[400px] opacity-100 pb-6' : 'max-h-0 opacity-0 pb-0'}`}>
+                            <p className="text-[15px] sm:text-[16px] text-[#424245] dark:text-[#A1A1A6] leading-[1.6]">
+                              {step.content}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Right: Visual Area */}
+                  <div className="w-full md:w-[65%] flex items-center justify-center min-h-[400px] sm:min-h-[550px] relative">
+                      <div className="absolute inset-0 flex items-center justify-center animate-in fade-in zoom-in-95 duration-500" key={activeProcess}>
+                          {activeProcess === 0 ? (
+                            <div className="w-full h-full p-2 sm:p-4 flex items-center justify-center">
+                              <img src="/q1.svg" alt="Questions" className="w-full max-h-full object-contain scale-[1.15] sm:scale-125" />
+                            </div>
+                          ) : activeProcess === 2 ? (
+                            <div className="w-full h-full p-2 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                              <img src="/v1.svg" alt="Iteration 1" className="w-full sm:w-1/2 max-h-[250px] sm:max-h-full object-contain drop-shadow-md" />
+                              <img src="/v2.svg" alt="Iteration 2" className="w-full sm:w-1/2 max-h-[250px] sm:max-h-full object-contain drop-shadow-md" />
+                            </div>
+                          ) : activeProcess === 1 ? (
+                            <div className="w-full h-full p-2 flex items-center justify-center">
+                              <img src="/v2.1.svg" alt="Mapping the problem" className="w-full max-h-full object-contain drop-shadow-md" />
+                            </div>
+                          ) : (
+                            <div className="w-full h-full flex flex-col items-center justify-center text-center text-[#A0A0A0]">
+                                <span className="font-mono text-sm mb-4">[{processSteps[activeProcess].title} Visual]</span>
+                                <div className="w-48 h-48 sm:w-64 sm:h-64 border-2 border-dashed border-[#D0D0D0] dark:border-[#333] rounded-2xl flex items-center justify-center bg-white/50 dark:bg-black/20">
+                                    <LayoutDashboard className="w-10 h-10 opacity-50" />
+                                </div>
+                            </div>
+                          )}
+                      </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -371,7 +467,7 @@ export default function SemanticProjectPage() {
                   </div>
                 </div>
 
-                <div className="space-y-1 mt-16 sm:mt-24 mb-0 sm:-mb-4 relative z-10">
+                <div className="pt-8 sm:pt-12 pb-0 sm:pb-4 relative z-10">
                   <h3 className="text-[28px] sm:text-[32px] leading-tight sm:leading-[1.15] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
                     Turning everyday emails into clear actions, from <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">quick requests to time-sensitive commitments</span>
                   </h3>
