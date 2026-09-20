@@ -33,7 +33,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" href="/logo.png" />
         <link rel="apple-touch-icon" href="/logo.png" />
       </head>
-      <body className="min-h-screen bg-neutral-100 dark:bg-neutral-900 text-[#111111] dark:text-[#F2F2F2] antialiased selection:bg-neutral-200 dark:selection:bg-neutral-800 selection:text-neutral-900 dark:selection:text-white">
+      <body className="min-h-screen bg-white dark:bg-[#0E0E0F] text-[#111111] dark:text-[#F2F2F2] antialiased selection:bg-neutral-200 dark:selection:bg-neutral-800 selection:text-neutral-900 dark:selection:text-white">
         {children}
       </body>
     </html>
