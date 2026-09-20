@@ -399,7 +399,7 @@ export function PortfolioView({
                   selected works
                 </h2>
                 <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                  {portfolioData.projects.map((project: Project, idx: number) => {
+                  {portfolioData.projects.filter(p => p.title !== "making tech fun").map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
                     const isOrca = project.title === "orca.ai";
@@ -1074,6 +1074,7 @@ export function PortfolioView({
             </section>
           </div>
         )}
+
 
         {/* Unified Footer for all views */}
         <footer className="w-full pt-16 mt-auto flex flex-col items-start gap-5 font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8]">

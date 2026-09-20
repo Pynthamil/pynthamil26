@@ -142,6 +142,14 @@ export const portfolioData: PortfolioData = {
       status: "Active",
       themeColor: "#6666FF",
     },
+    {
+      title: "making tech fun",
+      description: "Experimenting with interactive, joyful interfaces and micro-interactions.",
+      year: "2026",
+      link: "/making-tech-fun",
+      tags: ["Creative Dev", "Interaction"],
+      themeColor: "#FF6666",
+    },
   ],
   writings: [
     {
