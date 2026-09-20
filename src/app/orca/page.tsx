@@ -302,11 +302,11 @@ export default function OrcaProjectPage() {
 
             {/* THE OPPORTUNITY */}
             <div className="scroll-mt-20 -mt-2">
-              <div className="p-6 sm:p-8 rounded-xl border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.05] dark:bg-[#FFF0F5]/[0.08] flex flex-col items-center justify-center text-center gap-3">
-                <HelpCircle className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5] shrink-0" strokeWidth={2} />
-                <h3 className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <div className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-6 py-10 sm:px-10 sm:py-16 rounded-[16px] sm:rounded-[24px] bg-[#F0F8FF] dark:bg-[#007FFF]/[0.1] flex flex-row items-center text-left gap-4 sm:gap-5 overflow-hidden">
+                <img src="/laptop.svg" alt="Laptop" className="w-28 h-28 sm:w-40 sm:h-40 object-contain shrink-0" />
+                <p className="text-[20px] sm:text-[26px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug z-10">
                   How might we make decades of marine research queryable in seconds without sacrificing the evidence researchers need to trust an answer?
-                </h3>
+                </p>
               </div>
             </div>
 
@@ -475,27 +475,35 @@ export default function OrcaProjectPage() {
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <div className="p-5 sm:p-6 rounded-xl border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.04] dark:bg-[#FFF0F5]/[0.07] flex flex-col items-center text-center space-y-3 transition-colors hover:bg-[#007FFF]/[0.08] dark:hover:bg-[#FFF0F5]/[0.12]">
-                  <div className="p-2 rounded-xl bg-[#007FFF]/15 dark:bg-[#FFF0F5]/20 flex items-center justify-center">
-                    <Sparkles className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />
+              {/* 2-Column Takeaways Cards */}
+              <div className="relative left-1/2 -translate-x-1/2 w-[100vw] sm:w-[800px] max-w-[100vw] px-4 sm:px-0 pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  {/* Card 1 */}
+                  <div className="relative w-full h-full p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-[#F0F8FF] dark:bg-[#007FFF]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
+                    <img src="/laptop.svg" alt="Laptop" className="w-24 h-24 sm:w-28 sm:h-28 object-contain -mb-4 sm:-mb-6" />
+                    <div className="space-y-3">
+                      <h4 className="font-sans font-medium text-[20px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-tight pr-4">
+                        Grounded citations
+                      </h4>
+                      <p className="text-[15px] sm:text-[16px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans pr-2">
+                        Trust in AI research tools depends on making evidence directly inspectable and preventing unsupported claims from being presented as fact.
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#007FFF] dark:text-[#FFF0F5] uppercase pt-1">Grounded citations</h4>
-                  <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
-                    Trust in AI research tools depends on making evidence directly inspectable and preventing unsupported claims from being presented as fact.
-                  </p>
-                </div>
 
-                <div className="p-5 sm:p-6 rounded-xl border border-[#007FFF] dark:border-[#FFF0F5] bg-[#007FFF]/[0.04] dark:bg-[#FFF0F5]/[0.07] flex flex-col items-center text-center space-y-3 transition-colors hover:bg-[#007FFF]/[0.08] dark:hover:bg-[#FFF0F5]/[0.12]">
-                  <div className="p-2 rounded-xl bg-[#007FFF]/15 dark:bg-[#FFF0F5]/20 flex items-center justify-center">
-                    <Layers className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />
+                  {/* Card 2 */}
+                  <div className="relative w-full h-full p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-[#F0F8FF] dark:bg-[#007FFF]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
+                    <img src="/idea.svg" alt="Idea" className="w-24 h-24 sm:w-28 sm:h-28 object-contain scale-125 sm:scale-150 origin-left" />
+                    <div className="space-y-3">
+                      <h4 className="font-sans font-medium text-[20px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-tight pr-4">
+                        Domain empathy
+                      </h4>
+                      <p className="text-[15px] sm:text-[16px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans pr-2">
+                        Designing for scientific specialists requires understanding how they search, interpret evidence, and validate findings - not simply adapting a generic chatbot interface.
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#007FFF] dark:text-[#FFF0F5] uppercase pt-1">Domain empathy</h4>
-                  <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
-                    Designing for scientific specialists requires understanding how they search, interpret evidence, and validate findings - not simply adapting a generic chatbot interface.
-                  </p>
                 </div>
-
               </div>
             </div>
           </div>
