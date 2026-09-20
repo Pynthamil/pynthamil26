@@ -12,7 +12,6 @@ interface ChromaVideoProps {
 export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: ChromaVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -90,7 +89,6 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
         }
 
         ctx.putImageData(imgData, 0, 0);
-        setIsPlaying(true);
       }
 
       scheduleNextFrame();
@@ -120,7 +118,7 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
       />
       <canvas
         ref={canvasRef}
-        className="w-full h-auto block"
+        className="w-full min-h-[300px] h-auto block"
         style={{ imageRendering: "auto" }}
       />
     </div>

@@ -14,7 +14,8 @@ import {
   Sun,
   ArrowDown,
   Figma,
-  ExternalLink
+  ExternalLink,
+  Asterisk
 } from "lucide-react";
 import { ChromaVideo } from "@/components/ChromaVideo";
 import { PersonaShowcase } from "@/components/PersonaShowcase";
@@ -234,9 +235,6 @@ export default function SemanticProjectPage() {
               <p>
                 Semantic Email Copilot is a lightweight intelligence layer that transforms chaotic inbox threads into structured tasks, deadlines, and context.
               </p>
-              <p>
-                Rather than forcing users to switch email clients, it operates as a non-intrusive copilot analyzing incoming communication in real time to extract key action items, flag urgent commitments, and synthesize contextual responses.
-              </p>
 
               {/* Context Actions */}
               <div className="flex flex-wrap items-center gap-3 pt-4">
@@ -245,7 +243,7 @@ export default function SemanticProjectPage() {
                     playTone(880);
                     document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="px-4 py-2 rounded-xl bg-[#141415] dark:bg-white text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-200 transition-colors font-medium text-[13px] sm:text-sm shadow-sm flex items-center space-x-2"
+                  className="px-4 py-2 rounded-full bg-[#141415] dark:bg-white text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-200 transition-colors font-medium text-[13px] sm:text-sm shadow-sm flex items-center space-x-2"
                 >
                   <span>Jump to Solution</span>
                   <ArrowDown className="w-4 h-4" />
@@ -254,7 +252,7 @@ export default function SemanticProjectPage() {
                   href="https://www.figma.com/design/jFmjS9SneDaQNfBDHSOepV/mote?node-id=1-3&t=u4M4Lf67dlZ5hgzu-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 hover:border-[#6666FF] dark:hover:border-[#8888FF] text-[#475569] dark:text-[#CBD5E1] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors font-medium text-[13px] sm:text-sm flex items-center space-x-2"
+                  className="px-4 py-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-[#6666FF] dark:hover:border-[#8888FF] text-[#475569] dark:text-[#CBD5E1] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors font-medium text-[13px] sm:text-sm flex items-center space-x-2"
                 >
                   <span>View in Figma</span>
                   <Figma className="w-4 h-4" />
@@ -271,16 +269,11 @@ export default function SemanticProjectPage() {
                 <p className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   Email is full of tasks, deadlines, and commitments, but inboxes bury them in clutter, making it <span className="bg-[#6666FF]/15 dark:bg-[#8888FF]/20 px-1">easy to lose track of what matters.</span>
                 </p>
-                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
-                  As messages accumulate, users spend excessive energy trying to remember why an email was received, what deliverables are due, who needs a reply, and when to follow up.
-                </p>
               </div>
 
               {/* Pain Points Boxed Row */}
               <div className="pt-2 space-y-3 scroll-mt-20">
-                <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.08em] text-[#64748B] dark:text-[#8E95B8] font-semibold block">
-                  PAIN POINTS
-                </span>
+
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
                   {painPoints.map((item, idx) => (
@@ -300,9 +293,9 @@ export default function SemanticProjectPage() {
               </div>
 
               {/* How Might We Callout Box */}
-              <div className="p-6 sm:p-8 rounded-xl border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.05] dark:bg-[#8888FF]/[0.08] flex flex-col items-center justify-center text-center gap-3">
+              <div className="p-6 sm:p-8 rounded-xl bg-[#E6E6FF] dark:bg-[#8888FF]/[0.1] flex flex-col items-center justify-center text-center gap-3">
                 <HelpCircle className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF] shrink-0" strokeWidth={2} />
-                <p className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <p className="text-[20px] sm:text-[22px] font-sans font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   How might we transform email from an overwhelming backlog into an intelligent copilot that turns incoming communication into actionable clarity?
                 </p>
               </div>
@@ -328,6 +321,18 @@ export default function SemanticProjectPage() {
               </div>
             </div>
 
+            {/* Process Section */}
+            <div id="process" className="pt-8 space-y-5 scroll-mt-20">
+              <div className="space-y-1">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
+                  PROCESS
+                </span>
+                <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                  From chaos to clarity
+                </h2>
+              </div>
+            </div>
+
             {/* The Solution Section */}
             <div id="solution" className="pt-8 space-y-6 scroll-mt-20">
               <div className="space-y-3.5">
@@ -338,10 +343,7 @@ export default function SemanticProjectPage() {
                   <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                     Designing an intelligence layer that turns unstructured email into clear, actionable context
                   </h2>
-                  <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
-                    An AI-powered inbox layer that understands incoming emails, extracts what matters, and turns them into actionable tasks, deadlines, and context so nothing important gets lost.
-                  </p>
-                  <br/>
+
                 </div>
 
                 {/* BEFORE / AFTER BLOCK */}
@@ -369,39 +371,31 @@ export default function SemanticProjectPage() {
                   </div>
                 </div>
 
-                
+                <div className="space-y-1 mt-16 sm:mt-24 mb-0 sm:-mb-4 relative z-10">
+                  <h3 className="text-[28px] sm:text-[32px] leading-tight sm:leading-[1.15] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    Turning everyday emails into clear actions, from <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">quick requests to time-sensitive commitments</span>
+                  </h3>
+                </div>
+
                 {/* Demo Video 1 */}
-                <div className="py-4 my-2">
+                <div className="pt-6 pb-2 relative left-1/2 -translate-x-1/2 w-[100vw] sm:w-[700px] max-w-[100vw] px-4 sm:px-0">
                   <div className="w-full flex justify-center">
-                    <div className="w-full max-w-[600px]">
-                      <ChromaVideo src="/semantic/demo1.mov" />
-                    </div>
+                    <ChromaVideo src="/semantic/demo1.mov" className="w-full" />
                   </div>
-                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-3 text-center">
+                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-4 text-center">
                     // full copilot interface &amp; extraction workflow
                   </p>
                 </div>
               </div>
 
               {/* Sub-solution 2: Everyday Situations */}
-              <div className="pt-4 space-y-4">
-                <div className="space-y-1">
-                  <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
-                    Turning everyday emails into clear actions, from <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">quick requests to time-sensitive commitments</span>
-                  </h3>
-                  <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-                    From meeting coordination and task assignments to urgent deadline notices, the pipeline automatically detects message urgency and maps unstructured context into structured actions.
-                  </p>
-                </div>
-
+              <div className="pt-0">
                 {/* Demo Video 2 */}
-                <div className="py-4 my-2">
+                <div className="pt-2 pb-6 relative left-1/2 -translate-x-1/2 w-[100vw] sm:w-[700px] max-w-[100vw] px-4 sm:px-0">
                   <div className="w-full flex justify-center">
-                    <div className="w-full max-w-[600px]">
-                      <ChromaVideo src="/semantic/demo2.mov" />
-                    </div>
+                    <ChromaVideo src="/semantic/demo2.mov" className="w-full" />
                   </div>
-                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-3 text-center">
+                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-4 text-center">
                     // automated deadline detection &amp; priority scheduling
                   </p>
                 </div>
@@ -410,22 +404,17 @@ export default function SemanticProjectPage() {
               {/* Sub-solution 3: Context Mapping */}
               <div className="pt-4 space-y-4">
                 <div className="space-y-1">
-                  <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
-                    Not just drafting replies, but <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">helping you understand the conversation behind them.</span>
+                  <h3 className="text-[28px] sm:text-[32px] leading-tight sm:leading-[1.15] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    When your brain goes blank, <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">the context is already understood—and your response is one click away.</span>
                   </h3>
-                  <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-                    By connecting isolated threads into a unified knowledge graph, users can review incoming tasks, reply with relevant context, and archive resolved items without ever leaving the flow.
-                  </p>
                 </div>
 
                 {/* Demo Video 3 */}
-                <div className="py-4 my-2">
+                <div className="py-6 my-4 relative left-1/2 -translate-x-1/2 w-[100vw] sm:w-[700px] max-w-[100vw] px-4 sm:px-0">
                   <div className="w-full flex justify-center">
-                    <div className="w-full max-w-[600px]">
-                      <ChromaVideo src="/semantic/demo3.mov" />
-                    </div>
+                    <ChromaVideo src="/semantic/demo3.mov" className="w-full" />
                   </div>
-                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-3 text-center">
+                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-4 text-center">
                     // contextual response drafting &amp; thread synthesis
                   </p>
                 </div>
@@ -433,6 +422,7 @@ export default function SemanticProjectPage() {
 
 
             </div>
+
 
             {/* Takeaways Section */}
             <div id="takeaways" className="pt-8 space-y-5 scroll-mt-20">
@@ -446,27 +436,33 @@ export default function SemanticProjectPage() {
               </div>
 
               {/* 2-Column Takeaways Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-1">
-                {/* Card 1 */}
-                <div className="p-5 sm:p-5.5 rounded-xl border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.04] dark:bg-[#8888FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#8888FF]/[0.12]">
-                  <div className="p-1.5 rounded-xl bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
-                    <Sparkles className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
+              <div className="relative left-1/2 -translate-x-1/2 w-[100vw] sm:w-[800px] max-w-[100vw] px-4 sm:px-0 pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  {/* Card 1 */}
+                  <div className="relative w-full h-full p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-[#E6E6FF] dark:bg-[#8888FF]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
+                    <img src="/laptop.svg" alt="Laptop" className="w-24 h-24 sm:w-28 sm:h-28 object-contain -mb-4 sm:-mb-6" />
+                    <div className="space-y-3">
+                      <h4 className="font-sans font-medium text-[20px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-tight pr-4">
+                        Designing AI means designing trust
+                      </h4>
+                      <p className="text-[15px] sm:text-[16px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans pr-2">
+                        Users need to understand why something was extracted or suggested before they can confidently act on it. Making the system's intelligence visible without making it overwhelming became an important design challenge.
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#6666FF] dark:text-[#8888FF] uppercase pt-1">Quiet AI assistance</h4>
-                  <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans">
-                    The most effective AI operates quietly in the background, extracting key actions without forcing users to learn complex prompts.
-                  </p>
-                </div>
 
-                {/* Card 2: Ownership in Ambiguity (Moved from full width to grid) */}
-                <div className="p-5 sm:p-5.5 rounded-xl border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.04] dark:bg-[#8888FF]/[0.07] flex flex-col items-center text-center space-y-2.5 transition-colors hover:bg-[#6666FF]/[0.08] dark:hover:bg-[#8888FF]/[0.12]">
-                  <div className="p-1.5 rounded-xl bg-[#6666FF]/15 dark:bg-[#8888FF]/20 flex items-center justify-center">
-                    <Search className="w-5 h-5 text-[#6666FF] dark:text-[#8888FF]" strokeWidth={1.5} />
+                  {/* Card 2 */}
+                  <div className="relative w-full h-full p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-[#E6E6FF] dark:bg-[#8888FF]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
+                    <img src="/idea.svg" alt="Idea" className="w-24 h-24 sm:w-28 sm:h-28 object-contain scale-125 sm:scale-150 origin-left" />
+                    <div className="space-y-3">
+                      <h4 className="font-sans font-medium text-[20px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-tight pr-4">
+                        Designing Without a Playbook
+                      </h4>
+                      <p className="text-[15px] sm:text-[16px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans pr-2">
+                        With no established patterns to follow, I had to define both the problem and the path forward. This project taught me how to turn an ambiguous idea into a structured product experience through exploration, iteration, and constant reframing.
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="instrument-serif text-[22px] sm:text-[24px] text-[#6666FF] dark:text-[#8888FF] uppercase pt-1">Ownership in ambiguity</h4>
-                  <p className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans max-w-3xl">
-                    With no playbook for an AI inbox layer, navigating this ambiguous space required identifying pain points, designing the architecture, and iterating constantly. You have to stop waiting for a roadmap and just start building.
-                  </p>
                 </div>
               </div>
             </div>
