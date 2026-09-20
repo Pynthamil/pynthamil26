@@ -30,7 +30,7 @@ export default function SemanticProjectPage() {
 
   const processSteps = [
     {
-      title: "01 — I started with the wrong question",
+      title: "I started with the wrong question",
       content: (
         <>
           I initially approached the problem as: <span className="bg-[#EBEBFF] dark:bg-[#6666FF]/20 px-1 py-0.5 rounded text-[#2C2C2C] dark:text-[#F2F2F2]">How can AI make email faster?</span> But the more I explored the workflow, the more I realized speed wasn't the real issue. Users were spending mental energy figuring out what an email meant, what needed action, and what to remember.
@@ -38,7 +38,7 @@ export default function SemanticProjectPage() {
       ),
     },
     {
-      title: "02 — Exploring the possibilities",
+      title: "Exploring the possibilities",
       content: (
         <>
           I explored different ways Semantic could exist within an email workflow. The challenge was making the intelligence accessible without turning it into another interface users had to manage.
@@ -46,11 +46,11 @@ export default function SemanticProjectPage() {
       ),
     },
     {
-      title: "03 — Learning through iteration",
+      title: "Learning through iteration",
       content: (
-        <>
-          My first explorations tried to expose everything Semantic understood. That made the interface feel intelligent—but also overwhelming. I gradually reduced the amount of information shown by default and prioritized what users could actually act on.
-        </>
+        <div className="flex flex-col gap-4">
+          <span>My first explorations tried to expose everything Semantic understood. That made the interface feel intelligent—but also overwhelming. I gradually reduced the amount of information shown by default and prioritized what users could actually act on.</span>
+        </div>
       ),
     }
   ];
@@ -357,78 +357,6 @@ export default function SemanticProjectPage() {
               </div>
             </div>
 
-            {/* Process Section */}
-            <div id="process" className="pt-8 space-y-6 scroll-mt-20">
-              <div className="space-y-1">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
-                  PROCESS
-                </span>
-                <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
-                  From chaos to clarity
-                </h2>
-              </div>
-
-              {/* Interactive Accordion Layout */}
-              <div className="w-[100vw] sm:w-[1200px] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-0 pt-8">
-                <div className="w-full bg-[#F5F5F7] dark:bg-[#13151A] rounded-[24px] sm:rounded-[40px] px-8 py-12 sm:px-16 sm:py-24 flex flex-col md:flex-row gap-10 sm:gap-16 items-center">
-                  {/* Left: Accordion */}
-                  <div className="w-full md:w-[35%] flex flex-col justify-center shrink-0">
-                    <div className="space-y-0 border-b border-neutral-200 dark:border-neutral-800">
-                      {processSteps.map((step, idx) => (
-                        <div key={idx} className={`border-t border-neutral-200 dark:border-neutral-800 ${idx === 0 ? 'border-t-0' : ''}`}>
-                          <button 
-                            onClick={() => {
-                              playTone(440 + (idx * 110));
-                              setActiveProcess(idx);
-                            }}
-                            className="flex justify-between items-center w-full text-left py-5 sm:py-6 group outline-none gap-4"
-                          >
-                            <h3 className="text-[18px] sm:text-[20px] font-sans font-medium text-[#1D1D1F] dark:text-[#F2F2F2] leading-snug">
-                              {step.title}
-                            </h3>
-                            <span className={`transform transition-transform duration-300 shrink-0 ${activeProcess === idx ? 'rotate-180' : ''}`}>
-                              <ChevronDown className="w-6 h-6 text-[#A0A0A0] group-hover:text-[#1D1D1F] dark:group-hover:text-white transition-colors" strokeWidth={1.5} />
-                            </span>
-                          </button>
-                          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${activeProcess === idx ? 'max-h-[400px] opacity-100 pb-6' : 'max-h-0 opacity-0 pb-0'}`}>
-                            <p className="text-[15px] sm:text-[16px] text-[#424245] dark:text-[#A1A1A6] leading-[1.6]">
-                              {step.content}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  {/* Right: Visual Area */}
-                  <div className="w-full md:w-[65%] flex items-center justify-center min-h-[400px] sm:min-h-[550px] relative">
-                      <div className="absolute inset-0 flex items-center justify-center animate-in fade-in zoom-in-95 duration-500" key={activeProcess}>
-                          {activeProcess === 0 ? (
-                            <div className="w-full h-full p-2 sm:p-4 flex items-center justify-center">
-                              <img src="/q1.svg" alt="Questions" className="w-full max-h-full object-contain scale-[1.15] sm:scale-125" />
-                            </div>
-                          ) : activeProcess === 2 ? (
-                            <div className="w-full h-full p-2 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-                              <img src="/v1.svg" alt="Iteration 1" className="w-full sm:w-1/2 max-h-[250px] sm:max-h-full object-contain drop-shadow-md" />
-                              <img src="/v2.svg" alt="Iteration 2" className="w-full sm:w-1/2 max-h-[250px] sm:max-h-full object-contain drop-shadow-md" />
-                            </div>
-                          ) : activeProcess === 1 ? (
-                            <div className="w-full h-full p-2 flex items-center justify-center">
-                              <img src="/v2.1.svg" alt="Mapping the problem" className="w-full max-h-full object-contain drop-shadow-md" />
-                            </div>
-                          ) : (
-                            <div className="w-full h-full flex flex-col items-center justify-center text-center text-[#A0A0A0]">
-                                <span className="font-mono text-sm mb-4">[{processSteps[activeProcess].title} Visual]</span>
-                                <div className="w-48 h-48 sm:w-64 sm:h-64 border-2 border-dashed border-[#D0D0D0] dark:border-[#333] rounded-2xl flex items-center justify-center bg-white/50 dark:bg-black/20">
-                                    <LayoutDashboard className="w-10 h-10 opacity-50" />
-                                </div>
-                            </div>
-                          )}
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* The Solution Section */}
             <div id="solution" className="pt-8 space-y-6 scroll-mt-20">
               <div className="space-y-3.5">
@@ -517,6 +445,84 @@ export default function SemanticProjectPage() {
               </div>
 
 
+            </div>
+
+            {/* Process Section */}
+            <div id="process" className="pt-8 space-y-6 scroll-mt-20">
+              <div className="space-y-1">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
+                  BEHIND THE SCENES
+                </span>
+                <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                  From chaos to clarity
+                </h2>
+              </div>
+
+              {/* Interactive Accordion Layout */}
+              <div className="w-[100vw] sm:w-[1200px] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-0 pt-8">
+                <div className="w-full bg-[#F5F5F7] dark:bg-[#13151A] rounded-[24px] sm:rounded-[40px] px-8 py-12 sm:px-16 sm:py-24 flex flex-col md:flex-row gap-10 sm:gap-16 items-center">
+                  {/* Left: Accordion */}
+                  <div className="w-full md:w-[35%] flex flex-col justify-center shrink-0">
+                    <div className="space-y-0">
+                      {processSteps.map((step, idx) => (
+                        <div key={idx} className={`border-t border-neutral-200 dark:border-neutral-800 ${idx === 0 ? 'border-t-0' : ''}`}>
+                          <button 
+                            onClick={() => {
+                              playTone(440 + (idx * 110));
+                              setActiveProcess(idx);
+                            }}
+                            className="flex justify-between items-center w-full text-left py-5 sm:py-6 group outline-none gap-4"
+                          >
+                            <h3 className="text-[22px] sm:text-[26px] font-sans font-medium text-[#1D1D1F] dark:text-[#F2F2F2] leading-snug">
+                              {step.title}
+                            </h3>
+                            <span className={`transform transition-transform duration-300 shrink-0 ${activeProcess === idx ? 'rotate-180' : ''}`}>
+                              <ChevronDown className="w-6 h-6 text-[#A0A0A0] group-hover:text-[#1D1D1F] dark:group-hover:text-white transition-colors" strokeWidth={1.5} />
+                            </span>
+                          </button>
+                          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${activeProcess === idx ? 'max-h-[400px] opacity-100 pb-6' : 'max-h-0 opacity-0 pb-0'}`}>
+                            <div className="text-[15px] sm:text-[16px] text-[#424245] dark:text-[#A1A1A6] leading-[1.6]">
+                              {step.content}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Right: Visual Area */}
+                  <div className="w-full md:w-[65%] flex items-center justify-center min-h-[400px] sm:min-h-[550px] relative">
+                      <div className="absolute inset-0 flex items-center justify-center animate-in fade-in zoom-in-95 duration-500" key={activeProcess}>
+                          {activeProcess === 0 ? (
+                            <div className="w-full h-full p-2 sm:p-4 flex items-center justify-center">
+                              <img src="/q1.svg" alt="Questions" className="w-full max-h-full object-contain scale-[1.15] sm:scale-125" />
+                            </div>
+                          ) : activeProcess === 2 ? (
+                            <div className="w-full h-full p-2 flex flex-col items-center justify-center gap-6">
+                              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full">
+                                <img src="/v1.svg" alt="Iteration 1" className="w-full sm:w-1/2 max-h-[250px] sm:max-h-[350px] object-contain drop-shadow-md" />
+                                <img src="/v2.svg" alt="Iteration 2" className="w-full sm:w-1/2 max-h-[250px] sm:max-h-[350px] object-contain drop-shadow-md" />
+                              </div>
+                              <a href="https://www.figma.com/design/jFmjS9SneDaQNfBDHSOepV/mote?node-id=0-1&p=f&t=onrjxXaUuGsvZy9x-0" target="_blank" rel="noopener noreferrer" className="text-[#6666FF] dark:text-[#8888FF] hover:underline font-medium text-[15px] inline-flex items-center justify-center gap-2 border border-[#E0E0E0] dark:border-[#333] bg-white/80 dark:bg-black/20 px-6 py-2.5 rounded-full shadow-sm hover:border-[#6666FF] dark:hover:border-[#8888FF] transition-all">
+                                <ExternalLink className="w-4 h-4" />
+                                View in Figma
+                              </a>
+                            </div>
+                          ) : activeProcess === 1 ? (
+                            <div className="w-full h-full p-2 flex items-center justify-center">
+                              <img src="/v2.1.svg" alt="Mapping the problem" className="w-full max-h-full object-contain drop-shadow-md" />
+                            </div>
+                          ) : (
+                            <div className="w-full h-full flex flex-col items-center justify-center text-center text-[#A0A0A0]">
+                                <span className="font-mono text-sm mb-4">[{processSteps[activeProcess].title} Visual]</span>
+                                <div className="w-48 h-48 sm:w-64 sm:h-64 border-2 border-dashed border-[#D0D0D0] dark:border-[#333] rounded-2xl flex items-center justify-center bg-white/50 dark:bg-black/20">
+                                    <LayoutDashboard className="w-10 h-10 opacity-50" />
+                                </div>
+                            </div>
+                          )}
+                      </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
 
