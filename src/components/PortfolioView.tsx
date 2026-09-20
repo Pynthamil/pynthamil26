@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { portfolioData, Project, Post } from "@/data/portfolio";
 import { Modal } from "@/components/Modal";
 import { ProjectSidebar } from "./ProjectSidebar";
-import { Moon, Sun, Copy, Check } from "lucide-react";
+import { Moon, Sun, Copy, Check, X, Clock } from "lucide-react";
 
 export function PortfolioView({
   initialViewMode = "home",
@@ -13,6 +13,7 @@ export function PortfolioView({
 }) {
   const [viewMode, setViewMode] = useState<"home" | "projects" | "about" | "blog">(initialViewMode);
   const [isEmailCopied, setIsEmailCopied] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
 
   const handleCopyEmail = () => {
     if (soundOn) playClickSound();
@@ -153,11 +154,13 @@ export function PortfolioView({
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const timeString = now.toLocaleTimeString("en-GB", {
+      const timeString = now.toLocaleTimeString("en-US", {
         timeZone: "Asia/Kolkata",
-        hour12: false,
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
       });
-      setCurrentTime(`${timeString} IST`);
+      setCurrentTime(timeString);
     };
 
     updateTime();
@@ -210,13 +213,37 @@ export function PortfolioView({
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-16 sm:pt-24 pb-24 selection:bg-neutral-200">
-      {/* Soft atmospheric ambient glow */}
-      <div className="ambient-glow" />
+    <>
+      {/* Open to Opportunities Full-Width Banner */}
+      {showBanner && (
+        <div className="w-full bg-[#00B5B2]/15 dark:bg-[#00B5B2]/20 text-[#008A88] dark:text-[#00D4D1] py-2.5 px-4 flex items-center justify-center relative border-b border-[#00B5B2]/20 dark:border-[#00B5B2]/30 animate-in slide-in-from-top-2 duration-300">
+          <div className="flex items-center gap-3 text-[14px] sm:text-[15px] font-medium tracking-wide">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00B5B2] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00B5B2]"></span>
+            </span>
+            Open to Summer 2027 internship opportunities
+          </div>
+          <button 
+            onClick={() => {
+              if (soundOn) playClickSound();
+              setShowBanner(false);
+            }}
+            className="absolute right-4 text-[#008A88]/70 hover:text-[#008A88] dark:text-[#00D4D1]/70 dark:hover:text-[#00D4D1] transition-colors p-1"
+            aria-label="Close banner"
+          >
+            <X size={16} strokeWidth={2.5} />
+          </button>
+        </div>
+      )}
 
-      {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[640px]">
-        {/* Top Header Row */}
+      <div className={`min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 ${showBanner ? 'pt-10 sm:pt-16' : 'pt-16 sm:pt-24'} pb-24 selection:bg-neutral-200`}>
+        {/* Soft atmospheric ambient glow */}
+        <div className="ambient-glow" />
+
+        {/* Main Container */}
+        <main className="w-full relative z-10 flex flex-col max-w-[640px]">
+          {/* Top Header Row */}
         <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-6 sm:mb-6" : "mb-8 sm:mb-10"}`}>
 
           <div className="flex flex-col items-start w-full gap-y-6 sm:gap-y-8">
@@ -274,19 +301,28 @@ export function PortfolioView({
                   Blog
                 </button>
               </nav>
-
-              {/* Dark Mode Toggle Button */}
-              <button
-                onClick={toggleTheme}
-                aria-label="Toggle dark mode"
-                className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
-              >
-                {isDarkMode ? (
-                  <Sun className="w-4 h-4 transition-transform duration-200 hover:rotate-45" strokeWidth={2} />
-                ) : (
-                  <Moon className="w-4 h-4 transition-transform duration-200 hover:-rotate-12" strokeWidth={2} />
+              <div className="flex items-center space-x-3">
+                {/* IST Time Pill */}
+                {currentTime && (
+                  <div className="flex items-center gap-1.5 bg-[#00B5B2]/15 dark:bg-[#00B5B2]/20 text-[#008A88] dark:text-[#00D4D1] px-2.5 py-1 rounded-md text-[13px] sm:text-sm font-medium tracking-wide">
+                    <span>{currentTime}</span>
+                    <Clock size={14} className="opacity-80" strokeWidth={2} />
+                  </div>
                 )}
-              </button>
+
+                {/* Dark Mode Toggle Button */}
+                <button
+                  onClick={toggleTheme}
+                  aria-label="Toggle dark mode"
+                  className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
+                >
+                  {isDarkMode ? (
+                    <Sun className="w-4 h-4 transition-transform duration-200 hover:rotate-45" strokeWidth={2} />
+                  ) : (
+                    <Moon className="w-4 h-4 transition-transform duration-200 hover:-rotate-12" strokeWidth={2} />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </header>
@@ -1147,6 +1183,7 @@ export function PortfolioView({
         </Modal>
       )}
     </div>
+    </>
   );
 }
 
