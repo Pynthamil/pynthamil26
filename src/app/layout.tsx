@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import { CSPostHogProvider } from "./providers";
 
 export const metadata: Metadata = {
   title: "Pynthamil Pavendan",
@@ -34,8 +34,11 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logo.png" />
       </head>
       <body className="min-h-screen bg-white dark:bg-[#0E0E0F] text-[#111111] dark:text-[#F2F2F2] antialiased selection:bg-neutral-200 dark:selection:bg-neutral-800 selection:text-neutral-900 dark:selection:text-white">
-        {children}
+        <CSPostHogProvider>
+          {children}
+        </CSPostHogProvider>
       </body>
     </html>
   );
 }
+
