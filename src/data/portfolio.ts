@@ -83,12 +83,12 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   name: "Pynthamil Pavendan",
-  tagline: "I am a product minded engineer based in India, focused on building fast, scalable products with intuitive design. I love taking ambitious ideas from zero to one.",
+  tagline: "i build things and figure out why people should care. most AI just sounds right. i build AI that shows you why. lately: a research assistant that won't cite anything it can't quote.",
   location: "India",
-  status: "Currently: making plue THE student haven",
+  status: "Upcoming: making plue THE student haven",
   statusPhrases: [
-    "Currently: making plue THE student haven",
-    "Currently engineering at Plue",
+    "Upcoming: making plue THE student haven",
+    "Upcoming engineering at Plue",
     "Currently crafting calm software & design systems",
     "Currently exploring tactile micro-interactions",
   ],
@@ -109,9 +109,9 @@ export const portfolioData: PortfolioData = {
     { id: "writing", label: "WRITING" },
     { id: "about", label: "ABOUT" },
   ],
-  bioHtml: `I'm an Engineering Intern at <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">Plue</a>. I design and engineer thoughtful digital artifacts with high aesthetic precision, tactile interactions, and calm typography. You can see more of my work on <a href="https://github.com/Pynthamil" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">GitHub</a>, <a href="https://linkedin.com/in/pynthamil-pavendan" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">LinkedIn</a>, or reach out <a href="mailto:pavendanpynthamil@gmail.com" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">via email</a>.`,
+  bioHtml: `I'm an upcoming Engineering Intern at <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">Plue</a>. I design and engineer thoughtful digital artifacts with high aesthetic precision, tactile interactions, and calm typography. You can see more of my work on <a href="https://github.com/Pynthamil" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">GitHub</a>, <a href="https://linkedin.com/in/pynthamil-pavendan" target="_blank" rel="noopener noreferrer" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">LinkedIn</a>, or reach out <a href="mailto:pavendanpynthamil@gmail.com" class="text-[#111111] hover:underline underline-offset-4 decoration-neutral-400 font-normal">via email</a>.`,
   about: {
-    bio: "I'm a Design Engineer & Engineering Intern at Plue, focusing on building calm software, micro-interactions, and design systems. I believe the best software is unobtrusive, tactile, and crafted with obsessively high standards for speed and aesthetic restraint.",
+    bio: "I'm a Design Engineer & upcoming Engineering Intern at Plue, focusing on building calm software, micro-interactions, and design systems. I believe the best software is unobtrusive, tactile, and crafted with obsessively high standards for speed and aesthetic restraint.",
     skills: [
       "Next.js & React Ecosystem",
       "Supabase & Backend Architecture",

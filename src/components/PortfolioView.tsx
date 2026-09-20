@@ -335,13 +335,13 @@ export function PortfolioView({
             {/* Bio Copy & Status Section */}
             <section className="flex flex-col space-y-4 mb-12 sm:mb-14">
               <p className="text-[18px] sm:text-[20px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-relaxed">
-                I am a product minded engineer based in India, focused on building fast, scalable products with intuitive design. I love taking ambitious ideas from zero to one.
+                i build things and figure out why people should care. most AI just sounds right. i build AI that shows you why. <span className="italic">lately</span>: a research assistant that won't cite anything it can't quote.
               </p>
               
               <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-[1.85]">
-                currently an <span className="bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] px-1.5 py-0.5 rounded-[5px] font-medium">engineering intern</span> at{" "}
+                Joining{" "}
                 <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-1.5 py-0.5 mx-0.5 rounded-[5px] bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] align-text-bottom hover:underline hover:opacity-80 transition-opacity" style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "0.9em", fontStyle: "normal" }}>plue</a>
-                {", "}democratizing learning by making a world where humans can learn on their own terms.
+                {" "}in October as an <span className="bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] px-1.5 py-0.5 rounded-[5px] font-medium">engineering intern</span>, helping people learn on their own terms.
               </p>
 
               <p className="text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
@@ -393,13 +393,13 @@ export function PortfolioView({
                     playTone(1046);
                     setTimeout(() => setCopiedEmail(false), 2000);
                   }}
-                  className="inline-flex items-center space-x-2.5 px-3.5 py-2 border border-dashed border-neutral-400 dark:border-neutral-600 rounded-none bg-transparent cursor-pointer group select-none hover:border-neutral-500 dark:hover:border-neutral-500 transition-colors"
+                  className="inline-flex items-center space-x-2.5 px-3.5 py-2 border-2 border-dashed border-[#00B5B2] dark:border-[#00B5B2] rounded-none bg-transparent cursor-pointer group select-none hover:bg-[#00B5B2]/10 transition-colors"
                   title="Click to copy email"
                 >
-                  <span className="font-sans text-[14.5px] sm:text-[15.5px] text-neutral-500 dark:text-neutral-400 group-hover:text-[#2C2C2C] dark:group-hover:text-[#F2F2F2] tracking-wide transition-colors">
+                  <span className="font-sans font-bold text-[14.5px] sm:text-[15.5px] text-[#00B5B2] tracking-wide transition-colors">
                     {portfolioData.email}
                   </span>
-                  <div className="text-neutral-500 dark:text-neutral-400 group-hover:text-[#2C2C2C] dark:group-hover:text-[#F2F2F2] flex items-center focus:outline-none transition-colors">
+                  <div className="text-[#00B5B2] flex items-center focus:outline-none transition-colors">
                     {copiedEmail ? (
                       <span className="text-emerald-400 font-mono text-xs font-medium animate-in fade-in">
                         copied!
