@@ -150,6 +150,12 @@ export const portfolioData: PortfolioData = {
       tags: ["Creative Dev", "Interaction"],
       themeColor: "#FF6666",
     },
+    {
+      title: "iris dew valley",
+      description: "How might we make online networking feel more like accidentally meeting someone interesting at a café?",
+      year: "2026",
+      link: "/iris-dew-valley",
+    },
   ],
   writings: [
     {
