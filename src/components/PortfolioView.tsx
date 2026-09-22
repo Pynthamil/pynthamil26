@@ -492,7 +492,7 @@ export function PortfolioView({
             {/* Experience Section */}
             <section id="home-experience" className="w-full scroll-mt-24 mb-12 sm:mb-14">
               <h2 className="font-sans text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] mb-3.5 font-semibold">
-                Experience
+                experience
               </h2>
               <ul className="flex flex-col font-sans text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                 {portfolioData.experiences.map((item) => (
@@ -503,7 +503,7 @@ export function PortfolioView({
                     <div className="flex items-start justify-between w-full">
                       <div className="flex items-start flex-1 pr-4">
                         <div className="flex flex-col justify-center h-full">
-                          <span className="instrument-serif italic font-normal text-[22px] sm:text-[24px] text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
+                          <span className="instrument-serif italic font-normal text-[18px] sm:text-[19px] text-[#334155] dark:text-[#E2E8F0] tracking-[0.02em]">
                             {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
                           </span>
                         </div>
@@ -636,7 +636,7 @@ export function PortfolioView({
             {/* Experience Section - first in About */}
             <section id="experience" className="w-full scroll-mt-24">
               <h2 className="instrument-serif text-[24px] sm:text-[26px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-1">
-                Experience
+                experience
               </h2>
               <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 mb-5 flex items-center space-x-1.5">
                 <span className="select-none">└</span>
@@ -651,7 +651,7 @@ export function PortfolioView({
                     <div className="flex items-start justify-between w-full">
                       <div className="flex items-start flex-1 pr-4">
                         <div className="flex flex-col justify-center h-full">
-                          <span className="instrument-serif italic underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#00B5B2]/30 dark:decoration-[#00B5B2]/30 font-normal text-[22px] sm:text-[24px] text-[#0F172A] dark:text-[#F2F2F2] tracking-[0.02em]">
+                          <span className="instrument-serif italic underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#00B5B2]/30 dark:decoration-[#00B5B2]/30 font-normal text-[18px] sm:text-[19px] text-[#334155] dark:text-[#E2E8F0] tracking-[0.02em]">
                             {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
                           </span>
                         </div>
@@ -727,6 +727,29 @@ export function PortfolioView({
                     <span>
                       Currently focused on building projects that are useful, visually clean, and quietly memorable
                     </span>
+                  </div>
+                </div>
+
+                {/* Photo Dump Carousel */}
+                <div className="w-full mt-6 pb-2 overflow-x-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                  <div className="flex gap-4 min-w-max px-1">
+                    {[
+                      "20250622_124021.jpg",
+                      "IMG-20250615-WA0139.jpg",
+                      "IMG-20250629-WA0260.jpg",
+                      "IMG_2939.jpeg",
+                      "IMG_4564.JPG"
+                    ].map((photo, i) => (
+                      <div key={i} className="flex-none bg-white dark:bg-white p-2.5 shadow-sm border border-neutral-200 dark:border-neutral-300 rounded-sm w-[220px] h-[280px]">
+                        <div className="w-full h-full bg-neutral-200 overflow-hidden">
+                          <img
+                            src={`/photo-dump/${photo}`}
+                            alt={`Photodump ${i + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
             </div>
