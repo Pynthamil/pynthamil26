@@ -113,7 +113,7 @@ export default function OrcaProjectPage() {
       <div className="ambient-glow" />
 
       <main className="w-full relative z-10 flex flex-col max-w-[896px] animate-in fade-in duration-200">
-        <header className="flex items-center justify-between w-full mb-8">
+                <header className="flex items-center justify-between w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mb-8">
           <Link
             href="/"
             onClick={() => playTone(880)}
@@ -180,10 +180,11 @@ export default function OrcaProjectPage() {
           </div>
         </header>
 
+
         <article className="space-y-6">
           <div className="pb-2 space-y-3">
-              <p className="font-sans font-semibold text-[40px] sm:text-[48px] text-[#111111] dark:text-[#F2F2F2] leading-[1.1] tracking-tight">
-                Building an AI research assistant that turns complex marine-science questions into clear, source-backed answers.
+              <p className="font-sans font-semibold text-[48px] sm:text-[60px] text-[#111111] dark:text-[#F2F2F2] leading-[1.1] tracking-tight">
+                Turning complex marine-science questions into clear, source-backed answers.
               </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4 pb-12">

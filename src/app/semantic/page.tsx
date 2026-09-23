@@ -151,8 +151,7 @@ export default function SemanticProjectPage() {
 
       {/* Main Container */}
       <main className="w-full relative z-10 flex flex-col max-w-[896px] animate-in fade-in duration-200">
-        {/* Top Navigation */}
-        <header className="flex items-center justify-between w-full mb-8">
+                <header className="flex items-center justify-between w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mb-8">
           <Link
             href="/"
             onClick={() => playTone(880)}
@@ -191,10 +190,12 @@ export default function SemanticProjectPage() {
           </div>
         </header>
 
+        {/* Top Navigation */}
+
         {/* Article / Case Study Header */}
         <article className="space-y-6">
           <div className="pb-2 space-y-3">
-              <p className="font-sans font-semibold text-[40px] sm:text-[48px] text-[#111111] dark:text-[#F2F2F2] leading-[1.1] tracking-tight">
+              <p className="font-sans font-semibold text-[48px] sm:text-[60px] text-[#111111] dark:text-[#F2F2F2] leading-[1.1] tracking-tight">
                 Turning inbox chaos into structured tasks, deadlines, and context.
               </p>
           </div>
