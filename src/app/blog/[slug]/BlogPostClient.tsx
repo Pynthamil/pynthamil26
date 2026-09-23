@@ -267,77 +267,8 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     {slug === 'git-commit-go' && (
             <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] rounded-xl mt-6 mb-4 overflow-hidden">
               {/* Gradient Background */}
-              <div className="absolute inset-0 bg-[#1B71D8]" />
-              
-              {/* CSS noise overlay */}
-
-              {/* Top-Left Corner */}
-              <div className="absolute top-0 left-0 flex flex-col pointer-events-none opacity-90 mix-blend-overlay">
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
-                </div>
-              </div>
-
-              {/* Top-Right Corner */}
-              <div className="absolute top-0 right-0 flex flex-col items-end pointer-events-none opacity-90 mix-blend-overlay">
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
-                </div>
-              </div>
-
-              {/* Bottom-Left Corner */}
-              <div className="absolute bottom-0 left-0 flex flex-col pointer-events-none opacity-90 mix-blend-overlay">
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
-                </div>
-              </div>
-
-              {/* Bottom-Right Corner */}
-              <div className="absolute bottom-0 right-0 flex flex-col items-end pointer-events-none opacity-90 mix-blend-overlay">
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#4A9DFF]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#85C8FF]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#1B71D8]"></div>
-                </div>
-              </div>
-
-              
-
-
+              <img src="/blog-covers/post1.svg" alt="Git Commit Go Banner" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/30 mix-blend-multiply" />
               {/* Title overlay */}
               <div className="absolute inset-0 flex flex-col items-center justify-between py-10 sm:py-14 pointer-events-none z-10">
                 <div className="text-[12px] sm:text-[14px] font-sans font-medium tracking-wide text-white uppercase">
