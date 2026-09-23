@@ -178,115 +178,13 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
                     {slug !== 'git-commit-go' && (
             <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] bg-[#8A51FC] rounded-xl mt-6 mb-4 overflow-hidden">
-              
-              {/* Top-Left Corner */}
-              <div className="absolute top-0 left-0 flex flex-col pointer-events-none opacity-90">
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
-                </div>
-              </div>
-
-              {/* Top-Right Corner */}
-              <div className="absolute top-0 right-0 flex flex-col items-end pointer-events-none opacity-90">
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
-                </div>
-              </div>
-
-              {/* Bottom-Left Corner */}
-              <div className="absolute bottom-0 left-0 flex flex-col pointer-events-none opacity-90">
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
-                </div>
-              </div>
-
-              {/* Bottom-Right Corner */}
-              <div className="absolute bottom-0 right-0 flex flex-col items-end pointer-events-none opacity-90">
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
-                </div>
-                <div className="flex">
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#8A51FC]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#CEBAFC]"></div>
-                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-[#5123C3]"></div>
-                </div>
-              </div>
-
-              {/* Typography centered inside */}
-              <div className="absolute inset-0 flex flex-col items-center justify-between py-10 sm:py-14 pointer-events-none z-10">
-                <div className="text-[12px] sm:text-[14px] font-sans font-medium tracking-wide text-white uppercase">
-                  {post.date}
-                </div>
-                
-                <h1 className="instrument-serif text-[36px] sm:text-[48px] md:text-[56px] leading-tight text-white opacity-100 text-center px-8 max-w-[85%]">
-                  {post.slug.replace(/-/g, ' ')}
-                </h1>
-                
-                <div className="flex items-center space-x-2 text-white">
-                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="4 17 10 11 4 5"></polyline>
-                    <line x1="12" y1="19" x2="20" y2="19"></line>
-                  </svg>
-                  <span className="text-[13px] sm:text-[15px] font-sans font-medium tracking-wide">Pynthamil</span>
-                </div>
-              </div>
+              <img src="/blog-covers/post1.svg" alt="The Art of Committing Banner" className="absolute inset-0 w-full h-full object-cover" />
             </div>
           )}
 
                     {slug === 'git-commit-go' && (
             <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] rounded-xl mt-6 mb-4 overflow-hidden">
-              {/* Gradient Background */}
-              <img src="/blog-covers/post1.svg" alt="Git Commit Go Banner" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/30 mix-blend-multiply" />
-              {/* Title overlay */}
-              <div className="absolute inset-0 flex flex-col items-center justify-between py-10 sm:py-14 pointer-events-none z-10">
-                <div className="text-[12px] sm:text-[14px] font-sans font-medium tracking-wide text-white uppercase">
-                  {post.date}
-                </div>
-                
-                <h1 className="instrument-serif text-[48px] sm:text-[64px] text-white leading-none tracking-tight text-center px-8 max-w-[90%]">
-                  {post.slug.replace(/-/g, ' ')}
-                </h1>
-                
-                <div className="flex items-center space-x-2 text-white">
-                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="4 17 10 11 4 5"></polyline>
-                    <line x1="12" y1="19" x2="20" y2="19"></line>
-                  </svg>
-                  <span className="text-[13px] sm:text-[15px] font-sans font-medium tracking-wide">Pynthamil</span>
-                </div>
-              </div>
+              <img src="/blog-covers/post2.svg" alt="Git Commit Go Banner" className="absolute inset-0 w-full h-full object-cover" />
             </div>
           )}
 
