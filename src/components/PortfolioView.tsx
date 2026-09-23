@@ -1110,13 +1110,15 @@ export function PortfolioView({
                       ) : (
                         <div className="w-full aspect-[16/10] rounded-md overflow-hidden relative bg-neutral-100 dark:bg-neutral-800 transition-transform duration-300 group-hover:scale-105" />
                       )}
-                      <div className="space-y-1.5 flex flex-col flex-1">
-                        <h2 className="text-[17px] sm:text-[18px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
-                          {post.title.toLowerCase()}
+                      <div className="space-y-2 flex flex-col flex-1">
+                        <h2 className="text-[18px] sm:text-[19.5px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
+                          {post.title}
                         </h2>
-                        <p className="font-sans text-[13px] text-[#475569] dark:text-[#94A3B8]">
-                          {post.date.toLowerCase()}  {post.readingTime.toLowerCase()} read
-                        </p>
+                        <div className="flex items-center gap-2.5 font-mono text-[12px] sm:text-[12.5px] uppercase tracking-wide text-[#64748B] dark:text-[#94A3B8]">
+                          <span>{post.date}</span>
+                          <span className="w-1 h-1 rounded-full bg-[#CBD5E1] dark:bg-[#475569]"></span>
+                          <span>{post.readingTime} read</span>
+                        </div>
                       </div>
                     </a>
                   </div>
