@@ -189,16 +189,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
           )}
 
           {/* Action Bar */}
-          <div className="flex items-center justify-between py-4 border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 mb-8 text-[14px] sm:text-[15px] font-sans">
-            <div className="flex items-center space-x-3 sm:space-x-4">
-              <button className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F7F7F7] dark:bg-[#141415] flex items-center justify-center hover:opacity-80 transition-opacity">
-                <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2C2C2C] dark:text-[#F2F2F2] ml-0.5" fill="currentColor" />
-              </button>
-              <span className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Listen to article</span>
-              <span className="w-px h-4 bg-neutral-200 dark:bg-neutral-800 hidden sm:block"></span>
-              <span className="text-[#525252] dark:text-[#a3a3a3]">{post.voiceTime || post.readingTime}</span>
-            </div>
-            
+          <div className="flex items-center justify-end py-4 border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 mb-8 text-[14px] sm:text-[15px] font-sans">
             <button 
               onClick={handleShare}
               className="flex items-center space-x-2 font-medium text-[#2C2C2C] dark:text-[#F2F2F2] hover:opacity-70 transition-opacity"

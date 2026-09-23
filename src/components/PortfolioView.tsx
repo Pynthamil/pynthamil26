@@ -242,7 +242,7 @@ export function PortfolioView({
         <div className="ambient-glow" />
 
         {/* Main Container */}
-        <main className={`w-full relative z-10 flex flex-col ${viewMode === "blog" ? "max-w-[1024px]" : "max-w-[640px]"}`}>
+        <main className="w-full relative z-10 flex flex-col max-w-[640px]">
           {/* Top Header Row */}
         <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-6 sm:mb-6" : "mb-8 sm:mb-10"}`}>
 
@@ -1073,29 +1073,12 @@ export function PortfolioView({
             VIEW 3: BLOG VIEW
            ======================================================== */}
         {viewMode === "blog" && (
-          <div className="flex flex-col space-y-7 animate-in fade-in duration-200">
-            {/* Blog Search */}
-            <div className="flex justify-end w-full">
-              <div className="relative w-full sm:w-64">
-                <svg 
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748B] dark:text-[#94A3B8]" 
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <input
-                  type="text"
-                  value={blogSearchQuery}
-                  onChange={(e) => setBlogSearchQuery(e.target.value)}
-                  placeholder="Search"
-                  className="w-full bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] font-sans text-[14px] rounded-none py-2 pl-10 pr-4 focus:outline-none focus:border-[#00B5B2] dark:focus:border-[#00B5B2] transition-colors placeholder:text-[#94A3B8] dark:placeholder:text-[#64748B]"
-                />
-              </div>
-            </div>
+          <div className="flex flex-col space-y-7 animate-in fade-in duration-200 w-[100vw] max-w-[1024px] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12">
+
 
             {/* Blog Posts Clean Architecture */}
             <section>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-6">
                 {portfolioData.writings.filter(post => post.title.toLowerCase().includes(blogSearchQuery.toLowerCase())).map((post, idx) => (
                   <div key={idx} className="flex flex-col h-full">
                     <a
