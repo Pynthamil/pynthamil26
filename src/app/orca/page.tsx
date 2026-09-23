@@ -80,18 +80,22 @@ export default function OrcaProjectPage() {
     {
       icon: <BookOpen className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
       title: "PAPER OVERLOAD",
+      desc: "Too many papers to read and synthesize quickly",
     },
     {
       icon: <Search className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
       title: "SCATTERED CITATIONS",
+      desc: "Following reference chains is manual and tedious",
     },
     {
       icon: <Database className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
       title: "RAW DATA SILOS",
+      desc: "Datasets disconnected from the papers that use them",
     },
     {
       icon: <Compass className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
       title: "DOMAIN BARRIERS",
+      desc: "Specialized jargon makes cross-disciplinary work hard",
     },
   ];
 
@@ -108,7 +112,7 @@ export default function OrcaProjectPage() {
 
       <div className="ambient-glow" />
 
-      <main className="w-full relative z-10 flex flex-col max-w-[640px] animate-in fade-in duration-200">
+      <main className="w-full relative z-10 flex flex-col max-w-[896px] animate-in fade-in duration-200">
         <header className="flex items-center justify-between w-full mb-8">
           <Link
             href="/"
@@ -177,13 +181,10 @@ export default function OrcaProjectPage() {
         </header>
 
         <article className="space-y-6">
-          <div className="pb-2 space-y-4">
-            <h1 className="instrument-serif text-[48px] sm:text-[56px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
-              orca.ai
-            </h1>
-            <h3 className="text-[19px] sm:text-[21px] font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-              Building an AI research assistant that turns complex marine-science questions into clear, source-backed answers.
-            </h3>
+          <div className="pb-2 space-y-3">
+              <p className="font-sans font-semibold text-[40px] sm:text-[48px] text-[#111111] dark:text-[#F2F2F2] leading-[1.1] tracking-tight">
+                Building an AI research assistant that turns complex marine-science questions into clear, source-backed answers.
+              </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4 pb-12">
               <div>
@@ -220,7 +221,7 @@ export default function OrcaProjectPage() {
               </div>
             </div>
             
-            <div className="w-[100vw] sm:w-[1024px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
+            <div className="w-[100vw] sm:w-[1200px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
               <div className="w-full p-8 sm:p-12 md:p-16 rounded-2xl overflow-hidden flex items-center justify-center"
                 style={{ backgroundImage: 'url(/cover1-bg.svg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="w-full max-w-[95%] overflow-hidden rounded-[24px] bg-white/20 dark:bg-white/10 p-3 sm:p-4 backdrop-blur-sm">
@@ -243,7 +244,7 @@ export default function OrcaProjectPage() {
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                 OVERVIEW
               </span>
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Marine science is producing more research than researchers can realistically navigate manually.
               </h3>
               <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
@@ -271,28 +272,29 @@ export default function OrcaProjectPage() {
               <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                 THE PROBLEM
               </span>
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Research is scattered across papers, datasets, and citations, making even simple questions difficult to verify.
               </h3>
-              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
-                Researchers spend hours jumping between fragmented scientific sources, tracing citations, and manually checking whether findings actually support a conclusion. The information exists, but the lack of connected, verifiable evidence makes research slow and difficult to trust.
-              </p>
+
 
               <div className="pt-2">
                 <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#475569] dark:text-[#CBD5E1] block mb-3">
                   Core Pain Points
                 </span>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                   {painPoints.map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#FFF0F5]/20 rounded-xl p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#007FFF] dark:hover:border-[#FFF0F5] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                    className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#FFF0F5]/20 rounded-xl p-6 sm:p-8 flex flex-col items-center justify-center text-center space-y-4 transition-all hover:border-[#007FFF] dark:hover:border-[#FFF0F5] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
                   >
-                    <div className="p-1 rounded-xl bg-neutral-50 dark:bg-[#007FFF]/10 flex items-center justify-center">
+                    <div className="p-2 sm:p-3 rounded-xl bg-neutral-50 dark:bg-[#007FFF]/10 flex items-center justify-center">
                       {item.icon}
                     </div>
-                    <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                    <span className="font-mono text-[12px] sm:text-[13px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                       {item.title}
+                    </span>
+                    <span className="text-[14px] sm:text-[15px] text-[#475569] dark:text-[#CBD5E1] leading-snug max-w-[180px]">
+                      {item.desc}
                     </span>
                   </div>
                 ))}
@@ -302,7 +304,7 @@ export default function OrcaProjectPage() {
 
             {/* THE OPPORTUNITY */}
             <div className="scroll-mt-20 -mt-2">
-              <div className="w-[100vw] sm:w-[800px] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-6 py-10 sm:px-10 sm:py-16 rounded-[16px] sm:rounded-[24px] bg-[#F0F8FF] dark:bg-[#007FFF]/[0.1] flex flex-row items-center text-left gap-4 sm:gap-5 overflow-hidden">
+              <div className="w-[100vw] sm:w-[1024px] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-6 py-10 sm:px-10 sm:py-16 rounded-[16px] sm:rounded-[24px] bg-[#F0F8FF] dark:bg-[#007FFF]/[0.1] flex flex-row items-center text-left gap-4 sm:gap-5 overflow-hidden">
                 <img src="/laptop.svg" alt="Laptop" className="w-28 h-28 sm:w-40 sm:h-40 object-contain shrink-0" />
                 <p className="text-[20px] sm:text-[26px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug z-10">
                   How might we make decades of marine research queryable in seconds without sacrificing the evidence researchers need to trust an answer?
@@ -317,7 +319,7 @@ export default function OrcaProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                   THE SOLUTION
                 </span>
-                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   A focused research assistant that lets scientists move from <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">question to evidence-backed answer</span> without leaving the research workflow.
                 </h3>
               </div>
@@ -344,7 +346,7 @@ export default function OrcaProjectPage() {
               </div>
               
               <div className="space-y-4 pt-10">
-                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Designing a <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">calm, focused interface</span> for complex scientific data.
                 </h3>
                 <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
@@ -352,7 +354,7 @@ export default function OrcaProjectPage() {
                 </p>
               </div>
 
-              <div className="w-[100vw] sm:w-[1024px] max-w-[100vw] relative left-1/2 -translate-x-1/2 flex flex-col gap-4 sm:gap-6 pt-6 pb-2 px-4 sm:px-0">
+              <div className="w-[100vw] sm:w-[1200px] max-w-[100vw] relative left-1/2 -translate-x-1/2 flex flex-col gap-4 sm:gap-6 pt-6 pb-2 px-4 sm:px-0">
                 <img src="/asset1.svg" alt="Orca Design Interface 1" className="w-full h-auto object-contain rounded-2xl" />
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -366,7 +368,7 @@ export default function OrcaProjectPage() {
 
             {/* THE APPROACH */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 I designed ORCA around a simple principle: <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">AI should accelerate scientific research without hiding the evidence behind its answers.</span>
               </h3>
               <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
@@ -381,7 +383,7 @@ export default function OrcaProjectPage() {
 
             {/* BUILDING THE SYSTEM */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Connecting <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">retrieval, LLM reasoning, and citation grounding</span> into a single research workflow.
               </h3>
               
@@ -404,7 +406,7 @@ export default function OrcaProjectPage() {
 
             {/* THE INTERESTING PART */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 The hardest problem wasn't getting Gemini to answer questions - it was <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">making those answers stay grounded in the research behind them.</span>
               </h3>
               <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#007FFF] dark:marker:text-[#FFF0F5]">
@@ -452,7 +454,7 @@ export default function OrcaProjectPage() {
 
             {/* WHAT'S NEXT */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Moving ORCA from an MVP research assistant toward a more rigorous scientific research tool.
               </h3>
               <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#007FFF] dark:marker:text-[#FFF0F5] pt-2">
@@ -470,13 +472,13 @@ export default function OrcaProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#007FFF] dark:text-[#FFF0F5] block">
                   TAKEAWAYS
                 </span>
-                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                <h3 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                   Building ORCA taught me that <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">trustworthy AI is less about the model alone and more about the systems built around it.</span>
                 </h3>
               </div>
 
               {/* 2-Column Takeaways Cards */}
-              <div className="relative left-1/2 -translate-x-1/2 w-[100vw] sm:w-[800px] max-w-[100vw] px-4 sm:px-0 pt-4">
+              <div className="relative left-1/2 -translate-x-1/2 w-[100vw] sm:w-[896px] max-w-[100vw] px-4 sm:px-0 pt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {/* Card 1 */}
                   <div className="relative w-full h-full p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-[#F0F8FF] dark:bg-[#007FFF]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
