@@ -378,7 +378,7 @@ export function PortfolioView({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => playTone(880)}
-                  className="instrument-serif text-[24px] sm:text-[26px] text-black dark:text-white underline underline-offset-4 decoration-wavy decoration-[#00B5B2] font-normal transition-colors"
+                  className="instrument-serif text-[24px] sm:text-[26px] text-black dark:text-white underline underline-offset-4 decoration-wavy decoration-[#00B5B2]/40 hover:decoration-[#00B5B2] font-normal transition-colors"
                 >
                   download my CV &darr;
                 </a>
