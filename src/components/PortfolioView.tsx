@@ -242,7 +242,7 @@ export function PortfolioView({
         <div className="ambient-glow" />
 
         {/* Main Container */}
-        <main className="w-full relative z-10 flex flex-col max-w-[640px]">
+        <main className={`w-full relative z-10 flex flex-col ${viewMode === "blog" ? "max-w-[1024px]" : "max-w-[640px]"}`}>
           {/* Top Header Row */}
         <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-6 sm:mb-6" : "mb-8 sm:mb-10"}`}>
 
@@ -1095,36 +1095,28 @@ export function PortfolioView({
 
             {/* Blog Posts Clean Architecture */}
             <section>
-              <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-6">
                 {portfolioData.writings.filter(post => post.title.toLowerCase().includes(blogSearchQuery.toLowerCase())).map((post, idx) => (
-                  <div key={idx} className="pb-6 sm:pb-6.5 pt-6 sm:pt-6.5 first:pt-0">
+                  <div key={idx} className="flex flex-col h-full">
                     <a
                       href={`/blog/${post.slug}`}
                       onClick={() => playTone(880)}
-                      className="flex items-center justify-between group select-none cursor-pointer gap-4"
+                      className="group select-none cursor-pointer flex flex-col h-full gap-3"
                     >
-                      {post.image && (
-                        <div className="w-28 h-20 sm:w-48 sm:h-32 rounded-md overflow-hidden flex-shrink-0 relative">
+                      {post.image ? (
+                        <div className="w-full aspect-[16/10] rounded-md overflow-hidden relative">
                           <img src={post.image} alt={post.title} className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
                         </div>
+                      ) : (
+                        <div className="w-full aspect-[16/10] rounded-md overflow-hidden relative bg-neutral-100 dark:bg-neutral-800 transition-transform duration-300 group-hover:scale-105" />
                       )}
-                      <div className="space-y-1.5 flex-1">
-                        <h2 className="text-[19px] sm:text-[20.5px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
+                      <div className="space-y-1.5 flex flex-col flex-1">
+                        <h2 className="text-[17px] sm:text-[18px] font-medium text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
                           {post.title.toLowerCase()}
                         </h2>
-                        <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5">
+                        <p className="font-sans text-[13px] text-[#475569] dark:text-[#94A3B8]">
                           {post.date.toLowerCase()}  {post.readingTime.toLowerCase()} read
                         </p>
-                        {post.description && (
-                          <div className="mt-1.5 space-y-1.5">
-                            <p className="font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] line-clamp-2 leading-relaxed">
-                              {post.description}
-                            </p>
-                            <p className="font-sans text-[13px] sm:text-[13.5px] font-medium text-[#2C6E8A] dark:text-[#7EC8E3] group-hover:underline">
-                              read more &rarr;
-                            </p>
-                          </div>
-                        )}
                       </div>
                     </a>
                   </div>
