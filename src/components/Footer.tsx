@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
           </button>
           
           <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-4 sm:mt-0">
-              {portfolioData.socialLinks.filter(l => l.label !== 'email' && l.label !== 'resume').map((link, idx) => (
+              {portfolioData.socialLinks.filter(l => l.label !== 'email').map((link, idx) => (
                   <a key={idx} href={link.href} target="_blank" rel="noopener noreferrer" className="font-mono text-[14px] sm:text-[15px] text-[#64748B] dark:text-[#8E95B8] hover:text-[#00B5B2] dark:hover:text-[#00B5B2] transition-colors lowercase">
                       {link.label}
                   </a>

@@ -324,22 +324,21 @@ export function PortfolioView({
               <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-10 md:gap-16 w-full max-w-[1240px] mx-auto">
               {/* Bio Copy & Status Section */}
               <section className="flex flex-col h-full justify-between mb-12 sm:mb-0 space-y-8 sm:space-y-0">
-              <div className="relative">
-              <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="absolute -top-[52px] sm:-top-[60px] left-0 inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[14px] sm:text-[15px] font-medium rounded-[6px] sm:rounded-[8px] tracking-wide whitespace-nowrap hover:bg-emerald-200 transition-colors">
-                <Mail className="w-[14px] h-[14px] shrink-0" />
-                open for summer 2027 roles
-              </a>
-              <h1 className="font-sans font-medium text-[24px] sm:text-[28px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.35] tracking-tight">
-                hey! i'm {portfolioData.name.toLowerCase()} [pyndu], and i build things and figure out why people should care.
-              </h1>
-              
-              <p className="text-[21px] sm:text-[24px] text-slate-400 dark:text-slate-500 font-normal mt-1 mb-10 sm:mb-14">
-                upcoming engineering intern @{" "}
-                <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-black dark:text-white hover:opacity-75 transition-opacity">
-                  plue
+              <div className="relative pt-12 sm:pt-14">
+                <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="absolute top-0 left-0 inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[14px] sm:text-[15px] font-medium rounded-[6px] sm:rounded-[8px] tracking-wide whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors">
+                  <Mail className="w-[14px] h-[14px] shrink-0" />
+                  open for summer 2027 roles
                 </a>
-              </p>
-
+                <h1 className="font-sans font-medium text-[24px] sm:text-[28px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.35] tracking-tight">
+                  hey! i'm {portfolioData.name.toLowerCase()} [pyndu], and i build things and figure out why people should care.
+                </h1>
+                
+                <p className="text-[21px] sm:text-[24px] text-slate-400 dark:text-slate-500 font-normal mt-1 mb-10 sm:mb-14">
+                  upcoming engineering intern @{" "}
+                  <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-black dark:text-white hover:opacity-75 transition-opacity">
+                    plue
+                  </a>
+                </p>
               </div>
               <p className="text-[20px] sm:text-[22px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed pb-2 sm:pb-0 mt-16 sm:mt-20">
                 Find me on{" "}
@@ -387,7 +386,7 @@ export function PortfolioView({
             {/* Right Column: Experience */}
             <div className="w-full h-full flex flex-col justify-between space-y-8 sm:space-y-0">
             {/* Experience Section */}
-            <section id="home-experience" className="w-full scroll-mt-24 pt-1">
+            <section id="home-experience" className="w-full scroll-mt-24 pt-12 sm:pt-14">
               <ul className="flex flex-col font-sans text-[15px] sm:text-[16px]">
                 {portfolioData.experiences.map((item) => {
                   const year = item.period.match(/\d{4}$/)?.[0] || item.period;
