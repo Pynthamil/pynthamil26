@@ -132,7 +132,7 @@ export const portfolioData: PortfolioData = {
       coverBg: "/cover1-bg.svg",
       tags: ["AI/ML", "LLM", "Data Viz"],
       status: "Shipped",
-      category: "Software Engineering",
+      category: "Design + Engineering",
       themeColor: "#007FFF",
     },
     {
@@ -153,7 +153,7 @@ export const portfolioData: PortfolioData = {
       link: "https://joinplue.com/",
       tags: ["Engineering", "Design"],
       status: "Coming Soon",
-      category: "Software Engineering",
+      category: "Design + Engineering",
       themeColor: "#111111",
       banner: "/plue.png",
     },
@@ -184,7 +184,7 @@ export const portfolioData: PortfolioData = {
   experiences: [
     {
       id: "plue",
-      company: "PLUE",
+      company: "Plue",
       role: "ENGINEERING INTERN",
       period: "OCT 2026 – DEC 2026",
       color: "#4e5df8",
@@ -194,7 +194,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: "scientiflow",
-      company: "SCIENTIFLOW",
+      company: "Scientiflow",
       role: "FRONTEND DEVELOPER INTERN",
       period: "MAY 2025 – JUL 2025",
       color: "#111111",

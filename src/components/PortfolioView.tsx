@@ -400,7 +400,7 @@ export function PortfolioView({
                         {year}
                       </div>
                       <div className="text-slate-700 dark:text-slate-200 font-medium transition-colors">
-                        {item.company.toLowerCase().replace(/\b\w/g, (s) => s.toUpperCase())}
+                        {item.company}
                       </div>
                       <div className="text-slate-400 dark:text-slate-500 col-span-2 sm:col-span-1 mt-0.5 sm:mt-0 transition-colors">
                         {item.role.toLowerCase().replace(/\b\w/g, (s) => s.toUpperCase())}
