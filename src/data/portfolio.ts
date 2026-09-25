@@ -25,6 +25,7 @@ export interface Project {
   banner?: string;
   coverBg?: string;
   status?: string;
+  category?: string;
   hoverText?: string;
   themeColor?: string;
   longDescription?: string;
@@ -130,6 +131,8 @@ export const portfolioData: PortfolioData = {
       banner: "/orca1.svg",
       coverBg: "/cover1-bg.svg",
       tags: ["AI/ML", "LLM", "Data Viz"],
+      status: "Shipped",
+      category: "Software Engineering",
       themeColor: "#007FFF",
     },
     {
@@ -139,7 +142,8 @@ export const portfolioData: PortfolioData = {
       link: "/semantic",
       tags: ["Figma", "UI/UX"],
       banner: "/semantic/demo1.mov",
-      status: "Active",
+      status: "Concept",
+      category: "Product Design",
       themeColor: "#6666FF",
     },
     {
@@ -148,6 +152,8 @@ export const portfolioData: PortfolioData = {
       year: "2026",
       link: "/making-tech-fun",
       tags: ["Creative Dev", "Interaction"],
+      status: "Concept",
+      category: "Creative Dev",
       themeColor: "#FF6666",
     },
   ],
