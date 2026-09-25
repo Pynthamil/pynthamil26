@@ -124,7 +124,7 @@ export const portfolioData: PortfolioData = {
   showcase: [],
   projects: [
     {
-      title: "orca.ai",
+      title: "ORCA",
       description: "AI research assistant that turns complex marine science papers into clear, cited answers.",
       year: "2026",
       link: "/orca",

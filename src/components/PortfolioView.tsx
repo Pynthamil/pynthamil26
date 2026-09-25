@@ -433,7 +433,7 @@ export function PortfolioView({
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
-                    const isOrca = project.title === "orca.ai";
+                    const isOrca = project.title === "ORCA";
                     const aspectClass = isSemantic ? "aspect-[4/3] sm:aspect-[1/1.05]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                     const imageSizeClass = "h-[85%] sm:h-[85%]";
                     const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
@@ -461,7 +461,7 @@ export function PortfolioView({
                             />
 
                             
-                            {project.title === "orca.ai" ? (
+                            {project.title === "ORCA" ? (
                               <div className={`z-10 w-[92%] sm:w-[88%] overflow-hidden rounded-[8px] sm:rounded-[12px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                 <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                   <img 
@@ -495,7 +495,7 @@ export function PortfolioView({
                         )}
                         <div className="flex flex-col mt-2 px-1">
                           <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
-                            <span className="font-semibold text-black dark:text-white mr-2">{project.title} —</span>
+                            <span className="font-serif font-normal text-[26px] sm:text-[30px] text-black dark:text-white mr-1.5">{project.title},</span>
                             {project.description}
                           </p>
                         </div>
@@ -522,7 +522,7 @@ export function PortfolioView({
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
-                    const isOrca = project.title === "orca.ai";
+                    const isOrca = project.title === "ORCA";
                     const aspectClass = isSemantic ? "aspect-[4/3] sm:aspect-[1/1.05]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                     const imageSizeClass = "h-[85%] sm:h-[85%]";
                     const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
@@ -550,7 +550,7 @@ export function PortfolioView({
                             />
 
                             
-                            {project.title === "orca.ai" ? (
+                            {project.title === "ORCA" ? (
                               <div className={`z-10 w-[92%] sm:w-[88%] overflow-hidden rounded-[8px] sm:rounded-[12px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                 <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                   <img 
@@ -584,7 +584,7 @@ export function PortfolioView({
                         )}
                         <div className="flex flex-col mt-2 px-1">
                           <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
-                            <span className="font-semibold text-black dark:text-white mr-2">{project.title} —</span>
+                            <span className="font-serif font-normal text-[26px] sm:text-[30px] text-black dark:text-white mr-1.5">{project.title},</span>
                             {project.description}
                           </p>
                         </div>
