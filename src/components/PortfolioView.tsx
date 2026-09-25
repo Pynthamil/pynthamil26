@@ -13,7 +13,6 @@ export function PortfolioView({
 }) {
   const [viewMode, setViewMode] = useState<"home" | "projects" | "about" | "blog">(initialViewMode);
   const [isEmailCopied, setIsEmailCopied] = useState(false);
-  const [showBanner, setShowBanner] = useState(true);
 
   const handleCopyEmail = () => {
     if (soundOn) playClickSound();
@@ -214,137 +213,102 @@ export function PortfolioView({
 
   return (
     <>
-      {/* Open to Opportunities Full-Width Banner */}
-      {showBanner && (
-        <div className="w-full bg-[#00B5B2]/15 dark:bg-[#00B5B2]/20 text-[#008A88] dark:text-[#00D4D1] py-2.5 px-4 flex items-center justify-center relative border-b border-[#00B5B2]/20 dark:border-[#00B5B2]/30 animate-in slide-in-from-top-2 duration-300">
-          <div className="flex items-center gap-3 text-[14px] sm:text-[15px] font-medium tracking-wide">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00B5B2] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00B5B2]"></span>
-            </span>
-            Open to Summer 2027 internship opportunities
-          </div>
-          <button 
-            onClick={() => {
-              if (soundOn) playClickSound();
-              setShowBanner(false);
-            }}
-            className="absolute right-4 text-[#008A88]/70 hover:text-[#008A88] dark:text-[#00D4D1]/70 dark:hover:text-[#00D4D1] transition-colors p-1"
-            aria-label="Close banner"
-          >
-            <X size={16} strokeWidth={2.5} />
-          </button>
-        </div>
-      )}
 
-      <div className={`min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 ${showBanner ? 'pt-10 sm:pt-16' : 'pt-16 sm:pt-24'} pb-24 selection:bg-neutral-200`}>
+
+      <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-4 sm:pt-5 pb-24 selection:bg-neutral-200">
         {/* Soft atmospheric ambient glow */}
         <div className="ambient-glow" />
 
         {/* Main Container */}
-        <main className="w-full relative z-10 flex flex-col max-w-[640px]">
-          {/* Top Header Row */}
-        <header className={`flex flex-col w-full ${viewMode === "home" ? "mb-6 sm:mb-6" : "mb-8 sm:mb-10"}`}>
+        {/* Top Navbar */}
+        <header className="sticky top-4 sm:top-5 z-50 w-[92%] sm:w-[85%] max-w-[640px] mx-auto mb-12 sm:mb-16 bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-full px-5 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between transition-colors">
+          
+          {/* Left: Logo & Name */}
+          <button
+            onClick={() => viewMode !== "home" && handleNavClick("home")}
+            className={`flex items-center gap-2 sm:gap-2.5 focus:outline-none ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
+            aria-label="Go to Home"
+          >
+            <img 
+              src="/logo1.1.svg" 
+              alt="logo"
+              className="h-[28px] sm:h-[30px] object-contain -ml-3"
+            />
+            <span className="font-sans font-bold text-[20px] sm:text-[22px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none leading-none -translate-y-[1px]">
+              pynthamil
+            </span>
+          </button>
 
-          <div className="flex flex-col items-start w-full gap-y-6 sm:gap-y-8">
-            {/* Left Title: Always the pink name, acts as Home link if not on Home */}
-            <div className="flex flex-col items-start shrink-0 w-fit group">
+          {/* Right: Nav Links & Tools */}
+          <div className="flex items-center gap-4 sm:gap-6">
+            <nav className="flex items-center space-x-4 sm:space-x-6 text-[14px] sm:text-[15.5px] font-medium pt-0.5">
               <button
-                onClick={() => viewMode !== "home" && handleNavClick("home")}
-                className={`focus:outline-none flex flex-col items-start ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
+                onClick={() => handleNavClick("projects")}
+                className={`transition-colors cursor-pointer select-none ${
+                  viewMode === "projects"
+                    ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
+                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
+                }`}
               >
-                <span className="flex items-center -ml-3 sm:-ml-4 -mb-2 sm:-mb-3 pointer-events-none transition-opacity duration-200">
-                  <img 
-                    src="/clawd.gif" 
-                    alt="clawd"
-                    className="h-[96px] sm:h-[112px] object-contain"
-                  />
-                </span>
-                <span className="instrument-serif text-[38px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none text-left leading-none">
-                  {portfolioData.name.toLowerCase()}
-                </span>
+                Projects
               </button>
-            </div>
+              <button
+                onClick={() => handleNavClick("about")}
+                className={`transition-colors cursor-pointer select-none ${
+                  viewMode === "about"
+                    ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
+                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
+                }`}
+              >
+                About
+              </button>
+              <button
+                onClick={() => handleNavClick("blog")}
+                className={`transition-colors cursor-pointer select-none ${
+                  viewMode === "blog"
+                    ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
+                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
+                }`}
+              >
+                Blog
+              </button>
+            </nav>
 
-            {/* Right / Under on Mobile: Navigation Links & Dark Mode Toggle */}
-            <div className="flex items-center justify-between w-full">
-              <nav className="flex items-center space-x-4 sm:space-x-5 text-[16.5px] sm:text-[18px] font-medium sm:pt-1">
-                
-                <button
-                  onClick={() => handleNavClick("projects")}
-                  className={`transition-colors cursor-pointer select-none ${
-                    viewMode === "projects"
-                      ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
-                      : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
-                  }`}
-                >
-                  Projects
-                </button>
-                <button
-                  onClick={() => handleNavClick("about")}
-                  className={`transition-colors cursor-pointer select-none ${
-                    viewMode === "about"
-                      ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
-                      : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
-                  }`}
-                >
-                  About
-                </button>
-                <button
-                  onClick={() => handleNavClick("blog")}
-                  className={`transition-colors cursor-pointer select-none ${
-                    viewMode === "blog"
-                      ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
-                      : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
-                  }`}
-                >
-                  Blog
-                </button>
-              </nav>
-              <div className="flex items-center space-x-3">
-                {/* IST Time Pill */}
-                {currentTime && (
-                  <div className="flex items-center gap-1.5 bg-[#00B5B2]/15 dark:bg-[#00B5B2]/20 text-[#008A88] dark:text-[#00D4D1] px-2.5 py-1 rounded-md text-[13px] sm:text-sm font-medium tracking-wide">
-                    <span>{currentTime}</span>
-                    <Clock size={14} className="opacity-80" strokeWidth={2} />
-                  </div>
-                )}
+            <div className="flex items-center gap-3">
 
-                {/* Dark Mode Toggle Button */}
-                <button
-                  onClick={toggleTheme}
-                  aria-label="Toggle dark mode"
-                  className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
-                >
-                  {isDarkMode ? (
-                    <Sun className="w-4 h-4 transition-transform duration-200 hover:rotate-45" strokeWidth={2} />
-                  ) : (
-                    <Moon className="w-4 h-4 transition-transform duration-200 hover:-rotate-12" strokeWidth={2} />
-                  )}
-                </button>
-              </div>
+
+
             </div>
           </div>
         </header>
+
+        <main className="w-full relative z-10 flex flex-col max-w-[640px]">
+          {/* Top Header Row */}
+
 
         {/* ========================================================
             VIEW 1: HOME VIEW
             ======================================================== */}
         {viewMode === "home" && (
           <div className="flex flex-col animate-in fade-in duration-200">
-            {/* Bio Copy & Status Section */}
-            <section className="flex flex-col space-y-4 mb-12 sm:mb-14">
-              <p className="text-[18px] sm:text-[20px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-relaxed">
-                i build things and figure out why people should care. most AI just sounds right. i build AI that shows you why. <span className="italic">lately</span>: a research assistant that won't cite anything it can't quote.
-              </p>
+            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12">
+              <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-10 md:gap-16 w-full max-w-[1100px] mx-auto">
+              {/* Bio Copy & Status Section */}
+              <section className="flex flex-col h-full justify-between mb-12 sm:mb-0 space-y-8 sm:space-y-0">
+              <div>
+              <h1 className="text-[24px] sm:text-[28px] text-[#2C2C2C] dark:text-[#F2F2F2] font-medium leading-[1.35] tracking-tight">
+                hey! i'm {portfolioData.name.toLowerCase()} [pyndu], and i build things and figure out why people should care.
+              </h1>
               
-              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#CBD5E1] font-normal leading-[1.85]">
-                Joining{" "}
-                <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-1.5 py-0.5 mx-0.5 rounded-[5px] bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] align-text-bottom hover:underline hover:opacity-80 transition-opacity" style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "0.9em", fontStyle: "normal" }}>plue</a>
-                {" "}in October as an <span className="bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] px-1.5 py-0.5 rounded-[5px] font-medium">engineering intern</span>, helping people learn on their own terms.
+              <p className="text-[21px] sm:text-[24px] text-slate-400 dark:text-slate-500 font-normal mt-1 mb-4">
+                upcoming engineering intern @{" "}
+                <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-black dark:text-white hover:opacity-75 transition-opacity">
+                  plue
+                </a>
               </p>
 
-              <p className="text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
+              </div>
+              <p className="text-[20px] sm:text-[22px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed pb-2 sm:pb-0">
                 Find me on{" "}
                 <a
                   href="https://x.com/pynwrites"
@@ -384,8 +348,36 @@ export function PortfolioView({
                 </a>
               </p>
 
+            </section>
+
+            {/* Right Column: Experience */}
+            <div className="w-full h-full flex flex-col justify-between space-y-8 sm:space-y-0">
+            {/* Experience Section */}
+            <section id="home-experience" className="w-full scroll-mt-24 pt-1">
+              <ul className="flex flex-col font-sans text-[15px] sm:text-[16px]">
+                {portfolioData.experiences.map((item) => {
+                  const year = item.period.match(/\d{4}$/)?.[0] || item.period;
+                  return (
+                    <li
+                      key={item.id}
+                      className="grid grid-cols-[50px_1fr] sm:grid-cols-[60px_1fr_1.2fr] gap-x-4 py-2 sm:py-2.5 group"
+                    >
+                      <div className="text-slate-400 dark:text-slate-500 font-normal transition-colors">
+                        {year}
+                      </div>
+                      <div className="text-slate-700 dark:text-slate-200 font-medium transition-colors">
+                        {item.company.toLowerCase().replace(/\b\w/g, (s) => s.toUpperCase())}
+                      </div>
+                      <div className="text-slate-400 dark:text-slate-500 col-span-2 sm:col-span-1 mt-0.5 sm:mt-0 transition-colors">
+                        {item.role.toLowerCase().replace(/\b\w/g, (s) => s.toUpperCase())}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
               {/* Dashed Email Box */}
-              <div className="pt-2 flex">
+              <div className="flex">
                 <div
                   onClick={() => {
                     navigator.clipboard.writeText(portfolioData.email);
@@ -393,15 +385,15 @@ export function PortfolioView({
                     playTone(1046);
                     setTimeout(() => setCopiedEmail(false), 2000);
                   }}
-                  className="inline-flex items-center space-x-2.5 px-3.5 py-2 border-2 border-dashed border-[#00B5B2] dark:border-[#00B5B2] rounded-none bg-transparent cursor-pointer group select-none hover:bg-[#00B5B2]/10 transition-colors"
+                  className="inline-flex items-center space-x-2.5 px-3.5 py-2 rounded-[5px] sm:rounded-[6px] bg-slate-100 dark:bg-slate-800/80 cursor-pointer group select-none hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                   title="Click to copy email"
                 >
-                  <span className="font-sans font-bold text-[14.5px] sm:text-[15.5px] text-[#00B5B2] tracking-wide transition-colors">
+                  <span className="font-sans font-medium text-[14.5px] sm:text-[15.5px] text-slate-600 dark:text-slate-300 tracking-wide transition-colors">
                     {portfolioData.email}
                   </span>
-                  <div className="text-[#00B5B2] flex items-center focus:outline-none transition-colors">
+                  <div className="text-slate-600 dark:text-slate-300 opacity-75 group-hover:opacity-100 flex items-center focus:outline-none transition-colors">
                     {copiedEmail ? (
-                      <span className="text-emerald-400 font-mono text-xs font-medium animate-in fade-in">
+                      <span className="text-emerald-500 dark:text-emerald-400 font-mono text-xs font-medium animate-in fade-in">
                         copied!
                       </span>
                     ) : (
@@ -424,146 +416,32 @@ export function PortfolioView({
                   </div>
                 </div>
               </div>
-            </section>
+
+            </div>
+            </div>
+            </div>
+
 
             
           
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
-              <section className="w-full mb-12 sm:mb-14">
-                <h2 className="font-sans text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] mb-3.5 font-semibold">
-                  selected works
-                </h2>
-                <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                  {portfolioData.projects.filter(p => p.title !== "making tech fun").map((project: Project, idx: number) => {
-                    const isInternal = project.link && project.link.startsWith("/");
-                    const isSemantic = project.title === "Semantic Email Copilot";
-                    const isOrca = project.title === "orca.ai";
-                    const aspectClass = isSemantic ? "aspect-[1.3/1] sm:aspect-[1.25/1]" : isOrca ? "aspect-[1.6/1] sm:aspect-[1.4/1]" : "aspect-[2/1] sm:aspect-[16/9]";
-                    const imageSizeClass = isSemantic ? "h-[82%] sm:h-[90%]" : "h-[70%] sm:h-[80%]";
-                    const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
+              <>
 
-                    return (
-                      <li
-                        key={idx}
-                        className="group flex flex-col py-1.5 cursor-dot transition-opacity hover:opacity-90"
-                        onClick={() => {
-                          if (isInternal && project.link) {
-                            playTone(880);
-                            window.location.href = project.link;
-                          } else {
-                            setSelectedProject(project);
-                          }
-                        }}
-                      >
-                        <div className="flex items-center justify-between w-full">
-                          <div className="flex items-center flex-1 pr-4">
-                            <div className="flex items-center space-x-3">
-                              <span 
-                                className="instrument-serif text-[24px] tracking-[0.02em] transition-all group-hover:underline decoration-wavy underline-offset-4 decoration-2 text-[#0F172A] dark:text-[#F2F2F2] italic"
-                              >
-                                {project.title}
-                              </span>
-                              {(project.link || project.github) && (
-                                <span className="flex items-center justify-center w-[24px] h-[24px] rounded-full border-[1.5px] border-neutral-300/80 dark:border-neutral-600/80 text-neutral-400 dark:text-neutral-500 group-hover:border-neutral-400 group-hover:text-neutral-500 dark:group-hover:border-neutral-500 transition-colors">
-                                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M7 17L17 7" />
-                                    <path d="M7 7h10v10" />
-                                  </svg>
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                          
-                          {project.status && project.category && (() => {
-                            let colorClass = "bg-neutral-500/10 dark:bg-neutral-500/20 text-neutral-600 dark:text-neutral-400";
-                            if (project.category === "Software Engineering") colorClass = "bg-cyan-500/10 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400";
-                            if (project.category === "Product Design") colorClass = "bg-fuchsia-500/10 dark:bg-fuchsia-500/20 text-fuchsia-600 dark:text-fuchsia-400";
-                            if (project.category === "Creative Dev") colorClass = "bg-yellow-500/10 dark:bg-yellow-500/20 text-yellow-600 dark:text-yellow-400";
-                            return (
-                              <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[13px] sm:text-sm font-medium tracking-wide whitespace-nowrap ${colorClass}`}>
-                                <span>
-                                  {project.status} • {project.category}
-                                </span>
-                              </div>
-                            );
-                          })()}
-                        </div>
-
-                        {project.description && (
-                          <p className="text-[18px] sm:text-[20px] font-sans text-[#475569] dark:text-[#CBD5E1] mt-1.5 leading-relaxed">
-                            {project.description}
-                          </p>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </section>
-            )}
-
-            {/* Experience Section */}
-            <section id="home-experience" className="w-full scroll-mt-24 mb-12 sm:mb-14">
-              <h2 className="font-sans text-[14px] sm:text-[15px] uppercase tracking-[0.08em] text-[#475569] dark:text-[#94A3B8] mb-3.5 font-semibold">
-                experience
-              </h2>
-              <ul className="flex flex-col font-sans text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                {portfolioData.experiences.map((item) => (
-                  <li
-                    key={item.id}
-                    className="group flex flex-col py-4 sm:py-5"
-                  >
-                    <div className="flex items-start justify-between w-full">
-                      <div className="flex items-start flex-1 pr-4">
-                        <div className="flex flex-col justify-center h-full">
-                          <span className="instrument-serif italic font-normal text-[18px] sm:text-[19px] text-[#334155] dark:text-[#E2E8F0] tracking-[0.02em]">
-                            {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] capitalize font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
-                        {item.period.toLowerCase()}
-                      </div>
-                    </div>
-                    
-                    {item.bullets && item.bullets.length > 0 && (
-                      <ul className="mt-4 flex flex-col space-y-2.5 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
-                        {item.bullets.map((bullet, idx) => (
-                          <li key={idx} className="flex items-start gap-2.5">
-                            <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </div>
-        )}
-
-                {/* ========================================================
-            VIEW: PROJECTS VIEW
-            ======================================================== */}
-        {viewMode === "projects" && (
-          <div className="flex flex-col animate-in fade-in duration-200">
-            {/* Work Section */}
-            {portfolioData.projects.length > 0 && (
-              <section className="w-full mb-12 sm:mb-14">
-                <ul className="flex flex-col space-y-5 sm:space-y-6 font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-16 sm:mt-24 mb-12 sm:mb-14">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12 max-w-[1280px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
                     const isOrca = project.title === "orca.ai";
-                    const aspectClass = isSemantic ? "aspect-[1.3/1] sm:aspect-[1.25/1]" : isOrca ? "aspect-[1.6/1] sm:aspect-[1.4/1]" : "aspect-[2/1] sm:aspect-[16/9]";
-                    const imageSizeClass = isSemantic ? "h-[82%] sm:h-[90%]" : "h-[70%] sm:h-[80%]";
+                    const aspectClass = isSemantic ? "aspect-[4/3] sm:aspect-[1/1.05]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                    const imageSizeClass = "h-[85%] sm:h-[85%]";
                     const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
                     return (
                       <li
                         key={idx}
-                        className="group flex flex-col py-1.5 cursor-dot transition-opacity hover:opacity-90"
+                        className="group flex flex-col py-1.5 cursor-dot transition-opacity"
                         onClick={() => {
                           if (isInternal && project.link) {
                             playTone(880);
@@ -575,12 +453,17 @@ export function PortfolioView({
                       >
                         {project.banner && (
                           <div 
-                            className={`w-full mb-3 overflow-hidden rounded-[16px] sm:rounded-[24px] flex items-center justify-center relative ${project.coverBg ? aspectClass : ''}`}
-                            style={project.coverBg ? { backgroundImage: `url(${project.coverBg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
+                            className={`w-full mb-3 overflow-hidden rounded-[8px] sm:rounded-[12px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
                           >
+                            <div 
+                              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                              style={{ backgroundColor: project.themeColor }}
+                            />
+
+                            
                             {project.title === "orca.ai" ? (
-                              <div className={`w-[92%] sm:w-[88%] overflow-hidden rounded-[20px] sm:rounded-[28px] bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-sm transition-transform duration-700 ease-out ${hoverScaleClass}`}>
-                                <div className="w-full overflow-hidden rounded-[14px] sm:rounded-[20px] bg-white dark:bg-[#141415] flex items-center justify-center">
+                              <div className={`z-10 w-[92%] sm:w-[88%] overflow-hidden rounded-[8px] sm:rounded-[12px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                                <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                   <img 
                                     src={project.banner} 
                                     alt={project.title} 
@@ -591,60 +474,120 @@ export function PortfolioView({
                             ) : project.banner.match(/\.(mp4|webm|mov)$/i) ? (
                               <video 
                                 src={project.banner} 
-                                autoPlay 
                                 loop 
                                 muted 
                                 playsInline 
-                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
+                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
                               />
                             ) : (
                               <img 
                                 src={project.banner} 
                                 alt={project.title} 
-                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-md rounded-[16px] sm:rounded-[24px]` : 'w-full h-auto object-cover'}`}
+                                className="z-10 w-auto h-[90%] sm:h-[88%] object-contain drop-shadow-lg transition-transform duration-700 ease-out"
                               />
+                            )}
+                            {project.category && (
+                              <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
+                                {project.category.toLowerCase()}
+                              </div>
                             )}
                           </div>
                         )}
-                        <div className="flex items-center justify-between w-full">
-                          <div className="flex items-center flex-1 pr-4">
-                            <div className="flex items-center space-x-3">
-                              <span 
-                                className="instrument-serif text-[24px] tracking-[0.02em] transition-all group-hover:underline decoration-wavy underline-offset-4 decoration-2 text-[#0F172A] dark:text-[#F2F2F2] italic"
-                              >
-                                {project.title}
-                              </span>
-                              {(project.link || project.github) && (
-                                <span className="flex items-center justify-center w-[24px] h-[24px] rounded-full border-[1.5px] border-neutral-300/80 dark:border-neutral-600/80 text-neutral-400 dark:text-neutral-500 group-hover:border-neutral-400 group-hover:text-neutral-500 dark:group-hover:border-neutral-500 transition-colors">
-                                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M7 17L17 7" />
-                                    <path d="M7 7h10v10" />
-                                  </svg>
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                          
-                          {project.status && project.category && (() => {
-                            let colorClass = "bg-neutral-500/10 dark:bg-neutral-500/20 text-neutral-600 dark:text-neutral-400";
-                            if (project.category === "Software Engineering") colorClass = "bg-cyan-500/10 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400";
-                            if (project.category === "Product Design") colorClass = "bg-fuchsia-500/10 dark:bg-fuchsia-500/20 text-fuchsia-600 dark:text-fuchsia-400";
-                            if (project.category === "Creative Dev") colorClass = "bg-yellow-500/10 dark:bg-yellow-500/20 text-yellow-600 dark:text-yellow-400";
-                            return (
-                              <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[13px] sm:text-sm font-medium tracking-wide whitespace-nowrap ${colorClass}`}>
-                                <span>
-                                  {project.status} • {project.category}
-                                </span>
-                              </div>
-                            );
-                          })()}
-                        </div>
-
-                        {project.description && (
-                          <p className="text-[18px] sm:text-[20px] font-sans text-[#475569] dark:text-[#CBD5E1] mt-1.5 leading-relaxed">
+                        <div className="flex flex-col mt-2 px-1">
+                          <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+                            <span className="font-semibold text-black dark:text-white mr-2">{project.title} —</span>
                             {project.description}
                           </p>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+                </section>
+              </>
+            )}
+
+          </div>
+        )}
+
+                {/* ========================================================
+            VIEW: PROJECTS VIEW
+            ======================================================== */}
+        {viewMode === "projects" && (
+          <div className="flex flex-col animate-in fade-in duration-200">
+            {/* Work Section */}
+            {portfolioData.projects.length > 0 && (
+              <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mb-12 sm:mb-14">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 max-w-[1100px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                  {portfolioData.projects.map((project: Project, idx: number) => {
+                    const isInternal = project.link && project.link.startsWith("/");
+                    const isSemantic = project.title === "Semantic Email Copilot";
+                    const isOrca = project.title === "orca.ai";
+                    const aspectClass = isSemantic ? "aspect-[4/3] sm:aspect-[1/1.05]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                    const imageSizeClass = "h-[85%] sm:h-[85%]";
+                    const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
+
+                    return (
+                      <li
+                        key={idx}
+                        className="group flex flex-col py-1.5 cursor-dot transition-opacity"
+                        onClick={() => {
+                          if (isInternal && project.link) {
+                            playTone(880);
+                            window.location.href = project.link;
+                          } else {
+                            setSelectedProject(project);
+                          }
+                        }}
+                      >
+                        {project.banner && (
+                          <div 
+                            className={`w-full mb-3 overflow-hidden rounded-[8px] sm:rounded-[12px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
+                          >
+                            <div 
+                              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                              style={{ backgroundColor: project.themeColor }}
+                            />
+
+                            
+                            {project.title === "orca.ai" ? (
+                              <div className={`z-10 w-[92%] sm:w-[88%] overflow-hidden rounded-[8px] sm:rounded-[12px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                                <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
+                                  <img 
+                                    src={project.banner} 
+                                    alt={project.title} 
+                                    className="w-full h-auto object-cover"
+                                  />
+                                </div>
+                              </div>
+                            ) : project.banner.match(/\.(mp4|webm|mov)$/i) ? (
+                              <video 
+                                src={project.banner} 
+                                loop 
+                                muted 
+                                playsInline 
+                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
+                              />
+                            ) : (
+                              <img 
+                                src={project.banner} 
+                                alt={project.title} 
+                                className="z-10 w-auto h-[90%] sm:h-[88%] object-contain drop-shadow-lg transition-transform duration-700 ease-out"
+                              />
+                            )}
+                            {project.category && (
+                              <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
+                                {project.category.toLowerCase()}
+                              </div>
+                            )}
+                          </div>
                         )}
+                        <div className="flex flex-col mt-2 px-1">
+                          <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+                            <span className="font-semibold text-black dark:text-white mr-2">{project.title} —</span>
+                            {project.description}
+                          </p>
+                        </div>
                       </li>
                     );
                   })}
@@ -658,7 +601,9 @@ export function PortfolioView({
             VIEW 2: ABOUT VIEW
            ======================================================== */}
         {viewMode === "about" && (
-          <div className="flex flex-col space-y-6 sm:space-y-7 animate-in fade-in duration-200">
+          <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200">
+            <div className="flex flex-col space-y-6 sm:space-y-7 w-full max-w-[1100px] mx-auto items-center">
+              <div className="w-full max-w-[640px] flex flex-col space-y-6 sm:space-y-7">
             {/* Experience Section - first in About */}
             <section id="experience" className="w-full scroll-mt-24">
               <h2 className="instrument-serif text-[24px] sm:text-[26px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-1">
@@ -766,7 +711,7 @@ export function PortfolioView({
                       "IMG_2939.jpeg",
                       "IMG_4564.JPG"
                     ].map((photo, i) => (
-                      <div key={i} className="flex-none bg-white dark:bg-white p-2.5 shadow-sm border border-neutral-200 dark:border-neutral-300 rounded-sm w-[220px] h-[280px]">
+                      <div key={i} className="flex-none bg-white dark:bg-white p-3.5 shadow-md border border-neutral-200 dark:border-neutral-300 rounded-sm w-[300px] h-[380px]">
                         <div className="w-full h-full bg-neutral-200 overflow-hidden">
                           <img
                             src={`/photo-dump/${photo}`}
@@ -1080,6 +1025,8 @@ export function PortfolioView({
             </div>
 
 
+            </div>
+            </div>
             <ProjectSidebar 
               sections={[
                 { id: "experience", label: "Experience" },
@@ -1099,7 +1046,8 @@ export function PortfolioView({
             VIEW 3: BLOG VIEW
            ======================================================== */}
         {viewMode === "blog" && (
-          <div className="flex flex-col space-y-7 animate-in fade-in duration-200">
+          <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200">
+            <div className="flex flex-col space-y-7 w-full max-w-[1100px] mx-auto">
             {/* Blog Search */}
             <div className="flex justify-end w-full">
               <div className="relative w-full sm:w-64">
@@ -1120,8 +1068,8 @@ export function PortfolioView({
             </div>
 
             {/* Blog Posts Clean Architecture */}
-            <section className="-mx-4 sm:-mx-8 w-[calc(100%+32px)] sm:w-[calc(100%+64px)]">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-6">
+            <section className="w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 pt-6">
                 {portfolioData.writings.filter(post => post.title.toLowerCase().includes(blogSearchQuery.toLowerCase())).map((post, idx) => (
                   <div key={idx} className="flex flex-col h-full">
                     <a
@@ -1151,23 +1099,26 @@ export function PortfolioView({
                 ))}
               </div>
             </section>
+            </div>
           </div>
         )}
 
 
         {/* Unified Footer for all views */}
-        <footer className="w-full pt-16 mt-auto flex flex-col items-start gap-5 font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8]">
-          <button 
-             onClick={handleCopyEmail}
-             className="flex items-center justify-center space-x-2 px-3 py-1 bg-[#E8F4F8] dark:bg-[#1E3A4A] text-[#2C6E8A] dark:text-[#7EC8E3] text-[14px] font-medium rounded-[5px] hover:bg-[#DDF0F6] dark:hover:bg-[#162B37] transition-colors focus:outline-none"
-          >
-             <span>{isEmailCopied ? "copied!" : "pavendanpynthamil@gmail.com"}</span>
-             {isEmailCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-          </button>
-          
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0">
-             <div>coding is an art and im an artist</div>
-             <div>made w love &copy; 2026</div>
+        <footer className="w-[100vw] relative left-1/2 -translate-x-1/2 pt-16 mt-auto flex flex-col items-center gap-5 font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] px-5 sm:px-8 md:px-12">
+          <div className="w-full max-w-[1100px] flex flex-col items-start gap-5">
+            <button 
+               onClick={handleCopyEmail}
+               className="flex items-center justify-center space-x-2 px-3 py-1 bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 text-[14px] font-medium rounded-[5px] hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none"
+            >
+               <span>{isEmailCopied ? "copied!" : "pavendanpynthamil@gmail.com"}</span>
+               {isEmailCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+            </button>
+            
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0">
+               <div>coding is an art and im an artist</div>
+               <div>made w love &copy; 2026</div>
+            </div>
           </div>
         </footer>
       </main>

@@ -141,21 +141,12 @@ export const portfolioData: PortfolioData = {
       year: "2026",
       link: "/semantic",
       tags: ["Figma", "UI/UX"],
-      banner: "/semantic/demo1.mov",
+      banner: "/semantic1.svg",
       status: "Concept",
       category: "Product Design",
       themeColor: "#6666FF",
     },
-    {
-      title: "making tech fun",
-      description: "Experimenting with interactive, joyful interfaces and micro-interactions.",
-      year: "2026",
-      link: "/making-tech-fun",
-      tags: ["Creative Dev", "Interaction"],
-      status: "Concept",
-      category: "Creative Dev",
-      themeColor: "#FF6666",
-    },
+
   ],
   writings: [
     {

@@ -12,6 +12,7 @@ interface ChromaVideoProps {
 export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: ChromaVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -52,6 +53,8 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
       if (isCancelled || !isVisible) return;
 
       if (video.readyState >= 2 && video.videoWidth > 0 && video.videoHeight > 0) {
+        if (!isLoaded) setIsLoaded(true);
+
         const dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio || 1, 2) : 1;
         const effectiveZoom = zoom ?? 1.0;
         
@@ -94,7 +97,7 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
       scheduleNextFrame();
     };
 
-    video.play().catch(() => {});
+    // Removed unconditional video.play() to enforce true lazy loading
     scheduleNextFrame();
 
     return () => {
@@ -102,23 +105,28 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
       observer.disconnect();
       if (animId) cancelAnimationFrame(animId);
     };
-  }, [src]);
+  }, [src, zoom, cropRatio, isLoaded]);
 
   return (
     <div className={`relative w-full ${className}`}>
+      {!isLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-8 h-8 border-4 border-[#6666FF]/30 border-t-[#6666FF] rounded-full animate-spin"></div>
+        </div>
+      )}
       <video
         ref={videoRef}
         src={src}
-        autoPlay
         loop
         muted
         playsInline
-        preload="auto"
+        preload="none"
         className="hidden"
+        onCanPlay={() => setIsLoaded(true)}
       />
       <canvas
         ref={canvasRef}
-        className="w-full min-h-[300px] h-auto block"
+        className={`w-full min-h-[300px] h-auto block transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{ imageRendering: "auto" }}
       />
     </div>
