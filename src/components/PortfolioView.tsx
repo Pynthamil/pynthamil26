@@ -477,9 +477,9 @@ export function PortfolioView({
                           
                           {project.status && project.category && (() => {
                             let colorClass = "bg-neutral-500/10 dark:bg-neutral-500/20 text-neutral-600 dark:text-neutral-400";
-                            if (project.category === "Software Engineering") colorClass = "bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400";
-                            if (project.category === "Product Design") colorClass = "bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400";
-                            if (project.category === "Creative Dev") colorClass = "bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400";
+                            if (project.category === "Software Engineering") colorClass = "bg-cyan-500/10 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400";
+                            if (project.category === "Product Design") colorClass = "bg-fuchsia-500/10 dark:bg-fuchsia-500/20 text-fuchsia-600 dark:text-fuchsia-400";
+                            if (project.category === "Creative Dev") colorClass = "bg-yellow-500/10 dark:bg-yellow-500/20 text-yellow-600 dark:text-yellow-400";
                             return (
                               <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[13px] sm:text-sm font-medium tracking-wide whitespace-nowrap ${colorClass}`}>
                                 <span>
@@ -627,9 +627,9 @@ export function PortfolioView({
                           
                           {project.status && project.category && (() => {
                             let colorClass = "bg-neutral-500/10 dark:bg-neutral-500/20 text-neutral-600 dark:text-neutral-400";
-                            if (project.category === "Software Engineering") colorClass = "bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400";
-                            if (project.category === "Product Design") colorClass = "bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400";
-                            if (project.category === "Creative Dev") colorClass = "bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400";
+                            if (project.category === "Software Engineering") colorClass = "bg-cyan-500/10 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400";
+                            if (project.category === "Product Design") colorClass = "bg-fuchsia-500/10 dark:bg-fuchsia-500/20 text-fuchsia-600 dark:text-fuchsia-400";
+                            if (project.category === "Creative Dev") colorClass = "bg-yellow-500/10 dark:bg-yellow-500/20 text-yellow-600 dark:text-yellow-400";
                             return (
                               <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[13px] sm:text-sm font-medium tracking-wide whitespace-nowrap ${colorClass}`}>
                                 <span>
