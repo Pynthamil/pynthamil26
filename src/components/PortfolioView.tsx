@@ -634,6 +634,7 @@ export function PortfolioView({
             VIEW 2: ABOUT VIEW
            ======================================================== */}
         {viewMode === "about" && (
+          <>
           <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200 mt-10 sm:mt-16">
             <div className="flex flex-col w-full max-w-[640px] mx-auto items-start text-left">
               
@@ -830,6 +831,7 @@ export function PortfolioView({
             </div>
               </div>
             </div>
+            </div>
             <div className="fixed left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 select-none hidden lg:block"><ProjectSidebar alwaysVisible={true}
               sections={[
                 { id: "experience", label: "Experience" },
@@ -838,9 +840,8 @@ export function PortfolioView({
                 { id: "come-say-hi", label: "Come Say Hi" }
               ]} 
               playTone={soundOn ? playClickSound : undefined}
-            />
-            </div>
-          </div>
+            /></div>
+          </>
         )}
 
 {/* ========================================================

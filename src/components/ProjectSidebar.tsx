@@ -90,7 +90,7 @@ export function ProjectSidebar({ sections, playTone, alwaysVisible = false }: Pr
         items={items}
         value={activeIndex !== -1 ? activeIndex : 0}
         onChange={(index) => handleItemClick(sections[index].id)}
-        color="#FC4C01" // Feel free to adjust accent color if needed
+        color="#007FFF" // Feel free to adjust accent color if needed
         dashed={true}
       />
     </div>
