@@ -240,8 +240,8 @@ export function PortfolioView({
           </button>
 
           {/* Right: Nav Links & Tools */}
-          <div className="flex items-center gap-4 sm:gap-6">
-            <nav className="flex items-center space-x-4 sm:space-x-6 text-[14px] sm:text-[15.5px] font-medium pt-0.5">
+          <div className="flex items-center gap-4 sm:gap-6 -mr-1 sm:-mr-2">
+            <nav className="flex items-center space-x-4 sm:space-x-6 text-[16px] sm:text-[18px] font-medium pt-0.5">
               <button
                 onClick={() => handleNavClick("projects")}
                 className={`transition-colors cursor-pointer select-none ${
@@ -385,10 +385,10 @@ export function PortfolioView({
                     playTone(1046);
                     setTimeout(() => setCopiedEmail(false), 2000);
                   }}
-                  className="inline-flex items-center space-x-2.5 px-3.5 py-2 rounded-[5px] sm:rounded-[6px] bg-slate-100 dark:bg-slate-800/80 cursor-pointer group select-none hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                  className="inline-flex items-center space-x-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-[5px] sm:rounded-[8px] bg-slate-100 dark:bg-slate-800/80 cursor-pointer group select-none hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                   title="Click to copy email"
                 >
-                  <span className="font-sans font-medium text-[14.5px] sm:text-[15.5px] text-slate-600 dark:text-slate-300 tracking-wide transition-colors">
+                  <span className="font-sans font-medium text-[16px] sm:text-[18px] text-slate-600 dark:text-slate-300 tracking-wide transition-colors">
                     {portfolioData.email}
                   </span>
                   <div className="text-slate-600 dark:text-slate-300 opacity-75 group-hover:opacity-100 flex items-center focus:outline-none transition-colors">
