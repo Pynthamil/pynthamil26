@@ -325,15 +325,15 @@ export function PortfolioView({
               {/* Bio Copy & Status Section */}
               <section className="flex flex-col h-full justify-between mb-12 sm:mb-0 space-y-8 sm:space-y-0">
               <div className="relative">
-              <div className="absolute -top-[52px] sm:-top-[60px] left-0 inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-blue-50/80 dark:bg-blue-900/30 text-blue-700/90 dark:text-blue-300 text-[14px] sm:text-[15px] font-medium rounded-[6px] sm:rounded-[8px] tracking-wide whitespace-nowrap">
+              <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="absolute -top-[52px] sm:-top-[60px] left-0 inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[14px] sm:text-[15px] font-medium rounded-[6px] sm:rounded-[8px] tracking-wide whitespace-nowrap hover:bg-emerald-200 transition-colors">
                 <Mail className="w-[14px] h-[14px] shrink-0" />
                 open for summer 2027 roles
-              </div>
+              </a>
               <h1 className="font-sans font-medium text-[24px] sm:text-[28px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.35] tracking-tight">
                 hey! i'm {portfolioData.name.toLowerCase()} [pyndu], and i build things and figure out why people should care.
               </h1>
               
-              <p className="text-[21px] sm:text-[24px] text-slate-400 dark:text-slate-500 font-normal mt-1 mb-4">
+              <p className="text-[21px] sm:text-[24px] text-slate-400 dark:text-slate-500 font-normal mt-1 mb-10 sm:mb-14">
                 upcoming engineering intern @{" "}
                 <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-black dark:text-white hover:opacity-75 transition-opacity">
                   plue
@@ -341,7 +341,7 @@ export function PortfolioView({
               </p>
 
               </div>
-              <p className="text-[20px] sm:text-[22px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed pb-2 sm:pb-0">
+              <p className="text-[20px] sm:text-[22px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed pb-2 sm:pb-0 mt-16 sm:mt-20">
                 Find me on{" "}
                 <a
                   href="https://x.com/pynwrites"
@@ -383,6 +383,7 @@ export function PortfolioView({
 
             </section>
 
+
             {/* Right Column: Experience */}
             <div className="w-full h-full flex flex-col justify-between space-y-8 sm:space-y-0">
             {/* Experience Section */}
@@ -410,7 +411,7 @@ export function PortfolioView({
               </ul>
             </section>
               {/* Dashed Email Box */}
-              <div className="flex">
+              <div className="flex mt-6">
                 <div
                   onClick={() => {
                     navigator.clipboard.writeText(portfolioData.email);
@@ -461,81 +462,160 @@ export function PortfolioView({
             {portfolioData.projects.length > 0 && (
               <>
 
-                <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-8 sm:mt-12 mb-12 sm:mb-14">
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[1240px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                  {portfolioData.projects.map((project: Project, idx: number) => {
-                    const isInternal = project.link && project.link.startsWith("/");
-                    const isSemantic = project.title === "Semantic Email Copilot";
-                    const isOrca = project.title === "ORCA";
-                    const aspectClass = isSemantic ? "aspect-[3/4] sm:aspect-[1/1.4]" : "aspect-[4/3] sm:aspect-[1.15/1]";
-                    const imageSizeClass = "h-[85%] sm:h-[85%]";
-                    const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
+                <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-8 sm:mt-10 mb-12 sm:mb-14">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 max-w-[1240px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                    {/* Left Column */}
+                    <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
+                      {portfolioData.projects.filter((_, i) => i % 2 === 0).map((project: Project, idx: number) => {
+                        const originalIdx = portfolioData.projects.indexOf(project);
+                        const isInternal = project.link && project.link.startsWith("/");
+                        const isSemantic = project.description === "Semantic Email Copilot";
+                        const isOrca = project.title === "ORCA";
+                        const aspectClass = isSemantic ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const imageSizeClass = "h-[85%] sm:h-[85%]";
+                        const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
-                    return (
-                      <li
-                        key={idx}
-                        className="group flex flex-col py-1.5 cursor-dot transition-opacity"
-                        onClick={() => {
-                          if (isInternal && project.link) {
-                            playTone(880);
-                            window.location.href = project.link;
-                          } else {
-                            setSelectedProject(project);
-                          }
-                        }}
-                      >
-                        {project.banner && (
-                          <div 
-                            className={`w-full mb-3 overflow-hidden rounded-[8px] sm:rounded-[12px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
+                        return (
+                          <div
+                            key={originalIdx}
+                            className="group flex flex-col py-1.5 cursor-dot transition-opacity w-full"
+                            onClick={() => {
+                              if (isInternal && project.link) {
+                                playTone(880);
+                                window.location.href = project.link;
+                              } else {
+                                setSelectedProject(project);
+                              }
+                            }}
                           >
-                            <div 
-                              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                              style={{ backgroundColor: project.themeColor }}
-                            />
+                            {(project.banner || project.status === "Coming Soon") && (
+                              <div 
+                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
+                              >
+                                <div 
+                                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                                  style={{ backgroundColor: project.themeColor }}
+                                />
 
-                            
-                            {project.title === "ORCA" ? (
-                              <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[8px] sm:rounded-[12px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
-                                <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
+                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                                    <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
+                                      <img 
+                                        src={project.banner} 
+                                        alt={project.title} 
+                                        className="w-full h-auto object-cover"
+                                      />
+                                    </div>
+                                  </div>
+                                ) : project.banner?.match(/\.(mp4|webm|mov)$/i) ? (
+                                  <video 
+                                    src={project.banner} 
+                                    loop 
+                                    muted 
+                                    playsInline 
+                                    className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
+                                  />
+                                ) : project.banner ? (
                                   <img 
                                     src={project.banner} 
                                     alt={project.title} 
-                                    className="w-full h-auto object-cover"
+                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
                                   />
-                                </div>
-                              </div>
-                            ) : project.banner.match(/\.(mp4|webm|mov)$/i) ? (
-                              <video 
-                                src={project.banner} 
-                                loop 
-                                muted 
-                                playsInline 
-                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
-                              />
-                            ) : (
-                              <img 
-                                src={project.banner} 
-                                alt={project.title} 
-                                className="z-10 w-auto h-[80%] sm:h-[80%] object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%]"
-                              />
-                            )}
-                            {project.category && (
-                              <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
-                                {project.category.toLowerCase()}
+                                ) : null}
+                                {project.category && (
+                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
+                                    {project.category.toLowerCase()}
+                                  </div>
+                                )}
                               </div>
                             )}
+                            <div className="flex flex-col mt-2 px-1">
+                              <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+                                {project.title}
+                              </p>
+
+                            </div>
                           </div>
-                        )}
-                        <div className="flex flex-col mt-2 px-1">
-                          <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
-                            <span className="font-serif font-normal text-[26px] sm:text-[30px] text-black dark:text-white mr-1.5">{project.title},</span>
-                            {project.description}
-                          </p>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
+                        );
+                      })}
+                    </div>
+
+                    {/* Right Column */}
+                    <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
+                      {portfolioData.projects.filter((_, i) => i % 2 !== 0).map((project: Project, idx: number) => {
+                        const originalIdx = portfolioData.projects.indexOf(project);
+                        const isInternal = project.link && project.link.startsWith("/");
+                        const isSemantic = project.description === "Semantic Email Copilot";
+                        const isOrca = project.title === "ORCA";
+                        const aspectClass = isSemantic ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const imageSizeClass = "h-[85%] sm:h-[85%]";
+                        const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
+
+                        return (
+                          <div
+                            key={originalIdx}
+                            className="group flex flex-col py-1.5 cursor-dot transition-opacity w-full"
+                            onClick={() => {
+                              if (isInternal && project.link) {
+                                playTone(880);
+                                window.location.href = project.link;
+                              } else {
+                                setSelectedProject(project);
+                              }
+                            }}
+                          >
+                            {(project.banner || project.status === "Coming Soon") && (
+                              <div 
+                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
+                              >
+                                <div 
+                                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                                  style={{ backgroundColor: project.themeColor }}
+                                />
+
+                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                                    <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
+                                      <img 
+                                        src={project.banner} 
+                                        alt={project.title} 
+                                        className="w-full h-auto object-cover"
+                                      />
+                                    </div>
+                                  </div>
+                                ) : project.banner?.match(/\.(mp4|webm|mov)$/i) ? (
+                                  <video 
+                                    src={project.banner} 
+                                    loop 
+                                    muted 
+                                    playsInline 
+                                    className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
+                                  />
+                                ) : project.banner ? (
+                                  <img 
+                                    src={project.banner} 
+                                    alt={project.title} 
+                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
+                                  />
+                                ) : null}
+                                {project.category && (
+                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
+                                    {project.category.toLowerCase()}
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                            <div className="flex flex-col mt-2 px-1">
+                              <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+                                {project.title}
+                              </p>
+
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </section>
               </>
             )}
@@ -551,80 +631,159 @@ export function PortfolioView({
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mb-12 sm:mb-14">
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[1240px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                  {portfolioData.projects.map((project: Project, idx: number) => {
-                    const isInternal = project.link && project.link.startsWith("/");
-                    const isSemantic = project.title === "Semantic Email Copilot";
-                    const isOrca = project.title === "ORCA";
-                    const aspectClass = isSemantic ? "aspect-[3/4] sm:aspect-[1/1.4]" : "aspect-[4/3] sm:aspect-[1.15/1]";
-                    const imageSizeClass = "h-[85%] sm:h-[85%]";
-                    const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 max-w-[1240px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                    {/* Left Column */}
+                    <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
+                      {portfolioData.projects.filter((_, i) => i % 2 === 0).map((project: Project, idx: number) => {
+                        const originalIdx = portfolioData.projects.indexOf(project);
+                        const isInternal = project.link && project.link.startsWith("/");
+                        const isSemantic = project.description === "Semantic Email Copilot";
+                        const isOrca = project.title === "ORCA";
+                        const aspectClass = isSemantic ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const imageSizeClass = "h-[85%] sm:h-[85%]";
+                        const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
-                    return (
-                      <li
-                        key={idx}
-                        className="group flex flex-col py-1.5 cursor-dot transition-opacity"
-                        onClick={() => {
-                          if (isInternal && project.link) {
-                            playTone(880);
-                            window.location.href = project.link;
-                          } else {
-                            setSelectedProject(project);
-                          }
-                        }}
-                      >
-                        {project.banner && (
-                          <div 
-                            className={`w-full mb-3 overflow-hidden rounded-[8px] sm:rounded-[12px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
+                        return (
+                          <div
+                            key={originalIdx}
+                            className="group flex flex-col py-1.5 cursor-dot transition-opacity w-full"
+                            onClick={() => {
+                              if (isInternal && project.link) {
+                                playTone(880);
+                                window.location.href = project.link;
+                              } else {
+                                setSelectedProject(project);
+                              }
+                            }}
                           >
-                            <div 
-                              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                              style={{ backgroundColor: project.themeColor }}
-                            />
+                            {(project.banner || project.status === "Coming Soon") && (
+                              <div 
+                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
+                              >
+                                <div 
+                                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                                  style={{ backgroundColor: project.themeColor }}
+                                />
 
-                            
-                            {project.title === "ORCA" ? (
-                              <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[8px] sm:rounded-[12px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
-                                <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
+                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                                    <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
+                                      <img 
+                                        src={project.banner} 
+                                        alt={project.title} 
+                                        className="w-full h-auto object-cover"
+                                      />
+                                    </div>
+                                  </div>
+                                ) : project.banner?.match(/\.(mp4|webm|mov)$/i) ? (
+                                  <video 
+                                    src={project.banner} 
+                                    loop 
+                                    muted 
+                                    playsInline 
+                                    className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
+                                  />
+                                ) : project.banner ? (
                                   <img 
                                     src={project.banner} 
                                     alt={project.title} 
-                                    className="w-full h-auto object-cover"
+                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
                                   />
-                                </div>
-                              </div>
-                            ) : project.banner.match(/\.(mp4|webm|mov)$/i) ? (
-                              <video 
-                                src={project.banner} 
-                                loop 
-                                muted 
-                                playsInline 
-                                className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
-                              />
-                            ) : (
-                              <img 
-                                src={project.banner} 
-                                alt={project.title} 
-                                className="z-10 w-auto h-[80%] sm:h-[80%] object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%]"
-                              />
-                            )}
-                            {project.category && (
-                              <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
-                                {project.category.toLowerCase()}
+                                ) : null}
+                                {project.category && (
+                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
+                                    {project.category.toLowerCase()}
+                                  </div>
+                                )}
                               </div>
                             )}
+                            <div className="flex flex-col mt-2 px-1">
+                              <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+                                {project.title}
+                              </p>
+
+                            </div>
                           </div>
-                        )}
-                        <div className="flex flex-col mt-2 px-1">
-                          <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
-                            <span className="font-serif font-normal text-[26px] sm:text-[30px] text-black dark:text-white mr-1.5">{project.title},</span>
-                            {project.description}
-                          </p>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
+                        );
+                      })}
+                    </div>
+
+                    {/* Right Column */}
+                    <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
+                      {portfolioData.projects.filter((_, i) => i % 2 !== 0).map((project: Project, idx: number) => {
+                        const originalIdx = portfolioData.projects.indexOf(project);
+                        const isInternal = project.link && project.link.startsWith("/");
+                        const isSemantic = project.description === "Semantic Email Copilot";
+                        const isOrca = project.title === "ORCA";
+                        const aspectClass = isSemantic ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const imageSizeClass = "h-[85%] sm:h-[85%]";
+                        const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
+
+                        return (
+                          <div
+                            key={originalIdx}
+                            className="group flex flex-col py-1.5 cursor-dot transition-opacity w-full"
+                            onClick={() => {
+                              if (isInternal && project.link) {
+                                playTone(880);
+                                window.location.href = project.link;
+                              } else {
+                                setSelectedProject(project);
+                              }
+                            }}
+                          >
+                            {(project.banner || project.status === "Coming Soon") && (
+                              <div 
+                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
+                              >
+                                <div 
+                                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                                  style={{ backgroundColor: project.themeColor }}
+                                />
+
+                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                                    <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
+                                      <img 
+                                        src={project.banner} 
+                                        alt={project.title} 
+                                        className="w-full h-auto object-cover"
+                                      />
+                                    </div>
+                                  </div>
+                                ) : project.banner?.match(/\.(mp4|webm|mov)$/i) ? (
+                                  <video 
+                                    src={project.banner} 
+                                    loop 
+                                    muted 
+                                    playsInline 
+                                    className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
+                                  />
+                                ) : project.banner ? (
+                                  <img 
+                                    src={project.banner} 
+                                    alt={project.title} 
+                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
+                                  />
+                                ) : null}
+                                {project.category && (
+                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
+                                    {project.category.toLowerCase()}
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                            <div className="flex flex-col mt-2 px-1">
+                              <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+                                {project.title}
+                              </p>
+
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
               </section>
             )}
           </div>

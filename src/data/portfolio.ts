@@ -124,8 +124,8 @@ export const portfolioData: PortfolioData = {
   showcase: [],
   projects: [
     {
-      title: "ORCA",
-      description: "AI research assistant that turns complex marine science papers into clear, cited answers.",
+      title: "AI research assistant that turns complex marine science papers into clear, cited answers.",
+      description: "ORCA",
       year: "2026",
       link: "/orca",
       banner: "/orca1.svg",
@@ -136,8 +136,8 @@ export const portfolioData: PortfolioData = {
       themeColor: "#007FFF",
     },
     {
-      title: "Semantic Email Copilot",
-      description: "Context-aware email copilot synthesizing threads, prioritizing actionable items, and drafting smart replies.",
+      title: "Turning inbox chaos into structured tasks, deadlines, and context.",
+      description: "Semantic Email Copilot",
       year: "2026",
       link: "/semantic",
       tags: ["Figma", "UI/UX"],
@@ -145,6 +145,17 @@ export const portfolioData: PortfolioData = {
       status: "Concept",
       category: "Product Design",
       themeColor: "#6666FF",
+    },
+    {
+      title: "Engineering Intern @ Plue — coming soon.",
+      description: "Plue",
+      year: "2026",
+      link: "https://joinplue.com/",
+      tags: ["Engineering", "Design"],
+      status: "Coming Soon",
+      category: "Software Engineering",
+      themeColor: "#111111",
+      banner: "/plue.png",
     },
 
   ],
@@ -192,6 +203,19 @@ export const portfolioData: PortfolioData = {
       bullets: [
         "Designed and developed an interactive drag-and-drop interface for data visualization",
         "Implemented interactive CSV/JSON upload and preview interfaces for 10,000+ row datasets"
+      ]
+    },
+    {
+      id: "acm-vit",
+      company: "ACM VIT",
+      role: "CORE DESIGN MEMBER",
+      period: "2025",
+      color: "#0088FF",
+      glowColor: "transparent",
+      url: "https://acmvit.in/",
+      bullets: [
+        "Led design initiatives and crafted high-fidelity prototypes for chapter events and digital products",
+        "Collaborated with developers to ensure seamless translation of UI/UX designs into production"
       ]
     },
   ],
