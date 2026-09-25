@@ -429,12 +429,12 @@ export function PortfolioView({
               <>
 
                 <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-16 sm:mt-24 mb-12 sm:mb-14">
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12 max-w-[1280px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[1360px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
                     const isOrca = project.title === "ORCA";
-                    const aspectClass = isSemantic ? "aspect-[4/3] sm:aspect-[1/1.05]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                    const aspectClass = isSemantic ? "aspect-[3/4] sm:aspect-[1/1.4]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                     const imageSizeClass = "h-[85%] sm:h-[85%]";
                     const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
@@ -483,7 +483,7 @@ export function PortfolioView({
                               <img 
                                 src={project.banner} 
                                 alt={project.title} 
-                                className="z-10 w-auto h-[90%] sm:h-[88%] object-contain drop-shadow-lg transition-transform duration-700 ease-out"
+                                className="z-10 w-auto h-[80%] sm:h-[80%] object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%]"
                               />
                             )}
                             {project.category && (
@@ -518,12 +518,12 @@ export function PortfolioView({
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mb-12 sm:mb-14">
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12 max-w-[1280px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[1360px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
                     const isOrca = project.title === "ORCA";
-                    const aspectClass = isSemantic ? "aspect-[4/3] sm:aspect-[1/1.05]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                    const aspectClass = isSemantic ? "aspect-[3/4] sm:aspect-[1/1.4]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                     const imageSizeClass = "h-[85%] sm:h-[85%]";
                     const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
@@ -572,7 +572,7 @@ export function PortfolioView({
                               <img 
                                 src={project.banner} 
                                 alt={project.title} 
-                                className="z-10 w-auto h-[90%] sm:h-[88%] object-contain drop-shadow-lg transition-transform duration-700 ease-out"
+                                className="z-10 w-auto h-[80%] sm:h-[80%] object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%]"
                               />
                             )}
                             {project.category && (
