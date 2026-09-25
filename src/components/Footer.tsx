@@ -1,11 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Copy, Check } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
 export const Footer: React.FC = () => {
   const [isEmailCopied, setIsEmailCopied] = useState(false);
+  const [istTime, setIstTime] = useState("");
+
+  useEffect(() => {
+    const tick = () => {
+      setIstTime(
+        new Date().toLocaleTimeString("en-US", {
+          timeZone: "Asia/Kolkata",
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        })
+      );
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("pavendanpynthamil@gmail.com");
@@ -36,7 +53,13 @@ export const Footer: React.FC = () => {
         
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0 mt-2">
            <div>coding is an art and im an artist</div>
-           <div>made w love &copy; 2026</div>
+           <div className="flex items-center gap-3">
+             <span>made w love &copy; 2026</span>
+             <span className="w-1 h-1 rounded-full bg-[#CBD5E1] dark:bg-[#475569]" />
+             <span className="font-mono text-[13px] sm:text-[14px]">
+               {istTime} IST
+             </span>
+           </div>
         </div>
       </div>
     </footer>
