@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { Footer } from "@/components/Footer";
 import {
   Inbox,
   HelpCircle,
@@ -101,49 +102,39 @@ export default function ShelfProjectPage() {
   return (
     <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-24 selection:bg-orange-100 dark:selection:bg-orange-950">
       {/* Table of Contents Floating Sidebar */}
-      <ProjectSidebar sections={sidebarSections} playTone={playTone} />
-
       {/* Soft atmospheric ambient glow with warm orange tint */}
       <div className="ambient-glow" />
+
+      <div className="fixed left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 select-none hidden lg:block">
+        <ProjectSidebar sections={sidebarSections} playTone={playTone} />
+      </div>
+
 
       {/* Main Container */}
       <main className="w-full relative z-10 flex flex-col max-w-[640px] animate-in fade-in duration-200">
         {/* Top Navigation */}
-        <header className="flex items-center justify-between w-full mb-8">
-          <Link
-            href="/"
-            onClick={() => playTone(880)}
-            className="font-mono text-[15px] sm:text-[15.5px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#FF6B00] dark:hover:text-[#FFA048] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
-          >
-            <span>&larr;</span>
-            <span>home</span>
-          </Link>
-
-          <div className="flex items-center space-x-3.5">
-            <span className="font-mono text-xs sm:text-[13px] text-[#FF6B00] dark:text-[#FFA048] font-medium">
-              case study
-            </span>
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle dark mode"
-              className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#FF6B00] dark:hover:text-[#FFA048] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
-            >
-              {isDarkMode ? (
-                <Sun className="w-4 h-4 transition-transform duration-200 hover:rotate-45" strokeWidth={2} />
-              ) : (
-                <Moon className="w-4 h-4 transition-transform duration-200 hover:-rotate-12" strokeWidth={2} />
-              )}
-            </button>
-          </div>
-        </header>
+        
 
         {/* Article / Case Study Header */}
         <article className="space-y-6">
-          <div className="pb-2 space-y-3">
-            <h1 className="instrument-serif text-[48px] sm:text-[56px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
-              Shelf
+        {/* Project Header (Blog Style) */}
+        <div className="space-y-6 mb-12">
+          <div className="pb-5 text-center">
+            <h1 className="instrument-serif text-[42px] sm:text-[48px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+              shelf
             </h1>
-            <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+            
+          </div>
+
+          <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] bg-[#FFA134] rounded-xl mt-6 mb-4 overflow-hidden border border-neutral-200/50 dark:border-neutral-800/50">
+            <div className="w-full h-full flex items-center justify-center pt-12">
+              
+            </div>
+          </div>
+        </div>
+
+          <div className="pb-2 space-y-3">
+            <p className="font-sans font-semibold text-[24px] sm:text-[28px] text-[#111111] dark:text-[#F2F2F2] leading-[1.3] tracking-tight">
               Reimagining personal discovery and consumption for saved content.
             </p>
 
@@ -348,10 +339,7 @@ export default function ShelfProjectPage() {
         </div>
 
         {/* Standard Footer */}
-        <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-xs sm:text-[13px] text-[#64748B] dark:text-[#8E95B8]">
-          <div>coding is an art and im an artist</div>
-          <div>made w love &bull; &copy; 2026</div>
-        </footer>
+        <Footer />
       </main>
     </div>
   );

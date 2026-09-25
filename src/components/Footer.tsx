@@ -1,41 +1,43 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Copy, Check } from "lucide-react";
+import { portfolioData } from "@/data/portfolio";
 
 export const Footer: React.FC = () => {
-  const [time, setTime] = useState<string>("");
+  const [isEmailCopied, setIsEmailCopied] = useState(false);
 
-  useEffect(() => {
-    const updateClock = () => {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString("en-GB", {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      });
-      setTime(timeString);
-    };
-
-    updateClock();
-    const timer = setInterval(updateClock, 1000);
-    return () => clearInterval(timer);
-  }, []);
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("pavendanpynthamil@gmail.com");
+    setIsEmailCopied(true);
+    setTimeout(() => setIsEmailCopied(false), 2000);
+  };
 
   return (
-    <footer className="w-full pt-16 sm:pt-24 pb-10 flex items-center justify-between font-mono text-[11px] sm:text-xs text-neutral-800 tracking-wider">
-      {/* Location and Live Clock */}
-      <div className="flex items-center gap-2 font-medium">
-        <span className="uppercase">CHENNAI</span>
-        <span>&middot;</span>
-        <span>{time || "00:00:00"}</span>
-      </div>
-
-      {/* Language / Mode Switch */}
-      <div className="flex items-center gap-2 font-medium text-neutral-500">
-        <span className="text-neutral-900 font-semibold cursor-pointer">EN</span>
-        <span>&middot;</span>
-        <span className="hover:text-neutral-900 cursor-pointer transition-colors">TA</span>
+    <footer className="w-[100vw] relative left-1/2 -translate-x-1/2 pt-16 mt-auto flex flex-col items-center gap-5 font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] px-5 sm:px-8 md:px-12 pb-12">
+      <div className="w-full max-w-[1240px] flex flex-col items-start gap-5">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-4 sm:gap-0">
+          <button 
+             onClick={handleCopyEmail}
+             className="flex items-center justify-center space-x-2.5 px-4 sm:px-5 py-2 sm:py-2.5 bg-blue-50/80 dark:bg-blue-900/30 text-blue-700/90 dark:text-blue-300 text-[16px] sm:text-[18px] font-medium rounded-[6px] sm:rounded-[8px] hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none"
+          >
+             <span>{isEmailCopied ? "copied!" : "pavendanpynthamil@gmail.com"}</span>
+             {isEmailCopied ? <Check className="w-4 h-4 sm:w-[18px] sm:h-[18px]" /> : <Copy className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />}
+          </button>
+          
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-4 sm:mt-0">
+              {portfolioData.socialLinks.filter(l => l.label !== 'email' && l.label !== 'resume').map((link, idx) => (
+                  <a key={idx} href={link.href} target="_blank" rel="noopener noreferrer" className="font-mono text-[14px] sm:text-[15px] text-[#64748B] dark:text-[#8E95B8] hover:text-[#00B5B2] dark:hover:text-[#00B5B2] transition-colors lowercase">
+                      {link.label}
+                  </a>
+              ))}
+          </div>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0 mt-2">
+           <div>coding is an art and im an artist</div>
+           <div>made w love &copy; 2026</div>
+        </div>
       </div>
     </footer>
   );

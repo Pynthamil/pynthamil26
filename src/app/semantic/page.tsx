@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { Footer } from "@/components/Footer";
 import {
   Inbox,
   Search,
@@ -144,62 +145,47 @@ export default function SemanticProjectPage() {
   return (
     <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-24 selection:bg-indigo-100 dark:selection:bg-indigo-950">
       {/* Table of Contents Floating Sidebar */}
-      <ProjectSidebar sections={sidebarSections} playTone={playTone} />
-
       {/* Soft atmospheric ambient glow */}
       <div className="ambient-glow" />
 
-      {/* Main Container */}
-      <main className="w-full relative z-10 flex flex-col max-w-[896px] animate-in fade-in duration-200">
-                <header className="flex items-center justify-between w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mb-8">
-          <Link
-            href="/"
-            onClick={() => playTone(880)}
-            className="font-mono text-[15px] sm:text-[15.5px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
-          >
-            <span>&larr;</span>
-            <span>home</span>
-          </Link>
+      <div className="fixed left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 select-none hidden lg:block">
+        <ProjectSidebar sections={sidebarSections} playTone={playTone} />
+      </div>
 
-          <div className="flex items-center space-x-3.5">
-            <a
-              href="https://www.figma.com/design/jFmjS9SneDaQNfBDHSOepV/mote?node-id=1-3&t=u4M4Lf67dlZ5hgzu-1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-xl border border-[#6666FF] dark:border-[#8888FF] bg-[#6666FF]/[0.05] dark:bg-[#8888FF]/[0.08] hover:bg-[#6666FF]/[0.1] dark:hover:bg-[#8888FF]/[0.15] cursor-pointer group select-none transition-colors"
-              title="View Design in Figma"
-            >
-              <span className="font-mono text-xs sm:text-[13px] text-[#6666FF] dark:text-[#8888FF] font-medium tracking-tight">
-                figma
-              </span>
-              <div className="text-[#6666FF] dark:text-[#8888FF] flex items-center opacity-75 group-hover:opacity-100 transition-opacity">
-                <Figma className="w-3.5 h-3.5" strokeWidth={2.5} />
-              </div>
-            </a>
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle dark mode"
-              className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#6666FF] dark:hover:text-[#8888FF] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
-            >
-              {isDarkMode ? (
-                <Sun className="w-4 h-4 transition-transform duration-200 hover:rotate-45" strokeWidth={2} />
-              ) : (
-                <Moon className="w-4 h-4 transition-transform duration-200 hover:-rotate-12" strokeWidth={2} />
-              )}
-            </button>
-          </div>
-        </header>
+
+      {/* Main Container */}
+      <main className="w-full relative z-10 flex flex-col max-w-[640px] animate-in fade-in duration-200">
+                
 
         {/* Top Navigation */}
 
         {/* Article / Case Study Header */}
         <article className="space-y-6">
-          <div className="pb-2 space-y-3">
-              <p className="font-sans font-semibold text-[48px] sm:text-[60px] text-[#111111] dark:text-[#F2F2F2] leading-[1.1] tracking-tight">
-                Turning inbox chaos into structured tasks, deadlines, and context.
-              </p>
+        {/* Project Header (Blog Style) */}
+        <div className="space-y-6 mb-12">
+          <div className="pb-5 text-center">
+            <h1 className="instrument-serif text-[36px] sm:text-[42px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2] max-w-[800px] mx-auto">
+              Turning inbox chaos into structured tasks, deadlines, and context.
+            </h1>
+            
           </div>
+        </div>
 
+            <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] my-8 flex items-center justify-center px-0">
+              <div  className="w-full p-8 sm:p-12 md:p-16 rounded-2xl overflow-hidden flex items-center justify-center bg-[#F5F5F7] dark:bg-[#13151E]">
+                <div className="w-full overflow-hidden flex items-center justify-center">
+                  <img
+                    src="/semantic1.svg"
+                    alt="Semantic Email Copilot Banner"
+                    className="w-auto h-[60vh] sm:h-[75vh] max-h-[850px] object-contain block select-none bg-transparent my-4 mx-auto"
+                  />
+                </div>
+              </div>
+            </div>
+
+          <div className="pb-2 space-y-3">
+
+          </div>
 
           {/* 4-Column Metadata Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4 pb-12">
@@ -236,18 +222,6 @@ export default function SemanticProjectPage() {
                 </span>
               </div>
             </div>
-            
-            <div  className="w-[100vw] sm:w-[1200px] max-w-[100vw] relative left-1/2 -translate-x-1/2 my-10 flex items-center justify-center px-4 sm:px-0">
-              <div  className="w-full p-8 sm:p-12 md:p-16 rounded-2xl overflow-hidden flex items-center justify-center bg-[#F5F5F7] dark:bg-[#13151E]">
-                <div className="w-full overflow-hidden flex items-center justify-center">
-                  <img
-                    src="/semantic1.svg"
-                    alt="Semantic Email Copilot Banner"
-                    className="w-auto h-[60vh] sm:h-[75vh] max-h-[850px] object-contain block select-none bg-transparent my-4 mx-auto"
-                  />
-                </div>
-              </div>
-            </div>
 
           {/* Case Study Content */}
           <div className="space-y-8 text-[18px] sm:text-[20px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
@@ -257,7 +231,7 @@ export default function SemanticProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   OVERVIEW
                 </span>
-                <p className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <p className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Our inboxes store information, but fail to turn it into meaningful action.
                 </p>
               </div>
@@ -296,7 +270,7 @@ export default function SemanticProjectPage() {
                   <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                     THE PROBLEM
                   </span>
-                  <p className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                  <p className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                     Email is full of tasks, deadlines, and commitments, but inboxes bury them in clutter, making it <span className="bg-[#6666FF]/15 dark:bg-[#8888FF]/20 px-1">easy to lose track of what matters.</span>
                   </p>
                 </div>
@@ -309,7 +283,7 @@ export default function SemanticProjectPage() {
                     {painPoints.map((item, idx) => (
                       <div
                         key={idx}
-                        className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#8888FF]/20 rounded-xl p-6 sm:p-8 flex flex-col items-center justify-center text-center space-y-4 transition-all hover:border-[#6666FF] dark:hover:border-[#8888FF] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                        className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#8888FF]/20 rounded-xl aspect-square p-4 sm:p-5 flex flex-col items-center justify-center text-center space-y-3 transition-all hover:border-[#6666FF] dark:hover:border-[#8888FF] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
                       >
                         <div className="p-2 sm:p-3 rounded-xl bg-neutral-50 dark:bg-[#6666FF]/10 flex items-center justify-center">
                           {item.icon}
@@ -317,9 +291,7 @@ export default function SemanticProjectPage() {
                         <span className="font-mono text-[12px] sm:text-[13px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                           {item.title}
                         </span>
-                        <span className="text-[14px] sm:text-[15px] text-[#475569] dark:text-[#CBD5E1] leading-snug max-w-[180px]">
-                          {item.desc}
-                        </span>
+                        
                       </div>
                     ))}
                   </div>
@@ -328,7 +300,7 @@ export default function SemanticProjectPage() {
 
               {/* How Might We Callout Box */}
               <div className="pt-8 pb-4">
-              <div className="w-[100vw] sm:w-[1024px] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-6 py-10 sm:px-10 sm:py-16 rounded-[16px] sm:rounded-[24px] bg-[#E6E6FF] dark:bg-[#8888FF]/[0.1] flex flex-row items-center text-left gap-4 sm:gap-5 overflow-hidden">
+              <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-6 py-10 sm:px-10 sm:py-16 rounded-[16px] sm:rounded-[24px] bg-[#E6E6FF] dark:bg-[#8888FF]/[0.1] flex flex-row items-center text-left gap-4 sm:gap-5 overflow-hidden">
                 <img src="/laptop.svg" alt="Laptop" className="w-28 h-28 sm:w-40 sm:h-40 object-contain shrink-0" />
                 <p className="text-[20px] sm:text-[26px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug z-10">
                   How might we transform email from an overwhelming backlog into an intelligent copilot that turns incoming communication into actionable clarity?
@@ -343,7 +315,7 @@ export default function SemanticProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   RESEARCH &amp; DISCOVERY
                 </span>
-                <h2 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   Understanding high-volume inbox workflows
                 </h2>
                 <p className="text-[18px] sm:text-[20px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
@@ -364,7 +336,7 @@ export default function SemanticProjectPage() {
                   <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                     THE SOLUTION
                   </span>
-                  <h2 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                  <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                     Designing an intelligence layer that turns unstructured email into clear, actionable context
                   </h2>
 
@@ -396,13 +368,13 @@ export default function SemanticProjectPage() {
                 </div>
 
                 <div className="pt-8 sm:pt-12 pb-0 sm:pb-4 relative z-10">
-                  <h3 className="text-[36px] sm:text-[44px] leading-tight sm:leading-[1.15] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  <h3 className="text-[28px] sm:text-[32px] leading-tight sm:leading-[1.15] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
                     Turning everyday emails into clear actions, from <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">quick requests to time-sensitive commitments</span>
                   </h3>
                 </div>
 
                 {/* Demo Video 1 */}
-                <div className="pt-6 pb-2 relative left-1/2 -translate-x-1/2 w-[100vw] sm:w-[700px] max-w-[100vw] px-4 sm:px-0">
+                <div className="pt-6 pb-2 w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-4 sm:px-0">
                   <div className="w-full flex justify-center">
                     <ChromaVideo src="/semantic/demo1.mov" className="w-full" />
                   </div>
@@ -415,7 +387,7 @@ export default function SemanticProjectPage() {
               {/* Sub-solution 2: Everyday Situations */}
               <div className="pt-0">
                 {/* Demo Video 2 */}
-                <div className="pt-2 pb-6 relative left-1/2 -translate-x-1/2 w-[100vw] sm:w-[700px] max-w-[100vw] px-4 sm:px-0">
+                <div className="pt-2 pb-6 w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-4 sm:px-0">
                   <div className="w-full flex justify-center">
                     <ChromaVideo src="/semantic/demo2.mov" className="w-full" />
                   </div>
@@ -428,13 +400,13 @@ export default function SemanticProjectPage() {
               {/* Sub-solution 3: Context Mapping */}
               <div className="pt-4 space-y-4">
                 <div className="space-y-1">
-                  <h3 className="text-[36px] sm:text-[44px] leading-tight sm:leading-[1.15] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  <h3 className="text-[28px] sm:text-[32px] leading-tight sm:leading-[1.15] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
                     When your brain goes blank, <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">the context is already understood—and your response is one click away.</span>
                   </h3>
                 </div>
 
                 {/* Demo Video 3 */}
-                <div className="py-6 my-4 relative left-1/2 -translate-x-1/2 w-[100vw] sm:w-[700px] max-w-[100vw] px-4 sm:px-0">
+                <div className="py-6 my-4 w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-4 sm:px-0">
                   <div className="w-full flex justify-center">
                     <ChromaVideo src="/semantic/demo3.mov" className="w-full" />
                   </div>
@@ -459,10 +431,9 @@ export default function SemanticProjectPage() {
               </div>
 
               {/* Interactive Accordion Layout */}
-              <div className="w-[100vw] sm:w-[1200px] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-0 pt-8">
-                <div className="w-full bg-[#F5F5F7] dark:bg-[#13151A] rounded-[24px] sm:rounded-[40px] px-8 py-8 sm:px-16 sm:py-12 flex flex-col md:flex-row gap-10 sm:gap-16 items-center">
+              <div className="my-8 flex flex-col md:flex-row gap-10 sm:gap-12 items-start justify-between">
                   {/* Left: Accordion */}
-                  <div className="w-full md:w-[35%] flex flex-col justify-center shrink-0">
+                  <div className="w-full md:w-[45%] flex flex-col justify-start shrink-0 pt-2">
                     <div className="space-y-0">
                       {processSteps.map((step, idx) => (
                         <div key={idx} className={`border-t border-neutral-200 dark:border-neutral-800 ${idx === 0 ? 'border-t-0' : ''}`}>
@@ -494,7 +465,7 @@ export default function SemanticProjectPage() {
                       <div className="absolute inset-0 flex items-center justify-center animate-in fade-in zoom-in-95 duration-500" key={activeProcess}>
                           {activeProcess === 0 ? (
                             <div className="w-full h-full p-2 sm:p-4 flex items-center justify-center">
-                              <img src="/q1.svg" alt="Questions" className="w-full max-h-full object-contain" />
+                              <img src="/q1.svg" alt="Questions" className="w-full h-full object-contain scale-110 sm:scale-[1.35] origin-center" />
                             </div>
                           ) : activeProcess === 2 ? (
                             <div className="w-full h-full p-2 flex flex-col items-center justify-center gap-6">
@@ -523,7 +494,6 @@ export default function SemanticProjectPage() {
                   </div>
                 </div>
               </div>
-            </div>
 
 
             {/* Takeaways Section */}
@@ -532,13 +502,13 @@ export default function SemanticProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   TAKEAWAYS
                 </span>
-                <h2 className="text-[36px] sm:text-[44px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                   AI should turn complexity into something you can confidently act on.
                 </h2>
               </div>
 
               {/* 2-Column Takeaways Cards */}
-              <div className="relative left-1/2 -translate-x-1/2 w-[100vw] sm:w-[896px] max-w-[100vw] px-4 sm:px-0 pt-4">
+              <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-4 sm:px-0 pt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {/* Card 1 */}
                   <div className="relative w-full h-full p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-[#E6E6FF] dark:bg-[#8888FF]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
@@ -605,10 +575,7 @@ export default function SemanticProjectPage() {
         </div>
 
         {/* Standard Footer */}
-        <footer className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 font-mono text-xs sm:text-[13px] text-[#64748B] dark:text-[#8E95B8]">
-          <div>coding is an art and im an artist</div>
-          <div>made w love &bull; &copy; 2026</div>
-        </footer>
+        <Footer />
       </main>
     </div>
   );

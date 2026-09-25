@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { HookSidebar } from "@/components/ui/hook-sidebar";
 import { useParams } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
 import { Moon, Sun, Play, Link as LinkIcon, PieChart } from "lucide-react";
@@ -203,22 +204,19 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
         </div>
         {/* Table of Contents Sidebar */}
 <aside className="hidden lg:block lg:col-start-1 lg:row-start-2 sticky top-24 self-start animate-in fade-in duration-200 pt-2 justify-self-end pr-8 xl:pr-12 w-full max-w-[260px]">
-          <nav className="flex flex-col space-y-3.5 pr-4">
-            {headings.map((h, idx) => (
-              <a 
-                key={h.id} 
-                href={`#${h.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth' });
-                  setActiveId(h.id);
-                }}
-                className={`text-[13.5px] sm:text-[14px] leading-[1.5] transition-colors block ${activeId === h.id || (idx === 0 && activeId === '') ? 'font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]' : 'text-[#737373] dark:text-[#a3a3a3] hover:text-[#2C2C2C] dark:hover:text-[#F2F2F2]'}`}
-              >
-                {h.text}
-              </a>
-            ))}
-          </nav>
+          <HookSidebar 
+            items={headings.map(h => h.text)}
+            value={headings.findIndex(h => h.id === activeId) !== -1 ? headings.findIndex(h => h.id === activeId) : 0}
+            onChange={(index) => {
+               const h = headings[index];
+               if(h) {
+                 document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth' });
+                 setActiveId(h.id);
+               }
+            }}
+            color="#FC4C01"
+            dashed={true}
+          />
         </aside>
 
         {/* Article Text Content */}

@@ -3,8 +3,10 @@
 import React, { useState, useEffect } from "react";
 import { portfolioData, Project, Post } from "@/data/portfolio";
 import { Modal } from "@/components/Modal";
+import { GitHubActivity } from "@/components/ui/github-activity";
 import { ProjectSidebar } from "./ProjectSidebar";
-import { Moon, Sun, Copy, Check, X, Clock } from "lucide-react";
+import { Footer } from "./Footer";
+import { Moon, Sun, Copy, Check, X, Clock, Menu, Mail } from "lucide-react";
 
 export function PortfolioView({
   initialViewMode = "home",
@@ -103,6 +105,7 @@ export function PortfolioView({
   const [currentTime, setCurrentTime] = useState<string>("");
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isNameHovered, setIsNameHovered] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [blogSearchQuery, setBlogSearchQuery] = useState("");
 
   // Sync theme with localStorage or system preference
@@ -240,8 +243,8 @@ export function PortfolioView({
           </button>
 
           {/* Right: Nav Links & Tools */}
-          <div className="flex items-center gap-4 sm:gap-6 -mr-1 sm:-mr-2">
-            <nav className="flex items-center space-x-4 sm:space-x-6 text-[16px] sm:text-[18px] font-medium pt-0.5">
+          <div className="flex items-center justify-end gap-4 sm:gap-6 -mr-1 sm:-mr-2">
+            <nav className="hidden sm:flex items-center space-x-6 text-[18px] font-medium pt-0.5">
               <button
                 onClick={() => handleNavClick("projects")}
                 className={`transition-colors cursor-pointer select-none ${
@@ -274,13 +277,39 @@ export function PortfolioView({
               </button>
             </nav>
 
-            <div className="flex items-center gap-3">
-
-
-
-            </div>
+            {/* Mobile Menu Toggle */}
+            <button 
+              className="sm:hidden p-1.5 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-[18px] h-[18px]" /> : <Menu className="w-[18px] h-[18px]" />}
+            </button>
           </div>
         </header>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="sm:hidden absolute top-[70px] right-0 left-0 mx-auto w-[92%] max-w-[400px] bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-lg border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-3 z-40 animate-in slide-in-from-top-4 fade-in duration-200">
+            <button
+              onClick={() => { handleNavClick("projects"); setIsMobileMenuOpen(false); }}
+              className={`text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+            >
+              Projects
+            </button>
+            <button
+              onClick={() => { handleNavClick("about"); setIsMobileMenuOpen(false); }}
+              className={`text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+            >
+              About
+            </button>
+            <button
+              onClick={() => { handleNavClick("blog"); setIsMobileMenuOpen(false); }}
+              className={`text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+            >
+              Blog
+            </button>
+          </div>
+        )}
 
         <main className="w-full relative z-10 flex flex-col max-w-[640px]">
           {/* Top Header Row */}
@@ -291,12 +320,16 @@ export function PortfolioView({
             ======================================================== */}
         {viewMode === "home" && (
           <div className="flex flex-col animate-in fade-in duration-200">
-            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12">
-              <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-10 md:gap-16 w-full max-w-[1100px] mx-auto">
+            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-32 sm:mt-44 md:mt-52">
+              <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-10 md:gap-16 w-full max-w-[1240px] mx-auto">
               {/* Bio Copy & Status Section */}
               <section className="flex flex-col h-full justify-between mb-12 sm:mb-0 space-y-8 sm:space-y-0">
-              <div>
-              <h1 className="text-[24px] sm:text-[28px] text-[#2C2C2C] dark:text-[#F2F2F2] font-medium leading-[1.35] tracking-tight">
+              <div className="relative">
+              <div className="absolute -top-[52px] sm:-top-[60px] left-0 inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-blue-50/80 dark:bg-blue-900/30 text-blue-700/90 dark:text-blue-300 text-[14px] sm:text-[15px] font-medium rounded-[6px] sm:rounded-[8px] tracking-wide whitespace-nowrap">
+                <Mail className="w-[14px] h-[14px] shrink-0" />
+                open for summer 2027 roles
+              </div>
+              <h1 className="font-sans font-medium text-[24px] sm:text-[28px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.35] tracking-tight">
                 hey! i'm {portfolioData.name.toLowerCase()} [pyndu], and i build things and figure out why people should care.
               </h1>
               
@@ -428,8 +461,8 @@ export function PortfolioView({
             {portfolioData.projects.length > 0 && (
               <>
 
-                <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-16 sm:mt-24 mb-12 sm:mb-14">
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[1360px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-8 sm:mt-12 mb-12 sm:mb-14">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[1240px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
@@ -462,7 +495,7 @@ export function PortfolioView({
 
                             
                             {project.title === "ORCA" ? (
-                              <div className={`z-10 w-[92%] sm:w-[88%] overflow-hidden rounded-[8px] sm:rounded-[12px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                              <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[8px] sm:rounded-[12px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                 <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                   <img 
                                     src={project.banner} 
@@ -518,7 +551,7 @@ export function PortfolioView({
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mb-12 sm:mb-14">
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[1360px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[1240px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {portfolioData.projects.map((project: Project, idx: number) => {
                     const isInternal = project.link && project.link.startsWith("/");
                     const isSemantic = project.title === "Semantic Email Copilot";
@@ -551,7 +584,7 @@ export function PortfolioView({
 
                             
                             {project.title === "ORCA" ? (
-                              <div className={`z-10 w-[92%] sm:w-[88%] overflow-hidden rounded-[8px] sm:rounded-[12px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                              <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[8px] sm:rounded-[12px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                 <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                   <img 
                                     src={project.banner} 
@@ -601,12 +634,27 @@ export function PortfolioView({
             VIEW 2: ABOUT VIEW
            ======================================================== */}
         {viewMode === "about" && (
-          <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200">
-            <div className="flex flex-col space-y-6 sm:space-y-7 w-full max-w-[1100px] mx-auto items-center">
-              <div className="w-full max-w-[640px] flex flex-col space-y-6 sm:space-y-7">
-            {/* Experience Section - first in About */}
+          <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200 mt-10 sm:mt-16">
+            <div className="flex flex-col w-full max-w-[640px] mx-auto items-start text-left">
+              
+              <img 
+                src="/photo-dump/20250622_124021.jpg" 
+                alt="Pynthamil" 
+                className="w-full max-w-[500px] sm:max-w-[640px] aspect-[3/2] object-cover rounded-md mb-8 mx-auto self-center"
+              />
+
+              <h1 className="instrument-serif text-[36px] sm:text-[44px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.1] tracking-tight mb-6 w-full text-left">
+                hey! i'm pynthamil pavendan
+              </h1>
+              
+              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#94A3B8] leading-relaxed font-sans mb-12 w-full text-left">
+                I'm a student developer, but mostly I'm just a very curious human who loves figuring out how things work. When I'm not at my keyboard, I'm probably listening to music, reading a good book, or trying not to take life too seriously.
+              </p>
+
+              <div className="w-full flex flex-col text-left">
+                {/* Experience Section - first in About */}
             <section id="experience" className="w-full scroll-mt-24">
-              <h2 className="instrument-serif text-[24px] sm:text-[26px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-1">
+              <h2 className="instrument-serif text-[36px] sm:text-[44px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-2 leading-none">
                 experience
               </h2>
               <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 mb-5 flex items-center space-x-1.5">
@@ -647,310 +695,67 @@ export function PortfolioView({
               </ul>
             </section>
 
+                <div id="fun-facts" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 mt-6 scroll-mt-24">
+                  <div className="flex items-center justify-between py-1.5">
+                    <div>
+                      <h2 className="instrument-serif text-[36px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
+                        fun facts & when i touch grass
+                      </h2>
+                      <p className="font-mono text-[15px] sm:text-[16px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
+                        <span className="select-none">└</span>
+                        <span>learning, exploring, and living</span>
+                      </p>
+                    </div>
+                  </div>
 
-            {/* Meet The Human Dropdown Accordion */}
-            <div id="meet-the-human" className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5 scroll-mt-24">
+                  <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
+                    <div className="flex items-start space-x-2.5">
+                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span>music taste: a bit of everything &rarr; if it sounds good, I'm listening</span>
+                    </div>
+                    <div className="flex items-start space-x-2.5">
+                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span>I love reading books, watching movies, writing, and drawing</span>
+                    </div>
+                    <div className="flex items-start space-x-2.5">
+                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span>personality type: INTJ</span>
+                    </div>
+                    <div className="flex items-start space-x-2.5">
+                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span>I love chess and enjoy challenging myself just for the plot</span>
+                    </div>
+                    <div className="flex items-start space-x-2.5">
+                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span>I don't believe the saying "curiosity kills the cat" &mdash; haha</span>
+                    </div>
+                  </div>
+                </div>
+
+                                <div id="github-activity" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 scroll-mt-24">
+                  <div className="flex items-center justify-between py-1.5">
+                    <div>
+                      <h2 className="instrument-serif text-[36px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
+                        code activity
+                      </h2>
+                      <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
+                        <span className="select-none">└</span>
+                        <span>what i've been building</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-8">
+                    <GitHubActivity username="Pynthamil" />
+                  </div>
+                </div>
+
+                <div id="come-say-hi" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 scroll-mt-24">
               <div
                 
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
-                    meet the human
-                  </h2>
-                  <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
-                    <span className="select-none">└</span>
-                    <span>because a portfolio needs a personality</span>
-                  </p>
-                </div>
-                
-              </div>
-
-              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>My name is <span className="text-[#2C2C2C] dark:text-[#F2F2F2] instrument-serif text-[20px] sm:text-[21px] underline decoration-wavy decoration-[#00B5B2] underline-offset-4 cursor-default">Pynthamil Pavendan</span>!</span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      I&apos;m a student developer who enjoys turning ideas into things people can actually use
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>I like building interfaces that feel simple, fast, and intentional</span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      I spend most of my time working with modern web technologies, experimenting with interaction design, and refining the small details that make products feel polished
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      I&apos;m especially interested in how design and engineering come together to create experiences that feel effortless
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      Currently focused on building projects that are useful, visually clean, and quietly memorable
-                    </span>
-                  </div>
-                </div>
-
-                {/* Photo Dump Carousel */}
-                <div className="w-full mt-6 pb-2 overflow-x-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                  <div className="flex gap-4 min-w-max px-1">
-                    {[
-                      "20250622_124021.jpg",
-                      "IMG-20250615-WA0139.jpg",
-                      "IMG-20250629-WA0260.jpg",
-                      "IMG_2939.jpeg",
-                      "IMG_4564.JPG"
-                    ].map((photo, i) => (
-                      <div key={i} className="flex-none bg-white dark:bg-white p-3.5 shadow-md border border-neutral-200 dark:border-neutral-300 rounded-sm w-[300px] h-[380px]">
-                        <div className="w-full h-full bg-neutral-200 overflow-hidden">
-                          <img
-                            src={`/photo-dump/${photo}`}
-                            alt={`Photodump ${i + 1}`}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-            </div>
-
-            {/* Come Say Hi Dropdown Accordion */}
-            <div id="stack" className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5 scroll-mt-24">
-              <div className="flex items-center justify-between py-1.5">
-                <div>
-                  <h2 className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
-                    stack
-                  </h2>
-                  <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
-                    <span className="select-none">└</span>
-                    <span>tools of the trade</span>
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-4 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans">
-                <div className="flex items-start space-x-2.5">
-                  <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                  <span>Next.js  Supabase  Python  Figma  Antigravity</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Fun Facts About Me Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
-              <div
-                
-                className="flex items-center justify-between py-1.5"
-              >
-                <div>
-                  <h2 id="currently-learning" className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
-                    what i am currently learning
-                  </h2>
-                  <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
-                    <span className="select-none">└</span>
-                    <span>learning, unlearning, relearning</span>
-                  </p>
-                </div>
-                
-              </div>
-
-              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      currently learning how to make things feel simple without making them boring
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      exploring better ways to structure code, design cleaner interfaces, and build products that feel intentional from the first click
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      trying to understand why some digital experiences feel effortless while others feel confusing, even when they do the same thing
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      also learning to be okay with not knowing everything yet and building anyway
-                    </span>
-                  </div>
-                </div>
-            </div>
-
-            {/* What I Am Currently Learning Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
-              <div
-                
-                className="flex items-center justify-between py-1.5"
-              >
-                <div>
-                  <h2 id="fun-facts" className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
-                    fun facts about me
-                  </h2>
-                  <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
-                    <span className="select-none">└</span>
-                    <span>the lore drops</span>
-                  </p>
-                </div>
-                
-              </div>
-
-              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      music taste: a bit of everything &rarr; if it sounds good, I&apos;m listening
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      I love singing and dancing like nobody&apos;s watching (because usually nobody is)
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      introvert... who also loves to yap when the topic is interesting
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>personality type: INTJ</span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>I enjoy challenging myself just for the plot</span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>I love chess</span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>most of my illustrations are inspired by Headspace</span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      currently in my final year of college &mdash; slightly terrifying &amp; slightly exciting
-                    </span>
-                  </div>
-                </div>
-            </div>
-
-            {/* When I Touch Grass Dropdown Accordion */}
-            <div className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5">
-              <div
-                
-                className="flex items-center justify-between py-1.5"
-              >
-                <div>
-                  <h2 id="touching-grass" className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1 scroll-mt-24">
-                    when i touch grass
-                  </h2>
-                  <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
-                    <span className="select-none">└</span>
-                    <span>rare but documented</span>
-                  </p>
-                </div>
-                
-              </div>
-
-              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      I love reading books, watching movies, writing, and drawing
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      I&apos;m very curious so I love to constantly explore new things
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      I don&apos;t believe the saying <span className="hover:underline hover:decoration-wavy underline-offset-4 cursor-default">&quot;curiosity kills the cat&quot;</span> &mdash; haha
-                    </span>
-                  </div>
-                </div>
-            </div>
-
-            {/* About My Blog Dropdown Accordion */}
-            <div id="about-my-blog" className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5 scroll-mt-24">
-              <div
-                
-                className="flex items-center justify-between py-1.5"
-              >
-                <div>
-                  <h2 className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
-                    about my blog
-                  </h2>
-                  <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
-                    <span className="select-none">└</span>
-                    <span>my brain leaving sticky notes for itself</span>
-                  </p>
-                </div>
-                
-              </div>
-
-              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      I write about things I&apos;m learning, things I&apos;m building, and things I randomly become obsessed with at 2:17 am
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      sometimes it&apos;s about tech, sometimes design, sometimes a thought that refuses to leave me alone until I write it down
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      it&apos;s less &quot;expert advice&quot; and more &quot;let me see if this idea makes sense outside my head&quot;
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      mostly curiosity. occasionally clarity. always slightly unhinged but in a productive way
-                    </span>
-                  </div>
-                </div>
-            </div>
-
-
-
-            {/* Stack Row */}
-            <div id="come-say-hi" className="border-b border-neutral-200/70 dark:border-neutral-400/20 pb-5 scroll-mt-24">
-              <div
-                
-                className="flex items-center justify-between py-1.5"
-              >
-                <div>
-                  <h2 className="instrument-serif text-[24px] sm:text-[28px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-1">
+                  <h2 className="instrument-serif text-[36px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
                     come say hi
                   </h2>
                   <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
@@ -1023,34 +828,30 @@ export function PortfolioView({
                   </div>
                 </div>
             </div>
-
-
+              </div>
             </div>
-            </div>
-            <ProjectSidebar 
+            <div className="fixed left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 select-none hidden lg:block"><ProjectSidebar alwaysVisible={true}
               sections={[
                 { id: "experience", label: "Experience" },
-                { id: "meet-the-human", label: "Meet The Human" },
-                { id: "stack", label: "Stack" },
-                { id: "currently-learning", label: "What I Am Currently Learning" },
-                { id: "fun-facts", label: "Fun Facts" },
-                { id: "touching-grass", label: "When I Touch Grass" },
-                { id: "about-my-blog", label: "About My Blog" }
+                { id: "fun-facts", label: "Fun Facts & Grass" },
+                { id: "github-activity", label: "Code Activity" },
+                { id: "come-say-hi", label: "Come Say Hi" }
               ]} 
               playTone={soundOn ? playClickSound : undefined}
             />
+            </div>
           </div>
         )}
 
-        {/* ========================================================
+{/* ========================================================
             VIEW 3: BLOG VIEW
            ======================================================== */}
         {viewMode === "blog" && (
           <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200">
             <div className="flex flex-col space-y-7 w-full max-w-[1100px] mx-auto">
             {/* Blog Search */}
-            <div className="flex justify-end w-full">
-              <div className="relative w-full sm:w-64">
+            <div className="flex justify-center w-full mt-4 mb-4">
+              <div className="relative w-full sm:w-[480px]">
                 <svg 
                   className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748B] dark:text-[#94A3B8]" 
                   fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
@@ -1105,22 +906,7 @@ export function PortfolioView({
 
 
         {/* Unified Footer for all views */}
-        <footer className="w-[100vw] relative left-1/2 -translate-x-1/2 pt-16 mt-auto flex flex-col items-center gap-5 font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] px-5 sm:px-8 md:px-12">
-          <div className="w-full max-w-[1100px] flex flex-col items-start gap-5">
-            <button 
-               onClick={handleCopyEmail}
-               className="flex items-center justify-center space-x-2.5 px-4 sm:px-5 py-2 sm:py-2.5 bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 text-[16px] sm:text-[18px] font-medium rounded-[6px] sm:rounded-[8px] hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none"
-            >
-               <span>{isEmailCopied ? "copied!" : "pavendanpynthamil@gmail.com"}</span>
-               {isEmailCopied ? <Check className="w-4 h-4 sm:w-[18px] sm:h-[18px]" /> : <Copy className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />}
-            </button>
-            
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0">
-               <div>coding is an art and im an artist</div>
-               <div>made w love &copy; 2026</div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </main>
 
       {/* Detail Modals */}
