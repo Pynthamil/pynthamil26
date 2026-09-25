@@ -1120,7 +1120,7 @@ export function PortfolioView({
             </div>
 
             {/* Blog Posts Clean Architecture */}
-            <section>
+            <section className="-mx-4 sm:-mx-8 w-[calc(100%+32px)] sm:w-[calc(100%+64px)]">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-6">
                 {portfolioData.writings.filter(post => post.title.toLowerCase().includes(blogSearchQuery.toLowerCase())).map((post, idx) => (
                   <div key={idx} className="flex flex-col h-full">
@@ -1130,13 +1130,13 @@ export function PortfolioView({
                       className="group select-none cursor-pointer flex flex-col h-full gap-3"
                     >
                       {post.image ? (
-                        <div className="w-full aspect-[16/10] rounded-md overflow-hidden relative">
+                        <div className="w-full aspect-[3/2] rounded-md overflow-hidden relative">
                           <img src={post.image} alt={post.title} className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
                         </div>
                       ) : (
-                        <div className="w-full aspect-[16/10] rounded-md overflow-hidden relative bg-neutral-100 dark:bg-neutral-800 transition-transform duration-300 group-hover:scale-105" />
+                        <div className="w-full aspect-[3/2] rounded-md overflow-hidden relative bg-neutral-100 dark:bg-neutral-800 transition-transform duration-300 group-hover:scale-105" />
                       )}
-                      <div className="space-y-2 flex flex-col flex-1">
+                      <div className="space-y-2 flex flex-col flex-1 px-1 sm:px-3 pt-1">
                         <h2 className="text-[18px] sm:text-[19.5px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
                           {post.title}
                         </h2>
