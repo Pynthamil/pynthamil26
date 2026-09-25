@@ -214,9 +214,7 @@ export const portfolioData: PortfolioData = {
       glowColor: "transparent",
       url: "https://acmvit.in/",
       bullets: [
-        "Designed 12+ digital campaign posts for the InspiHer women-in-STEM initiative",
-        "Led design initiatives and crafted high-fidelity prototypes for chapter events and digital products",
-        "Collaborated with developers to ensure seamless translation of UI/UX designs into production"
+        "Designed 12+ digital campaign posts for the InspiHer women-in-STEM initiative"
       ]
     },
   ],
