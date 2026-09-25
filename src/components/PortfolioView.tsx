@@ -483,6 +483,9 @@ export function PortfolioView({
                               if (isInternal && project.link) {
                                 playTone(880);
                                 window.location.href = project.link;
+                              } else if (!isInternal && project.link) {
+                                playTone(880);
+                                window.open(project.link, "_blank", "noopener,noreferrer");
                               } else {
                                 setSelectedProject(project);
                               }
@@ -559,6 +562,9 @@ export function PortfolioView({
                               if (isInternal && project.link) {
                                 playTone(880);
                                 window.location.href = project.link;
+                              } else if (!isInternal && project.link) {
+                                playTone(880);
+                                window.open(project.link, "_blank", "noopener,noreferrer");
                               } else {
                                 setSelectedProject(project);
                               }
@@ -651,6 +657,9 @@ export function PortfolioView({
                               if (isInternal && project.link) {
                                 playTone(880);
                                 window.location.href = project.link;
+                              } else if (!isInternal && project.link) {
+                                playTone(880);
+                                window.open(project.link, "_blank", "noopener,noreferrer");
                               } else {
                                 setSelectedProject(project);
                               }
@@ -727,6 +736,9 @@ export function PortfolioView({
                               if (isInternal && project.link) {
                                 playTone(880);
                                 window.location.href = project.link;
+                              } else if (!isInternal && project.link) {
+                                playTone(880);
+                                window.open(project.link, "_blank", "noopener,noreferrer");
                               } else {
                                 setSelectedProject(project);
                               }
