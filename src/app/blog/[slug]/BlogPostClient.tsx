@@ -150,17 +150,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               <PieChart className="w-3.5 h-3.5 fill-current" strokeWidth={2} />
               <span>{post.readingTime.toLowerCase()} read</span>
             </span>
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle dark mode"
-              className="p-1 text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#737373] dark:hover:text-[#a3a3a3] transition-colors focus:outline-none cursor-pointer flex items-center justify-center"
-            >
-              {isDarkMode ? (
-                <Sun className="w-4 h-4 transition-transform duration-200 hover:rotate-45" strokeWidth={2} />
-              ) : (
-                <Moon className="w-4 h-4 transition-transform duration-200 hover:-rotate-12" strokeWidth={2} />
-              )}
-            </button>
           </div>
         </header>
 
@@ -177,15 +166,9 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
             </div>
           </div>
 
-                    {slug !== 'git-commit-go' && (
-            <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] bg-[#8A51FC] rounded-xl mt-6 mb-4 overflow-hidden">
-              <img src="/blog-covers/post1.svg" alt="The Art of Committing Banner" className="absolute inset-0 w-full h-full object-cover" />
-            </div>
-          )}
-
-                    {slug === 'git-commit-go' && (
+          {post.image && (
             <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] rounded-xl mt-6 mb-4 overflow-hidden">
-              <img src="/blog-covers/post2.svg" alt="Git Commit Go Banner" className="absolute inset-0 w-full h-full object-cover" />
+              <img src={post.image} alt={`${post.title} Banner`} className="absolute inset-0 w-full h-full object-cover" />
             </div>
           )}
 
@@ -916,6 +899,246 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                       </a>
                     </li>
                   </ul>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* =========================================================
+              ARTICLE 3: SO... HERE I AM ON THE INTERNET
+             ========================================================= */}
+          {slug === "so-here-i-am-on-the-internet" && (
+            <div className="space-y-8 text-[17.5px] sm:text-[18.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
+              {/* Intro */}
+              <div className="space-y-4">
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2] text-[20px] sm:text-[21px]">
+                  Hey there, this is Pynthamil 👋
+                </p>
+                <p>
+                  I love coding, especially the feeling of bringing an idea from my mind into existence. There is something magical about watching a random thought turn into a feature, a design, or a tiny corner of the internet that did not exist before.
+                </p>
+                <p>
+                  I am very much a <em>build what I need</em> kind of person. If I cannot find something that works the way I want, my first instinct is: <em>fine… I will just build it myself.</em>
+                </p>
+                <p>
+                  So this blog is basically me building my way out of frustration and documenting everything along the way. Kind of like the iconic energy of Cassie from Blogilates, but in tech form with fewer workouts and more debugging.
+                </p>
+              </div>
+
+              {/* WHY THIS BLOG EXISTS */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  MOTIVATION
+                </span>
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Why this blog exists
+                </h2>
+                <p>I have always wanted a space where I could:</p>
+                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>share what I am learning</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>document experiments</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>talk about ideas that may or may not work</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>receive encouragement</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>receive constructive criticism</span>
+                  </li>
+                </ul>
+                <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90 pt-1">
+                  Think of this as a safe space to try, fail, learn, repeat.
+                </p>
+                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Or in dev terms:</p>
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 leading-relaxed">
+                  <div>while(alive) &#123;</div>
+                  <div className="pl-4">try()</div>
+                  <div className="pl-4">fail()</div>
+                  <div className="pl-4">debug()</div>
+                  <div className="pl-4">try_again()</div>
+                  <div>&#125;</div>
+                </div>
+              </div>
+
+              {/* HOBBIES & FAVOURITES */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  HOBBIES &amp; FAVOURITES
+                </span>
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Aside from coding and designing in Figma
+                </h2>
+                <p>Here are the things that make up most of my personality / hobbies and favourite things:</p>
+                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>binge watching shows and movies</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>drawing (proud artist moment)</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>reading books</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>listening to audiobooks (especially immersive ones from GraphicAudio)</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>reading manhwas</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>collecting aesthetic inspiration on Pinterest for about a decade now</span>
+                  </li>
+                </ul>
+                <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90 pt-1">
+                  If you have recommendations, please drop them. I mostly enjoy fantasy with rich world building, structured magic systems, and a tiny bit of romance as a subplot.
+                </p>
+              </div>
+
+              {/* FUN FACTS */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  FUN FACTS
+                </span>
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Fun facts about me
+                </h2>
+                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span><strong>favourite boy band:</strong> Enhypen</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span><strong>music taste:</strong> everything</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>I love singing and dancing like nobody is watching</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>introvert who also loves to yap</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span><strong>personality type:</strong> INTJ</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>I enjoy challenging myself just for the plot</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>currently in 4th year (slightly terrifying, slightly exciting)</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* WHAT YOU WILL FIND HERE */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  THE CONTENT
+                </span>
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  What you will find here
+                </h2>
+                <p>This blog will mostly document:</p>
+                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>things I build</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>things I try to build</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>things that refuse to work</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>things that finally work after many commits</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>design experiments</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>dev notes</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>lessons learned the hard way</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>resources that helped me</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>curiosity driven deep dives</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>basically learning in public</span>
+                  </li>
+                </ul>
+                <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90 pt-1">
+                  If something I share helps even one person who feels stuck like I did at some point, that would mean a lot.
+                </p>
+              </div>
+
+              {/* YOU CAN REQUEST POSTS TOO */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  OPEN INVITATION
+                </span>
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  You can request posts too
+                </h2>
+                <p>
+                  If there is something you would like me to write about, explore, or build, feel free to suggest it.
+                </p>
+                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">
+                  I cannot promise perfection, but I can promise:
+                </p>
+                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>effort</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>curiosity</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span>honest documentation of the process</span>
+                  </li>
+                </ul>
+                <div className="pt-4 font-mono text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2">
+                  <p>Thanks for being here 🤍</p>
+                  <p className="text-[#525252] dark:text-[#a3a3a3] italic">
+                    If you are also figuring things out as you go, welcome.
+                  </p>
                 </div>
               </div>
             </div>

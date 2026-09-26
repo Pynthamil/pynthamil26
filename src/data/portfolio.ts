@@ -180,6 +180,16 @@ export const portfolioData: PortfolioData = {
       slug: "art-of-committing",
       image: "/blog-covers/post1.svg",
     },
+    {
+      id: "so-here-i-am-on-the-internet",
+      title: "So... Here I Am on the Internet",
+      date: "AUG 28, 2026",
+      readingTime: "3 MIN",
+      voiceTime: "2:45",
+      description: "Building my way out of frustration and documenting everything along the way. A safe space to try, fail, learn, repeat.",
+      slug: "so-here-i-am-on-the-internet",
+      image: "/blog-covers/post_intro.svg",
+    },
   ],
   experiences: [
     {

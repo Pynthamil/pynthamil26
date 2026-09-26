@@ -1019,7 +1019,7 @@ export function PortfolioView({
            ======================================================== */}
         {viewMode === "blog" && (
           <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200">
-            <div className="flex flex-col space-y-7 w-full max-w-[1100px] mx-auto">
+            <div className="flex flex-col space-y-7 w-full max-w-[1240px] mx-auto">
             {/* Blog Search */}
             <div className="flex justify-center w-full mt-4 mb-4">
               <div className="relative w-full sm:w-[480px]">
@@ -1041,7 +1041,7 @@ export function PortfolioView({
 
             {/* Blog Posts Clean Architecture */}
             <section className="w-full">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 pt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 pt-6">
                 {portfolioData.writings.filter(post => post.title.toLowerCase().includes(blogSearchQuery.toLowerCase())).map((post, idx) => (
                   <div key={idx} className="flex flex-col h-full">
                     <a
