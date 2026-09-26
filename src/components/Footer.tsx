@@ -31,8 +31,8 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-[100vw] relative left-1/2 -translate-x-1/2 pt-16 mt-auto flex flex-col items-center gap-5 font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] px-5 sm:px-8 md:px-12 pb-12">
-      <div className="w-full max-w-[1240px] flex flex-col items-start gap-5">
+    <footer className="w-full max-w-[1240px] mx-auto pt-16 mt-auto flex flex-col items-center gap-5 font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] pb-12">
+      <div className="w-full flex flex-col items-start gap-5">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-4 sm:gap-0">
           <button 
              onClick={handleCopyEmail}

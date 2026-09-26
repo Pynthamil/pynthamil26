@@ -143,6 +143,8 @@ export function PortfolioView({
         setViewMode("about");
       } else if (path === "/blog") {
         setViewMode("blog");
+      } else if (path === "/projects") {
+        setViewMode("projects");
       } else {
         setViewMode("home");
       }
@@ -479,12 +481,13 @@ export function PortfolioView({
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 max-w-[1240px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                     {/* Left Column */}
                     <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
-                      {portfolioData.projects.filter((_, i) => i % 2 === 0).map((project: Project, idx: number) => {
+                      {portfolioData.projects.filter(p => p.description !== "Archive").filter((_, i) => i % 2 === 0).map((project: Project, idx: number) => {
                         const originalIdx = portfolioData.projects.indexOf(project);
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isOrca = project.title === "ORCA";
-                        const aspectClass = isSemantic ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const isTallCard = isSemantic || project.description === "Archive";
+                        const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
                         const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
@@ -513,7 +516,7 @@ export function PortfolioView({
                                   style={{ backgroundColor: project.themeColor }}
                                 />
 
-                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                {project.description === "ORCA" || project.description === "Plue" || project.description === "Archive" || project.banner === "/Screens1.webp" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -558,12 +561,13 @@ export function PortfolioView({
 
                     {/* Right Column */}
                     <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
-                      {portfolioData.projects.filter((_, i) => i % 2 !== 0).map((project: Project, idx: number) => {
+                      {portfolioData.projects.filter(p => p.description !== "Archive").filter((_, i) => i % 2 !== 0).map((project: Project, idx: number) => {
                         const originalIdx = portfolioData.projects.indexOf(project);
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isOrca = project.title === "ORCA";
-                        const aspectClass = isSemantic ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const isTallCard = isSemantic || project.description === "Archive";
+                        const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
                         const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
@@ -592,7 +596,7 @@ export function PortfolioView({
                                   style={{ backgroundColor: project.themeColor }}
                                 />
 
-                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                {project.description === "ORCA" || project.description === "Plue" || project.description === "Archive" || project.banner === "/Screens1.webp" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -658,7 +662,8 @@ export function PortfolioView({
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isOrca = project.title === "ORCA";
-                        const aspectClass = isSemantic ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const isTallCard = isSemantic || project.description === "Archive";
+                        const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
                         const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
@@ -687,7 +692,7 @@ export function PortfolioView({
                                   style={{ backgroundColor: project.themeColor }}
                                 />
 
-                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                {project.description === "ORCA" || project.description === "Plue" || project.description === "Archive" || project.banner === "/Screens1.webp" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -737,7 +742,8 @@ export function PortfolioView({
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isOrca = project.title === "ORCA";
-                        const aspectClass = isSemantic ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const isTallCard = isSemantic || project.description === "Archive";
+                        const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
                         const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
 
@@ -766,7 +772,7 @@ export function PortfolioView({
                                   style={{ backgroundColor: project.themeColor }}
                                 />
 
-                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                {project.description === "ORCA" || project.description === "Plue" || project.description === "Archive" || project.banner === "/Screens1.webp" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -1216,7 +1222,9 @@ export function PortfolioView({
 
 
         {/* Unified Footer for all views */}
-        <Footer />
+        <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12">
+          <Footer />
+        </div>
       </main>
 
       {/* Detail Modals */}

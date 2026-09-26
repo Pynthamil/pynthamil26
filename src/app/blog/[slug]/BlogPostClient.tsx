@@ -6,6 +6,7 @@ import { HookSidebar } from "@/components/ui/hook-sidebar";
 import { useParams } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
 import { Moon, Sun, Play, Link as LinkIcon, PieChart } from "lucide-react";
+import { Footer } from "@/components/Footer";
 
 export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
   const params = useParams();
@@ -126,7 +127,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-6 sm:pt-8 pb-24 selection:bg-neutral-200">
+    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-6 sm:pt-8 pb-6 selection:bg-neutral-200">
       {/* Soft atmospheric ambient glow */}
       <div className="ambient-glow" />
 
@@ -1147,6 +1148,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
         </article>
 
       </main>
+      <Footer />
     </div>
   );
 }
