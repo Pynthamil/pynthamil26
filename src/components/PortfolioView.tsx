@@ -6,7 +6,7 @@ import { Modal } from "@/components/Modal";
 import { GitHubActivity } from "@/components/ui/github-activity";
 import { ProjectSidebar } from "./ProjectSidebar";
 import { Footer } from "./Footer";
-import { Moon, Sun, Copy, Check, X, Clock, Menu, Mail } from "lucide-react";
+import { Moon, Sun, Copy, Check, X, Clock, Menu, Mail, SlidersHorizontal, ChevronDown, Folder, User, BookOpen, FileText, Home, Dribbble, Sparkles } from "lucide-react";
 
 export function PortfolioView({
   initialViewMode = "home",
@@ -90,6 +90,7 @@ export function PortfolioView({
   };
 
   const [blogFilter, setBlogFilter] = useState<string>("all");
+  const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState<boolean>(false);
   const [expandedExperience, setExpandedExperience] = useState<string | null>(null);
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -243,37 +244,40 @@ export function PortfolioView({
           </button>
 
           {/* Right: Nav Links & Tools */}
-          <div className="flex items-center justify-end gap-4 sm:gap-6 -mr-1 sm:-mr-2">
-            <nav className="hidden sm:flex items-center space-x-6 text-[18px] font-medium pt-0.5">
+          <div className="flex items-center justify-end gap-3 sm:gap-5 -mr-1 sm:-mr-2">
+            <nav className="hidden sm:flex items-center space-x-1 sm:space-x-1.5 text-[14.5px] sm:text-[15.5px] font-medium">
               <button
                 onClick={() => handleNavClick("projects")}
-                className={`transition-colors cursor-pointer select-none ${
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "projects"
-                    ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
-                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
+                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
                 }`}
               >
-                Projects
+                <Folder className="w-4 h-4 shrink-0 opacity-80" />
+                <span>Work</span>
               </button>
               <button
                 onClick={() => handleNavClick("about")}
-                className={`transition-colors cursor-pointer select-none ${
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "about"
-                    ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
-                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
+                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
                 }`}
               >
-                About
+                <User className="w-4 h-4 shrink-0 opacity-80" />
+                <span>About</span>
               </button>
               <button
                 onClick={() => handleNavClick("blog")}
-                className={`transition-colors cursor-pointer select-none ${
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "blog"
-                    ? "text-[#00B5B2] font-semibold underline underline-offset-4 decoration-wavy decoration-[#00B5B2]"
-                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#00B5B2] dark:hover:text-[#00B5B2]"
+                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
                 }`}
               >
-                Blog
+                <BookOpen className="w-4 h-4 shrink-0 opacity-80" />
+                <span>Blog</span>
               </button>
             </nav>
 
@@ -289,23 +293,33 @@ export function PortfolioView({
 
         {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
-          <div className="sm:hidden absolute top-[70px] right-0 left-0 mx-auto w-[92%] max-w-[400px] bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-lg border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-3 z-40 animate-in slide-in-from-top-4 fade-in duration-200">
+          <div className="sm:hidden absolute top-[70px] right-0 left-0 mx-auto w-[92%] max-w-[400px] bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-lg border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-2 z-40 animate-in slide-in-from-top-4 fade-in duration-200">
+            <button
+              onClick={() => { handleNavClick("home"); setIsMobileMenuOpen(false); }}
+              className={`flex items-center gap-3 text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+            >
+              <Home className="w-4.5 h-4.5 text-slate-500" />
+              Home
+            </button>
             <button
               onClick={() => { handleNavClick("projects"); setIsMobileMenuOpen(false); }}
-              className={`text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+              className={`flex items-center gap-3 text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
             >
-              Projects
+              <Folder className="w-4.5 h-4.5 text-slate-500" />
+              Work
             </button>
             <button
               onClick={() => { handleNavClick("about"); setIsMobileMenuOpen(false); }}
-              className={`text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+              className={`flex items-center gap-3 text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
             >
+              <User className="w-4.5 h-4.5 text-slate-500" />
               About
             </button>
             <button
               onClick={() => { handleNavClick("blog"); setIsMobileMenuOpen(false); }}
-              className={`text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+              className={`flex items-center gap-3 text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
             >
+              <BookOpen className="w-4.5 h-4.5 text-slate-500" />
               Blog
             </button>
           </div>
@@ -1017,63 +1031,188 @@ export function PortfolioView({
 {/* ========================================================
             VIEW 3: BLOG VIEW
            ======================================================== */}
-        {viewMode === "blog" && (
-          <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200">
-            <div className="flex flex-col space-y-7 w-full max-w-[1240px] mx-auto">
-            {/* Blog Search */}
-            <div className="flex justify-center w-full mt-4 mb-4">
-              <div className="relative w-full sm:w-[480px]">
-                <svg 
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748B] dark:text-[#94A3B8]" 
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <input
-                  type="text"
-                  value={blogSearchQuery}
-                  onChange={(e) => setBlogSearchQuery(e.target.value)}
-                  placeholder="Search"
-                  className="w-full bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] font-sans text-[14px] rounded-md py-2 pl-10 pr-4 focus:outline-none focus:border-[#00B5B2] dark:focus:border-[#00B5B2] transition-colors placeholder:text-[#94A3B8] dark:placeholder:text-[#64748B]"
-                />
-              </div>
-            </div>
+        {viewMode === "blog" && (() => {
+          const blogCategories = [
+            "all",
+            ...Array.from(
+              new Set(
+                portfolioData.writings
+                  .map((p) => p.category)
+                  .filter((cat): cat is string => Boolean(cat))
+              )
+            ),
+          ];
 
-            {/* Blog Posts Clean Architecture */}
-            <section className="w-full">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 pt-6">
-                {portfolioData.writings.filter(post => post.title.toLowerCase().includes(blogSearchQuery.toLowerCase())).map((post, idx) => (
-                  <div key={idx} className="flex flex-col h-full">
-                    <a
-                      href={`/blog/${post.slug}`}
-                      onClick={() => playTone(880)}
-                      className="group select-none cursor-pointer flex flex-col h-full gap-3"
+          const filteredBlogPosts = portfolioData.writings.filter((post) => {
+            const matchesSearch =
+              post.title.toLowerCase().includes(blogSearchQuery.toLowerCase()) ||
+              post.description.toLowerCase().includes(blogSearchQuery.toLowerCase()) ||
+              (post.category && post.category.toLowerCase().includes(blogSearchQuery.toLowerCase()));
+
+            const matchesFilter =
+              blogFilter === "all" ||
+              (post.category && post.category.toLowerCase() === blogFilter.toLowerCase());
+
+            return matchesSearch && matchesFilter;
+          });
+
+          return (
+            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200">
+              <div className="flex flex-col space-y-6 w-full max-w-[1240px] mx-auto">
+                {/* Blog Search & Filter Pill Header */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 w-full mt-4 mb-2">
+                  {/* Search Bar */}
+                  <div className="relative w-full sm:w-[440px]">
+                    <svg 
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748B] dark:text-[#94A3B8]" 
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
                     >
-                      {post.image ? (
-                        <div className="w-full aspect-[3/2] rounded-md overflow-hidden relative">
-                          <img src={post.image} alt={post.title} className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
-                        </div>
-                      ) : (
-                        <div className="w-full aspect-[3/2] rounded-md overflow-hidden relative bg-neutral-100 dark:bg-neutral-800 transition-transform duration-300 group-hover:scale-105" />
-                      )}
-                      <div className="space-y-2 flex flex-col flex-1 px-1 sm:px-3 pt-1">
-                        <h2 className="text-[18px] sm:text-[19.5px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
-                          {post.title}
-                        </h2>
-                        <div className="flex items-center gap-2.5 font-mono text-[12px] sm:text-[12.5px] uppercase tracking-wide text-[#64748B] dark:text-[#94A3B8]">
-                          <span>{post.date}</span>
-                          <span className="w-1 h-1 rounded-full bg-[#CBD5E1] dark:bg-[#475569]"></span>
-                          <span>{post.readingTime} read</span>
-                        </div>
-                      </div>
-                    </a>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <input
+                      type="text"
+                      value={blogSearchQuery}
+                      onChange={(e) => setBlogSearchQuery(e.target.value)}
+                      placeholder="Search"
+                      className="w-full bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] font-sans text-[14px] rounded-md py-2 pl-10 pr-4 focus:outline-none focus:border-[#00B5B2] dark:focus:border-[#00B5B2] transition-colors placeholder:text-[#94A3B8] dark:placeholder:text-[#64748B]"
+                    />
                   </div>
-                ))}
+
+                  {/* Filter Option - Button on Right Side */}
+                  <div className="relative self-end sm:self-auto">
+                    <button
+                      onClick={() => {
+                        playTone(880);
+                        setIsFilterDropdownOpen(!isFilterDropdownOpen);
+                      }}
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-md font-sans text-[13.5px] font-medium transition-all shadow-sm select-none border cursor-pointer ${
+                        blogFilter !== "all"
+                          ? "bg-[#00B5B2]/10 dark:bg-[#00B5B2]/20 border-[#00B5B2] text-[#00B5B2] dark:text-[#00B5B2]"
+                          : "bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] hover:border-[#00B5B2] dark:hover:border-[#00B5B2]"
+                      }`}
+                      aria-label="Filter posts by category"
+                    >
+                      <SlidersHorizontal className="w-3.5 h-3.5" />
+                      <span className="capitalize">{blogFilter === "all" ? "Filter" : blogFilter}</span>
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isFilterDropdownOpen ? "rotate-180" : ""}`} />
+                    </button>
+
+                    {/* Filter Dropdown Menu */}
+                    {isFilterDropdownOpen && (
+                      <>
+                        <div 
+                          className="fixed inset-0 z-20" 
+                          onClick={() => setIsFilterDropdownOpen(false)} 
+                        />
+                        <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-[#1A1A1A] border border-neutral-200 dark:border-neutral-800 rounded-md shadow-xl p-1.5 z-30 animate-in fade-in zoom-in-95 duration-150">
+                          <div className="px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8]">
+                            Filter by Category
+                          </div>
+                          {blogCategories.map((cat) => {
+                            const isSelected = blogFilter.toLowerCase() === cat.toLowerCase();
+                            const count = cat === "all" 
+                              ? portfolioData.writings.length 
+                              : portfolioData.writings.filter(p => p.category?.toLowerCase() === cat.toLowerCase()).length;
+
+                            return (
+                              <button
+                                key={cat}
+                                onClick={() => {
+                                  playTone(880);
+                                  setBlogFilter(cat);
+                                  setIsFilterDropdownOpen(false);
+                                }}
+                                className={`w-full flex items-center justify-between px-3 py-1.5 rounded text-[13.5px] font-sans transition-colors cursor-pointer ${
+                                  isSelected
+                                    ? "bg-[#00B5B2]/10 dark:bg-[#00B5B2]/20 text-[#00B5B2] font-semibold"
+                                    : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:bg-neutral-100 dark:hover:bg-neutral-800/60"
+                                }`}
+                              >
+                                <span className="capitalize">{cat === "all" ? "All Posts" : cat}</span>
+                                <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-[#64748B] dark:text-[#94A3B8]">
+                                  {count}
+                                </span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {/* Active Filter Indicator Tag */}
+                {blogFilter !== "all" && (
+                  <div className="flex items-center gap-2 font-sans text-[13px] text-[#64748B] dark:text-[#94A3B8]">
+                    <span>Category:</span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#00B5B2]/10 dark:bg-[#00B5B2]/20 text-[#00B5B2] font-medium capitalize text-[12.5px]">
+                      {blogFilter}
+                      <button
+                        onClick={() => {
+                          playTone(880);
+                          setBlogFilter("all");
+                        }}
+                        className="hover:opacity-75 focus:outline-none cursor-pointer"
+                        aria-label="Clear category filter"
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </span>
+                  </div>
+                )}
+
+                {/* Blog Posts Cards */}
+                <section className="w-full">
+                  {filteredBlogPosts.length > 0 ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 pt-2">
+                      {filteredBlogPosts.map((post, idx) => (
+                        <div key={idx} className="flex flex-col h-full">
+                          <a
+                            href={`/blog/${post.slug}`}
+                            onClick={() => playTone(880)}
+                            className="group select-none cursor-pointer flex flex-col h-full gap-3"
+                          >
+                            {post.image ? (
+                              <div className="w-full aspect-[3/2] rounded-md overflow-hidden relative">
+                                <img src={post.image} alt={post.title} className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+                              </div>
+                            ) : (
+                              <div className="w-full aspect-[3/2] rounded-md overflow-hidden relative bg-neutral-100 dark:bg-neutral-800 transition-transform duration-300 group-hover:scale-105" />
+                            )}
+                            <div className="space-y-2 flex flex-col flex-1 px-1 sm:px-3 pt-1">
+                              <h2 className="text-[18px] sm:text-[19.5px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
+                                {post.title}
+                              </h2>
+                              <div className="flex items-center gap-2 font-mono text-[12px] sm:text-[12.5px] uppercase tracking-wide text-[#64748B] dark:text-[#94A3B8]">
+                                <span>{post.date}</span>
+                                <span className="w-1 h-1 rounded-full bg-[#CBD5E1] dark:bg-[#475569]"></span>
+                                <span>{post.readingTime} read</span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="py-16 text-center font-sans">
+                      <p className="text-[16px] text-[#64748B] dark:text-[#94A3B8]">No posts found matching your criteria.</p>
+                      <button
+                        onClick={() => {
+                          playTone(880);
+                          setBlogSearchQuery("");
+                          setBlogFilter("all");
+                        }}
+                        className="mt-3 text-sm text-[#00B5B2] hover:underline font-medium cursor-pointer"
+                      >
+                        Clear search & filters
+                      </button>
+                    </div>
+                  )}
+                </section>
               </div>
-            </section>
             </div>
-          </div>
-        )}
+          );
+        })()}
 
 
         {/* Unified Footer for all views */}

@@ -42,6 +42,7 @@ export interface Post {
   slug: string;
   content?: string[];
   image?: string;
+  category?: string;
 }
 
 export interface PlaygroundItem {
@@ -169,6 +170,7 @@ export const portfolioData: PortfolioData = {
       description: "At some point, just committing code isn’t enough. Learn how to interact with GitHub programmatically via the REST API.",
       slug: "git-commit-go",
       image: "/blog-covers/post2.svg",
+      category: "Engineering",
     },
     {
       id: "art-of-committing",
@@ -179,6 +181,7 @@ export const portfolioData: PortfolioData = {
       description: "Version control isn’t just about saving code — it’s about telling the story of how your ideas evolve. Tiny commits. Big growth.",
       slug: "art-of-committing",
       image: "/blog-covers/post1.svg",
+      category: "Engineering",
     },
     {
       id: "so-here-i-am-on-the-internet",
@@ -189,6 +192,7 @@ export const portfolioData: PortfolioData = {
       description: "Building my way out of frustration and documenting everything along the way. A safe space to try, fail, learn, repeat.",
       slug: "so-here-i-am-on-the-internet",
       image: "/blog-covers/post_intro.svg",
+      category: "Personal",
     },
   ],
   experiences: [
