@@ -48,6 +48,26 @@ export const Footer: React.FC = () => {
   return (
     <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12">
       <footer className="w-full max-w-[1240px] mx-auto pt-16 mt-auto flex flex-col items-center font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] pb-12">
+        {/* Full-width Availability Banner */}
+        <div className="w-full mb-10 p-4 sm:p-5 rounded-[8px] border border-emerald-500/25 bg-emerald-500/[0.04] dark:bg-emerald-500/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 transition-colors">
+          <div className="flex items-center gap-3">
+            <span className="relative flex h-2.5 w-2.5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span className="font-sans font-medium text-[15px] sm:text-[16.5px] text-emerald-900 dark:text-emerald-200 tracking-tight">
+              Open to Winter / Summer 2027 Internships &amp; Full-Time Roles
+            </span>
+          </div>
+          <a 
+            href="mailto:pavendanpynthamil@gmail.com"
+            className="font-mono text-[13px] sm:text-[14px] text-emerald-700 dark:text-emerald-400 hover:underline underline-offset-4 font-medium flex items-center gap-1.5 shrink-0"
+          >
+            <span>Get in touch</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+
         <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
           <button 
              onClick={handleCopyEmail}
