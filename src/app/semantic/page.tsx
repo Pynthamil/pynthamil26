@@ -171,8 +171,8 @@ export default function SemanticProjectPage() {
           </div>
         </div>
 
-            <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] my-8 flex items-center justify-center px-0">
-              <div  className="w-full p-8 sm:p-12 md:p-16 rounded-2xl overflow-hidden flex items-center justify-center bg-[#F5F5F7] dark:bg-[#13151E]">
+            <div className="w-full sm:w-[120%] sm:-ml-[10%] my-8 flex items-center justify-center px-0">
+              <div className="w-full p-5 sm:p-12 md:p-16 rounded-2xl overflow-hidden flex items-center justify-center bg-[#F5F5F7] dark:bg-[#13151E]">
                 <div className="w-full overflow-hidden flex items-center justify-center">
                   <img
                     src="/semantic1.svg"
@@ -300,8 +300,8 @@ export default function SemanticProjectPage() {
 
               {/* How Might We Callout Box */}
               <div className="pt-8 pb-4">
-              <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-6 py-10 sm:px-10 sm:py-16 rounded-[16px] sm:rounded-[24px] bg-[#E6E6FF] dark:bg-[#8888FF]/[0.1] flex flex-row items-center text-left gap-4 sm:gap-5 overflow-hidden">
-                <img src="/laptop.svg" alt="Laptop" className="w-28 h-28 sm:w-40 sm:h-40 object-contain shrink-0" />
+              <div className="w-full sm:w-[115%] sm:-ml-[7.5%] px-6 py-8 sm:px-10 sm:py-16 rounded-[16px] sm:rounded-[24px] bg-[#E6E6FF] dark:bg-[#8888FF]/[0.1] flex flex-col sm:flex-row items-start sm:items-center text-left gap-4 sm:gap-5 overflow-hidden">
+                <img src="/laptop.svg" alt="Laptop" className="w-24 h-24 sm:w-40 sm:h-40 object-contain shrink-0" />
                 <p className="text-[20px] sm:text-[26px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug z-10">
                   How might we transform email from an overwhelming backlog into an intelligent copilot that turns incoming communication into actionable clarity?
                 </p>
@@ -374,7 +374,7 @@ export default function SemanticProjectPage() {
                 </div>
 
                 {/* Demo Video 1 */}
-                <div className="pt-6 pb-2 w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-4 sm:px-0">
+                <div className="pt-6 pb-2 w-full sm:w-[115%] sm:-ml-[7.5%] px-0">
                   <div className="w-full flex justify-center">
                     <ChromaVideo src="/semantic/demo1.mov" className="w-full" />
                   </div>
@@ -387,7 +387,7 @@ export default function SemanticProjectPage() {
               {/* Sub-solution 2: Everyday Situations */}
               <div className="pt-0">
                 {/* Demo Video 2 */}
-                <div className="pt-2 pb-6 w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-4 sm:px-0">
+                <div className="pt-2 pb-6 w-full sm:w-[115%] sm:-ml-[7.5%] px-0">
                   <div className="w-full flex justify-center">
                     <ChromaVideo src="/semantic/demo2.mov" className="w-full" />
                   </div>
@@ -406,7 +406,7 @@ export default function SemanticProjectPage() {
                 </div>
 
                 {/* Demo Video 3 */}
-                <div className="py-6 my-4 w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-4 sm:px-0">
+                <div className="py-6 my-4 w-full sm:w-[115%] sm:-ml-[7.5%] px-0">
                   <div className="w-full flex justify-center">
                     <ChromaVideo src="/semantic/demo3.mov" className="w-full" />
                   </div>
@@ -508,7 +508,7 @@ export default function SemanticProjectPage() {
               </div>
 
               {/* 2-Column Takeaways Cards */}
-              <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-4 sm:px-0 pt-4">
+              <div className="w-full sm:w-[115%] sm:-ml-[7.5%] px-0 pt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {/* Card 1 */}
                   <div className="relative w-full h-full p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-[#E6E6FF] dark:bg-[#8888FF]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">

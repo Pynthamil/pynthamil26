@@ -132,8 +132,8 @@ export default function OrcaProjectPage() {
         </div>
 
           <div className="pb-2 space-y-3">
-            <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] my-8 flex items-center justify-center px-0">
-              <div className="w-full p-8 sm:p-12 md:p-16 rounded-2xl overflow-hidden flex items-center justify-center"
+            <div className="w-full sm:w-[120%] sm:-ml-[10%] my-8 flex items-center justify-center px-0">
+              <div className="w-full p-5 sm:p-12 md:p-16 rounded-2xl overflow-hidden flex items-center justify-center"
                 style={{ backgroundImage: 'url(/cover1-bg.svg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="w-full max-w-[95%] overflow-hidden rounded-[24px] bg-white/20 dark:bg-white/10 p-3 sm:p-4 backdrop-blur-sm">
                   <div className="w-full overflow-hidden rounded-[16px] bg-white dark:bg-[#141415]">
@@ -250,8 +250,8 @@ export default function OrcaProjectPage() {
 
             {/* THE OPPORTUNITY */}
             <div className="scroll-mt-20 -mt-2">
-              <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-6 py-10 sm:px-10 sm:py-16 rounded-[16px] sm:rounded-[24px] bg-[#F0F8FF] dark:bg-[#007FFF]/[0.1] flex flex-row items-center text-left gap-4 sm:gap-5 overflow-hidden">
-                <img src="/laptop.svg" alt="Laptop" className="w-28 h-28 sm:w-40 sm:h-40 object-contain shrink-0" />
+              <div className="w-full sm:w-[115%] sm:-ml-[7.5%] px-6 py-8 sm:px-10 sm:py-16 rounded-[16px] sm:rounded-[24px] bg-[#F0F8FF] dark:bg-[#007FFF]/[0.1] flex flex-col sm:flex-row items-start sm:items-center text-left gap-4 sm:gap-5 overflow-hidden">
+                <img src="/laptop.svg" alt="Laptop" className="w-24 h-24 sm:w-40 sm:h-40 object-contain shrink-0" />
                 <p className="text-[20px] sm:text-[26px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug z-10">
                   How might we make decades of marine research queryable in seconds without sacrificing the evidence researchers need to trust an answer?
                 </p>
@@ -293,17 +293,17 @@ export default function OrcaProjectPage() {
               
               <div className="space-y-4 pt-10">
                 <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                  Designing a <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">calm, focused interface</span> for complex scientific data.
+                  Designing a <span className="bg-[#FFF0F5] dark:bg-[#007FFF] dark:text-white px-1 box-decoration-clone">minimal, undistracted interface</span> for complex scientific data.
                 </h3>
                 <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                   The visual language emphasizes clarity and minimal distraction, ensuring that dense research material remains accessible and easy to digest.
                 </p>
               </div>
 
-              <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] my-8 flex items-center justify-center px-0">
+              <div className="w-full sm:w-[120%] sm:-ml-[10%] my-8 sm:my-12 flex flex-col gap-6 items-center justify-center px-0">
                 <img src="/asset1.svg" alt="Orca Design Interface 1" className="w-full h-auto object-contain rounded-2xl" />
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
                   <img src="/asset2.svg" alt="Orca Design Interface 2" className="w-full h-auto object-contain rounded-2xl" />
                   <img src="/asset3.svg" alt="Orca Design Components" className="w-full h-auto object-contain rounded-2xl" />
                 </div>

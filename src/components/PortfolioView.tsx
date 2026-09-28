@@ -341,7 +341,7 @@ export function PortfolioView({
               {/* Bio Copy & Status Section */}
               <section className="flex flex-col h-full justify-between mb-12 sm:mb-0 space-y-8 sm:space-y-0">
               <div className="relative pt-12 sm:pt-14">
-                <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="absolute top-0 left-0 inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[14px] sm:text-[15px] font-medium rounded-[6px] sm:rounded-[8px] tracking-wide whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors">
+                <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="absolute top-0 left-0 inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[14px] sm:text-[15px] font-medium rounded-[4px] tracking-wide whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors">
                   <Mail className="w-[14px] h-[14px] shrink-0" />
                   open for summer 2027 roles
                 </a>
