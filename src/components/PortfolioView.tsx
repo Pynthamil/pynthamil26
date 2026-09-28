@@ -1222,9 +1222,7 @@ export function PortfolioView({
 
 
         {/* Unified Footer for all views */}
-        <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12">
-          <Footer />
-        </div>
+        <Footer />
       </main>
 
       {/* Detail Modals */}
