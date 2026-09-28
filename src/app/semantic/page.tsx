@@ -143,7 +143,7 @@ export default function SemanticProjectPage() {
   ];
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-24 selection:bg-indigo-100 dark:selection:bg-indigo-950">
+    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-6 sm:pb-8 selection:bg-indigo-100 dark:selection:bg-indigo-950">
       {/* Table of Contents Floating Sidebar */}
       {/* Soft atmospheric ambient glow */}
       <div className="ambient-glow" />

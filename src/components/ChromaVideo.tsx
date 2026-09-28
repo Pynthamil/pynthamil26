@@ -25,7 +25,7 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
     if (!ctx) return;
 
-    let isVisible = true;
+    let isVisible = false;
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
@@ -39,6 +39,12 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
       { threshold: 0.05 }
     );
     observer.observe(canvas);
+
+    // Preload video data immediately so it's ready when scrolled into view
+    video.load();
+    if (video.readyState >= 2) {
+      setIsLoaded(true);
+    }
 
     const scheduleNextFrame = () => {
       if (isCancelled || !isVisible) return;
@@ -55,7 +61,7 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
       if (video.readyState >= 2 && video.videoWidth > 0 && video.videoHeight > 0) {
         if (!isLoaded) setIsLoaded(true);
 
-        const dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio || 1, 2) : 1;
+        const dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio || 1, 1.5) : 1;
         const effectiveZoom = zoom ?? 1.0;
         
         // Square 1:1 presentation with optional zoom: sample from center
@@ -77,10 +83,6 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
         const data = imgData.data;
         const len = data.length;
 
-        // Pink canvas thresholding:
-        // In the exported video, the pink background has:
-        // r: ~240-255, g: ~210-235, b: ~215-240
-        // (r - g) >= 10 and (r - b) >= 6 and r > 215
         for (let i = 0; i < len; i += 4) {
           const r = data[i];
           const g = data[i + 1];
@@ -97,7 +99,6 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
       scheduleNextFrame();
     };
 
-    // Removed unconditional video.play() to enforce true lazy loading
     scheduleNextFrame();
 
     return () => {
@@ -120,9 +121,10 @@ export function ChromaVideo({ src, className = "", cropRatio = 1.0, zoom }: Chro
         loop
         muted
         playsInline
-        preload="none"
+        preload="auto"
         className="hidden"
         onCanPlay={() => setIsLoaded(true)}
+        onLoadedData={() => setIsLoaded(true)}
       />
       <canvas
         ref={canvasRef}

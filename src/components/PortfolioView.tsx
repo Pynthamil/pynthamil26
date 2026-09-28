@@ -221,7 +221,7 @@ export function PortfolioView({
     <>
 
 
-      <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-4 sm:pt-5 pb-24 selection:bg-neutral-200">
+      <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-4 sm:pt-5 pb-6 sm:pb-8 selection:bg-neutral-200">
         {/* Soft atmospheric ambient glow */}
         <div className="ambient-glow" />
 
@@ -340,13 +340,9 @@ export function PortfolioView({
               <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-10 md:gap-16 w-full max-w-[1240px] mx-auto">
               {/* Bio Copy & Status Section */}
               <section className="flex flex-col h-full justify-between mb-12 sm:mb-0 space-y-8 sm:space-y-0">
-              <div className="relative pt-12 sm:pt-14">
-                <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="absolute top-0 left-0 inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[14px] sm:text-[15px] font-medium rounded-[4px] tracking-wide whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors">
-                  <Mail className="w-[14px] h-[14px] shrink-0" />
-                  open for summer 2027 roles
-                </a>
+              <div className="relative pt-2 sm:pt-4">
                 <h1 className="font-sans font-medium text-[24px] sm:text-[28px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.35] tracking-tight">
-                  hey! i'm {portfolioData.name.toLowerCase()} [pyndu], and i build things and figure out why people should care.
+                  hey! i'm pynthamil pavendan [pyndu], building software that feels useful and alive.
                 </h1>
                 
                 <p className="text-[21px] sm:text-[24px] text-slate-400 dark:text-slate-500 font-normal mt-1 mb-10 sm:mb-14">
@@ -402,7 +398,7 @@ export function PortfolioView({
             {/* Right Column: Experience */}
             <div className="w-full h-full flex flex-col justify-between space-y-8 sm:space-y-0">
             {/* Experience Section */}
-            <section id="home-experience" className="w-full scroll-mt-24 pt-12 sm:pt-14">
+            <section id="home-experience" className="w-full scroll-mt-24 pt-2 sm:pt-4">
               <ul className="flex flex-col font-sans text-[15px] sm:text-[16px]">
                 {portfolioData.experiences.map((item) => {
                   const year = item.period.match(/\d{4}$/)?.[0] || item.period;
@@ -434,13 +430,13 @@ export function PortfolioView({
                     playTone(1046);
                     setTimeout(() => setCopiedEmail(false), 2000);
                   }}
-                  className="inline-flex items-center space-x-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-[5px] sm:rounded-[8px] bg-slate-100 dark:bg-slate-800/80 cursor-pointer group select-none hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                  className="inline-flex items-center space-x-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-[8px] bg-blue-50/80 dark:bg-blue-900/30 cursor-pointer group select-none hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                   title="Click to copy email"
                 >
-                  <span className="font-sans font-medium text-[16px] sm:text-[18px] text-slate-600 dark:text-slate-300 tracking-wide transition-colors">
+                  <span className="font-sans font-medium text-[16px] sm:text-[18px] text-blue-700/90 dark:text-blue-300 tracking-wide transition-colors">
                     {portfolioData.email}
                   </span>
-                  <div className="text-slate-600 dark:text-slate-300 opacity-75 group-hover:opacity-100 flex items-center focus:outline-none transition-colors">
+                  <div className="text-blue-700/90 dark:text-blue-300 opacity-75 group-hover:opacity-100 flex items-center focus:outline-none transition-colors">
                     {copiedEmail ? (
                       <span className="text-emerald-500 dark:text-emerald-400 font-mono text-xs font-medium animate-in fade-in">
                         copied!

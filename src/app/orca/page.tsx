@@ -108,7 +108,7 @@ export default function OrcaProjectPage() {
   ];
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-24 selection:bg-cyan-100 dark:selection:bg-cyan-950">
+    <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-12 sm:pt-16 pb-6 sm:pb-8 selection:bg-cyan-100 dark:selection:bg-cyan-950">
       <div className="ambient-glow" />
 
       <div className="fixed left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 select-none hidden lg:block">
