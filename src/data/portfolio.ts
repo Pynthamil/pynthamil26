@@ -168,17 +168,6 @@ export const portfolioData: PortfolioData = {
       themeColor: "#111111",
       banner: "/plue.png",
     },
-    {
-      title: "Archive — a collection of past experiments, tools, and side projects.",
-      description: "Archive",
-      year: "2024–2026",
-      link: "/archive",
-      tags: ["Experiments", "Hacks", "Archive"],
-      banner: "/archive-card.png",
-      status: "Exploration",
-      category: "Archive & Experiments",
-      themeColor: "#10B981",
-    },
   ],
   writings: [
     {

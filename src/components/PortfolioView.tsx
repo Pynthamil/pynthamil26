@@ -227,7 +227,7 @@ export function PortfolioView({
 
         {/* Main Container */}
         {/* Top Navbar */}
-        <header className="sticky top-4 sm:top-5 z-50 w-[92%] sm:w-[85%] max-w-[640px] mx-auto mb-12 sm:mb-16 bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-full px-5 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between transition-colors">
+        <header className="sticky top-4 sm:top-5 z-50 w-[92%] sm:w-[85%] max-w-[640px] mx-auto mb-12 sm:mb-16 bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-full px-5 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-colors">
           
           {/* Left: Logo & Name */}
           <button
@@ -247,38 +247,35 @@ export function PortfolioView({
 
           {/* Right: Nav Links & Tools */}
           <div className="flex items-center justify-end gap-3 sm:gap-5 -mr-1 sm:-mr-2">
-            <nav className="hidden sm:flex items-center space-x-1 sm:space-x-1.5 text-[14.5px] sm:text-[15.5px] font-medium">
+            <nav className="hidden sm:flex items-center space-x-1.5 sm:space-x-2 text-[17px] sm:text-[18.5px] font-normal">
               <button
                 onClick={() => handleNavClick("projects")}
-                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
+                className={`inline-flex items-center px-4 py-1.5 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "projects"
-                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
+                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
                 }`}
               >
-                <Folder className="w-4 h-4 shrink-0 opacity-80" />
                 <span>Work</span>
               </button>
               <button
                 onClick={() => handleNavClick("about")}
-                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
+                className={`inline-flex items-center px-4 py-1.5 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "about"
-                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
+                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
                 }`}
               >
-                <User className="w-4 h-4 shrink-0 opacity-80" />
                 <span>About</span>
               </button>
               <button
                 onClick={() => handleNavClick("blog")}
-                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
+                className={`inline-flex items-center px-4 py-1.5 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "blog"
-                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
+                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
                 }`}
               >
-                <BookOpen className="w-4 h-4 shrink-0 opacity-80" />
                 <span>Blog</span>
               </button>
             </nav>
@@ -298,30 +295,26 @@ export function PortfolioView({
           <div className="sm:hidden absolute top-[70px] right-0 left-0 mx-auto w-[92%] max-w-[400px] bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-lg border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-2 z-40 animate-in slide-in-from-top-4 fade-in duration-200">
             <button
               onClick={() => { handleNavClick("home"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center gap-3 text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
             >
-              <Home className="w-4.5 h-4.5 text-slate-500" />
               Home
             </button>
             <button
               onClick={() => { handleNavClick("projects"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center gap-3 text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
             >
-              <Folder className="w-4.5 h-4.5 text-slate-500" />
               Work
             </button>
             <button
               onClick={() => { handleNavClick("about"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center gap-3 text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
             >
-              <User className="w-4.5 h-4.5 text-slate-500" />
               About
             </button>
             <button
               onClick={() => { handleNavClick("blog"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center gap-3 text-left px-4 py-2.5 rounded-xl font-medium text-[16px] transition-colors ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
             >
-              <BookOpen className="w-4.5 h-4.5 text-slate-500" />
               Blog
             </button>
           </div>
@@ -477,13 +470,13 @@ export function PortfolioView({
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 max-w-[1240px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                     {/* Left Column */}
                     <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
-                      {portfolioData.projects.filter(p => p.description !== "Archive").filter((_, i) => i % 2 === 0).map((project: Project, idx: number) => {
+                      {portfolioData.projects.filter((_, i) => i % 2 === 0).map((project: Project, idx: number) => {
                         const originalIdx = portfolioData.projects.indexOf(project);
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isCodedex = project.description === "CodeDex Mobile";
                         const isOrca = project.title === "ORCA";
-                        const isTallCard = isSemantic || isCodedex || project.description === "Archive";
+                        const isTallCard = isSemantic || isCodedex;
                         const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
                         const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
@@ -558,13 +551,13 @@ export function PortfolioView({
 
                     {/* Right Column */}
                     <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
-                      {portfolioData.projects.filter(p => p.description !== "Archive").filter((_, i) => i % 2 !== 0).map((project: Project, idx: number) => {
+                      {portfolioData.projects.filter((_, i) => i % 2 !== 0).map((project: Project, idx: number) => {
                         const originalIdx = portfolioData.projects.indexOf(project);
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isCodedex = project.description === "CodeDex Mobile";
                         const isOrca = project.title === "ORCA";
-                        const isTallCard = isSemantic || isCodedex || project.description === "Archive";
+                        const isTallCard = isSemantic || isCodedex;
                         const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
                         const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
@@ -661,7 +654,7 @@ export function PortfolioView({
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isCodedex = project.description === "CodeDex Mobile";
                         const isOrca = project.title === "ORCA";
-                        const isTallCard = isSemantic || isCodedex || project.description === "Archive";
+                        const isTallCard = isSemantic || isCodedex;
                         const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
                         const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
@@ -742,7 +735,7 @@ export function PortfolioView({
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isCodedex = project.description === "CodeDex Mobile";
                         const isOrca = project.title === "ORCA";
-                        const isTallCard = isSemantic || isCodedex || project.description === "Archive";
+                        const isTallCard = isSemantic || isCodedex;
                         const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
                         const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
@@ -829,7 +822,7 @@ export function PortfolioView({
             <div className="flex flex-col w-full max-w-[640px] mx-auto items-start text-left">
               
               <img 
-                src="/photo-dump/20250622_124021.jpg" 
+                src="/photo-dump/img1.jpeg" 
                 alt="Pynthamil" 
                 className="w-full max-w-[500px] sm:max-w-[640px] aspect-[3/2] object-cover rounded-md mb-8 mx-auto self-center"
               />
@@ -1220,8 +1213,7 @@ export function PortfolioView({
           );
         })()}
 
-
-        {/* Unified Footer for all views */}
+        {/* Unified Footer */}
         <Footer />
       </main>
 
