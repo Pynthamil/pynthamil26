@@ -227,7 +227,7 @@ export function PortfolioView({
 
         {/* Main Container */}
         {/* Top Navbar */}
-        <header className="sticky top-4 sm:top-5 z-50 w-[90%] sm:w-[85%] max-w-[600px] mx-auto mb-12 sm:mb-16 bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-full px-4 sm:px-5 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
+        <header className="sticky top-4 sm:top-5 z-50 w-[95%] sm:w-[90%] max-w-[720px] mx-auto mb-12 sm:mb-16 bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-full px-5 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
           
           {/* Left: Logo & Name */}
           <button
