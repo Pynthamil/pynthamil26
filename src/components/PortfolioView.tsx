@@ -227,7 +227,7 @@ export function PortfolioView({
 
         {/* Main Container */}
         {/* Top Navbar */}
-        <header className="sticky top-4 sm:top-5 z-50 w-[95%] sm:w-[90%] max-w-[720px] mx-auto mb-12 sm:mb-16 bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-full px-6 sm:px-7 py-2.5 sm:py-3 flex items-center justify-between transition-colors">
+        <header className="sticky top-4 sm:top-5 z-50 w-[95%] sm:w-[90%] max-w-[720px] mx-auto mb-12 sm:mb-16 bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-full px-5 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
           
           {/* Left: Logo & Name */}
           <button
@@ -238,19 +238,19 @@ export function PortfolioView({
             <img 
               src="/logo1.1.svg" 
               alt="logo"
-              className="h-[28px] sm:h-[30px] object-contain -ml-3"
+              className="h-[24px] sm:h-[26px] object-contain -ml-2"
             />
-            <span className="font-sans font-bold text-[20px] sm:text-[22px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none leading-none -translate-y-[1px]">
+            <span className="font-sans font-bold text-[18px] sm:text-[20px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none leading-none -translate-y-[1px]">
               pynthamil
             </span>
           </button>
 
           {/* Right: Nav Links & Tools */}
           <div className="flex items-center justify-end gap-3 sm:gap-5 -mr-1 sm:-mr-2">
-            <nav className="hidden sm:flex items-center space-x-1.5 sm:space-x-2 text-[17px] sm:text-[18.5px] font-normal">
+            <nav className="hidden sm:flex items-center space-x-1 sm:space-x-1.5 text-[15px] sm:text-[16.5px] font-normal">
               <button
                 onClick={() => handleNavClick("projects")}
-                className={`inline-flex items-center px-4 py-1.5 rounded-full transition-all cursor-pointer select-none ${
+                className={`inline-flex items-center px-3.5 py-1 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "projects"
                     ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -260,7 +260,7 @@ export function PortfolioView({
               </button>
               <button
                 onClick={() => handleNavClick("about")}
-                className={`inline-flex items-center px-4 py-1.5 rounded-full transition-all cursor-pointer select-none ${
+                className={`inline-flex items-center px-3.5 py-1 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "about"
                     ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -270,7 +270,7 @@ export function PortfolioView({
               </button>
               <button
                 onClick={() => handleNavClick("blog")}
-                className={`inline-flex items-center px-4 py-1.5 rounded-full transition-all cursor-pointer select-none ${
+                className={`inline-flex items-center px-3.5 py-1 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "blog"
                     ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -292,7 +292,7 @@ export function PortfolioView({
 
         {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
-          <div className="sm:hidden absolute top-[70px] right-0 left-0 mx-auto w-[92%] max-w-[400px] bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-lg border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-2 z-40 animate-in slide-in-from-top-4 fade-in duration-200">
+          <div className="sm:hidden absolute top-[56px] right-0 left-0 mx-auto w-[92%] max-w-[400px] bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-lg border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-2 z-40 animate-in slide-in-from-top-4 fade-in duration-200">
             <button
               onClick={() => { handleNavClick("home"); setIsMobileMenuOpen(false); }}
               className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}

@@ -29,7 +29,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             <button
               key={tab.id}
               onClick={() => onSelectTab(tab.id)}
-              className={`px-4 py-1.5 text-[16px] sm:text-[17px] font-normal rounded-full transition-all duration-150 outline-none ${
+              className={`px-3.5 py-1 text-[15px] sm:text-[16px] font-normal rounded-full transition-all duration-150 outline-none ${
                 isActive
                   ? "bg-[#eef2ff] text-[#4e5df8]"
                   : "text-neutral-900 hover:text-black hover:bg-neutral-50"
