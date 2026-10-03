@@ -177,7 +177,7 @@ export default function CodeDexProjectPage() {
                   TOOLS
                 </span>
                 <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Figma, React Native
+                  Figma
                 </span>
               </div>
             </div>
