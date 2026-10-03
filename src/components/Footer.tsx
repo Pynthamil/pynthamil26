@@ -36,7 +36,12 @@ const SocialIcon = ({ label }: { label: string }) => {
   }
 };
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  fullWidth?: boolean;
+  className?: string;
+}
+
+export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = "" }) => {
   const [isEmailCopied, setIsEmailCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -45,9 +50,8 @@ export const Footer: React.FC = () => {
     setTimeout(() => setIsEmailCopied(false), 2000);
   };
 
-  return (
-    <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12">
-      <footer className="w-full max-w-[1240px] mx-auto pt-8 sm:pt-12 mt-auto flex flex-col items-center font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] pb-4 sm:pb-6">
+  const content = (
+    <footer className={`w-full max-w-[1240px] mx-auto pt-8 sm:pt-12 mt-auto flex flex-col items-center font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] pb-4 sm:pb-6 ${className}`}>
         {/* Full-width Availability Banner */}
         <div className="w-full mb-10 p-3.5 sm:p-4 rounded-[8px] bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 transition-colors">
           <div className="flex items-center gap-2.5">
@@ -94,6 +98,15 @@ export const Footer: React.FC = () => {
           &copy; 2026 pynthamil
         </div>
       </footer>
+  );
+
+  if (!fullWidth) {
+    return content;
+  }
+
+  return (
+    <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12">
+      {content}
     </div>
   );
 };

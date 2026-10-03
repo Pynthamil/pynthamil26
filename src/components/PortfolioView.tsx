@@ -481,11 +481,12 @@ export function PortfolioView({
                         const originalIdx = portfolioData.projects.indexOf(project);
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
+                        const isCodedex = project.description === "CodeDex Mobile";
                         const isOrca = project.title === "ORCA";
-                        const isTallCard = isSemantic || project.description === "Archive";
+                        const isTallCard = isSemantic || isCodedex || project.description === "Archive";
                         const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
+                        const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
 
                         return (
                           <div
@@ -512,7 +513,7 @@ export function PortfolioView({
                                   style={{ backgroundColor: project.themeColor }}
                                 />
 
-                                {project.description === "ORCA" || project.description === "Plue" || project.description === "Archive" || project.banner === "/Screens1.webp" ? (
+                                {project.description === "ORCA" || project.description === "Plue" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -534,11 +535,11 @@ export function PortfolioView({
                                   <img 
                                     src={project.banner} 
                                     alt={project.title} 
-                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
+                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic || isCodedex || project.description === "Archive" ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
                                   />
                                 ) : null}
                                 {project.category && (
-                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
+                                  <div className={`absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white transition-all shadow-sm z-10 ${isCodedex ? "group-hover:bg-white/80 group-hover:border-black/20 group-hover:text-slate-900" : "group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white"}`}>
                                     {project.category.toLowerCase()}
                                   </div>
                                 )}
@@ -561,11 +562,12 @@ export function PortfolioView({
                         const originalIdx = portfolioData.projects.indexOf(project);
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
+                        const isCodedex = project.description === "CodeDex Mobile";
                         const isOrca = project.title === "ORCA";
-                        const isTallCard = isSemantic || project.description === "Archive";
+                        const isTallCard = isSemantic || isCodedex || project.description === "Archive";
                         const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
+                        const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
 
                         return (
                           <div
@@ -592,7 +594,7 @@ export function PortfolioView({
                                   style={{ backgroundColor: project.themeColor }}
                                 />
 
-                                {project.description === "ORCA" || project.description === "Plue" || project.description === "Archive" || project.banner === "/Screens1.webp" ? (
+                                {project.description === "ORCA" || project.description === "Plue" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -614,11 +616,11 @@ export function PortfolioView({
                                   <img 
                                     src={project.banner} 
                                     alt={project.title} 
-                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
+                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic || isCodedex || project.description === "Archive" ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
                                   />
                                 ) : null}
                                 {project.category && (
-                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
+                                  <div className={`absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white transition-all shadow-sm z-10 ${isCodedex ? "group-hover:bg-white/80 group-hover:border-black/20 group-hover:text-slate-900" : "group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white"}`}>
                                     {project.category.toLowerCase()}
                                   </div>
                                 )}
@@ -657,11 +659,12 @@ export function PortfolioView({
                         const originalIdx = portfolioData.projects.indexOf(project);
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
+                        const isCodedex = project.description === "CodeDex Mobile";
                         const isOrca = project.title === "ORCA";
-                        const isTallCard = isSemantic || project.description === "Archive";
+                        const isTallCard = isSemantic || isCodedex || project.description === "Archive";
                         const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
+                        const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
 
                         return (
                           <div
@@ -688,7 +691,7 @@ export function PortfolioView({
                                   style={{ backgroundColor: project.themeColor }}
                                 />
 
-                                {project.description === "ORCA" || project.description === "Plue" || project.description === "Archive" || project.banner === "/Screens1.webp" ? (
+                                {project.description === "ORCA" || project.description === "Plue" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -710,11 +713,11 @@ export function PortfolioView({
                                   <img 
                                     src={project.banner} 
                                     alt={project.title} 
-                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
+                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic || isCodedex || project.description === "Archive" ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
                                   />
                                 ) : null}
                                 {project.category && (
-                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
+                                  <div className={`absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white transition-all shadow-sm z-10 ${isCodedex ? "group-hover:bg-white/80 group-hover:border-black/20 group-hover:text-slate-900" : "group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white"}`}>
                                     {project.category.toLowerCase()}
                                   </div>
                                 )}
@@ -737,11 +740,12 @@ export function PortfolioView({
                         const originalIdx = portfolioData.projects.indexOf(project);
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
+                        const isCodedex = project.description === "CodeDex Mobile";
                         const isOrca = project.title === "ORCA";
-                        const isTallCard = isSemantic || project.description === "Archive";
+                        const isTallCard = isSemantic || isCodedex || project.description === "Archive";
                         const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = isSemantic ? "" : "group-hover:scale-[1.03]";
+                        const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
 
                         return (
                           <div
@@ -768,7 +772,7 @@ export function PortfolioView({
                                   style={{ backgroundColor: project.themeColor }}
                                 />
 
-                                {project.description === "ORCA" || project.description === "Plue" || project.description === "Archive" || project.banner === "/Screens1.webp" ? (
+                                {project.description === "ORCA" || project.description === "Plue" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -790,11 +794,11 @@ export function PortfolioView({
                                   <img 
                                     src={project.banner} 
                                     alt={project.title} 
-                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
+                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic || isCodedex || project.description === "Archive" ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
                                   />
                                 ) : null}
                                 {project.category && (
-                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white transition-all shadow-sm z-10">
+                                  <div className={`absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white transition-all shadow-sm z-10 ${isCodedex ? "group-hover:bg-white/80 group-hover:border-black/20 group-hover:text-slate-900" : "group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white"}`}>
                                     {project.category.toLowerCase()}
                                   </div>
                                 )}

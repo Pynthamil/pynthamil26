@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Folder, User, BookOpen, Home, Menu, X } from "lucide-react";
+import { Footer } from "@/components/Footer";
 
 interface ArchiveItem {
   id: string;
@@ -60,6 +61,17 @@ export default function ArchivePage() {
       cardStyle: "framed"
     },
     {
+      id: "inspiher-acm",
+      title: "InspiHer Campaign",
+      subtitle: "Digital campaign design series celebrating women engineers and leaders.",
+      category: "Brand Design",
+      date: "2025",
+      image: "/topic a.svg",
+      aspect: "aspect-[2/3] sm:aspect-[1/1.45]",
+      accentColor: "#F43F5E",
+      cardStyle: "direct"
+    },
+    {
       id: "git-commit-go",
       title: "Browser Terminal",
       subtitle: "Terminal browser exploration and automated developer workflows.",
@@ -69,28 +81,6 @@ export default function ArchivePage() {
       link: "/blog/git-commit-go",
       aspect: "aspect-[16/10] sm:aspect-[1.3/1]",
       accentColor: "#3B82F6",
-      cardStyle: "direct"
-    },
-    {
-      id: "codedex-mobile",
-      title: "Codedex Mobile App Exploration",
-      subtitle: "Gamified learning experience and mobile interface concepts.",
-      category: "Mobile App",
-      date: "2025",
-      image: "/Screens1.webp",
-      aspect: "aspect-[4/5] sm:aspect-[1/1.2]",
-      accentColor: "#10B981",
-      cardStyle: "framed"
-    },
-    {
-      id: "inspiher-acm",
-      title: "InspiHer Campaign",
-      subtitle: "Digital campaign design series celebrating women engineers and leaders.",
-      category: "Brand Design",
-      date: "2025",
-      image: "/topic a.svg",
-      aspect: "aspect-[2/3] sm:aspect-[1/1.45]",
-      accentColor: "#F43F5E",
       cardStyle: "direct"
     }
   ];
@@ -186,13 +176,8 @@ export default function ArchivePage() {
 
         <div className="flex flex-col mt-1.5 px-1">
           <p className="text-[20px] sm:text-[22px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
-            {item.title}
+            {item.subtitle || item.title}
           </p>
-          {item.subtitle && (
-            <p className="text-[13.5px] sm:text-[14.5px] font-sans text-slate-500 dark:text-slate-400 mt-1 font-normal leading-relaxed">
-              {item.subtitle}
-            </p>
-          )}
         </div>
       </div>
     );
@@ -323,6 +308,7 @@ export default function ArchivePage() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

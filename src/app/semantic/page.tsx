@@ -155,9 +155,30 @@ export default function SemanticProjectPage() {
 
       {/* Main Container */}
       <main className="w-full relative z-10 flex flex-col max-w-[640px] animate-in fade-in duration-200">
-                
+        {/* Top Header Navigation */}
+        <header className="flex items-center justify-between w-full mb-8">
+          <Link
+            href="/"
+            onClick={() => playTone(880)}
+            className="font-mono text-[17px] sm:text-[19px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#737373] dark:hover:text-[#a3a3a3] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
+          >
+            <span>&larr;</span>
+            <span>home</span>
+          </Link>
 
-        {/* Top Navigation */}
+          <div className="flex items-center space-x-3.5">
+            <a
+              href="https://www.figma.com/design/jFmjS9SneDaQNfBDHSOepV/mote?node-id=0-1&p=f&t=onrjxXaUuGsvZy9x-0"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => playTone(880)}
+              className="px-3.5 py-1.5 rounded-full border border-[#6666FF]/30 dark:border-[#8888FF]/30 bg-[#6666FF]/[0.06] dark:bg-[#8888FF]/[0.06] text-[#6666FF] dark:text-[#8888FF] hover:bg-[#6666FF]/[0.12] dark:hover:bg-[#8888FF]/[0.12] transition-all flex items-center space-x-1.5 font-mono text-[13px] sm:text-[13.5px] font-medium cursor-pointer"
+            >
+              <Figma className="w-3.5 h-3.5 stroke-[2]" />
+              <span>figma</span>
+            </a>
+          </div>
+        </header>
 
         {/* Article / Case Study Header */}
         <article className="space-y-6">
@@ -431,9 +452,9 @@ export default function SemanticProjectPage() {
               </div>
 
               {/* Interactive Accordion Layout */}
-              <div className="my-8 flex flex-col md:flex-row gap-10 sm:gap-12 items-start justify-between">
+              <div className="my-8 flex flex-col md:flex-row gap-12 sm:gap-16 lg:gap-20 md:w-[120%] md:-ml-[10%] lg:w-[135%] lg:-ml-[17.5%] items-start justify-between">
                   {/* Left: Accordion */}
-                  <div className="w-full md:w-[45%] flex flex-col justify-start shrink-0 pt-2">
+                  <div className="w-full md:w-[40%] lg:w-[35%] flex flex-col justify-start shrink-0 pt-2 z-10">
                     <div className="space-y-0">
                       {processSteps.map((step, idx) => (
                         <div key={idx} className={`border-t border-neutral-200 dark:border-neutral-800 ${idx === 0 ? 'border-t-0' : ''}`}>
@@ -461,17 +482,17 @@ export default function SemanticProjectPage() {
                     </div>
                   </div>
                   {/* Right: Visual Area */}
-                  <div className="w-full md:w-[65%] flex items-center justify-center min-h-[300px] sm:min-h-[400px] relative">
-                      <div className="absolute inset-0 flex items-center justify-center animate-in fade-in zoom-in-95 duration-500" key={activeProcess}>
+                  <div className="w-full md:w-[58%] lg:w-[60%] flex items-center justify-end min-h-[350px] sm:min-h-[460px] lg:min-h-[540px] relative pl-4 md:pl-8 lg:pl-12 overflow-hidden">
+                      <div className="absolute inset-0 flex items-center justify-end animate-in fade-in zoom-in-95 duration-500 pl-4 md:pl-8 lg:pl-12" key={activeProcess}>
                           {activeProcess === 0 ? (
-                            <div className="w-full h-full p-2 sm:p-4 flex items-center justify-center">
-                              <img src="/q1.svg" alt="Questions" className="w-full h-full object-contain scale-110 sm:scale-[1.35] origin-center" />
+                            <div className="w-full h-full p-2 flex items-center justify-end">
+                              <img src="/q1.svg" alt="Questions" className="w-full max-h-full object-contain object-right" />
                             </div>
                           ) : activeProcess === 2 ? (
                             <div className="w-full h-full p-2 flex flex-col items-center justify-center gap-6">
                               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full">
-                                <img src="/v1.svg" alt="Iteration 1" className="w-full sm:w-1/2 max-h-[250px] sm:max-h-[350px] object-contain drop-shadow-md" />
-                                <img src="/v2.svg" alt="Iteration 2" className="w-full sm:w-1/2 max-h-[250px] sm:max-h-[350px] object-contain drop-shadow-md" />
+                                <img src="/v1.svg" alt="Iteration 1" className="w-full sm:w-1/2 max-h-[250px] sm:max-h-[350px] lg:max-h-[400px] object-contain drop-shadow-md" />
+                                <img src="/v2.svg" alt="Iteration 2" className="w-full sm:w-1/2 max-h-[250px] sm:max-h-[350px] lg:max-h-[400px] object-contain drop-shadow-md" />
                               </div>
                               <a href="https://www.figma.com/design/jFmjS9SneDaQNfBDHSOepV/mote?node-id=0-1&p=f&t=onrjxXaUuGsvZy9x-0" target="_blank" rel="noopener noreferrer" className="text-[#6666FF] dark:text-[#8888FF] hover:underline font-medium text-[15px] inline-flex items-center justify-center gap-2 border border-[#E0E0E0] dark:border-[#333] bg-white/80 dark:bg-black/20 px-6 py-2.5 rounded-full shadow-sm hover:border-[#6666FF] dark:hover:border-[#8888FF] transition-all">
                                 <ExternalLink className="w-4 h-4" />
@@ -479,8 +500,8 @@ export default function SemanticProjectPage() {
                               </a>
                             </div>
                           ) : activeProcess === 1 ? (
-                            <div className="w-full h-full p-2 flex items-center justify-center">
-                              <img src="/v2.1.svg" alt="Mapping the problem" className="w-full max-h-full object-contain drop-shadow-md" />
+                            <div className="w-full h-full p-2 flex items-center justify-end">
+                              <img src="/v2.1.svg" alt="Mapping the problem" className="w-full max-h-full object-contain object-right drop-shadow-md" />
                             </div>
                           ) : (
                             <div className="w-full h-full flex flex-col items-center justify-center text-center text-[#A0A0A0]">
@@ -492,7 +513,7 @@ export default function SemanticProjectPage() {
                           )}
                       </div>
                   </div>
-                </div>
+              </div>
               </div>
 
 
@@ -541,41 +562,60 @@ export default function SemanticProjectPage() {
           </div>
         
         {/* Thanks for reading block */}
-        <div className="flex flex-col items-center justify-center w-full pt-20 pb-4 mt-16 border-t border-neutral-100 dark:border-neutral-800/60">
+        <div className="flex flex-col items-center justify-center w-full pt-16 pb-4 mt-16 border-t border-neutral-100 dark:border-neutral-800/60">
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 text-[#6666FF] dark:text-[#8888FF] hover:opacity-80 transition-opacity mb-8 font-medium font-sans text-[15.5px]"
+            className="flex items-center gap-2 text-[#6666FF] dark:text-[#8888FF] hover:opacity-80 transition-opacity font-medium font-sans text-[15.5px]"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
             <span className="underline underline-offset-4 decoration-2">Scroll Back to Top</span>
           </button>
-          
-          <h2 className="text-[48px] sm:text-[56px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] mb-12 tracking-tight">
-            Thanks for reading!
-          </h2>
-
-          <div className="flex items-center justify-center">
-            <img src="/back.svg" alt="Thanks" className="w-[180px] sm:w-[200px] h-auto object-contain opacity-90 drop-shadow-sm" />
-          </div>
-          
-          
         </div>
 
         </article>
 
-        {/* Navigation Links */}
-        <div className="pt-10 pb-6 flex items-center justify-between w-full">
-          <Link
-            href="/"
-            onClick={() => playTone(880)}
-            className="font-mono text-[13.5px] sm:text-[14px] text-[#6666FF] dark:text-[#8888FF] hover:underline underline-offset-4 font-medium flex items-center space-x-1 cursor-pointer"
-          >
-            <span>&larr; back to home</span>
-          </Link>
-        </div>
+        {/* Navigation Section */}
+        <div className="pt-12 pb-12 w-full sm:w-[115%] sm:-ml-[7.5%] lg:w-[130%] lg:-ml-[15%] space-y-6">
+          <div className="flex items-center justify-between w-full">
+            <Link
+              href="/orca"
+              onClick={() => playTone(880)}
+              className="px-6 py-2.5 sm:px-7 sm:py-3 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#141415] hover:bg-neutral-100 dark:hover:bg-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] transition-all font-sans font-medium text-[14px] sm:text-[15px] shadow-sm flex items-center space-x-2 cursor-pointer"
+            >
+              <span>&larr; Previous project</span>
+            </Link>
+            <Link
+              href="/codedex"
+              onClick={() => playTone(880)}
+              className="px-6 py-2.5 sm:px-7 sm:py-3 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#141415] hover:bg-neutral-100 dark:hover:bg-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] transition-all font-sans font-medium text-[14px] sm:text-[15px] shadow-sm flex items-center space-x-2 cursor-pointer"
+            >
+              <span>Next project &rarr;</span>
+            </Link>
+          </div>
 
-        {/* Standard Footer */}
-        <Footer />
+          {/* Single Next Project Card */}
+          <Link
+            href="/codedex"
+            onClick={() => playTone(880)}
+            className="group relative block w-full rounded-[24px] overflow-hidden cursor-pointer hover:opacity-95 transition-opacity"
+          >
+            <img 
+              src="/next-codedex.svg" 
+              alt="Next Project - CodeDex Mobile" 
+              className="w-full h-auto block" 
+            />
+            <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-start max-w-[55%] sm:max-w-[48%] lg:max-w-[46%] space-y-2 pointer-events-none">
+              <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#2C2C2C] dark:text-[#CBD5E1]">
+                NEXT PROJECT
+              </span>
+              <h3 className="font-sans font-medium text-[18px] sm:text-[24px] lg:text-[28px] text-[#2C2C2C] group-hover:text-[#52525B] dark:group-hover:text-white transition-colors leading-snug">
+                Designing CodeDex for Accessible, On-the-Go Learning.
+              </h3>
+            </div>
+          </Link>
+
+          <Footer fullWidth={false} />
+        </div>
       </main>
     </div>
   );

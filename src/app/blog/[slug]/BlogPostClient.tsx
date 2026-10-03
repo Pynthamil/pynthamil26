@@ -134,76 +134,78 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
       {/* Main Container Wrapper - Grid Layout */}
       <main className="w-full relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_minmax(auto,640px)_1fr] max-w-[1400px] mx-auto">
         
-        {/* Header Section (Top Nav, Title, Hero Image, Action Bar) */}
+        {/* Header & Hero Section (Row 1: Title, Date, Banner, Action Bar) */}
         <div className="lg:col-start-2 lg:row-start-1 w-full animate-in fade-in duration-200">
-<header className="flex items-center justify-between w-full mb-8">
-          <Link
-            href="/blog"
-            onClick={() => playTone(880)}
-            className="font-mono text-[17px] sm:text-[19px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#737373] dark:hover:text-[#a3a3a3] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
-          >
-            <span>&larr;</span>
-            <span>blog</span>
-          </Link>
-
-          <div className="flex items-center space-x-3.5">
-            <span className="flex items-center space-x-1.5 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-              <PieChart className="w-3.5 h-3.5 fill-current" strokeWidth={2} />
-              <span>{post.readingTime.toLowerCase()} read</span>
-            </span>
-          </div>
-        </header>
-
-        {/* Article Header */}
-        <div className="space-y-6">
-          <div className="pb-5 text-center">
-            <h1 className="instrument-serif text-[42px] sm:text-[48px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
-              {post.title.toLowerCase()}
-            </h1>
-            <div className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] mt-2.5 flex items-center justify-center space-x-2">
-              <span>{post.date.toLowerCase()}</span>
-              <span></span>
-              <span >pynthamil pavendan</span>
-            </div>
-          </div>
-
-          {post.image && (
-            <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] rounded-xl mt-6 mb-4 overflow-hidden">
-              <img src={post.image} alt={`${post.title} Banner`} className="absolute inset-0 w-full h-full object-cover" />
-            </div>
-          )}
-
-          {/* Action Bar */}
-          <div className="flex items-center justify-end py-4 border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 mb-8 text-[14px] sm:text-[15px] font-sans">
-            <button 
-              onClick={handleShare}
-              className="flex items-center space-x-2 font-medium text-[#2C2C2C] dark:text-[#F2F2F2] hover:opacity-70 transition-opacity"
+          <header className="flex items-center justify-between w-full mb-8">
+            <Link
+              href="/blog"
+              onClick={() => playTone(880)}
+              className="font-mono text-[17px] sm:text-[19px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#737373] dark:hover:text-[#a3a3a3] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
             >
-              <LinkIcon className="w-4 h-4" />
-              <span>{isCopied ? "Copied!" : "Share"}</span>
-            </button>
+              <span>&larr;</span>
+              <span>blog</span>
+            </Link>
+
+            <div className="flex items-center space-x-3.5">
+              <span className="flex items-center space-x-1.5 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <PieChart className="w-3.5 h-3.5 fill-current" strokeWidth={2} />
+                <span>{post.readingTime.toLowerCase()} read</span>
+              </span>
+            </div>
+          </header>
+
+          {/* Article Header */}
+          <div className="space-y-6">
+            <div className="pb-5 text-center">
+              <h1 className="instrument-serif text-[42px] sm:text-[48px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+                {post.title.toLowerCase()}
+              </h1>
+              <div className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] mt-2.5 flex items-center justify-center space-x-2">
+                <span>{post.date.toLowerCase()}</span>
+                <span>•</span>
+                <span>pynthamil pavendan</span>
+              </div>
+            </div>
+
+            {post.image && (
+              <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] rounded-xl mt-6 mb-4 overflow-hidden">
+                <img src={post.image} alt={`${post.title} Banner`} className="absolute inset-0 w-full h-full object-cover" />
+              </div>
+            )}
+
+            {/* Action Bar */}
+            <div className="flex items-center justify-end py-4 border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 mb-8 text-[14px] sm:text-[15px] font-sans">
+              <button 
+                onClick={handleShare}
+                className="flex items-center space-x-2 font-medium text-[#2C2C2C] dark:text-[#F2F2F2] hover:opacity-70 transition-opacity"
+              >
+                <LinkIcon className="w-4 h-4" />
+                <span>{isCopied ? "Copied!" : "Share"}</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        </div>
-        {/* Table of Contents Sidebar */}
-<aside className="hidden lg:block lg:col-start-1 lg:row-start-2 sticky top-24 self-start animate-in fade-in duration-200 pt-2 justify-self-end pr-8 xl:pr-12 w-full max-w-[260px]">
-          <HookSidebar 
-            items={headings.map(h => h.text)}
-            value={headings.findIndex(h => h.id === activeId) !== -1 ? headings.findIndex(h => h.id === activeId) : 0}
-            onChange={(index) => {
-               const h = headings[index];
-               if(h) {
-                 document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth' });
-                 setActiveId(h.id);
-               }
-            }}
-            color="#FC4C01"
-            dashed={true}
-          />
-        </aside>
+        {/* Table of Contents Sidebar (Row 2: Only alongside Article body text) */}
+        {headings.length > 0 && (
+          <aside className="hidden lg:block lg:col-start-1 lg:row-start-2 sticky top-24 self-start animate-in fade-in duration-200 pt-2 justify-self-end pr-8 xl:pr-12 w-full max-w-[260px]">
+            <HookSidebar 
+              items={headings.map(h => h.text)}
+              value={headings.findIndex(h => h.id === activeId) !== -1 ? headings.findIndex(h => h.id === activeId) : 0}
+              onChange={(index) => {
+                 const h = headings[index];
+                 if(h) {
+                   document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth' });
+                   setActiveId(h.id);
+                 }
+              }}
+              color="#FC4C01"
+              dashed={true}
+            />
+          </aside>
+        )}
 
-        {/* Article Text Content */}
+        {/* Article Text Content (Row 2) */}
         <article className="lg:col-start-2 lg:row-start-2 w-full animate-in fade-in duration-200">
 
 
@@ -1147,8 +1149,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
         
         </article>
 
+        {/* Footer in Row 3 (matching 640px article width) */}
+        <div className="lg:col-start-2 lg:row-start-3 w-full max-w-[640px] mx-auto pt-12 pb-8">
+          <Footer fullWidth={false} className="max-w-[640px]" />
+        </div>
       </main>
-      <Footer />
     </div>
   );
 }
