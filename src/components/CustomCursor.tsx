@@ -42,12 +42,12 @@ export function CustomCursor() {
       }}
     >
       {isHovered ? (
-        <div className="px-5 py-2.5 bg-[#FF3366] text-white rounded-full flex items-center gap-2.5 animate-in zoom-in-95 duration-150 whitespace-nowrap font-sans text-[13px] font-bold tracking-wider uppercase">
+        <div className="px-5 py-2.5 bg-[#FF00AE] text-white rounded-full flex items-center gap-2.5 animate-in zoom-in-95 duration-150 whitespace-nowrap font-sans text-[13px] font-bold tracking-wider uppercase">
           <Eye className="w-4 h-4 text-white stroke-[2.5]" />
           <span>VIEW CASE STUDY</span>
         </div>
       ) : (
-        <div className="w-[22px] h-[22px] rounded-full bg-[#FF3366] transition-all duration-150" />
+        <div className="w-[22px] h-[22px] rounded-full bg-[#FF00AE] transition-all duration-150" />
       )}
     </div>
   );

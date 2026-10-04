@@ -54,10 +54,10 @@ function TypewriterName() {
 
   return (
     <span className="inline-flex items-baseline">
-      <span className={isTamil ? "text-[#00B5B2] dark:text-[#38BDF8] font-sans font-medium" : "instrument-serif"}>
+      <span className={isTamil ? "text-slate-400 dark:text-slate-500 font-sans font-medium" : "instrument-serif"}>
         {displayText}
       </span>
-      <span className="inline-block w-[2px] h-[0.75em] bg-[#00B5B2] dark:bg-[#38BDF8] ml-1 translate-y-[2px] animate-pulse" />
+      <span className="inline-block w-[2px] h-[0.75em] bg-[#FF00AE] dark:bg-[#FF00AE] ml-1 translate-y-[2px] animate-pulse" />
     </span>
   );
 }
@@ -350,25 +350,25 @@ export function PortfolioView({
           <div className="sm:hidden absolute top-[56px] right-0 left-0 mx-auto w-[92%] max-w-[400px] bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-lg border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-2 z-40 animate-in slide-in-from-top-4 fade-in duration-200">
             <button
               onClick={() => { handleNavClick("home"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
             >
               Home
             </button>
             <button
               onClick={() => { handleNavClick("projects"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
             >
               Work
             </button>
             <button
               onClick={() => { handleNavClick("about"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
             >
               About
             </button>
             <button
               onClick={() => { handleNavClick("blog"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#00B5B2]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
             >
               Blog
             </button>
@@ -391,7 +391,7 @@ export function PortfolioView({
               <div className="relative pt-2 sm:pt-4">
                 <h1 className="font-sans font-medium text-[24px] sm:text-[28px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.35] tracking-tight">
                   hey! i'm pynthamil pavendan{" "}
-                  <span className="font-sans font-normal text-[#00B5B2] dark:text-[#38BDF8]">
+                  <span className="font-sans font-normal text-slate-400 dark:text-slate-500">
                     (பைந்தமிழ்)
                   </span>
                   , building software that feels useful and alive.
@@ -438,7 +438,7 @@ export function PortfolioView({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => playTone(880)}
-                  className="instrument-serif text-[24px] sm:text-[26px] text-black dark:text-white underline underline-offset-4 decoration-wavy decoration-[#00B5B2]/40 hover:decoration-[#00B5B2] font-normal transition-colors"
+                  className="instrument-serif text-[24px] sm:text-[26px] text-black dark:text-white underline underline-offset-4 decoration-wavy decoration-[#FF00AE]/40 hover:decoration-[#FF00AE] font-normal transition-colors"
                 >
                   download my CV &darr;
                 </a>
@@ -937,7 +937,7 @@ export function PortfolioView({
 
               <h1 className="instrument-serif text-[36px] sm:text-[44px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.1] tracking-tight mb-6 w-full text-left">
                 hey! i'm pynthamil{" "}
-                <span className="font-sans font-normal text-[#00B5B2] dark:text-[#38BDF8] text-[0.85em]">
+                <span className="font-sans font-normal text-slate-400 dark:text-slate-500 text-[0.85em]">
                   (பைந்தமிழ்)
                 </span>{" "}
                 pavendan
@@ -966,7 +966,7 @@ export function PortfolioView({
                     <div className="flex items-start justify-between w-full">
                       <div className="flex items-start flex-1 pr-4">
                         <div className="flex flex-col justify-center h-full">
-                          <span className="instrument-serif italic underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#00B5B2]/30 dark:decoration-[#00B5B2]/30 font-normal text-[18px] sm:text-[19px] text-[#334155] dark:text-[#E2E8F0] tracking-[0.02em]">
+                          <span className="instrument-serif italic underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#FF00AE]/30 dark:decoration-[#FF00AE]/30 font-normal text-[18px] sm:text-[19px] text-[#334155] dark:text-[#E2E8F0] tracking-[0.02em]">
                             {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
                           </span>
                         </div>
@@ -980,7 +980,7 @@ export function PortfolioView({
                       <ul className="mt-4 flex flex-col space-y-2.5 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
                         {item.bullets.map((bullet, idx) => (
                           <li key={idx} className="flex items-start gap-2.5">
-                            <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                            <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                             <span>{bullet}</span>
                           </li>
                         ))}
@@ -1006,23 +1006,23 @@ export function PortfolioView({
 
                   <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                     <div className="flex items-start space-x-2.5">
-                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>music taste: a bit of everything &rarr; if it sounds good, I'm listening</span>
                     </div>
                     <div className="flex items-start space-x-2.5">
-                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>I love reading books, watching movies, writing, and drawing</span>
                     </div>
                     <div className="flex items-start space-x-2.5">
-                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>personality type: INTJ</span>
                     </div>
                     <div className="flex items-start space-x-2.5">
-                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>I love chess and enjoy challenging myself just for the plot</span>
                     </div>
                     <div className="flex items-start space-x-2.5">
-                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>I don't believe the saying "curiosity kills the cat" &mdash; haha</span>
                     </div>
                   </div>
@@ -1060,35 +1060,35 @@ export function PortfolioView({
 
                   <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#94A3B8] leading-relaxed font-sans animate-in fade-in duration-150">
                     <div className="flex items-start space-x-2.5">
-                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>
                         I&apos;ve never been very good at picking just one box to sit in. And honestly, I don&apos;t think I want to be.
                       </span>
                     </div>
 
                     <div className="flex items-start space-x-2.5">
-                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>
                         I like bouncing between <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">design and code, weird ideas and working products</strong>. One day I&apos;m obsessing over a tiny interaction; the next I&apos;m building the backend that makes it work. Somewhere in between, I&apos;m probably opening Figma, VS Code, and 17 tabs I absolutely intend to come back to.
                       </span>
                     </div>
 
                     <div className="flex items-start space-x-2.5">
-                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>
                         I&apos;m a <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">developer, designer, and an unapologetic generalist</strong> &mdash; comfortable moving from an idea on a napkin to a polished interface to the messy machinery underneath it.
                       </span>
                     </div>
 
                     <div className="flex items-start space-x-2.5">
-                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>
                         Being a jack of all trades means I get to see the connections between things: <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">how something feels, how it works, and why it should exist in the first place</strong>. That&apos;s the part I find interesting.
                       </span>
                     </div>
 
                     <div className="flex items-start space-x-2.5">
-                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>
                         I don&apos;t really want to be the person who fits neatly into a job title. <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">I&apos;d rather be the person you call when there&apos;s a weird problem and nobody quite knows who should own it.</strong>
                       </span>
@@ -1115,25 +1115,25 @@ export function PortfolioView({
 
               <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                   <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                    <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       Always down to chat about code, design systems, crazy ideas, or good music
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                    <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       Drop a line at{" "}
                       <a
                         href={`mailto:${portfolioData.email}`}
-                        className="text-[#00B5B2] underline underline-offset-4 decoration-wavy decoration-[#00B5B2] font-medium"
+                        className="text-[#FF00AE] underline underline-offset-4 decoration-wavy decoration-[#FF00AE] font-medium"
                       >
                         {portfolioData.email}
                       </a>
                     </span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                    <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                     <span>
                       Find me on{" "}
                       <a
