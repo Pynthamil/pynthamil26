@@ -3,6 +3,7 @@ import "./globals.css";
 import { CSPostHogProvider } from "./providers";
 import { Poppins as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { CustomCursor } from "@/components/CustomCursor";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-white dark:bg-[#0E0E0F] text-[#111111] dark:text-[#F2F2F2] antialiased selection:bg-neutral-200 dark:selection:bg-neutral-800 selection:text-neutral-900 dark:selection:text-white">
         <CSPostHogProvider>
+          <CustomCursor />
           {children}
         </CSPostHogProvider>
       </body>

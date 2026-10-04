@@ -273,9 +273,6 @@ export function PortfolioView({
 
   return (
     <>
-      <CustomCursor />
-
-
       <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-4 sm:pt-5 pb-6 sm:pb-8 selection:bg-neutral-200">
         {/* Soft atmospheric ambient glow */}
         <div className="ambient-glow" />
