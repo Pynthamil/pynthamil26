@@ -1,12 +1,66 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { portfolioData, Project, Post } from "@/data/portfolio";
 import { Modal } from "@/components/Modal";
 import { GitHubActivity } from "@/components/ui/github-activity";
 import { ProjectSidebar } from "./ProjectSidebar";
 import { Footer } from "./Footer";
+import { LottiePlayer } from "@/components/LottiePlayer";
+import { OrcaCardCover } from "@/components/OrcaCardCover";
+import { CustomCursor } from "@/components/CustomCursor";
 import { Moon, Sun, Copy, Check, X, Clock, Menu, Mail, SlidersHorizontal, ChevronDown, Folder, User, BookOpen, FileText, Home, Dribbble, Sparkles } from "lucide-react";
+
+function TypewriterName() {
+  const words = ["pynthamil", "பைந்தமிழ்"];
+  const [wordIndex, setWordIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("pynthamil");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentWord = words[wordIndex];
+    const graphemes = typeof Intl !== "undefined" && (Intl as any).Segmenter
+      ? Array.from(new (Intl as any).Segmenter("ta", { granularity: "grapheme" }).segment(currentWord)).map((s: any) => s.segment)
+      : Array.from(currentWord);
+
+    const currentGraphemes = typeof Intl !== "undefined" && (Intl as any).Segmenter
+      ? Array.from(new (Intl as any).Segmenter("ta", { granularity: "grapheme" }).segment(displayText)).map((s: any) => s.segment)
+      : Array.from(displayText);
+
+    let timeout: NodeJS.Timeout;
+
+    if (!isDeleting && currentGraphemes.length === graphemes.length) {
+      timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2500);
+    } else if (isDeleting && currentGraphemes.length === 0) {
+      setIsDeleting(false);
+      setWordIndex((prev) => (prev + 1) % words.length);
+    } else {
+      const speed = isDeleting ? 60 : 110;
+      timeout = setTimeout(() => {
+        const nextLength = isDeleting
+          ? currentGraphemes.length - 1
+          : currentGraphemes.length + 1;
+        setDisplayText(graphemes.slice(0, nextLength).join(""));
+      }, speed);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, wordIndex]);
+
+  const isTamil = wordIndex === 1 && displayText.length > 0;
+
+  return (
+    <span className="inline-flex items-baseline">
+      <span className={isTamil ? "text-[#00B5B2] dark:text-[#38BDF8] font-sans font-medium" : "instrument-serif"}>
+        {displayText}
+      </span>
+      <span className="inline-block w-[2px] h-[0.75em] bg-[#00B5B2] dark:bg-[#38BDF8] ml-1 translate-y-[2px] animate-pulse" />
+    </span>
+  );
+}
 
 export function PortfolioView({
   initialViewMode = "home",
@@ -219,6 +273,7 @@ export function PortfolioView({
 
   return (
     <>
+      <CustomCursor />
 
 
       <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-4 sm:pt-5 pb-6 sm:pb-8 selection:bg-neutral-200">
@@ -335,7 +390,11 @@ export function PortfolioView({
               <section className="flex flex-col h-full justify-between mb-12 sm:mb-0 space-y-8 sm:space-y-0">
               <div className="relative pt-2 sm:pt-4">
                 <h1 className="font-sans font-medium text-[24px] sm:text-[28px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.35] tracking-tight">
-                  hey! i'm pynthamil pavendan [pyndu], building software that feels useful and alive.
+                  hey! i'm pynthamil pavendan{" "}
+                  <span className="font-sans font-normal text-[#00B5B2] dark:text-[#38BDF8]">
+                    (பைந்தமிழ்)
+                  </span>
+                  , building software that feels useful and alive.
                 </h1>
                 
                 <p className="text-[21px] sm:text-[24px] text-slate-400 dark:text-slate-500 font-normal mt-1 mb-10 sm:mb-14">
@@ -475,16 +534,17 @@ export function PortfolioView({
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isCodedex = project.description === "CodeDex Mobile";
-                        const isOrca = project.title === "ORCA";
+                        const isOrca = project.description === "ORCA" || project.title === "ORCA";
                         const isTallCard = isSemantic || isCodedex;
-                        const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const aspectClass = isOrca ? "aspect-[16/10] sm:aspect-[1.35/1]" : isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
+                        const hoverScaleClass = "";
 
                         return (
                           <div
                             key={originalIdx}
-                            className="group flex flex-col py-1.5 cursor-dot transition-opacity w-full"
+                            data-cursor="case-study"
+                            className="group flex flex-col py-1.5 transition-opacity w-full"
                             onClick={() => {
                               if (isInternal && project.link) {
                                 playTone(880);
@@ -499,14 +559,25 @@ export function PortfolioView({
                           >
                             {(project.banner || project.status === "Coming Soon") && (
                               <div 
-                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
+                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-300 group-hover:brightness-[0.88] ${aspectClass}`}
+                                style={{ backgroundColor: project.themeColor || "#D5F1FF" }}
                               >
-                                <div 
-                                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                                  style={{ backgroundColor: project.themeColor }}
-                                />
 
-                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                {isOrca ? (
+                                  <OrcaCardCover />
+                                ) : project.banner?.match(/\.(json|lottie|gif)$/i) ? (
+                                  project.banner.match(/\.(json|lottie)$/i) ? (
+                                    <div className={`z-10 w-[125%] sm:w-[130%] flex items-center justify-center ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`}>
+                                      <LottiePlayer src={project.banner} className="w-full h-auto drop-shadow-md" />
+                                    </div>
+                                  ) : (
+                                    <img 
+                                      src={project.banner} 
+                                      alt={project.title} 
+                                      className={`z-10 w-[125%] sm:w-[130%] h-auto object-contain ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`} 
+                                    />
+                                  )
+                                ) : project.description === "ORCA" || project.description === "Plue" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -532,14 +603,14 @@ export function PortfolioView({
                                   />
                                 ) : null}
                                 {project.category && (
-                                  <div className={`absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white transition-all shadow-sm z-10 ${isCodedex ? "group-hover:bg-white/80 group-hover:border-black/20 group-hover:text-slate-900" : "group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white"}`}>
+                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/20 border border-white/50 text-white backdrop-blur-md shadow-sm z-10">
                                     {project.category.toLowerCase()}
                                   </div>
                                 )}
                               </div>
                             )}
                             <div className="flex flex-col mt-2 px-1">
-                              <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+                              <p className="text-[26px] sm:text-[30px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
                                 {project.title}
                               </p>
 
@@ -556,16 +627,17 @@ export function PortfolioView({
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isCodedex = project.description === "CodeDex Mobile";
-                        const isOrca = project.title === "ORCA";
+                        const isOrca = project.description === "ORCA" || project.title === "ORCA";
                         const isTallCard = isSemantic || isCodedex;
-                        const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const aspectClass = isOrca ? "aspect-[16/10] sm:aspect-[1.35/1]" : isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
+                        const hoverScaleClass = "";
 
                         return (
                           <div
                             key={originalIdx}
-                            className="group flex flex-col py-1.5 cursor-dot transition-opacity w-full"
+                            data-cursor="case-study"
+                            className="group flex flex-col py-1.5 transition-opacity w-full"
                             onClick={() => {
                               if (isInternal && project.link) {
                                 playTone(880);
@@ -580,14 +652,25 @@ export function PortfolioView({
                           >
                             {(project.banner || project.status === "Coming Soon") && (
                               <div 
-                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
+                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-300 group-hover:brightness-[0.88] ${aspectClass}`}
+                                style={{ backgroundColor: project.themeColor || "#D5F1FF" }}
                               >
-                                <div 
-                                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                                  style={{ backgroundColor: project.themeColor }}
-                                />
 
-                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                {isOrca ? (
+                                  <OrcaCardCover />
+                                ) : project.banner?.match(/\.(json|lottie|gif)$/i) ? (
+                                  project.banner.match(/\.(json|lottie)$/i) ? (
+                                    <div className={`z-10 w-[125%] sm:w-[130%] flex items-center justify-center ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`}>
+                                      <LottiePlayer src={project.banner} className="w-full h-auto drop-shadow-md" />
+                                    </div>
+                                  ) : (
+                                    <img 
+                                      src={project.banner} 
+                                      alt={project.title} 
+                                      className={`z-10 w-[125%] sm:w-[130%] h-auto object-contain ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`} 
+                                    />
+                                  )
+                                ) : project.description === "ORCA" || project.description === "Plue" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -613,14 +696,14 @@ export function PortfolioView({
                                   />
                                 ) : null}
                                 {project.category && (
-                                  <div className={`absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white transition-all shadow-sm z-10 ${isCodedex ? "group-hover:bg-white/80 group-hover:border-black/20 group-hover:text-slate-900" : "group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white"}`}>
+                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/20 border border-white/50 text-white backdrop-blur-md shadow-sm z-10">
                                     {project.category.toLowerCase()}
                                   </div>
                                 )}
                               </div>
                             )}
                             <div className="flex flex-col mt-2 px-1">
-                              <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+                              <p className="text-[26px] sm:text-[30px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
                                 {project.title}
                               </p>
 
@@ -653,16 +736,17 @@ export function PortfolioView({
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isCodedex = project.description === "CodeDex Mobile";
-                        const isOrca = project.title === "ORCA";
+                        const isOrca = project.description === "ORCA" || project.title === "ORCA";
                         const isTallCard = isSemantic || isCodedex;
-                        const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const aspectClass = isOrca ? "aspect-[16/10] sm:aspect-[1.35/1]" : isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
+                        const hoverScaleClass = "";
 
                         return (
                           <div
                             key={originalIdx}
-                            className="group flex flex-col py-1.5 cursor-dot transition-opacity w-full"
+                            data-cursor="case-study"
+                            className="group flex flex-col py-1.5 transition-opacity w-full"
                             onClick={() => {
                               if (isInternal && project.link) {
                                 playTone(880);
@@ -677,14 +761,25 @@ export function PortfolioView({
                           >
                             {(project.banner || project.status === "Coming Soon") && (
                               <div 
-                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
+                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-300 group-hover:brightness-[0.88] ${aspectClass}`}
+                                style={{ backgroundColor: project.themeColor || "#D5F1FF" }}
                               >
-                                <div 
-                                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                                  style={{ backgroundColor: project.themeColor }}
-                                />
 
-                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                {isOrca ? (
+                                  <OrcaCardCover />
+                                ) : project.banner?.match(/\.(json|lottie|gif)$/i) ? (
+                                  project.banner.match(/\.(json|lottie)$/i) ? (
+                                    <div className={`z-10 w-[125%] sm:w-[130%] flex items-center justify-center ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`}>
+                                      <LottiePlayer src={project.banner} className="w-full h-auto drop-shadow-md" />
+                                    </div>
+                                  ) : (
+                                    <img 
+                                      src={project.banner} 
+                                      alt={project.title} 
+                                      className={`z-10 w-[125%] sm:w-[130%] h-auto object-contain ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`} 
+                                    />
+                                  )
+                                ) : project.description === "ORCA" || project.description === "Plue" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -710,14 +805,14 @@ export function PortfolioView({
                                   />
                                 ) : null}
                                 {project.category && (
-                                  <div className={`absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white transition-all shadow-sm z-10 ${isCodedex ? "group-hover:bg-white/80 group-hover:border-black/20 group-hover:text-slate-900" : "group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white"}`}>
+                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/20 border border-white/50 text-white backdrop-blur-md shadow-sm z-10">
                                     {project.category.toLowerCase()}
                                   </div>
                                 )}
                               </div>
                             )}
                             <div className="flex flex-col mt-2 px-1">
-                              <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+                              <p className="text-[26px] sm:text-[30px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
                                 {project.title}
                               </p>
 
@@ -734,16 +829,17 @@ export function PortfolioView({
                         const isInternal = project.link && project.link.startsWith("/");
                         const isSemantic = project.description === "Semantic Email Copilot";
                         const isCodedex = project.description === "CodeDex Mobile";
-                        const isOrca = project.title === "ORCA";
+                        const isOrca = project.description === "ORCA" || project.title === "ORCA";
                         const isTallCard = isSemantic || isCodedex;
-                        const aspectClass = isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
+                        const aspectClass = isOrca ? "aspect-[16/10] sm:aspect-[1.35/1]" : isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
                         const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = isSemantic || isCodedex ? "" : "group-hover:scale-[1.03]";
+                        const hoverScaleClass = "";
 
                         return (
                           <div
                             key={originalIdx}
-                            className="group flex flex-col py-1.5 cursor-dot transition-opacity w-full"
+                            data-cursor="case-study"
+                            className="group flex flex-col py-1.5 transition-opacity w-full"
                             onClick={() => {
                               if (isInternal && project.link) {
                                 playTone(880);
@@ -758,14 +854,23 @@ export function PortfolioView({
                           >
                             {(project.banner || project.status === "Coming Soon") && (
                               <div 
-                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative ${aspectClass} transition-all duration-500 bg-[#D5F1FF] dark:bg-[#1A1A1A]`}
+                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-300 group-hover:brightness-[0.88] ${aspectClass}`}
+                                style={{ backgroundColor: project.themeColor || "#D5F1FF" }}
                               >
-                                <div 
-                                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                                  style={{ backgroundColor: project.themeColor }}
-                                />
 
-                                {project.description === "ORCA" || project.description === "Plue" ? (
+                                {project.banner?.match(/\.(json|lottie|gif)$/i) ? (
+                                  project.banner.match(/\.(json|lottie)$/i) ? (
+                                    <div className={`z-10 w-[98%] sm:w-[95%] flex items-center justify-center transition-transform duration-700 ease-out ${hoverScaleClass}`}>
+                                      <LottiePlayer src={project.banner} className="w-full h-auto drop-shadow-md" />
+                                    </div>
+                                  ) : (
+                                    <img 
+                                      src={project.banner} 
+                                      alt={project.title} 
+                                      className={`z-10 w-[98%] sm:w-[95%] h-auto object-contain transition-transform duration-700 ease-out ${hoverScaleClass}`} 
+                                    />
+                                  )
+                                ) : project.description === "ORCA" || project.description === "Plue" ? (
                                   <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
@@ -791,14 +896,14 @@ export function PortfolioView({
                                   />
                                 ) : null}
                                 {project.category && (
-                                  <div className={`absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/50 dark:bg-black/50 backdrop-blur-md border border-black/10 dark:border-white/10 text-slate-700 dark:text-white transition-all shadow-sm z-10 ${isCodedex ? "group-hover:bg-white/80 group-hover:border-black/20 group-hover:text-slate-900" : "group-hover:bg-white/20 group-hover:border-white/50 group-hover:text-white"}`}>
+                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/20 border border-white/50 text-white backdrop-blur-md shadow-sm z-10">
                                     {project.category.toLowerCase()}
                                   </div>
                                 )}
                               </div>
                             )}
                             <div className="flex flex-col mt-2 px-1">
-                              <p className="text-[22px] sm:text-[25px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.35] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+                              <p className="text-[26px] sm:text-[30px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
                                 {project.title}
                               </p>
 
@@ -821,17 +926,24 @@ export function PortfolioView({
           <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200 mt-10 sm:mt-16">
             <div className="flex flex-col w-full max-w-[640px] mx-auto items-start text-left">
               
-              <img 
+              <Image 
                 src="/photo-dump/img1.jpeg" 
                 alt="Pynthamil" 
+                width={640}
+                height={427}
+                priority
                 className="w-full max-w-[500px] sm:max-w-[640px] aspect-[3/2] object-cover rounded-md mb-8 mx-auto self-center"
               />
 
               <h1 className="instrument-serif text-[36px] sm:text-[44px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.1] tracking-tight mb-6 w-full text-left">
-                hey! i'm pynthamil pavendan
+                hey! i'm pynthamil{" "}
+                <span className="font-sans font-normal text-[#00B5B2] dark:text-[#38BDF8] text-[0.85em]">
+                  (பைந்தமிழ்)
+                </span>{" "}
+                pavendan
               </h1>
               
-              <p className="text-[17px] sm:text-[19px] text-[#475569] dark:text-[#94A3B8] leading-relaxed font-sans mb-12 w-full text-left">
+              <p className="text-[17.5px] sm:text-[19.5px] text-[#475569] dark:text-[#94A3B8] leading-[1.85] font-sans mb-12 w-full text-left">
                 I'm a student developer, but mostly I'm just a very curious human who loves figuring out how things work. When I'm not at my keyboard, I'm probably listening to music, reading a good book, or trying not to take life too seriously.
               </p>
 
@@ -933,6 +1045,57 @@ export function PortfolioView({
                   </div>
                 </div>
 
+                <div id="behind-the-logo" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 scroll-mt-24">
+                  <div className="flex items-center justify-between py-1.5">
+                    <div>
+                      <h2 className="instrument-serif text-[36px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
+                        behind the logo
+                      </h2>
+                      <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
+                        <span className="select-none">↳</span>
+                        <span>wildcard, generalist &amp; professional dot-connector</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#94A3B8] leading-relaxed font-sans animate-in fade-in duration-150">
+                    <div className="flex items-start space-x-2.5">
+                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span>
+                        I&apos;ve never been very good at picking just one box to sit in. And honestly, I don&apos;t think I want to be.
+                      </span>
+                    </div>
+
+                    <div className="flex items-start space-x-2.5">
+                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span>
+                        I like bouncing between <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">design and code, weird ideas and working products</strong>. One day I&apos;m obsessing over a tiny interaction; the next I&apos;m building the backend that makes it work. Somewhere in between, I&apos;m probably opening Figma, VS Code, and 17 tabs I absolutely intend to come back to.
+                      </span>
+                    </div>
+
+                    <div className="flex items-start space-x-2.5">
+                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span>
+                        I&apos;m a <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">developer, designer, and an unapologetic generalist</strong> &mdash; comfortable moving from an idea on a napkin to a polished interface to the messy machinery underneath it.
+                      </span>
+                    </div>
+
+                    <div className="flex items-start space-x-2.5">
+                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span>
+                        Being a jack of all trades means I get to see the connections between things: <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">how something feels, how it works, and why it should exist in the first place</strong>. That&apos;s the part I find interesting.
+                      </span>
+                    </div>
+
+                    <div className="flex items-start space-x-2.5">
+                      <span className="text-[#00B5B2] font-bold mt-0.5 shrink-0">+</span>
+                      <span>
+                        I don&apos;t really want to be the person who fits neatly into a job title. <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">I&apos;d rather be the person you call when there&apos;s a weird problem and nobody quite knows who should own it.</strong>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
                 <div id="come-say-hi" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 scroll-mt-24">
               <div
                 
@@ -999,7 +1162,7 @@ export function PortfolioView({
                       >
                         LeetCode
                       </a>
-                      , and{" "}
+                      , or{" "}
                       <a
                         href="https://linkedin.com/in/pynthamil-pavendan"
                         target="_blank"
@@ -1020,6 +1183,7 @@ export function PortfolioView({
                 { id: "experience", label: "Experience" },
                 { id: "fun-facts", label: "Fun Facts & Grass" },
                 { id: "github-activity", label: "Code Activity" },
+                { id: "behind-the-logo", label: "Behind The Logo" },
                 { id: "come-say-hi", label: "Come Say Hi" }
               ]} 
               playTone={soundOn ? playClickSound : undefined}

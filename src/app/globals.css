@@ -58,7 +58,7 @@ html, body {
 body {
   background-color: var(--bg-color);
   color: var(--text-main);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+  font-family: var(--font-sans), "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -211,12 +211,10 @@ body {
   }
 }
 
-body, * {
-  cursor: url("/nova-looking.svg") 16 16, auto !important;
-}
-
-a, button, [role="button"], input, select, textarea, .cursor-pointer {
-  cursor: url("/nova-looking.svg") 16 16, auto !important;
+@media (hover: hover) and (pointer: fine) {
+  body, button, a, input, select, textarea, [role="button"], .cursor-pointer {
+    cursor: none !important;
+  }
 }
 
 @layer base {
@@ -300,4 +298,17 @@ a, button, [role="button"], input, select, textarea, .cursor-pointer {
   html {
     @apply font-sans;
   }
+}
+
+@keyframes promptSlide {
+  0%, 25% {
+    transform: translateX(25%) scale(1.10);
+  }
+  65%, 100% {
+    transform: translateX(0%) scale(0.80);
+  }
+}
+
+.animate-prompt-slide {
+  animation: promptSlide 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
