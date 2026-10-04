@@ -479,15 +479,15 @@ export function PortfolioView({
                     playTone(1046);
                     setTimeout(() => setCopiedEmail(false), 2000);
                   }}
-                  className="inline-flex items-center space-x-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-[8px] bg-blue-50/80 dark:bg-blue-900/30 cursor-pointer group select-none hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                  className="inline-flex items-center space-x-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-[8px] bg-[#FF00AE]/10 dark:bg-[#FF00AE]/20 cursor-pointer group select-none hover:bg-[#FF00AE]/15 dark:hover:bg-[#FF00AE]/25 transition-colors"
                   title="Click to copy email"
                 >
-                  <span className="font-sans font-medium text-[16px] sm:text-[18px] text-blue-700/90 dark:text-blue-300 tracking-wide transition-colors">
+                  <span className="font-sans font-medium text-[16px] sm:text-[18px] text-[#FF00AE] dark:text-[#FF00AE] tracking-wide transition-colors">
                     {portfolioData.email}
                   </span>
-                  <div className="text-blue-700/90 dark:text-blue-300 opacity-75 group-hover:opacity-100 flex items-center focus:outline-none transition-colors">
+                  <div className="text-[#FF00AE] dark:text-[#FF00AE] opacity-75 group-hover:opacity-100 flex items-center focus:outline-none transition-colors">
                     {copiedEmail ? (
-                      <span className="text-emerald-500 dark:text-emerald-400 font-mono text-xs font-medium animate-in fade-in">
+                      <span className="text-[#FF00AE] font-mono text-xs font-semibold animate-in fade-in">
                         copied!
                       </span>
                     ) : (
