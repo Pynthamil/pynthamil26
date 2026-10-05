@@ -255,9 +255,21 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               {/* VERSION 7 */}
               <div className="pt-4 space-y-4">
                 <div className="flex items-center justify-between gap-3">
-                  <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                  <h2 className="text-[36px] sm:text-[42px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
                     Version 7
                   </h2>
+                  <button
+                    type="button"
+                    onClick={() => handleCopyUrl("https://pynthamil26.vercel.app/")}
+                    className="inline-flex items-center gap-2.5 px-4 py-2 rounded-md border-0 bg-[#FCE7F3] dark:bg-[#500724]/70 text-[#DB2777] dark:text-[#FBCFE8] hover:bg-[#FBCFE8] dark:hover:bg-[#831843] font-sans text-[15px] sm:text-[16px] font-medium transition-all cursor-pointer select-none"
+                  >
+                    <span>{copiedUrl === "https://pynthamil26.vercel.app/" ? "copied!" : "copy link"}</span>
+                    {copiedUrl === "https://pynthamil26.vercel.app/" ? (
+                      <Check className="w-4 h-4 text-emerald-500" />
+                    ) : (
+                      <Copy className="w-4 h-4 opacity-80" />
+                    )}
+                  </button>
                 </div>
                 <div className="space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
                   <p>
@@ -275,13 +287,24 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               {/* VERSION 6 */}
               <div className="pt-6 space-y-4">
                 <div className="flex items-center justify-between gap-3">
-                  <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                  <h2 className="text-[36px] sm:text-[42px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
                     Version 6
                   </h2>
                 </div>
-                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-                  I loved the tealish green that GitButler used so I implemented it as an accent in my website. As for the fonts, I sort of switched between the But-Head font and the Instrument Serif font for titles and some parts of the website. Also this is the 1st time I discovered Grok bots and ended up falling for them as well (sorry Clawd, my Shayla!) then there were some complications with mobile version so switched back to Clawd itself (that&apos;s what I get!). But I had been noticing that people who visit my site don&apos;t even open the detailed projects page of each project or any other page, they all stay on the homescreen for a very short time (how do I know this? All thanks to my baby, PostHog!). It was then that I realised why mostly senior designers or design engineers had these type of portfolios — because they had their years and years of experience, meanwhile I didn&apos;t. I&apos;m still very early on in my career so I knew I had to buckle up for another iteration anyway! That&apos;s how my current version was born (as of 5 Oct, 2026).
-                </p>
+                <div className="space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  <p>
+                    I loved the tealish green that GitButler used so I implemented it as an accent in my website. As for the fonts, I sort of switched between the But-Head font and the Instrument Serif font for titles and some parts of the website.
+                  </p>
+                  <p>
+                    Also this is the 1st time I discovered Grok bots and ended up falling for them as well (sorry Clawd, my Shayla!) then there were some complications with mobile version so switched back to Clawd itself (that&apos;s what I get!).
+                  </p>
+                  <p>
+                    But I had been noticing that people who visit my site don&apos;t even open the detailed projects page of each project or any other page, they all stay on the homescreen for a very short time (how do I know this? All thanks to my baby, PostHog!).
+                  </p>
+                  <p>
+                    It was then that I realised why mostly senior designers or design engineers had these type of portfolios — because they had their years and years of experience, meanwhile I didn&apos;t. I&apos;m still very early on in my career so I knew I had to buckle up for another iteration anyway! That&apos;s how my current version was born (as of 5 Oct, 2026).
+                  </p>
+                </div>
 
                 <div className="space-y-6 pt-2">
                   <img
@@ -296,13 +319,18 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               {/* VERSION 5 */}
               <div className="pt-6 space-y-4">
                 <div className="flex items-center justify-between gap-3">
-                  <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                  <h2 className="text-[36px] sm:text-[42px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
                     Version 5
                   </h2>
                 </div>
-                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-                  I was doom scrolling WallofPortfolios and found some cool portfolios of senior designers and loved it a lot, but at the same time wanted to maintain some personality instead of plain B&amp;W templated and cookie cutter. Got inspired by radicle.dev for the color palette/theme. But as much as I avoided it, I still ended up going sort of black and white in the next version anyway...
-                </p>
+                <div className="space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  <p>
+                    I was doom scrolling WallofPortfolios and found some cool portfolios of senior designers and loved it a lot, but at the same time wanted to maintain some personality instead of plain B&amp;W templated and cookie cutter.
+                  </p>
+                  <p>
+                    Got inspired by radicle.dev for the color palette/theme. But as much as I avoided it, I still ended up going sort of black and white in the next version anyway...
+                  </p>
+                </div>
 
                 <div className="space-y-6 pt-2">
                   <img
@@ -317,7 +345,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               {/* VERSION 4 */}
               <div className="pt-6 space-y-4">
                 <div className="flex items-center justify-between gap-3">
-                  <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                  <h2 className="text-[36px] sm:text-[42px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
                     Version 4
                   </h2>
                   <button
@@ -359,7 +387,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               {/* VERSION 3 */}
               <div className="pt-6 space-y-4">
                 <div className="flex items-center justify-between gap-3">
-                  <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                  <h2 className="text-[36px] sm:text-[42px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
                     Version 3
                   </h2>
                   <button
@@ -392,6 +420,45 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                       key={src}
                       src={src}
                       alt={`Portfolio V3 Asset ${idx + 1}`}
+                      className="w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60"
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* VERSION 2 */}
+              <div className="pt-6 space-y-4">
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="text-[36px] sm:text-[42px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                    Version 2
+                  </h2>
+                </div>
+                <div className="space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  <p>
+                    I was super inspired by Marco&apos;s portfolio (<a href="https://www.marco.fyi/" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80 transition-opacity">https://www.marco.fyi/</a>) and created a very Applesque portfolio. It was very clean but I felt like somehow it was pretty complicated and I really didn&apos;t like it a lot... it seemed very dry and plain.
+                  </p>
+                  <p>
+                    So unlike me (I&apos;m a really cheerful bundle of joy man I ain&apos;t gotta be so plain). So yea out! I threw the portfolio into my trash folder (just kidding it&apos;s still live but gonna take it down soon).
+                  </p>
+                  <p>
+                    Then came my beautiful Claude inspired portfolio (my most cherished and prized possession).
+                  </p>
+                </div>
+
+                <div className="space-y-6 pt-2">
+                  {[
+                    "/blog-assets/v2.1.svg",
+                    "/blog-assets/v2.2.svg",
+                    "/blog-assets/v2.3.svg",
+                    "/blog-assets/v2.4.svg",
+                    "/blog-assets/v2.5.svg",
+                    "/blog-assets/v2.6.svg",
+                  ].map((src, idx) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt={`Portfolio V2 Asset ${idx + 1}`}
                       className="w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60"
                       loading="lazy"
                     />
