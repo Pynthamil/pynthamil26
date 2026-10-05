@@ -137,8 +137,8 @@ export default function SemanticProjectPage() {
   const sidebarSections = [
     { id: "overview", label: "Overview" },
     { id: "problem", label: "Problem" },
-    { id: "research", label: "Research" },
     { id: "solution", label: "Solution" },
+    { id: "research", label: "Research" },
     { id: "takeaways", label: "Takeaways" },
   ];
 
@@ -328,33 +328,14 @@ export default function SemanticProjectPage() {
                   <p className="text-[19px] sm:text-[24px] md:text-[27px] font-sans font-medium text-[#475569] dark:text-[#CBD5E1] leading-[1.45] tracking-tight">
                     How might we transform email from an overwhelming backlog into an{" "}
                     <span className="text-[#6666FF] dark:text-[#8888FF] font-bold">
-                      intelligent copilot that turns incoming communication into actionable clarity
+                      intelligent copilot that turns incoming communication into actionable clarity?
                     </span>
-                    ?
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Research & Discovery Section */}
-            <div id="research" className="pt-8 space-y-4 scroll-mt-20">
-              <div className="space-y-1.5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
-                  RESEARCH &amp; DISCOVERY
-                </span>
-                <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
-                  Understanding high-volume inbox workflows
-                </h2>
-                <p className="text-[18px] sm:text-[20px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
-                  My discovery process involved analyzing real student and faculty workflows across dozens of active inboxes. Over 75% of cognitive overload stemmed from low-signal emails masking high-priority action items, urgent deadlines, and essential follow-ups.
-                </p>
-              </div>
 
-              {/* User Persona Showcase */}
-              <div className="pt-2">
-                <PersonaShowcase playTone={playTone} />
-              </div>
-            </div>
 
             {/* The Solution Section */}
             <div id="solution" className="pt-8 space-y-6 scroll-mt-20">
@@ -394,56 +375,109 @@ export default function SemanticProjectPage() {
                   </div>
                 </div>
 
-                <div className="pt-8 sm:pt-12 pb-0 sm:pb-4 relative z-10">
-                  <h3 className="text-[28px] sm:text-[32px] leading-tight sm:leading-[1.15] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
-                    Turning everyday emails into clear actions, from <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">quick requests to time-sensitive commitments</span>
-                  </h3>
-                </div>
 
-                {/* Demo Video 1 */}
-                <div className="pt-6 pb-2 w-full sm:w-[115%] sm:-ml-[7.5%] px-0">
-                  <div className="w-full flex justify-center">
-                    <ChromaVideo src="/semantic/demo1.mov" className="w-full" />
+                {/* KEY FEATURE 1 */}
+                <div className="space-y-4 pt-6 pb-4">
+                  <div className="space-y-2">
+                    <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
+                      KEY FEATURE 1
+                    </span>
+                    <div className="space-y-1.5">
+                      <h3 className="font-sans font-semibold text-[24px] sm:text-[30px] text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-tight">
+                        Full Copilot Interface &amp; Extraction Workflow
+                      </h3>
+                      <p className="text-[16px] sm:text-[18px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                        An integrated side panel that automatically scans incoming threads, parsing unstructured conversations into instant summaries and clear action items.
+                      </p>
+                    </div>
                   </div>
-                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-4 text-center">
-                    // full copilot interface &amp; extraction workflow
-                  </p>
+
+                  <div className="pt-2 w-full sm:w-[115%] sm:-ml-[7.5%] px-0 flex justify-center">
+                    <div className="w-full relative overflow-hidden rounded-[16px] sm:rounded-[22px] bg-[#EBEBFF] dark:bg-[#181824] p-1.5 sm:p-2.5 flex items-center justify-center border border-neutral-200/50 dark:border-neutral-800">
+                      <img src="/orca-bg-temp.png" alt="Background pattern" className="absolute inset-0 w-full h-full object-cover z-0" />
+                      <div className="relative z-10 w-full">
+                        <ChromaVideo src="/semantic/demo1.mov" className="w-full" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Sub-solution 2: Everyday Situations */}
-              <div className="pt-0">
-                {/* Demo Video 2 */}
-                <div className="pt-2 pb-6 w-full sm:w-[115%] sm:-ml-[7.5%] px-0">
-                  <div className="w-full flex justify-center">
-                    <ChromaVideo src="/semantic/demo2.mov" className="w-full" />
+              {/* KEY FEATURE 2 */}
+              <div className="space-y-4 pt-4 pb-6">
+                <div className="space-y-2">
+                  <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
+                    KEY FEATURE 2
+                  </span>
+                  <div className="space-y-1.5">
+                    <h3 className="font-sans font-semibold text-[24px] sm:text-[30px] text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-tight">
+                      Automated Deadline Detection &amp; Priority Scheduling
+                    </h3>
+                    <p className="text-[16px] sm:text-[18px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                      Detects implicit dates and time-sensitive commitments within message text, automatically populating an organized priority schedule.
+                    </p>
                   </div>
-                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-4 text-center">
-                    // automated deadline detection &amp; priority scheduling
-                  </p>
+                </div>
+
+                <div className="pt-2 w-full sm:w-[115%] sm:-ml-[7.5%] px-0 flex justify-center">
+                  <div className="w-full relative overflow-hidden rounded-[16px] sm:rounded-[22px] bg-[#EBEBFF] dark:bg-[#181824] p-1.5 sm:p-2.5 flex items-center justify-center border border-neutral-200/50 dark:border-neutral-800">
+                    <img src="/orca-bg-temp.png" alt="Background pattern" className="absolute inset-0 w-full h-full object-cover z-0" />
+                    <div className="relative z-10 w-full">
+                      <ChromaVideo src="/semantic/demo2.mov" className="w-full" />
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Sub-solution 3: Context Mapping */}
-              <div className="pt-4 space-y-4">
-                <div className="space-y-1">
-                  <h3 className="text-[28px] sm:text-[32px] leading-tight sm:leading-[1.15] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2]">
-                    When your brain goes blank, <span className="bg-[#EBEBFF] dark:bg-[#6666FF] dark:text-white px-1 box-decoration-clone">the context is already understood—and your response is one click away.</span>
-                  </h3>
+              {/* KEY FEATURE 3 */}
+              <div className="space-y-4 pt-4 pb-6">
+                <div className="space-y-2">
+                  <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
+                    KEY FEATURE 3
+                  </span>
+                  <div className="space-y-1.5">
+                    <h3 className="font-sans font-semibold text-[24px] sm:text-[30px] text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-tight">
+                      Contextual Response Drafting &amp; Thread Synthesis
+                    </h3>
+                    <p className="text-[16px] sm:text-[18px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                      Generates high-precision draft replies informed by full thread context, empowering users to approve and dispatch responses in one click.
+                    </p>
+                  </div>
                 </div>
 
-                {/* Demo Video 3 */}
-                <div className="py-6 my-4 w-full sm:w-[115%] sm:-ml-[7.5%] px-0">
-                  <div className="w-full flex justify-center">
-                    <ChromaVideo src="/semantic/demo3.mov" className="w-full" />
+                <div className="pt-2 w-full sm:w-[115%] sm:-ml-[7.5%] px-0 flex justify-center">
+                  <div className="w-full relative overflow-hidden rounded-[16px] sm:rounded-[22px] bg-[#EBEBFF] dark:bg-[#181824] p-1.5 sm:p-2.5 flex items-center justify-center border border-neutral-200/50 dark:border-neutral-800">
+                    <img src="/orca-bg-temp.png" alt="Background pattern" className="absolute inset-0 w-full h-full object-cover z-0" />
+                    <div className="relative z-10 w-full">
+                      <ChromaVideo src="/semantic/demo3.mov" className="w-full" />
+                    </div>
                   </div>
-                  <p className="font-mono text-xs text-[#6666FF] dark:text-[#8888FF] mt-4 text-center">
-                    // contextual response drafting &amp; thread synthesis
-                  </p>
                 </div>
               </div>
+            </div>
 
+            {/* Research & Discovery Section */}
+            <div id="research" className="pt-8 space-y-4 scroll-mt-20">
+              <div className="space-y-1.5">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
+                  RESEARCH &amp; DISCOVERY
+                </span>
+                <h3 className="text-[19px] sm:text-[24px] md:text-[27px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.45] tracking-tight pt-1">
+                  I analyzed real workflows across people's active inboxes to understand where cognitive overload occurs.
+                </h3>
+              </div>
 
+              {/* Research & Discovery Process SVG */}
+              <div className="pt-4 flex justify-center">
+                <div className="w-full rounded-[18px] sm:rounded-[22px] overflow-hidden relative">
+                  <img
+                    src="/process-semantic.svg"
+                    alt="Semantic Research Process"
+                    className="w-full h-auto block select-none"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/25 via-black/8 to-transparent pointer-events-none rounded-b-[18px] sm:rounded-b-[22px]" />
+                </div>
+              </div>
             </div>
 
             {/* Process Section */}
@@ -591,7 +625,7 @@ export default function SemanticProjectPage() {
               <span>&larr; Previous project</span>
             </Link>
             <Link
-              href="/codedex"
+              href="/orca"
               onClick={() => playTone(880)}
               className="px-6 py-2.5 sm:px-7 sm:py-3 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#141415] hover:bg-neutral-100 dark:hover:bg-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] transition-all font-sans font-medium text-[14px] sm:text-[15px] shadow-sm flex items-center space-x-2 cursor-pointer"
             >
@@ -601,21 +635,21 @@ export default function SemanticProjectPage() {
 
           {/* Single Next Project Card */}
           <Link
-            href="/codedex"
+            href="/orca"
             onClick={() => playTone(880)}
             className="group relative block w-full rounded-[24px] overflow-hidden cursor-pointer hover:opacity-95 transition-opacity"
           >
             <img 
-              src="/next-codedex.svg" 
-              alt="Next Project - CodeDex Mobile" 
+              src="/next-orca.svg" 
+              alt="Next Project - ORCA AI" 
               className="w-full h-auto block" 
             />
             <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-start max-w-[55%] sm:max-w-[48%] lg:max-w-[46%] space-y-2 pointer-events-none">
-              <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#2C2C2C] dark:text-[#CBD5E1]">
+              <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-white/80">
                 NEXT PROJECT
               </span>
-              <h3 className="font-sans font-medium text-[18px] sm:text-[24px] lg:text-[28px] text-[#2C2C2C] group-hover:text-[#52525B] dark:group-hover:text-white transition-colors leading-snug">
-                Designing CodeDex for Accessible, On-the-Go Learning.
+              <h3 className="font-sans font-medium text-[18px] sm:text-[24px] lg:text-[28px] text-white group-hover:text-white/90 transition-colors leading-snug">
+                Turning complex marine-science questions into clear, source-backed answers.
               </h3>
             </div>
           </Link>

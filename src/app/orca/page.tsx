@@ -272,9 +272,8 @@ export default function OrcaProjectPage() {
                 <p className="text-[19px] sm:text-[24px] md:text-[27px] font-sans font-medium text-[#475569] dark:text-[#CBD5E1] leading-[1.45] tracking-tight">
                   How might we make decades of marine research queryable in seconds without sacrificing the{" "}
                   <span className="text-[#095F76] dark:text-[#2dd4bf] font-bold">
-                    evidence researchers need to trust an answer
+                    evidence researchers need to trust an answer?
                   </span>
-                  ?
                 </p>
               </div>
             </div>
@@ -542,10 +541,10 @@ export default function OrcaProjectPage() {
               className="w-full h-auto block" 
             />
             <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-start max-w-[55%] sm:max-w-[48%] lg:max-w-[46%] space-y-2 pointer-events-none">
-              <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF]">
+              <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#475569]">
                 NEXT PROJECT
               </span>
-              <h3 className="font-sans font-medium text-[18px] sm:text-[24px] lg:text-[28px] text-[#2C2C2C] group-hover:text-[#6666FF] transition-colors leading-snug">
+              <h3 className="font-sans font-medium text-[18px] sm:text-[24px] lg:text-[28px] text-[#2C2C2C] group-hover:text-[#475569] transition-colors leading-snug">
                 Turning inbox chaos into structured tasks, deadlines, and context.
               </h3>
             </div>

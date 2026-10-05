@@ -236,9 +236,8 @@ export default function CodeDexProjectPage() {
                   <p className="text-[19px] sm:text-[24px] md:text-[27px] font-sans font-medium text-[#475569] dark:text-[#CBD5E1] leading-[1.45] tracking-tight">
                     How might we transform programming education from a desk-bound IDE experience into an{" "}
                     <span className="text-[#059669] dark:text-[#34d399] font-bold">
-                      accessible, bite-sized mobile learning tool
+                      accessible, bite-sized mobile learning tool?
                     </span>
-                    ?
                   </p>
                 </div>
               </div>
