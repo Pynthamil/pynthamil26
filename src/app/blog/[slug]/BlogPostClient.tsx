@@ -31,9 +31,9 @@ function ZoomableImage({
         loading="lazy"
       />
       <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center rounded-xl pointer-events-none">
-        <div className="bg-white/95 dark:bg-neutral-900/95 text-neutral-800 dark:text-neutral-100 px-3.5 py-2 rounded-full shadow-lg backdrop-blur-md transform scale-90 group-hover:scale-100 transition-transform duration-200 flex items-center gap-2 text-xs font-medium font-sans">
-          <Maximize2 className="w-3.5 h-3.5 text-neutral-600 dark:text-neutral-300" />
-          <span>Click to enlarge</span>
+        <div className="bg-white/95 dark:bg-neutral-900/95 text-neutral-800 dark:text-neutral-100 px-4 py-2.5 rounded-md shadow-lg backdrop-blur-md transform scale-90 group-hover:scale-100 transition-transform duration-200 flex items-center gap-2.5 text-[15px] sm:text-[16px] font-medium font-sans">
+          <Maximize2 className="w-4 h-4 text-neutral-600 dark:text-neutral-300" />
+          <span>enlarge</span>
         </div>
       </div>
     </div>
