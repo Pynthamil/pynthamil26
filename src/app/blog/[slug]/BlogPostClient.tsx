@@ -492,9 +492,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     So unlike me (I&apos;m a really cheerful bundle of joy man I ain&apos;t gotta be so plain). So yea out! I threw the portfolio into my trash folder (just kidding it&apos;s still live but gonna take it down soon).
                   </p>
                   <p>
-                    Then came my beautiful Claude inspired portfolio (my most cherished and prized possession).
-                  </p>
-                  <p>
                     I really loved the project preview cards a lot but decided to take them off because most of the portfolios I found were having these high quality polished mockups instead of these vibrant ones of mine. Still sad about it tho.
                   </p>
                 </div>
