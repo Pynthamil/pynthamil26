@@ -252,8 +252,29 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </p>
               </div>
 
-              {/* VERSION 5 */}
+              {/* VERSION 6 */}
               <div className="pt-4 space-y-4">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-pink-600 dark:text-pink-400 block">
+                  ITERATION
+                </span>
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                    Version 6
+                  </h2>
+                </div>
+
+                <div className="space-y-6 pt-2">
+                  <img
+                    src="/blog-assets/v6.svg"
+                    alt="Portfolio V6 Asset"
+                    className="w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* VERSION 5 */}
+              <div className="pt-6 space-y-4">
                 <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00B5B2] dark:text-[#00B5B2] block">
                   ITERATION
                 </span>
@@ -275,7 +296,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* VERSION 4 */}
               <div className="pt-6 space-y-4">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#9333EA] dark:text-[#E9D5FF] block">
                   ITERATION
                 </span>
                 <div className="flex items-center justify-between gap-3">
@@ -285,13 +306,13 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <button
                     type="button"
                     onClick={() => handleCopyUrl("https://software-portfolio-ecru.vercel.app/")}
-                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md border border-[#8A51FC]/35 dark:border-[#CEBAFC]/35 bg-[#8A51FC]/10 dark:bg-[#8A51FC]/20 text-[#8A51FC] dark:text-[#CEBAFC] hover:bg-[#8A51FC]/20 dark:hover:bg-[#8A51FC]/30 font-sans text-[14px] sm:text-[14.5px] font-medium transition-all shadow-sm cursor-pointer select-none"
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E9D5FF] dark:border-[#581C87] bg-[#F3E8FF] dark:bg-[#3B0764]/70 text-[#9333EA] dark:text-[#E9D5FF] hover:bg-[#E9D5FF] dark:hover:bg-[#581C87] font-sans text-[13.5px] font-medium transition-all shadow-sm cursor-pointer select-none"
                   >
                     <span>{copiedUrl === "https://software-portfolio-ecru.vercel.app/" ? "copied!" : "copy link"}</span>
                     {copiedUrl === "https://software-portfolio-ecru.vercel.app/" ? (
-                      <Check className="w-4 h-4 text-emerald-500" />
+                      <Check className="w-3.5 h-3.5 text-emerald-500" />
                     ) : (
-                      <Copy className="w-4 h-4 opacity-80" />
+                      <Copy className="w-3.5 h-3.5 opacity-80" />
                     )}
                   </button>
                 </div>
@@ -317,7 +338,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* VERSION 3 */}
               <div className="pt-6 space-y-4">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-orange-600 dark:text-orange-400 block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#EA580C] dark:text-[#FFEDD5] block">
                   ITERATION
                 </span>
                 <div className="flex items-center justify-between gap-3">
@@ -327,13 +348,13 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <button
                     type="button"
                     onClick={() => handleCopyUrl("https://ctfp1.vercel.app")}
-                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md border border-orange-500/35 dark:border-orange-400/35 bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 hover:bg-orange-500/20 dark:hover:bg-orange-500/30 font-sans text-[14px] sm:text-[14.5px] font-medium transition-all shadow-sm cursor-pointer select-none"
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FED7AA] dark:border-[#7C2D12] bg-[#FFEDD5] dark:bg-[#431407]/70 text-[#EA580C] dark:text-[#FFEDD5] hover:bg-[#FED7AA] dark:hover:bg-[#7C2D12] font-sans text-[13.5px] font-medium transition-all shadow-sm cursor-pointer select-none"
                   >
                     <span>{copiedUrl === "https://ctfp1.vercel.app" ? "copied!" : "copy link"}</span>
                     {copiedUrl === "https://ctfp1.vercel.app" ? (
-                      <Check className="w-4 h-4 text-emerald-500" />
+                      <Check className="w-3.5 h-3.5 text-emerald-500" />
                     ) : (
-                      <Copy className="w-4 h-4 opacity-80" />
+                      <Copy className="w-3.5 h-3.5 opacity-80" />
                     )}
                   </button>
                 </div>

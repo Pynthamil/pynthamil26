@@ -386,12 +386,12 @@ export function PortfolioView({
               {/* Bio Copy & Status Section */}
               <section className="flex flex-col h-full justify-between mb-12 sm:mb-0 space-y-8 sm:space-y-0">
               <div className="relative pt-2 sm:pt-4">
-                <h1 className="font-sans font-medium text-[36px] sm:text-[44px] md:text-[50px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.25] tracking-tight">
+                <h1 className="font-sans font-medium text-[20px] sm:text-[23px] md:text-[25px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.4] tracking-tight">
                   hey! i'm pynthamil pavendan{" "}
                   <span className="font-sans font-normal text-slate-400 dark:text-slate-500">
                     (பைந்தமிழ்)
                   </span>
-                  , building software that feels useful and alive.
+                  , i build software that feels useful and alive.
                 </h1>
                 
                 <p className="text-[21px] sm:text-[24px] text-slate-400 dark:text-slate-500 font-normal mt-1 mb-10 sm:mb-14">
