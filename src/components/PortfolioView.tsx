@@ -386,7 +386,7 @@ export function PortfolioView({
               {/* Bio Copy & Status Section */}
               <section className="flex flex-col h-full justify-between mb-12 sm:mb-0 space-y-8 sm:space-y-0">
               <div className="relative pt-2 sm:pt-4">
-                <h1 className="font-sans font-medium text-[32px] sm:text-[38px] md:text-[42px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.3] tracking-tight">
+                <h1 className="font-sans font-medium text-[36px] sm:text-[44px] md:text-[50px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.25] tracking-tight">
                   hey! i'm pynthamil pavendan{" "}
                   <span className="font-sans font-normal text-slate-400 dark:text-slate-500">
                     (பைந்தமிழ்)
