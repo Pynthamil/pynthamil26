@@ -220,7 +220,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
             </Link>
 
             <div className="flex items-center space-x-3.5">
-              <span className="flex items-center space-x-1.5 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <span className="flex items-center space-x-1.5 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                 <PieChart className="w-3.5 h-3.5 fill-current" strokeWidth={2} />
                 <span>{post.readingTime.toLowerCase()} read</span>
               </span>
@@ -233,7 +233,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               <h1 className="instrument-serif text-[42px] sm:text-[48px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
                 {post.title.toLowerCase()}
               </h1>
-              <div className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] mt-2.5 flex items-center justify-center space-x-2">
+              <div className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] mt-2.5 flex items-center justify-center space-x-2">
                 <span>{post.date.toLowerCase()}</span>
                 <span>•</span>
                 <span>pynthamil pavendan</span>
@@ -252,8 +252,8 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
             )}
 
             {/* Action Bar */}
-            <div className="flex items-center justify-end space-x-4 py-4 border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 mb-8 text-[14px] sm:text-[15px] font-sans">
-              <div className="flex items-center space-x-1.5 font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3]">
+            <div className="flex items-center justify-end space-x-4 py-4 border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 mb-8 text-[16.5px] sm:text-[17.5px] font-sans">
+              <div className="flex items-center space-x-1.5 font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">
                 <Eye className="w-4 h-4" />
                 <span>{views !== null ? `${views} views` : "..."}</span>
               </div>
@@ -525,15 +525,15 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               {/* Intro */}
               <div className="space-y-4">
                 <p>At some point, just committing code isn’t enough.</p>
-                <p className="font-mono text-[14.5px] sm:text-[15.5px] text-[#525252] dark:text-[#a3a3a3]">You start wondering:</p>
+                <p className="font-mono text-[16.5px] sm:text-[17.5px] text-[#525252] dark:text-[#a3a3a3]">You start wondering:</p>
                 <p className="italic text-[#2C2C2C] dark:text-[#F2F2F2] pl-3 border-l-2 border-[#525252]/40 dark:border-[#a3a3a3]/40">
                   can I interact with GitHub programmatically?
                 </p>
                 <p>
                   That’s where the <span className="font-medium text-[#525252] dark:text-[#a3a3a3]">GitHub REST API</span> comes in.
                 </p>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">It lets you:</p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">It lets you:</p>
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>create repositories automatically</span>
@@ -555,7 +555,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     <span>understand what’s happening behind the UI</span>
                   </li>
                 </ul>
-                <p className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] pt-1">
+                <p className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] pt-1">
                   Let’s walk through the basics.
                 </p>
               </div>
@@ -571,24 +571,24 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   The GitHub REST API allows developers to communicate with GitHub using HTTP requests.
                 </p>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">
                   Instead of clicking buttons on GitHub’s website, you can send requests like:
                 </p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">GET</span>
+                    <span className="font-mono text-sm sm:text-[15px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">GET</span>
                     <span>&rarr; retrieve data</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">POST</span>
+                    <span className="font-mono text-sm sm:text-[15px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">POST</span>
                     <span>&rarr; create data</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">PATCH</span>
+                    <span className="font-mono text-sm sm:text-[15px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">PATCH</span>
                     <span>&rarr; update data</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">DELETE</span>
+                    <span className="font-mono text-sm sm:text-[15px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-semibold text-[#525252] dark:text-[#a3a3a3]">DELETE</span>
                     <span>&rarr; remove data</span>
                   </li>
                 </ul>
@@ -608,17 +608,17 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   GitHub provides many API endpoints depending on what you want to do.
                 </p>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">
                   Example endpoint for repositories:
                 </p>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all">
                   https://api.github.com/user/repos
                 </div>
                 <p>
                   This endpoint allows you to retrieve repositories connected to your account.
                 </p>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Each endpoint defines:</p>
-                <ul className="space-y-2 pl-1 text-[15px] sm:text-[15.5px]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Each endpoint defines:</p>
+                <ul className="space-y-2 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>request method</span>
@@ -633,12 +633,12 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   </li>
                 </ul>
                 <div className="pt-2">
-                  <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3] mb-1">Documentation:</p>
+                  <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] mb-1">Documentation:</p>
                   <a
                     href="https://docs.github.com/en/rest/repos/repos"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#737373] dark:text-[#a3a3a3] hover:underline underline-offset-4 decoration-wavy decoration-[#737373] dark:decoration-[#a3a3a3] font-mono text-[13px] sm:text-[13.5px] break-all font-medium"
+                    className="text-[#737373] dark:text-[#a3a3a3] hover:underline underline-offset-4 decoration-wavy decoration-[#737373] dark:decoration-[#a3a3a3] font-mono text-[15px] sm:text-[16px] break-all font-medium"
                   >
                     https://docs.github.com/en/rest/repos/repos
                   </a>
@@ -655,8 +655,8 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </h2>
                 <p>GitHub requires authentication for most API requests.</p>
                 <p>We generate a Personal Access Token.</p>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">Steps:</p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Steps:</p>
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">1.</span>
                     <span>Go to GitHub Settings</span>
@@ -674,8 +674,8 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     <span>Generate new token</span>
                   </li>
                 </ul>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Choose:</p>
-                <ul className="space-y-2 pl-1 text-[15px] sm:text-[15.5px]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Choose:</p>
+                <ul className="space-y-2 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>token name</span>
@@ -689,7 +689,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     <span>required permissions</span>
                   </li>
                 </ul>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 mt-2">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 mt-2">
                   <div className="text-[#525252] dark:text-[#a3a3a3] font-semibold">Copy the token immediately.</div>
                   <div>GitHub will not show it again.</div>
                   <div className="text-[#525252] dark:text-[#a3a3a3]">Treat it like a password.</div>
@@ -705,12 +705,12 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   Send request using Postman
                 </h2>
                 <p>Postman helps test API requests easily.</p>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">Example GET request:</p>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Example GET request:</p>
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all">
                   https://api.github.com/user/repos
                 </div>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">Add Authorization header:</p>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all leading-relaxed">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Add Authorization header:</p>
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all leading-relaxed">
                   Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN
                 </div>
                 <p>Send request. GitHub returns data in JSON format.</p>
@@ -721,14 +721,14 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Example &mdash; create repository via API
                 </h2>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">POST request:</p>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 overflow-x-auto leading-relaxed">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">POST request:</p>
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 overflow-x-auto leading-relaxed">
                   <div>curl -X POST https://api.github.com/user/repos \</div>
                   <div className="pl-4">-H &quot;Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN&quot; \</div>
                   <div className="pl-4">-H &quot;Accept: application/vnd.github+json&quot; \</div>
                   <div className="pl-4">-d &apos;{`{"name":"my-new-repo","private":false}`}&apos;</div>
                 </div>
-                <ul className="space-y-1 pl-1 text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">
+                <ul className="space-y-1 pl-1 text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">
                   <li> Replace YOUR_PERSONAL_ACCESS_TOKEN with your token.</li>
                   <li> Replace my-new-repo with repository name.</li>
                 </ul>
@@ -740,7 +740,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   Example response
                 </h2>
                 <p>GitHub responds with structured JSON data:</p>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 overflow-x-auto leading-relaxed">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 overflow-x-auto leading-relaxed">
                   <div>{`{`}</div>
                   <div className="pl-4">{`"name": "my-new-repo",`}</div>
                   <div className="pl-4">{`"private": false,`}</div>
@@ -760,7 +760,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   Why learn GitHub API?
                 </h2>
                 <p>Understanding the API allows you to:</p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>automate workflows</span>
@@ -782,7 +782,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     <span>integrate GitHub with apps</span>
                   </li>
                 </ul>
-                <div className="pt-2 font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3]">
+                <div className="pt-2 font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">
                   <p>Git becomes more than version control.</p>
                   <p className="text-[#525252] dark:text-[#a3a3a3] font-semibold mt-0.5">It becomes programmable infrastructure.</p>
                 </div>
@@ -793,7 +793,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Mental model
                 </h2>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2 leading-relaxed">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2 leading-relaxed">
                   <div><span className="font-semibold text-[#525252] dark:text-[#a3a3a3]">Git CLI</span> &rarr; manage code locally</div>
                   <div><span className="font-semibold text-[#525252] dark:text-[#a3a3a3]">GitHub UI</span> &rarr; manage repos visually</div>
                   <div><span className="font-semibold text-[#525252] dark:text-[#a3a3a3]">GitHub API</span> &rarr; manage everything programmatically</div>
@@ -805,8 +805,8 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   If you&apos;re just starting
                 </h2>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">Focus on understanding:</p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Focus on understanding:</p>
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>request</span>
@@ -820,7 +820,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     <span>authentication</span>
                   </li>
                 </ul>
-                <p className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] pt-1">
+                <p className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] pt-1">
                   Everything else becomes easier with practice.
                 </p>
               </div>
@@ -836,10 +836,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               <div className="space-y-4">
                 <p>At first, Git might seem very scary and daunting.</p>
                 <p>
-                  You see words like <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">commit</span>,{" "}
-                  <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">branch</span>,{" "}
-                  <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">merge</span>,{" "}
-                  <span className="font-mono text-xs sm:text-[13px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">rebase</span>… and suddenly you&apos;re scared to even touch the keyboard.
+                  You see words like <span className="font-mono text-sm sm:text-[15px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">commit</span>,{" "}
+                  <span className="font-mono text-sm sm:text-[15px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">branch</span>,{" "}
+                  <span className="font-mono text-sm sm:text-[15px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">merge</span>,{" "}
+                  <span className="font-mono text-sm sm:text-[15px] bg-[#F7F7F7] dark:bg-[#141415] px-2 py-0.5 border border-[#737373]/20 dark:border-[#a3a3a3]/30 text-[#525252] dark:text-[#a3a3a3]">rebase</span>… and suddenly you&apos;re scared to even touch the keyboard.
                 </p>
                 <p>
                   But once it clicks, everything falls into place like the pieces of a puzzle you&apos;ve been spending your time trying to solve.
@@ -850,7 +850,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   And honestly? There&apos;s something oddly satisfying about committing your work and watching your progress stack up.
                 </p>
-                <p className="font-mono text-[14.5px] sm:text-[15.5px] text-[#525252] dark:text-[#a3a3a3] font-medium pt-1">
+                <p className="font-mono text-[16.5px] sm:text-[17.5px] text-[#525252] dark:text-[#a3a3a3] font-medium pt-1">
                   Tiny commits. Big growth.
                 </p>
               </div>
@@ -861,8 +861,8 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   What even is a commit?
                 </h2>
                 <p>A commit is basically a saved checkpoint of your project.</p>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">Think of it like:</p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Think of it like:</p>
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>a save button for your code</span>
@@ -876,8 +876,8 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     <span>proof that you did something productive today</span>
                   </li>
                 </ul>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Each commit captures:</p>
-                <ul className="space-y-2 pl-1 text-[15px] sm:text-[15.5px]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Each commit captures:</p>
+                <ul className="space-y-2 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>what changed</span>
@@ -901,13 +901,13 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Basic Commands (tiny cheat sheet)
                 </h2>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 leading-relaxed">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 leading-relaxed">
                   <div>git init</div>
                   <div>git add .</div>
                   <div>git commit -m &quot;message&quot;</div>
                   <div>git push origin main</div>
                 </div>
-                <p className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3]">Simple, but powerful.</p>
+                <p className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">Simple, but powerful.</p>
               </div>
 
               {/* Step 1 */}
@@ -924,10 +924,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   This converts a normal project folder into a Git repository so changes can be tracked.
                 </p>
-                <div className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] py-1">
+                <div className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] py-1">
                   Project Repository &rarr; Git Repository
                 </div>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   git init
                 </div>
               </div>
@@ -946,10 +946,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   Think of staging like selecting which updates you want included in the next checkpoint.
                 </p>
-                <div className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] py-1">
+                <div className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] py-1">
                   Changed/New Files &rarr; staged files for tracking new changes &rarr; changes now tracked
                 </div>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5">
                   <div>git add .</div>
                   <div className="text-[#2C2C2C]/50 dark:text-[#F2F2F2]/50 text-xs pt-1">// or specific files</div>
                   <div>git add index.js</div>
@@ -970,14 +970,14 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   Good commit messages help both present-you and future-you understand what happened.
                 </p>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">Examples:</p>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] space-y-1.5 text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Examples:</p>
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] space-y-1.5 text-[#2C2C2C] dark:text-[#F2F2F2]">
                   <div>feat: add profile picture upload</div>
                   <div>fix: correct typo in navbar</div>
                   <div>chore: update dependencies</div>
                 </div>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Quick guide:</p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Quick guide:</p>
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">feat</span>
                     <span>&rarr; adding a new feature or functionality</span>
@@ -991,7 +991,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     <span>&rarr; changes that don&apos;t affect the app behaviour directly (configs, dependencies, build tasks)</span>
                   </li>
                 </ul>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] mt-2">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] mt-2">
                   git commit -m &quot;feat: add search bar&quot;
                 </div>
               </div>
@@ -1010,7 +1010,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   This uploads the local changes to the remote repository (GitHub).
                 </p>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   git push origin main
                 </div>
                 <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90">
@@ -1024,11 +1024,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   Creating a repository on GitHub
                 </h2>
                 <p>If you don&apos;t already have a repo:</p>
-                <div className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3] py-0.5">
+                <div className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] py-0.5">
                   GitHub &rarr; click the + icon &rarr; New repository
                 </div>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">Choose:</p>
-                <ul className="space-y-2 pl-1 text-[15px] sm:text-[15.5px]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Choose:</p>
+                <ul className="space-y-2 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>repository name</span>
@@ -1073,7 +1073,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p className="text-[#2C2C2C] dark:text-[#F2F2F2]">
                   And then I wish myself good luck… because I will definitely be needing it and probably 10 years of life span 🤡
                 </p>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   git pull origin main
                 </div>
               </div>
@@ -1083,13 +1083,13 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Quick summary workflow
                 </h2>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2 leading-relaxed">
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2 leading-relaxed">
                   <div>git init</div>
                   <div>git add .</div>
                   <div>git commit -m &quot;I&apos;m so done&quot;</div>
                   <div>git push origin main</div>
                 </div>
-                <p className="font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3]">
+                <p className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">
                   Repeat until the project magically works.
                 </p>
               </div>
@@ -1101,10 +1101,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </h2>
 
                 <div className="space-y-2.5">
-                  <h3 className="font-mono text-[13px] sm:text-[13.5px] uppercase tracking-wider text-[#525252] dark:text-[#a3a3a3] font-semibold">
+                  <h3 className="font-mono text-[15px] sm:text-[16px] uppercase tracking-wider text-[#525252] dark:text-[#a3a3a3] font-semibold">
                     Articles / Blogs
                   </h3>
-                  <ul className="space-y-2 text-[14.5px] sm:text-[15px]">
+                  <ul className="space-y-2 text-[16.5px] sm:text-[17.5px]">
                     <li>
                       <a
                         href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
@@ -1139,10 +1139,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </div>
 
                 <div className="space-y-2.5 pt-2">
-                  <h3 className="font-mono text-[13px] sm:text-[13.5px] uppercase tracking-wider text-[#525252] dark:text-[#a3a3a3] font-semibold">
+                  <h3 className="font-mono text-[15px] sm:text-[16px] uppercase tracking-wider text-[#525252] dark:text-[#a3a3a3] font-semibold">
                     YouTube Tutorials
                   </h3>
-                  <ul className="space-y-2 text-[14.5px] sm:text-[15px]">
+                  <ul className="space-y-2 text-[16.5px] sm:text-[17.5px]">
                     <li>
                       <a
                         href="https://software-portfolio-ecru.vercel.app/blog/art-of-committing#"
@@ -1209,7 +1209,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   Why this blog exists
                 </h2>
                 <p>I have always wanted a space where I could:</p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>share what I am learning</span>
@@ -1234,8 +1234,8 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90 pt-1">
                   Think of this as a safe space to try, fail, learn, repeat.
                 </p>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Or in dev terms:</p>
-                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[13.5px] sm:text-[14px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 leading-relaxed">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Or in dev terms:</p>
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 leading-relaxed">
                   <div>while(alive) &#123;</div>
                   <div className="pl-4">try()</div>
                   <div className="pl-4">fail()</div>
@@ -1254,7 +1254,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   Aside from coding and designing in Figma
                 </h2>
                 <p>Here are the things that make up most of my personality / hobbies and favourite things:</p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>binge watching shows and movies</span>
@@ -1293,7 +1293,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Fun facts about me
                 </h2>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span><strong>favourite boy band:</strong> Enhypen</span>
@@ -1334,7 +1334,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   What you will find here
                 </h2>
                 <p>This blog will mostly document:</p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>things I build</span>
@@ -1392,10 +1392,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   If there is something you would like me to write about, explore, or build, feel free to suggest it.
                 </p>
-                <p className="text-[13.5px] sm:text-[14px] font-mono text-[#525252] dark:text-[#a3a3a3]">
+                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">
                   I cannot promise perfection, but I can promise:
                 </p>
-                <ul className="space-y-2.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
                     <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>effort</span>
@@ -1409,7 +1409,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     <span>honest documentation of the process</span>
                   </li>
                 </ul>
-                <div className="pt-4 font-mono text-[14px] sm:text-[15px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2">
+                <div className="pt-4 font-mono text-[16.5px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2">
                   <p>Thanks for being here 🤍</p>
                   <p className="text-[#525252] dark:text-[#a3a3a3] italic">
                     If you are also figuring things out as you go, welcome.
