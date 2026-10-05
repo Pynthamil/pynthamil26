@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
         {/* Bottom Border & Copyright / Links Row (Image 2 style) */}
         <div className="w-full border-t border-neutral-200/70 dark:border-neutral-800/70 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
           <div>
-            Copyright &copy; 2026 Pynthamil Pavendan. All rights reserved.
+            &copy; pynthamil 2026 &middot; Made with love &lt;3
           </div>
           
           <div className="flex items-center gap-5 sm:gap-6 font-medium">
