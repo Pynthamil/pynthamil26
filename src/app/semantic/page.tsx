@@ -393,8 +393,7 @@ export default function SemanticProjectPage() {
                   </div>
 
                   <div className="pt-2 w-full sm:w-[115%] sm:-ml-[7.5%] px-0 flex justify-center">
-                    <div className="w-full relative overflow-hidden rounded-[16px] sm:rounded-[22px] bg-[#EBEBFF] dark:bg-[#181824] p-1.5 sm:p-2.5 flex items-center justify-center border border-neutral-200/50 dark:border-neutral-800">
-                      <img src="/orca-bg-temp.png" alt="Background pattern" className="absolute inset-0 w-full h-full object-cover z-0" />
+                    <div className="w-full relative overflow-hidden flex items-center justify-center">
                       <div className="relative z-10 w-full">
                         <ChromaVideo src="/semantic/demo1.mov" className="w-full" />
                       </div>
@@ -420,8 +419,7 @@ export default function SemanticProjectPage() {
                 </div>
 
                 <div className="pt-2 w-full sm:w-[115%] sm:-ml-[7.5%] px-0 flex justify-center">
-                  <div className="w-full relative overflow-hidden rounded-[16px] sm:rounded-[22px] bg-[#EBEBFF] dark:bg-[#181824] p-1.5 sm:p-2.5 flex items-center justify-center border border-neutral-200/50 dark:border-neutral-800">
-                    <img src="/orca-bg-temp.png" alt="Background pattern" className="absolute inset-0 w-full h-full object-cover z-0" />
+                  <div className="w-full relative overflow-hidden flex items-center justify-center">
                     <div className="relative z-10 w-full">
                       <ChromaVideo src="/semantic/demo2.mov" className="w-full" />
                     </div>
@@ -446,8 +444,7 @@ export default function SemanticProjectPage() {
                 </div>
 
                 <div className="pt-2 w-full sm:w-[115%] sm:-ml-[7.5%] px-0 flex justify-center">
-                  <div className="w-full relative overflow-hidden rounded-[16px] sm:rounded-[22px] bg-[#EBEBFF] dark:bg-[#181824] p-1.5 sm:p-2.5 flex items-center justify-center border border-neutral-200/50 dark:border-neutral-800">
-                    <img src="/orca-bg-temp.png" alt="Background pattern" className="absolute inset-0 w-full h-full object-cover z-0" />
+                  <div className="w-full relative overflow-hidden flex items-center justify-center">
                     <div className="relative z-10 w-full">
                       <ChromaVideo src="/semantic/demo3.mov" className="w-full" />
                     </div>
