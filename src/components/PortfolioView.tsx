@@ -479,7 +479,7 @@ export function PortfolioView({
                     playTone(1046);
                     setTimeout(() => setCopiedEmail(false), 2000);
                   }}
-                  className="inline-flex items-center space-x-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-[8px] bg-[#FF00AE]/10 dark:bg-[#FF00AE]/20 cursor-pointer group select-none hover:bg-[#FF00AE]/15 dark:hover:bg-[#FF00AE]/25 transition-colors"
+                  className="inline-flex items-center space-x-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-[10px] bg-[#FFE4F3] dark:bg-[#FF00AE]/20 cursor-pointer group select-none hover:bg-[#FFD4EC] dark:hover:bg-[#FF00AE]/30 transition-colors"
                   title="Click to copy email"
                 >
                   <span className="font-sans font-medium text-[16px] sm:text-[18px] text-[#FF00AE] dark:text-[#FF00AE] tracking-wide transition-colors">
@@ -575,7 +575,7 @@ export function PortfolioView({
                                     />
                                   )
                                 ) : project.description === "ORCA" || project.description === "Plue" ? (
-                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-10 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
                                         src={project.banner} 
@@ -668,7 +668,7 @@ export function PortfolioView({
                                     />
                                   )
                                 ) : project.description === "ORCA" || project.description === "Plue" ? (
-                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-10 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
                                         src={project.banner} 
@@ -777,7 +777,7 @@ export function PortfolioView({
                                     />
                                   )
                                 ) : project.description === "ORCA" || project.description === "Plue" ? (
-                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-10 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
                                         src={project.banner} 
@@ -868,7 +868,7 @@ export function PortfolioView({
                                     />
                                   )
                                 ) : project.description === "ORCA" || project.description === "Plue" ? (
-                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-0 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-10 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                                     <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                                       <img 
                                         src={project.banner} 

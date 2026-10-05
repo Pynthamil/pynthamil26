@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
+import { OrcaCardCover } from "@/components/OrcaCardCover";
+import { StippleWaveBg } from "@/components/StippleWaveBg";
 import {
   Search,
   BookOpen,
@@ -154,11 +156,11 @@ export default function OrcaProjectPage() {
         </div>
 
           <div className="pb-2 space-y-3">
-            <div className="w-full sm:w-[125%] sm:-ml-[12.5%] lg:w-[135%] lg:-ml-[17.5%] my-8 flex items-center justify-center px-0">
+            <div className="w-full sm:w-[135%] sm:-ml-[17.5%] lg:w-[145%] lg:-ml-[22.5%] my-8 flex items-center justify-center px-0">
               <img
                 src="/dashboard.svg"
                 alt="orca.ai Solution Interface"
-                className="w-full h-auto object-contain block select-none rounded-xl sm:rounded-2xl shadow-sm"
+                className="w-full h-auto object-contain block select-none rounded-md sm:rounded-lg shadow-sm"
               />
             </div>
 
@@ -176,7 +178,7 @@ export default function OrcaProjectPage() {
                   TIMELINE
                 </span>
                 <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  May 2026
+                  Aug – Sep 2026
                 </span>
               </div>
               <div>
@@ -303,22 +305,35 @@ export default function OrcaProjectPage() {
                   </ul>
                 </div>
               </div>
-              
-              <div className="space-y-4 pt-10">
-                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                  Designing a <span className="bg-[#FFF0F5] dark:bg-[#095F76] dark:text-white px-1 box-decoration-clone">minimal, undistracted interface</span> for complex scientific data.
-                </h3>
-                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
-                  The visual language emphasizes clarity and minimal distraction, ensuring that dense research material remains accessible and easy to digest.
-                </p>
+            </div>
+
+            {/* KEY FEATURE 1 */}
+            <div className="space-y-6 scroll-mt-20 pt-4">
+              <div className="space-y-3">
+                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#FFF0F5] block">
+                  KEY FEATURE 1
+                </span>
+                <div className="space-y-1.5">
+                  <h3 className="font-sans font-bold text-[28px] sm:text-[34px] md:text-[38px] text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-tight">
+                    Evidence-Backed Research Synthesis
+                  </h3>
+                  <p className="font-sans font-normal text-[15px] sm:text-[16.5px] text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+                    ORCA transforms complex natural-language queries into clear, synthesized answers grounded directly in peer-reviewed literature with inspectable citations.
+                  </p>
+                </div>
               </div>
 
-              <div className="w-full sm:w-[120%] sm:-ml-[10%] my-8 sm:my-12 flex flex-col gap-6 items-center justify-center px-0">
-                <img src="/asset1.svg" alt="Orca Design Interface 1" className="w-full h-auto object-contain rounded-2xl" />
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
-                  <img src="/asset2.svg" alt="Orca Design Interface 2" className="w-full h-auto object-contain rounded-2xl" />
-                  <img src="/asset3.svg" alt="Orca Design Components" className="w-full h-auto object-contain rounded-2xl" />
+              <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] lg:w-[125%] lg:-ml-[12.5%] h-[340px] sm:h-[440px] md:h-[520px] overflow-hidden rounded-md sm:rounded-lg flex items-center justify-center relative bg-[#073543] group">
+                {/* Temporary Custom Background Pattern */}
+                <img 
+                  src="/orca-bg-temp.png" 
+                  alt="Background pattern" 
+                  className="absolute inset-0 w-full h-full object-cover z-0"
+                />
+
+                {/* Cover Component */}
+                <div className="relative z-10 w-full h-full flex items-center justify-center">
+                  <OrcaCardCover />
                 </div>
               </div>
             </div>

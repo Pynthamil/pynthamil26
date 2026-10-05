@@ -301,11 +301,13 @@ body {
 }
 
 @keyframes promptSlide {
-  0%, 25% {
-    transform: translateX(25%) scale(1.10);
+  0%, 30% {
+    transform: translateX(0%) scale(1.04);
+    padding-left: 0;
   }
-  65%, 100% {
-    transform: translateX(0%) scale(0.80);
+  70%, 100% {
+    transform: translateX(0%) scale(0.92);
+    padding-left: 0;
   }
 }
 
