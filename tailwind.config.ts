@@ -56,6 +56,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
+          "var(--font-sans)",
+          "Poppins",
           "-apple-system",
           "BlinkMacSystemFont",
           '"SF Pro Display"',

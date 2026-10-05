@@ -160,6 +160,17 @@ export const portfolioData: PortfolioData = {
   ],
   writings: [
     {
+      id: "my-portfolio-and-its-never-ending-versions",
+      title: "My Portfolio and Its Never-Ending Versions",
+      date: "OCT 5, 2026",
+      readingTime: "3 MIN",
+      voiceTime: "3:00",
+      description: "My portfolio and its never-ending versions.",
+      slug: "my-portfolio-and-its-never-ending-versions",
+      image: "/blog-covers/post3.svg",
+      category: "Personal",
+    },
+    {
       id: "git-commit-go",
       title: "Git Commit Go",
       date: "SEP 12, 2026",

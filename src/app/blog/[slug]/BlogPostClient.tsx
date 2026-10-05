@@ -5,7 +5,7 @@ import Link from "next/link";
 import { HookSidebar } from "@/components/ui/hook-sidebar";
 import { useParams } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
-import { Moon, Sun, Play, Link as LinkIcon, PieChart, Eye } from "lucide-react";
+import { Moon, Sun, Play, Link as LinkIcon, PieChart, Eye, ExternalLink, Copy, Check } from "lucide-react";
 import { Footer } from "@/components/Footer";
 
 export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
@@ -14,8 +14,15 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
   const [soundOn, setSoundOn] = useState<boolean>(true);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
+  const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
   const [views, setViews] = useState<number | null>(null);
   const hasFetchedRef = useRef<boolean>(false);
+
+  const handleCopyUrl = (url: string) => {
+    navigator.clipboard.writeText(url);
+    setCopiedUrl(url);
+    setTimeout(() => setCopiedUrl(null), 2000);
+  };
 
   useEffect(() => {
     if (!slug) return;
@@ -230,6 +237,107 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
         {/* Article Text Content (Row 2) */}
         <article className="lg:col-start-2 lg:row-start-2 w-full animate-in fade-in duration-200">
 
+          {/* =========================================================
+              ARTICLE: MY PORTFOLIO AND ITS NEVER-ENDING VERSIONS
+             ========================================================= */}
+          {slug === "my-portfolio-and-its-never-ending-versions" && (
+            <div className="space-y-8 text-[17.5px] sm:text-[18.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
+              {/* Intro */}
+              <div className="space-y-4">
+                <p>
+                  Building a personal website is never really finished, it evolves as design sense, technical skills, and tastes change over time.
+                </p>
+                <p className="font-sans text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">
+                  Here is a look at the iterations and versions of my portfolio.
+                </p>
+              </div>
+
+              {/* VERSION 4 */}
+              <div className="pt-4 space-y-4">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  ITERATION
+                </span>
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                    Version 4
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={() => handleCopyUrl("https://software-portfolio-ecru.vercel.app/")}
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md border border-[#8A51FC]/35 dark:border-[#CEBAFC]/35 bg-[#8A51FC]/10 dark:bg-[#8A51FC]/20 text-[#8A51FC] dark:text-[#CEBAFC] hover:bg-[#8A51FC]/20 dark:hover:bg-[#8A51FC]/30 font-sans text-[14px] sm:text-[14.5px] font-medium transition-all shadow-sm cursor-pointer select-none"
+                  >
+                    <span>{copiedUrl === "https://software-portfolio-ecru.vercel.app/" ? "copied!" : "copy link"}</span>
+                    {copiedUrl === "https://software-portfolio-ecru.vercel.app/" ? (
+                      <Check className="w-4 h-4 text-emerald-500" />
+                    ) : (
+                      <Copy className="w-4 h-4 opacity-80" />
+                    )}
+                  </button>
+                </div>
+
+                <div className="space-y-6 pt-2">
+                  {[
+                    "/blog-assets/v4.1.svg",
+                    "/blog-assets/v4.2.svg",
+                    "/blog-assets/v4.3.svg",
+                    "/blog-assets/v4.4.svg",
+                    "/blog-assets/v4.5.svg",
+                  ].map((src, idx) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt={`Portfolio V4 Asset ${idx + 1}`}
+                      className="w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60"
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* VERSION 3 */}
+              <div className="pt-6 space-y-4">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-orange-600 dark:text-orange-400 block">
+                  ITERATION
+                </span>
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                    Version 3
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={() => handleCopyUrl("https://ctfp1.vercel.app")}
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md border border-orange-500/35 dark:border-orange-400/35 bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 hover:bg-orange-500/20 dark:hover:bg-orange-500/30 font-sans text-[14px] sm:text-[14.5px] font-medium transition-all shadow-sm cursor-pointer select-none"
+                  >
+                    <span>{copiedUrl === "https://ctfp1.vercel.app" ? "copied!" : "copy link"}</span>
+                    {copiedUrl === "https://ctfp1.vercel.app" ? (
+                      <Check className="w-4 h-4 text-emerald-500" />
+                    ) : (
+                      <Copy className="w-4 h-4 opacity-80" />
+                    )}
+                  </button>
+                </div>
+
+                <div className="space-y-6 pt-2">
+                  {[
+                    "/blog-assets/v3.1.svg",
+                    "/blog-assets/v3.2.svg",
+                    "/blog-assets/v3.3.svg",
+                    "/blog-assets/v3.4.svg",
+                    "/blog-assets/v3.5.svg",
+                    "/blog-assets/v3.6.svg",
+                  ].map((src, idx) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt={`Portfolio V3 Asset ${idx + 1}`}
+                      className="w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60"
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* =========================================================
               ARTICLE 1: GIT COMMIT GO
