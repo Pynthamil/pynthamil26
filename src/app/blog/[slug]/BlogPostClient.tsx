@@ -5,7 +5,7 @@ import Link from "next/link";
 import { HookSidebar } from "@/components/ui/hook-sidebar";
 import { useParams } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
-import { Moon, Sun, Play, Link as LinkIcon, PieChart } from "lucide-react";
+import { Moon, Sun, Play, Link as LinkIcon, PieChart, Eye } from "lucide-react";
 import { Footer } from "@/components/Footer";
 
 export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
@@ -14,6 +14,23 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
   const [soundOn, setSoundOn] = useState<boolean>(true);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
+  const [views, setViews] = useState<number | null>(null);
+  const hasFetchedRef = useRef<boolean>(false);
+
+  useEffect(() => {
+    if (!slug) return;
+    if (hasFetchedRef.current) return;
+    hasFetchedRef.current = true;
+
+    fetch(`/api/views/${slug}?incr=true`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && typeof data.views === "number") {
+          setViews(data.views);
+        }
+      })
+      .catch((err) => console.error("Error fetching view count:", err));
+  }, [slug]);
 
   
   // Table of Contents logic
@@ -174,7 +191,12 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
             )}
 
             {/* Action Bar */}
-            <div className="flex items-center justify-end py-4 border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 mb-8 text-[14px] sm:text-[15px] font-sans">
+            <div className="flex items-center justify-end space-x-4 py-4 border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 mb-8 text-[14px] sm:text-[15px] font-sans">
+              <div className="flex items-center space-x-1.5 font-mono text-[13.5px] sm:text-[14px] text-[#525252] dark:text-[#a3a3a3]">
+                <Eye className="w-4 h-4" />
+                <span>{views !== null ? `${views} views` : "..."}</span>
+              </div>
+              <span className="text-neutral-300 dark:text-neutral-700 font-mono select-none">•</span>
               <button 
                 onClick={handleShare}
                 className="flex items-center space-x-2 font-medium text-[#2C2C2C] dark:text-[#F2F2F2] hover:opacity-70 transition-opacity"
