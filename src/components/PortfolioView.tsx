@@ -391,7 +391,8 @@ export function PortfolioView({
                   <span className="font-sans font-normal text-slate-400 dark:text-slate-500">
                     (பைந்தமிழ்)
                   </span>
-                  , i build software that feels useful and alive.
+                  ,<br />
+                  i build software that feels useful and alive.
                 </h1>
                 
                 <p className="text-[21px] sm:text-[24px] text-slate-400 dark:text-slate-500 font-normal mt-1 mb-10 sm:mb-14">
