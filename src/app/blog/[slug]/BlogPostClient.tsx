@@ -263,16 +263,12 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <p>
                     I was inspired largely by Rachel Chen for listing the experiences on the hero section (because that is genius as recruiters can see my experience right away!) and I also made project preview cards (inspired by Vivian Zhao — the pill design which has the category of the project because that way people can know what each project was about, since I had quite a few people asking me for my &quot;design&quot; projects when it was right there along with the &quot;dev&quot; ones, so I knew I had to add a category so it&apos;s easier to navigate).
                   </p>
-                  <ul className="space-y-2 pl-1">
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#FF00AE] font-bold shrink-0">+</span>
-                      <span>Also inspired by Rachel Chen for my project preview card for Orca having some after effects... that was a wild experience for me since I&apos;m a beginner on that front.</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#FF00AE] font-bold shrink-0">+</span>
-                      <span>Wanted to keep my about and blog sections very simple so ended up cutting a lot of text from the about page (hurt a lot cause I&apos;m a certified yapper!).</span>
-                    </li>
-                  </ul>
+                  <p>
+                    Also inspired by Rachel Chen for my project preview card for Orca having some after effects... that was a wild experience for me since I&apos;m a beginner on that front.
+                  </p>
+                  <p>
+                    Wanted to keep my about and blog sections very simple so ended up cutting a lot of text from the about page (hurt a lot cause I&apos;m a certified yapper!).
+                  </p>
                 </div>
               </div>
 
