@@ -254,9 +254,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* VERSION 6 */}
               <div className="pt-4 space-y-4">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-pink-600 dark:text-pink-400 block">
-                  ITERATION
-                </span>
                 <div className="flex items-center justify-between gap-3">
                   <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
                     Version 6
@@ -275,9 +272,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* VERSION 5 */}
               <div className="pt-6 space-y-4">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00B5B2] dark:text-[#00B5B2] block">
-                  ITERATION
-                </span>
                 <div className="flex items-center justify-between gap-3">
                   <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
                     Version 5
@@ -296,9 +290,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* VERSION 4 */}
               <div className="pt-6 space-y-4">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#9333EA] dark:text-[#E9D5FF] block">
-                  ITERATION
-                </span>
                 <div className="flex items-center justify-between gap-3">
                   <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
                     Version 4
@@ -338,9 +329,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* VERSION 3 */}
               <div className="pt-6 space-y-4">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#EA580C] dark:text-[#FFEDD5] block">
-                  ITERATION
-                </span>
                 <div className="flex items-center justify-between gap-3">
                   <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
                     Version 3
