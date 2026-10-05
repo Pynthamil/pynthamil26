@@ -5,8 +5,40 @@ import Link from "next/link";
 import { HookSidebar } from "@/components/ui/hook-sidebar";
 import { useParams } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
-import { Moon, Sun, Play, Link as LinkIcon, PieChart, Eye, ExternalLink, Copy, Check } from "lucide-react";
+import { Moon, Sun, Play, Link as LinkIcon, PieChart, Eye, ExternalLink, Copy, Check, Maximize2, X } from "lucide-react";
 import { Footer } from "@/components/Footer";
+
+function ZoomableImage({
+  src,
+  alt,
+  className,
+  onZoom,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  onZoom: (src: string, alt: string) => void;
+}) {
+  return (
+    <div
+      onClick={() => onZoom(src, alt)}
+      className="relative group cursor-pointer overflow-hidden rounded-xl select-none"
+    >
+      <img
+        src={src}
+        alt={alt}
+        className={className || "w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60 transition-transform duration-300 group-hover:scale-[1.008]"}
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center rounded-xl pointer-events-none">
+        <div className="bg-white/95 dark:bg-neutral-900/95 text-neutral-800 dark:text-neutral-100 px-3.5 py-2 rounded-full shadow-lg backdrop-blur-md transform scale-90 group-hover:scale-100 transition-transform duration-200 flex items-center gap-2 text-xs font-medium font-sans">
+          <Maximize2 className="w-3.5 h-3.5 text-neutral-600 dark:text-neutral-300" />
+          <span>Click to enlarge</span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
   const params = useParams();
@@ -16,7 +48,24 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
   const [views, setViews] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
   const hasFetchedRef = useRef<boolean>(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedImage(null);
+      }
+    };
+    if (selectedImage) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedImage]);
 
   const handleCopyUrl = (url: string) => {
     navigator.clipboard.writeText(url);
@@ -192,8 +241,13 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
             </div>
 
             {post.image && (
-              <div className="relative w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] h-[350px] sm:h-[450px] rounded-xl mt-6 mb-4 overflow-hidden">
-                <img src={post.image} alt={`${post.title} Banner`} className="absolute inset-0 w-full h-full object-cover" />
+              <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] rounded-xl mt-6 mb-4 overflow-hidden">
+                <ZoomableImage
+                  src={post.image}
+                  alt={`${post.title} Banner`}
+                  className="w-full h-[350px] sm:h-[450px] object-cover rounded-xl"
+                  onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                />
               </div>
             )}
 
@@ -307,11 +361,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </div>
 
                 <div className="space-y-6 pt-2">
-                  <img
+                  <ZoomableImage
                     src="/blog-assets/v6.svg"
                     alt="Portfolio V6 Asset"
-                    className="w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60"
-                    loading="lazy"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
               </div>
@@ -333,11 +386,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </div>
 
                 <div className="space-y-6 pt-2">
-                  <img
+                  <ZoomableImage
                     src="/blog-assets/v5.svg"
                     alt="Portfolio V5 Asset"
-                    className="w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60"
-                    loading="lazy"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
               </div>
@@ -373,12 +425,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     "/blog-assets/v4.4.svg",
                     "/blog-assets/v4.5.svg",
                   ].map((src, idx) => (
-                    <img
+                    <ZoomableImage
                       key={src}
                       src={src}
                       alt={`Portfolio V4 Asset ${idx + 1}`}
-                      className="w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60"
-                      loading="lazy"
+                      onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                     />
                   ))}
                 </div>
@@ -416,12 +467,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     "/blog-assets/v3.5.svg",
                     "/blog-assets/v3.6.svg",
                   ].map((src, idx) => (
-                    <img
+                    <ZoomableImage
                       key={src}
                       src={src}
                       alt={`Portfolio V3 Asset ${idx + 1}`}
-                      className="w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60"
-                      loading="lazy"
+                      onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                     />
                   ))}
                 </div>
@@ -444,6 +494,9 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <p>
                     Then came my beautiful Claude inspired portfolio (my most cherished and prized possession).
                   </p>
+                  <p>
+                    I really loved the project preview cards a lot but decided to take them off because most of the portfolios I found were having these high quality polished mockups instead of these vibrant ones of mine. Still sad about it tho.
+                  </p>
                 </div>
 
                 <div className="space-y-6 pt-2">
@@ -455,12 +508,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     "/blog-assets/v2.5.svg",
                     "/blog-assets/v2.6.svg",
                   ].map((src, idx) => (
-                    <img
+                    <ZoomableImage
                       key={src}
                       src={src}
                       alt={`Portfolio V2 Asset ${idx + 1}`}
-                      className="w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60"
-                      loading="lazy"
+                      onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                     />
                   ))}
                 </div>
@@ -1413,6 +1465,33 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
           <Footer fullWidth={false} className="max-w-[640px]" />
         </div>
       </main>
+
+      {/* Lightbox Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-200 cursor-zoom-out select-none"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer z-10"
+            aria-label="Close image preview"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <div
+            className="relative max-w-5xl max-h-[90vh] w-full h-full flex items-center justify-center p-2"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10 cursor-default"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
