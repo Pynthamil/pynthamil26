@@ -292,8 +292,8 @@ export function PortfolioView({
               alt="logo"
               className="h-[24px] sm:h-[26px] object-contain -ml-2"
             />
-            <span className="font-sans font-bold text-[18px] sm:text-[20px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none leading-none -translate-y-[1px]">
-              pynthamil
+            <span className="font-sans font-semibold text-[18px] sm:text-[20px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none leading-none -translate-y-[1px]">
+              pyndu_logs
             </span>
           </button>
 

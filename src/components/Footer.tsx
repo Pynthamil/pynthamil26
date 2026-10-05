@@ -51,12 +51,12 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
   };
 
   const content = (
-    <footer className={`w-full max-w-[1240px] mx-auto pt-8 sm:pt-12 mt-auto flex flex-col items-center font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] pb-4 sm:pb-6 ${className}`}>
-        {/* Full-width Availability Banner */}
-        <div className="w-full mb-10 p-3.5 sm:p-4 rounded-[8px] bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 transition-colors">
+    <footer className={`w-full max-w-[1240px] mx-auto pt-8 sm:pt-12 mt-auto flex flex-col font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] pb-6 sm:pb-8 ${className}`}>
+        {/* Availability Banner */}
+        <div className="w-full mb-8 p-3.5 sm:p-4 rounded-md bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 transition-colors">
           <div className="flex items-center gap-2.5">
             <Mail className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0 text-emerald-700 dark:text-emerald-300" />
-            <span className="font-sans font-medium text-[15px] sm:text-[16px] tracking-tight">
+            <span className="font-sans font-medium text-[14.5px] sm:text-[15.5px] tracking-tight">
               open for winter / summer 2027 internships &amp; full-time roles
             </span>
           </div>
@@ -69,33 +69,36 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
           </a>
         </div>
 
-        <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
+        {/* Email Copy Button */}
+        <div className="w-full flex items-center justify-between mb-8">
           <button 
              onClick={handleCopyEmail}
-             className="flex items-center justify-center space-x-2.5 px-4 sm:px-5 py-2 sm:py-2.5 bg-blue-50/80 dark:bg-blue-900/30 text-blue-700/90 dark:text-blue-300 text-[16px] sm:text-[18px] font-medium rounded-[8px] hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none"
+             className="flex items-center justify-center space-x-2.5 px-4 sm:px-5 py-2 sm:py-2.5 bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 text-[15px] sm:text-[16.5px] font-medium rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none cursor-pointer"
           >
              <span>{isEmailCopied ? "copied!" : "pavendanpynthamil@gmail.com"}</span>
-             {isEmailCopied ? <Check className="w-4 h-4 sm:w-[18px] sm:h-[18px]" /> : <Copy className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />}
+             {isEmailCopied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 opacity-70" />}
           </button>
-          
-          <div className="flex items-center gap-5 sm:gap-6 mt-4 sm:mt-0">
-              {portfolioData.socialLinks.filter(l => l.label !== 'email').map((link, idx) => (
-                  <a 
-                    key={idx} 
-                    href={link.href} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    title={link.label}
-                    aria-label={link.label}
-                    className="text-[#64748B] dark:text-[#8E95B8] hover:text-[#00B5B2] dark:hover:text-[#00B5B2] transition-all transform hover:scale-115 flex items-center justify-center p-1"
-                  >
-                      <SocialIcon label={link.label} />
-                  </a>
-              ))}
-          </div>
         </div>
-        <div className="w-full mt-8 flex justify-end text-right font-sans text-[14px] text-slate-500 dark:text-slate-400 select-none opacity-80">
-          &copy; 2026 pynthamil
+
+        {/* Bottom Border & Copyright / Links Row (Image 2 style) */}
+        <div className="w-full border-t border-neutral-200/70 dark:border-neutral-800/70 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
+          <div>
+            Copyright &copy; 2026 Pynthamil Pavendan. All rights reserved.
+          </div>
+          
+          <div className="flex items-center gap-5 sm:gap-6 font-medium">
+            {portfolioData.socialLinks.map((link, idx) => (
+              <a 
+                key={idx} 
+                href={link.href} 
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="text-[#64748B] dark:text-[#8E95B8] hover:text-[#2C2C2C] dark:hover:text-[#F2F2F2] transition-colors"
+              >
+                {link.label.charAt(0).toUpperCase() + link.label.slice(1)}
+              </a>
+            ))}
+          </div>
         </div>
       </footer>
   );

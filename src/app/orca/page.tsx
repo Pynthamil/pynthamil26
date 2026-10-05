@@ -451,7 +451,7 @@ export default function OrcaProjectPage() {
                 <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#FFF0F5] block">
                   TAKEAWAYS
                 </span>
-                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                   Building ORCA taught me that <span className="bg-[#FFF0F5] dark:bg-[#095F76] dark:text-white px-1 box-decoration-clone">trustworthy AI is less about the model alone and more about the systems built around it.</span>
                 </h3>
               </div>
@@ -544,7 +544,7 @@ export default function OrcaProjectPage() {
               <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#475569]">
                 NEXT PROJECT
               </span>
-              <h3 className="font-sans font-medium text-[18px] sm:text-[24px] lg:text-[28px] text-[#2C2C2C] group-hover:text-[#475569] transition-colors leading-snug">
+              <h3 className="instrument-serif italic text-[18px] sm:text-[24px] lg:text-[28px] text-[#2C2C2C] group-hover:text-[#475569] transition-colors leading-snug">
                 Turning inbox chaos into structured tasks, deadlines, and context.
               </h3>
             </div>
