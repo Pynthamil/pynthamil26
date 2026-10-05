@@ -263,12 +263,18 @@ export default function OrcaProjectPage() {
               </div>
             </div>
 
-            {/* THE OPPORTUNITY */}
+            {/* THE OPPORTUNITY / PROBLEM STATEMENT */}
             <div className="scroll-mt-20 -mt-2">
-              <div className="w-full sm:w-[115%] sm:-ml-[7.5%] px-6 py-8 sm:px-10 sm:py-16 rounded-[16px] sm:rounded-[24px] bg-[#F0F8FF] dark:bg-[#095F76]/[0.1] flex flex-col sm:flex-row items-start sm:items-center text-left gap-4 sm:gap-5 overflow-hidden">
-                <img src="/laptop.svg" alt="Laptop" className="w-24 h-24 sm:w-40 sm:h-40 object-contain shrink-0" />
-                <p className="text-[20px] sm:text-[26px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug z-10">
-                  How might we make decades of marine research queryable in seconds without sacrificing the evidence researchers need to trust an answer?
+              <div className="w-full sm:w-[115%] sm:-ml-[7.5%] p-8 sm:p-12 sm:py-14 rounded-[20px] sm:rounded-[24px] bg-[#F5F5F7] dark:bg-[#18181B] flex flex-col items-start text-left gap-4 sm:gap-6 overflow-hidden">
+                <h4 className="font-serif italic text-[18px] sm:text-[20px] text-neutral-600 dark:text-neutral-400 font-normal">
+                  Problem Statement
+                </h4>
+                <p className="text-[24px] sm:text-[32px] md:text-[35px] font-sans font-medium text-[#475569] dark:text-[#CBD5E1] leading-[1.35] tracking-tight">
+                  How might we make decades of marine research queryable in seconds without sacrificing the{" "}
+                  <span className="text-[#0284c7] dark:text-[#38bdf8] font-bold">
+                    evidence researchers need to trust an answer
+                  </span>
+                  ?
                 </p>
               </div>
             </div>
