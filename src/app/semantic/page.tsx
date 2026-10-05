@@ -321,13 +321,13 @@ export default function SemanticProjectPage() {
 
               {/* How Might We Callout Box / Problem Statement */}
               <div className="pt-8 pb-4">
-                <div className="w-full sm:w-[115%] sm:-ml-[7.5%] p-8 sm:p-12 sm:py-14 rounded-[20px] sm:rounded-[24px] bg-[#F5F5F7] dark:bg-[#18181B] flex flex-col items-start text-left gap-4 sm:gap-6 overflow-hidden">
+                <div className="w-full p-8 sm:p-12 sm:py-14 rounded-[20px] sm:rounded-[24px] bg-[#F5F5F7] dark:bg-[#18181B] flex flex-col items-start text-left gap-4 sm:gap-6 overflow-hidden">
                   <h4 className="font-serif italic text-[18px] sm:text-[20px] text-neutral-600 dark:text-neutral-400 font-normal">
                     Problem Statement
                   </h4>
                   <p className="text-[24px] sm:text-[32px] md:text-[35px] font-sans font-medium text-[#475569] dark:text-[#CBD5E1] leading-[1.35] tracking-tight">
                     How might we transform email from an overwhelming backlog into an{" "}
-                    <span className="text-[#0284c7] dark:text-[#38bdf8] font-bold">
+                    <span className="text-[#6666FF] dark:text-[#8888FF] font-bold">
                       intelligent copilot that turns incoming communication into actionable clarity
                     </span>
                     ?
