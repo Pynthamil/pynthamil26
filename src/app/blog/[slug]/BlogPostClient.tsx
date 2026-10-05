@@ -186,7 +186,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
   if (!post) {
     return (
-      <div className="min-h-screen w-full flex flex-col justify-center items-center px-5 font-mono text-sm text-[#2C2C2C]">
+      <div className="min-h-screen w-full flex flex-col justify-center items-center px-5 font-sans text-sm text-[#2C2C2C]">
         <p>Post not found.</p>
         <Link
           href="/blog"
@@ -213,14 +213,14 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
             <Link
               href="/blog"
               onClick={() => playTone(880)}
-              className="font-mono text-[17px] sm:text-[19px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#737373] dark:hover:text-[#a3a3a3] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
+              className="font-sans text-[17px] sm:text-[19px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#737373] dark:hover:text-[#a3a3a3] transition-colors flex items-center space-x-1.5 focus:outline-none font-medium cursor-pointer"
             >
               <span>&larr;</span>
               <span>blog</span>
             </Link>
 
             <div className="flex items-center space-x-3.5">
-              <span className="flex items-center space-x-1.5 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+              <span className="flex items-center space-x-1.5 font-sans text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                 <PieChart className="w-3.5 h-3.5 fill-current" strokeWidth={2} />
                 <span>{post.readingTime.toLowerCase()} read</span>
               </span>
@@ -233,7 +233,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               <h1 className="instrument-serif text-[42px] sm:text-[48px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
                 {post.title.toLowerCase()}
               </h1>
-              <div className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] mt-2.5 flex items-center justify-center space-x-2">
+              <div className="font-sans text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] mt-2.5 flex items-center justify-center space-x-2">
                 <span>{post.date.toLowerCase()}</span>
                 <span>•</span>
                 <span>pynthamil pavendan</span>
@@ -253,11 +253,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
             {/* Action Bar */}
             <div className="flex items-center justify-end space-x-4 py-4 border-b border-neutral-200/70 dark:border-[#a3a3a3]/20 mb-8 text-[16.5px] sm:text-[17.5px] font-sans">
-              <div className="flex items-center space-x-1.5 font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">
+              <div className="flex items-center space-x-1.5 font-sans text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">
                 <Eye className="w-4 h-4" />
                 <span>{views !== null ? `${views} views` : "..."}</span>
               </div>
-              <span className="text-neutral-300 dark:text-neutral-700 font-mono select-none">•</span>
+              <span className="text-neutral-300 dark:text-neutral-700 font-sans select-none">•</span>
               <button 
                 onClick={handleShare}
                 className="flex items-center space-x-2 font-medium text-[#2C2C2C] dark:text-[#F2F2F2] hover:opacity-70 transition-opacity"
@@ -525,44 +525,44 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               {/* Intro */}
               <div className="space-y-4">
                 <p>At some point, just committing code isn’t enough.</p>
-                <p className="font-mono text-[16.5px] sm:text-[17.5px] text-[#525252] dark:text-[#a3a3a3]">You start wondering:</p>
+                <p className="font-sans text-[16.5px] sm:text-[17.5px] text-[#525252] dark:text-[#a3a3a3]">You start wondering:</p>
                 <p className="italic text-[#2C2C2C] dark:text-[#F2F2F2] pl-3 border-l-2 border-[#525252]/40 dark:border-[#a3a3a3]/40">
                   can I interact with GitHub programmatically?
                 </p>
                 <p>
                   That’s where the <span className="font-medium text-[#525252] dark:text-[#a3a3a3]">GitHub REST API</span> comes in.
                 </p>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">It lets you:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3] pt-1">It lets you:</p>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>create repositories automatically</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>fetch repository data</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>automate workflows</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>build tools that interact with GitHub</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>understand what’s happening behind the UI</span>
                   </li>
                 </ul>
-                <p className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] pt-1">
+                <p className="font-sans text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] pt-1">
                   Let’s walk through the basics.
                 </p>
               </div>
 
               {/* THE CONCEPT */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   THE CONCEPT
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -571,7 +571,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   The GitHub REST API allows developers to communicate with GitHub using HTTP requests.
                 </p>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">
                   Instead of clicking buttons on GitHub’s website, you can send requests like:
                 </p>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
@@ -599,7 +599,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* THE ENDPOINT */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   STEP 1
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -608,7 +608,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   GitHub provides many API endpoints depending on what you want to do.
                 </p>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">
                   Example endpoint for repositories:
                 </p>
                 <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all">
@@ -617,28 +617,28 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   This endpoint allows you to retrieve repositories connected to your account.
                 </p>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Each endpoint defines:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3] pt-1">Each endpoint defines:</p>
                 <ul className="space-y-2 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>request method</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>parameters</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>response structure</span>
                   </li>
                 </ul>
                 <div className="pt-2">
-                  <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] mb-1">Documentation:</p>
+                  <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3] mb-1">Documentation:</p>
                   <a
                     href="https://docs.github.com/en/rest/repos/repos"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#737373] dark:text-[#a3a3a3] hover:underline underline-offset-4 decoration-wavy decoration-[#737373] dark:decoration-[#a3a3a3] font-mono text-[15px] sm:text-[16px] break-all font-medium"
+                    className="text-[#737373] dark:text-[#a3a3a3] hover:underline underline-offset-4 decoration-wavy decoration-[#737373] dark:decoration-[#a3a3a3] font-sans text-[15px] sm:text-[16px] break-all font-medium"
                   >
                     https://docs.github.com/en/rest/repos/repos
                   </a>
@@ -647,7 +647,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Step 2 */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   STEP 2
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -655,37 +655,37 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </h2>
                 <p>GitHub requires authentication for most API requests.</p>
                 <p>We generate a Personal Access Token.</p>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Steps:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">Steps:</p>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">1.</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">1.</span>
                     <span>Go to GitHub Settings</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">2.</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">2.</span>
                     <span>Scroll to Developer Settings</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">3.</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">3.</span>
                     <span>Select Personal Access Tokens</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">4.</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">4.</span>
                     <span>Generate new token</span>
                   </li>
                 </ul>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Choose:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3] pt-1">Choose:</p>
                 <ul className="space-y-2 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>token name</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>expiration duration</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>required permissions</span>
                   </li>
                 </ul>
@@ -698,18 +698,18 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Step 3 */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   STEP 3
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Send request using Postman
                 </h2>
                 <p>Postman helps test API requests easily.</p>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Example GET request:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">Example GET request:</p>
                 <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all">
                   https://api.github.com/user/repos
                 </div>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Add Authorization header:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">Add Authorization header:</p>
                 <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] break-all leading-relaxed">
                   Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN
                 </div>
@@ -721,14 +721,14 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Example &mdash; create repository via API
                 </h2>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">POST request:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">POST request:</p>
                 <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 overflow-x-auto leading-relaxed">
                   <div>curl -X POST https://api.github.com/user/repos \</div>
                   <div className="pl-4">-H &quot;Authorization: Bearer YOUR_PERSONAL_ACCESS_TOKEN&quot; \</div>
                   <div className="pl-4">-H &quot;Accept: application/vnd.github+json&quot; \</div>
                   <div className="pl-4">-d &apos;{`{"name":"my-new-repo","private":false}`}&apos;</div>
                 </div>
-                <ul className="space-y-1 pl-1 text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">
+                <ul className="space-y-1 pl-1 text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">
                   <li> Replace YOUR_PERSONAL_ACCESS_TOKEN with your token.</li>
                   <li> Replace my-new-repo with repository name.</li>
                 </ul>
@@ -762,27 +762,27 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>Understanding the API allows you to:</p>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>automate workflows</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>build developer tools</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>create dashboards</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>manage repositories programmatically</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>integrate GitHub with apps</span>
                   </li>
                 </ul>
-                <div className="pt-2 font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">
+                <div className="pt-2 font-sans text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">
                   <p>Git becomes more than version control.</p>
                   <p className="text-[#525252] dark:text-[#a3a3a3] font-semibold mt-0.5">It becomes programmable infrastructure.</p>
                 </div>
@@ -805,22 +805,22 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   If you&apos;re just starting
                 </h2>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Focus on understanding:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">Focus on understanding:</p>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>request</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>response</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>authentication</span>
                   </li>
                 </ul>
-                <p className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] pt-1">
+                <p className="font-sans text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] pt-1">
                   Everything else becomes easier with practice.
                 </p>
               </div>
@@ -850,7 +850,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   And honestly? There&apos;s something oddly satisfying about committing your work and watching your progress stack up.
                 </p>
-                <p className="font-mono text-[16.5px] sm:text-[17.5px] text-[#525252] dark:text-[#a3a3a3] font-medium pt-1">
+                <p className="font-sans text-[16.5px] sm:text-[17.5px] text-[#525252] dark:text-[#a3a3a3] font-medium pt-1">
                   Tiny commits. Big growth.
                 </p>
               </div>
@@ -861,33 +861,33 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   What even is a commit?
                 </h2>
                 <p>A commit is basically a saved checkpoint of your project.</p>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Think of it like:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">Think of it like:</p>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>a save button for your code</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>a time machine for your project</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>proof that you did something productive today</span>
                   </li>
                 </ul>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Each commit captures:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3] pt-1">Each commit captures:</p>
                 <ul className="space-y-2 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>what changed</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>when it changed</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>why it changed (if your commit message is good)</span>
                   </li>
                 </ul>
@@ -907,12 +907,12 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <div>git commit -m &quot;message&quot;</div>
                   <div>git push origin main</div>
                 </div>
-                <p className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">Simple, but powerful.</p>
+                <p className="font-sans text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">Simple, but powerful.</p>
               </div>
 
               {/* Step 1 */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   STEP 1
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -924,7 +924,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   This converts a normal project folder into a Git repository so changes can be tracked.
                 </p>
-                <div className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] py-1">
+                <div className="font-sans text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] py-1">
                   Project Repository &rarr; Git Repository
                 </div>
                 <div className="bg-[#F7F7F7] dark:bg-[#141415] px-4 py-3 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
@@ -934,7 +934,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Step 2 */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   STEP 2
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -946,7 +946,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   Think of staging like selecting which updates you want included in the next checkpoint.
                 </p>
-                <div className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] py-1">
+                <div className="font-sans text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] py-1">
                   Changed/New Files &rarr; staged files for tracking new changes &rarr; changes now tracked
                 </div>
                 <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5">
@@ -958,7 +958,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Step 3 */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   STEP 3
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -970,24 +970,24 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   Good commit messages help both present-you and future-you understand what happened.
                 </p>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Examples:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">Examples:</p>
                 <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] space-y-1.5 text-[#2C2C2C] dark:text-[#F2F2F2]">
                   <div>feat: add profile picture upload</div>
                   <div>fix: correct typo in navbar</div>
                   <div>chore: update dependencies</div>
                 </div>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Quick guide:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3] pt-1">Quick guide:</p>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">feat</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">feat</span>
                     <span>&rarr; adding a new feature or functionality</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">fix</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">fix</span>
                     <span>&rarr; correcting something that was broken</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">chore</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none font-semibold pt-0.5">chore</span>
                     <span>&rarr; changes that don&apos;t affect the app behaviour directly (configs, dependencies, build tasks)</span>
                   </li>
                 </ul>
@@ -998,7 +998,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Step 4 */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   STEP 4
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -1024,21 +1024,21 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   Creating a repository on GitHub
                 </h2>
                 <p>If you don&apos;t already have a repo:</p>
-                <div className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] py-0.5">
+                <div className="font-sans text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3] py-0.5">
                   GitHub &rarr; click the + icon &rarr; New repository
                 </div>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">Choose:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">Choose:</p>
                 <ul className="space-y-2 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>repository name</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>visibility (public or private)</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>optional description</span>
                   </li>
                 </ul>
@@ -1089,7 +1089,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <div>git commit -m &quot;I&apos;m so done&quot;</div>
                   <div>git push origin main</div>
                 </div>
-                <p className="font-mono text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">
+                <p className="font-sans text-[16px] sm:text-[17px] text-[#525252] dark:text-[#a3a3a3]">
                   Repeat until the project magically works.
                 </p>
               </div>
@@ -1101,7 +1101,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </h2>
 
                 <div className="space-y-2.5">
-                  <h3 className="font-mono text-[15px] sm:text-[16px] uppercase tracking-wider text-[#525252] dark:text-[#a3a3a3] font-semibold">
+                  <h3 className="font-sans text-[15px] sm:text-[16px] uppercase tracking-wider text-[#525252] dark:text-[#a3a3a3] font-semibold">
                     Articles / Blogs
                   </h3>
                   <ul className="space-y-2 text-[16.5px] sm:text-[17.5px]">
@@ -1139,7 +1139,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </div>
 
                 <div className="space-y-2.5 pt-2">
-                  <h3 className="font-mono text-[15px] sm:text-[16px] uppercase tracking-wider text-[#525252] dark:text-[#a3a3a3] font-semibold">
+                  <h3 className="font-sans text-[15px] sm:text-[16px] uppercase tracking-wider text-[#525252] dark:text-[#a3a3a3] font-semibold">
                     YouTube Tutorials
                   </h3>
                   <ul className="space-y-2 text-[16.5px] sm:text-[17.5px]">
@@ -1202,7 +1202,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* WHY THIS BLOG EXISTS */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   MOTIVATION
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -1211,30 +1211,30 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>I have always wanted a space where I could:</p>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>share what I am learning</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>document experiments</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>talk about ideas that may or may not work</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>receive encouragement</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>receive constructive criticism</span>
                   </li>
                 </ul>
                 <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90 pt-1">
                   Think of this as a safe space to try, fail, learn, repeat.
                 </p>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3] pt-1">Or in dev terms:</p>
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3] pt-1">Or in dev terms:</p>
                 <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border border-[#737373]/20 dark:border-[#a3a3a3]/30 font-mono text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-1.5 leading-relaxed">
                   <div>while(alive) &#123;</div>
                   <div className="pl-4">try()</div>
@@ -1247,7 +1247,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* HOBBIES & FAVOURITES */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   HOBBIES &amp; FAVOURITES
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -1256,27 +1256,27 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>Here are the things that make up most of my personality / hobbies and favourite things:</p>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>binge watching shows and movies</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>drawing (proud artist moment)</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>reading books</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>listening to audiobooks (especially immersive ones from GraphicAudio)</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>reading manhwas</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>collecting aesthetic inspiration on Pinterest for about a decade now</span>
                   </li>
                 </ul>
@@ -1287,7 +1287,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* FUN FACTS */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   FUN FACTS
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -1295,31 +1295,31 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </h2>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span><strong>favourite boy band:</strong> Enhypen</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span><strong>music taste:</strong> everything</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>I love singing and dancing like nobody is watching</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>introvert who also loves to yap</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span><strong>personality type:</strong> INTJ</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>I enjoy challenging myself just for the plot</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>currently in 4th year (slightly terrifying, slightly exciting)</span>
                   </li>
                 </ul>
@@ -1327,7 +1327,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* WHAT YOU WILL FIND HERE */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   THE CONTENT
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -1336,43 +1336,43 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>This blog will mostly document:</p>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>things I build</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>things I try to build</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>things that refuse to work</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>things that finally work after many commits</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>design experiments</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>dev notes</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>lessons learned the hard way</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>resources that helped me</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>curiosity driven deep dives</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>basically learning in public</span>
                   </li>
                 </ul>
@@ -1383,7 +1383,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* YOU CAN REQUEST POSTS TOO */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   OPEN INVITATION
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -1392,24 +1392,24 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   If there is something you would like me to write about, explore, or build, feel free to suggest it.
                 </p>
-                <p className="text-[16px] sm:text-[17px] font-mono text-[#525252] dark:text-[#a3a3a3]">
+                <p className="text-[16px] sm:text-[17px] font-sans text-[#525252] dark:text-[#a3a3a3]">
                   I cannot promise perfection, but I can promise:
                 </p>
                 <ul className="space-y-2.5 pl-1 text-[17px] sm:text-[18px]">
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>effort</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>curiosity</span>
                   </li>
                   <li className="flex items-start space-x-2.5">
-                    <span className="font-mono text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
+                    <span className="font-sans text-sm text-[#525252] dark:text-[#a3a3a3] select-none pt-0.5">+</span>
                     <span>honest documentation of the process</span>
                   </li>
                 </ul>
-                <div className="pt-4 font-mono text-[16.5px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2">
+                <div className="pt-4 font-sans text-[16.5px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2] space-y-2">
                   <p>Thanks for being here 🤍</p>
                   <p className="text-[#525252] dark:text-[#a3a3a3] italic">
                     If you are also figuring things out as you go, welcome.
