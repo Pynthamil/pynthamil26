@@ -1056,39 +1056,39 @@ export function PortfolioView({
                     </div>
                   </div>
 
-                  <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#475569] dark:text-[#94A3B8] leading-relaxed font-sans animate-in fade-in duration-150">
+                  <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
                     <div className="flex items-start space-x-2.5">
                       <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>
-                        I&apos;ve never been very good at picking just one box to sit in. And honestly, I don&apos;t think I want to be.
+                        I don&apos;t fit into just one box &mdash; and I prefer it that way
                       </span>
                     </div>
 
                     <div className="flex items-start space-x-2.5">
                       <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>
-                        I like bouncing between <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">design and code, weird ideas and working products</strong>. One day I&apos;m obsessing over a tiny interaction; the next I&apos;m building the backend that makes it work. Somewhere in between, I&apos;m probably opening Figma, VS Code, and 17 tabs I absolutely intend to come back to.
+                        Bouncing between design, code, weird ideas, and working products
                       </span>
                     </div>
 
                     <div className="flex items-start space-x-2.5">
                       <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>
-                        I&apos;m a <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">developer, designer, and an unapologetic generalist</strong> &mdash; comfortable moving from an idea on a napkin to a polished interface to the messy machinery underneath it.
+                        Developer, designer, and unapologetic generalist
                       </span>
                     </div>
 
                     <div className="flex items-start space-x-2.5">
                       <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>
-                        Being a jack of all trades means I get to see the connections between things: <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">how something feels, how it works, and why it should exist in the first place</strong>. That&apos;s the part I find interesting.
+                        Connecting how something feels, how it works, and why it should exist
                       </span>
                     </div>
 
                     <div className="flex items-start space-x-2.5">
                       <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
                       <span>
-                        I don&apos;t really want to be the person who fits neatly into a job title. <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">I&apos;d rather be the person you call when there&apos;s a weird problem and nobody quite knows who should own it.</strong>
+                        The person you call when there&apos;s a weird problem nobody knows how to solve
                       </span>
                     </div>
                   </div>
