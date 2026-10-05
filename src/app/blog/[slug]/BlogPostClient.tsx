@@ -306,7 +306,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <button
                     type="button"
                     onClick={() => handleCopyUrl("https://software-portfolio-ecru.vercel.app/")}
-                    className="inline-flex items-center gap-2.5 px-4 py-2 rounded-md border-0 bg-[#F3E8FF] dark:bg-[#3B0764]/70 text-[#9333EA] dark:text-[#E9D5FF] hover:bg-[#E9D5FF] dark:hover:bg-[#581C87] font-sans text-[15px] sm:text-[16px] font-medium transition-all shadow-sm cursor-pointer select-none"
+                    className="inline-flex items-center gap-2.5 px-4 py-2 rounded-md border-0 bg-[#F3E8FF] dark:bg-[#3B0764]/70 text-[#9333EA] dark:text-[#E9D5FF] hover:bg-[#E9D5FF] dark:hover:bg-[#581C87] font-sans text-[15px] sm:text-[16px] font-medium transition-all cursor-pointer select-none"
                   >
                     <span>{copiedUrl === "https://software-portfolio-ecru.vercel.app/" ? "copied!" : "copy link"}</span>
                     {copiedUrl === "https://software-portfolio-ecru.vercel.app/" ? (
@@ -348,7 +348,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <button
                     type="button"
                     onClick={() => handleCopyUrl("https://ctfp1.vercel.app")}
-                    className="inline-flex items-center gap-2.5 px-4 py-2 rounded-md border-0 bg-[#FFEDD5] dark:bg-[#431407]/70 text-[#EA580C] dark:text-[#FFEDD5] hover:bg-[#FED7AA] dark:hover:bg-[#7C2D12] font-sans text-[15px] sm:text-[16px] font-medium transition-all shadow-sm cursor-pointer select-none"
+                    className="inline-flex items-center gap-2.5 px-4 py-2 rounded-md border-0 bg-[#FFEDD5] dark:bg-[#431407]/70 text-[#EA580C] dark:text-[#FFEDD5] hover:bg-[#FED7AA] dark:hover:bg-[#7C2D12] font-sans text-[15px] sm:text-[16px] font-medium transition-all cursor-pointer select-none"
                   >
                     <span>{copiedUrl === "https://ctfp1.vercel.app" ? "copied!" : "copy link"}</span>
                     {copiedUrl === "https://ctfp1.vercel.app" ? (
