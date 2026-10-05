@@ -252,8 +252,29 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </p>
               </div>
 
-              {/* VERSION 4 */}
+              {/* VERSION 5 */}
               <div className="pt-4 space-y-4">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#00B5B2] dark:text-[#00B5B2] block">
+                  ITERATION
+                </span>
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                    Version 5
+                  </h2>
+                </div>
+
+                <div className="space-y-6 pt-2">
+                  <img
+                    src="/blog-assets/v5.svg"
+                    alt="Portfolio V5 Asset"
+                    className="w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* VERSION 4 */}
+              <div className="pt-6 space-y-4">
                 <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
                   ITERATION
                 </span>
