@@ -431,7 +431,7 @@ export default function CodeDexProjectPage() {
             </div>
           </Link>
 
-          <Footer fullWidth={false} />
+          <Footer />
         </div>
       </main>
     </div>

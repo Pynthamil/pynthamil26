@@ -651,7 +651,7 @@ export default function SemanticProjectPage() {
             </div>
           </Link>
 
-          <Footer fullWidth={false} />
+          <Footer />
         </div>
       </main>
     </div>

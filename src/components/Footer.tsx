@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Copy, Check, Mail } from "lucide-react";
+import { Copy, Check, Mail, ArrowUp } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
 const SocialIcon = ({ label }: { label: string }) => {
@@ -50,6 +50,10 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
     setTimeout(() => setIsEmailCopied(false), 2000);
   };
 
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const content = (
     <footer className={`w-full max-w-[1240px] mx-auto pt-8 sm:pt-12 mt-auto flex flex-col font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] pb-6 sm:pb-8 ${className}`}>
         {/* Availability Banner */}
@@ -69,7 +73,7 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
           </a>
         </div>
 
-        {/* Email Copy Button */}
+        {/* Email Copy Button & Going Up Button */}
         <div className="w-full flex items-center justify-between mb-8">
           <button 
              onClick={handleCopyEmail}
@@ -77,6 +81,15 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
           >
              <span>{isEmailCopied ? "copied!" : "pavendanpynthamil@gmail.com"}</span>
              {isEmailCopied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 opacity-70" />}
+          </button>
+
+          <button
+            onClick={handleScrollToTop}
+            aria-label="Scroll to top"
+            title="Going up"
+            className="p-2 sm:p-2.5 rounded-full bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:text-black dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer flex items-center justify-center"
+          >
+            <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
 

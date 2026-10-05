@@ -550,7 +550,7 @@ export default function OrcaProjectPage() {
             </div>
           </Link>
 
-          <Footer fullWidth={false} />
+          <Footer />
         </div>
       </main>
     </div>
