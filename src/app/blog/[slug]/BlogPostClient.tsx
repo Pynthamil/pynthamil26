@@ -718,9 +718,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Example create repo */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Example &mdash; create repository via API
                 </h2>
@@ -739,9 +736,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Example response */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Example response
                 </h2>
@@ -762,9 +756,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Why learn GitHub API */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Why learn GitHub API?
                 </h2>
@@ -799,9 +790,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Mental model */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Mental model
                 </h2>
@@ -814,9 +802,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* If you're just starting */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   If you&apos;re just starting
                 </h2>
@@ -872,9 +857,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Section 1 */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   What even is a commit?
                 </h2>
@@ -916,9 +898,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Section 2 */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Basic Commands (tiny cheat sheet)
                 </h2>
@@ -1041,9 +1020,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* GitHub Repo Creation */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Creating a repository on GitHub
                 </h2>
@@ -1071,9 +1047,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Pull Requests */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Working in collaborative environments (pull requests)
                 </h2>
@@ -1088,9 +1061,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Always sync */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Always sync before starting work
                 </h2>
@@ -1110,9 +1080,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Quick summary workflow */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Quick summary workflow
                 </h2>
@@ -1129,9 +1096,6 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
               {/* Helpful learning resources */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  SECTION
-                </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Helpful learning resources
                 </h2>
