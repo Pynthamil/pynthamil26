@@ -252,13 +252,40 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </p>
               </div>
 
-              {/* VERSION 6 */}
+              {/* VERSION 7 */}
               <div className="pt-4 space-y-4">
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                    Version 7
+                  </h2>
+                </div>
+                <div className="space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  <p>
+                    I was inspired largely by Rachel Chen for listing the experiences on the hero section (because that is genius as recruiters can see my experience right away!) and I also made project preview cards (inspired by Vivian Zhao — the pill design which has the category of the project because that way people can know what each project was about, since I had quite a few people asking me for my &quot;design&quot; projects when it was right there along with the &quot;dev&quot; ones, so I knew I had to add a category so it&apos;s easier to navigate).
+                  </p>
+                  <ul className="space-y-2 pl-1">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#FF00AE] font-bold shrink-0">+</span>
+                      <span>Also inspired by Rachel Chen for my project preview card for Orca having some after effects... that was a wild experience for me since I&apos;m a beginner on that front.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#FF00AE] font-bold shrink-0">+</span>
+                      <span>Wanted to keep my about and blog sections very simple so ended up cutting a lot of text from the about page (hurt a lot cause I&apos;m a certified yapper!).</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* VERSION 6 */}
+              <div className="pt-6 space-y-4">
                 <div className="flex items-center justify-between gap-3">
                   <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
                     Version 6
                   </h2>
                 </div>
+                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  I loved the tealish green that GitButler used so I implemented it as an accent in my website. As for the fonts, I sort of switched between the But-Head font and the Instrument Serif font for titles and some parts of the website. Also this is the 1st time I discovered Grok bots and ended up falling for them as well (sorry Clawd, my Shayla!) then there were some complications with mobile version so switched back to Clawd itself (that&apos;s what I get!). But I had been noticing that people who visit my site don&apos;t even open the detailed projects page of each project or any other page, they all stay on the homescreen for a very short time (how do I know this? All thanks to my baby, PostHog!). It was then that I realised why mostly senior designers or design engineers had these type of portfolios — because they had their years and years of experience, meanwhile I didn&apos;t. I&apos;m still very early on in my career so I knew I had to buckle up for another iteration anyway! That&apos;s how my current version was born (as of 5 Oct, 2026).
+                </p>
 
                 <div className="space-y-6 pt-2">
                   <img
@@ -277,6 +304,9 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     Version 5
                   </h2>
                 </div>
+                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  I was doom scrolling WallofPortfolios and found some cool portfolios of senior designers and loved it a lot, but at the same time wanted to maintain some personality instead of plain B&amp;W templated and cookie cutter. Got inspired by radicle.dev for the color palette/theme. But as much as I avoided it, I still ended up going sort of black and white in the next version anyway...
+                </p>
 
                 <div className="space-y-6 pt-2">
                   <img
@@ -307,6 +337,9 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     )}
                   </button>
                 </div>
+                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  I wanted to make something recruiter friendly but at the same time something that screams ME. This is also the portfolio that got me my first proper internship &lt;3 but sadly the dropdowns are not that recruiter friendly.
+                </p>
 
                 <div className="space-y-6 pt-2">
                   {[
@@ -346,6 +379,9 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     )}
                   </button>
                 </div>
+                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  I really love Clawd so much (Claude Code mascot) and I&apos;m someone who loves terminal interfaces a lot, so I got super inspired by it and made this version. Probably my most fav portfolio version of all time, but sadly this is very recruiter unfriendly so had to painfully move on from this masterpiece.
+                </p>
 
                 <div className="space-y-6 pt-2">
                   {[
