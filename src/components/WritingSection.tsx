@@ -25,9 +25,8 @@ export const WritingSection: React.FC<WritingSectionProps> = ({ onSelectPost }) 
             onClick={() => onSelectPost?.(post)}
             className="group p-4 -mx-4 rounded-xl border border-transparent hover:border-neutral-200/80 hover:bg-neutral-50/70 transition-all cursor-pointer"
           >
-            <div className="flex items-center justify-between text-xs text-neutral-500 mb-1.5 font-mono">
+            <div className="flex items-center justify-between text-xs text-neutral-500 mb-1.5 font-sans">
               <span>{post.date}</span>
-              <span>{post.readingTime}</span>
             </div>
             <h3 className="font-semibold text-base text-neutral-900 group-hover:text-[#4e52ec] transition-colors mb-1.5">
               {post.title}

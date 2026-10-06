@@ -279,7 +279,7 @@ export function PortfolioView({
 
         {/* Main Container */}
         {/* Top Navbar */}
-        <header className="sticky top-4 sm:top-5 z-50 w-[95%] sm:w-[90%] max-w-[720px] mx-auto mb-12 sm:mb-16 bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-full px-5 sm:px-6 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
+        <header className="sticky top-4 sm:top-5 z-50 w-[95%] sm:w-[90%] max-w-[720px] mx-auto mb-12 sm:mb-16 bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-full px-5 sm:px-6 py-2.5 sm:py-3.5 flex items-center justify-between transition-colors">
           
           {/* Left: Logo & Name */}
           <button
@@ -290,10 +290,10 @@ export function PortfolioView({
             <img 
               src="/logo1.1.svg" 
               alt="logo"
-              className="h-[24px] sm:h-[26px] object-contain -ml-2"
+              className="h-[30px] sm:h-[34px] object-contain -ml-1.5"
             />
-            <span className="font-sans font-semibold text-[18px] sm:text-[20px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none leading-none -translate-y-[1px]">
-              pyndu_logs
+            <span className="font-sans font-semibold text-[20px] sm:text-[22px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none leading-none -translate-y-[1px]">
+              pyndu_logs*
             </span>
           </button>
 
@@ -302,7 +302,7 @@ export function PortfolioView({
             <nav className="hidden sm:flex items-center space-x-1 sm:space-x-1.5 text-[15px] sm:text-[16.5px] font-normal">
               <button
                 onClick={() => handleNavClick("projects")}
-                className={`inline-flex items-center px-3.5 py-1 rounded-full transition-all cursor-pointer select-none ${
+                className={`inline-flex items-center px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "projects"
                     ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -312,7 +312,7 @@ export function PortfolioView({
               </button>
               <button
                 onClick={() => handleNavClick("about")}
-                className={`inline-flex items-center px-3.5 py-1 rounded-full transition-all cursor-pointer select-none ${
+                className={`inline-flex items-center px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "about"
                     ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -322,7 +322,7 @@ export function PortfolioView({
               </button>
               <button
                 onClick={() => handleNavClick("blog")}
-                className={`inline-flex items-center px-3.5 py-1 rounded-full transition-all cursor-pointer select-none ${
+                className={`inline-flex items-center px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
                   viewMode === "blog"
                     ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -1325,7 +1325,7 @@ export function PortfolioView({
                 {/* Blog Posts Cards */}
                 <section className="w-full">
                   {filteredBlogPosts.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 pt-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-2">
                       {filteredBlogPosts.map((post, idx) => (
                         <div key={idx} className="flex flex-col h-full">
                           <a
@@ -1344,10 +1344,8 @@ export function PortfolioView({
                               <h2 className="text-[18px] sm:text-[19.5px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
                                 {post.title}
                               </h2>
-                              <div className="flex items-center gap-2 font-mono text-[12px] sm:text-[12.5px] uppercase tracking-wide text-[#64748B] dark:text-[#94A3B8]">
+                              <div className="flex items-center gap-2 font-sans text-[12px] sm:text-[12.5px] uppercase tracking-wide text-[#64748B] dark:text-[#94A3B8]">
                                 <span>{post.date}</span>
-                                <span className="w-1 h-1 rounded-full bg-[#CBD5E1] dark:bg-[#475569]"></span>
-                                <span>{post.readingTime} read</span>
                               </div>
                             </div>
                           </a>

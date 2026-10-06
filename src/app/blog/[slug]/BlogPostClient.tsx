@@ -12,17 +12,19 @@ function ZoomableImage({
   src,
   alt,
   className,
+  containerClassName,
   onZoom,
 }: {
   src: string;
   alt: string;
   className?: string;
+  containerClassName?: string;
   onZoom: (src: string, alt: string) => void;
 }) {
   return (
     <div
       onClick={() => onZoom(src, alt)}
-      className="relative group cursor-pointer overflow-hidden rounded-xl select-none"
+      className={`relative group cursor-pointer overflow-hidden rounded-xl select-none ${containerClassName || ""}`}
     >
       <img
         src={src}
@@ -290,6 +292,663 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
         {/* Article Text Content (Row 2) */}
         <article className="lg:col-start-2 lg:row-start-2 w-full animate-in fade-in duration-200">
+
+          {/* =========================================================
+              ARTICLE: THE DESIGN PROJECT I'M MOST EMBARRASSED TO PUT IN MY PORTFOLIO
+             ========================================================= */}
+          {slug === "the-design-project-im-most-embarrassed-to-put-in-my-portfolio" && (
+            <div className="space-y-8 text-[17.5px] sm:text-[18.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
+              {/* Intro */}
+              <div className="space-y-4">
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Enter: My Very Serious Internship Plan
+                </h2>
+                <p>
+                  We all have that one project (or maybe more) lurking at the bottom of our Figma drafts folder.
+                </p>
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  This is mine.
+                </p>
+                <p>
+                  This summer, I decided to cold apply for a summer internship at Codédex by doing what any perfectly reasonable person would do: designing an entire mobile-first concept for them. (bare minimum, baby!)
+                </p>
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  Why?
+                </p>
+                <p>
+                  Because I am madly in love with their gamified, pixel-y little universe, and I thought maybe I could sneak my way into their attention through Figma.
+                </p>
+                <p className="font-bold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  SPOILER ALERT: I didn&apos;t.
+                </p>
+                <p>
+                  I never even managed to reach them or capture their attention in the first place.
+                </p>
+                <p>
+                  And, unfortunately, that wasn&apos;t even the most embarrassing part.
+                </p>
+                <p>
+                  A few months later, I opened the Figma file again.
+                </p>
+                <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90">
+                  And realized the design wasn&apos;t very good either.
+                </p>
+              </div>
+
+              {/* THE REALIZATION */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  THE REALIZATION
+                </span>
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  How I got it so wrong
+                </h2>
+
+                <p>
+                  I always thought good design meant something visually striking and aesthetically pleasing.
+                </p>
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  But boy, was I wrong.
+                </p>
+                <p>
+                  From that narrow-minded POV, every single screen I designed seemed to be looking <em>really</em> good. I was obsessing over colors, spacing, animations, little pixel details, and all the tiny things that made the interface feel more like Codédex.
+                </p>
+                <p>
+                  And somewhere along the way, I completely missed the whole point of designing in the first place:
+                </p>
+
+                <div className="bg-[#F7F7F7] dark:bg-[#141415] p-5 border-l-4 border-[#8A51FC] dark:border-[#CEBAFC] text-[#2C2C2C] dark:text-[#F2F2F2] font-semibold text-[18px] sm:text-[19px] leading-relaxed rounded-r-md">
+                  I was so busy thinking about how the product looked that I forgot to think about how it worked.
+                </div>
+
+                <p>
+                  At the time, I was already living in an alternate universe where I was an intern at Codédex, building and testing their shiny new mobile app before release.
+                </p>
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  In reality?
+                </p>
+                <p>
+                  I was constructing a sensory-overload nightmare.
+                </p>
+                <p>
+                  And the funniest part is that I genuinely couldn&apos;t see it.
+                </p>
+                <p>
+                  I looked at a screen like this and thought:
+                </p>
+                <p className="font-semibold text-[19px] sm:text-[20px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  &ldquo;This is so Codédex.&rdquo;
+                </p>
+                <p>
+                  What I should have been asking was:
+                </p>
+                <p className="font-semibold text-[19px] sm:text-[20px] text-[#8A51FC] dark:text-[#CEBAFC]">
+                  &ldquo;Does this actually make learning easier?&rdquo;
+                </p>
+                <p>
+                  I had taken everything I loved about Codédex &mdash; the pixels, the colors, the gamification, the little moments of delight &mdash; and kept adding more of it.
+                </p>
+
+                <ul className="space-y-2 pl-2 text-[17px] sm:text-[18px]">
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-sans text-sm text-[#8A51FC] dark:text-[#CEBAFC] select-none pt-0.5">+</span>
+                    <span>More badges.</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-sans text-sm text-[#8A51FC] dark:text-[#CEBAFC] select-none pt-0.5">+</span>
+                    <span>More cards.</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-sans text-sm text-[#8A51FC] dark:text-[#CEBAFC] select-none pt-0.5">+</span>
+                    <span>More interactions.</span>
+                  </li>
+                  <li className="flex items-start space-x-2.5">
+                    <span className="font-sans text-sm text-[#8A51FC] dark:text-[#CEBAFC] select-none pt-0.5">+</span>
+                    <span>More things happening on one screen.</span>
+                  </li>
+                </ul>
+
+                <p>
+                  Because every addition made the design feel more <em>designed</em>.
+                </p>
+                <p className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-[19px] sm:text-[20px]">
+                  I had confused <u>more</u> with <u>better</u>.
+                </p>
+                <p>
+                  And because I was designing for a company I desperately wanted to impress, I think I was also designing for an imaginary person on the other side of my cold email.
+                </p>
+                <p>
+                  I wanted someone at Codédex to open my Figma file and think:
+                </p>
+                <p className="italic font-medium text-[#2C2C2C] dark:text-[#F2F2F2] pl-3 border-l-2 border-[#8A51FC]/40">
+                  &ldquo;Oh wow. She gets us.&rdquo;
+                </p>
+                <p>
+                  Instead, if they had actually opened it, they might have thought:
+                </p>
+                <p className="italic font-medium text-[#EF4444] dark:text-[#F87171] pl-3 border-l-2 border-[#EF4444]/40">
+                  &ldquo;Girl, what is happening here?&rdquo;
+                </p>
+              </div>
+
+              {/* THE ROBOT MASCOT */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  VISUAL IDENTITY
+                </span>
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  The Robot Had More Character Than the Product
+                </h2>
+
+                <p>
+                  Before I completely roast this project, I have to give myself some credit.
+                </p>
+                <p>
+                  I actually loved making the visual identity for it.
+                </p>
+                <p>
+                  One of the things I loved most about Codédex was how much personality they managed to squeeze into their little pixel universe, so I wanted to push that even further for my concept.
+                </p>
+                <p className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  And apparently, my solution was:
+                </p>
+                <p className="font-bold text-[20px] text-[#8A51FC] dark:text-[#CEBAFC]">
+                  make a mascot.
+                </p>
+                <p>
+                  So I started sketching.
+                </p>
+                <p>
+                  Different outfits. Different expressions. Different poses. Different little props.
+                </p>
+                <p>
+                  I would sketch these tiny ideas and then show them to my sister, who helped me turn my rough little drawings into the digital illustrations you see here. It became this weird little side project we were building together, and honestly, that might be one of my favorite parts of the whole thing.
+                </p>
+                <p>
+                  Somehow, this tiny coding robot ended up with an entire wardrobe.
+                </p>
+                <p>
+                  Before I knew it, I had created a whole little universe for a product that, unfortunately, did not exist.
+                </p>
+                <p>
+                  But to be frank?
+                </p>
+                <p className="font-bold text-[19px] sm:text-[20px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  I still love these.
+                </p>
+
+                {/* Mascot Image 1 - codedex2.webp (1 Column) */}
+                <div className="w-full my-6">
+                  <ZoomableImage
+                    src="/codedex/codedex2.webp"
+                    alt="CodeDex Robot Mascot Wardrobe 2"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                </div>
+
+                {/* Mascot Images 2 & 3 - codedex1.webp & codedex3.webp (2 Column Grid) */}
+                <div className="w-full my-6 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 items-stretch">
+                  <ZoomableImage
+                    src="/codedex/codedex1.webp"
+                    alt="CodeDex Robot Mascot Wardrobe 1"
+                    containerClassName="w-full aspect-[4/3]"
+                    className="w-full h-full object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60 transition-transform duration-300 group-hover:scale-[1.008]"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                  <ZoomableImage
+                    src="/codedex/codedex3.webp"
+                    alt="CodeDex Robot Mascot Wardrobe 3"
+                    containerClassName="w-full aspect-[4/3]"
+                    className="w-full h-full object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60 transition-transform duration-300 group-hover:scale-[1.008]"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                </div>
+
+                {/* Color Palette - color-palette.webp (1 Column) */}
+                <div className="w-full my-6">
+                  <ZoomableImage
+                    src="/codedex/color-palette.webp"
+                    alt="CodeDex Color Palette & Visual System"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                </div>
+
+                <p>
+                  I wanted the mascot to feel like it belonged in the Codédex universe while still giving my concept its own personality. So I built the illustrations, color palette, expressions, and little scenes around it.
+                </p>
+                <p>
+                  This was probably the first time I realized how much I enjoy the <em>visual storytelling</em> side of product design.
+                </p>
+                <p>
+                  The problem was that I was getting very, very good at answering:
+                </p>
+                <p className="font-semibold text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  &ldquo;What should this look like?&rdquo;
+                </p>
+                <p>
+                  I just wasn&apos;t asking enough:
+                </p>
+                <p className="font-bold text-[19px] text-[#8A51FC] dark:text-[#CEBAFC]">
+                  &ldquo;What should this do?&rdquo;
+                </p>
+                <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90">
+                  And that distinction would come back to haunt me later.
+                </p>
+              </div>
+
+              {/* THE SCREENS GALLERY */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  PROJECT GALLERY
+                </span>
+                <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Exhibit A: The Figma File
+                </h2>
+                <p>
+                  Okay, enough talking.
+                </p>
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  Here&apos;s what I actually made.
+                </p>
+
+                {/* Screens1.webp - 1 Column Full Width */}
+                <div className="w-full my-6">
+                  <ZoomableImage
+                    src="/codedex/Screens1.webp"
+                    alt="CodeDex Mobile Screen 1"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                </div>
+
+                {/* Screens2.webp - 1 Column Full Width */}
+                <div className="w-full my-6">
+                  <ZoomableImage
+                    src="/codedex/Screens2.webp"
+                    alt="CodeDex Mobile Solution Overview"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                </div>
+
+                {/* Screens3.webp & Screens4.webp - 2 Column Grid */}
+                <div className="w-full my-6 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <ZoomableImage
+                    src="/codedex/Screens3.webp"
+                    alt="CodeDex Interactive Screen 3"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                  <ZoomableImage
+                    src="/codedex/Screens4.webp"
+                    alt="CodeDex Interactive Screen 4"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                </div>
+
+                {/* Screens5.webp - 1 Column Full Width */}
+                <div className="w-full my-6">
+                  <ZoomableImage
+                    src="/codedex/Screens5.webp"
+                    alt="CodeDex Interactive Screen 5"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                </div>
+
+                {/* Screens6.webp & Screens7.webp - 2 Column Grid */}
+                <div className="w-full my-6 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <ZoomableImage
+                    src="/codedex/Screens6.webp"
+                    alt="CodeDex Interactive Screen 6"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                  <ZoomableImage
+                    src="/codedex/Screens7.webp"
+                    alt="CodeDex Interactive Screen 7"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                </div>
+
+                {/* Screens8.webp - 1 Column Full Width */}
+                <div className="w-full my-6">
+                  <ZoomableImage
+                    src="/codedex/Screens8.webp"
+                    alt="CodeDex Interactive Screen 8"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                </div>
+
+                {/* Screens9.webp - 1 Column Full Width */}
+                <div className="w-full my-6">
+                  <ZoomableImage
+                    src="/codedex/Screens9.webp"
+                    alt="CodeDex Interactive Screen 9"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                </div>
+
+                {/* Screens10.webp - 1 Column Full Width */}
+                <div className="w-full my-6">
+                  <ZoomableImage
+                    src="/codedex/Screens10.webp"
+                    alt="CodeDex Interactive Screen 10"
+                    className="w-full h-auto object-contain rounded-xl"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
+                </div>
+              </div>
+
+              {/* WHAT WENT HILARIOUSLY WRONG */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-6">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  THE CRIME SCENE
+                </span>
+                <h2 className="text-[28px] sm:text-[32px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  What went hilariously wrong
+                </h2>
+
+                <p className="font-semibold text-[18px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  The funny thing about bad design is that it doesn&apos;t always look bad.
+                </p>
+
+                <p>Sometimes it looks polished.</p>
+                <p>Sometimes it looks <em>really</em> good.</p>
+                <p>
+                  Sometimes you stare at your Figma file for three hours thinking, <em>&ldquo;holy shit, I might actually be onto something.&rdquo;</em>
+                </p>
+                <p>
+                  And then, months later, you open it again and realize you spent all that time making the <strong>wrong thing look good.</strong>
+                </p>
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">That was me.</p>
+
+                {/* Point 1 */}
+                <div className="pt-4 border-t border-neutral-200/40 dark:border-[#a3a3a3]/10 space-y-3">
+                  <h3 className="font-sans text-[19px] sm:text-[21px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    1. The UI was actually pretty good. The product thinking wasn&apos;t.
+                  </h3>
+                  <p>I still kind of like how it looks.</p>
+                  <p>
+                    I designed the mascot, illustrations, colors, cards, and an entire visual language specifically for Codédex.
+                  </p>
+                  <p>
+                    The problem was that I was <strong>solving the wrong problem really, really pretty.</strong>
+                  </p>
+                  <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90">
+                    Making something beautiful is only useful when you&apos;re making the <em>right</em> thing beautiful.
+                  </p>
+                </div>
+
+                {/* Point 2 */}
+                <div className="pt-4 border-t border-neutral-200/40 dark:border-[#a3a3a3]/10 space-y-3">
+                  <h3 className="font-sans text-[19px] sm:text-[21px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    2. I made the home screen do absolutely everything.
+                  </h3>
+                  <p>My biggest inspiration? <strong>Amazon.</strong></p>
+                  <p>
+                    I loved how much Amazon could surface on one screen, so naturally I thought:
+                  </p>
+                  <p className="italic font-medium text-[#2C2C2C] dark:text-[#F2F2F2] pl-3 border-l-2 border-[#8A51FC]/40">
+                    &ldquo;What if I did that... but for learning to code?&rdquo;
+                  </p>
+                  <p>
+                    So I crammed in Trending Courses, Beginner Courses, Latest Courses, progress, and probably someone&apos;s blood type.
+                  </p>
+                  <p>
+                    Except I was borrowing an information architecture designed for <strong>browsing and buying</strong> and applying it to something meant for <strong>learning and focusing</strong>.
+                  </p>
+                  <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Slightly different goals.</p>
+                  <p>I should have asked <em>why</em> the pattern worked before borrowing it.</p>
+                </div>
+
+                {/* Point 3 */}
+                <div className="pt-4 border-t border-neutral-200/40 dark:border-[#a3a3a3]/10 space-y-3">
+                  <h3 className="font-sans text-[19px] sm:text-[21px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    3. Typography salad
+                  </h3>
+                  <p>
+                    I couldn&apos;t pick between serif, sans-serif, and monospace, so naturally, I chose all three.
+                  </p>
+                  <p className="font-medium text-[#8A51FC] dark:text-[#CEBAFC]">
+                    Five fonts. Sixteen font sizes.
+                  </p>
+                  <p>
+                    It looked like a ransom note written by a designer on four cups of espresso.
+                  </p>
+                  <p>
+                    I was slowly learning that not every design decision needs to scream for attention.
+                  </p>
+                </div>
+
+                {/* Point 4 */}
+                <div className="pt-4 border-t border-neutral-200/40 dark:border-[#a3a3a3]/10 space-y-3">
+                  <h3 className="font-sans text-[19px] sm:text-[21px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    4. Zero Auto Layout
+                  </h3>
+                  <p>
+                    Back then, Auto Layout felt like black magic I didn&apos;t want to touch.
+                  </p>
+                  <p>
+                    So every card, icon, label, and button was manually dragged into place, pixel by pixel.
+                  </p>
+                  <p>
+                    The second I changed <strong>&ldquo;Start&rdquo;</strong> to <strong>&ldquo;Begin Focus Session,&rdquo;</strong> the entire right column collapsed into a catastrophic pile of overlapping boxes.
+                  </p>
+                  <p>I wasn&apos;t designing a responsive interface.</p>
+                  <p className="font-semibold text-[#EF4444] dark:text-[#F87171]">I was building a house of cards.</p>
+                  <p>
+                    Turns out, reusable components aren&apos;t just about saving time. They force you to think about how a product behaves beyond one perfect screenshot.
+                  </p>
+                </div>
+
+                {/* Point 5 */}
+                <div className="pt-4 border-t border-neutral-200/40 dark:border-[#a3a3a3]/10 space-y-3">
+                  <h3 className="font-sans text-[19px] sm:text-[21px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    5. I designed for Codédex, not Codédex users.
+                  </h3>
+                  <p>
+                    I was so obsessed with their visual identity that <strong>&ldquo;make it feel like Codédex&rdquo;</strong> became my entire brief.
+                  </p>
+                  <p className="text-[#8A51FC] dark:text-[#CEBAFC] font-medium">
+                    Pixels. Colors. Gamification. Animations. Badges. More pixels.
+                  </p>
+                  <p>But I wasn&apos;t asking:</p>
+                  <ul className="space-y-1.5 pl-3 italic text-[#525252] dark:text-[#CBD5E1]">
+                    <li>Who is this for?</li>
+                    <li>What problem am I solving?</li>
+                    <li>Why does this need to exist?</li>
+                  </ul>
+                  <p>
+                    I was recreating the <strong>feeling</strong> of Codédex without really understanding the people using it.
+                  </p>
+                  <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border-l-4 border-[#8A51FC] text-[#2C2C2C] dark:text-[#F2F2F2] font-semibold rounded-r-md">
+                    You can understand a company&apos;s aesthetic perfectly and still completely misunderstand its users.
+                  </div>
+                </div>
+
+                {/* Point 6 */}
+                <div className="pt-4 border-t border-neutral-200/40 dark:border-[#a3a3a3]/10 space-y-3">
+                  <h3 className="font-sans text-[19px] sm:text-[21px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    6. My user research consisted of:
+                  </h3>
+                  <ol className="space-y-1.5 pl-4 list-decimal font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    <li>Me.</li>
+                    <li>My opinions.</li>
+                    <li>&ldquo;I would probably use this.&rdquo;</li>
+                  </ol>
+                  <p>No interviews. No usability tests. No validation.</p>
+                  <p>Just pure vibes and an increasingly confident Figma file.</p>
+                  <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90">God, it&apos;s embarrassing.</p>
+                  <p>The worst part?</p>
+                  <p className="font-bold text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2]">The vibes were immaculate.</p>
+                  
+                  <blockquote className="my-6 py-5 px-6 border-l-4 border-[#8A51FC] bg-[#F7F7F8] dark:bg-[#151517] rounded-r-xl">
+                    <p className="text-[24px] sm:text-[28px] instrument-serif italic font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                      &ldquo;Everything looked polished enough to convince me I was making good decisions. But confidence isn&apos;t evidence.&rdquo;
+                    </p>
+                  </blockquote>
+                </div>
+
+                {/* Point 7 */}
+                <div className="pt-4 border-t border-neutral-200/40 dark:border-[#a3a3a3]/10 space-y-3">
+                  <h3 className="font-sans text-[19px] sm:text-[21px] font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    7. The imaginary internship
+                  </h3>
+                  <p>Meanwhile, in my head, I was already an intern at Codédex.</p>
+                  <p>Shipping the app. Running usability tests. Looking at analytics. Iterating on onboarding.</p>
+                  <p>Maybe even getting a return offer.</p>
+                  <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">In reality?</p>
+                  <p className="font-bold text-[19px] sm:text-[20px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    Codédex had no idea this Figma file existed.
+                  </p>
+                  <p>I was conducting product strategy meetings at a company that had never hired me.</p>
+                  <p>And honestly, the broken Auto Layout and typography salad aren&apos;t what embarrass me most.</p>
+                  <p className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    It&apos;s how confidently I made decisions without knowing whether they were right.
+                  </p>
+                  <p>I used to think being a good designer meant having good taste.</p>
+                  
+                  <blockquote className="my-6 py-5 px-6 border-l-4 border-[#8A51FC] bg-[#F7F7F8] dark:bg-[#151517] rounded-r-xl">
+                    <p className="text-[24px] sm:text-[28px] instrument-serif italic font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                      &ldquo;Good taste is only the starting point. The harder part is knowing when your taste is getting in the way of actually solving a problem.&rdquo;
+                    </p>
+                  </blockquote>
+
+                  <p>I didn&apos;t need another font, another animation, or another card.</p>
+                  <p>I needed to stop designing for a minute and ask:</p>
+                  <p className="font-bold text-[20px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    &ldquo;What am I actually trying to solve?&rdquo;
+                  </p>
+                  <p>I had opened Figma before I had really figured out what I was designing.</p>
+                  <p className="italic font-medium text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90 pt-1">
+                    And that might have been the most useful mistake I made all summer.
+                  </p>
+                </div>
+              </div>
+
+              {/* THIS TIME, I ASKED THE RIGHT QUESTIONS */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
+                  GROWTH &amp; CASE STUDY
+                </span>
+                <h2 className="text-[28px] sm:text-[32px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  This Time, I Asked the Right Questions
+                </h2>
+
+                <p>
+                  A few months after Codédex, I started working on another product design project: <a href="/semantic" className="font-semibold text-[#8A51FC] dark:text-[#CEBAFC] hover:underline underline-offset-4">Semantic Email</a>.
+                </p>
+
+                <p>
+                  And this time, I did something that sounds embarrassingly obvious now.
+                </p>
+
+                <p className="font-bold text-[19px] sm:text-[20px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  I didn&apos;t start with Figma.
+                </p>
+
+                <p>
+                  I started with the problem.
+                </p>
+
+                <p>
+                  I looked at real student and faculty inbox workflows across dozens of active inboxes. One finding stood out: <strong>over 75% of the cognitive overload came from low-signal emails hiding the things people actually needed to act on &mdash; deadlines, follow-ups, and important requests.</strong>
+                </p>
+
+                <p>
+                  That finding completely changed how I thought about the product.
+                </p>
+
+                <p>
+                  I wasn&apos;t just trying to make email <em>look</em> less overwhelming. I was trying to figure out <strong>what information actually mattered and how to surface it at the right moment.</strong>
+                </p>
+
+                <p>
+                  So I researched. I mapped out the problem. I thought through the user flows. I questioned my assumptions.
+                </p>
+
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  And only then did I open Figma.
+                </p>
+
+                <p>
+                  The funny thing is, I don&apos;t think I had suddenly become a much better UI designer.
+                </p>
+
+                <p>
+                  I still cared about typography. I still obsessed over spacing. I still spent way too long making things look nice.
+                </p>
+
+                <p className="font-semibold text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  But this time, <strong>the pretty screens came after the thinking, not instead of it.</strong>
+                </p>
+
+                <p>
+                  And when I put Semantic Email next to my old Codédex project, I could finally see the difference.
+                </p>
+
+                <p>
+                  Codédex was me asking:
+                </p>
+                <p className="font-semibold text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  &ldquo;What would look cool?&rdquo;
+                </p>
+
+                <p>
+                  Semantic Email was me asking:
+                </p>
+                <p className="font-bold text-[19px] sm:text-[20px] text-[#8A51FC] dark:text-[#CEBAFC]">
+                  &ldquo;What would actually help?&rdquo;
+                </p>
+
+                <p className="italic font-medium text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90">
+                  That shift probably mattered more than any new Figma skill I picked up.
+                </p>
+              </div>
+
+              {/* EMBRACE YOUR CRINGEY DRAFTS */}
+              <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
+                <h2 className="text-[28px] sm:text-[32px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  Embrace your cringey drafts
+                </h2>
+
+                <p>
+                  If you look back at something you made 1&ndash;2 years ago and feel embarrassed, congratulations!
+                </p>
+
+                <p className="font-bold text-[19px] sm:text-[20px] text-[#8A51FC] dark:text-[#CEBAFC]">
+                  Your taste evolved faster than your old work could keep up.
+                </p>
+
+                <p>
+                  And honestly, I think that&apos;s a good thing.
+                </p>
+
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  Keep the ugly drafts around.
+                </p>
+
+                <p>
+                  They&apos;re little time capsules of who you were, what you knew, and what you thought was a good idea at the time.
+                </p>
+
+                <p>
+                  Because eventually, you&apos;ll open one, cringe a little, laugh a lot, and realize:
+                </p>
+
+                <p className="font-bold text-[20px] sm:text-[22px] text-[#2C2C2C] dark:text-[#F2F2F2] pt-1">
+                  &ldquo;Wait. I actually got better.&rdquo; 🤍
+                </p>
+              </div>
+            </div>
+          )}
 
           {/* =========================================================
               ARTICLE: MY PORTFOLIO AND ITS NEVER-ENDING VERSIONS
@@ -1416,9 +2075,9 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
         
         </article>
 
-        {/* Footer in Row 3 (matching 640px article width) */}
-        <div className="lg:col-start-2 lg:row-start-3 w-full max-w-[640px] mx-auto pt-12 pb-8">
-          <Footer fullWidth={false} className="max-w-[640px]" />
+        {/* Footer in Row 3 (Full width across page) */}
+        <div className="lg:col-span-3 w-full pt-12 pb-8">
+          <Footer fullWidth={true} />
         </div>
       </main>
 

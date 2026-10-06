@@ -160,6 +160,17 @@ export const portfolioData: PortfolioData = {
   ],
   writings: [
     {
+      id: "the-design-project-im-most-embarrassed-to-put-in-my-portfolio",
+      title: "The Design Project I'm Most Embarrassed to Put in My Portfolio",
+      date: "OCT 6, 2026",
+      readingTime: "8 MIN",
+      voiceTime: "4:15",
+      description: "We all have that one early project hiding at the bottom of our Figma drafts. Neumorphism, 47 font sizes, and zero contrast ratios. Here is what it taught me about calm design.",
+      slug: "the-design-project-im-most-embarrassed-to-put-in-my-portfolio",
+      image: "/blog-covers/post4.svg",
+      category: "Design",
+    },
+    {
       id: "my-portfolio-and-its-never-ending-versions",
       title: "My Portfolio and Its Never-Ending Versions",
       date: "OCT 5, 2026",
