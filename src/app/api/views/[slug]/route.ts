@@ -45,10 +45,10 @@ async function getPostHogPageviews(slug: string): Promise<number | null> {
       body: JSON.stringify({
         query: {
           kind: 'HogQLQuery',
-          query: `SELECT count() FROM events WHERE event = '$pageview' AND properties.$pathname LIKE '%/blog/${slug}%'`
+          query: `SELECT count() FROM events WHERE event = '$pageview' AND properties.$pathname LIKE '%${slug}%'`
         }
       }),
-      next: { revalidate: 60 } // cache for 1 min
+      cache: 'no-store'
     });
 
     if (res.ok) {

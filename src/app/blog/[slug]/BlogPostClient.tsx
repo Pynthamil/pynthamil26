@@ -847,12 +847,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   Version control isn&apos;t just about saving code &mdash; it&apos;s about telling the story of how your ideas evolve.
                 </p>
-                <p>
-                  And honestly? There&apos;s something oddly satisfying about committing your work and watching your progress stack up.
-                </p>
-                <p className="font-sans text-[16.5px] sm:text-[17.5px] text-[#525252] dark:text-[#a3a3a3] font-medium pt-1">
-                  Tiny commits. Big growth.
-                </p>
+
               </div>
 
               {/* Section 1 */}
