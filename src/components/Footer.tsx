@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Copy, Check, Mail, ArrowUp } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
+import { usePathname } from "next/navigation";
 
 const SocialIcon = ({ label }: { label: string }) => {
   switch (label.toLowerCase()) {
@@ -39,10 +40,14 @@ const SocialIcon = ({ label }: { label: string }) => {
 interface FooterProps {
   fullWidth?: boolean;
   className?: string;
+  hideBanner?: boolean;
 }
 
-export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = "" }) => {
+export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = "", hideBanner }) => {
   const [isEmailCopied, setIsEmailCopied] = useState(false);
+  const pathname = usePathname();
+
+  const shouldHideBanner = hideBanner || pathname?.startsWith("/blog");
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("pavendanpynthamil@gmail.com");
@@ -56,22 +61,24 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
 
   const content = (
     <footer className={`w-full max-w-[1240px] mx-auto pt-8 sm:pt-12 mt-auto flex flex-col font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] pb-6 sm:pb-8 ${className}`}>
-        {/* Availability Banner */}
-        <div className="w-full mb-8 p-3.5 sm:p-4 rounded-md bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 transition-colors">
-          <div className="flex items-center gap-2.5">
-            <Mail className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0 text-emerald-700 dark:text-emerald-300" />
-            <span className="font-sans font-medium text-[14.5px] sm:text-[15.5px] tracking-tight">
-              open for winter / summer 2027 internships &amp; full-time roles
-            </span>
+        {/* Availability Banner (Hidden on blog pages) */}
+        {!shouldHideBanner && (
+          <div className="w-full mb-8 p-3.5 sm:p-4 rounded-md bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 transition-colors">
+            <div className="flex items-center gap-2.5">
+              <Mail className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0 text-emerald-700 dark:text-emerald-300" />
+              <span className="font-sans font-medium text-[14.5px] sm:text-[15.5px] tracking-tight">
+                open for winter / summer 2027 internships &amp; full-time roles
+              </span>
+            </div>
+            <a 
+              href="mailto:pavendanpynthamil@gmail.com"
+              className="font-sans text-[13.5px] sm:text-[14.5px] text-emerald-700 dark:text-emerald-300 hover:underline underline-offset-4 font-medium flex items-center gap-1.5 shrink-0"
+            >
+              <span>get in touch</span>
+              <span>&rarr;</span>
+            </a>
           </div>
-          <a 
-            href="mailto:pavendanpynthamil@gmail.com"
-            className="font-sans text-[13.5px] sm:text-[14.5px] text-emerald-700 dark:text-emerald-300 hover:underline underline-offset-4 font-medium flex items-center gap-1.5 shrink-0"
-          >
-            <span>get in touch</span>
-            <span>&rarr;</span>
-          </a>
-        </div>
+        )}
 
         {/* Email Copy Button & Going Up Button */}
         <div className="w-full flex items-center justify-between mb-8">
