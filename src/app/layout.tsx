@@ -11,10 +11,44 @@ const fontSans = FontSans({
   variable: "--font-sans",
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? (process.env.NEXT_PUBLIC_SITE_URL.startsWith("http")
+      ? process.env.NEXT_PUBLIC_SITE_URL
+      : `https://${process.env.NEXT_PUBLIC_SITE_URL}`)
+  : "https://pynthamil26.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Pynthamil Pavendan",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "Pynthamil Pavendan",
+    template: "%s",
+  },
   description:
     "Design engineer and product builder crafting thoughtful software experiences.",
+  openGraph: {
+    title: "Pynthamil Pavendan",
+    description:
+      "Design engineer and product builder crafting thoughtful software experiences.",
+    url: baseUrl,
+    siteName: "Pynthamil Pavendan",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/blog-covers/post4.png",
+        width: 1200,
+        height: 630,
+        alt: "Pynthamil Pavendan",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pynthamil Pavendan",
+    description:
+      "Design engineer and product builder crafting thoughtful software experiences.",
+    images: ["/blog-covers/post4.png"],
+  },
   icons: {
     icon: [
       { url: "/logo.png", type: "image/png" },

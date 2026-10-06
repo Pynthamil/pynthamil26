@@ -37,7 +37,7 @@ const canvasItems: CanvasItem[] = [
   // Right side: Blog post cover illustrations
   {
     id: "blog-cover-post2",
-    image: "/blog-covers/post2.svg",
+    image: "/blog-covers/post2.png",
     rotation: 0,
     x: 200,
     y: -80,
@@ -46,7 +46,7 @@ const canvasItems: CanvasItem[] = [
   },
   {
     id: "blog-cover-intro",
-    image: "/blog-covers/post_intro.svg",
+    image: "/blog-covers/post_intro.png",
     rotation: 0,
     x: 70,
     y: 120,
@@ -55,7 +55,7 @@ const canvasItems: CanvasItem[] = [
   },
   {
     id: "blog-cover-post1",
-    image: "/blog-covers/post1.svg",
+    image: "/blog-covers/post1.png",
     rotation: 0,
     x: 320,
     y: 130,
