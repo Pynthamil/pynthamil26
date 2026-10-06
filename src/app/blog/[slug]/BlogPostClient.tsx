@@ -269,9 +269,9 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
           </div>
         </div>
 
-        {/* Table of Contents Sidebar (Fixed on left like Vercel Docs while content scrolls) */}
+        {/* Table of Contents Sidebar (Aligned with Article body, sticky on scroll) */}
         {headings.length > 0 && (
-          <aside className="hidden lg:block lg:col-start-1 lg:row-start-1 lg:row-span-2 sticky top-24 self-start pt-2 justify-self-end pr-8 xl:pr-12 w-full max-w-[260px] max-h-[calc(100vh-7rem)] overflow-y-auto">
+          <aside className="hidden lg:block lg:col-start-1 lg:row-start-2 sticky top-24 self-start pt-2 justify-self-end pr-8 xl:pr-12 w-full max-w-[260px] max-h-[calc(100vh-7rem)] overflow-y-auto">
             <HookSidebar 
               items={headings.map(h => h.text)}
               value={headings.findIndex(h => h.id === activeId) !== -1 ? headings.findIndex(h => h.id === activeId) : 0}
