@@ -241,7 +241,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
             </div>
 
             {post.image && (
-              <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[120%] sm:-ml-[10%] rounded-xl mt-6 mb-4 overflow-hidden">
+              <div className="w-full sm:w-[120%] sm:-ml-[10%] rounded-xl mt-6 mb-4 overflow-hidden">
                 <ZoomableImage
                   src={post.image}
                   alt={`${post.title} Banner`}
