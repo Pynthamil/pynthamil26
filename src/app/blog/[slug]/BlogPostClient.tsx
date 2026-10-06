@@ -412,7 +412,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   Because every addition made the design feel more <em>designed</em>.
                 </p>
                 <p className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-[19px] sm:text-[20px]">
-                  I had confused <u>more</u> with <u>better</u>.
+                  I had confused <strong>more with better.</strong>
                 </p>
                 <p>
                   And because I was designing for a company I desperately wanted to impress, I think I was also designing for an imaginary person on the other side of my cold email.
@@ -428,6 +428,9 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </p>
                 <p className="italic font-medium text-[#EF4444] dark:text-[#F87171] pl-3 border-l-2 border-[#EF4444]/40">
                   &ldquo;Girl, what is happening here?&rdquo;
+                </p>
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  And somehow, that still wasn&apos;t the part that bothered me most.
                 </p>
               </div>
 
@@ -522,7 +525,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   This was probably the first time I realized how much I enjoy the <em>visual storytelling</em> side of product design.
                 </p>
                 <p>
-                  The problem was that I was getting very, very good at answering:
+                  And ironically, this was also where I started noticing the problem.
+                </p>
+                <p>
+                  I was getting very, very good at answering:
                 </p>
                 <p className="font-semibold text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                   &ldquo;What should this look like?&rdquo;
@@ -684,6 +690,9 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90">
                     Making something beautiful is only useful when you&apos;re making the <em>right</em> thing beautiful.
                   </p>
+                  <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    And unfortunately, I had several examples of exactly how I managed to get that wrong.
+                  </p>
                 </div>
 
                 {/* Point 2 */}
@@ -702,10 +711,14 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     So I crammed in Trending Courses, Beginner Courses, Latest Courses, progress, and probably someone&apos;s blood type.
                   </p>
                   <p>
-                    Except I was borrowing an information architecture designed for <strong>browsing and buying</strong> and applying it to something meant for <strong>learning and focusing</strong>.
+                    Except I was borrowing an information architecture designed for <strong>browsing and buying</strong> and applying it to something meant for <strong>learning and focusing.</strong>
                   </p>
                   <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Slightly different goals.</p>
                   <p>I should have asked <em>why</em> the pattern worked before borrowing it.</p>
+                  <p>Instead, I saw a pattern that looked useful and immediately decided it belonged in my product.</p>
+                  <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    And apparently, Amazon wasn&apos;t the only thing I was borrowing without understanding.
+                  </p>
                 </div>
 
                 {/* Point 3 */}
@@ -724,6 +737,10 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   </p>
                   <p>
                     I was slowly learning that not every design decision needs to scream for attention.
+                  </p>
+                  <p>But at least typography was fixable.</p>
+                  <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    My next problem was a little more catastrophic.
                   </p>
                 </div>
 
@@ -746,6 +763,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <p>
                     Turns out, reusable components aren&apos;t just about saving time. They force you to think about how a product behaves beyond one perfect screenshot.
                   </p>
+                  <p>And honestly, that was probably the first time Figma itself started exposing the gaps in my thinking.</p>
+                  <p>But the biggest gap wasn&apos;t in my components.</p>
+                  <p className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    It was in <strong>who I was designing for.</strong>
+                  </p>
                 </div>
 
                 {/* Point 5 */}
@@ -760,17 +782,20 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     Pixels. Colors. Gamification. Animations. Badges. More pixels.
                   </p>
                   <p>But I wasn&apos;t asking:</p>
-                  <ul className="space-y-1.5 pl-3 italic text-[#525252] dark:text-[#CBD5E1]">
+                  <ul className="space-y-1.5 pl-3 italic font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
                     <li>Who is this for?</li>
                     <li>What problem am I solving?</li>
                     <li>Why does this need to exist?</li>
                   </ul>
                   <p>
-                    I was recreating the <strong>feeling</strong> of Codédex without really understanding the people using it.
+                    I was recreating the <em>feeling</em> of Codédex without really understanding the people using it.
                   </p>
                   <div className="bg-[#F7F7F7] dark:bg-[#141415] p-4 border-l-4 border-[#8A51FC] text-[#2C2C2C] dark:text-[#F2F2F2] font-semibold rounded-r-md">
                     You can understand a company&apos;s aesthetic perfectly and still completely misunderstand its users.
                   </div>
+                  <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2] pt-1">
+                    Which brings me to what might be my most embarrassing confession.
+                  </p>
                 </div>
 
                 {/* Point 6 */}
@@ -788,12 +813,16 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <p className="italic text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90">God, it&apos;s embarrassing.</p>
                   <p>The worst part?</p>
                   <p className="font-bold text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2]">The vibes were immaculate.</p>
+                  <p>Everything looked polished enough to convince me I was making good decisions.</p>
                   
                   <blockquote className="my-6 py-5 px-6 border-l-4 border-[#8A51FC] bg-[#F7F7F8] dark:bg-[#151517] rounded-r-xl">
                     <p className="text-[24px] sm:text-[28px] instrument-serif italic font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                       &ldquo;Everything looked polished enough to convince me I was making good decisions. But confidence isn&apos;t evidence.&rdquo;
                     </p>
                   </blockquote>
+
+                  <p>And I had a lot of confidence.</p>
+                  <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Maybe too much.</p>
                 </div>
 
                 {/* Point 7 */}
@@ -911,6 +940,12 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p className="italic font-medium text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90">
                   That shift probably mattered more than any new Figma skill I picked up.
                 </p>
+                <p>
+                  Because I don&apos;t think the biggest change was that I had become better at designing.
+                </p>
+                <p className="font-semibold text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  I had become better at <strong>deciding what was worth designing.</strong>
+                </p>
               </div>
 
               {/* EMBRACE YOUR CRINGEY DRAFTS */}
@@ -945,6 +980,16 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
 
                 <p className="font-bold text-[20px] sm:text-[22px] text-[#2C2C2C] dark:text-[#F2F2F2] pt-1">
                   &ldquo;Wait. I actually got better.&rdquo; 🤍
+                </p>
+
+                <p className="italic text-[#525252] dark:text-[#a3a3a3] pt-4 border-t border-neutral-200/40 dark:border-[#a3a3a3]/10">
+                  I still haven&apos;t deleted the Codédex Figma file.
+                </p>
+                <p className="italic text-[#525252] dark:text-[#a3a3a3]">
+                  Mostly because I&apos;m sentimental.
+                </p>
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
+                  But also because it&apos;s a pretty good reminder to <strong>think before I open Figma.</strong>
                 </p>
               </div>
             </div>
