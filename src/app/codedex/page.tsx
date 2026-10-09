@@ -125,8 +125,8 @@ export default function CodeDexProjectPage() {
         <article className="space-y-6">
           {/* Project Header */}
           <div className="space-y-6 mb-12">
-            <div className="pb-5 text-center">
-              <h1 className="instrument-serif text-[36px] sm:text-[42px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2] max-w-[800px] mx-auto">
+            <div className="pb-5 text-left">
+              <h1 className="font-sans font-medium text-[34px] sm:text-[40px] leading-tight text-[#2C2C2C] dark:text-[#F2F2F2] max-w-[800px]">
                 Designing CodeDex for Accessible, On-the-Go Learning.
               </h1>
             </div>
@@ -134,7 +134,7 @@ export default function CodeDexProjectPage() {
 
           {/* Hero Banner Image */}
           <div className="pb-2 space-y-3">
-            <div className="w-full sm:w-[120%] sm:-ml-[10%] my-8 flex items-center justify-center px-0">
+            <div className="w-full my-8 flex items-center justify-center px-0">
               <div className="w-full p-5 sm:p-12 md:p-16 rounded-2xl overflow-hidden flex items-center justify-center bg-[#F5F5F7] dark:bg-[#13151E]">
                 <div className="w-full overflow-hidden flex items-center justify-center">
                   <img
@@ -146,39 +146,33 @@ export default function CodeDexProjectPage() {
               </div>
             </div>
 
-            {/* Project Metadata */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4 pb-12">
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#10B981] dark:text-[#34D399] block mb-1">
-                  ROLE
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Product & UI/UX Designer
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#10B981] dark:text-[#34D399] block mb-1">
-                  TIMELINE
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  May 2026
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#10B981] dark:text-[#34D399] block mb-1">
-                  TYPE
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Mobile Concept
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#10B981] dark:text-[#34D399] block mb-1">
-                  TOOLS
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Figma
-                </span>
+            {/* Clean Boxed Metadata Card */}
+            <div className="w-full border-[3px] border-black/10 dark:border-white/15 rounded-md sm:rounded-lg p-5 sm:p-6 bg-white/60 dark:bg-[#141415]/60 my-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+                <div>
+                  <span className="font-sans text-[11.5px] sm:text-[12.5px] tracking-wider font-semibold text-neutral-400 dark:text-neutral-500 block mb-1.5 uppercase">
+                    ROLE
+                  </span>
+                  <span className="text-[15px] sm:text-[16.5px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-normal block">
+                    Product &amp; UI/UX Designer
+                  </span>
+                </div>
+                <div>
+                  <span className="font-sans text-[11.5px] sm:text-[12.5px] tracking-wider font-semibold text-neutral-400 dark:text-neutral-500 block mb-1.5 uppercase">
+                    TIMELINE
+                  </span>
+                  <span className="text-[15px] sm:text-[16.5px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-normal block">
+                    May 2026
+                  </span>
+                </div>
+                <div>
+                  <span className="font-sans text-[11.5px] sm:text-[12.5px] tracking-wider font-semibold text-neutral-400 dark:text-neutral-500 block mb-1.5 uppercase">
+                    SKILLS &amp; TOOLS
+                  </span>
+                  <span className="text-[15px] sm:text-[16.5px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-normal block">
+                    Mobile Design, Figma, Systems
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -186,10 +180,10 @@ export default function CodeDexProjectPage() {
           <div className="space-y-8 text-[16px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.8] font-sans pt-1">
             {/* OVERVIEW */}
             <div id="overview" className="space-y-4 scroll-mt-20 pt-6">
-              <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
+              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
                 OVERVIEW
               </span>
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Learning to code usually requires sitting at a desk with a desktop IDE, making consistent daily practice hard for busy students.
               </h3>
               <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
@@ -199,24 +193,24 @@ export default function CodeDexProjectPage() {
 
             {/* PROBLEM */}
             <div id="problem" className="space-y-5 scroll-mt-20 pt-8">
-              <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
+              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
                 THE PROBLEM
               </span>
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Desktop-first learning tools create high friction for quick, everyday practice.
               </h3>
 
               <div className="pt-2">
-                <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block mb-3">
+                <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block mb-3">
                   Core Challenges
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                   {painPoints.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-neutral-800 rounded-xl aspect-square p-4 sm:p-5 flex flex-col items-center justify-center text-center space-y-3 transition-all hover:border-[#10B981] dark:hover:border-[#34D399] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                      className="bg-white dark:bg-[#141415] border-[3px] border-black/10 dark:border-white/15 rounded-md sm:rounded-lg aspect-square p-4 sm:p-5 flex flex-col items-center justify-center text-center space-y-3 transition-all hover:border-[#10B981] dark:hover:border-[#34D399] shadow-sm cursor-default"
                     >
-                      <div className="p-2 sm:p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center">
+                      <div className="p-2 sm:p-3 rounded-md sm:rounded-lg bg-[#F5F5F7] dark:bg-[#18181B] flex items-center justify-center">
                         {item.icon}
                       </div>
                       <span className="font-mono text-[12px] sm:text-[13px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -228,11 +222,11 @@ export default function CodeDexProjectPage() {
               </div>
 
               {/* How Might We Callout Box / Problem Statement */}
-              <div className="pt-6 pb-2">
-                <div className="w-full p-6 sm:p-8 sm:py-10 rounded-[18px] sm:rounded-[22px] bg-[#F5F5F7] dark:bg-[#18181B] flex flex-col items-start text-left gap-3.5 sm:gap-5 overflow-hidden">
-                  <h4 className="font-serif italic text-[16px] sm:text-[18px] text-neutral-600 dark:text-neutral-400 font-normal">
-                    Problem Statement
-                  </h4>
+              <div className="pt-6 pb-2 space-y-3">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
+                  PROBLEM STATEMENT
+                </span>
+                <div className="w-full p-6 sm:p-8 sm:py-10 rounded-md sm:rounded-lg bg-white dark:bg-[#141415] border-[3px] border-black/10 dark:border-white/15 flex flex-col items-start text-left gap-3.5 sm:gap-5 overflow-hidden shadow-sm">
                   <p className="text-[19px] sm:text-[24px] md:text-[27px] font-sans font-medium text-[#475569] dark:text-[#CBD5E1] leading-[1.45] tracking-tight">
                     How might we transform programming education from a desk-bound IDE experience into an{" "}
                     <span className="text-[#059669] dark:text-[#34d399] font-bold">
@@ -245,10 +239,10 @@ export default function CodeDexProjectPage() {
 
             {/* SOLUTION SHOWCASE */}
             <div id="solution" className="space-y-6 scroll-mt-20 pt-8">
-              <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
+              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
                 THE SOLUTION
               </span>
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Tactile mobile interactions combined with structured learning paths.
               </h3>
 
@@ -338,10 +332,10 @@ export default function CodeDexProjectPage() {
             {/* TAKEAWAYS */}
             <div id="takeaways" className="pt-8 space-y-5 scroll-mt-20">
               <div className="space-y-1">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
                   TAKEAWAYS
                 </span>
-                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                   Mobile learning is less about replacing desktop IDEs and more about <span className="bg-[#DEFFD9] text-[#166534] dark:bg-[#064E3B] dark:text-[#34D399] px-1.5 py-0.5 rounded box-decoration-clone">making practice frictionless and daily.</span>
                 </h3>
               </div>
@@ -393,43 +387,29 @@ export default function CodeDexProjectPage() {
 
         {/* Navigation Section */}
         <div className="pt-12 pb-12 w-full sm:w-[115%] sm:-ml-[7.5%] lg:w-[130%] lg:-ml-[15%] space-y-6">
-          <div className="flex items-center justify-between w-full">
-            <Link
-              href="/semantic"
-              onClick={() => playTone(880)}
-              className="px-6 py-2.5 sm:px-7 sm:py-3 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#141415] hover:bg-neutral-100 dark:hover:bg-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] transition-all font-sans font-medium text-[14px] sm:text-[15px] shadow-sm flex items-center space-x-2 cursor-pointer"
-            >
-              <span>&larr; Previous project</span>
-            </Link>
+
+          {/* Single Next Project Card */}
+          <div className="space-y-3">
+            <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
+              NEXT PROJECT
+            </span>
             <Link
               href="/orca"
               onClick={() => playTone(880)}
-              className="px-6 py-2.5 sm:px-7 sm:py-3 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#141415] hover:bg-neutral-100 dark:hover:bg-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] transition-all font-sans font-medium text-[14px] sm:text-[15px] shadow-sm flex items-center space-x-2 cursor-pointer"
+              className="group relative block w-full rounded-md sm:rounded-lg border-[3px] border-[#10B981]/40 dark:border-[#34D399]/40 overflow-hidden cursor-pointer hover:opacity-95 transition-opacity"
             >
-              <span>Next project &rarr;</span>
+              <img 
+                src="/next-orca.svg" 
+                alt="Next Project - ORCA AI Research Assistant" 
+                className="w-full h-auto block" 
+              />
+              <div className="absolute inset-0 p-5 sm:p-7 lg:p-8 flex flex-col justify-start max-w-[55%] sm:max-w-[48%] lg:max-w-[46%] pointer-events-none">
+                <h3 className="font-sans font-medium text-[14px] sm:text-[17px] lg:text-[20px] text-white group-hover:text-white/85 transition-colors leading-snug">
+                  AI research assistant that turns complex papers into clear, cited answers.
+                </h3>
+              </div>
             </Link>
           </div>
-
-          {/* Single Next Project Card */}
-          <Link
-            href="/orca"
-            onClick={() => playTone(880)}
-            className="group relative block w-full rounded-[24px] overflow-hidden cursor-pointer hover:opacity-95 transition-opacity"
-          >
-            <img 
-              src="/next-orca.svg" 
-              alt="Next Project - ORCA AI Research Assistant" 
-              className="w-full h-auto block" 
-            />
-            <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-start max-w-[55%] sm:max-w-[48%] lg:max-w-[46%] space-y-2 pointer-events-none">
-              <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-white/70">
-                NEXT PROJECT
-              </span>
-              <h3 className="font-sans font-medium text-[18px] sm:text-[24px] lg:text-[28px] text-white group-hover:text-white/85 transition-colors leading-snug">
-                AI research assistant that turns complex papers into clear, cited answers.
-              </h3>
-            </div>
-          </Link>
 
           <Footer />
         </div>

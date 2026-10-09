@@ -24,15 +24,15 @@ function ZoomableImage({
   return (
     <div
       onClick={() => onZoom(src, alt)}
-      className={`relative group cursor-pointer overflow-hidden rounded-xl select-none ${containerClassName || ""}`}
+      className={`relative group cursor-pointer overflow-hidden rounded-lg select-none ${containerClassName || ""}`}
     >
       <img
         src={src}
         alt={alt}
-        className={className || "w-full h-auto object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60 transition-transform duration-300 group-hover:scale-[1.008]"}
+        className={className || "w-full h-auto object-cover rounded-lg shadow-sm border border-neutral-200/60 dark:border-neutral-800/60 transition-transform duration-300 group-hover:scale-[1.008]"}
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center rounded-xl pointer-events-none">
+      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center rounded-lg pointer-events-none">
         <div className="bg-white/95 dark:bg-neutral-900/95 text-neutral-800 dark:text-neutral-100 px-5 py-3 rounded-md shadow-xl backdrop-blur-md transform scale-90 group-hover:scale-100 transition-transform duration-200 flex items-center gap-3 text-[18px] sm:text-[20px] font-medium font-sans">
           <Maximize2 className="w-5 h-5 text-neutral-600 dark:text-neutral-300" />
           <span>enlarge</span>
@@ -243,11 +243,11 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
             </div>
 
             {post.image && (
-              <div className="w-full sm:w-[120%] sm:-ml-[10%] rounded-xl mt-6 mb-4 overflow-hidden">
+              <div className="w-full sm:w-[120%] sm:-ml-[10%] rounded-lg mt-6 mb-4 overflow-hidden">
                 <ZoomableImage
                   src={post.image}
                   alt={`${post.title} Banner`}
-                  className="w-full h-[350px] sm:h-[450px] object-cover rounded-xl"
+                  className="w-full h-[350px] sm:h-[450px] object-cover rounded-lg"
                   onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                 />
               </div>
@@ -485,7 +485,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <ZoomableImage
                     src="/codedex/codedex2.webp"
                     alt="CodeDex Robot Mascot Wardrobe 2"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
@@ -496,14 +496,14 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                     src="/codedex/codedex1.webp"
                     alt="CodeDex Robot Mascot Wardrobe 1"
                     containerClassName="w-full aspect-[4/3]"
-                    className="w-full h-full object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60 transition-transform duration-300 group-hover:scale-[1.008]"
+                    className="w-full h-full object-cover rounded-lg shadow-sm border border-neutral-200/60 dark:border-neutral-800/60 transition-transform duration-300 group-hover:scale-[1.008]"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                   <ZoomableImage
                     src="/codedex/codedex3.webp"
                     alt="CodeDex Robot Mascot Wardrobe 3"
                     containerClassName="w-full aspect-[4/3]"
-                    className="w-full h-full object-cover rounded-xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/60 transition-transform duration-300 group-hover:scale-[1.008]"
+                    className="w-full h-full object-cover rounded-lg shadow-sm border border-neutral-200/60 dark:border-neutral-800/60 transition-transform duration-300 group-hover:scale-[1.008]"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
@@ -513,7 +513,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <ZoomableImage
                     src="/codedex/color-palette.webp"
                     alt="CodeDex Color Palette & Visual System"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
@@ -564,7 +564,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <ZoomableImage
                     src="/codedex/Screens1.webp"
                     alt="CodeDex Mobile Screen 1"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
@@ -574,7 +574,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <ZoomableImage
                     src="/codedex/Screens2.webp"
                     alt="CodeDex Mobile Solution Overview"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
@@ -584,13 +584,13 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <ZoomableImage
                     src="/codedex/Screens3.webp"
                     alt="CodeDex Interactive Screen 3"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                   <ZoomableImage
                     src="/codedex/Screens4.webp"
                     alt="CodeDex Interactive Screen 4"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
@@ -600,7 +600,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <ZoomableImage
                     src="/codedex/Screens5.webp"
                     alt="CodeDex Interactive Screen 5"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
@@ -610,13 +610,13 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <ZoomableImage
                     src="/codedex/Screens6.webp"
                     alt="CodeDex Interactive Screen 6"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                   <ZoomableImage
                     src="/codedex/Screens7.webp"
                     alt="CodeDex Interactive Screen 7"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
@@ -626,7 +626,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <ZoomableImage
                     src="/codedex/Screens8.webp"
                     alt="CodeDex Interactive Screen 8"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
@@ -636,7 +636,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <ZoomableImage
                     src="/codedex/Screens9.webp"
                     alt="CodeDex Interactive Screen 9"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
@@ -646,7 +646,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <ZoomableImage
                     src="/codedex/Screens10.webp"
                     alt="CodeDex Interactive Screen 10"
-                    className="w-full h-auto object-contain rounded-xl"
+                    className="w-full h-auto object-contain rounded-lg"
                     onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
                   />
                 </div>
@@ -1039,6 +1039,14 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                   <p>
                     Wanted to keep my about and blog sections very simple so ended up cutting a lot of text from the about page (hurt a lot cause I&apos;m a certified yapper!).
                   </p>
+                </div>
+
+                <div className="space-y-6 pt-2">
+                  <ZoomableImage
+                    src="/blog-assets/v7.svg"
+                    alt="Portfolio V7 Asset"
+                    onZoom={(s, a) => setSelectedImage({ src: s, alt: a })}
+                  />
                 </div>
               </div>
 
@@ -2147,7 +2155,7 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
             <img
               src={selectedImage.src}
               alt={selectedImage.alt}
-              className="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-white/10 cursor-default"
+              className="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg shadow-2xl border border-white/10 cursor-default"
             />
           </div>
         </div>

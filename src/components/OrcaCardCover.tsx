@@ -57,7 +57,7 @@ export const OrcaCardCover: React.FC<OrcaCardCoverProps> = ({ className = "" }) 
   }, [stage]);
 
   return (
-    <div className={`w-full h-full flex items-center justify-center relative overflow-hidden pt-10 sm:pt-14 ${className}`}>
+    <div className={`w-full h-full flex items-center justify-center relative overflow-hidden pt-12 sm:pt-14 ${className}`}>
       {stage === "typing" && (
         <div 
           className={`z-10 w-[92%] sm:w-[86%] my-auto flex items-center justify-center transition-transform duration-[1400ms] ease-in-out ${

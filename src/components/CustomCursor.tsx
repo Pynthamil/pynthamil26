@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Eye } from "lucide-react";
+import { Eye, ArrowUpRight } from "lucide-react";
 
 export function CustomCursor() {
   const [position, setPosition] = useState({ x: -100, y: -100 });
-  const [isHovered, setIsHovered] = useState(false);
+  const [cursorMode, setCursorMode] = useState<"default" | "case-study" | "arrow">("default");
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -14,8 +14,13 @@ export function CustomCursor() {
       if (!isVisible) setIsVisible(true);
 
       const target = e.target as HTMLElement | null;
-      const caseStudyTarget = target?.closest('[data-cursor="case-study"]');
-      setIsHovered(!!caseStudyTarget);
+      if (target?.closest('[data-cursor="case-study"]')) {
+        setCursorMode("case-study");
+      } else if (target?.closest('[data-cursor="arrow"]')) {
+        setCursorMode("arrow");
+      } else {
+        setCursorMode("default");
+      }
     };
 
     const handleMouseLeave = () => setIsVisible(false);
@@ -41,10 +46,14 @@ export function CustomCursor() {
         transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%)`,
       }}
     >
-      {isHovered ? (
+      {cursorMode === "case-study" ? (
         <div className="px-5 py-2.5 bg-[#FF00AE] text-white rounded-full flex items-center gap-2.5 animate-in zoom-in-95 duration-150 whitespace-nowrap font-sans text-[13px] font-bold tracking-wider uppercase">
           <Eye className="w-4 h-4 text-white stroke-[2.5]" />
           <span>VIEW CASE STUDY</span>
+        </div>
+      ) : cursorMode === "arrow" ? (
+        <div className="w-10 h-10 bg-[#FF00AE] text-white rounded-full flex items-center justify-center animate-in zoom-in-95 duration-150 shadow-lg">
+          <ArrowUpRight className="w-5 h-5 text-white stroke-[2.5]" />
         </div>
       ) : (
         <div className="w-[22px] h-[22px] rounded-full bg-[#FF00AE] transition-all duration-150" />

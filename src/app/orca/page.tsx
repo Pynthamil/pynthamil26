@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { OrcaCardCover } from "@/components/OrcaCardCover";
+import { OrcaCoralVisuals } from "@/components/OrcaCoralVisuals";
+import { OrcaCitationInspector } from "@/components/OrcaCitationInspector";
 import { StippleWaveBg } from "@/components/StippleWaveBg";
 import {
   Search,
@@ -105,6 +107,7 @@ export default function OrcaProjectPage() {
   const sidebarSections = [
     { id: "overview", label: "Overview" },
     { id: "problem", label: "Problem" },
+    { id: "research", label: "Research" },
     { id: "solution", label: "Solution" },
     { id: "takeaways", label: "Takeaways" },
   ];
@@ -136,7 +139,7 @@ export default function OrcaProjectPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => playTone(880)}
-              className="px-3.5 py-1.5 rounded-full border border-[#095F76]/30 dark:border-[#FFF0F5]/30 bg-[#095F76]/[0.06] dark:bg-[#FFF0F5]/[0.06] text-[#095F76] dark:text-[#FFF0F5] hover:bg-[#095F76]/[0.12] dark:hover:bg-[#FFF0F5]/[0.12] transition-all flex items-center space-x-1.5 font-mono text-[13px] sm:text-[13.5px] font-medium cursor-pointer"
+              className="px-3.5 py-1.5 rounded-md border border-[#095F76]/30 dark:border-[#FFF0F5]/30 bg-[#095F76]/[0.06] dark:bg-[#FFF0F5]/[0.06] text-[#095F76] dark:text-[#FFF0F5] hover:bg-[#095F76]/[0.12] dark:hover:bg-[#FFF0F5]/[0.12] transition-all flex items-center space-x-1.5 font-mono text-[13px] sm:text-[13.5px] font-medium cursor-pointer"
             >
               <ExternalLink className="w-3.5 h-3.5 stroke-[2]" />
               <span>live demo</span>
@@ -147,8 +150,8 @@ export default function OrcaProjectPage() {
         <article className="space-y-6">
         {/* Project Header (Blog Style) */}
         <div className="space-y-6 mb-12">
-          <div className="pb-5 text-center">
-            <h1 className="instrument-serif text-[36px] sm:text-[42px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2] max-w-[800px] mx-auto">
+          <div className="pb-5 text-left">
+            <h1 className="font-sans font-medium text-[34px] sm:text-[40px] leading-tight text-[#2C2C2C] dark:text-[#F2F2F2] max-w-[800px]">
               Turning complex marine-science questions into clear, source-backed answers.
             </h1>
             
@@ -156,7 +159,7 @@ export default function OrcaProjectPage() {
         </div>
 
           <div className="pb-2 space-y-3">
-            <div className="w-full sm:w-[135%] sm:-ml-[17.5%] lg:w-[145%] lg:-ml-[22.5%] my-8 flex items-center justify-center px-0">
+            <div className="w-full my-8 flex items-center justify-center px-0">
               <img
                 src="/dashboard.svg"
                 alt="orca.ai Solution Interface"
@@ -164,38 +167,33 @@ export default function OrcaProjectPage() {
               />
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-4 pb-12">
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#095F76] dark:text-[#FFF0F5] block mb-1">
-                  ROLE
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Product Designer & Developer
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#095F76] dark:text-[#FFF0F5] block mb-1">
-                  TIMELINE
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Aug – Sep 2026
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#095F76] dark:text-[#FFF0F5] block mb-1">
-                  SKILLS
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  AI/ML, Data Viz
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-[13px] sm:text-[14px] font-semibold text-[#095F76] dark:text-[#FFF0F5] block mb-1">
-                  TOOLS
-                </span>
-                <span className="text-[16px] sm:text-[17px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Figma, Next.js, Gemini
-                </span>
+            {/* Clean Boxed Metadata Card */}
+            <div className="w-full border-[3px] border-black/10 dark:border-white/15 rounded-md sm:rounded-lg p-5 sm:p-6 bg-white/60 dark:bg-[#141415]/60 my-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+                <div>
+                  <span className="font-sans text-[11.5px] sm:text-[12.5px] tracking-wider font-semibold text-neutral-400 dark:text-neutral-500 block mb-1.5 uppercase">
+                    ROLE
+                  </span>
+                  <span className="text-[15px] sm:text-[16.5px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-normal block">
+                    Product Designer &amp; Developer
+                  </span>
+                </div>
+                <div>
+                  <span className="font-sans text-[11.5px] sm:text-[12.5px] tracking-wider font-semibold text-neutral-400 dark:text-neutral-500 block mb-1.5 uppercase">
+                    TIMELINE
+                  </span>
+                  <span className="text-[15px] sm:text-[16.5px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-normal block">
+                    Aug – Sep 2026
+                  </span>
+                </div>
+                <div>
+                  <span className="font-sans text-[11.5px] sm:text-[12.5px] tracking-wider font-semibold text-neutral-400 dark:text-neutral-500 block mb-1.5 uppercase">
+                    SKILLS &amp; TOOLS
+                  </span>
+                  <span className="text-[15px] sm:text-[16.5px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-normal block">
+                    AI/ML, Next.js, Gemini, Figma
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -204,10 +202,10 @@ export default function OrcaProjectPage() {
             
             {/* CONTEXT */}
             <div id="overview" className="space-y-4 scroll-mt-20 pt-6">
-              <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#FFF0F5] block">
+              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
                 OVERVIEW
               </span>
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Marine science is producing more research than researchers can realistically navigate manually.
               </h3>
               <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
@@ -215,66 +213,163 @@ export default function OrcaProjectPage() {
               </p>
             </div>
 
-            <div className="pt-2 pb-2 flex">
-              <a href="#solution" className="inline-flex items-center gap-2 font-mono text-[13px] sm:text-[14px] px-4 py-2 bg-[#141415] dark:bg-[#F2F2F2] text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-300 transition-all rounded-full shadow-sm group">
-                Jump to Solution
-                <span className="group-hover:translate-y-0.5 transition-transform">&darr;</span>
+            <div className="pt-4 pb-2 flex flex-wrap gap-4 items-center">
+              <button
+                onClick={() => {
+                  playTone(880);
+                  document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-md bg-[#141415] dark:bg-white text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-200 transition-colors font-medium text-[15px] sm:text-[16px] shadow-sm flex items-center space-x-2.5 cursor-pointer"
+              >
+                <span>Jump to Solution</span>
+                <ArrowDown className="w-5 h-5" />
+              </button>
+              <a
+                href="https://orca-ai-iota.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => playTone(880)}
+                className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#0284C7] dark:hover:border-[#FFF0F5] text-[#475569] dark:text-[#CBD5E1] hover:text-[#0284C7] dark:hover:text-[#FFF0F5] transition-colors font-medium text-[15px] sm:text-[16px] flex items-center space-x-2.5 cursor-pointer"
+              >
+                <span>Live Demo</span>
+                <ExternalLink className="w-5 h-5" />
               </a>
             </div>
 
             {/* WIP BANNER */}
-            <div className="w-full mt-4 mb-8 p-5 sm:p-6 border border-dashed border-[#095F76]/40 dark:border-[#FFF0F5]/40 bg-[#095F76]/[0.02] dark:bg-[#FFF0F5]/[0.04] rounded-none flex flex-col gap-2.5">
-              <Lock className="w-4 h-4 text-[#095F76] dark:text-[#FFF0F5]" strokeWidth={2.5} />
+            <div className="w-full mt-4 mb-8 p-5 sm:p-6 border border-dashed border-[#0284C7]/40 dark:border-[#FFF0F5]/40 bg-[#0284C7]/[0.02] dark:bg-[#FFF0F5]/[0.04] rounded-md flex flex-col gap-2.5">
+              <Lock className="w-4 h-4 text-[#0284C7] dark:text-[#FFF0F5]" strokeWidth={2.5} />
               <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-                The full case study is still a work in progress. For a more detailed walkthrough beyond this preview, <a href="mailto:pavendanpynthamil@gmail.com" className="text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#095F76] dark:hover:text-[#FFF0F5] underline decoration-wavy underline-offset-[5px] decoration-[#095F76] dark:decoration-[#FFF0F5] decoration-2 transition-colors">reach out</a> directly!
+                The full case study is still a work in progress. For a more detailed walkthrough beyond this preview, <a href="mailto:pavendanpynthamil@gmail.com" className="text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#0284C7] dark:hover:text-[#FFF0F5] underline decoration-wavy underline-offset-[5px] decoration-[#0284C7] dark:decoration-[#FFF0F5] decoration-2 transition-colors">reach out</a> directly!
               </p>
             </div>
 
             {/* THE PROBLEM */}
             <div id="problem" className="space-y-5 scroll-mt-20 pt-8">
-              <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#FFF0F5] block">
+              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
                 THE PROBLEM
               </span>
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                Research is scattered across papers, datasets, and citations, making even simple questions difficult to verify.
+              <h3 className="text-[28px] sm:text-[34px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug tracking-tight">
+                Decades of research, fragmented across thousands of papers
               </h3>
+
+              {/* Stat Card matching reference mockup */}
+              <div className="pt-2">
+                <div className="w-full border-[3px] border-black/10 dark:border-white/15 rounded-md sm:rounded-lg p-6 sm:p-8 md:p-10 bg-white dark:bg-[#141415] shadow-sm my-3">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    <div className="flex items-center gap-5 sm:gap-7">
+                      <span className="text-[64px] sm:text-[84px] md:text-[92px] font-sans font-semibold tracking-tighter leading-none text-[#2C2C2C] dark:text-[#F2F2F2]">
+                        74%
+                      </span>
+                      <span className="text-[18px] sm:text-[22px] font-sans font-normal leading-snug text-[#2C2C2C] dark:text-[#CBD5E1] max-w-[220px] sm:max-w-[240px]">
+                        of researchers struggle to synthesize multi-disciplinary ocean data
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col items-center justify-center shrink-0 self-center sm:self-auto">
+                      <div className="flex items-center gap-2">
+                        <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#0284C7]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
+                        <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#0284C7]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
+                        <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#0284C7]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
+                      </div>
+                      <div className="flex items-center gap-2 -mt-1">
+                        <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#2C2C2C] dark:text-[#F2F2F2]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
+                        <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#2C2C2C] dark:text-[#F2F2F2]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <a 
+                    href="https://doi.org/10.1038/s41597-024-03120-x" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="font-mono text-[11.5px] sm:text-[12.5px] text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 italic transition-colors"
+                  >
+                    https://doi.org/10.1038/s41597-024-03120-x
+                  </a>
+                </div>
+              </div>
 
 
               <div className="pt-2">
-                <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#475569] dark:text-[#CBD5E1] block mb-3">
+                <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#475569] dark:text-[#CBD5E1] block mb-3">
                   Core Pain Points
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                   {painPoints.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#FFF0F5]/20 rounded-xl aspect-square p-4 sm:p-5 flex flex-col items-center justify-center text-center space-y-3 transition-all hover:border-[#095F76] dark:hover:border-[#FFF0F5] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
-                  >
-                    <div className="p-2 sm:p-3 rounded-xl bg-neutral-50 dark:bg-[#095F76]/10 flex items-center justify-center">
-                      {item.icon}
+                    <div
+                      key={idx}
+                      className="bg-white dark:bg-[#141415] border-[3px] border-black/10 dark:border-white/15 rounded-md sm:rounded-lg aspect-square p-4 sm:p-5 flex flex-col items-center justify-center text-center space-y-3 transition-all hover:border-[#0284C7] dark:hover:border-[#FFF0F5] shadow-sm cursor-default"
+                    >
+                      <div className="p-2 sm:p-3 rounded-md sm:rounded-lg bg-[#F5F5F7] dark:bg-[#18181B] flex items-center justify-center">
+                        {item.icon}
+                      </div>
+                      <span className="font-mono text-[12px] sm:text-[13px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                        {item.title}
+                      </span>
                     </div>
-                    <span className="font-mono text-[12px] sm:text-[13px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                      {item.title}
+                  ))}
+                </div>
+              </div>
+
+              {/* Problem Statement Callout Box */}
+              <div className="pt-10 sm:pt-12 space-y-3">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                  PROBLEM STATEMENT
+                </span>
+                <div className="w-full p-6 sm:p-8 sm:py-10 rounded-md sm:rounded-lg bg-white dark:bg-[#141415] border-[3px] border-black/10 dark:border-white/15 flex flex-col items-start text-left gap-3.5 sm:gap-5 overflow-hidden shadow-sm">
+                  <p className="text-[19px] sm:text-[24px] md:text-[27px] font-sans font-medium text-[#475569] dark:text-[#CBD5E1] leading-[1.45] tracking-tight">
+                    How might we make decades of marine research queryable in seconds without sacrificing the{" "}
+                    <span className="text-[#0284C7] dark:text-[#2dd4bf] font-bold">
+                      evidence researchers need to trust an answer?
                     </span>
-                    
-                  </div>
-                ))}
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* THE OPPORTUNITY / PROBLEM STATEMENT */}
-            <div className="scroll-mt-20 -mt-2">
-              <div className="w-full p-6 sm:p-8 sm:py-10 rounded-[18px] sm:rounded-[22px] bg-[#F5F5F7] dark:bg-[#18181B] flex flex-col items-start text-left gap-3.5 sm:gap-5 overflow-hidden">
-                <h4 className="font-serif italic text-[16px] sm:text-[18px] text-neutral-600 dark:text-neutral-400 font-normal">
-                  Problem Statement
-                </h4>
-                <p className="text-[19px] sm:text-[24px] md:text-[27px] font-sans font-medium text-[#475569] dark:text-[#CBD5E1] leading-[1.45] tracking-tight">
-                  How might we make decades of marine research queryable in seconds without sacrificing the{" "}
-                  <span className="text-[#095F76] dark:text-[#2dd4bf] font-bold">
-                    evidence researchers need to trust an answer?
+            {/* RESEARCH: 3 CORE BARRIERS */}
+            <div id="research" className="space-y-4 scroll-mt-20 pt-8">
+              <div className="space-y-1">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                  RESEARCH
+                </span>
+                <h3 className="text-[28px] sm:text-[34px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug tracking-tight">
+                  The 3 core barriers
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 pt-2">
+                {/* Card 1 */}
+                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between">
+                  <span className="text-[48px] sm:text-[56px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-4">
+                    46%
                   </span>
-                </p>
+                  <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] font-sans leading-relaxed">
+                    said <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-semibold">not knowing what to query</strong> is the biggest barrier when starting a new literature review
+                  </p>
+                </div>
+
+                {/* Card 2 */}
+                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between">
+                  <span className="text-[48px] sm:text-[56px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-4">
+                    68%
+                  </span>
+                  <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] font-sans leading-relaxed">
+                    found <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-semibold">manual citation tracing</strong> too effort-intensive across disconnected databases
+                  </p>
+                </div>
+
+                {/* Card 3 */}
+                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between">
+                  <span className="text-[48px] sm:text-[56px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-4">
+                    82%
+                  </span>
+                  <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] font-sans leading-relaxed">
+                    reported <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-semibold">abandoning deep references</strong> due to unindexed paper and dataset silos
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -282,27 +377,27 @@ export default function OrcaProjectPage() {
             {/* THE SOLUTION */}
             <div id="solution" className="space-y-6 scroll-mt-20 pt-8">
               <div className="space-y-4">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
                   THE SOLUTION
                 </span>
-                <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                  A focused research assistant that lets scientists move from <span className="bg-[#FFF0F5] dark:bg-[#095F76] dark:text-white px-1 box-decoration-clone">question to evidence-backed answer</span> without leaving the research workflow.
+                <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                  A focused research assistant that lets scientists move from <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">question to evidence-backed answer</span> without leaving the research workflow.
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                <div className="space-y-3 p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#13151E]">
-                  <h4 className="font-mono text-[13px] font-semibold text-[#ef4444] tracking-wider uppercase">BEFORE</h4>
-                  <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 pt-4">
+                <div className="p-6 sm:p-8 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] space-y-4 shadow-sm">
+                  <h4 className="font-sans text-[13px] font-semibold text-[#ef4444] tracking-wider uppercase mb-4">BEFORE</h4>
+                  <ul className="list-disc pl-4 space-y-3.5 sm:space-y-4 text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Search across fragmented sources</li>
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Manually compare findings</li>
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Validate citations independently</li>
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Repeat searches to build context</li>
                   </ul>
                 </div>
-                <div className="space-y-3 p-5 rounded-xl border border-[#10b981]/20 dark:border-[#10b981]/20 bg-[#10b981]/[0.02] dark:bg-[#10b981]/[0.02]">
-                  <h4 className="font-mono text-[13px] font-semibold text-[#10b981] tracking-wider uppercase">AFTER</h4>
-                  <ul className="list-disc pl-4 space-y-2.5 text-[14.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#10b981]">
+                <div className="p-6 sm:p-8 rounded-md sm:rounded-lg border-[3px] border-[#10b981]/40 dark:border-[#10b981]/40 bg-[#f0fdf4]/50 dark:bg-[#10b981]/[0.05] space-y-4 shadow-sm">
+                  <h4 className="font-sans text-[13px] font-semibold text-[#10b981] tracking-wider uppercase mb-4">AFTER</h4>
+                  <ul className="list-disc pl-4 space-y-3.5 sm:space-y-4 text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#10b981]">
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Ask one natural-language question</li>
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Retrieve relevant research</li>
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Receive a synthesized response</li>
@@ -315,11 +410,11 @@ export default function OrcaProjectPage() {
             {/* KEY FEATURE 1 */}
             <div className="space-y-6 scroll-mt-20 pt-4">
               <div className="space-y-3">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
                   KEY FEATURE 1
                 </span>
                 <div className="space-y-1.5">
-                  <h3 className="font-sans font-bold text-[28px] sm:text-[34px] md:text-[38px] text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-tight">
+                  <h3 className="font-sans font-medium text-[28px] sm:text-[32px] md:text-[34px] text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
                     Evidence-Backed Research Synthesis
                   </h3>
                   <p className="font-sans font-normal text-[15px] sm:text-[16.5px] text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
@@ -328,14 +423,7 @@ export default function OrcaProjectPage() {
                 </div>
               </div>
 
-              <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] lg:w-[125%] lg:-ml-[12.5%] h-[340px] sm:h-[440px] md:h-[520px] overflow-hidden rounded-md sm:rounded-lg flex items-center justify-center relative bg-[#073543] group">
-                {/* Temporary Custom Background Pattern */}
-                <img 
-                  src="/orca-bg-temp.png" 
-                  alt="Background pattern" 
-                  className="absolute inset-0 w-full h-full object-cover z-0"
-                />
-
+              <div className="w-full h-[340px] sm:h-[440px] md:h-[520px] overflow-hidden rounded-md sm:rounded-lg flex items-center justify-center relative bg-[#F5F5F7] dark:bg-[#18181B] group">
                 {/* Cover Component */}
                 <div className="relative z-10 w-full h-full flex items-center justify-center">
                   <OrcaCardCover />
@@ -343,85 +431,130 @@ export default function OrcaProjectPage() {
               </div>
             </div>
 
+            {/* KEY FEATURE 2 */}
+            <div className="space-y-6 scroll-mt-20 pt-8">
+              <div className="space-y-3">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                  KEY FEATURE 2
+                </span>
+                <div className="space-y-1.5">
+                  <h3 className="font-sans font-medium text-[28px] sm:text-[32px] md:text-[34px] text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                    From Complex Questions to Clear Insights
+                  </h3>
+                  <p className="font-sans font-normal text-[15px] sm:text-[16.5px] text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+                    Ask ORCA a question like <span className="text-[#0284C7] dark:text-[#FFF0F5] font-semibold">“How does ocean acidification affect coral reefs?”</span> and it breaks the research into key findings, relationships, and visual insights.
+                  </p>
+                </div>
+              </div>
+
+              {/* 3 Distinct Grey Container Cards for Visual Analytics */}
+              <OrcaCoralVisuals />
+            </div>
+
+            {/* KEY FEATURE 3 */}
+            <div className="space-y-6 scroll-mt-20 pt-8">
+              <div className="space-y-3">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                  KEY FEATURE 3
+                </span>
+                <div className="space-y-1.5">
+                  <h3 className="font-sans font-medium text-[28px] sm:text-[32px] md:text-[34px] text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
+                    Interactive Citation Inspector &amp; Source Verification
+                  </h3>
+                  <p className="font-sans font-normal text-[15px] sm:text-[16.5px] text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+                    Clicking any inline citation badge in an answer reveals the exact extracted paper snippet, DOI link, sample size, and grounding confidence score.
+                  </p>
+                </div>
+              </div>
+
+              {/* Interactive Citation Inspection Drawer */}
+              <OrcaCitationInspector />
+            </div>
 
 
-            {/* THE APPROACH */}
-            <div className="space-y-4 -mt-4">
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                I designed ORCA around a simple principle: <span className="bg-[#FFF0F5] dark:bg-[#095F76] dark:text-white px-1 box-decoration-clone">AI should accelerate scientific research without hiding the evidence behind its answers.</span>
+
+            {/* DESIGN PHILOSOPHY */}
+            <div id="philosophy" className="space-y-4 scroll-mt-20 pt-8">
+              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                DESIGN PHILOSOPHY
+              </span>
+              <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                I designed ORCA around a simple principle: <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">AI should accelerate scientific research without hiding the evidence behind its answers.</span>
               </h3>
               <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
-                ORCA transforms natural-language questions into concise, source-backed responses by combining semantic retrieval with Gemini-powered synthesis and citation grounding.
+                ORCA turns natural-language questions into concise, source-backed answers by finding relevant research, synthesizing the findings, and showing where each answer comes from.
               </p>
-              <div className="py-6 flex justify-center items-center w-full bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-md">
-                <span className="font-mono text-[12px] sm:text-sm font-semibold tracking-wider text-[#095F76] dark:text-[#FFF0F5] text-center px-4">
-                  QUESTION &rarr; RETRIEVE &rarr; SYNTHESIZE &rarr; CITE
-                </span>
+              <div className="pt-4 flex justify-center">
+                <img
+                  src="/dp1.svg"
+                  alt="Design Philosophy Process"
+                  className="w-1/4 h-auto block select-none"
+                />
               </div>
             </div>
 
             {/* BUILDING THE SYSTEM */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                Connecting <span className="bg-[#FFF0F5] dark:bg-[#095F76] dark:text-white px-1 box-decoration-clone">retrieval, LLM reasoning, and citation grounding</span> into a single research workflow.
+              <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                Connecting <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">retrieval, LLM reasoning, and citation grounding</span> into a single research workflow.
               </h3>
               
               <div className="p-6 bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-xl font-mono text-[13px] sm:text-sm text-center space-y-3 mt-4">
                 <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Research Question</div>
-                <div className="text-[#095F76] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Query Processing</div>
-                <div className="text-[#095F76] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Semantic Retrieval</div>
-                <div className="text-[#095F76] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Relevant Research</div>
-                <div className="text-[#095F76] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Google Gemini</div>
-                <div className="text-[#095F76] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Citation Grounding</div>
-                <div className="text-[#095F76] dark:text-[#FFF0F5]">&darr;</div>
-                <div className="font-bold text-[#095F76] dark:text-[#FFF0F5]">Source-backed Answer</div>
+                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="font-bold text-[#0284C7] dark:text-[#FFF0F5]">Source-backed Answer</div>
               </div>
             </div>
 
             {/* THE INTERESTING PART */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                The hardest problem wasn't getting Gemini to answer questions - it was <span className="bg-[#FFF0F5] dark:bg-[#095F76] dark:text-white px-1 box-decoration-clone">making those answers stay grounded in the research behind them.</span>
+              <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                The hardest problem wasn't getting Gemini to answer questions - it was <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">making those answers stay grounded in the research behind them.</span>
               </h3>
-              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#095F76] dark:marker:text-[#FFF0F5]">
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#095F76]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Insufficient evidence:</strong> When the model lacks context, it must gracefully admit gaps rather than hallucinating facts.</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#095F76]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Irrelevant retrieval:</strong> If retrieved sources aren't relevant, the system needs to filter them out before synthesis.</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#095F76]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Claim matching:</strong> Every generated claim must explicitly match its source material.</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#095F76]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Inspectable citations:</strong> Citations in the UI need to correspond to actual, retrievable evidence snippets the user can verify.</li>
+              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#0284C7] dark:marker:text-[#FFF0F5]">
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Insufficient evidence:</strong> When the model lacks context, it must gracefully admit gaps rather than hallucinating facts.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Irrelevant retrieval:</strong> If retrieved sources aren't relevant, the system needs to filter them out before synthesis.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Claim matching:</strong> Every generated claim must explicitly match its source material.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Inspectable citations:</strong> Citations in the UI need to correspond to actual, retrievable evidence snippets the user can verify.</li>
               </ul>
             </div>
 
             {/* ITERATING ON ORCA */}
             <div className="space-y-5 -mt-4">
               <div className="space-y-4">
-                <h3 className="text-[24px] sm:text-[28px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <h3 className="text-[24px] sm:text-[28px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   Testing real marine-science questions revealed where retrieval, synthesis, and citation grounding could break down.
                 </h3>
               </div>
               
               <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-xl space-y-4 mt-2 text-center">
                 <div className="space-y-1">
-                  <div className="font-mono text-xs font-semibold text-[#095F76] dark:text-[#FFF0F5]">QUESTION</div>
-                  <div className="text-[24px] sm:text-[26px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2]">"How do temperature shifts affect phytoplankton blooms in the North Atlantic?"</div>
+                  <div className="font-mono text-xs font-semibold text-[#0284C7] dark:text-[#FFF0F5]">QUESTION</div>
+                  <div className="text-[24px] sm:text-[26px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">"How do temperature shifts affect phytoplankton blooms in the North Atlantic?"</div>
                 </div>
-                <div className="flex justify-center text-[#095F76] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="flex justify-center text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="space-y-1">
-                  <div className="font-mono text-xs font-semibold text-[#095F76] dark:text-[#FFF0F5]">RETRIEVED EVIDENCE</div>
+                  <div className="font-mono text-xs font-semibold text-[#0284C7] dark:text-[#FFF0F5]">RETRIEVED EVIDENCE</div>
                   <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">3 relevant papers found discussing thermal stratification and nutrient availability.</div>
                 </div>
-                <div className="flex justify-center text-[#095F76] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="flex justify-center text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="space-y-1">
-                  <div className="font-mono text-xs font-semibold text-[#095F76] dark:text-[#FFF0F5]">GENERATED ANSWER</div>
+                  <div className="font-mono text-xs font-semibold text-[#0284C7] dark:text-[#FFF0F5]">GENERATED ANSWER</div>
                   <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">Synthesized summary of the delay in spring blooms due to increased stratification...</div>
                 </div>
-                <div className="flex justify-center text-[#095F76] dark:text-[#FFF0F5]">&darr;</div>
+                <div className="flex justify-center text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
                 <div className="space-y-1">
-                  <div className="font-mono text-xs font-semibold text-[#095F76] dark:text-[#FFF0F5]">CITATION</div>
+                  <div className="font-mono text-xs font-semibold text-[#0284C7] dark:text-[#FFF0F5]">CITATION</div>
                   <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">[Smith et al., 2024; Oceanic Thermal Dynamics]</div>
                 </div>
               </div>
@@ -433,13 +566,13 @@ export default function OrcaProjectPage() {
 
             {/* WHAT'S NEXT */}
             <div className="space-y-4 -mt-4">
-              <h3 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+              <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Moving ORCA from an MVP research assistant toward a more rigorous scientific research tool.
               </h3>
-              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#095F76] dark:marker:text-[#FFF0F5] pt-2">
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#095F76]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Spatial visualization of species migration and ecological patterns</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#095F76]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Direct analysis of acoustic, telemetry, and other scientific datasets</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#095F76]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Collaborative research environments for university teams</li>
+              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#0284C7] dark:marker:text-[#FFF0F5] pt-2">
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Spatial visualization of species migration and ecological patterns</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Direct analysis of acoustic, telemetry, and other scientific datasets</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Collaborative research environments for university teams</li>
               </ul>
             </div>
 
@@ -448,19 +581,19 @@ export default function OrcaProjectPage() {
             {/* TAKEAWAYS */}
             <div id="takeaways" className="pt-8 space-y-5 scroll-mt-20">
               <div className="space-y-1">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#095F76] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
                   TAKEAWAYS
                 </span>
                 <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
-                  Building ORCA taught me that <span className="bg-[#FFF0F5] dark:bg-[#095F76] dark:text-white px-1 box-decoration-clone">trustworthy AI is less about the model alone and more about the systems built around it.</span>
+                  Building ORCA taught me that <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">trustworthy AI is less about the model alone and more about the systems built around it.</span>
                 </h3>
               </div>
 
               {/* 2-Column Takeaways Cards */}
-              <div className="w-[calc(100%+2rem)] -ml-[1rem] sm:w-[115%] sm:-ml-[7.5%] px-4 sm:px-0 pt-4">
+              <div className="w-full pt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {/* Card 1 */}
-                  <div className="relative w-full h-full p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-[#F0F8FF] dark:bg-[#095F76]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
+                  <div className="relative w-full h-full p-6 sm:p-8 rounded-md sm:rounded-lg bg-[#F0F8FF] dark:bg-[#0284C7]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
                     <img src="/laptop.svg" alt="Laptop" className="w-24 h-24 sm:w-28 sm:h-28 object-contain -mb-4 sm:-mb-6" />
                     <div className="space-y-3">
                       <h4 className="font-sans font-medium text-[20px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-tight pr-4">
@@ -473,7 +606,7 @@ export default function OrcaProjectPage() {
                   </div>
 
                   {/* Card 2 */}
-                  <div className="relative w-full h-full p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-[#F0F8FF] dark:bg-[#095F76]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
+                  <div className="relative w-full h-full p-6 sm:p-8 rounded-md sm:rounded-lg bg-[#F0F8FF] dark:bg-[#0284C7]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
                     <img src="/idea.svg" alt="Idea" className="w-24 h-24 sm:w-28 sm:h-28 object-contain scale-125 sm:scale-150 origin-left" />
                     <div className="space-y-3">
                       <h4 className="font-sans font-medium text-[20px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-tight pr-4">
@@ -493,7 +626,7 @@ export default function OrcaProjectPage() {
         <div className="flex flex-col items-center justify-center w-full pt-16 pb-4 mt-16 border-t border-neutral-100 dark:border-neutral-800/60">
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 text-[#095F76] dark:text-[#FFF0F5] hover:opacity-80 transition-opacity font-medium font-sans text-[15.5px]"
+            className="flex items-center gap-2 text-[#0284C7] dark:text-[#FFF0F5] hover:opacity-80 transition-opacity font-medium font-sans text-[15.5px]"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
             <span className="underline underline-offset-4 decoration-2">Scroll Back to Top</span>
@@ -502,53 +635,31 @@ export default function OrcaProjectPage() {
 
         </article>
 
-        {/* WIP BANNER */}
-        <div className="w-full mt-16 mb-4 p-5 sm:p-6 border border-dashed border-[#095F76]/40 dark:border-[#FFF0F5]/40 bg-[#095F76]/[0.02] dark:bg-[#FFF0F5]/[0.04] rounded-none flex flex-col gap-2.5">
-          <Lock className="w-4 h-4 text-[#095F76] dark:text-[#FFF0F5]" strokeWidth={2.5} />
-          <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-            The full case study is still a work in progress. For a more detailed walkthrough beyond this preview, <a href="mailto:pavendanpynthamil@gmail.com" className="text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#095F76] dark:hover:text-[#FFF0F5] underline decoration-wavy underline-offset-[5px] decoration-[#095F76] dark:decoration-[#FFF0F5] decoration-2 transition-colors">reach out</a> directly!
-          </p>
-        </div>
-
         {/* Navigation Section */}
-        <div className="pt-12 pb-12 w-full sm:w-[115%] sm:-ml-[7.5%] lg:w-[130%] lg:-ml-[15%] space-y-6">
-          <div className="flex items-center justify-between w-full">
-            <Link
-              href="/semantic"
-              onClick={() => playTone(880)}
-              className="px-6 py-2.5 sm:px-7 sm:py-3 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#141415] hover:bg-neutral-100 dark:hover:bg-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] transition-all font-sans font-medium text-[14px] sm:text-[15px] shadow-sm flex items-center space-x-2 cursor-pointer"
-            >
-              <span>&larr; Previous project</span>
-            </Link>
-            <Link
-              href="/semantic"
-              onClick={() => playTone(880)}
-              className="px-6 py-2.5 sm:px-7 sm:py-3 rounded-full border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#141415] hover:bg-neutral-100 dark:hover:bg-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] transition-all font-sans font-medium text-[14px] sm:text-[15px] shadow-sm flex items-center space-x-2 cursor-pointer"
-            >
-              <span>Next project &rarr;</span>
-            </Link>
-          </div>
+        <div className="pt-12 pb-12 w-full space-y-6">
 
           {/* Single Next Project Card */}
-          <Link
-            href="/semantic"
-            onClick={() => playTone(880)}
-            className="group relative block w-full rounded-[24px] overflow-hidden cursor-pointer hover:opacity-95 transition-opacity"
-          >
-            <img 
-              src="/next-semantic.svg" 
-              alt="Next Project - Semantic Email Copilot" 
-              className="w-full h-auto block" 
-            />
-            <div className="absolute inset-0 p-6 sm:p-8 lg:p-10 flex flex-col justify-start max-w-[55%] sm:max-w-[48%] lg:max-w-[46%] space-y-2 pointer-events-none">
-              <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-wider font-semibold text-[#475569]">
-                NEXT PROJECT
-              </span>
-              <h3 className="instrument-serif italic text-[18px] sm:text-[24px] lg:text-[28px] text-[#2C2C2C] group-hover:text-[#475569] transition-colors leading-snug">
-                Turning inbox chaos into structured tasks, deadlines, and context.
-              </h3>
-            </div>
-          </Link>
+          <div className="space-y-3">
+            <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
+              NEXT PROJECT
+            </span>
+            <Link
+              href="/semantic"
+              onClick={() => playTone(880)}
+              className="group relative block w-full rounded-md sm:rounded-lg border-[3px] border-[#6666FF]/40 dark:border-[#8888FF]/40 overflow-hidden cursor-pointer hover:opacity-95 transition-opacity"
+            >
+              <img 
+                src="/next-semantic.svg" 
+                alt="Next Project - Semantic Email Copilot" 
+                className="w-full h-auto block" 
+              />
+              <div className="absolute inset-0 p-5 sm:p-7 lg:p-8 flex flex-col justify-start max-w-[55%] sm:max-w-[48%] lg:max-w-[46%] pointer-events-none">
+                <h3 className="font-sans font-medium text-[14px] sm:text-[17px] lg:text-[20px] text-[#2C2C2C] group-hover:text-[#475569] transition-colors leading-snug">
+                  Turning inbox chaos into structured tasks, deadlines, and context.
+                </h3>
+              </div>
+            </Link>
+          </div>
 
           <Footer />
         </div>

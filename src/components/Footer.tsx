@@ -67,7 +67,7 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
             <div className="flex items-center gap-2.5">
               <Mail className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0 text-emerald-700 dark:text-emerald-300" />
               <span className="font-sans font-medium text-[14.5px] sm:text-[15.5px] tracking-tight">
-                open for winter / summer 2027 internships &amp; full-time roles
+                open for summer 2027 internships &amp; full-time roles
               </span>
             </div>
             <a 
@@ -84,10 +84,10 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
         <div className="w-full flex items-center justify-between mb-8">
           <button 
              onClick={handleCopyEmail}
-             className="flex items-center justify-center space-x-2.5 px-4 sm:px-5 py-2 sm:py-2.5 bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 text-[15px] sm:text-[16.5px] font-medium rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none cursor-pointer"
+             className="flex items-center justify-center space-x-2.5 px-4 sm:px-5 py-2 sm:py-2.5 bg-[#FFE4F3] dark:bg-[#FF00AE]/20 text-[#FF00AE] dark:text-[#FF00AE] text-[15px] sm:text-[16.5px] font-medium rounded-md hover:bg-[#FFD4EC] dark:hover:bg-[#FF00AE]/30 transition-colors focus:outline-none cursor-pointer"
           >
              <span>{isEmailCopied ? "copied!" : "pavendanpynthamil@gmail.com"}</span>
-             {isEmailCopied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 opacity-70" />}
+             {isEmailCopied ? <Check className="w-4 h-4 text-[#FF00AE]" /> : <Copy className="w-4 h-4 text-[#FF00AE] opacity-75" />}
           </button>
 
           <button

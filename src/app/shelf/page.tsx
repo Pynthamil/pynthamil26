@@ -119,8 +119,8 @@ export default function ShelfProjectPage() {
         <article className="space-y-6">
         {/* Project Header (Blog Style) */}
         <div className="space-y-6 mb-12">
-          <div className="pb-5 text-center">
-            <h1 className="instrument-serif text-[42px] sm:text-[48px] font-normal leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
+          <div className="pb-5 text-left">
+            <h1 className="font-sans font-medium text-[38px] sm:text-[44px] leading-tight text-[#2C2C2C] dark:text-[#F2F2F2]">
               shelf
             </h1>
             
@@ -183,10 +183,10 @@ export default function ShelfProjectPage() {
               <div className="w-full h-48 sm:h-64 my-2.5 rounded-sm bg-[#FFA134] border border-[#FFA134] shadow-[0_2px_8px_rgba(255,161,52,0.12)]" />
 
               <div className="space-y-1.5 pt-2">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   CONTEXT
                 </span>
-                <p className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                <p className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                   People are excellent at saving things and terrible at deciding what to consume next.
                 </p>
               </div>
@@ -201,10 +201,10 @@ export default function ShelfProjectPage() {
             {/* The Problem Section (Matching Reference) */}
             <div id="problem" className="pt-8 space-y-5 scroll-mt-20">
               <div className="space-y-1.5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   THE PROBLEM
                 </span>
-                <p className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
+                <p className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   People save content with the intention of consuming it later, but their growing backlog makes it increasingly difficult to decide what to consume next.
                 </p>
                 <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-1">
@@ -222,12 +222,12 @@ export default function ShelfProjectPage() {
                   {painPoints.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/70 dark:bg-[#141415]/90 border border-neutral-200 dark:border-[#a3a3a3]/20 rounded-sm p-3.5 sm:p-4 flex flex-col items-center justify-center text-center space-y-2.5 transition-all hover:border-[#FFA134] dark:hover:border-[#FFA134] shadow-[0_1px_2px_rgba(0,0,0,0.02)] cursor-default"
+                      className="bg-white dark:bg-[#141415] border-[3px] border-black/10 dark:border-white/15 rounded-md sm:rounded-lg aspect-square p-4 sm:p-5 flex flex-col items-center justify-center text-center space-y-3 transition-all hover:border-[#FFA134] dark:hover:border-[#FFA134] shadow-sm cursor-default"
                     >
-                      <div className="p-1 rounded-sm bg-neutral-50 dark:bg-[#FFA134]/10 flex items-center justify-center">
+                      <div className="p-2 sm:p-3 rounded-md sm:rounded-lg bg-[#F5F5F7] dark:bg-[#18181B] flex items-center justify-center">
                         {item.icon}
                       </div>
-                      <span className="font-mono text-[10.5px] sm:text-[11px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                      <span className="font-mono text-[11px] sm:text-[13px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                         {item.title}
                       </span>
                     </div>
@@ -238,7 +238,7 @@ export default function ShelfProjectPage() {
               {/* How Might We Callout Box (Matching Reference) */}
               <div className="p-4 sm:p-4.5 rounded-sm border border-[#FFA134] bg-[#FFA134]/[0.05] dark:bg-[#FFA134]/[0.08] flex items-start gap-3">
                 <HelpCircle className="w-4 h-4 text-[#FFA134] shrink-0 mt-0.5" strokeWidth={2} />
-                <p className="text-[24px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
+                <p className="text-[24px] sm:text-[28px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed">
                   How might we transform saved content from an overwhelming, forgotten backlog into a frictionless system where people actually consume what they save?
                 </p>
               </div>
@@ -247,10 +247,10 @@ export default function ShelfProjectPage() {
             {/* Process Section */}
             <div id="process" className="pt-8 space-y-4 scroll-mt-20">
               <div className="space-y-1.5">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   PROCESS
                 </span>
-                <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                <h2 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   From backlog overwhelm to intentional consumption
                 </h2>
                 <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-0.5">
@@ -265,10 +265,10 @@ export default function ShelfProjectPage() {
             {/* Takeaways Section (Matching Reference) */}
             <div id="takeaways" className="pt-8 space-y-5 scroll-mt-20">
               <div className="space-y-1">
-                <span className="font-mono text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#FFA134] block">
                   TAKEAWAYS
                 </span>
-                <h2 className="text-[28px] sm:text-[32px] instrument-serif italic text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
+                <h2 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight">
                   What I learned after Shelf
                 </h2>
               </div>
@@ -314,7 +314,7 @@ export default function ShelfProjectPage() {
             <span className="underline underline-offset-4 decoration-2">Scroll Back to Top</span>
           </button>
           
-          <h2 className="text-[48px] sm:text-[56px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] mb-12 tracking-tight">
+          <h2 className="text-[40px] sm:text-[48px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] mb-12 tracking-tight">
             Thanks for reading!
           </h2>
 

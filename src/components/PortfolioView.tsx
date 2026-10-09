@@ -271,6 +271,101 @@ export function PortfolioView({
     }
   };
 
+  const renderProjectCard = (project: Project) => {
+    const originalIdx = portfolioData.projects.indexOf(project);
+    const isInternal = project.link && project.link.startsWith("/");
+    const isSemantic = project.description === "Semantic Email Copilot";
+    const isCodedex = project.description === "CodeDex Mobile";
+    const isOrca = project.description === "ORCA" || project.title === "ORCA";
+    const isPlue = project.description === "Plue" || project.title.toLowerCase().includes("plue");
+    const isTallCard = isSemantic || isCodedex;
+    const aspectClass = isOrca ? "aspect-[1.15/1] sm:aspect-[1.35/1]" : isTallCard ? "aspect-[3.2/5] sm:aspect-[1/1.3]" : "aspect-[3.6/4] sm:aspect-[1.15/1]";
+    const imageSizeClass = "h-[85%] sm:h-[85%]";
+    const hoverScaleClass = "";
+
+    return (
+      <div
+        key={originalIdx}
+        data-cursor="case-study"
+        className="group flex flex-col py-1.5 transition-opacity w-full"
+        onClick={() => {
+          if (isInternal && project.link) {
+            playTone(880);
+            window.location.href = project.link;
+          } else if (!isInternal && project.link) {
+            playTone(880);
+            window.open(project.link, "_blank", "noopener,noreferrer");
+          } else {
+            setSelectedProject(project);
+          }
+        }}
+      >
+        {(project.banner || project.status === "Coming Soon") && (
+          <div 
+            className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] border-[3px] group-hover:!bg-[var(--theme-color)] group-hover:!border-[var(--theme-color)] flex items-center justify-center relative transition-all duration-500 ease-out ${aspectClass}`}
+            style={{ 
+              backgroundColor: project.themeColor === "#0284C7" ? "#E0F2FE" : project.themeColor === "#6666FF" ? "#ECECFF" : project.themeColor === "#111111" ? "#F4F4F6" : `${project.themeColor || '#0284C7'}1A`,
+              borderColor: project.themeColor === "#0284C7" ? "#0284C745" : project.themeColor === "#6666FF" ? "#6666FF40" : project.themeColor === "#111111" ? "#11111135" : `${project.themeColor || '#0284C7'}40`,
+              '--theme-color': project.themeColor || '#0284C7' 
+            } as React.CSSProperties}
+          >
+            {isOrca ? (
+              <OrcaCardCover />
+            ) : project.banner?.match(/\.(json|lottie|gif)$/i) ? (
+              project.banner.match(/\.(json|lottie)$/i) ? (
+                <div className={`z-10 w-[125%] sm:w-[130%] flex items-center justify-center ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`}>
+                  <LottiePlayer src={project.banner} className="w-full h-auto drop-shadow-md" />
+                </div>
+              ) : (
+                <img 
+                  src={project.banner} 
+                  alt={project.title} 
+                  className={`z-10 w-[125%] sm:w-[130%] h-auto object-contain ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`} 
+                />
+              )
+            ) : project.description === "ORCA" || project.description === "Plue" ? (
+              <div className={`z-10 w-[92%] sm:w-[88%] mt-14 sm:mt-10 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
+                  <img 
+                    src={project.banner} 
+                    alt={project.title} 
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            ) : project.banner?.match(/\.(mp4|webm|mov)$/i) ? (
+              <video 
+                src={project.banner} 
+                loop 
+                muted 
+                playsInline 
+                className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
+              />
+            ) : project.banner ? (
+              <img 
+                src={project.banner} 
+                alt={project.title} 
+                className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out ${isSemantic || isCodedex || project.description === "Archive" ? "h-[72%] sm:h-[75%] translate-y-[10%] sm:translate-y-[8%]" : "h-[65%] sm:h-[65%] translate-y-[4%] sm:translate-y-[6%]"}`}
+              />
+            ) : null}
+            {project.category && (
+              <div className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-30 transition-all duration-300">
+                <div className="flex items-center gap-1.5 px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-md text-[13.5px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/90 dark:bg-black/80 border border-black/10 dark:border-white/20 text-slate-900 dark:text-slate-100 backdrop-blur-md shadow-sm transition-all duration-300 group-hover:bg-white dark:group-hover:bg-black group-hover:text-black dark:group-hover:text-white group-hover:border-black/20 dark:group-hover:border-white/40">
+                  {project.category.toLowerCase()}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+        <div className="flex flex-col mt-2 px-1">
+          <p className="text-[26px] sm:text-[30px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+            {project.title}
+          </p>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
       <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-4 sm:pt-5 pb-6 sm:pb-8 selection:bg-neutral-200">
@@ -278,99 +373,109 @@ export function PortfolioView({
         <div className="ambient-glow" />
 
         {/* Main Container */}
-        {/* Top Navbar */}
-        <header className="sticky top-4 sm:top-5 z-50 w-[95%] sm:w-[90%] max-w-[720px] mx-auto mb-12 sm:mb-16 bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-full px-5 sm:px-6 py-2.5 sm:py-3.5 flex items-center justify-between transition-colors">
-          
-          {/* Left: Logo & Name */}
-          <button
-            onClick={() => viewMode !== "home" && handleNavClick("home")}
-            className={`flex items-center gap-2 sm:gap-2.5 focus:outline-none ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
-            aria-label="Go to Home"
-          >
-            <img 
-              src="/logo1.1.svg" 
-              alt="logo"
-              className="h-[30px] sm:h-[34px] object-contain -ml-1.5"
-            />
-            <span className="font-sans font-semibold text-[20px] sm:text-[22px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none leading-none -translate-y-[1px]">
-              pyndu_logs*
-            </span>
-          </button>
+        {/* Top Navbar Container */}
+        <div className="sticky top-4 sm:top-5 z-50 w-[94%] sm:w-[86%] max-w-[680px] mx-auto mb-2 sm:mb-4 flex flex-col items-center">
+          <header className="w-full bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-md border-[3px] border-black/10 dark:border-white/15 px-5 sm:px-7 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
+            {/* Left: Logo & Name */}
+            <button
+              onClick={() => viewMode !== "home" && handleNavClick("home")}
+              className={`flex items-center gap-2 sm:gap-2.5 focus:outline-none ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
+              aria-label="Go to Home"
+            >
+              <img 
+                src="/logo.png" 
+                alt="logo"
+                className="h-[34px] sm:h-[38px] object-contain -ml-1.5"
+              />
+              <span className="font-sans font-semibold text-[22px] sm:text-[25px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none leading-none -translate-y-[1px]">
+                pyndu_logs*
+              </span>
+            </button>
 
-          {/* Right: Nav Links & Tools */}
-          <div className="flex items-center justify-end gap-3 sm:gap-5 -mr-1 sm:-mr-2">
-            <nav className="hidden sm:flex items-center space-x-1 sm:space-x-1.5 text-[15px] sm:text-[16.5px] font-normal">
-              <button
-                onClick={() => handleNavClick("projects")}
-                className={`inline-flex items-center px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
-                  viewMode === "projects"
-                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
-                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
-                }`}
-              >
-                <span>Work</span>
-              </button>
-              <button
-                onClick={() => handleNavClick("about")}
-                className={`inline-flex items-center px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
-                  viewMode === "about"
-                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
-                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
-                }`}
-              >
-                <span>About</span>
-              </button>
-              <button
-                onClick={() => handleNavClick("blog")}
-                className={`inline-flex items-center px-3.5 py-1.5 rounded-full transition-all cursor-pointer select-none ${
-                  viewMode === "blog"
-                    ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-normal"
-                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
-                }`}
-              >
-                <span>Blog</span>
-              </button>
-            </nav>
+            {/* Right: Nav Links & Tools */}
+            <div className="flex items-center justify-end gap-3 sm:gap-5 -mr-1 sm:-mr-2">
+              <nav className="hidden sm:flex items-center space-x-1 sm:space-x-1.5 text-[17.5px] sm:text-[19px] font-medium">
+                <button
+                  onClick={() => handleNavClick("projects")}
+                  className={`inline-flex items-center px-4 py-1.5 rounded-md transition-all cursor-pointer select-none ${
+                    viewMode === "projects"
+                      ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
+                  }`}
+                >
+                  <span>Work</span>
+                </button>
+                <button
+                  onClick={() => handleNavClick("about")}
+                  className={`inline-flex items-center px-4 py-1.5 rounded-md transition-all cursor-pointer select-none ${
+                    viewMode === "about"
+                      ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
+                  }`}
+                >
+                  <span>About</span>
+                </button>
+                <button
+                  onClick={() => handleNavClick("blog")}
+                  className={`inline-flex items-center px-4 py-1.5 rounded-md transition-all cursor-pointer select-none ${
+                    viewMode === "blog"
+                      ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
+                  }`}
+                >
+                  <span>Blog</span>
+                </button>
+              </nav>
 
-            {/* Mobile Menu Toggle */}
-            <button 
-              className="sm:hidden p-1.5 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md transition-colors"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X className="w-[18px] h-[18px]" /> : <Menu className="w-[18px] h-[18px]" />}
-            </button>
-          </div>
-        </header>
+              {/* Mobile Menu Toggle */}
+              <button 
+                className="sm:hidden p-2 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors cursor-pointer"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle navigation menu"
+              >
+                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
+          </header>
 
-        {/* Mobile Menu Dropdown */}
-        {isMobileMenuOpen && (
-          <div className="sm:hidden absolute top-[56px] right-0 left-0 mx-auto w-[92%] max-w-[400px] bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-lg border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-2 z-40 animate-in slide-in-from-top-4 fade-in duration-200">
-            <button
-              onClick={() => { handleNavClick("home"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
-            >
-              Home
-            </button>
-            <button
-              onClick={() => { handleNavClick("projects"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
-            >
-              Work
-            </button>
-            <button
-              onClick={() => { handleNavClick("about"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
-            >
-              About
-            </button>
-            <button
-              onClick={() => { handleNavClick("blog"); setIsMobileMenuOpen(false); }}
-              className={`flex items-center text-left px-4 py-2.5 rounded-xl font-medium text-[18px] transition-colors ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
-            >
-              Blog
-            </button>
-          </div>
-        )}
+          {/* Mobile Menu Dropdown */}
+          {isMobileMenuOpen && (
+            <>
+              {/* Tap Outside Backdrop */}
+              <div 
+                className="fixed inset-0 z-40 bg-black/20 backdrop-blur-[2px] sm:hidden"
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
+              {/* Dropdown Menu Box */}
+              <div className="sm:hidden relative mt-2.5 w-full bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-xl border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-2 z-50 animate-in slide-in-from-top-2 fade-in duration-200">
+                <button
+                  onClick={() => { handleNavClick("home"); setIsMobileMenuOpen(false); }}
+                  className={`flex items-center text-left px-4 py-3 rounded-xl font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => { handleNavClick("projects"); setIsMobileMenuOpen(false); }}
+                  className={`flex items-center text-left px-4 py-3 rounded-xl font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+                >
+                  Work
+                </button>
+                <button
+                  onClick={() => { handleNavClick("about"); setIsMobileMenuOpen(false); }}
+                  className={`flex items-center text-left px-4 py-3 rounded-xl font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => { handleNavClick("blog"); setIsMobileMenuOpen(false); }}
+                  className={`flex items-center text-left px-4 py-3 rounded-xl font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+                >
+                  Blog
+                </button>
+              </div>
+            </>
+          )}
+        </div>
 
         <main className="w-full relative z-10 flex flex-col max-w-[640px]">
           {/* Top Header Row */}
@@ -381,139 +486,31 @@ export function PortfolioView({
             ======================================================== */}
         {viewMode === "home" && (
           <div className="flex flex-col animate-in fade-in duration-200">
-            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-32 sm:mt-44 md:mt-52">
-              <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-10 md:gap-16 w-full max-w-[1240px] mx-auto">
-              {/* Bio Copy & Status Section */}
-              <section className="flex flex-col h-full justify-between mb-12 sm:mb-0 space-y-8 sm:space-y-0">
-              <div className="relative pt-2 sm:pt-4">
-                <h1 className="font-sans font-medium text-[20px] sm:text-[23px] md:text-[25px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.4] tracking-tight">
-                  hey! i'm pynthamil pavendan{" "}
-                  <span className="font-sans font-normal text-slate-400 dark:text-slate-500">
-                    (பைந்தமிழ்)
-                  </span>
-                  ,<br />
-                  i build software that feels useful and alive.
-                </h1>
-                
-                <p className="text-[21px] sm:text-[24px] text-slate-400 dark:text-slate-500 font-normal mt-1 mb-10 sm:mb-14">
-                  upcoming engineering intern @{" "}
-                  <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-black dark:text-white hover:opacity-75 transition-opacity">
-                    plue
-                  </a>
-                </p>
-              </div>
-              <p className="text-[20px] sm:text-[22px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed pb-2 sm:pb-0 mt-16 sm:mt-20">
-                Find me on{" "}
-                <a
-                  href="https://x.com/pynwrites"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] transition-colors"
-                >
-                  X
-                </a>
-                ,{" "}
-                <a
-                  href="https://github.com/Pynthamil"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] transition-colors"
-                >
-                  GitHub
-                </a>
-                ,{" "}
-                <a
-                  href="https://linkedin.com/in/pynthamil-pavendan"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] transition-colors"
-                >
-                  LinkedIn
-                </a>
-                , or{" "}
-                <a
-                  href={portfolioData.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => playTone(880)}
-                  className="instrument-serif text-[24px] sm:text-[26px] text-black dark:text-white underline underline-offset-4 decoration-wavy decoration-[#FF00AE]/40 hover:decoration-[#FF00AE] font-normal transition-colors"
-                >
-                  download my CV &darr;
-                </a>
-              </p>
-
-            </section>
-
-
-            {/* Right Column: Experience */}
-            <div className="w-full h-full flex flex-col justify-between space-y-8 sm:space-y-0">
-            {/* Experience Section */}
-            <section id="home-experience" className="w-full scroll-mt-24 pt-2 sm:pt-4">
-              <ul className="flex flex-col font-sans text-[15px] sm:text-[16px]">
-                {portfolioData.experiences.map((item) => {
-                  const year = item.period.match(/\d{4}$/)?.[0] || item.period;
-                  return (
-                    <li
-                      key={item.id}
-                      className="grid grid-cols-[50px_1fr] sm:grid-cols-[60px_1fr_1.2fr] gap-x-4 py-2 sm:py-2.5 group"
-                    >
-                      <div className="text-slate-400 dark:text-slate-500 font-normal transition-colors">
-                        {year}
-                      </div>
-                      <div className="text-slate-700 dark:text-slate-200 font-medium transition-colors">
-                        {item.company}
-                      </div>
-                      <div className="text-slate-400 dark:text-slate-500 col-span-2 sm:col-span-1 mt-0.5 sm:mt-0 transition-colors">
-                        {item.role.toLowerCase().replace(/\b\w/g, (s) => s.toUpperCase())}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-              {/* Dashed Email Box */}
-              <div className="flex mt-6">
-                <div
-                  onClick={() => {
-                    navigator.clipboard.writeText(portfolioData.email);
-                    setCopiedEmail(true);
-                    playTone(1046);
-                    setTimeout(() => setCopiedEmail(false), 2000);
-                  }}
-                  className="inline-flex items-center space-x-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-[10px] bg-[#FFE4F3] dark:bg-[#FF00AE]/20 cursor-pointer group select-none hover:bg-[#FFD4EC] dark:hover:bg-[#FF00AE]/30 transition-colors"
-                  title="Click to copy email"
-                >
-                  <span className="font-sans font-medium text-[16px] sm:text-[18px] text-[#FF00AE] dark:text-[#FF00AE] tracking-wide transition-colors">
-                    {portfolioData.email}
-                  </span>
-                  <div className="text-[#FF00AE] dark:text-[#FF00AE] opacity-75 group-hover:opacity-100 flex items-center focus:outline-none transition-colors">
-                    {copiedEmail ? (
-                      <span className="text-[#FF00AE] font-mono text-xs font-semibold animate-in fade-in">
-                        copied!
-                      </span>
-                    ) : (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="opacity-75 group-hover:opacity-100 transition-opacity"
-                      >
-                        <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-                      </svg>
-                    )}
-                  </div>
+            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-6 sm:mt-10 md:mt-12">
+              <div className="flex flex-col w-full max-w-[1240px] mx-auto">
+                {/* Minimal Hero Introduction */}
+                <div className="relative pt-2 sm:pt-4">
+                  <h1 className="font-sans font-medium text-[26px] sm:text-[32px] md:text-[36px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.35] tracking-tight">
+                    hey! i'm pynthamil pavendan{" "}
+                    <span className="font-sans font-normal text-slate-400 dark:text-slate-500">
+                      [பைந்தமிழ்]
+                    </span>
+                    ,<br />
+                    i’m an engineer who designs and builds things just for the hell of it.
+                  </h1>
+                  
+                  <p className="text-[25px] sm:text-[29px] md:text-[31px] text-slate-400 dark:text-slate-500 font-normal mt-3 sm:mt-4 mb-4 sm:mb-6 flex flex-wrap items-center gap-2 sm:gap-2.5">
+                    <span>engineering intern @</span>
+                    <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" data-cursor="arrow" className="inline-flex items-center hover:opacity-75 transition-opacity">
+                      <img 
+                        src="/plue-full-logo-black-transparent.png" 
+                        alt="plue" 
+                        className="h-[30px] sm:h-[38px] md:h-[42px] object-contain dark:invert -translate-y-[1px]" 
+                      />
+                    </a>
+                  </p>
                 </div>
               </div>
-
-            </div>
-            </div>
             </div>
 
 
@@ -522,193 +519,21 @@ export function PortfolioView({
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <>
-
-                <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-8 sm:mt-10 mb-12 sm:mb-14">
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 max-w-[1240px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                    {/* Left Column */}
-                    <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
-                      {portfolioData.projects.filter((_, i) => i % 2 === 0).map((project: Project, idx: number) => {
-                        const originalIdx = portfolioData.projects.indexOf(project);
-                        const isInternal = project.link && project.link.startsWith("/");
-                        const isSemantic = project.description === "Semantic Email Copilot";
-                        const isCodedex = project.description === "CodeDex Mobile";
-                        const isOrca = project.description === "ORCA" || project.title === "ORCA";
-                        const isTallCard = isSemantic || isCodedex;
-                        const aspectClass = isOrca ? "aspect-[16/10] sm:aspect-[1.35/1]" : isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
-                        const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = "";
-
-                        return (
-                          <div
-                            key={originalIdx}
-                            data-cursor="case-study"
-                            className="group flex flex-col py-1.5 transition-opacity w-full"
-                            onClick={() => {
-                              if (isInternal && project.link) {
-                                playTone(880);
-                                window.location.href = project.link;
-                              } else if (!isInternal && project.link) {
-                                playTone(880);
-                                window.open(project.link, "_blank", "noopener,noreferrer");
-                              } else {
-                                setSelectedProject(project);
-                              }
-                            }}
-                          >
-                            {(project.banner || project.status === "Coming Soon") && (
-                              <div 
-                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-300 group-hover:brightness-[0.88] ${aspectClass}`}
-                                style={{ backgroundColor: project.themeColor || "#D5F1FF" }}
-                              >
-
-                                {isOrca ? (
-                                  <OrcaCardCover />
-                                ) : project.banner?.match(/\.(json|lottie|gif)$/i) ? (
-                                  project.banner.match(/\.(json|lottie)$/i) ? (
-                                    <div className={`z-10 w-[125%] sm:w-[130%] flex items-center justify-center ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`}>
-                                      <LottiePlayer src={project.banner} className="w-full h-auto drop-shadow-md" />
-                                    </div>
-                                  ) : (
-                                    <img 
-                                      src={project.banner} 
-                                      alt={project.title} 
-                                      className={`z-10 w-[125%] sm:w-[130%] h-auto object-contain ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`} 
-                                    />
-                                  )
-                                ) : project.description === "ORCA" || project.description === "Plue" ? (
-                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-10 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
-                                    <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
-                                      <img 
-                                        src={project.banner} 
-                                        alt={project.title} 
-                                        className="w-full h-auto object-cover"
-                                      />
-                                    </div>
-                                  </div>
-                                ) : project.banner?.match(/\.(mp4|webm|mov)$/i) ? (
-                                  <video 
-                                    src={project.banner} 
-                                    loop 
-                                    muted 
-                                    playsInline 
-                                    className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
-                                  />
-                                ) : project.banner ? (
-                                  <img 
-                                    src={project.banner} 
-                                    alt={project.title} 
-                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic || isCodedex || project.description === "Archive" ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
-                                  />
-                                ) : null}
-                                {project.category && (
-                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/20 border border-white/50 text-white backdrop-blur-md shadow-sm z-10">
-                                    {project.category.toLowerCase()}
-                                  </div>
-                                )}
-                              </div>
-                            )}
-                            <div className="flex flex-col mt-2 px-1">
-                              <p className="text-[26px] sm:text-[30px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
-                                {project.title}
-                              </p>
-
-                            </div>
-                          </div>
-                        );
-                      })}
+                <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-6 sm:mt-10 mb-12 sm:mb-14">
+                  <div className="max-w-[1240px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                    {/* Mobile View: Single Column in array order (ORCA -> Semantic -> Plue) */}
+                    <div className="flex sm:hidden flex-col gap-6 w-full">
+                      {portfolioData.projects.map(renderProjectCard)}
                     </div>
 
-                    {/* Right Column */}
-                    <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
-                      {portfolioData.projects.filter((_, i) => i % 2 !== 0).map((project: Project, idx: number) => {
-                        const originalIdx = portfolioData.projects.indexOf(project);
-                        const isInternal = project.link && project.link.startsWith("/");
-                        const isSemantic = project.description === "Semantic Email Copilot";
-                        const isCodedex = project.description === "CodeDex Mobile";
-                        const isOrca = project.description === "ORCA" || project.title === "ORCA";
-                        const isTallCard = isSemantic || isCodedex;
-                        const aspectClass = isOrca ? "aspect-[16/10] sm:aspect-[1.35/1]" : isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
-                        const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = "";
-
-                        return (
-                          <div
-                            key={originalIdx}
-                            data-cursor="case-study"
-                            className="group flex flex-col py-1.5 transition-opacity w-full"
-                            onClick={() => {
-                              if (isInternal && project.link) {
-                                playTone(880);
-                                window.location.href = project.link;
-                              } else if (!isInternal && project.link) {
-                                playTone(880);
-                                window.open(project.link, "_blank", "noopener,noreferrer");
-                              } else {
-                                setSelectedProject(project);
-                              }
-                            }}
-                          >
-                            {(project.banner || project.status === "Coming Soon") && (
-                              <div 
-                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-300 group-hover:brightness-[0.88] ${aspectClass}`}
-                                style={{ backgroundColor: project.themeColor || "#D5F1FF" }}
-                              >
-
-                                {isOrca ? (
-                                  <OrcaCardCover />
-                                ) : project.banner?.match(/\.(json|lottie|gif)$/i) ? (
-                                  project.banner.match(/\.(json|lottie)$/i) ? (
-                                    <div className={`z-10 w-[125%] sm:w-[130%] flex items-center justify-center ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`}>
-                                      <LottiePlayer src={project.banner} className="w-full h-auto drop-shadow-md" />
-                                    </div>
-                                  ) : (
-                                    <img 
-                                      src={project.banner} 
-                                      alt={project.title} 
-                                      className={`z-10 w-[125%] sm:w-[130%] h-auto object-contain ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`} 
-                                    />
-                                  )
-                                ) : project.description === "ORCA" || project.description === "Plue" ? (
-                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-10 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
-                                    <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
-                                      <img 
-                                        src={project.banner} 
-                                        alt={project.title} 
-                                        className="w-full h-auto object-cover"
-                                      />
-                                    </div>
-                                  </div>
-                                ) : project.banner?.match(/\.(mp4|webm|mov)$/i) ? (
-                                  <video 
-                                    src={project.banner} 
-                                    loop 
-                                    muted 
-                                    playsInline 
-                                    className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
-                                  />
-                                ) : project.banner ? (
-                                  <img 
-                                    src={project.banner} 
-                                    alt={project.title} 
-                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic || isCodedex || project.description === "Archive" ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
-                                  />
-                                ) : null}
-                                {project.category && (
-                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/20 border border-white/50 text-white backdrop-blur-md shadow-sm z-10">
-                                    {project.category.toLowerCase()}
-                                  </div>
-                                )}
-                              </div>
-                            )}
-                            <div className="flex flex-col mt-2 px-1">
-                              <p className="text-[26px] sm:text-[30px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
-                                {project.title}
-                              </p>
-
-                            </div>
-                          </div>
-                        );
-                      })}
+                    {/* Desktop View: Split 2 Columns */}
+                    <div className="hidden sm:flex flex-row gap-6 w-full items-start">
+                      <div className="flex flex-col gap-6 w-1/2">
+                        {portfolioData.projects.filter((_, i) => i % 2 === 0).map(renderProjectCard)}
+                      </div>
+                      <div className="flex flex-col gap-6 w-1/2">
+                        {portfolioData.projects.filter((_, i) => i % 2 !== 0).map(renderProjectCard)}
+                      </div>
                     </div>
                   </div>
                 </section>
@@ -726,191 +551,22 @@ export function PortfolioView({
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mb-12 sm:mb-14">
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 max-w-[1240px] mx-auto items-start font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                    {/* Left Column */}
-                    <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
-                      {portfolioData.projects.filter((_, i) => i % 2 === 0).map((project: Project, idx: number) => {
-                        const originalIdx = portfolioData.projects.indexOf(project);
-                        const isInternal = project.link && project.link.startsWith("/");
-                        const isSemantic = project.description === "Semantic Email Copilot";
-                        const isCodedex = project.description === "CodeDex Mobile";
-                        const isOrca = project.description === "ORCA" || project.title === "ORCA";
-                        const isTallCard = isSemantic || isCodedex;
-                        const aspectClass = isOrca ? "aspect-[16/10] sm:aspect-[1.35/1]" : isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
-                        const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = "";
+                <div className="max-w-[1240px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                  {/* Mobile View: Single Column in array order (ORCA -> Semantic -> Plue) */}
+                  <div className="flex sm:hidden flex-col gap-6 w-full">
+                    {portfolioData.projects.map(renderProjectCard)}
+                  </div>
 
-                        return (
-                          <div
-                            key={originalIdx}
-                            data-cursor="case-study"
-                            className="group flex flex-col py-1.5 transition-opacity w-full"
-                            onClick={() => {
-                              if (isInternal && project.link) {
-                                playTone(880);
-                                window.location.href = project.link;
-                              } else if (!isInternal && project.link) {
-                                playTone(880);
-                                window.open(project.link, "_blank", "noopener,noreferrer");
-                              } else {
-                                setSelectedProject(project);
-                              }
-                            }}
-                          >
-                            {(project.banner || project.status === "Coming Soon") && (
-                              <div 
-                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-300 group-hover:brightness-[0.88] ${aspectClass}`}
-                                style={{ backgroundColor: project.themeColor || "#D5F1FF" }}
-                              >
-
-                                {isOrca ? (
-                                  <OrcaCardCover />
-                                ) : project.banner?.match(/\.(json|lottie|gif)$/i) ? (
-                                  project.banner.match(/\.(json|lottie)$/i) ? (
-                                    <div className={`z-10 w-[125%] sm:w-[130%] flex items-center justify-center ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`}>
-                                      <LottiePlayer src={project.banner} className="w-full h-auto drop-shadow-md" />
-                                    </div>
-                                  ) : (
-                                    <img 
-                                      src={project.banner} 
-                                      alt={project.title} 
-                                      className={`z-10 w-[125%] sm:w-[130%] h-auto object-contain ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`} 
-                                    />
-                                  )
-                                ) : project.description === "ORCA" || project.description === "Plue" ? (
-                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-10 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
-                                    <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
-                                      <img 
-                                        src={project.banner} 
-                                        alt={project.title} 
-                                        className="w-full h-auto object-cover"
-                                      />
-                                    </div>
-                                  </div>
-                                ) : project.banner?.match(/\.(mp4|webm|mov)$/i) ? (
-                                  <video 
-                                    src={project.banner} 
-                                    loop 
-                                    muted 
-                                    playsInline 
-                                    className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
-                                  />
-                                ) : project.banner ? (
-                                  <img 
-                                    src={project.banner} 
-                                    alt={project.title} 
-                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic || isCodedex || project.description === "Archive" ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
-                                  />
-                                ) : null}
-                                {project.category && (
-                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/20 border border-white/50 text-white backdrop-blur-md shadow-sm z-10">
-                                    {project.category.toLowerCase()}
-                                  </div>
-                                )}
-                              </div>
-                            )}
-                            <div className="flex flex-col mt-2 px-1">
-                              <p className="text-[26px] sm:text-[30px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
-                                {project.title}
-                              </p>
-
-                            </div>
-                          </div>
-                        );
-                      })}
+                  {/* Desktop View: Split 2 Columns */}
+                  <div className="hidden sm:flex flex-row gap-6 w-full items-start">
+                    <div className="flex flex-col gap-6 w-1/2">
+                      {portfolioData.projects.filter((_, i) => i % 2 === 0).map(renderProjectCard)}
                     </div>
-
-                    {/* Right Column */}
-                    <div className="flex flex-col gap-4 sm:gap-6 w-full sm:w-1/2">
-                      {portfolioData.projects.filter((_, i) => i % 2 !== 0).map((project: Project, idx: number) => {
-                        const originalIdx = portfolioData.projects.indexOf(project);
-                        const isInternal = project.link && project.link.startsWith("/");
-                        const isSemantic = project.description === "Semantic Email Copilot";
-                        const isCodedex = project.description === "CodeDex Mobile";
-                        const isOrca = project.description === "ORCA" || project.title === "ORCA";
-                        const isTallCard = isSemantic || isCodedex;
-                        const aspectClass = isOrca ? "aspect-[16/10] sm:aspect-[1.35/1]" : isTallCard ? "aspect-[4/5] sm:aspect-[1/1.2]" : "aspect-[4/3] sm:aspect-[1.15/1]";
-                        const imageSizeClass = "h-[85%] sm:h-[85%]";
-                        const hoverScaleClass = "";
-
-                        return (
-                          <div
-                            key={originalIdx}
-                            data-cursor="case-study"
-                            className="group flex flex-col py-1.5 transition-opacity w-full"
-                            onClick={() => {
-                              if (isInternal && project.link) {
-                                playTone(880);
-                                window.location.href = project.link;
-                              } else if (!isInternal && project.link) {
-                                playTone(880);
-                                window.open(project.link, "_blank", "noopener,noreferrer");
-                              } else {
-                                setSelectedProject(project);
-                              }
-                            }}
-                          >
-                            {(project.banner || project.status === "Coming Soon") && (
-                              <div 
-                                className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-300 group-hover:brightness-[0.88] ${aspectClass}`}
-                                style={{ backgroundColor: project.themeColor || "#D5F1FF" }}
-                              >
-
-                                {project.banner?.match(/\.(json|lottie|gif)$/i) ? (
-                                  project.banner.match(/\.(json|lottie)$/i) ? (
-                                    <div className={`z-10 w-[98%] sm:w-[95%] flex items-center justify-center transition-transform duration-700 ease-out ${hoverScaleClass}`}>
-                                      <LottiePlayer src={project.banner} className="w-full h-auto drop-shadow-md" />
-                                    </div>
-                                  ) : (
-                                    <img 
-                                      src={project.banner} 
-                                      alt={project.title} 
-                                      className={`z-10 w-[98%] sm:w-[95%] h-auto object-contain transition-transform duration-700 ease-out ${hoverScaleClass}`} 
-                                    />
-                                  )
-                                ) : project.description === "ORCA" || project.description === "Plue" ? (
-                                  <div className={`z-10 w-[92%] sm:w-[88%] mt-12 sm:mt-10 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
-                                    <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
-                                      <img 
-                                        src={project.banner} 
-                                        alt={project.title} 
-                                        className="w-full h-auto object-cover"
-                                      />
-                                    </div>
-                                  </div>
-                                ) : project.banner?.match(/\.(mp4|webm|mov)$/i) ? (
-                                  <video 
-                                    src={project.banner} 
-                                    loop 
-                                    muted 
-                                    playsInline 
-                                    className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
-                                  />
-                                ) : project.banner ? (
-                                  <img 
-                                    src={project.banner} 
-                                    alt={project.title} 
-                                    className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out translate-y-[4%] sm:translate-y-[6%] ${isSemantic || isCodedex || project.description === "Archive" ? "h-[80%] sm:h-[80%]" : "h-[65%] sm:h-[65%]"}`}
-                                  />
-                                ) : null}
-                                {project.category && (
-                                  <div className="absolute top-5 right-5 flex items-center gap-1.5 px-5 py-2 rounded-[8px] text-[16px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/20 border border-white/50 text-white backdrop-blur-md shadow-sm z-10">
-                                    {project.category.toLowerCase()}
-                                  </div>
-                                )}
-                              </div>
-                            )}
-                            <div className="flex flex-col mt-2 px-1">
-                              <p className="text-[26px] sm:text-[30px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
-                                {project.title}
-                              </p>
-
-                            </div>
-                          </div>
-                        );
-                      })}
+                    <div className="flex flex-col gap-6 w-1/2">
+                      {portfolioData.projects.filter((_, i) => i % 2 !== 0).map(renderProjectCard)}
                     </div>
                   </div>
+                </div>
               </section>
             )}
           </div>
@@ -936,7 +592,7 @@ export function PortfolioView({
               <h1 className="instrument-serif text-[36px] sm:text-[44px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.1] tracking-tight mb-6 w-full text-left">
                 hey! i'm pynthamil{" "}
                 <span className="font-sans font-normal text-slate-400 dark:text-slate-500 text-[0.85em]">
-                  (பைந்தமிழ்)
+                  [பைந்தமிழ்]
                 </span>{" "}
                 pavendan
               </h1>
@@ -964,7 +620,7 @@ export function PortfolioView({
                     <div className="flex items-start justify-between w-full">
                       <div className="flex items-start flex-1 pr-4">
                         <div className="flex flex-col justify-center h-full">
-                          <span className="instrument-serif italic underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#FF00AE]/30 dark:decoration-[#FF00AE]/30 font-normal text-[18px] sm:text-[19px] text-[#334155] dark:text-[#E2E8F0] tracking-[0.02em]">
+                          <span className="instrument-serif italic underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#FF00AE]/30 dark:decoration-[#FF00AE]/30 font-normal text-[17px] sm:text-[18.5px] text-[#334155] dark:text-[#E2E8F0] tracking-[0.02em]">
                             {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
                           </span>
                         </div>
@@ -975,7 +631,7 @@ export function PortfolioView({
                     </div>
                     
                     {item.bullets && item.bullets.length > 0 && (
-                      <ul className="mt-4 flex flex-col space-y-2.5 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
+                      <ul className="mt-4 flex flex-col space-y-2.5 text-[15px] sm:text-[16.5px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
                         {item.bullets.map((bullet, idx) => (
                           <li key={idx} className="flex items-start gap-2.5">
                             <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
