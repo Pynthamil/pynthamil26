@@ -445,8 +445,14 @@ export default function OrcaProjectPage() {
                 </div>
               </div>
 
-              {/* 3 Distinct Grey Container Cards for Visual Analytics */}
-              <OrcaCoralVisuals />
+              {/* Key Feature 2 SVG Showcase */}
+              <div className="w-full pt-2">
+                <img
+                  src="/codedex/keyfeature_orca2.svg"
+                  alt="From Complex Questions to Clear Insights"
+                  className="w-full h-auto object-contain select-none block"
+                />
+              </div>
             </div>
 
             {/* KEY FEATURE 3 */}
