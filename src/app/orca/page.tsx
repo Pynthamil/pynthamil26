@@ -313,19 +313,17 @@ export default function OrcaProjectPage() {
                 </div>
               </div>
 
-              {/* Problem Statement Callout Box */}
-              <div className="pt-10 sm:pt-12 space-y-3">
+              {/* Problem Statement Callout (Unboxed) */}
+              <div className="pt-8 space-y-3">
                 <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
                   PROBLEM STATEMENT
                 </span>
-                <div className="w-full p-6 sm:p-8 sm:py-10 rounded-md sm:rounded-lg bg-white dark:bg-[#141415] border-[3px] border-black/10 dark:border-white/15 flex flex-col items-start text-left gap-3.5 sm:gap-5 overflow-hidden shadow-sm">
-                  <p className="text-[19px] sm:text-[24px] md:text-[27px] font-sans font-medium text-[#475569] dark:text-[#CBD5E1] leading-[1.45] tracking-tight">
-                    How might we make decades of marine research queryable in seconds without sacrificing the{" "}
-                    <span className="text-[#0284C7] dark:text-[#2dd4bf] font-bold">
-                      evidence researchers need to trust an answer?
-                    </span>
-                  </p>
-                </div>
+                <p className="text-[20px] sm:text-[26px] md:text-[29px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.4] tracking-tight">
+                  How might we make decades of marine research queryable in seconds without sacrificing the{" "}
+                  <span className="text-[#0284C7] dark:text-[#2dd4bf] font-bold">
+                    evidence researchers need to trust an answer?
+                  </span>
+                </p>
               </div>
             </div>
 
@@ -342,32 +340,32 @@ export default function OrcaProjectPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 pt-2">
                 {/* Card 1 */}
-                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between">
-                  <span className="text-[48px] sm:text-[56px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-4">
+                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start">
+                  <span className="text-[44px] sm:text-[52px] font-sans font-medium tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-3">
                     46%
                   </span>
                   <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] font-sans leading-relaxed">
-                    said <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-semibold">not knowing what to query</strong> is the biggest barrier when starting a new literature review
+                    struggle with <span className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">what to query</span> when starting literature reviews
                   </p>
                 </div>
 
                 {/* Card 2 */}
-                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between">
-                  <span className="text-[48px] sm:text-[56px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-4">
+                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start">
+                  <span className="text-[44px] sm:text-[52px] font-sans font-medium tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-3">
                     68%
                   </span>
                   <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] font-sans leading-relaxed">
-                    found <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-semibold">manual citation tracing</strong> too effort-intensive across disconnected databases
+                    find <span className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">manual citation tracing</span> too tedious across databases
                   </p>
                 </div>
 
                 {/* Card 3 */}
-                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between">
-                  <span className="text-[48px] sm:text-[56px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-4">
+                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start">
+                  <span className="text-[44px] sm:text-[52px] font-sans font-medium tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-3">
                     82%
                   </span>
                   <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] font-sans leading-relaxed">
-                    reported <strong className="text-[#2C2C2C] dark:text-[#F2F2F2] font-semibold">abandoning deep references</strong> due to unindexed paper and dataset silos
+                    abandon <span className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">deep references</span> due to unindexed paper silos
                   </p>
                 </div>
               </div>
@@ -622,47 +620,38 @@ export default function OrcaProjectPage() {
             </div>
           </div>
         
-        {/* Thanks for reading block */}
-        <div className="flex flex-col items-center justify-center w-full pt-16 pb-4 mt-16 border-t border-neutral-100 dark:border-neutral-800/60">
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 text-[#0284C7] dark:text-[#FFF0F5] hover:opacity-80 transition-opacity font-medium font-sans text-[15.5px]"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-            <span className="underline underline-offset-4 decoration-2">Scroll Back to Top</span>
-          </button>
-        </div>
+
 
         </article>
 
-        {/* Navigation Section */}
-        <div className="pt-12 pb-12 w-full space-y-6">
+        {/* Footer Next / Previous Project Bar */}
+        <div className="pt-10 pb-6 border-t border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
+          <Link
+            href="/quippy"
+            onClick={() => playTone(650)}
+            className="flex items-center gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#0284C7] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group cursor-pointer"
+          >
+            <ChevronLeft className="w-5 h-5 text-[#0284C7] group-hover:-translate-x-1 transition-transform" />
+            <div className="flex flex-col text-left">
+              <span className="text-xs font-mono text-neutral-500">PREVIOUS PROJECT</span>
+              <span className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-sm">Quippy</span>
+            </div>
+          </Link>
 
-          {/* Single Next Project Card */}
-          <div className="space-y-3">
-            <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
-              NEXT PROJECT
-            </span>
-            <Link
-              href="/semantic"
-              onClick={() => playTone(880)}
-              className="group relative block w-full rounded-md sm:rounded-lg border-[3px] border-[#6666FF]/40 dark:border-[#8888FF]/40 overflow-hidden cursor-pointer hover:opacity-95 transition-opacity"
-            >
-              <img 
-                src="/next-semantic.svg" 
-                alt="Next Project - Semantic Email Copilot" 
-                className="w-full h-auto block" 
-              />
-              <div className="absolute inset-0 p-5 sm:p-7 lg:p-8 flex flex-col justify-start max-w-[55%] sm:max-w-[48%] lg:max-w-[46%] pointer-events-none">
-                <h3 className="font-sans font-medium text-[14px] sm:text-[17px] lg:text-[20px] text-[#2C2C2C] group-hover:text-[#475569] transition-colors leading-snug">
-                  Turning inbox chaos into structured tasks, deadlines, and context.
-                </h3>
-              </div>
-            </Link>
-          </div>
-
-          <Footer />
+          <Link
+            href="/semantic"
+            onClick={() => playTone(650)}
+            className="flex items-center justify-end gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#0284C7] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group text-right cursor-pointer"
+          >
+            <div className="flex flex-col text-right">
+              <span className="text-xs font-mono text-neutral-500">NEXT PROJECT</span>
+              <span className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-sm">Semantic Email Copilot</span>
+            </div>
+            <ChevronRight className="w-5 h-5 text-[#0284C7] group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
+
+        <Footer />
       </main>
     </div>
   );

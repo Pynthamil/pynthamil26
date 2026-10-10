@@ -302,10 +302,9 @@ export function PortfolioView({
       >
         {(project.banner || project.status === "Coming Soon") && (
           <div 
-            className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] border-[3px] group-hover:!bg-[var(--theme-color)] group-hover:!border-[var(--theme-color)] flex items-center justify-center relative transition-all duration-500 ease-out ${aspectClass}`}
+            className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-500 ease-out ${aspectClass}`}
             style={{ 
               backgroundColor: project.themeColor === "#0284C7" ? "#E0F2FE" : project.themeColor === "#6666FF" ? "#ECECFF" : project.themeColor === "#111111" ? "#F4F4F6" : `${project.themeColor || '#0284C7'}1A`,
-              borderColor: project.themeColor === "#0284C7" ? "#0284C745" : project.themeColor === "#6666FF" ? "#6666FF40" : project.themeColor === "#111111" ? "#11111135" : `${project.themeColor || '#0284C7'}40`,
               '--theme-color': project.themeColor || '#0284C7' 
             } as React.CSSProperties}
           >
@@ -341,6 +340,12 @@ export function PortfolioView({
                 playsInline 
                 className={`transition-transform duration-700 ease-out ${hoverScaleClass} bg-transparent ${project.coverBg ? `w-auto ${imageSizeClass} object-contain drop-shadow-2xl` : 'w-full h-full object-cover'}`}
               />
+            ) : project.description === "Quippy" || project.title.toLowerCase().includes("quippy") ? (
+              <img 
+                src={project.banner} 
+                alt={project.title} 
+                className="w-full h-full object-cover"
+              />
             ) : project.banner ? (
               <img 
                 src={project.banner} 
@@ -349,8 +354,8 @@ export function PortfolioView({
               />
             ) : null}
             {project.category && (
-              <div className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-30 transition-all duration-300">
-                <div className="flex items-center gap-1.5 px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-md text-[13.5px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white/90 dark:bg-black/80 border border-black/10 dark:border-white/20 text-slate-900 dark:text-slate-100 backdrop-blur-md shadow-sm transition-all duration-300 group-hover:bg-white dark:group-hover:bg-black group-hover:text-black dark:group-hover:text-white group-hover:border-black/20 dark:group-hover:border-white/40">
+              <div className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-30">
+                <div className="flex items-center gap-1.5 px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-md text-[13.5px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white border border-black/10 text-slate-900 shadow-sm">
                   {project.category.toLowerCase()}
                 </div>
               </div>
@@ -589,7 +594,7 @@ export function PortfolioView({
                 className="w-full max-w-[500px] sm:max-w-[640px] aspect-[3/2] object-cover rounded-md mb-8 mx-auto self-center"
               />
 
-              <h1 className="instrument-serif text-[36px] sm:text-[44px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.1] tracking-tight mb-6 w-full text-left">
+              <h1 className="font-sans font-medium text-[32px] sm:text-[40px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.15] tracking-tight mb-6 w-full text-left">
                 hey! i'm pynthamil{" "}
                 <span className="font-sans font-normal text-slate-400 dark:text-slate-500 text-[0.85em]">
                   [பைந்தமிழ்]
@@ -604,10 +609,10 @@ export function PortfolioView({
               <div className="w-full flex flex-col text-left">
                 {/* Experience Section - first in About */}
             <section id="experience" className="w-full scroll-mt-24">
-              <h2 className="instrument-serif text-[36px] sm:text-[44px] text-[#2C2C2C] dark:text-[#F2F2F2] mb-2 leading-none">
+              <h2 className="font-sans font-semibold text-[26px] sm:text-[32px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] mb-2 leading-none">
                 experience
               </h2>
-              <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 mb-5 flex items-center space-x-1.5">
+              <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-1 mb-5 flex items-center space-x-1.5">
                 <span className="select-none">└</span>
                 <span>where i've worked</span>
               </p>
@@ -620,7 +625,7 @@ export function PortfolioView({
                     <div className="flex items-start justify-between w-full">
                       <div className="flex items-start flex-1 pr-4">
                         <div className="flex flex-col justify-center h-full">
-                          <span className="instrument-serif italic underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#FF00AE]/30 dark:decoration-[#FF00AE]/30 font-normal text-[17px] sm:text-[18.5px] text-[#334155] dark:text-[#E2E8F0] tracking-[0.02em]">
+                          <span className="font-sans font-medium underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#FF00AE]/30 dark:decoration-[#FF00AE]/30 text-[16px] sm:text-[17.5px] text-[#334155] dark:text-[#E2E8F0] tracking-[0.01em]">
                             {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
                           </span>
                         </div>
@@ -648,10 +653,10 @@ export function PortfolioView({
                 <div id="fun-facts" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 mt-6 scroll-mt-24">
                   <div className="flex items-center justify-between py-1.5">
                     <div>
-                      <h2 className="instrument-serif text-[36px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
+                      <h2 className="font-sans font-semibold text-[26px] sm:text-[32px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
                         fun facts & when i touch grass
                       </h2>
-                      <p className="font-mono text-[15px] sm:text-[16px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
+                      <p className="font-sans text-[14px] sm:text-[15px] text-[#475569] dark:text-[#94A3B8] mt-1 flex items-center space-x-1.5">
                         <span className="select-none">└</span>
                         <span>learning, exploring, and living</span>
                       </p>
@@ -685,10 +690,10 @@ export function PortfolioView({
                                 <div id="github-activity" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 scroll-mt-24">
                   <div className="flex items-center justify-between py-1.5">
                     <div>
-                      <h2 className="instrument-serif text-[36px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
+                      <h2 className="font-sans font-semibold text-[26px] sm:text-[32px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
                         code activity
                       </h2>
-                      <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
+                      <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-1 flex items-center space-x-1.5">
                         <span className="select-none">└</span>
                         <span>what i've been building</span>
                       </p>
@@ -702,10 +707,10 @@ export function PortfolioView({
                 <div id="behind-the-logo" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 scroll-mt-24">
                   <div className="flex items-center justify-between py-1.5">
                     <div>
-                      <h2 className="instrument-serif text-[36px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
+                      <h2 className="font-sans font-semibold text-[26px] sm:text-[32px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
                         behind the logo
                       </h2>
-                      <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
+                      <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-1 flex items-center space-x-1.5">
                         <span className="select-none">↳</span>
                         <span>wildcard, generalist &amp; professional dot-connector</span>
                       </p>
@@ -756,10 +761,10 @@ export function PortfolioView({
                 className="flex items-center justify-between py-1.5"
               >
                 <div>
-                  <h2 className="instrument-serif text-[36px] sm:text-[44px] font-normal tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
+                  <h2 className="font-sans font-semibold text-[26px] sm:text-[32px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
                     come say hi
                   </h2>
-                  <p className="font-mono text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-0.5 flex items-center space-x-1.5">
+                  <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-1 flex items-center space-x-1.5">
                     <span className="select-none">└</span>
                     <span>the internet&apos;s version of knocking on my door</span>
                   </p>
@@ -987,6 +992,7 @@ export function PortfolioView({
                           <a
                             href={`/blog/${post.slug}`}
                             onClick={() => playTone(880)}
+                            data-cursor="blog"
                             className="group select-none cursor-pointer flex flex-col h-full gap-3"
                           >
                             {post.image ? (

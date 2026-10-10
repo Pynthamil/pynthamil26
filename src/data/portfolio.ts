@@ -136,6 +136,17 @@ export const portfolioData: PortfolioData = {
       themeColor: "#0284C7",
     },
     {
+      title: "How might we make practising vulnerable conversations feel safe, natural, and useful?",
+      description: "Quippy",
+      year: "2026",
+      link: "/quippy",
+      tags: ["Product Design", "UX Research", "Concept"],
+      banner: "/codedex/quippy_rooms_cover.svg",
+      status: "Concept",
+      category: "Product Design",
+      themeColor: "#2B66F1",
+    },
+    {
       title: "Turning inbox chaos into structured tasks, deadlines, and context.",
       description: "Semantic Email Copilot",
       year: "2026",

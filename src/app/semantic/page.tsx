@@ -13,6 +13,8 @@ import {
   Layers,
   Moon,
   Sun,
+  ChevronLeft,
+  ChevronRight,
   ArrowDown, ChevronDown,
   Figma,
   ExternalLink,
@@ -315,19 +317,17 @@ export default function SemanticProjectPage() {
                 </div>
               </div>
 
-              {/* How Might We Callout Box / Problem Statement */}
-              <div className="pt-10 sm:pt-12 pb-4 space-y-3">
+              {/* How Might We Callout / Problem Statement (Unboxed) */}
+              <div className="pt-8 space-y-3">
                 <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#6666FF] dark:text-[#8888FF] block">
                   PROBLEM STATEMENT
                 </span>
-                <div className="w-full p-6 sm:p-8 sm:py-10 rounded-md sm:rounded-lg bg-white dark:bg-[#141415] border-[3px] border-black/10 dark:border-white/15 flex flex-col items-start text-left gap-3.5 sm:gap-5 overflow-hidden shadow-sm">
-                  <p className="text-[19px] sm:text-[24px] md:text-[27px] font-sans font-medium text-[#475569] dark:text-[#CBD5E1] leading-[1.45] tracking-tight">
-                    How might we transform email from an overwhelming backlog into an{" "}
-                    <span className="text-[#6666FF] dark:text-[#8888FF] font-bold">
-                      intelligent copilot that turns incoming communication into actionable clarity?
-                    </span>
-                  </p>
-                </div>
+                <p className="text-[20px] sm:text-[26px] md:text-[29px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.4] tracking-tight">
+                  How might we transform email from an overwhelming backlog into an{" "}
+                  <span className="text-[#6666FF] dark:text-[#8888FF] font-bold">
+                    intelligent copilot that turns incoming communication into actionable clarity?
+                  </span>
+                </p>
               </div>
             </div>
 
@@ -621,47 +621,38 @@ export default function SemanticProjectPage() {
             </div>
           </div>
         
-        {/* Thanks for reading block */}
-        <div className="flex flex-col items-center justify-center w-full pt-16 pb-4 mt-16 border-t border-neutral-100 dark:border-neutral-800/60">
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 text-[#6666FF] dark:text-[#8888FF] hover:opacity-80 transition-opacity font-medium font-sans text-[15.5px]"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-            <span className="underline underline-offset-4 decoration-2">Scroll Back to Top</span>
-          </button>
-        </div>
+
 
         </article>
 
-        {/* Navigation Section */}
-        <div className="pt-12 pb-12 w-full space-y-6">
+        {/* Footer Next / Previous Project Bar */}
+        <div className="pt-10 pb-6 border-t border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
+          <Link
+            href="/orca"
+            onClick={() => playTone(650)}
+            className="flex items-center gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#6666FF] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group cursor-pointer"
+          >
+            <ChevronLeft className="w-5 h-5 text-[#6666FF] group-hover:-translate-x-1 transition-transform" />
+            <div className="flex flex-col text-left">
+              <span className="text-xs font-mono text-neutral-500">PREVIOUS PROJECT</span>
+              <span className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-sm">ORCA Science Copilot</span>
+            </div>
+          </Link>
 
-          {/* Single Next Project Card */}
-          <div className="space-y-3">
-            <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
-              NEXT PROJECT
-            </span>
-            <Link
-              href="/orca"
-              onClick={() => playTone(880)}
-              className="group relative block w-full rounded-md sm:rounded-lg border-[3px] border-[#10B981]/40 dark:border-[#34D399]/40 overflow-hidden cursor-pointer hover:opacity-95 transition-opacity"
-            >
-              <img 
-                src="/next-orca.svg" 
-                alt="Next Project - ORCA AI" 
-                className="w-full h-auto block" 
-              />
-              <div className="absolute inset-0 p-5 sm:p-7 lg:p-8 flex flex-col justify-start max-w-[55%] sm:max-w-[48%] lg:max-w-[46%] pointer-events-none">
-                <h3 className="font-sans font-medium text-[14px] sm:text-[17px] lg:text-[20px] text-white group-hover:text-white/90 transition-colors leading-snug">
-                  Turning complex marine-science questions into clear, source-backed answers.
-                </h3>
-              </div>
-            </Link>
-          </div>
-
-          <Footer />
+          <Link
+            href="/quippy"
+            onClick={() => playTone(650)}
+            className="flex items-center justify-end gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#6666FF] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group text-right cursor-pointer"
+          >
+            <div className="flex flex-col text-right">
+              <span className="text-xs font-mono text-neutral-500">NEXT PROJECT</span>
+              <span className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-sm">Quippy</span>
+            </div>
+            <ChevronRight className="w-5 h-5 text-[#6666FF] group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
+
+        <Footer />
       </main>
     </div>
   );

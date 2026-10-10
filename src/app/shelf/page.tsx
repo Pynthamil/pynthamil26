@@ -306,13 +306,7 @@ export default function ShelfProjectPage() {
         
         {/* Thanks for reading block */}
         <div className="flex flex-col items-center justify-center w-full pt-20 pb-4 mt-16 border-t border-neutral-100 dark:border-neutral-800/60">
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 text-[#FFA134] dark:text-[#FFA134] hover:opacity-80 transition-opacity mb-8 font-medium font-sans text-[15.5px]"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-            <span className="underline underline-offset-4 decoration-2">Scroll Back to Top</span>
-          </button>
+
           
           <h2 className="text-[40px] sm:text-[48px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] mb-12 tracking-tight">
             Thanks for reading!

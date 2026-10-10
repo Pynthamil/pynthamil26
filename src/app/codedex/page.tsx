@@ -15,6 +15,8 @@ import {
   Zap,
   Globe,
   Award,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { ProjectSidebar } from "@/components/ProjectSidebar";
 
@@ -373,46 +375,37 @@ export default function CodeDexProjectPage() {
             </div>
           </div>
 
-          {/* Thanks for reading block */}
-          <div className="flex flex-col items-center justify-center w-full pt-16 pb-4 mt-16 border-t border-neutral-100 dark:border-neutral-800/60">
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center gap-2 text-[#10B981] dark:text-[#34D399] hover:opacity-80 transition-opacity font-medium font-sans text-[15.5px]"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-              <span className="underline underline-offset-4 decoration-2">Scroll Back to Top</span>
-            </button>
-          </div>
+
         </article>
 
-        {/* Navigation Section */}
-        <div className="pt-12 pb-12 w-full sm:w-[115%] sm:-ml-[7.5%] lg:w-[130%] lg:-ml-[15%] space-y-6">
+        {/* Footer Next / Previous Project Bar */}
+        <div className="pt-10 pb-6 border-t border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
+          <Link
+            href="/quippy"
+            onClick={() => playTone(650)}
+            className="flex items-center gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#10B981] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group cursor-pointer"
+          >
+            <ChevronLeft className="w-5 h-5 text-[#10B981] group-hover:-translate-x-1 transition-transform" />
+            <div className="flex flex-col text-left">
+              <span className="text-xs font-mono text-neutral-500">PREVIOUS PROJECT</span>
+              <span className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-sm">Quippy</span>
+            </div>
+          </Link>
 
-          {/* Single Next Project Card */}
-          <div className="space-y-3">
-            <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#10B981] dark:text-[#34D399] block">
-              NEXT PROJECT
-            </span>
-            <Link
-              href="/orca"
-              onClick={() => playTone(880)}
-              className="group relative block w-full rounded-md sm:rounded-lg border-[3px] border-[#10B981]/40 dark:border-[#34D399]/40 overflow-hidden cursor-pointer hover:opacity-95 transition-opacity"
-            >
-              <img 
-                src="/next-orca.svg" 
-                alt="Next Project - ORCA AI Research Assistant" 
-                className="w-full h-auto block" 
-              />
-              <div className="absolute inset-0 p-5 sm:p-7 lg:p-8 flex flex-col justify-start max-w-[55%] sm:max-w-[48%] lg:max-w-[46%] pointer-events-none">
-                <h3 className="font-sans font-medium text-[14px] sm:text-[17px] lg:text-[20px] text-white group-hover:text-white/85 transition-colors leading-snug">
-                  AI research assistant that turns complex papers into clear, cited answers.
-                </h3>
-              </div>
-            </Link>
-          </div>
-
-          <Footer />
+          <Link
+            href="/orca"
+            onClick={() => playTone(650)}
+            className="flex items-center justify-end gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#10B981] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group text-right cursor-pointer"
+          >
+            <div className="flex flex-col text-right">
+              <span className="text-xs font-mono text-neutral-500">NEXT PROJECT</span>
+              <span className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-sm">ORCA Science Copilot</span>
+            </div>
+            <ChevronRight className="w-5 h-5 text-[#10B981] group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
+
+        <Footer />
       </main>
     </div>
   );
