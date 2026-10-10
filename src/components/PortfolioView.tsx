@@ -302,9 +302,11 @@ export function PortfolioView({
       >
         {(project.banner || project.status === "Coming Soon") && (
           <div 
-            className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-500 ease-out ${aspectClass}`}
+            className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-500 ease-out ${aspectClass} ${
+              isOrca ? "bg-[#9ED5DD] dark:bg-[#4CA7B4]/25 dark:border dark:border-[#4CA7B4]/20" : ""
+            }`}
             style={{ 
-              backgroundColor: project.themeColor === "#4CA7B4" ? "#9ED5DD" : project.themeColor === "#0284C7" ? "#E0F2FE" : project.themeColor === "#6666FF" ? "#ECECFF" : project.themeColor === "#111111" ? "#F4F4F6" : `${project.themeColor || '#4CA7B4'}1A`,
+              backgroundColor: isOrca ? undefined : (project.themeColor === "#0284C7" ? "#E0F2FE" : project.themeColor === "#6666FF" ? "#ECECFF" : project.themeColor === "#111111" ? "#F4F4F6" : `${project.themeColor || '#4CA7B4'}1A`),
               '--theme-color': project.themeColor || '#4CA7B4' 
             } as React.CSSProperties}
           >
