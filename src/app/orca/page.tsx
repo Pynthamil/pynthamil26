@@ -465,8 +465,14 @@ export default function OrcaProjectPage() {
                 </div>
               </div>
 
-              {/* Interactive Citation Inspection Drawer */}
-              <OrcaCitationInspector />
+              {/* Key Feature 3 SVG Showcase */}
+              <div className="w-full pt-2">
+                <img
+                  src="/codedex/keyfeature_orca3.svg"
+                  alt="Interactive Citation Inspector & Source Verification"
+                  className="w-full h-auto object-contain select-none block"
+                />
+              </div>
             </div>
 
 
