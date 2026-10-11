@@ -84,6 +84,16 @@ export function CustomCursor() {
       // Check for website link hovers
       const linkEl = (target.closest('a[href]') || target.closest('[data-cursor="website"]')) as HTMLAnchorElement | null;
       if (linkEl) {
+        // Exclude footer and come-say-hi social links from the website preview hover effect
+        if (
+          linkEl.closest('footer') ||
+          linkEl.closest('#come-say-hi') ||
+          linkEl.getAttribute('data-cursor') === 'default'
+        ) {
+          setCursorMode("default");
+          return;
+        }
+
         const href = linkEl.getAttribute("href") || linkEl.getAttribute("data-url") || "";
         const isMailto = href.startsWith("mailto:");
         
@@ -106,7 +116,7 @@ export function CustomCursor() {
       } else {
         // Check if element is interactive button / control
         const interactiveParent = target.closest(
-          'button, [role="button"], input[type="button"], input[type="submit"], select, .cursor-pointer'
+          'a, button, [role="button"], input[type="button"], input[type="submit"], select, .cursor-pointer'
         );
 
         if (interactiveParent) {

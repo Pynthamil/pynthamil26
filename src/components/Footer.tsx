@@ -72,7 +72,8 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
             </div>
             <a 
               href="mailto:pavendanpynthamil@gmail.com"
-              className="font-sans text-[13.5px] sm:text-[14.5px] text-emerald-700 dark:text-emerald-300 hover:underline underline-offset-4 font-medium flex items-center gap-1.5 shrink-0"
+              data-cursor="default"
+              className="font-sans text-[13.5px] sm:text-[14.5px] text-emerald-700 dark:text-emerald-300 hover:underline underline-offset-4 font-medium flex items-center gap-1.5 shrink-0 cursor-pointer"
             >
               <span>get in touch</span>
               <span>&rarr;</span>
@@ -113,7 +114,8 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
                 href={link.href} 
                 target={link.href.startsWith("http") ? "_blank" : undefined}
                 rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="text-[#64748B] dark:text-[#8E95B8] hover:text-[#2C2C2C] dark:hover:text-[#F2F2F2] transition-colors"
+                data-cursor="default"
+                className="text-[#64748B] dark:text-[#8E95B8] hover:text-[#2C2C2C] dark:hover:text-[#F2F2F2] transition-colors cursor-pointer"
               >
                 {link.label.charAt(0).toUpperCase() + link.label.slice(1)}
               </a>

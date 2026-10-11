@@ -806,7 +806,8 @@ export function PortfolioView({
                         href="https://x.com/pynwrites"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
+                        data-cursor="default"
+                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-wavy hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium cursor-pointer"
                       >
                         X
                       </a>
@@ -815,7 +816,8 @@ export function PortfolioView({
                         href="https://github.com/Pynthamil"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
+                        data-cursor="default"
+                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-wavy hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium cursor-pointer"
                       >
                         GitHub
                       </a>
@@ -824,7 +826,8 @@ export function PortfolioView({
                         href="https://leetcode.com/u/HashKnight/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
+                        data-cursor="default"
+                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-wavy hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium cursor-pointer"
                       >
                         LeetCode
                       </a>
@@ -833,7 +836,8 @@ export function PortfolioView({
                         href="https://linkedin.com/in/pynthamil-pavendan"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium"
+                        data-cursor="default"
+                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-wavy hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium cursor-pointer"
                       >
                         LinkedIn
                       </a>
