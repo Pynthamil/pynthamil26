@@ -92,7 +92,7 @@ export const BentoGrid: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-5 sm:mb-6">
         {/* Card 2.1: Semantic SVG Mobile Deadline App */}
         <BentoCard
-          pastelBg="#F0F4FF"
+          pastelBg="#C7C7FF"
           className="w-full min-h-[460px]"
         >
           <img

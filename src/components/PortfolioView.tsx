@@ -306,9 +306,9 @@ export function PortfolioView({
               isOrca 
                 ? "bg-[#9ED5DD] dark:bg-[#4CA7B4]/25 dark:border dark:border-[#4CA7B4]/20" 
                 : isSemantic 
-                ? "bg-[#ECECFF] dark:bg-[#6666FF]/20 dark:border dark:border-[#6666FF]/20"
+                ? "bg-[#C7C7FF] dark:bg-[#6666FF]/25 dark:border dark:border-[#6666FF]/20"
                 : isPlue
-                ? "bg-[#F4F4F6] dark:bg-[#222225] dark:border dark:border-white/10"
+                ? "bg-[#E2E2E7] dark:bg-[#222225] dark:border dark:border-white/10"
                 : "bg-[#EBF1FE] dark:bg-[#2B66F1]/20 dark:border dark:border-[#2B66F1]/20"
             }`}
             style={{ 
