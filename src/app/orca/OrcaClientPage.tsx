@@ -4,9 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { OrcaCardCover } from "@/components/OrcaCardCover";
-import { OrcaCoralVisuals } from "@/components/OrcaCoralVisuals";
-import { OrcaCitationInspector } from "@/components/OrcaCitationInspector";
-import { StippleWaveBg } from "@/components/StippleWaveBg";
 import {
   Search,
   BookOpen,
@@ -24,6 +21,12 @@ import {
   ArrowDown,
   ExternalLink,
   Cpu,
+  Scale,
+  ShieldAlert,
+  ShieldCheck,
+  FileQuestion,
+  Clock,
+  CheckCircle2,
 } from "lucide-react";
 import { ProjectSidebar } from "@/components/ProjectSidebar";
 
@@ -109,6 +112,9 @@ export default function OrcaProjectPage() {
     { id: "problem", label: "Problem" },
     { id: "research", label: "Research" },
     { id: "solution", label: "Solution" },
+    { id: "verification", label: "Verification" },
+    { id: "edge-cases", label: "Edge States" },
+    { id: "testing", label: "Testing" },
     { id: "takeaways", label: "Takeaways" },
   ];
 
@@ -234,14 +240,6 @@ export default function OrcaProjectPage() {
                 <span>Live Demo</span>
                 <ExternalLink className="w-5 h-5" />
               </a>
-            </div>
-
-            {/* WIP BANNER */}
-            <div className="w-full mt-4 mb-8 p-5 sm:p-6 border border-dashed border-[#0284C7]/40 dark:border-[#FFF0F5]/40 bg-[#0284C7]/[0.02] dark:bg-[#FFF0F5]/[0.04] rounded-md flex flex-col gap-2.5">
-              <Lock className="w-4 h-4 text-[#0284C7] dark:text-[#FFF0F5]" strokeWidth={2.5} />
-              <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-                The full case study is still a work in progress. For a more detailed walkthrough beyond this preview, <a href="mailto:pavendanpynthamil@gmail.com" className="text-[#2C2C2C] dark:text-[#F2F2F2] hover:text-[#0284C7] dark:hover:text-[#FFF0F5] underline decoration-wavy underline-offset-[5px] decoration-[#0284C7] dark:decoration-[#FFF0F5] decoration-2 transition-colors">reach out</a> directly!
-              </p>
             </div>
 
             {/* THE PROBLEM */}
@@ -503,31 +501,8 @@ export default function OrcaProjectPage() {
               </div>
             </div>
 
-            {/* BUILDING THE SYSTEM */}
-            <div className="space-y-4 -mt-4">
-              <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                Connecting <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">retrieval, LLM reasoning, and citation grounding</span> into a single research workflow.
-              </h3>
-              
-              <div className="p-6 bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 rounded-xl font-mono text-[13px] sm:text-sm text-center space-y-3 mt-4">
-                <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Research Question</div>
-                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
-                <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Query Processing</div>
-                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
-                <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Semantic Retrieval</div>
-                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
-                <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Relevant Research</div>
-                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
-                <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Google Gemini</div>
-                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
-                <div className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Citation Grounding</div>
-                <div className="text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
-                <div className="font-bold text-[#0284C7] dark:text-[#FFF0F5]">Source-backed Answer</div>
-              </div>
-            </div>
-
             {/* THE INTERESTING PART */}
-            <div className="space-y-4 -mt-4">
+            <div className="space-y-4 pt-4">
               <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 The hardest problem wasn't getting Gemini to answer questions - it was <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">making those answers stay grounded in the research behind them.</span>
               </h3>
@@ -547,31 +522,61 @@ export default function OrcaProjectPage() {
                 </h3>
               </div>
               
-              <div className="bg-[#F7F7F7] dark:bg-[#141415] border border-neutral-200 dark:border-neutral-800 p-5 rounded-xl space-y-4 mt-2 text-center">
-                <div className="space-y-1">
-                  <div className="font-mono text-xs font-semibold text-[#0284C7] dark:text-[#FFF0F5]">QUESTION</div>
-                  <div className="text-[24px] sm:text-[26px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">"How do temperature shifts affect phytoplankton blooms in the North Atlantic?"</div>
+              <div className="w-full pt-2 flex justify-center">
+                <img
+                  src="/dp2.svg"
+                  alt="Marine-Science Question to Evidence Breakdown"
+                  className="w-[75%] sm:w-[65%] max-w-[420px] h-auto block select-none mx-auto"
+                />
+              </div>
+            </div>
+              
+            {/* 2-STAGE VERIFICATION PIPELINE */}
+            <div id="verification" className="space-y-6 scroll-mt-20 pt-8">
+              <div className="space-y-3">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                  VERIFICATION ARCHITECTURE
+                </span>
+                <h3 className="text-[28px] sm:text-[34px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug tracking-tight">
+                  Eliminating hallucinations with a 2-stage verification pipeline
+                </h3>
+                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  Standard RAG often suffers from <span className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">attribution drift</span>—summarizing accurately, but attaching claims to the wrong papers. To guarantee <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">100% inspectability</span> without hallucinated citations, I designed a 2-stage pipeline in Gemini enforcing exact quote matching:
+                </p>
+              </div>
+
+              {/* Minimal 2-Stage Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pt-2">
+                {/* Stage 1 */}
+                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between space-y-4">
+                  <div className="space-y-3">
+                    <span className="font-sans text-[11.5px] sm:text-[12px] tracking-wider font-semibold text-neutral-400 dark:text-neutral-500 uppercase block">
+                      STAGE 01 — DRAFTING
+                    </span>
+                    <h4 className="font-sans font-medium text-[18px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                      Candidate Claim Generation
+                    </h4>
+                    <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] font-sans leading-relaxed">
+                      Gemini parses retrieved paper chunks and synthesizes an answer, tagging each factual statement with candidate source IDs. While fast and articulate, unverified drafts carry the risk of subtle attribution drift.
+                    </p>
+                  </div>
                 </div>
-                <div className="flex justify-center text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
-                <div className="space-y-1">
-                  <div className="font-mono text-xs font-semibold text-[#0284C7] dark:text-[#FFF0F5]">RETRIEVED EVIDENCE</div>
-                  <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">3 relevant papers found discussing thermal stratification and nutrient availability.</div>
-                </div>
-                <div className="flex justify-center text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
-                <div className="space-y-1">
-                  <div className="font-mono text-xs font-semibold text-[#0284C7] dark:text-[#FFF0F5]">GENERATED ANSWER</div>
-                  <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">Synthesized summary of the delay in spring blooms due to increased stratification...</div>
-                </div>
-                <div className="flex justify-center text-[#0284C7] dark:text-[#FFF0F5]">&darr;</div>
-                <div className="space-y-1">
-                  <div className="font-mono text-xs font-semibold text-[#0284C7] dark:text-[#FFF0F5]">CITATION</div>
-                  <div className="text-[15.5px] sm:text-[17px] text-[#475569] dark:text-[#CBD5E1]">[Smith et al., 2024; Oceanic Thermal Dynamics]</div>
+
+                {/* Stage 2 */}
+                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between space-y-4">
+                  <div className="space-y-3">
+                    <span className="font-sans text-[11.5px] sm:text-[12px] tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] uppercase block">
+                      STAGE 02 — VERIFICATION GATE
+                    </span>
+                    <h4 className="font-sans font-medium text-[18px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
+                      Exact Verbatim Quote Matching
+                    </h4>
+                    <p className="text-[14.5px] sm:text-[15.5px] text-[#475569] dark:text-[#CBD5E1] font-sans leading-relaxed">
+                      A secondary audit prompt evaluates each candidate claim against the raw text chunk. It enforces strict substring extraction: if an exact quote with identical values and taxa cannot be directly extracted, the citation badge is rejected.
+                    </p>
+                  </div>
                 </div>
               </div>
-              
-              <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed pt-2">
-                <strong className="text-[#2C2C2C] dark:text-[#F2F2F2]">The fix:</strong> Early on, the model would sometimes cite a paper for a claim it didn't actually support. I had to implement a strict secondary verification prompt, forcing Gemini to extract the exact quote from the context chunk before allowing the citation to render.
-              </p>
             </div>
 
             {/* WHAT'S NEXT */}
@@ -584,6 +589,137 @@ export default function OrcaProjectPage() {
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Direct analysis of acoustic, telemetry, and other scientific datasets</li>
                 <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Collaborative research environments for university teams</li>
               </ul>
+            </div>
+
+            {/* EDGE STATES & SCIENTIFIC RIGOR */}
+            <div id="edge-cases" className="space-y-6 scroll-mt-20 pt-8">
+              <div className="space-y-3">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                  DESIGNING FOR UNCERTAINTY
+                </span>
+                <h3 className="text-[28px] sm:text-[34px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug tracking-tight">
+                  Handling edge states &amp; contradictory scientific claims
+                </h3>
+                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  Science rarely presents unanimous consensus. In high-stakes research, an AI that averages out conflicting papers or hallucinates false certainty is dangerous. I designed explicit interaction patterns for scientific ambiguity:
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3.5 sm:gap-4 pt-2">
+                {/* Edge Card 1 */}
+                <div className="p-5 sm:p-6 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-5">
+                  <div className="flex items-start gap-4 flex-1">
+                    <div className="w-9 h-9 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <Scale className="w-4 h-4" />
+                    </div>
+                    <div className="space-y-1.5 flex-1">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <h4 className="font-sans font-medium text-[16.5px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                          Contradictory Findings
+                        </h4>
+                        <span className="font-mono text-[11px] text-amber-600 dark:text-amber-400 font-medium px-2.5 py-0.5 rounded bg-amber-500/10 shrink-0">
+                          Isolated comparison view
+                        </span>
+                      </div>
+                      <p className="text-[14px] sm:text-[15px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                        When studies disagree (e.g. thermal tolerance thresholds across coral species), ORCA avoids artificial consensus. It presents a side-by-side divergent view isolating experimental conditions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Edge Card 2 */}
+                <div className="p-5 sm:p-6 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-5">
+                  <div className="flex items-start gap-4 flex-1">
+                    <div className="w-9 h-9 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <ShieldAlert className="w-4 h-4" />
+                    </div>
+                    <div className="space-y-1.5 flex-1">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <h4 className="font-sans font-medium text-[16.5px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                          Low Statistical Power
+                        </h4>
+                        <span className="font-mono text-[11px] text-rose-600 dark:text-rose-400 font-medium px-2.5 py-0.5 rounded bg-rose-500/10 shrink-0">
+                          Confidence score warning
+                        </span>
+                      </div>
+                      <p className="text-[14px] sm:text-[15px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                        Papers with limited sample sizes (n &lt; 15) or non-peer-reviewed preprints are flagged with visual confidence badges so researchers know the empirical strength of each citation.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Edge Card 3 */}
+                <div className="p-5 sm:p-6 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-5">
+                  <div className="flex items-start gap-4 flex-1">
+                    <div className="w-9 h-9 rounded-md bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <FileQuestion className="w-4 h-4" />
+                    </div>
+                    <div className="space-y-1.5 flex-1">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <h4 className="font-sans font-medium text-[16.5px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                          Data Gaps &amp; Fallback
+                        </h4>
+                        <span className="font-mono text-[11px] text-sky-600 dark:text-sky-400 font-medium px-2.5 py-0.5 rounded bg-sky-500/10 shrink-0">
+                          Zero-hallucination guardrail
+                        </span>
+                      </div>
+                      <p className="text-[14px] sm:text-[15px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                        If the vector store returns zero high-grounding chunks, the system strictly halts synthesis and explains what is missing rather than speculating with unsupported language model priors.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* USER TESTING & VALIDATION */}
+            <div id="testing" className="space-y-6 scroll-mt-20 pt-8">
+              <div className="space-y-3">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                  USER TESTING &amp; VALIDATION
+                </span>
+                <h3 className="text-[28px] sm:text-[34px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug tracking-tight">
+                  Evaluative feedback with academic researchers
+                </h3>
+                <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                  I tested ORCA with graduate students and academic researchers conducting active literature reviews. The testing focused on two primary questions: <span className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Do researchers actually trust the AI&apos;s synthesis?</span> and <span className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Does inspectable grounding accelerate real review workflows?</span>
+                </p>
+              </div>
+
+              {/* Quantitative Metrics */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="p-6 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start space-y-2">
+                  <div className="flex items-center gap-3">
+                    <Clock className="w-5 h-5 text-[#0284C7] dark:text-[#FFF0F5]" />
+                    <span className="text-[40px] sm:text-[46px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                      ~80%
+                    </span>
+                  </div>
+                  <h4 className="font-sans font-medium text-[16px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    Reduction in initial synthesis time
+                  </h4>
+                  <p className="text-[14px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                    Participants mapped out initial paper landscapes across unfamiliar sub-disciplines in 3–5 minutes, down from an estimated 30–45 minutes of manual Google Scholar / PubMed search iterations.
+                  </p>
+                </div>
+
+                <div className="p-6 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start space-y-2">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                    <span className="text-[40px] sm:text-[46px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
+                      5 / 5
+                    </span>
+                  </div>
+                  <h4 className="font-sans font-medium text-[16px] text-[#2C2C2C] dark:text-[#F2F2F2]">
+                    Rated inline snippet drawer essential
+                  </h4>
+                  <p className="text-[14px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
+                    All participants stated they would reject a generic chatbot summary, but trusted ORCA because every assertion could be immediately verified against the primary literature without opening a new tab.
+                  </p>
+                </div>
+              </div>
             </div>
 
 
@@ -637,7 +773,7 @@ export default function OrcaProjectPage() {
         </article>
 
         {/* Footer Next / Previous Project Bar */}
-        <div className="pt-10 pb-6 border-t border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
+        <div className="pt-10 pb-6 flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
           <Link
             href="/quippy"
             onClick={() => playTone(650)}
