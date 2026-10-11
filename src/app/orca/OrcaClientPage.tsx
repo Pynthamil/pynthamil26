@@ -86,22 +86,22 @@ export default function OrcaProjectPage() {
 
   const painPoints = [
     {
-      icon: <BookOpen className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
+      icon: <BookOpen className="w-5 h-5 text-[#05AAB6] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
       title: "PAPER OVERLOAD",
       desc: "Too many papers to read and synthesize quickly",
     },
     {
-      icon: <Search className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
+      icon: <Search className="w-5 h-5 text-[#05AAB6] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
       title: "SCATTERED CITATIONS",
       desc: "Following reference chains is manual and tedious",
     },
     {
-      icon: <Database className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
+      icon: <Database className="w-5 h-5 text-[#05AAB6] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
       title: "RAW DATA SILOS",
       desc: "Datasets disconnected from the papers that use them",
     },
     {
-      icon: <Compass className="w-5 h-5 text-[#007FFF] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
+      icon: <Compass className="w-5 h-5 text-[#05AAB6] dark:text-[#FFF0F5]" strokeWidth={1.5} />,
       title: "DOMAIN BARRIERS",
       desc: "Specialized jargon makes cross-disciplinary work hard",
     },
@@ -123,7 +123,7 @@ export default function OrcaProjectPage() {
       <div className="ambient-glow" />
 
       <div className="fixed left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 select-none hidden lg:block">
-        <ProjectSidebar sections={sidebarSections} playTone={playTone} />
+        <ProjectSidebar sections={sidebarSections} playTone={playTone} color="#05AAB6" />
       </div>
 
 
@@ -145,7 +145,7 @@ export default function OrcaProjectPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => playTone(880)}
-              className="px-3.5 py-1.5 rounded-md border border-[#095F76]/30 dark:border-[#FFF0F5]/30 bg-[#095F76]/[0.06] dark:bg-[#FFF0F5]/[0.06] text-[#095F76] dark:text-[#FFF0F5] hover:bg-[#095F76]/[0.12] dark:hover:bg-[#FFF0F5]/[0.12] transition-all flex items-center space-x-1.5 font-mono text-[13px] sm:text-[13.5px] font-medium cursor-pointer"
+              className="px-3.5 py-1.5 rounded-md border border-[#05AAB6]/30 dark:border-[#FFF0F5]/30 bg-[#05AAB6]/[0.06] dark:bg-[#FFF0F5]/[0.06] text-[#05AAB6] dark:text-[#FFF0F5] hover:bg-[#05AAB6]/[0.12] dark:hover:bg-[#FFF0F5]/[0.12] transition-all flex items-center space-x-1.5 font-mono text-[13px] sm:text-[13.5px] font-medium cursor-pointer"
             >
               <ExternalLink className="w-3.5 h-3.5 stroke-[2]" />
               <span>live demo</span>
@@ -208,7 +208,7 @@ export default function OrcaProjectPage() {
             
             {/* CONTEXT */}
             <div id="overview" className="space-y-4 scroll-mt-20 pt-6">
-              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                 OVERVIEW
               </span>
               <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -235,7 +235,7 @@ export default function OrcaProjectPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playTone(880)}
-                className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#0284C7] dark:hover:border-[#FFF0F5] text-[#475569] dark:text-[#CBD5E1] hover:text-[#0284C7] dark:hover:text-[#FFF0F5] transition-colors font-medium text-[15px] sm:text-[16px] flex items-center space-x-2.5 cursor-pointer"
+                className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#05AAB6] dark:hover:border-[#FFF0F5] text-[#475569] dark:text-[#CBD5E1] hover:text-[#05AAB6] dark:hover:text-[#FFF0F5] transition-colors font-medium text-[15px] sm:text-[16px] flex items-center space-x-2.5 cursor-pointer"
               >
                 <span>Live Demo</span>
                 <ExternalLink className="w-5 h-5" />
@@ -244,7 +244,7 @@ export default function OrcaProjectPage() {
 
             {/* THE PROBLEM */}
             <div id="problem" className="space-y-5 scroll-mt-20 pt-8">
-              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                 THE PROBLEM
               </span>
               <h3 className="text-[28px] sm:text-[34px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug tracking-tight">
@@ -266,9 +266,9 @@ export default function OrcaProjectPage() {
 
                     <div className="flex flex-col items-center justify-center shrink-0 self-center sm:self-auto">
                       <div className="flex items-center gap-2">
-                        <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#0284C7]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
-                        <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#0284C7]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
-                        <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#0284C7]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
+                        <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#05AAB6]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
+                        <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#05AAB6]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
+                        <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#05AAB6]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
                       </div>
                       <div className="flex items-center gap-2 -mt-1">
                         <svg width="26" height="32" viewBox="0 0 28 34" fill="currentColor" className="text-[#2C2C2C] dark:text-[#F2F2F2]"><circle cx="14" cy="5" r="4.5"/><path d="M14 11C8.5 11 4 14.5 4 19V22C4 22.8 4.7 23.5 5.5 23.5H8.5V32C8.5 32.8 9.2 33.5 10 33.5H11.5C12.3 33.5 13 32.8 13 32V24H15V32C15 32.8 15.7 33.5 16.5 33.5H18C18.8 33.5 19.5 32.8 19.5 32V23.5H22.5C23.3 23.5 24 22.8 24 22V19C24 14.5 19.5 11 14 11Z"/></svg>
@@ -298,7 +298,7 @@ export default function OrcaProjectPage() {
                   {painPoints.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white dark:bg-[#141415] border-[3px] border-black/10 dark:border-white/15 rounded-md sm:rounded-lg aspect-square p-4 sm:p-5 flex flex-col items-center justify-center text-center space-y-3 transition-all hover:border-[#0284C7] dark:hover:border-[#FFF0F5] shadow-sm cursor-default"
+                      className="bg-white dark:bg-[#141415] border-[3px] border-black/10 dark:border-white/15 rounded-md sm:rounded-lg aspect-square p-4 sm:p-5 flex flex-col items-center justify-center text-center space-y-3 transition-all hover:border-[#05AAB6] dark:hover:border-[#FFF0F5] shadow-sm cursor-default"
                     >
                       <div className="p-2 sm:p-3 rounded-md sm:rounded-lg bg-[#F5F5F7] dark:bg-[#18181B] flex items-center justify-center">
                         {item.icon}
@@ -313,12 +313,12 @@ export default function OrcaProjectPage() {
 
               {/* Problem Statement Callout (Unboxed) */}
               <div className="pt-8 space-y-3">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                   PROBLEM STATEMENT
                 </span>
                 <p className="text-[20px] sm:text-[26px] md:text-[29px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.4] tracking-tight">
                   How might we make decades of marine research queryable in seconds without sacrificing the{" "}
-                  <span className="text-[#0284C7] dark:text-[#2dd4bf] font-bold">
+                  <span className="text-[#05AAB6] dark:text-[#05AAB6] font-bold">
                     evidence researchers need to trust an answer?
                   </span>
                 </p>
@@ -328,7 +328,7 @@ export default function OrcaProjectPage() {
             {/* RESEARCH: 3 CORE BARRIERS */}
             <div id="research" className="space-y-4 scroll-mt-20 pt-8">
               <div className="space-y-1">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                   RESEARCH
                 </span>
                 <h3 className="text-[28px] sm:text-[34px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug tracking-tight">
@@ -373,11 +373,11 @@ export default function OrcaProjectPage() {
             {/* THE SOLUTION */}
             <div id="solution" className="space-y-6 scroll-mt-20 pt-8">
               <div className="space-y-4">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                   THE SOLUTION
                 </span>
                 <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                  A focused research assistant that lets scientists move from <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">question to evidence-backed answer</span> without leaving the research workflow.
+                  A focused research assistant that lets scientists move from <span className="bg-[#05AAB6]/15 dark:bg-[#05AAB6] dark:text-white px-1 box-decoration-clone">question to evidence-backed answer</span> without leaving the research workflow.
                 </h3>
               </div>
 
@@ -406,7 +406,7 @@ export default function OrcaProjectPage() {
             {/* KEY FEATURE 1 */}
             <div className="space-y-6 scroll-mt-20 pt-4">
               <div className="space-y-3">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                   KEY FEATURE 1
                 </span>
                 <div className="space-y-1.5">
@@ -419,7 +419,7 @@ export default function OrcaProjectPage() {
                 </div>
               </div>
 
-              <div className="w-full h-[340px] sm:h-[440px] md:h-[520px] overflow-hidden rounded-md sm:rounded-lg flex items-center justify-center relative bg-[#F5F5F7] dark:bg-[#18181B] group">
+              <div className="w-full h-[340px] sm:h-[440px] md:h-[520px] overflow-hidden rounded-md sm:rounded-lg flex items-center justify-center relative bg-[#05AAB6] group">
                 {/* Cover Component */}
                 <div className="relative z-10 w-full h-full flex items-center justify-center">
                   <OrcaCardCover />
@@ -430,7 +430,7 @@ export default function OrcaProjectPage() {
             {/* KEY FEATURE 2 */}
             <div className="space-y-6 scroll-mt-20 pt-8">
               <div className="space-y-3">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                   KEY FEATURE 2
                 </span>
                 <div className="space-y-1.5">
@@ -438,7 +438,7 @@ export default function OrcaProjectPage() {
                     From Complex Questions to Clear Insights
                   </h3>
                   <p className="font-sans font-normal text-[15px] sm:text-[16.5px] text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
-                    Ask ORCA a question like <span className="text-[#0284C7] dark:text-[#FFF0F5] font-semibold">“How does ocean acidification affect coral reefs?”</span> and it breaks the research into key findings, relationships, and visual insights.
+                    Ask ORCA a question like <span className="text-[#05AAB6] dark:text-[#FFF0F5] font-semibold">“How does ocean acidification affect coral reefs?”</span> and it breaks the research into key findings, relationships, and visual insights.
                   </p>
                 </div>
               </div>
@@ -456,7 +456,7 @@ export default function OrcaProjectPage() {
             {/* KEY FEATURE 3 */}
             <div className="space-y-6 scroll-mt-20 pt-8">
               <div className="space-y-3">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                   KEY FEATURE 3
                 </span>
                 <div className="space-y-1.5">
@@ -483,11 +483,11 @@ export default function OrcaProjectPage() {
 
             {/* DESIGN PHILOSOPHY */}
             <div id="philosophy" className="space-y-4 scroll-mt-20 pt-8">
-              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+              <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                 DESIGN PHILOSOPHY
               </span>
               <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                I designed ORCA around a simple principle: <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">AI should accelerate scientific research without hiding the evidence behind its answers.</span>
+                I designed ORCA around a simple principle: <span className="bg-[#05AAB6]/15 dark:bg-[#05AAB6] dark:text-white px-1 box-decoration-clone">AI should accelerate scientific research without hiding the evidence behind its answers.</span>
               </h3>
               <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed my-4">
                 ORCA turns natural-language questions into concise, source-backed answers by finding relevant research, synthesizing the findings, and showing where each answer comes from.
@@ -504,13 +504,13 @@ export default function OrcaProjectPage() {
             {/* THE INTERESTING PART */}
             <div className="space-y-4 pt-4">
               <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                The hardest problem wasn't getting Gemini to answer questions - it was <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">making those answers stay grounded in the research behind them.</span>
+                The hardest problem wasn't getting Gemini to answer questions - it was <span className="bg-[#05AAB6]/15 dark:bg-[#05AAB6] dark:text-white px-1 box-decoration-clone">making those answers stay grounded in the research behind them.</span>
               </h3>
-              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#0284C7] dark:marker:text-[#FFF0F5]">
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Insufficient evidence:</strong> When the model lacks context, it must gracefully admit gaps rather than hallucinating facts.</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Irrelevant retrieval:</strong> If retrieved sources aren't relevant, the system needs to filter them out before synthesis.</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Claim matching:</strong> Every generated claim must explicitly match its source material.</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Inspectable citations:</strong> Citations in the UI need to correspond to actual, retrievable evidence snippets the user can verify.</li>
+              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] pt-3 marker:text-[#05AAB6] dark:marker:text-[#FFF0F5]">
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#05AAB6]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Insufficient evidence:</strong> When the model lacks context, it must gracefully admit gaps rather than hallucinating facts.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#05AAB6]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Irrelevant retrieval:</strong> If retrieved sources aren't relevant, the system needs to filter them out before synthesis.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#05AAB6]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Claim matching:</strong> Every generated claim must explicitly match its source material.</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#05AAB6]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default"><strong className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">Inspectable citations:</strong> Citations in the UI need to correspond to actual, retrievable evidence snippets the user can verify.</li>
               </ul>
             </div>
 
@@ -534,14 +534,14 @@ export default function OrcaProjectPage() {
             {/* 2-STAGE VERIFICATION PIPELINE */}
             <div id="verification" className="space-y-6 scroll-mt-20 pt-8">
               <div className="space-y-3">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                   VERIFICATION ARCHITECTURE
                 </span>
                 <h3 className="text-[28px] sm:text-[34px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug tracking-tight">
                   Eliminating hallucinations with a 2-stage verification pipeline
                 </h3>
                 <p className="text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] leading-relaxed">
-                  Standard RAG often suffers from <span className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">attribution drift</span>—summarizing accurately, but attaching claims to the wrong papers. To guarantee <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">100% inspectability</span> without hallucinated citations, I designed a 2-stage pipeline in Gemini enforcing exact quote matching:
+                  Standard RAG often suffers from <span className="text-[#2C2C2C] dark:text-[#F2F2F2] font-medium">attribution drift</span>—summarizing accurately, but attaching claims to the wrong papers. To guarantee <span className="bg-[#05AAB6]/15 dark:bg-[#05AAB6] dark:text-white px-1 box-decoration-clone">100% inspectability</span> without hallucinated citations, I designed a 2-stage pipeline in Gemini enforcing exact quote matching:
                 </p>
               </div>
 
@@ -565,7 +565,7 @@ export default function OrcaProjectPage() {
                 {/* Stage 2 */}
                 <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between space-y-4">
                   <div className="space-y-3">
-                    <span className="font-sans text-[11.5px] sm:text-[12px] tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] uppercase block">
+                    <span className="font-sans text-[11.5px] sm:text-[12px] tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] uppercase block">
                       STAGE 02 — VERIFICATION GATE
                     </span>
                     <h4 className="font-sans font-medium text-[18px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -584,17 +584,17 @@ export default function OrcaProjectPage() {
               <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
                 Moving ORCA from an MVP research assistant toward a more rigorous scientific research tool.
               </h3>
-              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#0284C7] dark:marker:text-[#FFF0F5] pt-2">
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Spatial visualization of species migration and ecological patterns</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Direct analysis of acoustic, telemetry, and other scientific datasets</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#0284C7]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Collaborative research environments for university teams</li>
+              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#05AAB6] dark:marker:text-[#FFF0F5] pt-2">
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#05AAB6]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Spatial visualization of species migration and ecological patterns</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#05AAB6]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Direct analysis of acoustic, telemetry, and other scientific datasets</li>
+                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#05AAB6]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Collaborative research environments for university teams</li>
               </ul>
             </div>
 
             {/* EDGE STATES & SCIENTIFIC RIGOR */}
             <div id="edge-cases" className="space-y-6 scroll-mt-20 pt-8">
               <div className="space-y-3">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                   DESIGNING FOR UNCERTAINTY
                 </span>
                 <h3 className="text-[28px] sm:text-[34px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug tracking-tight">
@@ -677,7 +677,7 @@ export default function OrcaProjectPage() {
             {/* USER TESTING & VALIDATION */}
             <div id="testing" className="space-y-6 scroll-mt-20 pt-8">
               <div className="space-y-3">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                   USER TESTING &amp; VALIDATION
                 </span>
                 <h3 className="text-[28px] sm:text-[34px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug tracking-tight">
@@ -692,7 +692,7 @@ export default function OrcaProjectPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div className="p-6 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start space-y-2">
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-[#0284C7] dark:text-[#FFF0F5]" />
+                    <Clock className="w-5 h-5 text-[#05AAB6] dark:text-[#FFF0F5]" />
                     <span className="text-[40px] sm:text-[46px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
                       ~80%
                     </span>
@@ -727,11 +727,11 @@ export default function OrcaProjectPage() {
             {/* TAKEAWAYS */}
             <div id="takeaways" className="pt-8 space-y-5 scroll-mt-20">
               <div className="space-y-1">
-                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#0284C7] dark:text-[#FFF0F5] block">
+                <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] block">
                   TAKEAWAYS
                 </span>
                 <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] tracking-tight leading-snug">
-                  Building ORCA taught me that <span className="bg-[#E0F2FE] dark:bg-[#0284C7] dark:text-white px-1 box-decoration-clone">trustworthy AI is less about the model alone and more about the systems built around it.</span>
+                  Building ORCA taught me that <span className="bg-[#05AAB6]/15 dark:bg-[#05AAB6] dark:text-white px-1 box-decoration-clone">trustworthy AI is less about the model alone and more about the systems built around it.</span>
                 </h3>
               </div>
 
@@ -739,7 +739,7 @@ export default function OrcaProjectPage() {
               <div className="w-full pt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {/* Card 1 */}
-                  <div className="relative w-full h-full p-6 sm:p-8 rounded-md sm:rounded-lg bg-[#F0F8FF] dark:bg-[#0284C7]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
+                  <div className="relative w-full h-full p-6 sm:p-8 rounded-md sm:rounded-lg bg-[#05AAB6]/[0.08] dark:bg-[#05AAB6]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
                     <img src="/laptop.svg" alt="Laptop" className="w-24 h-24 sm:w-28 sm:h-28 object-contain -mb-4 sm:-mb-6" />
                     <div className="space-y-3">
                       <h4 className="font-sans font-medium text-[20px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-tight pr-4">
@@ -752,7 +752,7 @@ export default function OrcaProjectPage() {
                   </div>
 
                   {/* Card 2 */}
-                  <div className="relative w-full h-full p-6 sm:p-8 rounded-md sm:rounded-lg bg-[#F0F8FF] dark:bg-[#0284C7]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
+                  <div className="relative w-full h-full p-6 sm:p-8 rounded-md sm:rounded-lg bg-[#05AAB6]/[0.08] dark:bg-[#05AAB6]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
                     <img src="/idea.svg" alt="Idea" className="w-24 h-24 sm:w-28 sm:h-28 object-contain scale-125 sm:scale-150 origin-left" />
                     <div className="space-y-3">
                       <h4 className="font-sans font-medium text-[20px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-tight pr-4">
@@ -777,9 +777,9 @@ export default function OrcaProjectPage() {
           <Link
             href="/quippy"
             onClick={() => playTone(650)}
-            className="flex items-center gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#0284C7] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group cursor-pointer"
+            className="flex items-center gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#05AAB6] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group cursor-pointer"
           >
-            <ChevronLeft className="w-5 h-5 text-[#0284C7] group-hover:-translate-x-1 transition-transform" />
+            <ChevronLeft className="w-5 h-5 text-[#05AAB6] group-hover:-translate-x-1 transition-transform" />
             <div className="flex flex-col text-left">
               <span className="text-xs font-mono text-neutral-500">PREVIOUS PROJECT</span>
               <span className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-sm">Quippy</span>
@@ -789,13 +789,13 @@ export default function OrcaProjectPage() {
           <Link
             href="/semantic"
             onClick={() => playTone(650)}
-            className="flex items-center justify-end gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#0284C7] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group text-right cursor-pointer"
+            className="flex items-center justify-end gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#05AAB6] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group text-right cursor-pointer"
           >
             <div className="flex flex-col text-right">
               <span className="text-xs font-mono text-neutral-500">NEXT PROJECT</span>
               <span className="font-semibold text-[#2C2C2C] dark:text-[#F2F2F2] text-sm">Semantic Email Copilot</span>
             </div>
-            <ChevronRight className="w-5 h-5 text-[#0284C7] group-hover:translate-x-1 transition-transform" />
+            <ChevronRight className="w-5 h-5 text-[#05AAB6] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 

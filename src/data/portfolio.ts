@@ -133,7 +133,7 @@ export const portfolioData: PortfolioData = {
       tags: ["AI/ML", "LLM", "Data Viz"],
       status: "Shipped",
       category: "Development",
-      themeColor: "#4CA7B4",
+      themeColor: "#05AAB6",
     },
     {
       title: "How might we make practising vulnerable conversations feel safe, natural, and useful?",

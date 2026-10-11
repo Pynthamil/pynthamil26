@@ -12,9 +12,10 @@ interface ProjectSidebarProps {
   sections: SectionItem[];
   playTone?: (freq?: number) => void;
   alwaysVisible?: boolean;
+  color?: string;
 }
 
-export function ProjectSidebar({ sections, playTone, alwaysVisible = false }: ProjectSidebarProps) {
+export function ProjectSidebar({ sections, playTone, alwaysVisible = false, color = "#007FFF" }: ProjectSidebarProps) {
   const [activeId, setActiveId] = useState<string>(sections[0]?.id || "");
   const [isVisible, setIsVisible] = useState(alwaysVisible);
 
@@ -90,7 +91,7 @@ export function ProjectSidebar({ sections, playTone, alwaysVisible = false }: Pr
         items={items}
         value={activeIndex !== -1 ? activeIndex : 0}
         onChange={(index) => handleItemClick(sections[index].id)}
-        color="#007FFF" // Feel free to adjust accent color if needed
+        color={color}
         dashed={true}
       />
     </div>

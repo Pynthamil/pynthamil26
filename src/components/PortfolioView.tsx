@@ -304,7 +304,7 @@ export function PortfolioView({
           <div 
             className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-500 ease-out ${aspectClass} ${
               isOrca 
-                ? "bg-[#9ED5DD] dark:bg-[#4CA7B4]/25 dark:border dark:border-[#4CA7B4]/20" 
+                ? "bg-[#9ED5DD] dark:bg-[#05AAB6]/25 dark:border dark:border-[#05AAB6]/20" 
                 : isSemantic 
                 ? "bg-[#C7C7FF] dark:bg-[#6666FF]/25 dark:border dark:border-[#6666FF]/20"
                 : isPlue
@@ -312,7 +312,7 @@ export function PortfolioView({
                 : "bg-[#EBF1FE] dark:bg-[#2B66F1]/20 dark:border dark:border-[#2B66F1]/20"
             }`}
             style={{ 
-              '--theme-color': project.themeColor || '#4CA7B4' 
+              '--theme-color': project.themeColor || '#05AAB6' 
             } as React.CSSProperties}
           >
             {isOrca ? (
@@ -387,7 +387,7 @@ export function PortfolioView({
         {/* Main Container */}
         {/* Top Navbar Container */}
         <div className="sticky top-4 sm:top-5 z-50 w-[94%] sm:w-[86%] max-w-[680px] mx-auto mb-2 sm:mb-4 flex flex-col items-center">
-          <header className="w-full bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-md border-[3px] border-black/10 dark:border-white/15 px-5 sm:px-7 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
+          <header className="w-full bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-md border-2 border-black/[0.07] dark:border-white/[0.08] px-5 sm:px-7 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
             {/* Left: Logo & Name */}
             <button
               onClick={() => viewMode !== "home" && handleNavClick("home")}
