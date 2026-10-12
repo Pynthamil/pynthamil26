@@ -6,9 +6,6 @@ import { ArrowUpRight } from "lucide-react";
 function getMetaImageUrl(url: string): string {
   const lowercaseUrl = url.toLowerCase();
 
-  if (lowercaseUrl.includes("joinplue.com") || lowercaseUrl.includes("plue")) {
-    return "/plue.png";
-  }
   if (lowercaseUrl.includes("github.com")) {
     return "https://opengraph.githubassets.com/1/Pynthamil";
   }

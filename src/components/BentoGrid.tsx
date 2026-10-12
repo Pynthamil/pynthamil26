@@ -145,9 +145,9 @@ export const BentoGrid: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          ROW 3: Square Cards (Blog Envelope, plue Brand, Contact Chat Bubble)
+          ROW 3: Square Cards (Blog Envelope, Contact Chat Bubble)
          ========================================================================= */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
         {/* Card 3.1: Blog Inbox Envelope (Square in size) */}
         <BentoCard
           pastelBg="#FFF1F2"
@@ -161,20 +161,7 @@ export const BentoGrid: React.FC = () => {
           />
         </BentoCard>
 
-        {/* Card 3.2: plue Brand Logo (Square in size) */}
-        <BentoCard
-          pastelBg="#F0F9FF"
-          className="aspect-square w-full"
-          containerPadding="p-5 sm:p-6"
-        >
-          <img
-            src="/plue.svg"
-            alt="plue brand"
-            className="w-36 h-20 sm:w-44 sm:h-24 object-contain transition-transform duration-200 hover:scale-105"
-          />
-        </BentoCard>
-
-        {/* Card 3.3: Contact Card (Square in size) */}
+        {/* Card 3.2: Contact Card (Square in size) */}
         <BentoCard
           pastelBg="#EFF6FF"
           className="aspect-square w-full"

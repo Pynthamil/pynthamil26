@@ -79,7 +79,6 @@ export function PortfolioView({
 
   // Typing animation state
   const phrases = [
-    "making plue THE student haven",
     "making minimalism feel alive and not so boring",
     "learning to battle real-time systems"
   ];
@@ -124,23 +123,7 @@ export function PortfolioView({
   const currentTypingText = phrases[phraseIndex].substring(0, charIndex);
 
   const renderTypingTextWithLinks = (text: string) => {
-    const parts = text.split(/(plue)/g);
-    return parts.map((part, i) => {
-      if (part === "plue") {
-        return (
-          <a
-            key={i}
-            href="https://joinplue.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-wavy decoration-[#2C2C2C]/40 dark:decoration-[#F2F2F2]/40 hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium transition-colors"
-          >
-            {part}
-          </a>
-        );
-      }
-      return part;
-    });
+    return text;
   };
 
   const [blogFilter, setBlogFilter] = useState<string>("all");
@@ -277,7 +260,6 @@ export function PortfolioView({
     const isSemantic = project.description === "Semantic Email Copilot";
     const isCodedex = project.description === "CodeDex Mobile";
     const isOrca = project.description === "ORCA" || project.title === "ORCA";
-    const isPlue = project.description === "Plue" || project.title.toLowerCase().includes("plue");
     const isTallCard = isSemantic || isCodedex;
     const aspectClass = isOrca ? "aspect-[1.15/1] sm:aspect-[1.35/1]" : isTallCard ? "aspect-[3.2/5] sm:aspect-[1/1.3]" : "aspect-[3.6/4] sm:aspect-[1.15/1]";
     const imageSizeClass = "h-[85%] sm:h-[85%]";
@@ -307,8 +289,6 @@ export function PortfolioView({
                 ? "bg-[#9ED5DD] dark:bg-[#05AAB6]/25 dark:border dark:border-[#05AAB6]/20" 
                 : isSemantic 
                 ? "bg-[#C7C7FF] dark:bg-[#6666FF]/25 dark:border dark:border-[#6666FF]/20"
-                : isPlue
-                ? "bg-[#E2E2E7] dark:bg-[#222225] dark:border dark:border-white/10"
                 : "bg-[#EBF1FE] dark:bg-[#2B66F1]/20 dark:border dark:border-[#2B66F1]/20"
             }`}
             style={{ 
@@ -329,7 +309,7 @@ export function PortfolioView({
                   className={`z-10 w-[125%] sm:w-[130%] h-auto object-contain ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`} 
                 />
               )
-            ) : project.description === "ORCA" || project.description === "Plue" ? (
+            ) : project.description === "ORCA" ? (
               <div className={`z-10 w-[92%] sm:w-[88%] mt-14 sm:mt-10 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
                 <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
                   <img 
@@ -501,7 +481,7 @@ export function PortfolioView({
             <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-6 sm:mt-10 md:mt-12">
               <div className="flex flex-col w-full max-w-[1240px] mx-auto">
                 {/* Minimal Hero Introduction */}
-                <div className="relative pt-2 sm:pt-4">
+                <div className="relative pt-2 sm:pt-4 mb-2 sm:mb-4">
                   <h1 className="font-sans font-medium text-[26px] sm:text-[32px] md:text-[36px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.35] tracking-tight">
                     hey! i'm pynthamil pavendan{" "}
                     <span className="font-sans font-normal text-slate-400 dark:text-slate-500">
@@ -510,17 +490,6 @@ export function PortfolioView({
                     ,<br />
                     i’m an engineer who designs and builds things just for the hell of it.
                   </h1>
-                  
-                  <p className="text-[25px] sm:text-[29px] md:text-[31px] text-slate-400 dark:text-slate-500 font-normal mt-3 sm:mt-4 mb-4 sm:mb-6 flex flex-wrap items-center gap-2 sm:gap-2.5">
-                    <span>engineering intern @</span>
-                    <a href="https://joinplue.com/" target="_blank" rel="noopener noreferrer" data-cursor="arrow" className="inline-flex items-center hover:opacity-75 transition-opacity">
-                      <img 
-                        src="/plue-full-logo-black-transparent.png" 
-                        alt="plue" 
-                        className="h-[30px] sm:h-[38px] md:h-[42px] object-contain dark:invert -translate-y-[1px]" 
-                      />
-                    </a>
-                  </p>
                 </div>
               </div>
             </div>
@@ -533,7 +502,7 @@ export function PortfolioView({
               <>
                 <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-6 sm:mt-10 mb-12 sm:mb-14">
                   <div className="max-w-[1240px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                    {/* Mobile View: Single Column in array order (ORCA -> Semantic -> Plue) */}
+                    {/* Mobile View: Single Column */}
                     <div className="flex sm:hidden flex-col gap-6 w-full">
                       {portfolioData.projects.map(renderProjectCard)}
                     </div>
@@ -564,7 +533,7 @@ export function PortfolioView({
             {portfolioData.projects.length > 0 && (
               <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mb-12 sm:mb-14">
                 <div className="max-w-[1240px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                  {/* Mobile View: Single Column in array order (ORCA -> Semantic -> Plue) */}
+                  {/* Mobile View: Single Column */}
                   <div className="flex sm:hidden flex-col gap-6 w-full">
                     {portfolioData.projects.map(renderProjectCard)}
                   </div>

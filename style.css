@@ -194,10 +194,6 @@ body {
   opacity: 0.85;
 }
 
-.dot-plue {
-  background: #4e5df8;
-  box-shadow: 0 0 8px rgba(78, 93, 248, 0.65), 0 0 14px rgba(78, 93, 248, 0.65);
-}
 
 .dot-marketdojo {
   background: #10b981;
