@@ -11,7 +11,7 @@ import { LottiePlayer } from "@/components/LottiePlayer";
 import { OrcaCardCover } from "@/components/OrcaCardCover";
 import { CustomCursor } from "@/components/CustomCursor";
 import { NotesSection } from "@/components/NotesSection";
-import { Moon, Sun, Copy, Check, X, Clock, Menu, Mail, SlidersHorizontal, ChevronDown, Folder, User, BookOpen, FileText, Home, Dribbble, Sparkles, ArrowDown, ArrowRight } from "lucide-react";
+import { Moon, Sun, Copy, Check, X, Clock, Menu, Mail, SlidersHorizontal, ChevronDown, Folder, User, BookOpen, FileText, Home, Dribbble, Sparkles, ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 
 function TypewriterName() {
   const words = ["pynthamil", "பைந்தமிழ்"];
@@ -513,21 +513,21 @@ export function PortfolioView({
                       className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-none bg-[#18181B] hover:bg-black text-white dark:bg-[#F2F2F2] dark:hover:bg-white dark:text-[#141415] font-sans font-medium text-[15px] sm:text-[16px] transition-all cursor-pointer shadow-sm active:translate-y-[1px]"
                     >
                       <span>Resume</span>
-                      <ArrowDown className="w-4 h-4 stroke-[2.2]" />
+                      <ArrowUpRight className="w-4 h-4 stroke-[2.2]" />
                     </a>
 
-                    <a
-                      href="mailto:pavendanpynthamil@gmail.com"
-                      onClick={() => handleCopyEmail()}
+                    <button
+                      type="button"
+                      onClick={handleCopyEmail}
                       className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-none bg-[#E8E8EC] hover:bg-[#DDDDE3] text-[#18181B] dark:bg-[#27272A] dark:hover:bg-[#323238] dark:text-[#F2F2F2] font-sans font-medium text-[15px] sm:text-[16px] transition-all cursor-pointer active:translate-y-[1px]"
                     >
-                      <span>{isEmailCopied ? "Email copied!" : "Email"}</span>
+                      <span>{isEmailCopied ? "Copied!" : "Email"}</span>
                       {isEmailCopied ? (
                         <Check className="w-4 h-4 text-[#FF00AE] stroke-[2.5]" />
                       ) : (
-                        <ArrowRight className="w-4 h-4 stroke-[2.2]" />
+                        <Copy className="w-4 h-4 stroke-[2.2]" />
                       )}
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
