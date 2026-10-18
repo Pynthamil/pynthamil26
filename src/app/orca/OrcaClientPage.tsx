@@ -145,7 +145,7 @@ export default function OrcaProjectPage() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => playTone(880)}
-              className="px-3.5 py-1.5 rounded-md border border-[#05AAB6]/30 dark:border-[#FFF0F5]/30 bg-[#05AAB6]/[0.06] dark:bg-[#FFF0F5]/[0.06] text-[#05AAB6] dark:text-[#FFF0F5] hover:bg-[#05AAB6]/[0.12] dark:hover:bg-[#FFF0F5]/[0.12] transition-all flex items-center space-x-1.5 font-mono text-[13px] sm:text-[13.5px] font-medium cursor-pointer"
+              className="px-3.5 py-1.5 rounded-none border border-[#05AAB6]/30 dark:border-[#FFF0F5]/30 bg-[#05AAB6]/[0.06] dark:bg-[#FFF0F5]/[0.06] text-[#05AAB6] dark:text-[#FFF0F5] hover:bg-[#05AAB6]/[0.12] dark:hover:bg-[#FFF0F5]/[0.12] transition-all flex items-center space-x-1.5 font-mono text-[13px] sm:text-[13.5px] font-medium cursor-pointer"
             >
               <ExternalLink className="w-3.5 h-3.5 stroke-[2]" />
               <span>live demo</span>
@@ -169,12 +169,12 @@ export default function OrcaProjectPage() {
               <img
                 src="/dashboard.svg"
                 alt="orca.ai Solution Interface"
-                className="w-full h-auto object-contain block select-none rounded-md sm:rounded-lg shadow-sm"
+                className="w-full h-auto object-contain block select-none rounded-none shadow-sm"
               />
             </div>
 
             {/* Clean Boxed Metadata Card */}
-            <div className="w-full border-[3px] border-black/10 dark:border-white/15 rounded-md sm:rounded-lg p-5 sm:p-6 bg-white/60 dark:bg-[#141415]/60 my-6">
+            <div className="w-full border-[3px] border-black/10 dark:border-white/15 rounded-none p-5 sm:p-6 bg-white/60 dark:bg-[#141415]/60 my-6">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
                 <div>
                   <span className="font-sans text-[11.5px] sm:text-[12.5px] tracking-wider font-semibold text-neutral-400 dark:text-neutral-500 block mb-1.5 uppercase">
@@ -225,7 +225,7 @@ export default function OrcaProjectPage() {
                   playTone(880);
                   document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-md bg-[#141415] dark:bg-white text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-200 transition-colors font-medium text-[15px] sm:text-[16px] shadow-sm flex items-center space-x-2.5 cursor-pointer"
+                className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-none bg-[#141415] dark:bg-white text-white dark:text-[#141415] hover:bg-[#2C2C2C] dark:hover:bg-neutral-200 transition-colors font-medium text-[15px] sm:text-[16px] shadow-sm flex items-center space-x-2.5 cursor-pointer"
               >
                 <span>Jump to Solution</span>
                 <ArrowDown className="w-5 h-5" />
@@ -235,7 +235,7 @@ export default function OrcaProjectPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playTone(880)}
-                className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#05AAB6] dark:hover:border-[#FFF0F5] text-[#475569] dark:text-[#CBD5E1] hover:text-[#05AAB6] dark:hover:text-[#FFF0F5] transition-colors font-medium text-[15px] sm:text-[16px] flex items-center space-x-2.5 cursor-pointer"
+                className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-none border border-neutral-300 dark:border-neutral-700 hover:border-[#05AAB6] dark:hover:border-[#FFF0F5] text-[#475569] dark:text-[#CBD5E1] hover:text-[#05AAB6] dark:hover:text-[#FFF0F5] transition-colors font-medium text-[15px] sm:text-[16px] flex items-center space-x-2.5 cursor-pointer"
               >
                 <span>Live Demo</span>
                 <ExternalLink className="w-5 h-5" />
@@ -253,7 +253,7 @@ export default function OrcaProjectPage() {
 
               {/* Stat Card matching reference mockup */}
               <div className="pt-2">
-                <div className="w-full border-[3px] border-black/10 dark:border-white/15 rounded-md sm:rounded-lg p-6 sm:p-8 md:p-10 bg-white dark:bg-[#141415] shadow-sm my-3">
+                <div className="w-full border-[3px] border-black/10 dark:border-white/15 rounded-none p-6 sm:p-8 md:p-10 bg-white dark:bg-[#141415] shadow-sm my-3">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                     <div className="flex items-center gap-5 sm:gap-7">
                       <span className="text-[64px] sm:text-[84px] md:text-[92px] font-sans font-semibold tracking-tighter leading-none text-[#2C2C2C] dark:text-[#F2F2F2]">
@@ -298,9 +298,9 @@ export default function OrcaProjectPage() {
                   {painPoints.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white dark:bg-[#141415] border-[3px] border-black/10 dark:border-white/15 rounded-md sm:rounded-lg aspect-square p-4 sm:p-5 flex flex-col items-center justify-center text-center space-y-3 transition-all hover:border-[#05AAB6] dark:hover:border-[#FFF0F5] shadow-sm cursor-default"
+                      className="bg-white dark:bg-[#141415] border-[3px] border-black/10 dark:border-white/15 rounded-none aspect-square p-4 sm:p-5 flex flex-col items-center justify-center text-center space-y-3 transition-all hover:border-[#05AAB6] dark:hover:border-[#FFF0F5] shadow-sm cursor-default"
                     >
-                      <div className="p-2 sm:p-3 rounded-md sm:rounded-lg bg-[#F5F5F7] dark:bg-[#18181B] flex items-center justify-center">
+                      <div className="p-2 sm:p-3 rounded-none bg-[#F5F5F7] dark:bg-[#18181B] flex items-center justify-center">
                         {item.icon}
                       </div>
                       <span className="font-mono text-[12px] sm:text-[13px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
@@ -338,7 +338,7 @@ export default function OrcaProjectPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 pt-2">
                 {/* Card 1 */}
-                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start">
+                <div className="p-6 sm:p-7 rounded-none border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start">
                   <span className="text-[44px] sm:text-[52px] font-sans font-medium tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-3">
                     46%
                   </span>
@@ -348,7 +348,7 @@ export default function OrcaProjectPage() {
                 </div>
 
                 {/* Card 2 */}
-                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start">
+                <div className="p-6 sm:p-7 rounded-none border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start">
                   <span className="text-[44px] sm:text-[52px] font-sans font-medium tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-3">
                     68%
                   </span>
@@ -358,7 +358,7 @@ export default function OrcaProjectPage() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start">
+                <div className="p-6 sm:p-7 rounded-none border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start">
                   <span className="text-[44px] sm:text-[52px] font-sans font-medium tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-3">
                     82%
                   </span>
@@ -382,7 +382,7 @@ export default function OrcaProjectPage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 pt-4">
-                <div className="p-6 sm:p-8 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] space-y-4 shadow-sm">
+                <div className="p-6 sm:p-8 rounded-none border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] space-y-4 shadow-sm">
                   <h4 className="font-sans text-[13px] font-semibold text-[#ef4444] tracking-wider uppercase mb-4">BEFORE</h4>
                   <ul className="list-disc pl-4 space-y-3.5 sm:space-y-4 text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#ef4444]">
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Search across fragmented sources</li>
@@ -391,7 +391,7 @@ export default function OrcaProjectPage() {
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#ef4444]/40 dark:decoration-[#ef4444]/40 transition-all cursor-default">Repeat searches to build context</li>
                   </ul>
                 </div>
-                <div className="p-6 sm:p-8 rounded-md sm:rounded-lg border-[3px] border-[#10b981]/40 dark:border-[#10b981]/40 bg-[#f0fdf4]/50 dark:bg-[#10b981]/[0.05] space-y-4 shadow-sm">
+                <div className="p-6 sm:p-8 rounded-none border-[3px] border-[#10b981]/40 dark:border-[#10b981]/40 bg-[#f0fdf4]/50 dark:bg-[#10b981]/[0.05] space-y-4 shadow-sm">
                   <h4 className="font-sans text-[13px] font-semibold text-[#10b981] tracking-wider uppercase mb-4">AFTER</h4>
                   <ul className="list-disc pl-4 space-y-3.5 sm:space-y-4 text-[15px] sm:text-[16px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#10b981]">
                     <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#10b981]/40 dark:decoration-[#10b981]/40 transition-all cursor-default">Ask one natural-language question</li>
@@ -419,7 +419,7 @@ export default function OrcaProjectPage() {
                 </div>
               </div>
 
-              <div className="w-full h-[340px] sm:h-[440px] md:h-[520px] overflow-hidden rounded-md sm:rounded-lg flex items-center justify-center relative bg-[#05AAB6] group">
+              <div className="w-full h-[340px] sm:h-[440px] md:h-[520px] overflow-hidden rounded-none flex items-center justify-center relative bg-[#05AAB6] group">
                 {/* Cover Component */}
                 <div className="relative z-10 w-full h-full flex items-center justify-center">
                   <OrcaCardCover />
@@ -548,7 +548,7 @@ export default function OrcaProjectPage() {
               {/* Minimal 2-Stage Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pt-2">
                 {/* Stage 1 */}
-                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between space-y-4">
+                <div className="p-6 sm:p-7 rounded-none border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between space-y-4">
                   <div className="space-y-3">
                     <span className="font-sans text-[11.5px] sm:text-[12px] tracking-wider font-semibold text-neutral-400 dark:text-neutral-500 uppercase block">
                       STAGE 01 — DRAFTING
@@ -563,7 +563,7 @@ export default function OrcaProjectPage() {
                 </div>
 
                 {/* Stage 2 */}
-                <div className="p-6 sm:p-7 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between space-y-4">
+                <div className="p-6 sm:p-7 rounded-none border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-between space-y-4">
                   <div className="space-y-3">
                     <span className="font-sans text-[11.5px] sm:text-[12px] tracking-wider font-semibold text-[#05AAB6] dark:text-[#FFF0F5] uppercase block">
                       STAGE 02 — VERIFICATION GATE
@@ -607,9 +607,9 @@ export default function OrcaProjectPage() {
 
               <div className="flex flex-col gap-3.5 sm:gap-4 pt-2">
                 {/* Edge Card 1 */}
-                <div className="p-5 sm:p-6 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-5">
+                <div className="p-5 sm:p-6 rounded-none border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-5">
                   <div className="flex items-start gap-4 flex-1">
-                    <div className="w-9 h-9 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-none bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
                       <Scale className="w-4 h-4" />
                     </div>
                     <div className="space-y-1.5 flex-1">
@@ -617,7 +617,7 @@ export default function OrcaProjectPage() {
                         <h4 className="font-sans font-medium text-[16.5px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                           Contradictory Findings
                         </h4>
-                        <span className="font-mono text-[11px] text-amber-600 dark:text-amber-400 font-medium px-2.5 py-0.5 rounded bg-amber-500/10 shrink-0">
+                        <span className="font-mono text-[11px] text-amber-600 dark:text-amber-400 font-medium px-2.5 py-0.5 rounded-none bg-amber-500/10 shrink-0">
                           Isolated comparison view
                         </span>
                       </div>
@@ -629,9 +629,9 @@ export default function OrcaProjectPage() {
                 </div>
 
                 {/* Edge Card 2 */}
-                <div className="p-5 sm:p-6 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-5">
+                <div className="p-5 sm:p-6 rounded-none border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-5">
                   <div className="flex items-start gap-4 flex-1">
-                    <div className="w-9 h-9 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-none bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
                       <ShieldAlert className="w-4 h-4" />
                     </div>
                     <div className="space-y-1.5 flex-1">
@@ -639,7 +639,7 @@ export default function OrcaProjectPage() {
                         <h4 className="font-sans font-medium text-[16.5px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                           Low Statistical Power
                         </h4>
-                        <span className="font-mono text-[11px] text-rose-600 dark:text-rose-400 font-medium px-2.5 py-0.5 rounded bg-rose-500/10 shrink-0">
+                        <span className="font-mono text-[11px] text-rose-600 dark:text-rose-400 font-medium px-2.5 py-0.5 rounded-none bg-rose-500/10 shrink-0">
                           Confidence score warning
                         </span>
                       </div>
@@ -651,9 +651,9 @@ export default function OrcaProjectPage() {
                 </div>
 
                 {/* Edge Card 3 */}
-                <div className="p-5 sm:p-6 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-5">
+                <div className="p-5 sm:p-6 rounded-none border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 sm:gap-5">
                   <div className="flex items-start gap-4 flex-1">
-                    <div className="w-9 h-9 rounded-md bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-none bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0 mt-0.5">
                       <FileQuestion className="w-4 h-4" />
                     </div>
                     <div className="space-y-1.5 flex-1">
@@ -661,7 +661,7 @@ export default function OrcaProjectPage() {
                         <h4 className="font-sans font-medium text-[16.5px] sm:text-[17.5px] text-[#2C2C2C] dark:text-[#F2F2F2]">
                           Data Gaps &amp; Fallback
                         </h4>
-                        <span className="font-mono text-[11px] text-sky-600 dark:text-sky-400 font-medium px-2.5 py-0.5 rounded bg-sky-500/10 shrink-0">
+                        <span className="font-mono text-[11px] text-sky-600 dark:text-sky-400 font-medium px-2.5 py-0.5 rounded-none bg-sky-500/10 shrink-0">
                           Zero-hallucination guardrail
                         </span>
                       </div>
@@ -690,7 +690,7 @@ export default function OrcaProjectPage() {
 
               {/* Quantitative Metrics */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-6 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start space-y-2">
+                <div className="p-6 rounded-none border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start space-y-2">
                   <div className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-[#05AAB6] dark:text-[#FFF0F5]" />
                     <span className="text-[40px] sm:text-[46px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
@@ -705,7 +705,7 @@ export default function OrcaProjectPage() {
                   </p>
                 </div>
 
-                <div className="p-6 rounded-md sm:rounded-lg border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start space-y-2">
+                <div className="p-6 rounded-none border-[3px] border-black/10 dark:border-white/15 bg-white dark:bg-[#141415] shadow-sm flex flex-col justify-start space-y-2">
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                     <span className="text-[40px] sm:text-[46px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none">
@@ -739,7 +739,7 @@ export default function OrcaProjectPage() {
               <div className="w-full pt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {/* Card 1 */}
-                  <div className="relative w-full h-full p-6 sm:p-8 rounded-md sm:rounded-lg bg-[#05AAB6]/[0.08] dark:bg-[#05AAB6]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
+                  <div className="relative w-full h-full p-6 sm:p-8 rounded-none bg-[#05AAB6]/[0.08] dark:bg-[#05AAB6]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
                     <img src="/laptop.svg" alt="Laptop" className="w-24 h-24 sm:w-28 sm:h-28 object-contain -mb-4 sm:-mb-6" />
                     <div className="space-y-3">
                       <h4 className="font-sans font-medium text-[20px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-tight pr-4">
@@ -752,7 +752,7 @@ export default function OrcaProjectPage() {
                   </div>
 
                   {/* Card 2 */}
-                  <div className="relative w-full h-full p-6 sm:p-8 rounded-md sm:rounded-lg bg-[#05AAB6]/[0.08] dark:bg-[#05AAB6]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
+                  <div className="relative w-full h-full p-6 sm:p-8 rounded-none bg-[#05AAB6]/[0.08] dark:bg-[#05AAB6]/[0.1] flex flex-col items-start justify-center text-left space-y-4 sm:space-y-6">
                     <img src="/idea.svg" alt="Idea" className="w-24 h-24 sm:w-28 sm:h-28 object-contain scale-125 sm:scale-150 origin-left" />
                     <div className="space-y-3">
                       <h4 className="font-sans font-medium text-[20px] sm:text-[24px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-tight pr-4">
@@ -777,7 +777,7 @@ export default function OrcaProjectPage() {
           <Link
             href="/quippy"
             onClick={() => playTone(650)}
-            className="flex items-center gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#05AAB6] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group cursor-pointer"
+            className="flex items-center gap-3 p-4 rounded-none border border-neutral-300 dark:border-neutral-700 hover:border-[#05AAB6] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5 text-[#05AAB6] group-hover:-translate-x-1 transition-transform" />
             <div className="flex flex-col text-left">
@@ -789,7 +789,7 @@ export default function OrcaProjectPage() {
           <Link
             href="/semantic"
             onClick={() => playTone(650)}
-            className="flex items-center justify-end gap-3 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 hover:border-[#05AAB6] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group text-right cursor-pointer"
+            className="flex items-center justify-end gap-3 p-4 rounded-none border border-neutral-300 dark:border-neutral-700 hover:border-[#05AAB6] bg-white/50 dark:bg-[#141415]/50 w-full sm:w-auto transition-colors group text-right cursor-pointer"
           >
             <div className="flex flex-col text-right">
               <span className="text-xs font-mono text-neutral-500">NEXT PROJECT</span>

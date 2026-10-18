@@ -11,7 +11,7 @@ import { LottiePlayer } from "@/components/LottiePlayer";
 import { OrcaCardCover } from "@/components/OrcaCardCover";
 import { CustomCursor } from "@/components/CustomCursor";
 import { NotesSection } from "@/components/NotesSection";
-import { Moon, Sun, Copy, Check, X, Clock, Menu, Mail, SlidersHorizontal, ChevronDown, Folder, User, BookOpen, FileText, Home, Dribbble, Sparkles } from "lucide-react";
+import { Moon, Sun, Copy, Check, X, Clock, Menu, Mail, SlidersHorizontal, ChevronDown, Folder, User, BookOpen, FileText, Home, Dribbble, Sparkles, ArrowDown, ArrowRight } from "lucide-react";
 
 function TypewriterName() {
   const words = ["pynthamil", "பைந்தமிழ்"];
@@ -502,6 +502,32 @@ export function PortfolioView({
                     ,<br />
                     i’m an engineer who designs and builds things just for the hell of it.
                   </h1>
+
+                  {/* Cursor-style Hero Buttons (0 rounded) */}
+                  <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 mt-6 sm:mt-7">
+                    <button
+                      onClick={() => {
+                        playClickSound();
+                        const workEl = document.getElementById("work-section");
+                        if (workEl) {
+                          workEl.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }}
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-none bg-[#18181B] hover:bg-black text-white dark:bg-[#F2F2F2] dark:hover:bg-white dark:text-[#141415] font-sans font-medium text-[15px] sm:text-[16px] transition-all cursor-pointer shadow-sm active:translate-y-[1px]"
+                    >
+                      <span>See projects</span>
+                      <ArrowDown className="w-4 h-4 stroke-[2.2]" />
+                    </button>
+
+                    <a
+                      href="mailto:pavendanpynthamil@gmail.com"
+                      onClick={() => playClickSound()}
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-none bg-[#E8E8EC] hover:bg-[#DDDDE3] text-[#18181B] dark:bg-[#27272A] dark:hover:bg-[#323238] dark:text-[#F2F2F2] font-sans font-medium text-[15px] sm:text-[16px] transition-all cursor-pointer active:translate-y-[1px]"
+                    >
+                      <span>Get in touch</span>
+                      <ArrowRight className="w-4 h-4 stroke-[2.2]" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -512,7 +538,7 @@ export function PortfolioView({
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <>
-                <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mt-6 sm:mt-10 mb-12 sm:mb-14">
+                <section id="work-section" className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mt-6 sm:mt-10 mb-12 sm:mb-14 scroll-mt-24">
                   <div className="max-w-[1640px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                     {/* Mobile View: Single Column */}
                     <div className="flex sm:hidden flex-col gap-6 w-full">
