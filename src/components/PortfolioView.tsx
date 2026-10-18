@@ -385,7 +385,7 @@ export function PortfolioView({
               <nav className="hidden sm:flex items-center space-x-1 sm:space-x-1.5 text-[17.5px] sm:text-[19px] font-medium">
                 <button
                   onClick={() => handleNavClick("projects")}
-                  className={`inline-flex items-center px-4 py-1.5 rounded-md transition-all cursor-pointer select-none ${
+                  className={`inline-flex items-center px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
                     viewMode === "projects"
                       ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -395,7 +395,7 @@ export function PortfolioView({
                 </button>
                 <button
                   onClick={() => handleNavClick("about")}
-                  className={`inline-flex items-center px-4 py-1.5 rounded-md transition-all cursor-pointer select-none ${
+                  className={`inline-flex items-center px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
                     viewMode === "about"
                       ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -405,7 +405,7 @@ export function PortfolioView({
                 </button>
                 <button
                   onClick={() => handleNavClick("blog")}
-                  className={`inline-flex items-center px-4 py-1.5 rounded-md transition-all cursor-pointer select-none ${
+                  className={`inline-flex items-center px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
                     viewMode === "blog"
                       ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -415,7 +415,7 @@ export function PortfolioView({
                 </button>
                 <button
                   onClick={() => handleNavClick("notes")}
-                  className={`inline-flex items-center px-4 py-1.5 rounded-md transition-all cursor-pointer select-none ${
+                  className={`inline-flex items-center px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
                     viewMode === "notes"
                       ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -448,31 +448,31 @@ export function PortfolioView({
               <div className="sm:hidden relative mt-2.5 w-full bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-xl border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-2 z-50 animate-in slide-in-from-top-2 fade-in duration-200">
                 <button
                   onClick={() => { handleNavClick("home"); setIsMobileMenuOpen(false); }}
-                  className={`flex items-center text-left px-4 py-3 rounded-xl font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+                  className={`flex items-center text-left px-4 py-3 rounded-none font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
                 >
                   Home
                 </button>
                 <button
                   onClick={() => { handleNavClick("projects"); setIsMobileMenuOpen(false); }}
-                  className={`flex items-center text-left px-4 py-3 rounded-xl font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+                  className={`flex items-center text-left px-4 py-3 rounded-none font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
                 >
                   Work
                 </button>
                 <button
                   onClick={() => { handleNavClick("about"); setIsMobileMenuOpen(false); }}
-                  className={`flex items-center text-left px-4 py-3 rounded-xl font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+                  className={`flex items-center text-left px-4 py-3 rounded-none font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
                 >
                   About
                 </button>
                 <button
                   onClick={() => { handleNavClick("blog"); setIsMobileMenuOpen(false); }}
-                  className={`flex items-center text-left px-4 py-3 rounded-xl font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+                  className={`flex items-center text-left px-4 py-3 rounded-none font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
                 >
                   Blog
                 </button>
                 <button
                   onClick={() => { handleNavClick("notes"); setIsMobileMenuOpen(false); }}
-                  className={`flex items-center text-left px-4 py-3 rounded-xl font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "notes" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+                  className={`flex items-center text-left px-4 py-3 rounded-none font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "notes" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
                 >
                   Notes
                 </button>
