@@ -276,20 +276,13 @@ export function NotesSection({ playTone, soundOn = true }: NotesSectionProps) {
 
   return (
     <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mt-6 sm:mt-10 mb-16 sm:mb-20 animate-in fade-in duration-200">
-      <div className="max-w-[1280px] mx-auto">
-        {/* Responsive Multi-Column Masonry Grid - Rendered ONCE in DOM */}
-        <div className="columns-1 sm:columns-2 lg:columns-4 gap-3.5 sm:gap-4 [column-fill:_balance]">
-          {/* Item 1: Composer Card (Always top of Column 1) */}
-          <div className="break-inside-avoid mb-3.5 sm:mb-4">
-            {renderNewNoteCard()}
-          </div>
+      <div className="max-w-[1040px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-4 items-start max-w-[340px] sm:max-w-none mx-auto sm:mx-0">
+          {/* Item 1: Composer Card */}
+          {renderNewNoteCard()}
 
           {/* Notes Cards */}
-          {notes.map((note) => (
-            <div key={note.id} className="break-inside-avoid mb-3.5 sm:mb-4">
-              {renderNoteCard(note)}
-            </div>
-          ))}
+          {notes.map((note) => renderNoteCard(note))}
         </div>
       </div>
     </div>
