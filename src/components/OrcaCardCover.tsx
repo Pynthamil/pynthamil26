@@ -8,15 +8,13 @@ interface OrcaCardCoverProps {
 }
 
 type Stage =
-  | "headline_typing"  // 1. "Ask ORCA anything●" typewriter
-  | "prompt_box"        // 2. Prompt box typing + Send button click
-  | "transitioning"     // 3. User message moves up + searching literature
-  | "streaming"         // 4. Word-by-word streaming of answer
-  | "highlight"         // 5. Caret selection highlight & citation
-  | "conclusion"        // 6. "Research faster with ORCA●" conclusion typewriter
-  | "fade_out";         // 7. Smooth reset loop
+  | "prompt_box"        // 1. Prompt box typing + Send button click
+  | "transitioning"     // 2. User message moves up + searching literature
+  | "streaming"         // 3. Word-by-word streaming of answer
+  | "highlight"         // 4. Caret selection highlight & citation
+  | "conclusion"        // 5. "Research faster with ORCA●" conclusion typewriter
+  | "fade_out";         // 6. Smooth reset loop
 
-const HEADLINE_FULL = "Ask ORCA anything";
 const PROMPT_FULL = "How does ocean acidification affect coral reefs?";
 const ANSWER_BEFORE_HL = "Ocean acidification reduces carbonate ions in seawater, ";
 const ANSWER_HIGHLIGHT = "making it harder for corals to build and maintain their calcium-carbonate skeletons.";
@@ -49,9 +47,7 @@ const GlobeCheck = ({ className = "" }: { className?: string }) => (
 );
 
 export const OrcaCardCover: React.FC<OrcaCardCoverProps> = ({ className = "" }) => {
-  const [stage, setStage] = useState<Stage>("headline_typing");
-  const [headlineText, setHeadlineText] = useState("");
-  const [showHeadlineDot, setShowHeadlineDot] = useState(true);
+  const [stage, setStage] = useState<Stage>("prompt_box");
   const [promptText, setPromptText] = useState("");
   const [streamCount, setStreamCount] = useState(0);
   const [highlightProgress, setHighlightProgress] = useState(0); // 0 to 1
@@ -62,14 +58,8 @@ export const OrcaCardCover: React.FC<OrcaCardCoverProps> = ({ className = "" }) 
   const [thinkingStep, setThinkingStep] = useState(0);
   const [loopKey, setLoopKey] = useState(0);
 
-  // Phase 1: Headline typing ("Ask ORCA anything●")
+  // Reset state for new cycle
   useEffect(() => {
-    let isMounted = true;
-    let timer: NodeJS.Timeout;
-
-    // Reset state for new cycle
-    setHeadlineText("");
-    setShowHeadlineDot(true);
     setPromptText("");
     setStreamCount(0);
     setHighlightProgress(0);
@@ -78,38 +68,10 @@ export const OrcaCardCover: React.FC<OrcaCardCoverProps> = ({ className = "" }) 
     setConclusionText("");
     setShowConclusionDot(true);
     setThinkingStep(0);
-    setStage("headline_typing");
-
-    let headIdx = 0;
-    const typeHeadline = () => {
-      if (!isMounted) return;
-      if (headIdx <= HEADLINE_FULL.length) {
-        setHeadlineText(HEADLINE_FULL.slice(0, headIdx));
-        headIdx++;
-        timer = setTimeout(typeHeadline, 65);
-      } else {
-        // Full text is now shown with the circle still present.
-        // Wait a moment (450ms) before the circle disappears:
-        timer = setTimeout(() => {
-          if (!isMounted) return;
-          setShowHeadlineDot(false);
-
-          // Hold cleanly without dot for 600ms, then transition to prompt box:
-          timer = setTimeout(() => {
-            if (isMounted) setStage("prompt_box");
-          }, 600);
-        }, 450);
-      }
-    };
-    timer = setTimeout(typeHeadline, 200);
-
-    return () => {
-      isMounted = false;
-      clearTimeout(timer);
-    };
+    setStage("prompt_box");
   }, [loopKey]);
 
-  // Phase 2: Prompt box typewriter
+  // Phase 1: Prompt box typewriter
   useEffect(() => {
     if (stage !== "prompt_box") return;
     let isMounted = true;
@@ -305,10 +267,6 @@ export const OrcaCardCover: React.FC<OrcaCardCoverProps> = ({ className = "" }) 
   const highlightedWordCount = Math.floor(highlightProgress * HL_WORDS.length);
 
   // Split helpers for robust typewriter cursor wrapping across lines
-  const headlineLastSpace = headlineText.lastIndexOf(" ");
-  const headlineLeading = headlineLastSpace !== -1 ? headlineText.slice(0, headlineLastSpace + 1) : "";
-  const headlineTrailing = headlineLastSpace !== -1 ? headlineText.slice(headlineLastSpace + 1) : headlineText;
-
   const conclusionLastSpace = conclusionText.lastIndexOf(" ");
   const conclusionLeading = conclusionLastSpace !== -1 ? conclusionText.slice(0, conclusionLastSpace + 1) : "";
   const conclusionTrailing = conclusionLastSpace !== -1 ? conclusionText.slice(conclusionLastSpace + 1) : conclusionText;
@@ -323,27 +281,7 @@ export const OrcaCardCover: React.FC<OrcaCardCoverProps> = ({ className = "" }) 
       <div className="w-full max-w-[740px] flex flex-col justify-center my-auto relative">
         
         {/* ============================================================ */}
-        {/* STAGE 1: "Ask ORCA anything" TYPEWRITER HEADLINE            */}
-        {/* ============================================================ */}
-        {stage === "headline_typing" && (
-          <div className="flex flex-col items-center justify-center my-auto py-10 animate-in fade-in duration-300">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-sans font-medium text-white tracking-tight text-center leading-tight">
-              <span>{headlineLeading}</span>
-              <span className="inline-block whitespace-nowrap">
-                {headlineTrailing}
-                {/* Smooth fading and scaling circle cursor */}
-                <span
-                  className={`inline-block w-[0.74em] h-[0.74em] rounded-full bg-white ml-[4px] sm:ml-[6px] align-[-0.06em] shrink-0 transition-all duration-500 ease-out ${
-                    showHeadlineDot ? "opacity-100 scale-100" : "opacity-0 scale-50 pointer-events-none"
-                  }`}
-                />
-              </span>
-            </h2>
-          </div>
-        )}
-
-        {/* ============================================================ */}
-        {/* STAGE 2: FLOATING PROMPT BOX                                */}
+        {/* STAGE 1: FLOATING PROMPT BOX                                */}
         {/* ============================================================ */}
         {stage === "prompt_box" && (
           <div className="w-full my-auto animate-in fade-in zoom-in-95 duration-300">

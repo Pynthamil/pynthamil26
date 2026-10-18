@@ -313,3 +313,18 @@ body {
 .animate-prompt-slide {
   animation: promptSlide 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
+
+@keyframes pillTextSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-pill-text {
+  animation: pillTextSlide 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

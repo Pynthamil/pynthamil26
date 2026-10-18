@@ -81,10 +81,11 @@ export function CustomCursor() {
         const href = linkEl.getAttribute("href") || linkEl.getAttribute("data-url") || "";
         const isMailto = href.startsWith("mailto:");
 
-        // Exclude footer, come-say-hi social links, explicit default cursor, and resume/drive links from the website preview hover effect
+        // Exclude footer, come-say-hi social links, explicit default cursor, github activity, and resume/drive links from the website preview hover effect
         if (
           linkEl.closest('footer') ||
           linkEl.closest('#come-say-hi') ||
+          linkEl.closest('[data-slot="github-activity"]') ||
           linkEl.getAttribute('data-cursor') === 'default' ||
           href.toLowerCase().includes("drive.google.com")
         ) {
@@ -155,25 +156,25 @@ export function CustomCursor() {
       }}
     >
       {cursorMode === "case-study" ? (
-        <div className="flex items-center gap-3 animate-in zoom-in-95 duration-150 whitespace-nowrap">
-          <span className="w-5 h-5 bg-[#FF00AE] rounded-full shrink-0" />
-          <div className="bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md">
+        <div className="overflow-hidden bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md animate-in fade-in zoom-in-95 duration-150 whitespace-nowrap">
+          <span className="inline-block animate-pill-text">
             View project
-          </div>
+          </span>
         </div>
       ) : cursorMode === "blog" ? (
-        <div className="flex items-center gap-3 animate-in zoom-in-95 duration-150 whitespace-nowrap">
-          <span className="w-5 h-5 bg-[#FF00AE] rounded-full shrink-0" />
-          <div className="bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md">
+        <div className="overflow-hidden bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md animate-in fade-in zoom-in-95 duration-150 whitespace-nowrap">
+          <span className="inline-block animate-pill-text">
             Read blog
-          </div>
+          </span>
         </div>
       ) : cursorMode === "website" ? (
         <div className="flex flex-col gap-2.5 pointer-events-none animate-in fade-in zoom-in-95 duration-150 -translate-x-1/2 -translate-y-4">
           {/* Top Label */}
           <div className="flex items-center self-start">
-            <div className="bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md">
-              View website
+            <div className="overflow-hidden bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md">
+              <span className="inline-block animate-pill-text">
+                View website
+              </span>
             </div>
           </div>
 
@@ -181,20 +182,20 @@ export function CustomCursor() {
           <WebsitePreviewCard url={hoveredUrl} />
         </div>
       ) : cursorMode === "arrow" ? (
-        <div className="w-10 h-10 bg-[#FF00AE] text-white rounded-full flex items-center justify-center animate-in zoom-in-95 duration-150 shadow-lg">
+        <div className="w-10 h-10 bg-[#FF00AE] text-white rounded-none flex items-center justify-center animate-in zoom-in-95 duration-150 shadow-lg">
           <ArrowUpRight className="w-5 h-5 text-white stroke-[2.5]" />
         </div>
       ) : cursorMode === "text" ? (
         <div className="flex flex-col items-center justify-center animate-in fade-in zoom-in-95 duration-100">
           {/* Top Cap */}
-          <div className="w-[7px] h-[2px] bg-[#FF00AE] rounded-full" />
+          <div className="w-[7px] h-[2px] bg-[#FF00AE] rounded-none" />
           {/* Vertical Stem */}
           <div className="w-[2px] h-[17px] bg-[#FF00AE]" />
           {/* Bottom Cap */}
-          <div className="w-[7px] h-[2px] bg-[#FF00AE] rounded-full" />
+          <div className="w-[7px] h-[2px] bg-[#FF00AE] rounded-none" />
         </div>
       ) : (
-        <div className="w-[22px] h-[22px] bg-[#FF00AE] rounded-full transition-all duration-150" />
+        <div className="w-4 h-4 bg-[#FF00AE] rounded-none transition-all duration-150 shadow-sm" />
       )}
     </div>
   );

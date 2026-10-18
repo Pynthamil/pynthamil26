@@ -458,7 +458,13 @@ const RepoRow = ({
   );
 
   return repo.href ? (
-    <a href={repo.href} target="_blank" rel="noreferrer" className={className}>
+    <a
+      href={repo.href}
+      target="_blank"
+      rel="noreferrer"
+      data-cursor="default"
+      className={className}
+    >
       {content}
     </a>
   ) : (

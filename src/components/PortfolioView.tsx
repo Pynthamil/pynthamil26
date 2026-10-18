@@ -363,7 +363,7 @@ export function PortfolioView({
         {/* Main Container */}
         {/* Top Navbar Container */}
         <div className="sticky top-4 sm:top-5 z-50 w-[94%] sm:w-[90%] md:w-[88%] max-w-[780px] mx-auto mb-2 sm:mb-4 flex flex-col items-center">
-          <header className="w-full bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-md border-2 border-black/[0.07] dark:border-white/[0.08] px-5 sm:px-7 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
+          <header className="w-full bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-sm border-2 border-black/[0.07] dark:border-white/[0.08] px-5 sm:px-7 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
             {/* Left: Logo & Name */}
             <button
               onClick={() => viewMode !== "home" && handleNavClick("home")}
@@ -511,10 +511,10 @@ export function PortfolioView({
                       rel="noopener noreferrer"
                       data-cursor="default"
                       onClick={() => playClickSound()}
-                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-none bg-[#18181B] hover:bg-black text-white dark:bg-[#F2F2F2] dark:hover:bg-white dark:text-[#141415] font-sans font-medium text-[15px] sm:text-[16px] transition-all cursor-pointer shadow-sm active:translate-y-[1px]"
+                      className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-none bg-[#18181B] hover:bg-[#333338] text-white dark:bg-[#F2F2F2] dark:hover:bg-[#E4E4E7] dark:text-[#141415] font-sans font-medium text-[15px] sm:text-[16px] transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-[1px]"
                     >
                       <span>Resume</span>
-                      <ArrowUpRight className="w-4 h-4 stroke-[2.2]" />
+                      <ArrowUpRight className="w-4 h-4 stroke-[2.2] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </a>
 
                     <button
@@ -720,11 +720,11 @@ export function PortfolioView({
                   </div>
                 </div>
 
-                <div id="behind-the-logo" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 scroll-mt-24">
+                <div id="the-generalist" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 scroll-mt-24">
                   <div className="flex items-center justify-between py-1.5">
                     <div>
                       <h2 className="font-sans font-semibold text-[26px] sm:text-[32px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
-                        behind the logo
+                        the generalist
                       </h2>
                       <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-1 flex items-center space-x-1.5">
                         <span className="select-none">↳</span>
@@ -862,7 +862,7 @@ export function PortfolioView({
                 { id: "experience", label: "Experience" },
                 { id: "fun-facts", label: "Fun Facts & Grass" },
                 { id: "github-activity", label: "Code Activity" },
-                { id: "behind-the-logo", label: "Behind The Logo" },
+                { id: "the-generalist", label: "The Generalist" },
                 { id: "come-say-hi", label: "Come Say Hi" }
               ]} 
               playTone={soundOn ? playClickSound : undefined}
