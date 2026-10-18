@@ -291,7 +291,7 @@ export function PortfolioView({
               isOrca 
                 ? "bg-[#328B96] dark:bg-[#05AAB6]/30 dark:border dark:border-[#05AAB6]/25" 
                 : isSemantic 
-                ? "bg-[#5B5BD6] dark:bg-[#5B5BD6]/40 dark:border dark:border-[#5B5BD6]/30"
+                ? "bg-[#E2E2E7] dark:bg-[#222225] dark:border dark:border-white/10"
                 : "bg-[#EBF1FE] dark:bg-[#2B66F1]/20 dark:border dark:border-[#2B66F1]/20"
             }`}
             style={{ 
@@ -579,7 +579,7 @@ export function PortfolioView({
                 width={640}
                 height={427}
                 priority
-                className="w-full max-w-[500px] sm:max-w-[640px] aspect-[3/2] object-cover rounded-md mb-8 mx-auto self-center"
+                className="w-full max-w-[500px] sm:max-w-[640px] aspect-[3/2] object-cover rounded-none mb-8 mx-auto self-center"
               />
 
               <h1 className="font-sans font-medium text-[32px] sm:text-[40px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.15] tracking-tight mb-6 w-full text-left">
