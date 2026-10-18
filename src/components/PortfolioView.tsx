@@ -509,6 +509,7 @@ export function PortfolioView({
                       href={portfolioData.resumeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-cursor="default"
                       onClick={() => playClickSound()}
                       className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-none bg-[#18181B] hover:bg-black text-white dark:bg-[#F2F2F2] dark:hover:bg-white dark:text-[#141415] font-sans font-medium text-[15px] sm:text-[16px] transition-all cursor-pointer shadow-sm active:translate-y-[1px]"
                     >

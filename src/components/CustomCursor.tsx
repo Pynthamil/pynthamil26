@@ -9,9 +9,6 @@ function getMetaImageUrl(url: string): string {
   if (lowercaseUrl.includes("github.com")) {
     return "https://opengraph.githubassets.com/1/Pynthamil";
   }
-  if (lowercaseUrl.includes("drive.google.com")) {
-    return "/blog-covers/post4.png";
-  }
   
   // Use microlink.io embed API to get live og:image meta image for any URL
   return `https://api.microlink.io/?url=${encodeURIComponent(url)}&embed=image.url`;
@@ -81,18 +78,19 @@ export function CustomCursor() {
       // Check for website link hovers
       const linkEl = (target.closest('a[href]') || target.closest('[data-cursor="website"]')) as HTMLAnchorElement | null;
       if (linkEl) {
-        // Exclude footer and come-say-hi social links from the website preview hover effect
+        const href = linkEl.getAttribute("href") || linkEl.getAttribute("data-url") || "";
+        const isMailto = href.startsWith("mailto:");
+
+        // Exclude footer, come-say-hi social links, explicit default cursor, and resume/drive links from the website preview hover effect
         if (
           linkEl.closest('footer') ||
           linkEl.closest('#come-say-hi') ||
-          linkEl.getAttribute('data-cursor') === 'default'
+          linkEl.getAttribute('data-cursor') === 'default' ||
+          href.toLowerCase().includes("drive.google.com")
         ) {
           setCursorMode("default");
           return;
         }
-
-        const href = linkEl.getAttribute("href") || linkEl.getAttribute("data-url") || "";
-        const isMailto = href.startsWith("mailto:");
         
         if (href.includes("/blog/")) {
           setCursorMode("blog");
