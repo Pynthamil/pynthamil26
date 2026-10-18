@@ -505,27 +505,28 @@ export function PortfolioView({
 
                   {/* Cursor-style Hero Buttons (0 rounded) */}
                   <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 mt-6 sm:mt-7">
-                    <button
-                      onClick={() => {
-                        playClickSound();
-                        const workEl = document.getElementById("work-section");
-                        if (workEl) {
-                          workEl.scrollIntoView({ behavior: "smooth" });
-                        }
-                      }}
+                    <a
+                      href={portfolioData.resumeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => playClickSound()}
                       className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-none bg-[#18181B] hover:bg-black text-white dark:bg-[#F2F2F2] dark:hover:bg-white dark:text-[#141415] font-sans font-medium text-[15px] sm:text-[16px] transition-all cursor-pointer shadow-sm active:translate-y-[1px]"
                     >
-                      <span>See projects</span>
+                      <span>Resume</span>
                       <ArrowDown className="w-4 h-4 stroke-[2.2]" />
-                    </button>
+                    </a>
 
                     <a
                       href="mailto:pavendanpynthamil@gmail.com"
-                      onClick={() => playClickSound()}
+                      onClick={() => handleCopyEmail()}
                       className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-none bg-[#E8E8EC] hover:bg-[#DDDDE3] text-[#18181B] dark:bg-[#27272A] dark:hover:bg-[#323238] dark:text-[#F2F2F2] font-sans font-medium text-[15px] sm:text-[16px] transition-all cursor-pointer active:translate-y-[1px]"
                     >
-                      <span>Get in touch</span>
-                      <ArrowRight className="w-4 h-4 stroke-[2.2]" />
+                      <span>{isEmailCopied ? "Email copied!" : "Email"}</span>
+                      {isEmailCopied ? (
+                        <Check className="w-4 h-4 text-[#FF00AE] stroke-[2.5]" />
+                      ) : (
+                        <ArrowRight className="w-4 h-4 stroke-[2.2]" />
+                      )}
                     </a>
                   </div>
                 </div>
