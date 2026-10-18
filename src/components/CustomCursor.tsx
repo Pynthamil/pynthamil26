@@ -157,16 +157,16 @@ export function CustomCursor() {
       }}
     >
       {cursorMode === "case-study" ? (
-        <div className="flex items-center gap-2.5 animate-in zoom-in-95 duration-150 whitespace-nowrap">
-          <span className="w-3.5 h-3.5 bg-[#FF00AE] shrink-0" />
-          <div className="bg-[#FF00AE] text-white font-sans text-[17px] font-medium tracking-tight px-3 py-1 shadow-md">
+        <div className="flex items-center gap-3 animate-in zoom-in-95 duration-150 whitespace-nowrap">
+          <span className="w-5 h-5 bg-[#FF00AE] rounded-full shrink-0" />
+          <div className="bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md">
             View project
           </div>
         </div>
       ) : cursorMode === "blog" ? (
-        <div className="flex items-center gap-2.5 animate-in zoom-in-95 duration-150 whitespace-nowrap">
-          <span className="w-3.5 h-3.5 bg-[#FF00AE] shrink-0" />
-          <div className="bg-[#FF00AE] text-white font-sans text-[17px] font-medium tracking-tight px-3 py-1 shadow-md">
+        <div className="flex items-center gap-3 animate-in zoom-in-95 duration-150 whitespace-nowrap">
+          <span className="w-5 h-5 bg-[#FF00AE] rounded-full shrink-0" />
+          <div className="bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md">
             Read blog
           </div>
         </div>
@@ -174,7 +174,7 @@ export function CustomCursor() {
         <div className="flex flex-col gap-2.5 pointer-events-none animate-in fade-in zoom-in-95 duration-150 -translate-x-1/2 -translate-y-4">
           {/* Top Label */}
           <div className="flex items-center self-start">
-            <div className="bg-[#FF00AE] text-white font-sans text-[17px] font-medium tracking-tight px-3 py-1 shadow-md">
+            <div className="bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md">
               View website
             </div>
           </div>
@@ -196,7 +196,7 @@ export function CustomCursor() {
           <div className="w-[7px] h-[2px] bg-[#FF00AE] rounded-full" />
         </div>
       ) : (
-        <div className="w-[13px] h-[13px] bg-[#FF00AE] transition-all duration-150" />
+        <div className="w-[22px] h-[22px] bg-[#FF00AE] rounded-full transition-all duration-150" />
       )}
     </div>
   );

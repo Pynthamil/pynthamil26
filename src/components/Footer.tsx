@@ -60,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
   };
 
   const content = (
-    <footer className={`w-full max-w-[1240px] mx-auto pt-8 sm:pt-12 mt-auto flex flex-col font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] pb-6 sm:pb-8 ${className}`}>
+    <footer className={`w-full max-w-[1640px] mx-auto pt-8 sm:pt-12 mt-auto flex flex-col font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] pb-6 sm:pb-8 ${className}`}>
         {/* Availability Banner (Hidden on blog pages) */}
         {!shouldHideBanner && (
           <div className="w-full mb-8 p-3.5 sm:p-4 rounded-md bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 transition-colors">
@@ -130,7 +130,7 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
   }
 
   return (
-    <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12">
+    <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8">
       {content}
     </div>
   );

@@ -286,7 +286,7 @@ export function PortfolioView({
           <div 
             className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-500 ease-out ${aspectClass} ${
               isOrca 
-                ? "bg-[#9ED5DD] dark:bg-[#05AAB6]/25 dark:border dark:border-[#05AAB6]/20" 
+                ? "bg-[#328B96] dark:bg-[#05AAB6]/30 dark:border dark:border-[#05AAB6]/25" 
                 : isSemantic 
                 ? "bg-[#C7C7FF] dark:bg-[#6666FF]/25 dark:border dark:border-[#6666FF]/20"
                 : "bg-[#EBF1FE] dark:bg-[#2B66F1]/20 dark:border dark:border-[#2B66F1]/20"
@@ -340,13 +340,6 @@ export function PortfolioView({
                 className={`z-10 w-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out ${isSemantic || isCodedex || project.description === "Archive" ? "h-[72%] sm:h-[75%] translate-y-[10%] sm:translate-y-[8%]" : "h-[65%] sm:h-[65%] translate-y-[4%] sm:translate-y-[6%]"}`}
               />
             ) : null}
-            {project.category && (
-              <div className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-30">
-                <div className="flex items-center gap-1.5 px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-md text-[13.5px] sm:text-[18px] font-sans font-medium tracking-wide whitespace-nowrap bg-white border border-black/10 text-slate-900 shadow-sm">
-                  {project.category.toLowerCase()}
-                </div>
-              </div>
-            )}
           </div>
         )}
         <div className="flex flex-col mt-2 px-1">
@@ -478,8 +471,8 @@ export function PortfolioView({
             ======================================================== */}
         {viewMode === "home" && (
           <div className="flex flex-col animate-in fade-in duration-200">
-            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-6 sm:mt-10 md:mt-12">
-              <div className="flex flex-col w-full max-w-[1240px] mx-auto">
+            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mt-6 sm:mt-10 md:mt-12">
+              <div className="flex flex-col w-full max-w-[1640px] mx-auto">
                 {/* Minimal Hero Introduction */}
                 <div className="relative pt-2 sm:pt-4 mb-2 sm:mb-4">
                   <h1 className="font-sans font-medium text-[26px] sm:text-[32px] md:text-[36px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.35] tracking-tight">
@@ -500,8 +493,8 @@ export function PortfolioView({
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
               <>
-                <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mt-6 sm:mt-10 mb-12 sm:mb-14">
-                  <div className="max-w-[1240px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mt-6 sm:mt-10 mb-12 sm:mb-14">
+                  <div className="max-w-[1640px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                     {/* Mobile View: Single Column */}
                     <div className="flex sm:hidden flex-col gap-6 w-full">
                       {portfolioData.projects.map(renderProjectCard)}
@@ -531,8 +524,8 @@ export function PortfolioView({
           <div className="flex flex-col animate-in fade-in duration-200">
             {/* Work Section */}
             {portfolioData.projects.length > 0 && (
-              <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 mb-12 sm:mb-14">
-                <div className="max-w-[1240px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+              <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mb-12 sm:mb-14">
+                <div className="max-w-[1640px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {/* Mobile View: Single Column */}
                   <div className="flex sm:hidden flex-col gap-6 w-full">
                     {portfolioData.projects.map(renderProjectCard)}
@@ -859,8 +852,8 @@ export function PortfolioView({
           });
 
           return (
-            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200">
-              <div className="flex flex-col space-y-6 w-full max-w-[1240px] mx-auto">
+            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 flex flex-col animate-in fade-in duration-200">
+              <div className="flex flex-col space-y-6 w-full max-w-[1640px] mx-auto">
                 {/* Blog Search & Filter Pill Header */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 w-full mt-4 mb-2">
                   {/* Search Bar */}
