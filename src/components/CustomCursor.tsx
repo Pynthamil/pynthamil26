@@ -195,7 +195,7 @@ export function CustomCursor() {
           <div className="w-[7px] h-[2px] bg-[#FF00AE] rounded-none" />
         </div>
       ) : (
-        <div className="w-4 h-4 bg-[#FF00AE] rounded-none transition-all duration-150 shadow-sm" />
+        <div className="w-[22px] h-[22px] bg-[#FF00AE] rounded-none transition-all duration-150 shadow-sm" />
       )}
     </div>
   );
