@@ -10,6 +10,7 @@ import { Footer } from "./Footer";
 import { LottiePlayer } from "@/components/LottiePlayer";
 import { OrcaCardCover } from "@/components/OrcaCardCover";
 import { CustomCursor } from "@/components/CustomCursor";
+import { NotesSection } from "@/components/NotesSection";
 import { Moon, Sun, Copy, Check, X, Clock, Menu, Mail, SlidersHorizontal, ChevronDown, Folder, User, BookOpen, FileText, Home, Dribbble, Sparkles } from "lucide-react";
 
 function TypewriterName() {
@@ -65,9 +66,9 @@ function TypewriterName() {
 export function PortfolioView({
   initialViewMode = "home",
 }: {
-  initialViewMode?: "home" | "projects" | "about" | "blog";
+  initialViewMode?: "home" | "projects" | "about" | "blog" | "notes";
 }) {
-  const [viewMode, setViewMode] = useState<"home" | "projects" | "about" | "blog">(initialViewMode);
+  const [viewMode, setViewMode] = useState<"home" | "projects" | "about" | "blog" | "notes">(initialViewMode);
   const [isEmailCopied, setIsEmailCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -182,6 +183,8 @@ export function PortfolioView({
         setViewMode("blog");
       } else if (path === "/projects") {
         setViewMode("projects");
+      } else if (path === "/notes") {
+        setViewMode("notes");
       } else {
         setViewMode("home");
       }
@@ -237,7 +240,7 @@ export function PortfolioView({
 
   const playClickSound = () => playTone(880);
 
-  const handleNavClick = (mode: "home" | "projects" | "about" | "blog") => {
+  const handleNavClick = (mode: "home" | "projects" | "about" | "blog" | "notes") => {
     playClickSound();
     setViewMode(mode);
     const targetUrl = mode === "home" ? "/" : `/${mode}`;
@@ -284,11 +287,11 @@ export function PortfolioView({
       >
         {(project.banner || project.status === "Coming Soon") && (
           <div 
-            className={`w-full mb-3 overflow-hidden rounded-[4px] sm:rounded-[6px] flex items-center justify-center relative transition-all duration-500 ease-out ${aspectClass} ${
+            className={`w-full mb-3 overflow-hidden rounded-none flex items-center justify-center relative transition-all duration-500 ease-out ${aspectClass} ${
               isOrca 
                 ? "bg-[#328B96] dark:bg-[#05AAB6]/30 dark:border dark:border-[#05AAB6]/25" 
                 : isSemantic 
-                ? "bg-[#C7C7FF] dark:bg-[#6666FF]/25 dark:border dark:border-[#6666FF]/20"
+                ? "bg-[#5B5BD6] dark:bg-[#5B5BD6]/40 dark:border dark:border-[#5B5BD6]/30"
                 : "bg-[#EBF1FE] dark:bg-[#2B66F1]/20 dark:border dark:border-[#2B66F1]/20"
             }`}
             style={{ 
@@ -310,8 +313,8 @@ export function PortfolioView({
                 />
               )
             ) : project.description === "ORCA" ? (
-              <div className={`z-10 w-[92%] sm:w-[88%] mt-14 sm:mt-10 overflow-hidden rounded-[4px] sm:rounded-[6px] bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
-                <div className="w-full overflow-hidden rounded-[6px] sm:rounded-[8px] bg-white dark:bg-[#141415] flex items-center justify-center">
+              <div className={`z-10 w-[92%] sm:w-[88%] mt-14 sm:mt-10 overflow-hidden rounded-none bg-white/60 group-hover:bg-white/20 dark:bg-white/10 p-2.5 sm:p-3.5 backdrop-blur-md border border-white/80 group-hover:border-white/10 shadow-sm group-hover:shadow-none transition-all duration-700 ease-out ${hoverScaleClass}`}>
+                <div className="w-full overflow-hidden rounded-none bg-white dark:bg-[#141415] flex items-center justify-center">
                   <img 
                     src={project.banner} 
                     alt={project.title} 
@@ -359,7 +362,7 @@ export function PortfolioView({
 
         {/* Main Container */}
         {/* Top Navbar Container */}
-        <div className="sticky top-4 sm:top-5 z-50 w-[94%] sm:w-[86%] max-w-[680px] mx-auto mb-2 sm:mb-4 flex flex-col items-center">
+        <div className="sticky top-4 sm:top-5 z-50 w-[94%] sm:w-[90%] md:w-[88%] max-w-[780px] mx-auto mb-2 sm:mb-4 flex flex-col items-center">
           <header className="w-full bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-md border-2 border-black/[0.07] dark:border-white/[0.08] px-5 sm:px-7 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
             {/* Left: Logo & Name */}
             <button
@@ -410,6 +413,16 @@ export function PortfolioView({
                 >
                   <span>Blog</span>
                 </button>
+                <button
+                  onClick={() => handleNavClick("notes")}
+                  className={`inline-flex items-center px-4 py-1.5 rounded-md transition-all cursor-pointer select-none ${
+                    viewMode === "notes"
+                      ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
+                  }`}
+                >
+                  <span>Notes</span>
+                </button>
               </nav>
 
               {/* Mobile Menu Toggle */}
@@ -456,6 +469,12 @@ export function PortfolioView({
                   className={`flex items-center text-left px-4 py-3 rounded-xl font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
                 >
                   Blog
+                </button>
+                <button
+                  onClick={() => { handleNavClick("notes"); setIsMobileMenuOpen(false); }}
+                  className={`flex items-center text-left px-4 py-3 rounded-xl font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "notes" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
+                >
+                  Notes
                 </button>
               </div>
             </>
@@ -969,11 +988,11 @@ export function PortfolioView({
                             className="group select-none cursor-pointer flex flex-col h-full gap-3"
                           >
                             {post.image ? (
-                              <div className="w-full aspect-[3/2] rounded-md overflow-hidden relative">
+                              <div className="w-full aspect-[3/2] rounded-none overflow-hidden relative">
                                 <img src={post.image} alt={post.title} className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
                               </div>
                             ) : (
-                              <div className="w-full aspect-[3/2] rounded-md overflow-hidden relative bg-neutral-100 dark:bg-neutral-800 transition-transform duration-300 group-hover:scale-105" />
+                              <div className="w-full aspect-[3/2] rounded-none overflow-hidden relative bg-neutral-100 dark:bg-neutral-800 transition-transform duration-300 group-hover:scale-105" />
                             )}
                             <div className="space-y-2 flex flex-col flex-1 px-1 sm:px-3 pt-1">
                               <h2 className="text-[18px] sm:text-[19.5px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
@@ -1007,6 +1026,13 @@ export function PortfolioView({
             </div>
           );
         })()}
+
+        {/* ========================================================
+            VIEW 4: NOTES VIEW
+            ======================================================== */}
+        {viewMode === "notes" && (
+          <NotesSection playTone={playTone} soundOn={soundOn} />
+        )}
 
         {/* Unified Footer */}
         <Footer />
