@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 function getMetaImageUrl(url: string): string {
@@ -52,31 +52,115 @@ function WebsitePreviewCard({ url }: { url: string }) {
 }
 
 export function CustomCursor() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
-  const [cursorMode, setCursorMode] = useState<"default" | "case-study" | "arrow" | "text" | "website" | "blog">("default");
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const [cursorMode, setCursorMode] = useState<"default" | "case-study" | "coming-soon" | "arrow" | "text" | "website" | "blog">("default");
   const [hoveredUrl, setHoveredUrl] = useState<string>("");
   const [isVisible, setIsVisible] = useState(false);
 
+  const cursorModeRef = useRef<typeof cursorMode>("default");
+  const hoveredUrlRef = useRef<string>("");
+  const isVisibleRef = useRef<boolean>(false);
+
+  // Smooth position tracking with requestAnimationFrame
+  const pos = useRef({ x: -100, y: -100 });
+  const target = useRef({ x: -100, y: -100 });
+  const rafId = useRef<number | null>(null);
+  const lastTime = useRef<number | null>(null);
+  const isMoving = useRef(false);
+
   useEffect(() => {
+    // Only run custom cursor on fine pointer devices (desktop)
+    if (typeof window === "undefined" || !window.matchMedia("(pointer: fine)").matches) {
+      return;
+    }
+
+    const animate = (time: number) => {
+      if (lastTime.current === null) {
+        lastTime.current = time;
+      }
+      const dt = Math.min((time - lastTime.current) / 1000, 0.1);
+      lastTime.current = time;
+
+      // Delta-time based exponential smoothing for consistent buttery fluid motion across 60Hz and 120Hz displays
+      const speed = 18;
+      const factor = 1 - Math.exp(-speed * dt);
+
+      const dx = target.current.x - pos.current.x;
+      const dy = target.current.y - pos.current.y;
+
+      if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
+        pos.current.x = target.current.x;
+        pos.current.y = target.current.y;
+        isMoving.current = false;
+      } else {
+        pos.current.x += dx * factor;
+        pos.current.y += dy * factor;
+      }
+
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) translate(-50%, -50%)`;
+      }
+
+      if (isMoving.current) {
+        rafId.current = requestAnimationFrame(animate);
+      } else {
+        rafId.current = null;
+      }
+    };
+
+    const startAnimation = () => {
+      isMoving.current = true;
+      if (!rafId.current) {
+        lastTime.current = performance.now();
+        rafId.current = requestAnimationFrame(animate);
+      }
+    };
+
+    const updateMode = (newMode: typeof cursorMode, newUrl = "") => {
+      if (cursorModeRef.current !== newMode) {
+        cursorModeRef.current = newMode;
+        setCursorMode(newMode);
+      }
+      if (hoveredUrlRef.current !== newUrl) {
+        hoveredUrlRef.current = newUrl;
+        setHoveredUrl(newUrl);
+      }
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      target.current = { x: e.clientX, y: e.clientY };
 
-      const target = e.target as HTMLElement | null;
-      if (!target) return;
+      if (!isVisibleRef.current) {
+        pos.current = { x: e.clientX, y: e.clientY };
+        if (cursorRef.current) {
+          cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+        }
+        isVisibleRef.current = true;
+        setIsVisible(true);
+      }
 
-      if (target.closest('[data-cursor="case-study"]')) {
-        setCursorMode("case-study");
+      startAnimation();
+
+      const targetEl = e.target as HTMLElement | null;
+      if (!targetEl) return;
+
+      if (targetEl.closest('[data-cursor="coming-soon"]')) {
+        updateMode("coming-soon");
         return;
       }
 
-      if (target.closest('[data-cursor="blog"]')) {
-        setCursorMode("blog");
+      if (targetEl.closest('[data-cursor="case-study"]')) {
+        updateMode("case-study");
+        return;
+      }
+
+      if (targetEl.closest('[data-cursor="blog"]')) {
+        updateMode("blog");
         return;
       }
 
       // Check for website link hovers
-      const linkEl = (target.closest('a[href]') || target.closest('[data-cursor="website"]')) as HTMLAnchorElement | null;
+      const linkEl = (targetEl.closest('a[href]') || targetEl.closest('[data-cursor="website"]')) as HTMLAnchorElement | null;
       if (linkEl) {
         const href = linkEl.getAttribute("href") || linkEl.getAttribute("data-url") || "";
         const isMailto = href.startsWith("mailto:");
@@ -89,53 +173,64 @@ export function CustomCursor() {
           linkEl.getAttribute('data-cursor') === 'default' ||
           href.toLowerCase().includes("drive.google.com")
         ) {
-          setCursorMode("default");
+          updateMode("default");
           return;
         }
         
         if (href.includes("/blog/")) {
-          setCursorMode("blog");
+          updateMode("blog");
           return;
         }
 
         if (href && !isMailto && (href.startsWith("http") || href.startsWith("//") || linkEl.getAttribute("target") === "_blank" || linkEl.getAttribute("data-cursor") === "website" || linkEl.getAttribute("data-cursor") === "arrow")) {
-          setCursorMode("website");
-          setHoveredUrl(href);
+          updateMode("website", href);
           return;
         }
       }
 
-      if (target.closest('[data-cursor="arrow"]')) {
-        setCursorMode("arrow");
-      } else if (target.closest('[data-cursor="text"]')) {
-        setCursorMode("text");
+      if (targetEl.closest('[data-cursor="arrow"]')) {
+        updateMode("arrow");
+      } else if (targetEl.closest('[data-cursor="text"]')) {
+        updateMode("text");
       } else {
         // Check if element is interactive button / control
-        const interactiveParent = target.closest(
+        const interactiveParent = targetEl.closest(
           'a, button, [role="button"], input[type="button"], input[type="submit"], select, .cursor-pointer'
         );
 
         if (interactiveParent) {
-          setCursorMode("default");
+          updateMode("default");
         } else {
           // Check if hovering over text elements
-          const isTextElement = target.closest(
+          const isTextElement = targetEl.closest(
             'p, h1, h2, h3, h4, h5, h6, span, li, label, code, pre, blockquote, article, em, strong, b, i, small, td, th, input, textarea'
           );
 
           if (isTextElement) {
-            setCursorMode("text");
+            updateMode("text");
           } else {
-            setCursorMode("default");
+            updateMode("default");
           }
         }
       }
     };
 
-    const handleMouseLeave = () => setIsVisible(false);
-    const handleMouseEnter = () => setIsVisible(true);
+    const handleMouseLeave = () => {
+      isVisibleRef.current = false;
+      setIsVisible(false);
+    };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    const handleMouseEnter = (e: MouseEvent) => {
+      target.current = { x: e.clientX, y: e.clientY };
+      pos.current = { x: e.clientX, y: e.clientY };
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+      }
+      isVisibleRef.current = true;
+      setIsVisible(true);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mouseenter", handleMouseEnter);
 
@@ -143,19 +238,29 @@ export function CustomCursor() {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current);
+      }
     };
-  }, [isVisible]);
-
-  if (!isVisible) return null;
+  }, []);
 
   return (
     <div
-      className="fixed top-0 left-0 pointer-events-none z-[9999] transition-transform duration-75 ease-out hidden sm:block"
+      ref={cursorRef}
+      className={`fixed top-0 left-0 pointer-events-none z-[9999] hidden sm:block will-change-transform transition-opacity duration-200 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
       style={{
-        transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%)`,
+        transform: "translate3d(-100px, -100px, 0) translate(-50%, -50%)",
       }}
     >
-      {cursorMode === "case-study" ? (
+      {cursorMode === "coming-soon" ? (
+        <div className="overflow-hidden bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md animate-in fade-in zoom-in-95 duration-150 whitespace-nowrap">
+          <span className="inline-block animate-pill-text">
+            Coming soon
+          </span>
+        </div>
+      ) : cursorMode === "case-study" ? (
         <div className="overflow-hidden bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md animate-in fade-in zoom-in-95 duration-150 whitespace-nowrap">
           <span className="inline-block animate-pill-text">
             View project
