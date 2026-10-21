@@ -354,12 +354,12 @@ export function PortfolioView({
 
         {/* Main Container */}
         {/* Top Navbar Container */}
-        <div className="sticky top-4 sm:top-5 z-50 w-[94%] sm:w-[90%] md:w-[88%] max-w-[780px] mx-auto mb-2 sm:mb-4 flex flex-col items-center">
-          <header className="w-full bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-sm border-2 border-black/[0.07] dark:border-white/[0.08] px-5 sm:px-7 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
+        <div className="sticky top-4 sm:top-5 z-50 w-full max-w-[780px] mx-auto mb-2 sm:mb-4 flex flex-col items-center">
+          <header className="w-full bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-sm border-2 border-black/[0.07] dark:border-white/[0.08] px-4 sm:px-6 md:px-7 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
             {/* Left: Logo & Name */}
             <button
               onClick={() => viewMode !== "home" && handleNavClick("home")}
-              className={`flex items-center gap-2 sm:gap-2.5 focus:outline-none ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
+              className={`flex items-center gap-2 sm:gap-2.5 shrink-0 focus:outline-none ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
               aria-label="Go to Home"
             >
               <img 
@@ -373,11 +373,11 @@ export function PortfolioView({
             </button>
 
             {/* Right: Nav Links & Tools */}
-            <div className="flex items-center justify-end gap-3 sm:gap-5 -mr-1 sm:-mr-2">
-              <nav className="hidden sm:flex items-center space-x-1 sm:space-x-1.5 text-[17.5px] sm:text-[19px] font-medium">
+            <div className="flex items-center justify-end gap-3 sm:gap-5 -mr-1 sm:-mr-2 shrink-0">
+              <nav className="hidden lg:flex items-center shrink-0 space-x-1 text-[17px] lg:text-[19px] font-medium">
                 <button
                   onClick={() => handleNavClick("projects")}
-                  className={`inline-flex items-center px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
+                  className={`inline-flex items-center px-3.5 lg:px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
                     viewMode === "projects"
                       ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -387,7 +387,7 @@ export function PortfolioView({
                 </button>
                 <button
                   onClick={() => handleNavClick("about")}
-                  className={`inline-flex items-center px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
+                  className={`inline-flex items-center px-3.5 lg:px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
                     viewMode === "about"
                       ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -397,7 +397,7 @@ export function PortfolioView({
                 </button>
                 <button
                   onClick={() => handleNavClick("blog")}
-                  className={`inline-flex items-center px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
+                  className={`inline-flex items-center px-3.5 lg:px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
                     viewMode === "blog"
                       ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -407,7 +407,7 @@ export function PortfolioView({
                 </button>
                 <button
                   onClick={() => handleNavClick("notes")}
-                  className={`inline-flex items-center px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
+                  className={`inline-flex items-center px-3.5 lg:px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
                     viewMode === "notes"
                       ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
@@ -419,7 +419,7 @@ export function PortfolioView({
 
               {/* Mobile Menu Toggle */}
               <button 
-                className="sm:hidden p-2 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors cursor-pointer"
+                className="lg:hidden p-2 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors cursor-pointer"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle navigation menu"
               >
@@ -433,11 +433,11 @@ export function PortfolioView({
             <>
               {/* Tap Outside Backdrop */}
               <div 
-                className="fixed inset-0 z-40 bg-black/20 backdrop-blur-[2px] sm:hidden"
+                className="fixed inset-0 z-40 bg-black/20 backdrop-blur-[2px] lg:hidden"
                 onClick={() => setIsMobileMenuOpen(false)}
               />
               {/* Dropdown Menu Box */}
-              <div className="sm:hidden relative mt-2.5 w-full bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-xl border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-2 z-50 animate-in slide-in-from-top-2 fade-in duration-200">
+              <div className="lg:hidden relative mt-2.5 w-full bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-xl border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-2 z-50 animate-in slide-in-from-top-2 fade-in duration-200">
                 <button
                   onClick={() => { handleNavClick("home"); setIsMobileMenuOpen(false); }}
                   className={`flex items-center text-left px-4 py-3 rounded-none font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
@@ -506,13 +506,13 @@ export function PortfolioView({
               <>
                 <section id="work-section" className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mt-6 sm:mt-10 mb-12 sm:mb-14 scroll-mt-24">
                   <div className="max-w-[1640px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                    {/* Mobile View: Single Column */}
-                    <div className="flex sm:hidden flex-col gap-6 w-full">
+                    {/* Mobile & Half-Screen View: Single Column */}
+                    <div className="flex lg:hidden flex-col gap-6 w-full">
                       {portfolioData.projects.map(renderProjectCard)}
                     </div>
 
                     {/* Desktop View: Split 2 Columns */}
-                    <div className="hidden sm:flex flex-row gap-6 w-full items-start">
+                    <div className="hidden lg:flex flex-row gap-6 w-full items-start">
                       <div className="flex flex-col gap-6 w-1/2">
                         {portfolioData.projects.filter((_, i) => i % 2 === 0).map(renderProjectCard)}
                       </div>
@@ -537,13 +537,13 @@ export function PortfolioView({
             {portfolioData.projects.length > 0 && (
               <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mb-12 sm:mb-14">
                 <div className="max-w-[1640px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                  {/* Mobile View: Single Column */}
-                  <div className="flex sm:hidden flex-col gap-6 w-full">
+                  {/* Mobile & Half-Screen View: Single Column */}
+                  <div className="flex lg:hidden flex-col gap-6 w-full">
                     {portfolioData.projects.map(renderProjectCard)}
                   </div>
 
                   {/* Desktop View: Split 2 Columns */}
-                  <div className="hidden sm:flex flex-row gap-6 w-full items-start">
+                  <div className="hidden lg:flex flex-row gap-6 w-full items-start">
                     <div className="flex flex-col gap-6 w-1/2">
                       {portfolioData.projects.filter((_, i) => i % 2 === 0).map(renderProjectCard)}
                     </div>
@@ -970,7 +970,7 @@ export function PortfolioView({
                 {/* Blog Posts Cards */}
                 <section className="w-full">
                   {filteredBlogPosts.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-2">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 pt-2">
                       {filteredBlogPosts.map((post, idx) => (
                         <div key={idx} className="flex flex-col h-full">
                           <a
