@@ -65,7 +65,7 @@ const config: Config = {
           '"Helvetica Neue"',
           "sans-serif",
         ],
-        serif: ['"Instrument Serif"', "serif"],
+        serif: ['"Instrument Serif"', '"Libre Baskerville"', "Georgia", "serif"],
         mono: [
           "ui-monospace",
           "SFMono-Regular",

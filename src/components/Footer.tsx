@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Copy, Check, Mail, ArrowUp } from "lucide-react";
+import React from "react";
 import { portfolioData } from "@/data/portfolio";
-import { usePathname } from "next/navigation";
 
 const SocialIcon = ({ label }: { label: string }) => {
   switch (label.toLowerCase()) {
@@ -43,71 +41,16 @@ interface FooterProps {
   hideBanner?: boolean;
 }
 
-export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = "", hideBanner }) => {
-  const [isEmailCopied, setIsEmailCopied] = useState(false);
-  const pathname = usePathname();
-
-  const shouldHideBanner = hideBanner || pathname?.startsWith("/blog");
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("pavendanpynthamil@gmail.com");
-    setIsEmailCopied(true);
-    setTimeout(() => setIsEmailCopied(false), 2000);
-  };
-
-  const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
+export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = "" }) => {
   const content = (
-    <footer className={`w-full max-w-[1640px] mx-auto pt-8 sm:pt-12 mt-auto flex flex-col font-sans text-[15px] sm:text-[16px] text-[#64748B] dark:text-[#8E95B8] pb-6 sm:pb-8 ${className}`}>
-        {/* Availability Banner (Hidden on blog pages) */}
-        {!shouldHideBanner && (
-          <div className="w-full mb-8 p-3.5 sm:p-4 rounded-md bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 transition-colors">
-            <div className="flex items-center gap-2.5">
-              <Mail className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0 text-emerald-700 dark:text-emerald-300" />
-              <span className="font-sans font-medium text-[14.5px] sm:text-[15.5px] tracking-tight">
-                open for summer 2027 internships &amp; full-time roles
-              </span>
-            </div>
-            <a 
-              href="mailto:pavendanpynthamil@gmail.com"
-              data-cursor="default"
-              className="font-sans text-[13.5px] sm:text-[14.5px] text-emerald-700 dark:text-emerald-300 hover:underline underline-offset-4 font-medium flex items-center gap-1.5 shrink-0 cursor-pointer"
-            >
-              <span>get in touch</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        )}
-
-        {/* Email Copy Button & Going Up Button */}
-        <div className="w-full flex items-center justify-between mb-8">
-          <button 
-             onClick={handleCopyEmail}
-             className="flex items-center justify-center space-x-2.5 px-4 sm:px-5 py-2 sm:py-2.5 bg-[#FFE4F3] dark:bg-[#FF00AE]/20 text-[#FF00AE] dark:text-[#FF00AE] text-[15px] sm:text-[16.5px] font-medium rounded-md hover:bg-[#FFD4EC] dark:hover:bg-[#FF00AE]/30 transition-colors focus:outline-none cursor-pointer"
-          >
-             <span>{isEmailCopied ? "copied!" : "pavendanpynthamil@gmail.com"}</span>
-             {isEmailCopied ? <Check className="w-4 h-4 text-[#FF00AE]" /> : <Copy className="w-4 h-4 text-[#FF00AE] opacity-75" />}
-          </button>
-
-          <button
-            onClick={handleScrollToTop}
-            aria-label="Scroll to top"
-            title="Going up"
-            className="p-2 sm:p-2.5 rounded-full bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:text-black dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer flex items-center justify-center"
-          >
-            <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
-          </button>
-        </div>
-
-        {/* Bottom Border & Copyright / Links Row (Image 2 style) */}
-        <div className="w-full border-t border-neutral-200/70 dark:border-neutral-800/70 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8]">
+    <footer className={`w-full max-w-[1640px] mx-auto pt-10 sm:pt-14 mt-auto flex flex-col font-sans pb-8 sm:pb-12 ${className}`}>
+        {/* Bottom Copyright / Links Row */}
+        <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 text-[16px] sm:text-[17.5px] text-[#64748B] dark:text-[#8E95B8]">
           <div>
             &copy; pynthamil 2026 &middot; Made with love &lt;3
           </div>
           
-          <div className="flex items-center gap-5 sm:gap-6 font-medium">
+          <div className="flex items-center gap-6 sm:gap-8 font-medium">
             {portfolioData.socialLinks.map((link, idx) => (
               <a 
                 key={idx} 

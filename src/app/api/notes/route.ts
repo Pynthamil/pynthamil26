@@ -7,8 +7,10 @@ export interface NoteItem {
   author: string;
   content: string;
   handle?: string;
+  color?: string;
   createdAt: string;
   likes?: number;
+  reactions?: Record<string, number>;
 }
 
 const NOTES_FILE = path.join(process.cwd(), 'src', 'data', 'notes.json');
@@ -18,9 +20,11 @@ let memoryNotes: NoteItem[] = [
   {
     "id": "note-pynthamil-welcome",
     "author": "Pynthamil",
-    "content": "welcome to my digital corner! feel free to leave a note, thought, feedback, or just say hi :)",
+    "content": "welcome! feel free to leave a note or say hi :)",
     "createdAt": "2026-10-18T10:00:00.000Z",
-    "likes": 1
+    "color": "butter",
+    "likes": 0,
+    "reactions": {}
   }
 ];
 
@@ -126,7 +130,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { author, content, handle, honeypot } = body;
+    const { author, content, handle, color, honeypot } = body;
 
     // Spam honeypot detection
     if (honeypot) {
@@ -136,6 +140,7 @@ export async function POST(request: Request) {
     const cleanAuthor = typeof author === 'string' ? author.trim() : "";
     const cleanContent = typeof content === 'string' ? content.trim() : "";
     const cleanHandle = typeof handle === 'string' ? handle.trim() : "";
+    const cleanColor = typeof color === 'string' && color.trim() ? color.trim() : undefined;
 
     if (!cleanAuthor) {
       return NextResponse.json({ error: "Please provide your name or handle" }, { status: 400 });
@@ -160,6 +165,7 @@ export async function POST(request: Request) {
       author: cleanAuthor,
       content: cleanContent,
       handle: cleanHandle || undefined,
+      color: cleanColor,
       createdAt: new Date().toISOString(),
       likes: 0,
     };
@@ -178,9 +184,9 @@ export async function POST(request: Request) {
 export async function PATCH(request: Request) {
   try {
     const body = await request.json();
-    const { id, action } = body;
+    const { id, action, emoji, previousEmoji } = body;
 
-    if (!id || action !== "like") {
+    if (!id || (action !== "like" && action !== "react" && action !== "unreact")) {
       return NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }
 
@@ -190,12 +196,41 @@ export async function PATCH(request: Request) {
       return NextResponse.json({ error: "Note not found" }, { status: 404 });
     }
 
-    note.likes = (note.likes || 0) + 1;
+    const targetEmoji = typeof emoji === "string" && emoji.trim() ? emoji.trim() : "❤️";
+    note.reactions = note.reactions || {};
+
+    if (action === "unreact") {
+      if (note.reactions[targetEmoji]) {
+        note.reactions[targetEmoji] = Math.max(0, note.reactions[targetEmoji] - 1);
+        if (note.reactions[targetEmoji] === 0) {
+          delete note.reactions[targetEmoji];
+        }
+      }
+      note.likes = Math.max(0, (note.likes || 1) - 1);
+    } else {
+      // "like" or "react"
+      if (previousEmoji && previousEmoji !== targetEmoji) {
+        if (note.reactions[previousEmoji]) {
+          note.reactions[previousEmoji] = Math.max(0, note.reactions[previousEmoji] - 1);
+          if (note.reactions[previousEmoji] === 0) {
+            delete note.reactions[previousEmoji];
+          }
+        }
+      } else {
+        note.likes = (note.likes || 0) + 1;
+      }
+      note.reactions[targetEmoji] = (note.reactions[targetEmoji] || 0) + 1;
+    }
+
     await persistNotes(notes);
 
-    return NextResponse.json({ success: true, likes: note.likes });
+    return NextResponse.json({
+      success: true,
+      likes: note.likes,
+      reactions: note.reactions,
+    });
   } catch (err) {
-    console.error("Error liking note:", err);
-    return NextResponse.json({ error: "Failed to like note" }, { status: 500 });
+    console.error("Error updating reactions on note:", err);
+    return NextResponse.json({ error: "Failed to update note reactions" }, { status: 500 });
   }
 }

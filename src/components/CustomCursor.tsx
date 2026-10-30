@@ -3,62 +3,42 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-function getMetaImageUrl(url: string): string {
-  const lowercaseUrl = url.toLowerCase();
-
-  if (lowercaseUrl.includes("github.com")) {
-    return "https://opengraph.githubassets.com/1/Pynthamil";
-  }
-  
-  // Use microlink.io embed API to get live og:image meta image for any URL
-  return `https://api.microlink.io/?url=${encodeURIComponent(url)}&embed=image.url`;
-}
-
-function WebsitePreviewCard({ url }: { url: string }) {
-  const metaImageUrl = getMetaImageUrl(url);
-  const [imgError, setImgError] = useState(false);
-
-  let displayDomain = "website";
-  try {
-    displayDomain = new URL(url).hostname.replace(/^www\./, "");
-  } catch {
-    displayDomain = url;
-  }
-
+function EyeOpenSvgRepoIcon({ className = "w-6 h-6 text-white" }: { className?: string }) {
   return (
-    <div className="w-[280px] h-[160px] rounded-[4px] border-[3.5px] border-[#FF00AE] overflow-hidden bg-neutral-900 relative flex items-center justify-center shadow-xl">
-      {!imgError ? (
-        <img 
-          src={metaImageUrl} 
-          alt={displayDomain} 
-          className="w-full h-full object-cover"
-          onError={() => setImgError(true)}
-        />
-      ) : (
-        <div className="relative z-10 flex flex-col items-center text-center gap-2 p-4">
-          <div className="w-9 h-9 rounded-full bg-white/10 text-white font-bold flex items-center justify-center">
-            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-            </svg>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-white font-sans text-[15px] font-semibold tracking-tight">{displayDomain}</span>
-            <span className="text-slate-400 font-sans text-[11.5px]">View website</span>
-          </div>
-        </div>
-      )}
-    </div>
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 12C4 12 5.6 7 12 7M12 7C18.4 7 20 12 20 12M12 7V4M18 5L16 7.5M6 5L8 7.5M15 13C15 14.6569 13.6569 16 12 16C10.3431 16 9 14.6569 9 13C9 11.3431 10.3431 10 12 10C13.6569 10 15 11.3431 15 13Z"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 
+const PHOTO_QUIRKY_PHRASES = [
+  "yes, i actually exist :)",
+  "proof of life :)",
+  "rare photo of me outside :)",
+  "100% human, mostly curiosity :)",
+  "the culprit behind the code :)",
+];
+
+const GREY_PILL_GRADIENT = "linear-gradient(180deg, #18181B 0%, #18181B 35%, #222226 52%, #2D2E33 68%, #3B3C44 80%, #494B54 90%, #565863 96%, #646775 100%)";
+
 export function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const [cursorMode, setCursorMode] = useState<"default" | "case-study" | "coming-soon" | "arrow" | "text" | "website" | "blog">("default");
-  const [hoveredUrl, setHoveredUrl] = useState<string>("");
+  const [cursorMode, setCursorMode] = useState<"default" | "case-study" | "coming-soon" | "arrow" | "text" | "blog" | "about-photo">("default");
   const [isVisible, setIsVisible] = useState(false);
+  const [phraseIndex, setPhraseIndex] = useState(0);
 
   const cursorModeRef = useRef<typeof cursorMode>("default");
-  const hoveredUrlRef = useRef<string>("");
   const isVisibleRef = useRef<boolean>(false);
 
   // Smooth position tracking with requestAnimationFrame
@@ -116,14 +96,10 @@ export function CustomCursor() {
       }
     };
 
-    const updateMode = (newMode: typeof cursorMode, newUrl = "") => {
+    const updateMode = (newMode: typeof cursorMode) => {
       if (cursorModeRef.current !== newMode) {
         cursorModeRef.current = newMode;
         setCursorMode(newMode);
-      }
-      if (hoveredUrlRef.current !== newUrl) {
-        hoveredUrlRef.current = newUrl;
-        setHoveredUrl(newUrl);
       }
     };
 
@@ -149,6 +125,14 @@ export function CustomCursor() {
         return;
       }
 
+      if (targetEl.closest('[data-cursor="about-photo"]')) {
+        if (cursorModeRef.current !== "about-photo") {
+          setPhraseIndex((prev) => (prev + 1) % PHOTO_QUIRKY_PHRASES.length);
+        }
+        updateMode("about-photo");
+        return;
+      }
+
       if (targetEl.closest('[data-cursor="case-study"]')) {
         updateMode("case-study");
         return;
@@ -159,31 +143,11 @@ export function CustomCursor() {
         return;
       }
 
-      // Check for website link hovers
-      const linkEl = (targetEl.closest('a[href]') || targetEl.closest('[data-cursor="website"]')) as HTMLAnchorElement | null;
+      const linkEl = targetEl.closest('a[href]') as HTMLAnchorElement | null;
       if (linkEl) {
-        const href = linkEl.getAttribute("href") || linkEl.getAttribute("data-url") || "";
-        const isMailto = href.startsWith("mailto:");
-
-        // Exclude footer, come-say-hi social links, explicit default cursor, github activity, and resume/drive links from the website preview hover effect
-        if (
-          linkEl.closest('footer') ||
-          linkEl.closest('#come-say-hi') ||
-          linkEl.closest('[data-slot="github-activity"]') ||
-          linkEl.getAttribute('data-cursor') === 'default' ||
-          href.toLowerCase().includes("drive.google.com")
-        ) {
-          updateMode("default");
-          return;
-        }
-        
+        const href = linkEl.getAttribute("href") || "";
         if (href.includes("/blog/")) {
           updateMode("blog");
-          return;
-        }
-
-        if (href && !isMailto && (href.startsWith("http") || href.startsWith("//") || linkEl.getAttribute("target") === "_blank" || linkEl.getAttribute("data-cursor") === "website" || linkEl.getAttribute("data-cursor") === "arrow")) {
-          updateMode("website", href);
           return;
         }
       }
@@ -254,53 +218,58 @@ export function CustomCursor() {
         transform: "translate3d(-100px, -100px, 0) translate(-50%, -50%)",
       }}
     >
-      {cursorMode === "coming-soon" ? (
-        <div className="overflow-hidden bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md animate-in fade-in zoom-in-95 duration-150 whitespace-nowrap">
-          <span className="inline-block animate-pill-text">
+      {cursorMode === "case-study" ? (
+        <div
+          style={{ background: GREY_PILL_GRADIENT }}
+          className="text-white px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-2.5 animate-in fade-in zoom-in-95 duration-150 whitespace-nowrap border border-white/15 dark:border-white/20 select-none"
+        >
+          <EyeOpenSvgRepoIcon className="w-[26px] h-[26px] text-white shrink-0" />
+          <span className="font-sans text-[15.5px] font-medium tracking-normal text-white">
+            View case study
+          </span>
+        </div>
+      ) : cursorMode === "about-photo" ? (
+        <div
+          style={{ background: GREY_PILL_GRADIENT }}
+          className="text-white px-5 py-2.5 rounded-full shadow-2xl flex items-center justify-center animate-in fade-in zoom-in-95 duration-150 whitespace-nowrap border border-white/15 dark:border-white/20 select-none"
+        >
+          <span className="font-sans text-[15px] font-medium tracking-normal text-white">
+            {PHOTO_QUIRKY_PHRASES[phraseIndex]}
+          </span>
+        </div>
+      ) : cursorMode === "coming-soon" ? (
+        <div
+          style={{ background: GREY_PILL_GRADIENT }}
+          className="text-white px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-2.5 animate-in fade-in zoom-in-95 duration-150 whitespace-nowrap border border-white/15 dark:border-white/20 select-none"
+        >
+          <span className="font-sans text-[15.5px] font-medium tracking-normal text-white">
             Coming soon
           </span>
         </div>
-      ) : cursorMode === "case-study" ? (
-        <div className="overflow-hidden bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md animate-in fade-in zoom-in-95 duration-150 whitespace-nowrap">
-          <span className="inline-block animate-pill-text">
-            View project
-          </span>
-        </div>
       ) : cursorMode === "blog" ? (
-        <div className="overflow-hidden bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md animate-in fade-in zoom-in-95 duration-150 whitespace-nowrap">
-          <span className="inline-block animate-pill-text">
+        <div
+          style={{ background: GREY_PILL_GRADIENT }}
+          className="text-white px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-2.5 animate-in fade-in zoom-in-95 duration-150 whitespace-nowrap border border-white/15 dark:border-white/20 select-none"
+        >
+          <EyeOpenSvgRepoIcon className="w-[26px] h-[26px] text-white shrink-0" />
+          <span className="font-sans text-[15.5px] font-medium tracking-normal text-white">
             Read blog
           </span>
         </div>
-      ) : cursorMode === "website" ? (
-        <div className="flex flex-col gap-2.5 pointer-events-none animate-in fade-in zoom-in-95 duration-150 -translate-x-1/2 -translate-y-4">
-          {/* Top Label */}
-          <div className="flex items-center self-start">
-            <div className="overflow-hidden bg-[#FF00AE] text-white font-sans text-[22px] sm:text-[24px] font-medium tracking-tight px-4 py-1.5 shadow-md">
-              <span className="inline-block animate-pill-text">
-                View website
-              </span>
-            </div>
-          </div>
-
-          {/* Website Preview Card showing Open Graph Meta Image */}
-          <WebsitePreviewCard url={hoveredUrl} />
-        </div>
       ) : cursorMode === "arrow" ? (
-        <div className="w-10 h-10 bg-[#FF00AE] text-white rounded-none flex items-center justify-center animate-in zoom-in-95 duration-150 shadow-lg">
-          <ArrowUpRight className="w-5 h-5 text-white stroke-[2.5]" />
+        <div
+          style={{ background: GREY_PILL_GRADIENT }}
+          className="w-10 h-10 text-white rounded-full flex items-center justify-center animate-in zoom-in-95 duration-150 shadow-xl select-none border border-white/15"
+        >
+          <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
         </div>
       ) : cursorMode === "text" ? (
-        <div className="flex flex-col items-center justify-center animate-in fade-in zoom-in-95 duration-100">
-          {/* Top Cap */}
-          <div className="w-[7px] h-[2px] bg-[#FF00AE] rounded-none" />
-          {/* Vertical Stem */}
-          <div className="w-[2px] h-[17px] bg-[#FF00AE]" />
-          {/* Bottom Cap */}
-          <div className="w-[7px] h-[2px] bg-[#FF00AE] rounded-none" />
-        </div>
+        <div className="w-[14px] h-[14px] bg-[#18181B]/80 dark:bg-[#FAF8F5]/80 rounded-full transition-all duration-150" />
       ) : (
-        <div className="w-[22px] h-[22px] bg-[#FF00AE] rounded-none transition-all duration-150 shadow-sm" />
+        <div
+          style={{ background: GREY_PILL_GRADIENT }}
+          className="w-[24px] h-[24px] sm:w-[26px] sm:h-[26px] border border-white/20 dark:border-white/25 rounded-full transition-all duration-150 shadow-md"
+        />
       )}
     </div>
   );

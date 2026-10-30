@@ -11,7 +11,7 @@ import { LottiePlayer } from "@/components/LottiePlayer";
 import { OrcaCardCover } from "@/components/OrcaCardCover";
 import { CustomCursor } from "@/components/CustomCursor";
 import { NotesSection } from "@/components/NotesSection";
-import { Moon, Sun, X, Clock, Menu, Mail, SlidersHorizontal, ChevronDown, Folder, User, BookOpen, FileText, Home, Dribbble, Sparkles } from "lucide-react";
+import { Moon, Sun, X, Clock, Menu, Mail, Check, Copy, SlidersHorizontal, ChevronDown, Folder, User, BookOpen, FileText, Home, Dribbble, Sparkles, ArrowUpRight } from "lucide-react";
 
 function TypewriterName() {
   const words = ["pynthamil", "பைந்தமிழ்"];
@@ -136,10 +136,45 @@ export function PortfolioView({
   const [currentTime, setCurrentTime] = useState<string>("");
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isNameHovered, setIsNameHovered] = useState(false);
+  const [blogSearchQuery, setBlogSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [blogSearchQuery, setBlogSearchQuery] = useState("");
 
-  // Sync theme with localStorage or system preference
+  // Robust clipboard copy with fallback
+  const copyToClipboard = (text: string) => {
+    playTone(880);
+    const triggerSuccess = () => {
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2200);
+    };
+
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard
+        .writeText(text)
+        .then(triggerSuccess)
+        .catch(() => {
+          fallbackCopyText(text);
+          triggerSuccess();
+        });
+    } else {
+      fallbackCopyText(text);
+      triggerSuccess();
+    }
+  };
+
+  const fallbackCopyText = (text: string) => {
+    try {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      textArea.style.top = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+    } catch (e) {}
+  };
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -255,8 +290,14 @@ export function PortfolioView({
     const isSemantic = project.description === "Semantic Email Copilot";
     const isCodedex = project.description === "CodeDex Mobile";
     const isOrca = project.description === "ORCA" || project.title === "ORCA";
-    const isTallCard = isSemantic || isCodedex;
-    const aspectClass = isOrca ? "aspect-[1.15/1] sm:aspect-[1.35/1]" : isTallCard ? "aspect-[3.2/5] sm:aspect-[1/1.3]" : "aspect-[3.6/4] sm:aspect-[1.15/1]";
+    const isTallCard = isCodedex;
+    const aspectClass = isSemantic
+      ? "aspect-square"
+      : isOrca
+      ? "aspect-[1.15/1] sm:aspect-[1.35/1]"
+      : isTallCard
+      ? "aspect-[3.2/5] sm:aspect-[1/1.3]"
+      : "aspect-[3.6/4] sm:aspect-[1.15/1]";
     const imageSizeClass = "h-[85%] sm:h-[85%]";
     const hoverScaleClass = "";
 
@@ -283,7 +324,7 @@ export function PortfolioView({
               isOrca 
                 ? "bg-[#328B96] dark:bg-[#05AAB6]/30 dark:border dark:border-[#05AAB6]/25" 
                 : isSemantic 
-                ? "bg-[#E2E2E7] dark:bg-[#222225] dark:border dark:border-white/10"
+                ? "bg-[#EEF0FF] dark:bg-[#6666FF]/20 dark:border dark:border-[#6666FF]/20"
                 : "bg-[#EBF1FE] dark:bg-[#2B66F1]/20 dark:border dark:border-[#2B66F1]/20"
             }`}
             style={{ 
@@ -337,14 +378,131 @@ export function PortfolioView({
             ) : null}
           </div>
         )}
-        <div className="flex flex-col mt-2 px-1">
-          <p className="text-[26px] sm:text-[30px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
+        <div className="flex flex-col mt-2.5 px-1 gap-2.5">
+          <p className="text-[24px] sm:text-[28px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
             {project.title}
           </p>
+
+          {project.impact && (
+            <div className="pt-0.5 flex items-center">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-[13px] sm:text-[13.5px] font-sans font-medium bg-black/[0.04] dark:bg-white/[0.07] text-[#1E293B] dark:text-[#E2E8F0] border border-black/[0.06] dark:border-white/[0.08]">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                <span>{project.impact}</span>
+              </span>
+            </div>
+          )}
         </div>
       </div>
     );
   };
+
+  const getHeaderData = (): {
+    subtitle: React.ReactNode;
+    iconSvg?: string;
+    iconAlt?: string;
+  } | null => {
+    switch (viewMode) {
+      case "about":
+        return null;
+      case "blog":
+        return null;
+      case "notes":
+        return null;
+      case "home":
+      case "projects":
+      default:
+        return {
+          subtitle: (
+            <>
+              hey! i&apos;m pynthamil{" "}
+              <span className="font-sans font-normal text-slate-400 dark:text-slate-500 text-[0.8em] tracking-normal select-text">
+                [பைந்தமிழ்]
+              </span>
+              ,<br className="hidden sm:inline" />{" "}
+              an engineer who likes making ideas tangible.
+            </>
+          ),
+        };
+    }
+  };
+
+  const renderHeader = () => {
+    const data = getHeaderData();
+    if (!data) return null;
+    const { subtitle, iconSvg, iconAlt } = data;
+    return (
+      <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-6 sm:pb-8">
+        <div className="max-w-[1640px] mx-auto flex flex-col items-center text-center">
+          {/* Subtitle in Poppins */}
+          <h1 className="font-sans font-medium text-[26px] sm:text-[32px] md:text-[36px] lg:text-[40px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.36] tracking-tight text-center max-w-[1320px] mx-auto min-h-[68px] sm:min-h-[82px] md:min-h-[96px] flex items-center justify-center whitespace-pre-line">
+            <span>
+              {subtitle}
+              {iconSvg && (
+                <img
+                  src={iconSvg}
+                  alt={iconAlt || "icon"}
+                  className="inline-block w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] md:w-[46px] md:h-[46px] lg:w-[50px] lg:h-[50px] dark:invert align-middle ml-2.5 sm:ml-3.5 -translate-y-0.5 sm:-translate-y-1 select-none"
+                />
+              )}
+            </span>
+          </h1>
+        </div>
+      </div>
+    );
+  };
+
+  const renderNavbar = () => (
+    <div className="sticky top-4 sm:top-5 z-50 w-full px-4 mb-2 sm:mb-4 flex justify-center items-center">
+      <header className="bg-[#F0F0F3]/90 dark:bg-[#1E1E22]/90 backdrop-blur-md rounded-lg p-1.5 sm:p-2 flex items-center transition-colors">
+        <nav className="flex items-center space-x-1.5 sm:space-x-2 text-[15px] sm:text-[17px] font-medium">
+          <button
+            onClick={() => handleNavClick("home")}
+            className={`inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-md transition-all cursor-pointer select-none ${
+              (viewMode === "home" || viewMode === "projects")
+                ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
+                : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+            }`}
+          >
+            <Folder className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] stroke-[2.2]" />
+            <span>Work</span>
+          </button>
+          <button
+            onClick={() => handleNavClick("about")}
+            className={`inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-md transition-all cursor-pointer select-none ${
+              viewMode === "about"
+                ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
+                : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+            }`}
+          >
+            <User className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] stroke-[2.2]" />
+            <span>About</span>
+          </button>
+          <button
+            onClick={() => handleNavClick("blog")}
+            className={`inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-md transition-all cursor-pointer select-none ${
+              viewMode === "blog"
+                ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
+                : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+            }`}
+          >
+            <BookOpen className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] stroke-[2.2]" />
+            <span>Blog</span>
+          </button>
+          <button
+            onClick={() => handleNavClick("notes")}
+            className={`inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-md transition-all cursor-pointer select-none ${
+              viewMode === "notes"
+                ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
+                : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+            }`}
+          >
+            <FileText className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] stroke-[2.2]" />
+            <span>Notes</span>
+          </button>
+        </nav>
+      </header>
+    </div>
+  );
 
   return (
     <>
@@ -352,190 +510,21 @@ export function PortfolioView({
         {/* Soft atmospheric ambient glow */}
         <div className="ambient-glow" />
 
-        {/* Main Container */}
-        {/* Top Navbar Container */}
-        <div className="sticky top-4 sm:top-5 z-50 w-full max-w-[780px] mx-auto mb-2 sm:mb-4 flex flex-col items-center">
-          <header className="w-full bg-slate-100/90 dark:bg-[#1A1A1A]/90 backdrop-blur-lg rounded-sm border-2 border-black/[0.07] dark:border-white/[0.08] px-4 sm:px-6 md:px-7 py-1.5 sm:py-2 flex items-center justify-between transition-colors">
-            {/* Left: Logo & Name */}
-            <button
-              onClick={() => viewMode !== "home" && handleNavClick("home")}
-              className={`flex items-center gap-2 sm:gap-2.5 shrink-0 focus:outline-none ${viewMode !== "home" ? "cursor-pointer hover:opacity-80 transition-opacity" : "cursor-default"}`}
-              aria-label="Go to Home"
-            >
-              <img 
-                src="/logo.png" 
-                alt="logo"
-                className="h-[34px] sm:h-[38px] object-contain -ml-1.5"
-              />
-              <span className="font-sans font-semibold text-[22px] sm:text-[25px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] select-none leading-none -translate-y-[1px]">
-                pyndu_logs*
-              </span>
-            </button>
-
-            {/* Right: Nav Links & Tools */}
-            <div className="flex items-center justify-end gap-3 sm:gap-5 -mr-1 sm:-mr-2 shrink-0">
-              <nav className="hidden lg:flex items-center shrink-0 space-x-1 text-[17px] lg:text-[19px] font-medium">
-                <button
-                  onClick={() => handleNavClick("projects")}
-                  className={`inline-flex items-center px-3.5 lg:px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
-                    viewMode === "projects"
-                      ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
-                  }`}
-                >
-                  <span>Work</span>
-                </button>
-                <button
-                  onClick={() => handleNavClick("about")}
-                  className={`inline-flex items-center px-3.5 lg:px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
-                    viewMode === "about"
-                      ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
-                  }`}
-                >
-                  <span>About</span>
-                </button>
-                <button
-                  onClick={() => handleNavClick("blog")}
-                  className={`inline-flex items-center px-3.5 lg:px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
-                    viewMode === "blog"
-                      ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
-                  }`}
-                >
-                  <span>Blog</span>
-                </button>
-                <button
-                  onClick={() => handleNavClick("notes")}
-                  className={`inline-flex items-center px-3.5 lg:px-4 py-1.5 rounded-none transition-all cursor-pointer select-none ${
-                    viewMode === "notes"
-                      ? "bg-slate-200/80 dark:bg-slate-800 text-slate-900 dark:text-slate-100 font-medium"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
-                  }`}
-                >
-                  <span>Notes</span>
-                </button>
-              </nav>
-
-              {/* Mobile Menu Toggle */}
-              <button 
-                className="lg:hidden p-2 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors cursor-pointer"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label="Toggle navigation menu"
-              >
-                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
-            </div>
-          </header>
-
-          {/* Mobile Menu Dropdown */}
-          {isMobileMenuOpen && (
-            <>
-              {/* Tap Outside Backdrop */}
-              <div 
-                className="fixed inset-0 z-40 bg-black/20 backdrop-blur-[2px] lg:hidden"
-                onClick={() => setIsMobileMenuOpen(false)}
-              />
-              {/* Dropdown Menu Box */}
-              <div className="lg:hidden relative mt-2.5 w-full bg-slate-100/95 dark:bg-[#1A1A1A]/95 backdrop-blur-lg rounded-2xl shadow-xl border border-slate-200/50 dark:border-slate-800/50 p-4 flex flex-col gap-2 z-50 animate-in slide-in-from-top-2 fade-in duration-200">
-                <button
-                  onClick={() => { handleNavClick("home"); setIsMobileMenuOpen(false); }}
-                  className={`flex items-center text-left px-4 py-3 rounded-none font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "home" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
-                >
-                  Home
-                </button>
-                <button
-                  onClick={() => { handleNavClick("projects"); setIsMobileMenuOpen(false); }}
-                  className={`flex items-center text-left px-4 py-3 rounded-none font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "projects" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
-                >
-                  Work
-                </button>
-                <button
-                  onClick={() => { handleNavClick("about"); setIsMobileMenuOpen(false); }}
-                  className={`flex items-center text-left px-4 py-3 rounded-none font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "about" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
-                >
-                  About
-                </button>
-                <button
-                  onClick={() => { handleNavClick("blog"); setIsMobileMenuOpen(false); }}
-                  className={`flex items-center text-left px-4 py-3 rounded-none font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "blog" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
-                >
-                  Blog
-                </button>
-                <button
-                  onClick={() => { handleNavClick("notes"); setIsMobileMenuOpen(false); }}
-                  className={`flex items-center text-left px-4 py-3 rounded-none font-medium text-[20px] transition-colors cursor-pointer ${viewMode === "notes" ? "bg-slate-200 dark:bg-slate-800 text-[#FF00AE]" : "text-[#2C2C2C] dark:text-[#F2F2F2]"}`}
-                >
-                  Notes
-                </button>
-              </div>
-            </>
-          )}
-        </div>
+        {/* Top Centered Sticky Navbar */}
+        {renderNavbar()}
 
         <main className="w-full relative z-10 flex flex-col max-w-[640px]">
-          {/* Top Header Row */}
-
+          {/* Header text at fixed area for ALL pages */}
+          {renderHeader()}
 
         {/* ========================================================
-            VIEW 1: HOME VIEW
+            VIEW 1: HOME VIEW & PROJECTS VIEW
             ======================================================== */}
-        {viewMode === "home" && (
+        {(viewMode === "home" || viewMode === "projects") && (
           <div className="flex flex-col animate-in fade-in duration-200">
-            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mt-6 sm:mt-10 md:mt-12">
-              <div className="flex flex-col w-full max-w-[1640px] mx-auto">
-                {/* Minimal Hero Introduction */}
-                <div className="relative pt-2 sm:pt-4 mb-2 sm:mb-4">
-                  <h1 className="font-sans font-medium text-[26px] sm:text-[32px] md:text-[36px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.35] tracking-tight">
-                    hey! i'm pynthamil pavendan{" "}
-                    <span className="font-sans font-normal text-slate-400 dark:text-slate-500">
-                      [பைந்தமிழ்]
-                    </span>
-                    ,<br />
-                    i’m an engineer who designs and builds things just for the hell of it.
-                  </h1>
-                </div>
-              </div>
-            </div>
-
-
-            
-          
-            {/* Work Section */}
+            {/* Work Section (Project Cover Cards) */}
             {portfolioData.projects.length > 0 && (
-              <>
-                <section id="work-section" className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mt-6 sm:mt-10 mb-12 sm:mb-14 scroll-mt-24">
-                  <div className="max-w-[1640px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                    {/* Mobile & Half-Screen View: Single Column */}
-                    <div className="flex lg:hidden flex-col gap-6 w-full">
-                      {portfolioData.projects.map(renderProjectCard)}
-                    </div>
-
-                    {/* Desktop View: Split 2 Columns */}
-                    <div className="hidden lg:flex flex-row gap-6 w-full items-start">
-                      <div className="flex flex-col gap-6 w-1/2">
-                        {portfolioData.projects.filter((_, i) => i % 2 === 0).map(renderProjectCard)}
-                      </div>
-                      <div className="flex flex-col gap-6 w-1/2">
-                        {portfolioData.projects.filter((_, i) => i % 2 !== 0).map(renderProjectCard)}
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </>
-            )}
-
-          </div>
-        )}
-
-                {/* ========================================================
-            VIEW: PROJECTS VIEW
-            ======================================================== */}
-        {viewMode === "projects" && (
-          <div className="flex flex-col animate-in fade-in duration-200">
-            {/* Work Section */}
-            {portfolioData.projects.length > 0 && (
-              <section className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mb-12 sm:mb-14">
+              <section id="work-section" className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mb-16 sm:mb-20 scroll-mt-24">
                 <div className="max-w-[1640px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {/* Mobile & Half-Screen View: Single Column */}
                   <div className="flex lg:hidden flex-col gap-6 w-full">
@@ -554,6 +543,7 @@ export function PortfolioView({
                 </div>
               </section>
             )}
+
           </div>
         )}
 
@@ -561,277 +551,95 @@ export function PortfolioView({
             VIEW 2: ABOUT VIEW
            ======================================================== */}
         {viewMode === "about" && (
-          <>
-          <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-5 sm:px-8 md:px-12 flex flex-col animate-in fade-in duration-200 mt-10 sm:mt-16">
-            <div className="flex flex-col w-full max-w-[640px] mx-auto items-start text-left">
-              
-              <Image 
-                src="/photo-dump/img1.jpeg" 
-                alt="Pynthamil" 
-                width={640}
-                height={427}
-                priority
-                className="w-full max-w-[500px] sm:max-w-[640px] aspect-[3/2] object-cover rounded-none mb-8 mx-auto self-center"
-              />
-
-              <h1 className="font-sans font-medium text-[32px] sm:text-[40px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-[1.15] tracking-tight mb-6 w-full text-left">
-                hey! i'm pynthamil{" "}
-                <span className="font-sans font-normal text-slate-400 dark:text-slate-500 text-[0.85em]">
-                  [பைந்தமிழ்]
-                </span>{" "}
-                pavendan
-              </h1>
-              
-              <p className="text-[17.5px] sm:text-[19.5px] text-[#475569] dark:text-[#94A3B8] leading-[1.85] font-sans mb-12 w-full text-left">
-                I'm a student developer, but mostly I'm just a very curious human who loves figuring out how things work. When I'm not at my keyboard, I'm probably listening to music, reading a good book, or trying not to take life too seriously.
-              </p>
-
-              <div className="w-full flex flex-col text-left">
-                {/* Experience Section - first in About */}
-            <section id="experience" className="w-full scroll-mt-24">
-              <h2 className="font-sans font-semibold text-[26px] sm:text-[32px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] mb-2 leading-none">
-                experience
-              </h2>
-              <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-1 mb-5 flex items-center space-x-1.5">
-                <span className="select-none">└</span>
-                <span>where i've worked</span>
-              </p>
-              <ul className="flex flex-col font-sans text-[16.5px] sm:text-[18px] tracking-[0.02em]">
-                {portfolioData.experiences.map((item) => (
-                  <li
-                    key={item.id}
-                    className="group flex flex-col py-4 sm:py-5"
-                  >
-                    <div className="flex items-start justify-between w-full">
-                      <div className="flex items-start flex-1 pr-4">
-                        <div className="flex flex-col justify-center h-full">
-                          <span className="font-sans font-medium underline decoration-wavy underline-offset-[5px] decoration-1 decoration-[#FF00AE]/30 dark:decoration-[#FF00AE]/30 text-[16px] sm:text-[17.5px] text-[#334155] dark:text-[#E2E8F0] tracking-[0.01em]">
-                            {item.role.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())} @ {item.company.toLowerCase().replace(/\b\w/g, s => s.toUpperCase())}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="text-right text-[13.5px] sm:text-[14.5px] text-[#64748B] dark:text-[#8E95B8] capitalize font-normal tracking-[0.02em] whitespace-nowrap pt-0.5">
-                        {item.period.toLowerCase()}
-                      </div>
-                    </div>
-                    
-                    {item.bullets && item.bullets.length > 0 && (
-                      <ul className="mt-4 flex flex-col space-y-2.5 text-[15px] sm:text-[16.5px] text-[#475569] dark:text-[#CBD5E1] font-sans font-normal leading-relaxed">
-                        {item.bullets.map((bullet, idx) => (
-                          <li key={idx} className="flex items-start gap-2.5">
-                            <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-                <div id="fun-facts" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 mt-6 scroll-mt-24">
-                  <div className="flex items-center justify-between py-1.5">
-                    <div>
-                      <h2 className="font-sans font-semibold text-[26px] sm:text-[32px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
-                        fun facts & when i touch grass
-                      </h2>
-                      <p className="font-sans text-[14px] sm:text-[15px] text-[#475569] dark:text-[#94A3B8] mt-1 flex items-center space-x-1.5">
-                        <span className="select-none">└</span>
-                        <span>learning, exploring, and living</span>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
-                    <div className="flex items-start space-x-2.5">
-                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                      <span>music taste: a bit of everything &rarr; if it sounds good, I'm listening</span>
-                    </div>
-                    <div className="flex items-start space-x-2.5">
-                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                      <span>I love reading books, watching movies, writing, and drawing</span>
-                    </div>
-                    <div className="flex items-start space-x-2.5">
-                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                      <span>personality type: INTJ</span>
-                    </div>
-                    <div className="flex items-start space-x-2.5">
-                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                      <span>I love chess and enjoy challenging myself just for the plot</span>
-                    </div>
-                    <div className="flex items-start space-x-2.5">
-                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                      <span>I don't believe the saying "curiosity kills the cat" &mdash; haha</span>
-                    </div>
-                  </div>
-                </div>
-
-                                <div id="github-activity" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 scroll-mt-24">
-                  <div className="flex items-center justify-between py-1.5">
-                    <div>
-                      <h2 className="font-sans font-semibold text-[26px] sm:text-[32px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
-                        code activity
-                      </h2>
-                      <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-1 flex items-center space-x-1.5">
-                        <span className="select-none">└</span>
-                        <span>what i've been building</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-8">
-                    <GitHubActivity username="Pynthamil" />
-                  </div>
-                </div>
-
-                <div id="the-generalist" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 scroll-mt-24">
-                  <div className="flex items-center justify-between py-1.5">
-                    <div>
-                      <h2 className="font-sans font-semibold text-[26px] sm:text-[32px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
-                        the generalist
-                      </h2>
-                      <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-1 flex items-center space-x-1.5">
-                        <span className="select-none">↳</span>
-                        <span>wildcard, generalist &amp; professional dot-connector</span>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
-                    <div className="flex items-start space-x-2.5">
-                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                      <span>
-                        I don&apos;t fit into just one box &mdash; and I prefer it that way
-                      </span>
-                    </div>
-
-                    <div className="flex items-start space-x-2.5">
-                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                      <span>
-                        Bouncing between design, code, weird ideas, and working products
-                      </span>
-                    </div>
-
-                    <div className="flex items-start space-x-2.5">
-                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                      <span>
-                        Developer, designer, and unapologetic generalist
-                      </span>
-                    </div>
-
-                    <div className="flex items-start space-x-2.5">
-                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                      <span>
-                        Connecting how something feels, how it works, and why it should exist
-                      </span>
-                    </div>
-
-                    <div className="flex items-start space-x-2.5">
-                      <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                      <span>
-                        The person you call when there&apos;s a weird problem nobody knows how to solve
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div id="come-say-hi" className="border-t border-neutral-200/70 dark:border-neutral-400/20 pt-8 pb-10 scroll-mt-24">
-              <div
-                
-                className="flex items-center justify-between py-1.5"
-              >
-                <div>
-                  <h2 className="font-sans font-semibold text-[26px] sm:text-[32px] tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] leading-none mb-2">
-                    come say hi
-                  </h2>
-                  <p className="font-sans text-[13.5px] sm:text-[14.5px] text-[#475569] dark:text-[#94A3B8] mt-1 flex items-center space-x-1.5">
-                    <span className="select-none">└</span>
-                    <span>the internet&apos;s version of knocking on my door</span>
+          <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 flex flex-col animate-in fade-in duration-200">
+            <div className="max-w-[1140px] mx-auto w-full pt-4 sm:pt-8 pb-16 sm:pb-24">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-start">
+                {/* Left 6 cols: Bio & Links */}
+                <div className="lg:col-span-6 flex flex-col space-y-7 sm:space-y-8 text-[21px] sm:text-[24px] md:text-[26px] text-[#222222] dark:text-[#E2E8F0] leading-[1.56] tracking-tight font-sans text-left">
+                  <p>
+                    i&apos;m someone who gets curious about almost everything. one day it&apos;s a new framework, the next it&apos;s a design system, and somewhere in between i&apos;ve probably started three projects i swear i&apos;ll finish.
                   </p>
-                </div>
-                
-              </div>
+                  <p>
+                    i enjoy the process of taking an idea from a rough thought to something people can actually use. there&apos;s always something new to learn, and i don&apos;t think i&apos;ll ever run out of things to be interested in.
+                  </p>
 
-              <div className="mt-4 space-y-3.5 text-[17px] sm:text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] leading-relaxed font-sans animate-in fade-in duration-150">
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      Always down to chat about code, design systems, crazy ideas, or good music
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      Drop a line at{" "}
-                      <a
-                        href={`mailto:${portfolioData.email}`}
-                        className="text-[#FF00AE] underline underline-offset-4 decoration-wavy decoration-[#FF00AE] font-medium"
-                      >
-                        {portfolioData.email}
-                      </a>
-                    </span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <span className="text-[#FF00AE] font-bold mt-0.5 shrink-0">+</span>
-                    <span>
-                      Find me on{" "}
-                      <a
-                        href="https://x.com/pynwrites"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-cursor="default"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-wavy hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium cursor-pointer"
-                      >
-                        X
-                      </a>
-                      ,{" "}
-                      <a
-                        href="https://github.com/Pynthamil"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-cursor="default"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-wavy hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium cursor-pointer"
-                      >
-                        GitHub
-                      </a>
-                      ,{" "}
-                      <a
-                        href="https://leetcode.com/u/HashKnight/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-cursor="default"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-wavy hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium cursor-pointer"
-                      >
-                        LeetCode
-                      </a>
-                      , or{" "}
-                      <a
-                        href="https://linkedin.com/in/pynthamil-pavendan"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-cursor="default"
-                        className="text-[#2C2C2C] dark:text-[#F2F2F2] underline underline-offset-4 decoration-[#2C2C2C]/30 dark:decoration-[#F2F2F2]/40 hover:decoration-wavy hover:decoration-[#2C2C2C] dark:hover:decoration-[#F2F2F2] font-medium cursor-pointer"
-                      >
-                        LinkedIn
-                      </a>
-                    </span>
+                  {/* Social / Contact Links */}
+                  <div className="pt-2 flex flex-wrap items-center gap-2.5">
+                    <a
+                      href="mailto:pavendanpynthamil@gmail.com"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-black/[0.05] dark:bg-white/[0.08] hover:bg-black/[0.1] dark:hover:bg-white/[0.15] text-[#111111] dark:text-[#F2F2F2] text-[15px] sm:text-[16px] font-medium tracking-normal transition-colors"
+                    >
+                      <span>Email</span>
+                      <span className="text-[13px] opacity-60">↗</span>
+                    </a>
+                    <a
+                      href="https://x.com/pynwrites"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-black/[0.05] dark:bg-white/[0.08] hover:bg-black/[0.1] dark:hover:bg-white/[0.15] text-[#111111] dark:text-[#F2F2F2] text-[15px] sm:text-[16px] font-medium tracking-normal transition-colors"
+                    >
+                      <span>X (@pynwrites)</span>
+                      <span className="text-[13px] opacity-60">↗</span>
+                    </a>
+                    <a
+                      href="https://github.com/Pynthamil"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-black/[0.05] dark:bg-white/[0.08] hover:bg-black/[0.1] dark:hover:bg-white/[0.15] text-[#111111] dark:text-[#F2F2F2] text-[15px] sm:text-[16px] font-medium tracking-normal transition-colors"
+                    >
+                      <span>GitHub</span>
+                      <span className="text-[13px] opacity-60">↗</span>
+                    </a>
+                    <a
+                      href="https://linkedin.com/in/pynthamil-pavendan"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-black/[0.05] dark:bg-white/[0.08] hover:bg-black/[0.1] dark:hover:bg-white/[0.15] text-[#111111] dark:text-[#F2F2F2] text-[15px] sm:text-[16px] font-medium tracking-normal transition-colors"
+                    >
+                      <span>LinkedIn</span>
+                      <span className="text-[13px] opacity-60">↗</span>
+                    </a>
+                    <a
+                      href="https://leetcode.com/u/HashKnight/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-black/[0.05] dark:bg-white/[0.08] hover:bg-black/[0.1] dark:hover:bg-white/[0.15] text-[#111111] dark:text-[#F2F2F2] text-[15px] sm:text-[16px] font-medium tracking-normal transition-colors"
+                    >
+                      <span>LeetCode</span>
+                      <span className="text-[13px] opacity-60">↗</span>
+                    </a>
                   </div>
                 </div>
-            </div>
+
+                {/* Right 6 cols: Portrait Photo */}
+                <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
+                  <div
+                    data-cursor="about-photo"
+                    className="relative w-full max-w-[540px] aspect-[3/4] rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800 shadow-sm cursor-none group"
+                  >
+                    <Image
+                      src="/new_pic.svg"
+                      alt="Pynthamil"
+                      fill
+                      priority
+                      unoptimized
+                      sizes="(max-width: 1024px) 100vw, 45vw"
+                      className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    />
+                    {/* Mobile touch fallback badge */}
+                    <div
+                      style={{
+                        background: "linear-gradient(180deg, #18181B 0%, #18181B 35%, #222226 52%, #2D2E33 68%, #3B3C44 80%, #494B54 90%, #565863 96%, #646775 100%)",
+                      }}
+                      className="sm:hidden absolute bottom-3 right-3 text-white px-4 py-1.5 rounded-full text-[13px] font-sans font-medium select-none shadow-lg border border-white/15 dark:border-white/20"
+                    >
+                      yes, i actually exist :)
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            </div>
-            <div className="fixed left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 select-none hidden lg:block"><ProjectSidebar alwaysVisible={true}
-              sections={[
-                { id: "experience", label: "Experience" },
-                { id: "fun-facts", label: "Fun Facts & Grass" },
-                { id: "github-activity", label: "Code Activity" },
-                { id: "the-generalist", label: "The Generalist" },
-                { id: "come-say-hi", label: "Come Say Hi" }
-              ]} 
-              playTone={soundOn ? playClickSound : undefined}
-            /></div>
-          </>
+          </div>
         )}
 
 {/* ========================================================
@@ -863,14 +671,15 @@ export function PortfolioView({
           });
 
           return (
-            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 flex flex-col animate-in fade-in duration-200">
-              <div className="flex flex-col space-y-6 w-full max-w-[1640px] mx-auto">
-                {/* Blog Search & Filter Pill Header */}
+            <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 flex flex-col animate-in fade-in duration-200">
+              <div className="px-4 sm:px-6 md:px-8 w-full flex flex-col">
+                <div className="flex flex-col space-y-6 w-full max-w-[1640px] mx-auto">
+                  {/* Blog Search & Filter Pill Header */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 w-full mt-4 mb-2">
                   {/* Search Bar */}
-                  <div className="relative w-full sm:w-[440px]">
+                  <div className="relative w-full sm:w-[280px]">
                     <svg 
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748B] dark:text-[#94A3B8]" 
+                      className="absolute left-3.5 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-[#64748B] dark:text-[#94A3B8]" 
                       fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -880,7 +689,7 @@ export function PortfolioView({
                       value={blogSearchQuery}
                       onChange={(e) => setBlogSearchQuery(e.target.value)}
                       placeholder="Search"
-                      className="w-full bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] font-sans text-[14px] rounded-md py-2 pl-10 pr-4 focus:outline-none focus:border-[#00B5B2] dark:focus:border-[#00B5B2] transition-colors placeholder:text-[#94A3B8] dark:placeholder:text-[#64748B]"
+                      className="w-full bg-white dark:bg-black border border-neutral-200 dark:border-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] font-sans text-[15px] sm:text-[16px] rounded-none py-2.5 sm:py-3 pl-11 pr-4 focus:outline-none focus:border-[#00B5B2] dark:focus:border-[#00B5B2] transition-colors placeholder:text-[#94A3B8] dark:placeholder:text-[#64748B]"
                     />
                   </div>
 
@@ -891,14 +700,14 @@ export function PortfolioView({
                         playTone(880);
                         setIsFilterDropdownOpen(!isFilterDropdownOpen);
                       }}
-                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-md font-sans text-[13.5px] font-medium transition-all shadow-sm select-none border cursor-pointer ${
+                      className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-none font-sans text-[14px] sm:text-[15px] font-medium transition-all shadow-sm select-none border cursor-pointer ${
                         blogFilter !== "all"
                           ? "bg-[#00B5B2]/10 dark:bg-[#00B5B2]/20 border-[#00B5B2] text-[#00B5B2] dark:text-[#00B5B2]"
                           : "bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 text-[#2C2C2C] dark:text-[#F2F2F2] hover:border-[#00B5B2] dark:hover:border-[#00B5B2]"
                       }`}
                       aria-label="Filter posts by category"
                     >
-                      <SlidersHorizontal className="w-3.5 h-3.5" />
+                      <SlidersHorizontal className="w-4 h-4" />
                       <span className="capitalize">{blogFilter === "all" ? "Filter" : blogFilter}</span>
                       <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isFilterDropdownOpen ? "rotate-180" : ""}`} />
                     </button>
@@ -910,7 +719,7 @@ export function PortfolioView({
                           className="fixed inset-0 z-20" 
                           onClick={() => setIsFilterDropdownOpen(false)} 
                         />
-                        <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-[#1A1A1A] border border-neutral-200 dark:border-neutral-800 rounded-md shadow-xl p-1.5 z-30 animate-in fade-in zoom-in-95 duration-150">
+                        <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-[#1A1A1A] border border-neutral-200 dark:border-neutral-800 rounded-none shadow-xl p-1.5 z-30 animate-in fade-in zoom-in-95 duration-150">
                           <div className="px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8]">
                             Filter by Category
                           </div>
@@ -928,7 +737,7 @@ export function PortfolioView({
                                   setBlogFilter(cat);
                                   setIsFilterDropdownOpen(false);
                                 }}
-                                className={`w-full flex items-center justify-between px-3 py-1.5 rounded text-[13.5px] font-sans transition-colors cursor-pointer ${
+                                className={`w-full flex items-center justify-between px-3 py-1.5 rounded-none text-[13.5px] font-sans transition-colors cursor-pointer ${
                                   isSelected
                                     ? "bg-[#00B5B2]/10 dark:bg-[#00B5B2]/20 text-[#00B5B2] font-semibold"
                                     : "text-[#2C2C2C] dark:text-[#F2F2F2] hover:bg-neutral-100 dark:hover:bg-neutral-800/60"
@@ -970,28 +779,32 @@ export function PortfolioView({
                 {/* Blog Posts Cards */}
                 <section className="w-full">
                   {filteredBlogPosts.length > 0 ? (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 pt-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-7 sm:gap-x-8 lg:gap-x-10 gap-y-10 sm:gap-y-14 pt-2">
                       {filteredBlogPosts.map((post, idx) => (
                         <div key={idx} className="flex flex-col h-full">
                           <a
                             href={`/blog/${post.slug}`}
                             onClick={() => playTone(880)}
                             data-cursor="blog"
-                            className="group select-none cursor-pointer flex flex-col h-full gap-3"
+                            className="group select-none cursor-pointer flex flex-col h-full gap-3.5"
                           >
                             {post.image ? (
-                              <div className="w-full aspect-[3/2] rounded-none overflow-hidden relative">
-                                <img src={post.image} alt={post.title} className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+                              <div className="w-full aspect-[16/10] overflow-hidden relative bg-neutral-100 dark:bg-neutral-800">
+                                <img
+                                  src={post.image}
+                                  alt={post.title}
+                                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                                />
                               </div>
                             ) : (
-                              <div className="w-full aspect-[3/2] rounded-none overflow-hidden relative bg-neutral-100 dark:bg-neutral-800 transition-transform duration-300 group-hover:scale-105" />
+                              <div className="w-full aspect-[16/10] overflow-hidden relative bg-neutral-100 dark:bg-neutral-800 transition-transform duration-300 group-hover:scale-105" />
                             )}
-                            <div className="space-y-2 flex flex-col flex-1 px-1 sm:px-3 pt-1">
-                              <h2 className="text-[18px] sm:text-[19.5px] font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] transition-colors leading-snug">
+                            <div className="flex flex-col flex-1 px-0.5 pt-1">
+                              <h2 className="text-[18px] sm:text-[19px] md:text-[20px] font-sans font-semibold tracking-tight text-[#2C2C2C] dark:text-[#F2F2F2] group-hover:text-[#DE6B87] dark:group-hover:text-[#FB7185] transition-colors leading-snug line-clamp-2">
                                 {post.title}
                               </h2>
-                              <div className="flex items-center gap-2 font-sans text-[12px] sm:text-[12.5px] uppercase tracking-wide text-[#64748B] dark:text-[#94A3B8]">
-                                <span>{post.date}</span>
+                              <div className="flex items-center gap-1.5 mt-1.5 font-sans text-[12px] sm:text-[12.5px] text-[#64748B] dark:text-[#94A3B8]">
+                                <span>{post.readingTime ? `${post.readingTime} read` : post.date}</span>
                               </div>
                             </div>
                           </a>
@@ -1015,6 +828,7 @@ export function PortfolioView({
                   )}
                 </section>
               </div>
+              </div>
             </div>
           );
         })()}
@@ -1023,7 +837,9 @@ export function PortfolioView({
             VIEW 4: NOTES VIEW
             ======================================================== */}
         {viewMode === "notes" && (
-          <NotesSection playTone={playTone} soundOn={soundOn} />
+          <div className="flex flex-col animate-in fade-in duration-200">
+            <NotesSection playTone={playTone} soundOn={soundOn} />
+          </div>
         )}
 
         {/* Unified Footer */}

@@ -30,6 +30,7 @@ export interface Project {
   themeColor?: string;
   longDescription?: string;
   id?: string;
+  impact?: string;
 }
 
 export interface Post {
@@ -132,6 +133,7 @@ export const portfolioData: PortfolioData = {
       status: "Shipped",
       category: "Development",
       themeColor: "#05AAB6",
+      impact: "~80% faster synthesis · 100% verifiable citations",
     },
     {
       title: "Turning inbox chaos into structured tasks, deadlines, and context.",
@@ -143,6 +145,7 @@ export const portfolioData: PortfolioData = {
       status: "Concept",
       category: "Product Design",
       themeColor: "#6666FF",
+      impact: "Automated action extraction · Solves thread context loss",
     },
     {
       title: "How might we make practising vulnerable conversations feel safe, natural, and useful?",
@@ -154,6 +157,7 @@ export const portfolioData: PortfolioData = {
       status: "Concept",
       category: "Product Design",
       themeColor: "#2B66F1",
+      impact: "Safe conversation simulator · Branching persona scenarios",
     },
   ],
   writings: [

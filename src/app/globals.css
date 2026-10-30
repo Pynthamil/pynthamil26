@@ -208,6 +208,10 @@ body {
     font-weight: 400;
 
   }
+
+  .editorial-serif {
+    font-family: "Libre Baskerville", Georgia, Baskerville, "Times New Roman", serif;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
