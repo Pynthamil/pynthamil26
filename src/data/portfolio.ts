@@ -157,7 +157,6 @@ export const portfolioData: PortfolioData = {
       status: "Concept",
       category: "Product Design",
       themeColor: "#2B66F1",
-      impact: "Safe conversation simulator · Branching persona scenarios",
     },
   ],
   writings: [
