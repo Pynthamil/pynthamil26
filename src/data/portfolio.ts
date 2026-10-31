@@ -133,7 +133,6 @@ export const portfolioData: PortfolioData = {
       status: "Shipped",
       category: "Development",
       themeColor: "#05AAB6",
-      impact: "~80% faster synthesis · 100% verifiable citations",
     },
     {
       title: "Turning inbox chaos into structured tasks, deadlines, and context.",
@@ -145,7 +144,6 @@ export const portfolioData: PortfolioData = {
       status: "Concept",
       category: "Product Design",
       themeColor: "#6666FF",
-      impact: "Automated action extraction · Solves thread context loss",
     },
     {
       title: "How might we make practising vulnerable conversations feel safe, natural, and useful?",
@@ -164,7 +162,7 @@ export const portfolioData: PortfolioData = {
       id: "the-design-project-im-most-embarrassed-to-put-in-my-portfolio",
       title: "The Design Project I'm Most Embarrassed to Put in My Portfolio",
       date: "OCT 6, 2026",
-      readingTime: "3 MIN",
+      readingTime: "8 MIN",
       voiceTime: "4:15",
       description: "We all have that one early project hiding at the bottom of our Figma drafts. Neumorphism, 47 font sizes, and zero contrast ratios. Here is what it taught me about calm design.",
       slug: "the-design-project-im-most-embarrassed-to-put-in-my-portfolio",

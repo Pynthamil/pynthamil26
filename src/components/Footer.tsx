@@ -73,7 +73,7 @@ export const Footer: React.FC<FooterProps> = ({ fullWidth = true, className = ""
   }
 
   return (
-    <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8">
+    <div className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mt-auto">
       {content}
     </div>
   );

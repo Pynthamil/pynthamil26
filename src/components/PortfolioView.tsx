@@ -291,10 +291,8 @@ export function PortfolioView({
     const isCodedex = project.description === "CodeDex Mobile";
     const isOrca = project.description === "ORCA" || project.title === "ORCA";
     const isTallCard = isCodedex;
-    const aspectClass = isSemantic
+    const aspectClass = (isSemantic || isOrca)
       ? "aspect-square"
-      : isOrca
-      ? "aspect-[1.15/1] sm:aspect-[1.35/1]"
       : isTallCard
       ? "aspect-[3.2/5] sm:aspect-[1/1.3]"
       : "aspect-[3.6/4] sm:aspect-[1.15/1]";
@@ -320,7 +318,9 @@ export function PortfolioView({
       >
         {(project.banner || project.status === "Coming Soon") && (
           <div 
-            className={`w-full mb-3 overflow-hidden rounded-none flex items-center justify-center relative transition-all duration-500 ease-out ${aspectClass} ${
+            className={`w-full mb-3 overflow-hidden rounded-none flex items-center justify-center relative ${
+              isOrca ? "" : "transition-all duration-500 ease-out"
+            } ${aspectClass} ${
               isOrca 
                 ? "bg-[#328B96] dark:bg-[#05AAB6]/30 dark:border dark:border-[#05AAB6]/25" 
                 : isSemantic 
@@ -332,7 +332,9 @@ export function PortfolioView({
             } as React.CSSProperties}
           >
             {isOrca ? (
-              <OrcaCardCover />
+              <div className="absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center">
+                <OrcaCardCover />
+              </div>
             ) : project.banner?.match(/\.(json|lottie|gif)$/i) ? (
               project.banner.match(/\.(json|lottie)$/i) ? (
                 <div className={`z-10 w-[125%] sm:w-[130%] flex items-center justify-center ${isOrca ? "animate-prompt-slide" : "translate-x-[10%] sm:translate-x-[14%]"} transition-transform duration-700 ease-out ${hoverScaleClass}`}>
@@ -378,19 +380,10 @@ export function PortfolioView({
             ) : null}
           </div>
         )}
-        <div className="flex flex-col mt-2.5 px-1 gap-2.5">
+        <div className="flex flex-col mt-2.5 px-1">
           <p className="text-[24px] sm:text-[28px] font-sans text-[#475569] dark:text-[#CBD5E1] leading-[1.3] transition-colors group-hover:text-[#0F172A] dark:group-hover:text-[#F2F2F2]">
             {project.title}
           </p>
-
-          {project.impact && (
-            <div className="pt-0.5 flex items-center">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-[13px] sm:text-[13.5px] font-sans font-medium bg-black/[0.04] dark:bg-white/[0.07] text-[#1E293B] dark:text-[#E2E8F0] border border-black/[0.06] dark:border-white/[0.08]">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                <span>{project.impact}</span>
-              </span>
-            </div>
-          )}
         </div>
       </div>
     );
@@ -513,7 +506,7 @@ export function PortfolioView({
         {/* Top Centered Sticky Navbar */}
         {renderNavbar()}
 
-        <main className="w-full relative z-10 flex flex-col max-w-[640px]">
+        <main className="w-full relative z-10 flex flex-col flex-1 max-w-[640px]">
           {/* Header text at fixed area for ALL pages */}
           {renderHeader()}
 
@@ -615,7 +608,7 @@ export function PortfolioView({
                 <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
                   <div
                     data-cursor="about-photo"
-                    className="relative w-full max-w-[540px] aspect-[3/4] rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800 shadow-sm cursor-none group"
+                    className="relative w-full max-w-[380px] sm:max-w-[420px] lg:max-w-[440px] aspect-[3/4] rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800 shadow-sm cursor-none"
                   >
                     <Image
                       src="/new_pic.svg"
@@ -623,8 +616,8 @@ export function PortfolioView({
                       fill
                       priority
                       unoptimized
-                      sizes="(max-width: 1024px) 100vw, 45vw"
-                      className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                      sizes="(max-width: 1024px) 100vw, 440px"
+                      className="object-cover object-center"
                     />
                     {/* Mobile touch fallback badge */}
                     <div
