@@ -726,35 +726,17 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 <p>
                   meanwhile, in my head, i was already an intern at codédex.
                 </p>
+
                 <p>
-                  shipping the app. running usability tests. looking at analytics. iterating on onboarding.
+                  shipping the app, running tests, checking analytics. maybe even getting a return offer.
                 </p>
-                <p>
-                  maybe even getting a return offer.
-                </p>
+
                 <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
                   in reality?
                 </p>
+
                 <p className="font-bold text-[19px] sm:text-[20px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  codédex had no idea this figma file existed.
-                </p>
-                <p>
-                  i was conducting product strategy meetings at a company that had never hired me.
-                </p>
-                <p>
-                  looking back, the broken design decisions weren&apos;t even what embarrassed me most. it was how confidently i made them without knowing whether they were right.
-                </p>
-                <p>
-                  i used to think being a good designer meant having good taste.
-                </p>
-                <p>
-                  but good taste can only get you so far if you&apos;re not asking the right questions.
-                </p>
-                <p>
-                  i&apos;d opened figma before i&apos;d figured out what i was actually designing.
-                </p>
-                <p>
-                  and that was the mistake i needed to make before i could understand what to do differently.
+                  codédex hadn&apos;t even sent me a calendar invite. :&apos;)
                 </p>
               </div>
 
@@ -765,77 +747,52 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </h2>
 
                 <p>
-                  a few months after codédex, i started working on another product design project: <a href="/semantic" className="font-semibold text-[#8A51FC] dark:text-[#CEBAFC] hover:underline underline-offset-4">semantic email</a>.
-                </p>
-
-                <p>
-                  and this time, i did something that sounds embarrassingly obvious now.
+                  a few months after codédex, i started working on another product design project:{" "}
+                  <a href="/semantic" className="font-semibold text-[#8A51FC] dark:text-[#CEBAFC] hover:underline underline-offset-4">
+                    semantic email
+                  </a>.
                 </p>
 
                 <p className="font-bold text-[19px] sm:text-[20px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  i didn&apos;t start with figma.
+                  this time, i didn&apos;t start with figma. i started with the problem.
                 </p>
 
                 <p>
-                  i started with the problem.
-                </p>
-
-                <p>
-                  i looked at real student and faculty inbox workflows across dozens of active inboxes. one finding stood out: <strong>over 75% of the cognitive overload came from low-signal emails hiding the things people actually needed to act on (deadlines, follow-ups, and important requests).</strong>
-                </p>
-
-                <p>
-                  that changed how i thought about the product.
-                </p>
-
-                <p>
-                  instead of trying to make email look less overwhelming, i started thinking about what information actually mattered and how to surface it at the right moment.
-                </p>
-
-                <p>
-                  so i researched. mapped out the problem. thought through the user flows. questioned my assumptions.
+                  i studied real student and faculty inbox workflows across dozens of active inboxes. one finding stood out:{" "}
+                  <strong>over 75% of the cognitive overload came from low-signal emails burying important deadlines, follow-ups, and requests.</strong>
                 </p>
 
                 <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  and only then did i open figma.
+                  that changed my approach.
                 </p>
 
                 <p>
-                  the funny thing is, i don&apos;t think i&apos;d suddenly become a much better ui designer. i still cared about typography. i still obsessed over spacing. i still spent way too long making things look nice.
+                  instead of focusing on making email look less overwhelming, i focused on helping users find what actually mattered.
+                </p>
+
+                <p>
+                  i researched, mapped user flows, questioned my assumptions, and only then opened figma.
+                </p>
+
+                <p>
+                  i still obsessed over typography, spacing, and making things look good. but this time, there was some thought behind those decisions.
+                </p>
+
+                <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2] pt-2">
+                  looking back, the difference was pretty clear:
                 </p>
 
                 <p className="font-semibold text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  but this time, <strong>the pretty screens came after the thinking, not instead of it.</strong>
+                  codédex was me asking, &ldquo;what would look cool?&rdquo;
                 </p>
 
-                <p>
-                  when i put semantic email next to my old codédex project, i could finally see the difference.
-                </p>
-
-                <p>
-                  codédex was me asking:
-                </p>
-                <p className="font-semibold text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  &ldquo;what would look cool?&rdquo;
-                </p>
-
-                <p>
-                  semantic email was me asking:
-                </p>
                 <p className="font-bold text-[19px] sm:text-[20px] text-[#8A51FC] dark:text-[#CEBAFC]">
-                  &ldquo;what would actually help?&rdquo;
+                  semantic email was me asking, &ldquo;what would actually help?&rdquo;
                 </p>
 
-                <p className="italic font-medium text-[#2C2C2C]/90 dark:text-[#F2F2F2]/90">
-                  i think that shift mattered more than any new figma skill i picked up.
-                </p>
-
-                <p>
-                  because the biggest change wasn&apos;t that i&apos;d become better at making things look good.
-                </p>
-
-                <p className="font-semibold text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  it was that i&apos;d started thinking about <strong>what was worth making in the first place.</strong>
+                <p className="font-semibold text-[19px] text-[#2C2C2C] dark:text-[#F2F2F2] pt-2">
+                  i hadn&apos;t necessarily become a better UI designer. i&apos;d just started thinking more about{" "}
+                  <strong>what was worth building.</strong>
                 </p>
               </div>
 
@@ -846,41 +803,23 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
                 </h2>
 
                 <p>
-                  if you look back at something you made a year or two ago and feel embarrassed, congratulations!
+                  if you look back at an old project and cringe a little, that&apos;s probably a good sign.
                 </p>
 
                 <p className="font-bold text-[19px] sm:text-[20px] text-[#8A51FC] dark:text-[#CEBAFC]">
-                  your taste evolved faster than your old work could keep up.
-                </p>
-
-                <p>
-                  and honestly, i think that&apos;s a good thing.
+                  it means you&apos;ve learned something since then.
                 </p>
 
                 <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  keep the ugly drafts around.
-                </p>
-
-                <p>
-                  they&apos;re little time capsules of who you were, what you knew, and what you thought was a good idea at the time.
-                </p>
-
-                <p>
-                  because eventually, you&apos;ll open one, cringe a little, laugh a lot, and realize:
-                </p>
-
-                <p className="font-bold text-[20px] sm:text-[22px] text-[#2C2C2C] dark:text-[#F2F2F2] pt-1">
-                  &ldquo;wait. i actually got better.&rdquo; 🤍
+                  keep those ugly drafts around. they&apos;re a reminder of how far you&apos;ve come.
                 </p>
 
                 <p className="italic text-[#525252] dark:text-[#a3a3a3] pt-4 border-t border-neutral-200/40 dark:border-[#a3a3a3]/10">
-                  i still haven&apos;t deleted the codédex figma file.
+                  i still haven&apos;t deleted my codédex figma file.
                 </p>
-                <p className="italic text-[#525252] dark:text-[#a3a3a3]">
-                  mostly because i&apos;m sentimental.
-                </p>
+
                 <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  but also because it&apos;s a pretty good reminder to <strong>think before i open figma.</strong>
+                  might come in handy as a reminder of what NOT to do next time. :&apos;)
                 </p>
               </div>
             </div>
