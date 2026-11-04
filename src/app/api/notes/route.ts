@@ -15,18 +15,21 @@ export interface NoteItem {
 
 const NOTES_FILE = path.join(process.cwd(), 'src', 'data', 'notes.json');
 
-// In-memory fallback
-let memoryNotes: NoteItem[] = [
-  {
-    "id": "note-pynthamil-welcome",
-    "author": "Pynthamil",
-    "content": "welcome! feel free to leave a note or say hi :)",
-    "createdAt": "2026-10-18T10:00:00.000Z",
-    "color": "butter",
-    "likes": 0,
-    "reactions": {}
-  }
-];
+// Global in-memory fallback across module reloads
+const globalNotesRef = globalThis as unknown as { __portfolioNotes?: NoteItem[] };
+if (!globalNotesRef.__portfolioNotes) {
+  globalNotesRef.__portfolioNotes = [
+    {
+      "id": "note-pynthamil-welcome",
+      "author": "Pynthamil",
+      "content": "welcome! feel free to leave a note or say hi :)",
+      "createdAt": "2026-10-18T10:00:00.000Z",
+      "color": "butter",
+      "likes": 0,
+      "reactions": {}
+    }
+  ];
+}
 
 // Helper: Check Upstash Redis configuration
 function getUpstashConfig() {
@@ -48,9 +51,23 @@ async function getNotesFromUpstash(config: { url: string; token: string }): Prom
     });
     if (res.ok) {
       const data = await res.json();
-      if (data && data.result) {
-        const parsed = typeof data.result === 'string' ? JSON.parse(data.result) : data.result;
-        if (Array.isArray(parsed)) return parsed;
+      if (data && data.result !== undefined && data.result !== null) {
+        let parsed = data.result;
+        // Robust handling of single or double-serialized JSON strings
+        if (typeof parsed === 'string') {
+          try {
+            parsed = JSON.parse(parsed);
+          } catch (e) {}
+        }
+        if (typeof parsed === 'string') {
+          try {
+            parsed = JSON.parse(parsed);
+          } catch (e) {}
+        }
+        if (Array.isArray(parsed)) {
+          globalNotesRef.__portfolioNotes = parsed;
+          return parsed;
+        }
       }
     }
   } catch (err) {
@@ -67,7 +84,7 @@ async function saveNotesToUpstash(config: { url: string; token: string }, notes:
         Authorization: `Bearer ${config.token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(JSON.stringify(notes)),
+      body: JSON.stringify(notes),
     });
     return res.ok;
   } catch (err) {
@@ -82,22 +99,22 @@ function readLocalNotes(): NoteItem[] {
       const content = fs.readFileSync(NOTES_FILE, 'utf-8');
       const parsed = JSON.parse(content);
       if (Array.isArray(parsed)) {
-        memoryNotes = parsed;
+        globalNotesRef.__portfolioNotes = parsed;
         return parsed;
       }
     }
   } catch (err) {
     console.error("Error reading local notes:", err);
   }
-  return memoryNotes;
+  return globalNotesRef.__portfolioNotes || [];
 }
 
 function writeLocalNotes(notes: NoteItem[]) {
-  memoryNotes = notes;
+  globalNotesRef.__portfolioNotes = notes;
   try {
     fs.writeFileSync(NOTES_FILE, JSON.stringify(notes, null, 2), 'utf-8');
   } catch (err) {
-    // If running in a read-only serverless environment, memoryNotes still holds state
+    // If running in a read-only serverless environment, memory still holds state
   }
 }
 

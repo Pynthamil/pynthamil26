@@ -445,51 +445,51 @@ export function PortfolioView({
   };
 
   const renderNavbar = () => (
-    <div className="sticky top-4 sm:top-5 z-50 w-full px-4 mb-2 sm:mb-4 flex justify-center items-center">
-      <header className="bg-[#F0F0F3]/90 dark:bg-[#1E1E22]/90 backdrop-blur-md rounded-lg p-1.5 sm:p-2 flex items-center transition-colors">
-        <nav className="flex items-center space-x-1.5 sm:space-x-2 text-[15px] sm:text-[17px] font-medium">
+    <div className="sticky top-3 sm:top-5 z-50 w-full px-0 sm:px-4 mb-2 sm:mb-4 flex justify-center items-center">
+      <header className="w-full sm:w-auto max-w-[440px] sm:max-w-none bg-[#F0F0F3]/90 dark:bg-[#1E1E22]/90 backdrop-blur-md rounded-lg p-1.5 sm:p-2 flex items-center justify-center transition-colors shadow-sm">
+        <nav className="flex items-center justify-between sm:justify-center space-x-1 sm:space-x-2 text-[13.5px] sm:text-[16px] md:text-[17px] font-medium w-full sm:w-auto">
           <button
             onClick={() => handleNavClick("home")}
-            className={`inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-md transition-all cursor-pointer select-none ${
+            className={`inline-flex items-center justify-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-6 py-3 sm:py-2.5 rounded-md transition-all cursor-pointer select-none flex-1 sm:flex-initial whitespace-nowrap ${
               (viewMode === "home" || viewMode === "projects")
                 ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
                 : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
             }`}
           >
-            <Folder className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] stroke-[2.2]" />
+            <Folder className="w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] stroke-[2.2] shrink-0" />
             <span>Work</span>
           </button>
           <button
             onClick={() => handleNavClick("about")}
-            className={`inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-md transition-all cursor-pointer select-none ${
+            className={`inline-flex items-center justify-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-6 py-3 sm:py-2.5 rounded-md transition-all cursor-pointer select-none flex-1 sm:flex-initial whitespace-nowrap ${
               viewMode === "about"
                 ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
                 : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
             }`}
           >
-            <User className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] stroke-[2.2]" />
+            <User className="w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] stroke-[2.2] shrink-0" />
             <span>About</span>
           </button>
           <button
             onClick={() => handleNavClick("blog")}
-            className={`inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-md transition-all cursor-pointer select-none ${
+            className={`inline-flex items-center justify-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-6 py-3 sm:py-2.5 rounded-md transition-all cursor-pointer select-none flex-1 sm:flex-initial whitespace-nowrap ${
               viewMode === "blog"
                 ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
                 : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
             }`}
           >
-            <BookOpen className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] stroke-[2.2]" />
+            <BookOpen className="w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] stroke-[2.2] shrink-0" />
             <span>Blog</span>
           </button>
           <button
             onClick={() => handleNavClick("notes")}
-            className={`inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-md transition-all cursor-pointer select-none ${
+            className={`inline-flex items-center justify-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-6 py-3 sm:py-2.5 rounded-md transition-all cursor-pointer select-none flex-1 sm:flex-initial whitespace-nowrap ${
               viewMode === "notes"
                 ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
                 : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
             }`}
           >
-            <FileText className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] stroke-[2.2]" />
+            <FileText className="w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] stroke-[2.2] shrink-0" />
             <span>Notes</span>
           </button>
         </nav>
@@ -499,7 +499,7 @@ export function PortfolioView({
 
   return (
     <>
-      <div className="min-h-screen w-full flex flex-col justify-start items-center px-5 sm:px-8 md:px-12 pt-4 sm:pt-5 pb-6 sm:pb-8 selection:bg-neutral-200">
+      <div className="min-h-screen w-full flex flex-col justify-start items-center px-4 sm:px-8 md:px-12 pt-4 sm:pt-5 pb-6 sm:pb-8 selection:bg-neutral-200">
         {/* Soft atmospheric ambient glow */}
         <div className="ambient-glow" />
 

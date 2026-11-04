@@ -508,16 +508,16 @@ export default function BlogPostClient({ slug: propSlug }: { slug?: string }) {
               {/* THE SCREENS GALLERY */}
               <div className="pt-8 border-t border-neutral-200/70 dark:border-[#a3a3a3]/20 space-y-5">
                 <span className="font-sans text-xs sm:text-[12px] uppercase tracking-wider font-semibold text-[#8A51FC] dark:text-[#CEBAFC] block">
-                  PROJECT GALLERY
+                  project gallery
                 </span>
                 <h2 className="text-[26px] sm:text-[28px] instrument-serif font-normal text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                  Exhibit A: The Figma File
+                  exhibit a: the figma file
                 </h2>
                 <p>
-                  Okay, enough talking.
+                  okay, enough talking.
                 </p>
                 <p className="font-medium text-[#2C2C2C] dark:text-[#F2F2F2]">
-                  Here&apos;s what I actually made.
+                  here&apos;s what i actually made.
                 </p>
 
                 {/* Screens1.webp - 1 Column Full Width */}

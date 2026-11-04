@@ -599,7 +599,7 @@ export default function SemanticProjectPage() {
                         Designing AI means designing trust
                       </h4>
                       <p className="text-[15px] sm:text-[16px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans pr-2">
-                        Users need to understand why something was extracted or suggested before they can confidently act on it. Making the system's intelligence visible without making it overwhelming became an important design challenge.
+                        Users need to understand why AI makes a suggestion before acting on it. Making its intelligence visible without overwhelming users became a key design challenge.
                       </p>
                     </div>
                   </div>
@@ -612,7 +612,7 @@ export default function SemanticProjectPage() {
                         Designing Without a Playbook
                       </h4>
                       <p className="text-[15px] sm:text-[16px] text-[#2C2C2C] dark:text-[#CBD5E1] leading-relaxed font-sans pr-2">
-                        With no established patterns to follow, I had to define both the problem and the path forward. This project taught me how to turn an ambiguous idea into a structured product experience through exploration, iteration, and constant reframing.
+                        With no established patterns to follow, I had to figure out both the problem and the solution. It taught me to turn an ambiguous idea into a structured product through exploration and iteration.
                       </p>
                     </div>
                   </div>
@@ -626,7 +626,7 @@ export default function SemanticProjectPage() {
         </article>
 
         {/* Footer Next / Previous Project Bar */}
-        <div className="pt-10 pb-6 border-t border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
+        <div className="pt-10 pb-6 flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
           <Link
             href="/orca"
             onClick={() => playTone(650)}

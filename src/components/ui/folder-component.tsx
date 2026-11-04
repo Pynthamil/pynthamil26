@@ -150,7 +150,7 @@ const FolderComponent = ({
                 delay: isOpen ? 0.05 : isHovered ? 0.06 : 0,
               }}
             >
-              <Card id={2} theme={theme} imageUrl="/photo-dump/IMG-20250629-WA0260.jpg" />
+              <Card id={2} theme={theme} imageUrl="/photo-dump/IMG-20250629-WA0240.jpg" />
             </motion.div>
             <motion.div
               className="absolute"
@@ -166,7 +166,7 @@ const FolderComponent = ({
                 delay: isOpen ? 0 : 0,
               }}
             >
-              <Card id={3} theme={theme} imageUrl="/photo-dump/IMG_2939.jpeg" />
+              <Card id={3} theme={theme} imageUrl="/photo-dump/IMG_4564.JPG" />
             </motion.div>
           </div>
 

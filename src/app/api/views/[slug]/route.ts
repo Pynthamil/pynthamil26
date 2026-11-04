@@ -5,25 +5,63 @@ import path from 'path';
 const VIEWS_FILE = path.join(process.cwd(), 'src', 'data', 'views.json');
 
 // In-memory store fallback for serverless runtime
-const memoryStore: Record<string, number> = {};
+const globalViewsRef = globalThis as unknown as { __portfolioViews?: Record<string, number> };
+if (!globalViewsRef.__portfolioViews) {
+  globalViewsRef.__portfolioViews = {};
+}
+
+function getUpstashConfig() {
+  const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+  if (url && token) {
+    return { url, token };
+  }
+  return null;
+}
+
+async function getViewsFromUpstash(config: { url: string; token: string }, slug: string, incr: boolean): Promise<number | null> {
+  try {
+    const endpoint = incr ? `${config.url}/hincrby/portfolio_views/${slug}/1` : `${config.url}/hget/portfolio_views/${slug}`;
+    const res = await fetch(endpoint, {
+      method: incr ? 'POST' : 'GET',
+      headers: {
+        Authorization: `Bearer ${config.token}`,
+      },
+      cache: 'no-store',
+    });
+    if (res.ok) {
+      const data = await res.json();
+      const val = Number(data?.result);
+      if (!isNaN(val)) return val;
+    }
+  } catch (err) {
+    console.error("Failed to update views in Upstash:", err);
+  }
+  return null;
+}
 
 function getViewsData(): Record<string, number> {
   try {
     if (fs.existsSync(VIEWS_FILE)) {
       const content = fs.readFileSync(VIEWS_FILE, 'utf-8');
-      return JSON.parse(content);
+      const parsed = JSON.parse(content);
+      if (parsed && typeof parsed === 'object') {
+        globalViewsRef.__portfolioViews = parsed;
+        return parsed;
+      }
     }
   } catch (e) {
     console.error("Error reading views file:", e);
   }
-  return memoryStore;
+  return globalViewsRef.__portfolioViews || {};
 }
 
 function saveViewsData(data: Record<string, number>) {
+  globalViewsRef.__portfolioViews = data;
   try {
     fs.writeFileSync(VIEWS_FILE, JSON.stringify(data, null, 2), 'utf-8');
   } catch (e) {
-    Object.assign(memoryStore, data);
+    // Ephemeral serverless fallback
   }
 }
 
@@ -76,7 +114,16 @@ export async function GET(
     return NextResponse.json({ views: phCount });
   }
 
-  // 2. Real dynamic view counter (starts at 0, increments per actual visitor page load)
+  // 2. Try Upstash Redis if configured
+  const upstash = getUpstashConfig();
+  if (upstash) {
+    const redisCount = await getViewsFromUpstash(upstash, slug, shouldIncrement);
+    if (redisCount !== null) {
+      return NextResponse.json({ views: redisCount });
+    }
+  }
+
+  // 3. Real dynamic view counter (starts at 0, increments per actual visitor page load)
   const data = getViewsData();
   let currentViews = data[slug] ?? 0;
 
