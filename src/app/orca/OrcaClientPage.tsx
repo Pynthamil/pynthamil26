@@ -579,18 +579,6 @@ export default function OrcaProjectPage() {
               </div>
             </div>
 
-            {/* WHAT'S NEXT */}
-            <div className="space-y-4 -mt-4">
-              <h3 className="text-[28px] sm:text-[32px] font-sans font-medium text-[#2C2C2C] dark:text-[#F2F2F2] leading-snug">
-                Moving ORCA from an MVP research assistant toward a more rigorous scientific research tool.
-              </h3>
-              <ul className="list-disc pl-5 space-y-3 text-[16px] sm:text-[17.5px] text-[#475569] dark:text-[#CBD5E1] marker:text-[#05AAB6] dark:marker:text-[#FFF0F5] pt-2">
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#05AAB6]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Spatial visualization of species migration and ecological patterns</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#05AAB6]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Direct analysis of acoustic, telemetry, and other scientific datasets</li>
-                <li className="pl-1 hover:underline hover:decoration-wavy hover:underline-offset-[3px] decoration-[#05AAB6]/40 dark:decoration-[#FFF0F5]/40 transition-all cursor-default">Collaborative research environments for university teams</li>
-              </ul>
-            </div>
-
             {/* EDGE STATES & SCIENTIFIC RIGOR */}
             <div id="edge-cases" className="space-y-6 scroll-mt-20 pt-8">
               <div className="space-y-3">
