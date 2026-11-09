@@ -10,7 +10,6 @@ import { Footer } from "./Footer";
 import { LottiePlayer } from "@/components/LottiePlayer";
 import { OrcaCardCover } from "@/components/OrcaCardCover";
 import { CustomCursor } from "@/components/CustomCursor";
-import { NotesSection } from "@/components/NotesSection";
 import { Moon, Sun, X, Clock, Menu, Mail, Check, Copy, SlidersHorizontal, ChevronDown, Folder, User, BookOpen, FileText, Home, Dribbble, Sparkles, ArrowUpRight } from "lucide-react";
 
 function TypewriterName() {
@@ -66,9 +65,9 @@ function TypewriterName() {
 export function PortfolioView({
   initialViewMode = "home",
 }: {
-  initialViewMode?: "home" | "projects" | "about" | "blog" | "notes";
+  initialViewMode?: "home" | "projects" | "about" | "blog";
 }) {
-  const [viewMode, setViewMode] = useState<"home" | "projects" | "about" | "blog" | "notes">(initialViewMode);
+  const [viewMode, setViewMode] = useState<"home" | "projects" | "about" | "blog">(initialViewMode);
 
   // Typing animation state
   const phrases = [
@@ -210,8 +209,6 @@ export function PortfolioView({
         setViewMode("blog");
       } else if (path === "/projects") {
         setViewMode("projects");
-      } else if (path === "/notes") {
-        setViewMode("notes");
       } else {
         setViewMode("home");
       }
@@ -267,7 +264,7 @@ export function PortfolioView({
 
   const playClickSound = () => playTone(880);
 
-  const handleNavClick = (mode: "home" | "projects" | "about" | "blog" | "notes") => {
+  const handleNavClick = (mode: "home" | "projects" | "about" | "blog") => {
     playClickSound();
     setViewMode(mode);
     const targetUrl = mode === "home" ? "/" : `/${mode}`;
@@ -399,8 +396,6 @@ export function PortfolioView({
         return null;
       case "blog":
         return null;
-      case "notes":
-        return null;
       case "home":
       case "projects":
       default:
@@ -445,68 +440,194 @@ export function PortfolioView({
   };
 
   const renderNavbar = () => (
-    <div className="sticky top-3 sm:top-5 z-50 w-full px-0 sm:px-4 mb-2 sm:mb-4 flex justify-center items-center">
-      <header className="w-full sm:w-auto max-w-[440px] sm:max-w-none bg-[#F0F0F3]/90 dark:bg-[#1E1E22]/90 backdrop-blur-md rounded-lg p-1.5 sm:p-2 flex items-center justify-center transition-colors shadow-sm">
-        <nav className="flex items-center justify-between sm:justify-center space-x-1 sm:space-x-2 text-[13.5px] sm:text-[16px] md:text-[17px] font-medium w-full sm:w-auto">
+    <>
+      {/* Mobile Top Navbar */}
+      <div className="sm:hidden sticky top-0 z-50 w-full bg-white/90 dark:bg-[#0E0E0F]/90 backdrop-blur-md border-b border-black/[0.08] dark:border-white/[0.08] transition-colors">
+        <header className="w-full px-5 py-3.5 flex items-center justify-between">
+          {/* Left: Logo only */}
           <button
-            onClick={() => handleNavClick("home")}
-            className={`inline-flex items-center justify-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-6 py-3 sm:py-2.5 rounded-md transition-all cursor-pointer select-none flex-1 sm:flex-initial whitespace-nowrap ${
-              (viewMode === "home" || viewMode === "projects")
-                ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
-                : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
-            }`}
+            onClick={() => {
+              playTone(880);
+              if (viewMode !== "home") handleNavClick("home");
+              setIsMobileMenuOpen(false);
+            }}
+            className="flex items-center focus:outline-none cursor-pointer"
+            aria-label="Go to Home"
           >
-            <Folder className="w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] stroke-[2.2] shrink-0" />
-            <span>Work</span>
+            <img
+              src="/logo.png"
+              alt="logo"
+              className="h-[28px] w-auto object-contain"
+            />
           </button>
+
+          {/* Right: Hamburger Menu */}
           <button
-            onClick={() => handleNavClick("about")}
-            className={`inline-flex items-center justify-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-6 py-3 sm:py-2.5 rounded-md transition-all cursor-pointer select-none flex-1 sm:flex-initial whitespace-nowrap ${
-              viewMode === "about"
-                ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
-                : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
-            }`}
+            onClick={() => {
+              playTone(880);
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
+            className="p-1 text-[#475569] dark:text-[#CBD5E1] hover:text-[#0F172A] dark:hover:text-[#F2F2F2] transition-colors cursor-pointer rounded-md"
+            aria-label="Toggle navigation menu"
           >
-            <User className="w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] stroke-[2.2] shrink-0" />
-            <span>About</span>
+            {isMobileMenuOpen ? (
+              <X className="w-[22px] h-[22px] stroke-[2.2]" />
+            ) : (
+              <Menu className="w-[22px] h-[22px] stroke-[2.2]" />
+            )}
           </button>
-          <button
-            onClick={() => handleNavClick("blog")}
-            className={`inline-flex items-center justify-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-6 py-3 sm:py-2.5 rounded-md transition-all cursor-pointer select-none flex-1 sm:flex-initial whitespace-nowrap ${
-              viewMode === "blog"
-                ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
-                : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
-            }`}
-          >
-            <BookOpen className="w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] stroke-[2.2] shrink-0" />
-            <span>Blog</span>
-          </button>
-          <button
-            onClick={() => handleNavClick("notes")}
-            className={`inline-flex items-center justify-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-6 py-3 sm:py-2.5 rounded-md transition-all cursor-pointer select-none flex-1 sm:flex-initial whitespace-nowrap ${
-              viewMode === "notes"
-                ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
-                : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
-            }`}
-          >
-            <FileText className="w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] stroke-[2.2] shrink-0" />
-            <span>Notes</span>
-          </button>
-        </nav>
-      </header>
-    </div>
+        </header>
+
+        {/* Mobile Dropdown Menu */}
+        {isMobileMenuOpen && (
+          <>
+            <div
+              className="fixed inset-0 top-[53px] z-40 bg-black/20 dark:bg-black/50 backdrop-blur-[2px]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <div className="relative z-50 w-full bg-white/95 dark:bg-[#141416]/95 backdrop-blur-xl border-b border-black/[0.08] dark:border-white/[0.08] px-5 py-3.5 flex flex-col gap-1 shadow-lg animate-in slide-in-from-top-2 fade-in duration-200">
+              <button
+                onClick={() => {
+                  handleNavClick("home");
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`flex items-center gap-2.5 px-3 py-2.5 rounded-md text-[15.5px] font-medium transition-colors cursor-pointer ${
+                  viewMode === "home" || viewMode === "projects"
+                    ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2]"
+                    : "text-[#666666] dark:text-[#A8A8B2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+                }`}
+              >
+                <Folder className="w-[18px] h-[18px] stroke-[2.2] shrink-0" />
+                <span>Work</span>
+              </button>
+              <button
+                onClick={() => {
+                  handleNavClick("about");
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`flex items-center gap-2.5 px-3 py-2.5 rounded-md text-[15.5px] font-medium transition-colors cursor-pointer ${
+                  viewMode === "about"
+                    ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2]"
+                    : "text-[#666666] dark:text-[#A8A8B2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+                }`}
+              >
+                <User className="w-[18px] h-[18px] stroke-[2.2] shrink-0" />
+                <span>About</span>
+              </button>
+              <button
+                onClick={() => {
+                  handleNavClick("blog");
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`flex items-center gap-2.5 px-3 py-2.5 rounded-md text-[15.5px] font-medium transition-colors cursor-pointer ${
+                  viewMode === "blog"
+                    ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2]"
+                    : "text-[#666666] dark:text-[#A8A8B2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+                }`}
+              >
+                <BookOpen className="w-[18px] h-[18px] stroke-[2.2] shrink-0" />
+                <span>Blog</span>
+              </button>
+              <a
+                href={portfolioData.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  playTone(880);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="flex items-center justify-between px-3 py-2.5 rounded-md text-[15.5px] font-medium text-[#666666] dark:text-[#A8A8B2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-colors cursor-pointer"
+              >
+                <span className="flex items-center gap-2.5">
+                  <FileText className="w-[18px] h-[18px] stroke-[2.2] shrink-0" />
+                  <span>Resume</span>
+                </span>
+                <ArrowUpRight className="w-4 h-4 text-neutral-400" />
+              </a>
+              <button
+                onClick={() => {
+                  playTone(1046);
+                  toggleTheme();
+                }}
+                className="flex items-center justify-between px-3 py-2.5 rounded-md text-[15.5px] font-medium text-[#666666] dark:text-[#A8A8B2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-colors cursor-pointer border-t border-neutral-100 dark:border-neutral-800/60 mt-1 pt-2.5"
+              >
+                <span className="flex items-center gap-2.5">
+                  {isDarkMode ? (
+                    <Sun className="w-[18px] h-[18px] stroke-[2.2] shrink-0" />
+                  ) : (
+                    <Moon className="w-[18px] h-[18px] stroke-[2.2] shrink-0" />
+                  )}
+                  <span>{isDarkMode ? "Light Mode" : "Dark Mode"}</span>
+                </span>
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+
+      {/* Desktop Floating Pill Navbar */}
+      <div className="hidden sm:flex sticky top-5 z-50 w-full px-4 mb-4 justify-center items-center">
+        <header className="w-auto bg-[#F0F0F3]/90 dark:bg-[#1E1E22]/90 backdrop-blur-md rounded-lg p-2 sm:p-2.5 flex items-center justify-center transition-colors shadow-sm">
+          <nav className="flex items-center justify-center space-x-2 text-[16px] md:text-[17px] font-medium w-auto">
+            <button
+              onClick={() => handleNavClick("home")}
+              className={`inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-md transition-all cursor-pointer select-none whitespace-nowrap ${
+                (viewMode === "home" || viewMode === "projects")
+                  ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
+                  : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+              }`}
+            >
+              <Folder className="w-[20px] h-[20px] stroke-[2.2] shrink-0" />
+              <span>Work</span>
+            </button>
+            <button
+              onClick={() => handleNavClick("about")}
+              className={`inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-md transition-all cursor-pointer select-none whitespace-nowrap ${
+                viewMode === "about"
+                  ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
+                  : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+              }`}
+            >
+              <User className="w-[20px] h-[20px] stroke-[2.2] shrink-0" />
+              <span>About</span>
+            </button>
+            <button
+              onClick={() => handleNavClick("blog")}
+              className={`inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-md transition-all cursor-pointer select-none whitespace-nowrap ${
+                viewMode === "blog"
+                  ? "bg-[#E2E2E6] dark:bg-[#2C2C32] text-[#18181B] dark:text-[#F2F2F2] font-medium"
+                  : "text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+              }`}
+            >
+              <BookOpen className="w-[20px] h-[20px] stroke-[2.2] shrink-0" />
+              <span>Blog</span>
+            </button>
+            <a
+              href={portfolioData.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => playTone(880)}
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-md transition-all cursor-pointer select-none whitespace-nowrap text-[#666666] dark:text-[#A8A8B2] hover:text-[#18181B] dark:hover:text-[#F2F2F2] hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
+            >
+              <FileText className="w-[20px] h-[20px] stroke-[2.2] shrink-0" />
+              <span>Resume</span>
+            </a>
+          </nav>
+        </header>
+      </div>
+    </>
   );
 
   return (
     <>
-      <div className="min-h-screen w-full flex flex-col justify-start items-center px-4 sm:px-8 md:px-12 pt-4 sm:pt-5 pb-6 sm:pb-8 selection:bg-neutral-200">
+      <div className="min-h-screen w-full flex flex-col justify-start items-center px-0 sm:px-8 md:px-12 pt-0 sm:pt-5 pb-6 sm:pb-8 selection:bg-neutral-200">
         {/* Soft atmospheric ambient glow */}
         <div className="ambient-glow" />
 
-        {/* Top Centered Sticky Navbar */}
+        {/* Top Navbar */}
         {renderNavbar()}
 
-        <main className="w-full relative z-10 flex flex-col flex-1 max-w-[640px]">
+        <main className="w-full relative z-10 flex flex-col flex-1 max-w-[640px] px-4 sm:px-0">
           {/* Header text at fixed area for ALL pages */}
           {renderHeader()}
 
@@ -518,9 +639,9 @@ export function PortfolioView({
             {/* Work Section (Project Cover Cards) */}
             {portfolioData.projects.length > 0 && (
               <section id="work-section" className="w-[100vw] max-w-[100vw] relative left-1/2 -translate-x-1/2 px-4 sm:px-6 md:px-8 mb-16 sm:mb-20 scroll-mt-24">
-                <div className="max-w-[1640px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
+                <div className="max-w-[1200px] mx-auto font-mono text-[16.5px] sm:text-[18px] tracking-[0.02em]">
                   {/* Mobile & Half-Screen View: Single Column */}
-                  <div className="flex lg:hidden flex-col gap-6 w-full">
+                  <div className="flex lg:hidden flex-col gap-6 w-full max-w-[580px] sm:max-w-[620px] mx-auto">
                     {portfolioData.projects.map(renderProjectCard)}
                   </div>
 
@@ -825,15 +946,6 @@ export function PortfolioView({
             </div>
           );
         })()}
-
-        {/* ========================================================
-            VIEW 4: NOTES VIEW
-            ======================================================== */}
-        {viewMode === "notes" && (
-          <div className="flex flex-col animate-in fade-in duration-200">
-            <NotesSection playTone={playTone} soundOn={soundOn} />
-          </div>
-        )}
 
         {/* Unified Footer */}
         <Footer />

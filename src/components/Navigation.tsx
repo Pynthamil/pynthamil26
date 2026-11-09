@@ -21,7 +21,7 @@ export const Navigation: React.FC<NavigationProps> = ({
     <header className="sticky top-6 z-50 flex justify-center w-full px-4 mb-10 sm:mb-14">
       <nav
         aria-label="Main Navigation"
-        className="inline-flex items-center gap-1 p-1 bg-white/95 backdrop-blur-md rounded-full border border-neutral-200/90 shadow-[0_1px_4px_rgba(0,0,0,0.04)]"
+        className="inline-flex items-center gap-1 p-1.5 bg-white/95 backdrop-blur-md rounded-full border border-neutral-200/90 shadow-[0_1px_4px_rgba(0,0,0,0.04)]"
       >
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
@@ -29,7 +29,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             <button
               key={tab.id}
               onClick={() => onSelectTab(tab.id)}
-              className={`px-3.5 py-1 text-[15px] sm:text-[16px] font-normal rounded-full transition-all duration-150 outline-none ${
+              className={`px-4 py-2 sm:py-2.5 text-[15px] sm:text-[16px] font-normal rounded-full transition-all duration-150 outline-none ${
                 isActive
                   ? "bg-[#eef2ff] text-[#4e5df8]"
                   : "text-neutral-900 hover:text-black hover:bg-neutral-50"

@@ -31,12 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
-      url: `${siteUrl}/notes`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.7,
-    },
-    {
       url: `${siteUrl}/orca`,
       lastModified: new Date(),
       changeFrequency: "monthly",
